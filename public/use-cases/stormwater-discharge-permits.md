@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Stormwater Discharge Permit?
 
-In the industrial and construction sectors, a **Stormwater Discharge Permit** (under the National Pollutant Discharge Elimination System - **NPDES**) is the legal authorization to allow rainwater to run off a site into local rivers or oceans. Because rainwater can pick up heavy metals, oils, and silt, these permits define strict **Pollutant Limits** and require constant monitoring.
+In the industrial and construction sectors, a Stormwater Discharge Permit (under the National Pollutant Discharge Elimination System - NPDES) is the legal authorization to allow rainwater to run off a site into local rivers or oceans. Because rainwater can pick up heavy metals, oils, and silt, these permits define strict Pollutant Limits and require constant monitoring.
 
-These permits are the "Permission to Pollute" within legal bounds. Fraud is common in high-impact industries (e.g., Mining, Manufacturing): operators might "edit" a permit to hide a "Toxicity Limit" or to change the "Authorized Outfall" location to a less-monitored area. Verified hashes bind the **Facility ID, Pollutant Limits, and Discharge Points** to the state's or the EPA's domain (e.g., `epa.gov` or `water-quality.gov`).
+These permits are the "Permission to Pollute" within legal bounds. Fraud is common in high-impact industries (e.g., Mining, Manufacturing): operators might "edit" a permit to hide a "Toxicity Limit" or to change the "Authorized Outfall" location to a less-monitored area. Verified hashes bind the Facility ID, Pollutant Limits, and Discharge Points to the state's or the EPA's domain (e.g., `epa.gov` or `water-quality.gov`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="water"></span>STATE ENVIRONMENTAL BOARD
@@ -39,7 +39,13 @@ federal penalties of up to $50,000 per day.
 <span data-verify-line="water">verify:state-water.gov/npdes/v</span> <span verifiable-text="end" data-for="water"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Cloudy Water Fraud
+
+- **Limit Stretching:** Editing a TSS limit of "50 mg/L" to "500 mg/L" on a paper copy to hide massive pollution.
+- **Outfall Masking:** Changing the authorized discharge point from a "Protected Wetland" to a "General Stream" on a PDF map.
+- **Ghost Permits:** Creating a fake NPDES number for an unlicensed industrial site.
+
+## What Is Checked
 
 Permit number (NPDES), permittee name, facility address, facility ID, industrial SIC/NAICS code, authorized outfall IDs, pollutant concentration limits (TSS, pH, Oil), monitoring frequency, effective/expiration dates, state/federal issuing office, date of last site audit.
 
@@ -49,28 +55,28 @@ Permit number (NPDES), permittee name, facility address, facility ID, industrial
 - **Discharge Monitoring Report (DMR):** (Linked hash) the monthly lab results.
 - **SWPPP (Stormwater Pollution Prevention Plan):** The detailed site map.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`epa.gov`, `dep.state.gov`, `water-quality.gov`) and the permit standing.
 
 **Status Indications:**
 - **Active / Compliant** — Permit is current and monitoring results are up-to-date.
-- **Violation Flag** — **CRITICAL:** Recent lab tests exceeded the legal pollutant limits.
-- **Expired** — **ALERT:** The 5-year permit window has lapsed; re-application required.
-- **Suspended** — **CRITICAL:** Discharge authority revoked due to negligence.
+- **Violation Flag** — Recent lab tests exceeded the legal pollutant limits.
+- **Expired** — The 5-year permit window has lapsed; re-application required.
+- **Suspended** — Discharge authority revoked due to negligence.
 
-## Second-Party Use
+## Who Holds It
 
-The **Facility Manager / HSE Officer** benefits from verification.
+The Facility Manager / HSE Officer benefits from verification.
 
-**Supply Chain Vetting:** When a large company (e.g., Apple or Unilever) audits their suppliers, the factory manager provides the verified hash of their NPDES permit. The corporate auditor can instantly see **"VERIFIED COMPLIANT"** on their phone, removing the need for a 3-day manual review of state database archives.
+**Supply Chain Vetting:** When a large company (e.g., Apple or Unilever) audits their suppliers, the factory manager provides the verified hash of their NPDES permit. The corporate auditor can instantly see "VERIFIED COMPLIANT" on their phone, removing the need for a 3-day manual review of state database archives.
 
 **Regulatory Defense:** During a routine site inspection, the manager can show the verified "Current" hash to the agent. This proves the facility is operating under the *latest* approved limits, protecting them from "Old Data" citations.
 
-## Third-Party Use
+## Who Checks It
 
 **Environmental NGO / Citizen Groups**
-**Watchdog Audit:** A community group concerned about local water quality can scan the placard at a factory's fence. If the hash returns **"VIOLATION FLAG,"** they have the verified evidence needed to file a citizen suit under the Clean Water Act.
+**Watchdog Audit:** A community group concerned about local water quality can scan the placard at a factory's fence. If the hash returns "VIOLATION FLAG," they have the verified evidence needed to file a citizen suit under the Clean Water Act.
 
 **Lenders and Real Estate Appraisers**
 **Environmental Due Diligence:** Before financing an industrial property, the bank's underwriter scans the verified permit hashes. This ensures the site isn't a "Compliance Liability" that would cost millions in future state fines.
@@ -78,13 +84,7 @@ The **Facility Manager / HSE Officer** benefits from verification.
 **Municipal Sewer Authorities**
 **System Integrity:** Verifying that "Pre-Treatment" and "Stormwater" connections match the verified permit limits, preventing industrial slugs from damaging the municipal treatment plant.
 
-## Verification Architecture
-
-**The "Cloudy Water" Fraud Problem**
-
-- **Limit Stretching:** Editing a TSS limit of "50 mg/L" to "500 mg/L" on a paper copy to hide massive pollution.
-- **Outfall Masking:** Changing the authorized discharge point from a "Protected Wetland" to a "General Stream" on a PDF map.
-- **Ghost Permits:** Creating a fake NPDES number for an unlicensed industrial site.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

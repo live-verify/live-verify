@@ -81,7 +81,22 @@ verify:caa.co.uk/atol-holders
 </pre>
 </div>
 
-## Data Verified
+## The Problem: Licensed Operator Trust
+
+- **Logo copying:** Any website can display the ATOL protection logo, an ABTA membership badge, or a fabricated licence number — these are just images and text.
+- **Expired certificates:** Operators whose ATOL licences have lapsed frequently continue displaying protection logos on their booking sites, sometimes for years.
+- **Clone sites:** Fraudulent sites clone the branding and content of legitimate tour operators, including their ATOL numbers, to collect bookings and payments.
+- **"Too good to be true" deals:** Unlicensed operators advertise holidays at prices well below market rate, collect full payment, and either deliver substandard accommodation or disappear entirely. The consumer has no recourse through any bonding scheme.
+- **Stale regulator search:** The CAA's ATOL holder search exists but requires the consumer to leave the booking site, navigate to a separate tool, and search by operator name — a step most consumers do not take.
+
+The verifiable claim addresses these because:
+
+1. The licensing body issues the claim — it is not self-asserted by the operator
+2. The claim names the specific site where it applies
+3. Revocation and expiry are immediate — the endpoint returns REVOKED or EXPIRED
+4. The browser extension can detect domain mismatches automatically
+
+## What Is Checked
 
 Operator legal name, trading name, licensed site domain, ATOL or equivalent licence number, licensing body, licence period, and current status.
 
@@ -92,7 +107,7 @@ Operator legal name, trading name, licensed site domain, ATOL or equivalent lice
 
 **Privacy Salt:** Generally not required. Tour operator licensing is a public-interest claim that the operator wants consumers to see. The licensing body may salt if internal reference numbers are included.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `caa.co.uk`) and the current licence status.
 
@@ -114,9 +129,9 @@ The `allowedDomains` field enables browser extensions to detect domain mismatche
 - **Suspended** — Licence paused pending investigation (e.g., financial review, compliance breach).
 - **404** — No such licence was issued by the claimed licensing body.
 
-## Second-Party Use
+## Who Holds It
 
-The **holiday buyer** benefits directly.
+The holiday buyer benefits directly.
 
 **Pre-booking confidence:** Before paying for a holiday — often a large sum paid weeks or months in advance — the buyer can verify that the operator is genuinely licensed and bonded, not just displaying a copied logo.
 
@@ -124,7 +139,7 @@ The **holiday buyer** benefits directly.
 
 **Domain-mismatch protection:** Even without the extension, the site domain in the claim text is a visible check. With the extension, domain mismatches produce an automatic warning — particularly relevant given the prevalence of clone booking sites.
 
-## Third-Party Use
+## Who Checks It
 
 **CAA and Licensing Body Enforcement**
 
@@ -139,23 +154,6 @@ The **holiday buyer** benefits directly.
 **Travel Insurance Underwriters**
 
 **Policy validation:** Travel insurers may check whether the operator through which a holiday was booked was licensed at the time of booking. A verified claim provides timestamped evidence.
-
-## Verification Architecture
-
-**The Licensed Operator Trust Problem**
-
-- **Logo copying:** Any website can display the ATOL protection logo, an ABTA membership badge, or a fabricated licence number — these are just images and text.
-- **Expired certificates:** Operators whose ATOL licences have lapsed frequently continue displaying protection logos on their booking sites, sometimes for years.
-- **Clone sites:** Fraudulent sites clone the branding and content of legitimate tour operators, including their ATOL numbers, to collect bookings and payments.
-- **"Too good to be true" deals:** Unlicensed operators advertise holidays at prices well below market rate, collect full payment, and either deliver substandard accommodation or disappear entirely. The consumer has no recourse through any bonding scheme.
-- **Stale regulator search:** The CAA's ATOL holder search exists but requires the consumer to leave the booking site, navigate to a separate tool, and search by operator name — a step most consumers do not take.
-
-The verifiable claim addresses these because:
-
-1. The licensing body issues the claim — it is not self-asserted by the operator
-2. The claim names the specific site where it applies
-3. Revocation and expiry are immediate — the endpoint returns REVOKED or EXPIRED
-4. The browser extension can detect domain mismatches automatically
 
 ## Attack Resistance: Text-Swap on a Scam Site
 
@@ -172,7 +170,7 @@ The most sophisticated attack against this model is not copying the claim (which
 
 **Honest assessment:** Content script isolation provides strong but not absolute protection against page-level manipulation. The domain-mismatch check is the backstop — it works even if the text swap somehow succeeds. The weakest link is the buyer not reading the verified detail, which is why the domain-mismatch warning should be prominent and unmissable.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | CAA ATOL Holder Search | ABTA Member Search | Paper ATOL Certificate |
 | :--- | :--- | :--- | :--- | :--- |

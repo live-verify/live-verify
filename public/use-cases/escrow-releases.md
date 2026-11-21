@@ -52,7 +52,14 @@ Escrow releases are high-value fraud targets. Fake release letters can misdirect
   <span data-verify-line="software">verify:ironmountain.com/escrow</span> <span verifiable-text="end" data-for="software"></span>
 </div>
 
-## Data Verified
+## The Problem: Escrow Release Fraud
+
+- **Wire Fraud:** Business email compromise redirects escrow disbursements to criminal accounts.
+- **Fake Closings:** Fraudulent closing statements claim transactions completed that never happened.
+- **Holdback Theft:** Forged holdback releases divert funds meant for repairs or conditions.
+- **Software Escrow Fraud:** Fake release notices claim source code access.
+
+## What Is Checked
 
 Escrow agent name, file/agreement number, parties (buyer/seller, depositor/beneficiary), property or materials description, escrow amount, release conditions, release date, recipient of disbursement.
 
@@ -63,7 +70,7 @@ Escrow agent name, file/agreement number, parties (buyer/seller, depositor/benef
 - **M&A Escrow Release:** Acquisition holdback disbursement.
 - **Construction Escrow:** Progress payments or final release.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`chicagotitle.com`, `ironmountain.com`) and current escrow status.
 
@@ -74,9 +81,9 @@ Shows the issuer domain (`chicagotitle.com`, `ironmountain.com`) and current esc
 - **Disputed** — Release contested by a party.
 - **Clawback** — Funds recalled due to fraud or breach.
 
-## Second-Party Use
+## Who Holds It
 
-The **Seller/Depositor** benefits from verification.
+The Seller/Depositor benefits from verification.
 
 **Funds Confirmation:** Sellers need proof that escrow closed and funds were properly disbursed for their tax and financial records.
 
@@ -84,7 +91,7 @@ The **Seller/Depositor** benefits from verification.
 
 **Warranty Claims:** If issues arise post-closing, sellers may need to prove what funds were disbursed and when.
 
-## Third-Party Use
+## Who Checks It
 
 **Buyers / Beneficiaries**
 **Closing Confirmation:** Buyers need verified proof that escrow closed and title transferred for mortgage records and insurance.
@@ -101,14 +108,7 @@ The **Seller/Depositor** benefits from verification.
 **Accountants / Auditors**
 **Financial Statements:** Verified escrow releases confirm transaction completion for financial reporting.
 
-## Verification Architecture
-
-**The Escrow Release Fraud Problem**
-
-- **Wire Fraud:** Business email compromise redirects escrow disbursements to criminal accounts.
-- **Fake Closings:** Fraudulent closing statements claim transactions completed that never happened.
-- **Holdback Theft:** Forged holdback releases divert funds meant for repairs or conditions.
-- **Software Escrow Fraud:** Fake release notices claim source code access.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

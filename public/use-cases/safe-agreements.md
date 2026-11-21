@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a SAFE Agreement?
 
-A **Simple Agreement for Future Equity (SAFE)** is the standard contract used by Silicon Valley startups to raise "Seed" capital. An investor gives the company cash now (e.g., $500,000) in exchange for the right to receive shares later, when the company raises a "Priced Round" (Series A). It is a convertible security governed by a **Valuation Cap** and a **Discount Rate**.
+A Simple Agreement for Future Equity (SAFE) is the standard contract used by Silicon Valley startups to raise "Seed" capital. An investor gives the company cash now (e.g., $500,000) in exchange for the right to receive shares later, when the company raises a "Priced Round" (Series A). It is a convertible security governed by a Valuation Cap and a Discount Rate.
 
-These documents are the "Keys to the Cap Table." Fraud is high-stakes: a founder might "edit" a SAFE to change a $10M valuation cap to a $20M cap before showing it to a new investor, effectively stealing equity from the original backer. Similarly, a founder might "hide" an existing SAFE to make the company look more attractive to a buyer. Verified hashes bind the **Valuation Cap, Purchase Amount, and Investor Name** to the startup's or the law firm's domain (e.g., `stripeatlas.com` or `ycombinator.com`).
+These documents are the "Keys to the Cap Table." Fraud is high-stakes: a founder might "edit" a SAFE to change a $10M valuation cap to a $20M cap before showing it to a new investor, effectively stealing equity from the original backer. Similarly, a founder might "hide" an existing SAFE to make the company look more attractive to a buyer. Verified hashes bind the Valuation Cap, Purchase Amount, and Investor Name to the startup's or the law firm's domain (e.g., `stripeatlas.com` or `ycombinator.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="safe"></span>
@@ -46,7 +46,13 @@ Founder Signature                      Investor Signature
 <span data-verify-line="safe">verify:verific.io/safe/v</span> <span verifiable-text="end" data-for="safe"></span>
 </div>
 
-## Data Verified
+## The Problem: Cap Table Padding Fraud
+
+- **Valuation Cap Inflation:** Changing a "$5M cap" to a "$15M cap" on a PDF to trick a new investor into accepting a higher price.
+- **Side Letter Hiding:** Removing a "Pro-Rata Right" or a "Most Favored Nation" (MFN) clause from a PDF before showing it to a buyer.
+- **Duplicate Issuance:** Selling the same 10% of the company to two different investors using two separate SAFE documents.
+
+## What Is Checked
 
 Purchase amount, valuation cap (post-money or pre-money), discount rate, investor name, company name (jurisdiction), date of issuance, series ID, side letter status (Yes/No), board authorization ID, law firm file reference.
 
@@ -56,19 +62,19 @@ Purchase amount, valuation cap (post-money or pre-money), discount rate, investo
 - **Convertible Note:** (Linked hash) debt that converts to equity.
 - **Pro-Rata Side Letter:** Proving the investor's right to maintain ownership.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`verific.io`, `ycombinator.com`, `stripe.com`) and the security standing.
 
 **Status Indications:**
 - **Outstanding / Valid** — The SAFE is authentic and awaiting conversion.
-- **Converted** — **ALERT:** This SAFE has already been converted into Series A Preferred stock.
-- **Amended** — **ALERT:** Terms have been changed via a subsequent agreement.
-- **Rescinded** — **CRITICAL:** The investment was returned or cancelled due to breach.
+- **Converted** — This SAFE has already been converted into Series A Preferred stock.
+- **Amended** — Terms have been changed via a subsequent agreement.
+- **Rescinded** — The investment was returned or cancelled due to breach.
 
-## Second-Party Use
+## Who Holds It
 
-The **Investor** (second party) receives the SAFE from the startup (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Investor (second party) receives the SAFE from the startup (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** The investor has their own verified copy of the investment terms. Most of the time, the document sits in their portfolio files—the verification value is latent, there *if needed*.
 
@@ -76,7 +82,7 @@ The **Investor** (second party) receives the SAFE from the startup (first party)
 
 **Future Optionality:** If a dispute arises—whether about valuation caps, conversion terms, or side letters—the investor has cryptographic proof ready without needing to contact the startup or law firm.
 
-## Third-Party Use
+## Who Checks It
 
 The investor (second party) may hand the verified document to various third parties:
 
@@ -92,13 +98,7 @@ A VC fund's LPs receive verified hashes of all SAFEs in the portfolio during ann
 **Banking Compliance (Source of Funds)**
 When a startup opens a bank account after a $5M seed raise, they provide verified SAFE hashes to prove the legitimate venture capital source, preventing an AML (Anti-Money Laundering) account freeze.
 
-## Verification Architecture
-
-**The "Cap Table Padding" Fraud Problem**
-
-- **Valuation Cap Inflation:** Changing a "$5M cap" to a "$15M cap" on a PDF to trick a new investor into accepting a higher price.
-- **Side Letter Hiding:** Removing a "Pro-Rata Right" or a "Most Favored Nation" (MFN) clause from a PDF before showing it to a buyer.
-- **Duplicate Issuance:** Selling the same 10% of the company to two different investors using two separate SAFE documents.
+## Who Issues It
 
 **Issuer Types (First Party)**
 

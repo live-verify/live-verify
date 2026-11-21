@@ -90,7 +90,7 @@ The problem: registering a business entity is often trivially easy. Government w
 
 ### Why This Matters
 
-The **doorstep verification** pattern maps directly here. A support worker arrives at a participant's home. The participant (or their carer, family member, or representative) scans the provider's certificate. It verifies — or it doesn't. Combined with post-verification reporting (logging the visit), this creates evidence of who actually attended and when.
+The doorstep verification pattern maps directly here. A support worker arrives at a participant's home. The participant (or their carer, family member, or representative) scans the provider's certificate. It verifies — or it doesn't. Combined with post-verification reporting (logging the visit), this creates evidence of who actually attended and when.
 
 <details>
 <summary><strong>Country details</strong></summary>
@@ -221,7 +221,7 @@ A service agreement between provider and service user sets out what supports wil
 - **SUPERSEDED** — Replaced by a newer agreement
 - **404** — No matching record
 
-The **PARTICIPANT_UNVERIFIED** status is the innovation. If a provider files a service agreement but the service user has never scanned it — never engaged with it on any device — that's a red flag for the funding body. It doesn't prove fraud (some participants need Easy Read versions, interpreter assistance, or family involvement), but it does trigger a check.
+The PARTICIPANT_UNVERIFIED status is the innovation. If a provider files a service agreement but the service user has never scanned it — never engaged with it on any device — that's a red flag for the funding body. It doesn't prove fraud (some participants need Easy Read versions, interpreter assistance, or family involvement), but it does trigger a check.
 
 <details>
 <summary><strong>Country details</strong></summary>
@@ -330,7 +330,7 @@ The fraud pattern is the same in both sectors: assessments fabricated or exagger
 
 A clinical report with a `verify:` line, authority-chained through the clinician's professional registration body, binds the document to a specific registered clinician. If the registration body suspends the clinician's registration — for falsifying reports, for example — the authority chain breaks, and any report verified against that clinician's endpoint returns a warning.
 
-### Data Verified
+### What Is Checked
 
 Clinician name and registration number, professional body, service user name (may be redacted in the verifiable region), assessment date, findings, recommended service category and level, report reference number.
 
@@ -378,9 +378,9 @@ Verification is symmetric. The same `GET /v/{hash}` that exposes a phantom servi
 
 ---
 
-## Second-Party Use
+## Who Holds It
 
-The **service user** (second party) — or, critically, their **family member, power of attorney holder, or appointed representative** — benefits from verification across all document types. In aged care, the person themselves may have dementia or cognitive decline that prevents them from engaging with verification directly. The second party is often an adult child or spouse.
+The service user (second party) — or, critically, their family member, power of attorney holder, or appointed representative — benefits from verification across all document types. In aged care, the person themselves may have dementia or cognitive decline that prevents them from engaging with verification directly. The second party is often an adult child or spouse.
 
 **Confirming provider legitimacy:** Before engaging a new provider — especially one who approached them unsolicited (a red flag for kickback schemes) — the service user or their family scans the registration certificate. Registered, for the right service categories, not suspended? Proceed.
 
@@ -390,7 +390,7 @@ The **service user** (second party) — or, critically, their **family member, p
 
 **Comparing equipment quotes:** Two verified quotes from two suppliers — with retail prices disclosed — let the service user or their family make informed choices and flag unjustified markups to the funding body.
 
-## Third-Party Use
+## Who Checks It
 
 **Funding Body / Plan Manager**
 Funding bodies and plan managers pay invoices on behalf of service users. Today they have no bilateral verification. With verified service delivery receipts, they have an independent check: does the invoice match a receipt the service user's device verified? Unmatched invoices get flagged before payment, not months later during audit.
@@ -404,7 +404,7 @@ Registration verification in real time. When a sanction is applied, the provider
 **Consumer Protection Agencies**
 Verified equipment quotes with disclosed retail prices create evidence for enforcement. If a supplier's verified quote says "retail $189, government $340" for the same item, the consumer protection agency has a documented case of price differentiation — signed by the supplier's own domain.
 
-## Verification Architecture
+## How Verification Works Here
 
 **Why These Frauds Succeed Today**
 
@@ -507,7 +507,7 @@ Salt must be per-person, per-document, and non-deterministic. Even the existence
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Existing Verification
+## Compared With Existing Verification
 
 | Feature | Live Verify | Government Portals | Retrospective Audit | Manual Provider Lookup |
 | :--- | :--- | :--- | :--- | :--- |

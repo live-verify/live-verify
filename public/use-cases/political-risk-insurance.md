@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is Political Risk Insurance (PRI)?
 
-In international finance, **Political Risk Insurance (PRI)** is the "Shield of Sovereignty." It protects investors and lenders from losses caused by government actions—such as **Expropriation** (seizing an asset), **Currency Inconvertibility** (blocking funds from leaving the country), or **Political Violence** (war or civil unrest). These policies are mandatory for multi-billion dollar infrastructure projects in developing nations.
+In international finance, Political Risk Insurance (PRI) is the "Shield of Sovereignty." It protects investors and lenders from losses caused by government actions—such as Expropriation (seizing an asset), Currency Inconvertibility (blocking funds from leaving the country), or Political Violence (war or civil unrest). These policies are mandatory for multi-billion dollar infrastructure projects in developing nations.
 
-These documents are the "Proof of Protection." Fraud is high-stakes: a developer might create a fake "Zurich" or "Chubb" policy to trick a bank into releasing a $100M loan for a power plant. Similarly, a government might demand to see "Verified Coverage" before granting a land lease. Verified hashes bind the **Host Country, Coverage Limits, and Exclusion Clauses** to the specialist insurer's domain (e.g., `zurich.com` or `chubb.com`).
+These documents are the "Proof of Protection." Fraud is high-stakes: a developer might create a fake "Zurich" or "Chubb" policy to trick a bank into releasing a $100M loan for a power plant. Similarly, a government might demand to see "Verified Coverage" before granting a land lease. Verified hashes bind the Host Country, Coverage Limits, and Exclusion Clauses to the specialist insurer's domain (e.g., `zurich.com` or `chubb.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="pri"></span>ZURICH SPECIALTY
@@ -35,7 +35,13 @@ Breach of Contract (Sovereign):                            EXCLUDED
 <span data-verify-line="pri">verify:zurich.com/pri/v</span> <span verifiable-text="end" data-for="pri"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Ghost Policy Fraud
+
+- **Limit Inflation:** Editing a $10M policy to read $100M to bypass a lender's "Minimum Coverage" requirement.
+- **Exclusion Removal:** Deleting a "War Exclusion" line from a PDF before showing it to a lender in a conflict zone.
+- **Phantom Carrier:** Creating fake credentials for a non-existent "Offshore Insurer" to steal project premiums.
+
+## What Is Checked
 
 Policy number, insurer name, insured entity name, host country, project name/ID, total limit of liability, sub-limits per risk type (Expropriation, PV, etc.), policy term, premium payment status, primary exclusion codes, governing law.
 
@@ -45,28 +51,28 @@ Policy number, insurer name, insured entity name, host country, project name/ID,
 - **Sovereign Guarantee Supplement:** (Linked hash) provided by the host nation.
 - **Claims Settlement Letter:** Proof of payout for past political losses.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`zurich.com`, `miga.org`, `opic.gov`) and the policy standing.
 
 **Status Indications:**
 - **Active / Premium Paid** — Policy is current and the project is protected.
-- **Lapsed** — **ALERT:** Premium payment is overdue; coverage is suspended.
-- **Claims Active** — **ALERT:** A loss event has been reported for this project.
-- **Revoked** — **CRITICAL:** Policy cancelled (e.g., due to discovery of insured's illegal acts).
+- **Lapsed** — Premium payment is overdue; coverage is suspended.
+- **Claims Active** — A loss event has been reported for this project.
+- **Revoked** — Policy cancelled (e.g., due to discovery of insured's illegal acts).
 
-## Second-Party Use
+## Who Holds It
 
-The **Investor / Developer** benefits from verification.
+The Investor / Developer benefits from verification.
 
 **Debt Financing:** Before a bank releases a $50M construction draw, they scan the developer's verified PRI hash. "Verified by Zurich" ensures the bank that the "Expropriation" risk is fully mitigated, allowing the loan to move forward in high-risk jurisdictions.
 
 **Government Negotiations:** When negotiating a "Concession Agreement" with a host country, the developer shows the verified hash. This proves to the government that the project is backed by high-tier international capital, increasing the developer's bargaining power.
 
-## Third-Party Use
+## Who Checks It
 
 **Project Finance Banks (Lenders)**
-**Risk Management:** Automatically monitoring the PRI status of a global project portfolio. If a policy hash returns **"LAPSED,"** the bank's system can instantly trigger a "Technical Default" and freeze project accounts until coverage is restored.
+**Risk Management:** Automatically monitoring the PRI status of a global project portfolio. If a policy hash returns "LAPSED," the bank's system can instantly trigger a "Technical Default" and freeze project accounts until coverage is restored.
 
 **Multilateral Agencies (e.g., World Bank / MIGA)**
 **Compliance Audit:** Verifying that sub-contracted projects are maintaining the mandatory PRI coverage required by international development treaties.
@@ -74,13 +80,7 @@ The **Investor / Developer** benefits from verification.
 **Sovereign Wealth Funds**
 **Due Diligence:** Verifying the "Insurability" of a target infrastructure asset before making a multi-billion dollar equity investment.
 
-## Verification Architecture
-
-**The "Ghost Policy" Fraud Problem**
-
-- **Limit Inflation:** Editing a $10M policy to read $100M to bypass a lender's "Minimum Coverage" requirement.
-- **Exclusion Removal:** Deleting a "War Exclusion" line from a PDF before showing it to a lender in a conflict zone.
-- **Phantom Carrier:** Creating fake credentials for a non-existent "Offshore Insurer" to steal project premiums.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is Real Estate Agent Verification?
 
-In the real estate industry, the "Showing" is a high-risk event. A buyer (often alone) meets a stranger at a vacant property, or a seller allows a stranger into their home to "preview" it. Criminals often pose as **Real Estate Agents** to gain entry for burglary, assault, or to steal high-value assets during an open house.
+In the real estate industry, the "Showing" is a high-risk event. A buyer (often alone) meets a stranger at a vacant property, or a seller allows a stranger into their home to "preview" it. Criminals often pose as Real Estate Agents to gain entry for burglary, assault, or to steal high-value assets during an open house.
 
 The problem is that "Agent ID Cards" are not standardized and are easy to fake. Even a real agent may have had their license suspended for unethical behavior. Live Verify allows a buyer or seller to scan the agent's digital badge or physical ID to verify: **"Is this person a licensed professional in good standing, and are they actually affiliated with the brokerage they claim?"**
 
@@ -46,7 +46,13 @@ The problem is that "Agent ID Cards" are not standardized and are easy to fake. 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Phantom Agent Fraud
+
+- **Identity Hijacking:** Scammers using a real agent's name and license number from a public website to create a fake ID badge.
+- **Status Hiding:** Continuing to use a "Valid" card after the state board revoked the license for mortgage fraud or theft.
+- **Lockbox Phishing:** Using a fake agent ID to trick a homeowner into giving up a keypad code.
+
+## What Is Checked
 
 Agent name, license number, state of jurisdiction, brokerage name, photograph (via hash), expiration date, disciplinary status (Clear/Flagged), background check timestamp, NAR (National Association of Realtors) membership status.
 
@@ -56,25 +62,25 @@ Agent name, license number, state of jurisdiction, brokerage name, photograph (v
 - **Lockbox Access Token:** (Linked hash) proving authorized key access.
 - **Listing Agreement:** (Linked hash) proving authority to sell.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`realtor.com`, `zillow.com`, `state-realestate-board.gov`) and the agent's standing.
 
 **Status Indications:**
 - **Active / Clear** — Agent is currently licensed and authorized for showings.
-- **Suspended** — **CRITICAL:** Practice authority is temporarily revoked (e.g., for ethics violations).
+- **Suspended** — Practice authority is temporarily revoked (e.g., for ethics violations).
 - **Expired** — Mandatory license renewal or fees are overdue.
-- **Affiliation Change** — **ALERT:** Agent is no longer with the brokerage listed on the card.
+- **Affiliation Change** — Agent is no longer with the brokerage listed on the card.
 
-## Second-Party Use
+## Who Holds It
 
-The **Real Estate Professional (Agent)** benefits from verification.
+The Real Estate Professional (Agent) benefits from verification.
 
 **Client Trust:** When meeting a high-net-worth client for the first time, the agent can proactively show their verified hash. "Verified by Realtor.com" provides the client with the professional assurance that the agent is a vetted pro, reducing the "Stranger Danger" friction.
 
 **Lockbox Credibility:** If a neighbor calls the police because they see someone entering a vacant house, the agent can show the verified hash to the responding officer. This provides instant proof of authority and prevents a potential arrest or escalation.
 
-## Third-Party Use
+## Who Checks It
 
 **Home Sellers / Homeowners**
 **Showing Vetting:** Before allowing an agent to bring a group of strangers into their home, the seller can scan the agent's badge. Verification ensures the visitor is a tracked professional who can be held accountable if items go missing.
@@ -85,13 +91,7 @@ The **Real Estate Professional (Agent)** benefits from verification.
 **Title and Escrow Companies**
 **Commission Verification:** Ensuring that the agent being paid on the settlement statement is the same verified professional who initiated the contract.
 
-## Verification Architecture
-
-**The "Phantom Agent" Fraud Problem**
-
-- **Identity Hijacking:** Scammers using a real agent's name and license number from a public website to create a fake ID badge.
-- **Status Hiding:** Continuing to use a "Valid" card after the state board revoked the license for mortgage fraud or theft.
-- **Lockbox Phishing:** Using a fake agent ID to trick a homeowner into giving up a keypad code.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

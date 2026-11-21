@@ -87,7 +87,22 @@ verify:hiscox.co.uk/pi-status/v
 
 The claim snippet remains on the firm's website, but verification now returns REVOKED. A client checking before instructing the firm sees the failure immediately.
 
-## Data Verified
+## The Problem: We Have PI Cover Trust
+
+- **Self-assertion:** Any firm can state "We carry full professional indemnity insurance" on its website or in its engagement letter. This is just text.
+- **Stale certificates:** A firm may produce a certificate from a previous policy year, whether through negligence or intent. The certificate looks identical to a current one.
+- **Fabricated certificates:** PI certificates are simple documents — a firm name, a policy number, a limit, and a date range. They are straightforward to fabricate or alter in a PDF editor.
+- **Insurer non-disclosure:** If a client phones the insurer to check, the insurer will typically decline to confirm or deny cover for a third party, citing data protection and commercial confidentiality.
+- **Regulatory lag:** The SRA, RICS, and ICAEW maintain registers, but these are updated periodically, not in real time. A firm's cover may lapse weeks before the register reflects this.
+
+The verifiable claim addresses these because:
+
+1. The insurer issues the claim — it is not self-asserted by the professional
+2. The claim names the specific website where it applies
+3. Revocation is immediate — the endpoint returns REVOKED the moment the policy is cancelled or lapses
+4. The browser extension can detect domain mismatches automatically
+
+## What Is Checked
 
 Firm name, firm website domain, insurer, coverage limit, and current policy status.
 
@@ -97,7 +112,7 @@ Firm name, firm website domain, insurer, coverage limit, and current policy stat
 
 **Privacy Salt:** Generally not required. PI cover is a commercial and regulatory expectation that the professional wants to be public — it builds client confidence. The insurer may salt if the specific cover level is commercially sensitive in a particular market segment.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `hiscox.co.uk`, `aviva.co.uk`, `travelers.com`) and current policy status.
 
@@ -120,9 +135,9 @@ The `allowedDomains` field enables browser extensions to detect domain mismatche
 - **Limit Reduced** — Cover is active but the stated limit no longer applies; a new claim with the correct limit will be issued.
 - **404** — No such PI status claim was issued by the claimed insurer.
 
-## Second-Party Use
+## Who Holds It
 
-The **client** benefits directly.
+The client benefits directly.
 
 **Pre-instruction confidence:** Before engaging a solicitor, architect, or surveyor, the client can verify that the firm has current PI cover without relying on the firm's own assertion or requesting a certificate.
 
@@ -130,7 +145,7 @@ The **client** benefits directly.
 
 **Domain-mismatch protection:** Even without the extension, the firm's domain in the claim text is a visible check. With the extension, domain mismatches produce an automatic warning — relevant when a client has arrived at a firm's site via a search engine and wants to confirm they are on the genuine site.
 
-## Third-Party Use
+## Who Checks It
 
 **Regulatory Bodies (SRA, RICS, ICAEW, ARB)**
 
@@ -146,24 +161,7 @@ The **client** benefits directly.
 
 **Comparison shopping:** When a client is choosing between firms, the presence and status of a verifiable PI claim is one signal of operational credibility. A firm that embeds a live insurer-issued claim is demonstrating that its cover is current and that it is willing to let clients verify this independently.
 
-## Verification Architecture
-
-**The "We Have PI Cover" Trust Problem**
-
-- **Self-assertion:** Any firm can state "We carry full professional indemnity insurance" on its website or in its engagement letter. This is just text.
-- **Stale certificates:** A firm may produce a certificate from a previous policy year, whether through negligence or intent. The certificate looks identical to a current one.
-- **Fabricated certificates:** PI certificates are simple documents — a firm name, a policy number, a limit, and a date range. They are straightforward to fabricate or alter in a PDF editor.
-- **Insurer non-disclosure:** If a client phones the insurer to check, the insurer will typically decline to confirm or deny cover for a third party, citing data protection and commercial confidentiality.
-- **Regulatory lag:** The SRA, RICS, and ICAEW maintain registers, but these are updated periodically, not in real time. A firm's cover may lapse weeks before the register reflects this.
-
-The verifiable claim addresses these because:
-
-1. The insurer issues the claim — it is not self-asserted by the professional
-2. The claim names the specific website where it applies
-3. Revocation is immediate — the endpoint returns REVOKED the moment the policy is cancelled or lapses
-4. The browser extension can detect domain mismatches automatically
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | PDF Certificate | Firm's Website Statement | Regulator's Register | Phone Call to Insurer |
 | :--- | :--- | :--- | :--- | :--- | :--- |

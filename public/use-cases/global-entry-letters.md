@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is Global Entry Status?
 
-**Global Entry** is a "Trusted Traveler" program that allows pre-vetted, low-risk travelers to skip the long lines at US Customs when returning from abroad. It also includes **TSA PreCheck** for domestic flights.
+**Global Entry** is a "Trusted Traveler" program that allows pre-vetted, low-risk travelers to skip the long lines at US Customs when returning from abroad. It also includes TSA PreCheck for domestic flights.
 
-To get it, you must pass a rigorous federal background check and a face-to-face interview with a Customs officer. The **Membership Confirmation** is your proof of status.
+To get it, you must pass a rigorous federal background check and a face-to-face interview with a Customs officer. The Membership Confirmation is your proof of status.
 
 But Global Entry is already a government-held status record. The main question is not whether the letter's text is authentic in isolation; it is whether the official Trusted Traveler status is active now. That makes this a weak fit for standalone document verification and a better fit for direct official status checks.
 
@@ -47,7 +47,13 @@ But Global Entry is already a government-held status record. The main question i
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Trusted Traveler Fraud
+
+- **Status Fabrication:** Scammers creating fake "Global Entry Approved" PDFs to trick employers into skipping a background check.
+- **Revocation Hiding:** A traveler who was caught smuggling (leading to revocation) keeping their physical card or old PDF to use PreCheck lanes.
+- **PASSID Tampering:** Editing the "Expiration Date" on an old 2024 letter to make it look like a 2026 approval.
+
+## What Is Checked
 
 Member name, PASSID (Membership #), program type (Global Entry, NEXUS, SENTRI, TSA PreCheck), status (Approved/Conditional/Revoked), Known Traveler Number (KTN), effective date, expiration date, issuing agency (CBP).
 
@@ -57,25 +63,25 @@ Member name, PASSID (Membership #), program type (Global Entry, NEXUS, SENTRI, T
 - **Revocation Notice:** (Linked hash) proving membership has been terminated.
 - **KTN Confirmation:** For employer or airline travel profiles.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`cbp.dhs.gov`) and current membership standing.
 
 **Status Indications:**
 - **Approved** — Member is verified and eligible for expedited processing.
 - **Conditional** — Background check passed; interview pending.
-- **Revoked** — **ALERT:** Membership terminated due to recent violation or arrest.
+- **Revoked** — Membership terminated due to recent violation or arrest.
 - **Expired** — Renewal required.
 
-## Second-Party Use
+## Who Holds It
 
-The **Trusted Traveler** benefits from verification.
+The Trusted Traveler benefits from verification.
 
 **Travel Booking:** Proving to an employer or travel agent that a Known Traveler Number is current, while treating the official TTP system as the actual authority.
 
 **Administrative Convenience:** The letter can support narrow human workflows around current membership status. It should not be treated as a substitute for a proper background check.
 
-## Third-Party Use
+## Who Checks It
 
 **Airline Counter Agents**
 If they need a status check at all, the stronger answer is direct access to the official TTP state. A verified letter would only be a convenience layer.
@@ -86,13 +92,7 @@ Official checkpoint systems should remain primary. A printed letter or itinerary
 **International Employers**
 At most, the letter can support a narrow convenience check that the person holds current Trusted Traveler status. It should not be treated as a broad substitute for a background check.
 
-## Verification Architecture
-
-**The "Fake Trusted Traveler" Fraud Problem**
-
-- **Status Fabrication:** Scammers creating fake "Global Entry Approved" PDFs to trick employers into skipping a background check.
-- **Revocation Hiding:** A traveler who was caught smuggling (leading to revocation) keeping their physical card or old PDF to use PreCheck lanes.
-- **PASSID Tampering:** Editing the "Expiration Date" on an old 2024 letter to make it look like a 2026 approval.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -119,7 +119,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive CBP's hashes and status changes plus structured metadata (member names, PASSIDs, program types, membership status, expiration dates) — never sensitive personal information — providing non-repudiation of the Trusted Traveler status.
 
-## Competition vs. TTP Online Portal
+## Compared With TTP Online Portal
 
 | Feature | Live Verify | TTP Official Portal | Physical TTP Card |
 | :--- | :--- | :--- | :--- |

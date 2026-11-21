@@ -38,7 +38,19 @@ Title Brand:    CLEAN
 <span data-verify-line="title">verify:dmv.texas.gov/title/v</span> <span verifiable-text="end" data-for="title"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Title Fraud
+
+Title fraud is not a single attack — it's a family of related schemes, all of which exploit the same weakness: paper titles are easy to forge or manipulate, and there's no real-time way for a consumer to verify them.
+
+- **Title Washing:** The big one. A car is totaled in Florida and branded SALVAGE. The fraudster titles it in a state with weaker branding laws (or one that doesn't carry over out-of-state brands), and the salvage history disappears. The car gets a CLEAN title and is sold to an unsuspecting buyer at full market value. Post-hurricane, this happens at industrial scale.
+- **VIN Cloning:** A stolen car is given the VIN of a clean, legally owned car of the same make and model. The thief creates a forged title matching the cloned VIN. The buyer thinks they're getting a legitimate car; they're buying stolen property.
+- **Lien Stripping:** Seller has a $15,000 loan on the car but presents a title showing no lien (forged or from before the lien was recorded). Buyer pays the seller, bank still owns the car, bank repossesses the car from the buyer.
+- **Odometer Rollback:** A car with 120,000 miles gets its odometer rolled back to 40,000. The verified odometer reading at title issuance serves as a check — if the title says 95,000 miles at last transfer but the odometer now reads 40,000, something is very wrong.
+- **Forged Titles:** Entirely fabricated documents. High-quality printing makes this easier than ever. Without real-time verification, a buyer is comparing the paper to their mental model of what a title "should look like."
+- **Curbstoning:** Unlicensed dealers posing as private sellers, flipping cars with forged or washed titles. They buy salvage cars cheaply, do cosmetic repairs, wash the title, and sell at clean-title prices. Live Verify makes every title checkable, removing the information asymmetry curbstoners depend on.
+- **Flood Car Laundering:** After every major hurricane (Harvey, Ian, Helene), thousands of flood-damaged cars are bought at salvage auctions, dried out, detailed, and titled in states that don't carry flood brands. Buyers in landlocked states have no idea they're buying a car whose electronics will fail in six months.
+
+## What Is Checked
 
 VIN, owner name, title number, state of issuance, title brand (CLEAN / SALVAGE / REBUILT / FLOOD / JUNK), lien holder (if any), odometer reading at title issuance, date issued, year/make/model, body style, color.
 
@@ -57,13 +69,13 @@ The endpoint returns a status code and key fields:
 - **SALVAGE** — Vehicle has been declared a total loss by an insurance company.
 - **REBUILT** — Previously salvaged vehicle that has been rebuilt and passed state inspection.
 - **FLOOD** — Flood damage brand on record.
-- **STOLEN** — Vehicle reported stolen. **Critical safety response.** Do not proceed with transaction.
+- **STOLEN** — Vehicle reported stolen. Critical safety response. Do not proceed with transaction.
 - **SUPERSEDED** — A newer title has been issued. This copy is outdated; ownership has transferred.
 - **404** — No matching record. Possible forgery, wrong state, or OCR error.
 
-## Second-Party Use
+## Who Holds It
 
-The **Vehicle Owner** (second party) benefits from verification:
+The Vehicle Owner (second party) benefits from verification:
 
 **Private Sale Confidence:** Proving to a buyer that you actually own the car, it has a clean title, and there are no liens. No more "let me call my bank to confirm the lien was released" — the buyer scans and sees it immediately.
 
@@ -73,7 +85,7 @@ The **Vehicle Owner** (second party) benefits from verification:
 
 **Theft Recovery:** After a stolen vehicle is recovered, proving ownership to law enforcement on the spot.
 
-## Third-Party Use
+## Who Checks It
 
 **Private Buyers (The Parking Lot Scenario)**
 The primary use case. Before handing over cash or a cashier's check, the buyer scans the title and confirms: real title, correct VIN, correct owner standing in front of them, no liens, no salvage brands, no theft report. Five seconds of verification replaces hours of anxious database searching and phone calls.
@@ -96,19 +108,7 @@ When a vehicle is titled in a new state, the receiving DMV can verify the surren
 **Mechanics and Body Shops**
 Checking for salvage brands before agreeing to expensive repairs. A customer bringing in a "clean" car for $8,000 in body work that turns out to be a flood-damaged salvage is a liability nightmare.
 
-## Verification Architecture
-
-**The Title Fraud Problem**
-
-Title fraud is not a single attack — it's a family of related schemes, all of which exploit the same weakness: paper titles are easy to forge or manipulate, and there's no real-time way for a consumer to verify them.
-
-- **Title Washing:** The big one. A car is totaled in Florida and branded SALVAGE. The fraudster titles it in a state with weaker branding laws (or one that doesn't carry over out-of-state brands), and the salvage history disappears. The car gets a CLEAN title and is sold to an unsuspecting buyer at full market value. Post-hurricane, this happens at industrial scale.
-- **VIN Cloning:** A stolen car is given the VIN of a clean, legally owned car of the same make and model. The thief creates a forged title matching the cloned VIN. The buyer thinks they're getting a legitimate car; they're buying stolen property.
-- **Lien Stripping:** Seller has a $15,000 loan on the car but presents a title showing no lien (forged or from before the lien was recorded). Buyer pays the seller, bank still owns the car, bank repossesses the car from the buyer.
-- **Odometer Rollback:** A car with 120,000 miles gets its odometer rolled back to 40,000. The verified odometer reading at title issuance serves as a check — if the title says 95,000 miles at last transfer but the odometer now reads 40,000, something is very wrong.
-- **Forged Titles:** Entirely fabricated documents. High-quality printing makes this easier than ever. Without real-time verification, a buyer is comparing the paper to their mental model of what a title "should look like."
-- **Curbstoning:** Unlicensed dealers posing as private sellers, flipping cars with forged or washed titles. They buy salvage cars cheaply, do cosmetic repairs, wash the title, and sell at clean-title prices. Live Verify makes every title checkable, removing the information asymmetry curbstoners depend on.
-- **Flood Car Laundering:** After every major hurricane (Harvey, Ian, Helene), thousands of flood-damaged cars are bought at salvage auctions, dried out, detailed, and titled in states that don't carry flood brands. Buyers in landlocked states have no idea they're buying a car whose electronics will fail in six months.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -133,7 +133,7 @@ The DVLA issues UK vehicle titles and registration certificates under the Vehicl
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Existing Title Verification Methods
+## Compared With Existing Title Verification Methods
 
 | Feature | Live Verify | NMVTIS | Carfax / AutoCheck | Calling the DMV | Trusting the Paper |
 | :--- | :--- | :--- | :--- | :--- | :--- |

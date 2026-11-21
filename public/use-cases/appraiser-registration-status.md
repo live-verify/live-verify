@@ -17,16 +17,16 @@ Appraisers are registered or accredited by a regulator or professional body, whi
 
 | Jurisdiction / Domain | Authority | Notes |
 | :--- | :--- | :--- |
-| **US real estate** | State appraiser boards; **ASC** national registry | Federally mandated registry of state-certified/licensed real-estate appraisers at `asc.gov` |
-| **US personal property** | **ASA**, **ISA**, **AAA** | Accrediting bodies for personal-property, gems & jewelry, fine-art appraisers |
-| **US gemstones** | **GIA** (Graduate Gemologist), **NAJA** | Gemological credentials and jewelry-appraisal accreditation |
+| **US real estate** | State appraiser boards; ASC national registry | Federally mandated registry of state-certified/licensed real-estate appraisers at `asc.gov` |
+| **US personal property** | **ASA**, ISA, AAA | Accrediting bodies for personal-property, gems & jewelry, fine-art appraisers |
+| **US gemstones** | **GIA** (Graduate Gemologist), NAJA | Gemological credentials and jewelry-appraisal accreditation |
 | **UK** | **RICS** (Registered Valuer scheme) | Chartered surveyors/valuers; `rics.org` "Find a Surveyor" register |
 | **Canada** | **AIC** (Appraisal Institute of Canada) | AACI / CRA designations |
 | **Australia** | **API** (Australian Property Institute) | Certified Practising Valuer (CPV) |
 
 A verifiable credential claim is text issued by the relevant authority that can appear in any of these contexts: in the signature block of an appraisal report, on the appraiser's website or letterhead, in a directory listing, or on a business card. The verifier checks it in place — by clipping or photographing — without navigating to the register separately.
 
-The examples below use the US **ASC** registry and a personal-property **ISA/GIA** credential as the primary illustrations, but the pattern applies identically to RICS, AIC, API, or any other appraiser authority.
+The examples below use the US ASC registry and a personal-property ISA/GIA credential as the primary illustrations, but the pattern applies identically to RICS, AIC, API, or any other appraiser authority.
 
 This complements [Appraisals & Valuations (Art, Antiques, Jewelry & Collectibles)](view.html?doc=art-authentication-documents) and [Property Appraisals and Valuations](view.html?doc=property-appraisals-valuations): those verify the *report*; this verifies the *appraiser behind it*.
 
@@ -127,7 +127,23 @@ A suspended or lapsed appraiser may continue signing reports for weeks before en
 - **Conditions / supervised** — Active but subject to conditions (e.g., trainee under a supervisory appraiser, or restrictions imposed after discipline).
 - **404** — No such registration exists on the register.
 
-## Data Verified
+## The Problem: Phantom Appraiser
+
+Appraiser registers are largely public and searchable. The problem is the gap between where the standing is recorded and where the report is read:
+
+- **Self-asserted credentials** — A report says "ISA AM, GG (GIA)" but those letters are typed by whoever produced the document. There is no link between the letters and the register.
+- **Stale standing** — An appraiser is suspended or lets a licence lapse, but reports already in circulation (and new ones) still carry the old credentials. Suspensions take time to surface, and recipients have no automated notification.
+- **Fictitious appraisers** — A fabricated report from a non-existent firm with real-looking credentials and a plausible licence number.
+- **Scope mismatch** — A residential-certified appraiser signing a complex commercial valuation, or a general appraiser signing a gemstone appraisal they are not gemologically qualified to grade.
+
+The verifiable claim addresses these because:
+
+1. The authority issues the claim — it is not self-asserted in the signature block
+2. The claim names the appraiser's own website domain via `allowedDomains`, so a credential copied onto an unauthorised site is flagged
+3. Status changes (lapse, suspension, revocation) are reflected immediately at the endpoint
+4. The recorded scope/designation lets the recipient confirm the appraiser is qualified for the specific item
+
+## What Is Checked
 
 Appraiser's name, registration/licence/member number, issuing authority, credential level or designation (e.g., Certified Residential, GG, ISA AM, MRICS), scope of practice where recorded (real estate / personal property / gems / fine art), current status, and any conditions or restrictions.
 
@@ -138,7 +154,7 @@ Appraiser's name, registration/licence/member number, issuing authority, credent
 
 **Privacy Salt:** Generally not required. Appraiser registrations are public information; registers such as ASC and RICS "Find a Surveyor" are publicly searchable by name or number. Appraisers issuing certified valuations are expected to be identifiable.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `asc.gov` or `isa-appraisers.org`) and the appraiser's current standing.
 
@@ -159,9 +175,9 @@ Shows the issuer domain (e.g., `asc.gov` or `isa-appraisers.org`) and the apprai
 - **Conditions** — Active, but conditions apply; the response includes a summary.
 - **404** — No such registration exists.
 
-## Second-Party Use
+## Who Holds It
 
-The **appraiser** benefits directly by proving their standing.
+The appraiser benefits directly by proving their standing.
 
 **Report credibility:** An independent appraiser embeds the authority-issued claim in every report's signature block. Insurers, lenders, and courts verify it rather than taking the letters after the name on trust — turning the appraiser's own assertion into a regulator-confirmed statement.
 
@@ -169,7 +185,7 @@ The **appraiser** benefits directly by proving their standing.
 
 **Expert-witness work:** An appraiser engaged to give valuation testimony can present verifiable credentials to opposing counsel and the court, pre-empting challenges to qualifications.
 
-## Third-Party Use
+## Who Checks It
 
 **Insurance Underwriters and Claims Adjusters**
 
@@ -191,25 +207,7 @@ The **appraiser** benefits directly by proving their standing.
 
 **Independent check:** A buyer relying on a valuation, or a co-heir reviewing an estate appraisal, can clip the appraiser's credential and confirm it is current and unrevoked.
 
-## Verification Architecture
-
-**The Phantom Appraiser Problem**
-
-Appraiser registers are largely public and searchable. The problem is the gap between where the standing is recorded and where the report is read:
-
-- **Self-asserted credentials** — A report says "ISA AM, GG (GIA)" but those letters are typed by whoever produced the document. There is no link between the letters and the register.
-- **Stale standing** — An appraiser is suspended or lets a licence lapse, but reports already in circulation (and new ones) still carry the old credentials. Suspensions take time to surface, and recipients have no automated notification.
-- **Fictitious appraisers** — A fabricated report from a non-existent firm with real-looking credentials and a plausible licence number.
-- **Scope mismatch** — A residential-certified appraiser signing a complex commercial valuation, or a general appraiser signing a gemstone appraisal they are not gemologically qualified to grade.
-
-The verifiable claim addresses these because:
-
-1. The authority issues the claim — it is not self-asserted in the signature block
-2. The claim names the appraiser's own website domain via `allowedDomains`, so a credential copied onto an unauthorised site is flagged
-3. Status changes (lapse, suspension, revocation) are reflected immediately at the endpoint
-4. The recorded scope/designation lets the recipient confirm the appraiser is qualified for the specific item
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Register Lookup (ASC/RICS) | Letters After Name | AMC Self-Declaration |
 | :--- | :--- | :--- | :--- | :--- |

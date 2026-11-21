@@ -51,7 +51,13 @@ The strongest architecture is still the issuing vital-records office or the form
   </div>
 </div>
 
-## Data Verified
+## The Problem: Breeding Document Fraud
+
+- **Ghosting:** Using the birth certificate of a child who died young to assume their identity. Verification catches this by showing a "DECEASED" flag on the birth record.
+- **Alteration:** Changing the date of birth to appear younger (for sports/schools) or older (for retirement benefits).
+- **Fictitious Records:** Creating a realistic birth certificate for a non-existent person to get a "real" ID.
+
+## What Is Checked
 
 Full name at birth, date of birth, place of birth (City/County/State), parents' full names (including maiden), sex, file/registration number, date of registration, date of issuance.
 
@@ -61,7 +67,7 @@ Full name at birth, date of birth, place of birth (City/County/State), parents' 
 - **Stillbirth Certificate:** (Certificate of Birth Resulting in Stillbirth).
 - **Consular Report of Birth Abroad (CRBA):** For citizens born overseas.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`health.pa.gov`, `cdc.gov`) and current record status.
 
@@ -71,9 +77,9 @@ Shows the issuer domain (`health.pa.gov`, `cdc.gov`) and current record status.
 - **Deceased** — (For Birth Certs) Cross-referenced with death registry to prevent "Ghost" identity theft.
 - **Invalid** — File number mismatch or known fraudulent document series.
 
-## Second-Party Use
+## Who Holds It
 
-The **Named Person** or **Next of Kin** benefits from verification.
+The Named Person or Next of Kin benefits from verification.
 
 **Passport Applications:** The issuing authority's own government verification channel should remain primary. The complementary case is when the certificate itself is what is circulating and the verifier needs a direct bridge back to issuer status.
 
@@ -81,7 +87,7 @@ The **Named Person** or **Next of Kin** benefits from verification.
 
 **Estate Settlement:** Proving to a bank or life insurer that a family member has indeed passed away using a verified death certificate.
 
-## Third-Party Use
+## Who Checks It
 
 **The State Department (Passport Agency)**
 **Identity Integrity:** Passport fraud is often built on stolen or fake birth certificates. Verification directly against the issuing state's domain stops "Paper Forgery" cold.
@@ -92,13 +98,7 @@ The **Named Person** or **Next of Kin** benefits from verification.
 **Genealogists / Historians**
 **Record Accuracy:** Ensuring that historical records being used for lineage research are authentic government-issued documents.
 
-## Verification Architecture
-
-**The "Breeding Document" Fraud Problem**
-
-- **Ghosting:** Using the birth certificate of a child who died young to assume their identity. Verification catches this by showing a "DECEASED" flag on the birth record.
-- **Alteration:** Changing the date of birth to appear younger (for sports/schools) or older (for retirement benefits).
-- **Fictitious Records:** Creating a realistic birth certificate for a non-existent person to get a "real" ID.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -124,7 +124,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the document.
 
 
-## Competition vs. Physical Security (Paper)
+## Compared With Physical Security (Paper)
 
 | Feature | Live Verify | Security Paper (Intaglio/Void) | EVVE (Gov-to-Gov) |
 | :--- | :--- | :--- | :--- |

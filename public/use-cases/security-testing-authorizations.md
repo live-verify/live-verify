@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Security Testing Authorization?
 
-Penetration testers, bug bounty hunters, and red team operators do things that would otherwise be illegal — probing systems, exploiting vulnerabilities, accessing data without permission. The **authorization letter** is their legal protection: proof they had permission to attack.
+Penetration testers, bug bounty hunters, and red team operators do things that would otherwise be illegal — probing systems, exploiting vulnerabilities, accessing data without permission. The authorization letter is their legal protection: proof they had permission to attack.
 
 Without it, they're committing computer crimes. With it, they're performing a legitimate security service.
 
@@ -60,11 +60,23 @@ Without it, they're committing computer crimes. With it, they're performing a le
 
 **With verification:** Third party scans authorization → confirms on client's domain → "carry on, this is legitimate."
 
-## Data Verified
+## The Problem
 
-**Client name**, **tester/firm name**, **engagement ID**, **scope** (in-scope systems, out-of-scope exclusions), **testing window** (dates and times), **authorizing officer**, **authorization date**.
+- Testers need proof of authorization that third parties will accept
+- Authorizations can be forged or fabricated
+- Scope disputes arise after testing ("you weren't authorized for that system")
+- Time-limited authorizations need real-time verification
 
-## Data Visible After Verification
+**The Fix:** Authorization documents hashed at signing, stored on client's domain. Tester carries verification URL. Any third party (police, hosting provider, cloud platform) can verify in real-time:
+- Is this authorization genuine?
+- Is it currently active?
+- Is the specific system in scope?
+
+## What Is Checked
+
+**Client name**, tester/firm name, engagement ID, scope (in-scope systems, out-of-scope exclusions), testing window (dates and times), authorizing officer, authorization date.
+
+## What the Checker Sees
 
 **Status Indications:**
 - **Active** — Testing currently authorized within window
@@ -151,7 +163,7 @@ Verification confirms: "Yes, this researcher is registered in our program and th
 
 Verification (or sealed code word) confirms: "This is an authorized exercise, not a real attack."
 
-## Third-Party Use
+## Who Checks It
 
 **Police** — Verify authorization before deciding whether to investigate "hacking"
 **Hosting providers** — Verify before suspending accounts for "malicious traffic"
@@ -169,18 +181,7 @@ Verification (or sealed code word) confirms: "This is an authorized exercise, no
 
 **CFAA risk (US):** Even authorized testers can face liability if they exceed scope. Verification of exact scope matters.
 
-## Verification Architecture
-
-**The Problem:**
-- Testers need proof of authorization that third parties will accept
-- Authorizations can be forged or fabricated
-- Scope disputes arise after testing ("you weren't authorized for that system")
-- Time-limited authorizations need real-time verification
-
-**The Fix:** Authorization documents hashed at signing, stored on client's domain. Tester carries verification URL. Any third party (police, hosting provider, cloud platform) can verify in real-time:
-- Is this authorization genuine?
-- Is it currently active?
-- Is the specific system in scope?
+## How Verification Works Here
 
 **The incident flow:**
 1. Security team detects "attack"

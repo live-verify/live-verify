@@ -133,7 +133,24 @@ A doctor whose registration has been suspended may continue to appear on a clini
 - **Conditions on practice** — Registered with licence, but subject to conditions imposed by a Fitness to Practise panel (e.g., restricted to supervised practice, prohibited from prescribing certain drugs).
 - **404** — No such registration exists on the GMC register.
 
-## Data Verified
+## The Problem: Registration Status
+
+The GMC register is comprehensive and publicly searchable. The problem is not the absence of information — it is the gap between where the information lives and where the patient encounters the doctor:
+
+- **Self-asserted claims** — A clinic website states "Dr Smith is GMC registered" but this is the clinic's own assertion. There is no link between the claim and the register.
+- **Stale information** — A doctor is suspended after a Fitness to Practise hearing. The clinic's website still lists them as GMC registered. The suspension may take days or weeks to propagate through NHS systems, and private clinics have no automated notification.
+- **Impersonation** — A person uses a genuine doctor's name and GMC number. The number checks out on the register, but the person presenting it is not the registered doctor. The verifiable claim does not solve identity theft on its own, but it does establish a chain from the GMC to a specific website domain or premises.
+- **Multiple practice locations** — A doctor may work at several locations. Each location can embed the claim, but the `allowedDomains` in the verification response confirm which websites the GMC has authorised to display it.
+
+The verifiable claim addresses these because:
+
+1. The GMC issues the claim — it is not self-asserted by the clinic
+2. The claim names the specific website domain where it applies
+3. Status changes (suspension, erasure, conditions) are reflected immediately at the verification endpoint
+4. The browser extension detects domain mismatches when claims are copied to unauthorised sites
+5. Physical premises claims provide in-person verification without requiring internet access to the GMC register
+
+## What Is Checked
 
 Doctor's name, GMC registration number, registration status, licence to practise status, and any conditions or restrictions on practice.
 
@@ -142,7 +159,7 @@ Doctor's name, GMC registration number, registration status, licence to practise
 
 **Privacy Salt:** Generally not required. GMC registrations are public information. The GMC register is publicly searchable by name or registration number. Doctors practising medicine are expected to be identifiable.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`gmc-uk.org`) and the doctor's current registration status.
 
@@ -163,9 +180,9 @@ Shows the issuer domain (`gmc-uk.org`) and the doctor's current registration sta
 - **Conditions** — Registered with licence, but conditions apply. The response includes a summary of the conditions.
 - **404** — No such registration exists on the GMC register.
 
-## Second-Party Use
+## Who Holds It
 
-The **doctor** benefits directly by proving their registration status.
+The doctor benefits directly by proving their registration status.
 
 **Private practice credibility:** A doctor operating a private clinic embeds the GMC-issued claim on their website. Patients clip the claim before booking. For private practice — where there is no NHS organisational layer providing implicit trust — this is a direct trust signal from the regulator.
 
@@ -173,7 +190,7 @@ The **doctor** benefits directly by proving their registration status.
 
 **Telemedicine:** Online consultation platforms list doctors who may be unfamiliar to the patient. A verifiable registration claim attached to the doctor's profile on the platform provides regulator-confirmed status at the point of booking.
 
-## Third-Party Use
+## Who Checks It
 
 **Patients**
 
@@ -197,26 +214,7 @@ The **doctor** benefits directly by proving their registration status.
 
 **Provider inspections:** The CQC inspects healthcare providers and checks that employed doctors are properly registered. Verifiable claims displayed at premises or on provider websites provide an auditable trail of registration status.
 
-## Verification Architecture
-
-**The Registration Status Problem**
-
-The GMC register is comprehensive and publicly searchable. The problem is not the absence of information — it is the gap between where the information lives and where the patient encounters the doctor:
-
-- **Self-asserted claims** — A clinic website states "Dr Smith is GMC registered" but this is the clinic's own assertion. There is no link between the claim and the register.
-- **Stale information** — A doctor is suspended after a Fitness to Practise hearing. The clinic's website still lists them as GMC registered. The suspension may take days or weeks to propagate through NHS systems, and private clinics have no automated notification.
-- **Impersonation** — A person uses a genuine doctor's name and GMC number. The number checks out on the register, but the person presenting it is not the registered doctor. The verifiable claim does not solve identity theft on its own, but it does establish a chain from the GMC to a specific website domain or premises.
-- **Multiple practice locations** — A doctor may work at several locations. Each location can embed the claim, but the `allowedDomains` in the verification response confirm which websites the GMC has authorised to display it.
-
-The verifiable claim addresses these because:
-
-1. The GMC issues the claim — it is not self-asserted by the clinic
-2. The claim names the specific website domain where it applies
-3. Status changes (suspension, erasure, conditions) are reflected immediately at the verification endpoint
-4. The browser extension detects domain mismatches when claims are copied to unauthorised sites
-5. Physical premises claims provide in-person verification without requiring internet access to the GMC register
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | GMC Register Lookup | NHS Profile Page | Clinic Self-Assertion |
 | :--- | :--- | :--- | :--- | :--- |

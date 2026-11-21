@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is Reverse Factoring?
 
-In high-volume supply chains, **Reverse Factoring** (or Supply Chain Finance) allows a supplier to get paid early by a bank, based on the credit rating of their massive buyer (e.g., Apple, Walmart, or Boeing). The bank pays the supplier $98 today for a $100 invoice, and the buyer pays the bank $100 in 60 days.
+In high-volume supply chains, Reverse Factoring (or Supply Chain Finance) allows a supplier to get paid early by a bank, based on the credit rating of their massive buyer (e.g., Apple, Walmart, or Boeing). The bank pays the supplier $98 today for a $100 invoice, and the buyer pays the bank $100 in 60 days.
 
-These documents are the "Trade Collateral." Fraud is high-stakes: a dishonest supplier might create "Phantom Invoices" using a buyer's branding to trick a bank into releasing multimillion-dollar early payments. Similarly, they might "double-factor" the same invoice at two different banks. Verified hashes bind the **Invoice ID, Approved Amount, and Payment Date** to the funding bank's or the buyer's domain (e.g., `citidirect.com` or `hsbc.com`).
+These documents are the "Trade Collateral." Fraud is high-stakes: a dishonest supplier might create "Phantom Invoices" using a buyer's branding to trick a bank into releasing multimillion-dollar early payments. Similarly, they might "double-factor" the same invoice at two different banks. Verified hashes bind the Invoice ID, Approved Amount, and Payment Date to the funding bank's or the buyer's domain (e.g., `citidirect.com` or `hsbc.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="factor"></span>CITI SUPPLY CHAIN FINANCE
@@ -41,7 +41,13 @@ financing void.
 <span data-verify-line="factor">verify:citi.com/scf/v</span> <span verifiable-text="end" data-for="factor"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Phantom Invoice Fraud
+
+- **Double-Financing:** Selling the same verified invoice to Citi and then secretly trying to sell it to HSBC.
+- **Amount Inflation:** Editing an approved "$100,000" advice to read "$1,000,000" to get a larger advance.
+- **Return Hiding:** Getting paid early for an invoice but then secretly accepting a "Goods Return" from the buyer, leaving the bank with worthless collateral.
+
+## What Is Checked
 
 Batch ID, funding bank name, buyer name, supplier name, itemized invoice numbers, gross invoice amounts, early payment date, maturity date (when buyer pays), discount rate (APR/Fees), net payout amount, bank officer ID.
 
@@ -51,25 +57,25 @@ Batch ID, funding bank name, buyer name, supplier name, itemized invoice numbers
 - **Assignment of Proceeds:** (Linked hash) moving the legal debt to the bank.
 - **Payoff Letter:** Proof that the buyer has settled the debt with the bank.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`citi.com`, `jpmorgan.com`, `taulia.com`) and the financing standing.
 
 **Status Indications:**
 - **Funded / Paid** — Cash has been disbursed to the supplier.
 - **Approved / Pending** — Buyer has verified the goods; bank is awaiting drawdown.
-- **Matured / Settled** — **ALERT:** The buyer has already paid the bank; this paper is historic.
-- **In Dispute** — **CRITICAL:** The buyer has flagged the invoices for "Quality Issues."
+- **Matured / Settled** — The buyer has already paid the bank; this paper is historic.
+- **In Dispute** — The buyer has flagged the invoices for "Quality Issues."
 
-## Second-Party Use
+## Who Holds It
 
-The **Supplier (The Payee)** benefits from verification.
+The Supplier (The Payee) benefits from verification.
 
-**Working Capital Speed:** When negotiating a "Material Purchase" from a raw-goods vendor (e.g., steel or plastic), the supplier shows the verified "Citi Approval" hash. The vendor can instantly see **"VERIFIED: $1.25M"** from a top-tier bank, giving them the confidence to ship materials on credit because they know the supplier's cash is coming in 48 hours.
+**Working Capital Speed:** When negotiating a "Material Purchase" from a raw-goods vendor (e.g., steel or plastic), the supplier shows the verified "Citi Approval" hash. The vendor can instantly see "VERIFIED: $1.25M" from a top-tier bank, giving them the confidence to ship materials on credit because they know the supplier's cash is coming in 48 hours.
 
 **Audit Compliance:** Proving to their own shareholders and auditors that their "Factored Income" is based on legitimate, buyer-approved invoices, removing the risk of "Revenue Padding" accusations.
 
-## Third-Party Use
+## Who Checks It
 
 **Bank Auditors / Regulators**
 **Systemic Risk Audit:** Verifying that the bank's "Trade Finance" portfolio is backed by authentic, buyer-verified assets. Live Verify ensures the bank isn't funding "Phantom Invoices" created by a collusive supplier and employee.
@@ -80,13 +86,7 @@ The **Supplier (The Payee)** benefits from verification.
 **Secondary Debt Investors**
 **Portfolio Due Diligence:** Before buying a "Slice" of a bank's supply chain debt, the investor scans random hashes. Verification ensures the maturity dates and amounts match the original digital approvals.
 
-## Verification Architecture
-
-**The "Phantom Invoice" Fraud Problem**
-
-- **Double-Financing:** Selling the same verified invoice to Citi and then secretly trying to sell it to HSBC.
-- **Amount Inflation:** Editing an approved "$100,000" advice to read "$1,000,000" to get a larger advance.
-- **Return Hiding:** Getting paid early for an invoice but then secretly accepting a "Goods Return" from the buyer, leaving the bank with worthless collateral.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

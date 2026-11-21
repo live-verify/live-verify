@@ -108,7 +108,13 @@ Dense tables are a harder camera-OCR case than a short extract. See [page-at-a-t
 
 **"Why would you bother?" (Pattern A):** Insurance fraud and denial drive most alterations. A patient scrubs a positive drug test before a custody hearing. A pilot edits a cardiac finding to pass a flight physical. A disability claimant adds findings that do not exist to support a claim. A life insurance applicant removes a cancer diagnosis to qualify for coverage. The lab's internal system is unaltered, but the paper that travels to the third party is trivially editable.
 
-## Data Verified
+## The Problem: Medical Denial Fraud
+
+- **Diagnosis Scrubbing:** A patient editing a "Positive" cancer report to "Negative" to pass a life insurance exam or to hide a condition from a family member.
+- **Result Alteration:** Changing a positive finding to negative, changing a number, or removing an abnormal-result flag.
+- **Pathologist Impersonation:** Creating a fake report on the letterhead of a reputable lab to justify an experimental or unauthorized treatment.
+
+## What Is Checked
 
 Patient identifiers, accession number, specimen type, test names, numerical results and units, qualitative findings, laboratory reference intervals and flags, reporting professional where applicable, collection date/time, report date/time, version, declared page/extract scope, and unpredictable receipt ID.
 
@@ -118,19 +124,19 @@ Patient identifiers, accession number, specimen type, test names, numerical resu
 - **Toxicology Report:** Proving "Clean" or "Positive" status.
 - **Genetic Screen:** Complex multi-page DNA analysis.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`questdiagnostics.com`, `labcorp.com`) and current report standing.
 
 **Status Indications:**
 - **Final** — Report is complete and verified by the medical director.
-- **Amended** — **ALERT:** Original result was corrected; this version is void.
+- **Amended** — Original result was corrected; this version is void.
 - **Preliminary** — Initial findings; this is not the final report.
 - **Cancelled** — Specimen was compromised; no result issued.
 
-## Second-Party Use
+## Who Holds It
 
-The **Patient** benefits from verification.
+The Patient benefits from verification.
 
 **Primary-care consultations:** Taking externally obtained blood-test results to a GP or PCP without relying on an unverifiable printout or giving the clinician access to the patient's laboratory account.
 
@@ -138,7 +144,7 @@ The **Patient** benefits from verification.
 
 **Personal Health Records:** Carrying a source-attributed report and choosing whom to share it with. A verified report is an issuer's statement about a specimen and date, not a complete or current account of a person's health.
 
-## Third-Party Use
+## Who Checks It
 
 **Specialist Physicians / Oncologists**
 **Report provenance:** A consulting clinician checks the presented report against the laboratory's published hash/status. This helps detect altered text; it does not establish diagnostic accuracy or make the report sufficient for a treatment decision.
@@ -149,13 +155,7 @@ The **Patient** benefits from verification.
 **Clinical Trial Monitors**
 **Eligibility Vetting:** Ensuring that participants in a lung cancer trial actually have the "Verified Grade 2" diagnosis required by the protocol.
 
-## Verification Architecture
-
-**The "Medical Denial" Fraud Problem**
-
-- **Diagnosis Scrubbing:** A patient editing a "Positive" cancer report to "Negative" to pass a life insurance exam or to hide a condition from a family member.
-- **Result Alteration:** Changing a positive finding to negative, changing a number, or removing an abnormal-result flag.
-- **Pathologist Impersonation:** Creating a fake report on the letterhead of a reputable lab to justify an experimental or unauthorized treatment.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -184,7 +184,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the laboratory's hashes and status changes plus structured metadata (specimen ID, test type, result status, report date, pathologist ID) — never patient name, diagnosis details, or medical history — providing non-repudiation of the test results and an audit trail insurers and clinicians can inspect.
 
 
-## Competition vs. Patient Portals / HIEs
+## Compared With Patient Portals / HIEs
 
 | Feature | Live Verify | Patient Portal (MyQuest) | Health Info Exchange (HIE) |
 | :--- | :--- | :--- | :--- |

@@ -76,7 +76,7 @@ This sign was last updated: 08 MAR 2026
 
 ## Why Text, Not QR
 
-QR codes are the obvious choice for navigation because they reduce friction sharply. But in a public building with heavy foot traffic and limited supervision, they also have a critical vulnerability: **sticker overlay attacks.**
+QR codes are the obvious choice for navigation because they reduce friction sharply. But in a public building with heavy foot traffic and limited supervision, they also have a critical vulnerability: sticker overlay attacks.
 
 A malicious QR sticker placed over a legitimate QR code takes seconds to apply, is visually indistinguishable from the original, and redirects every scanner to a different URL. In a hospital context this could mean:
 
@@ -92,14 +92,22 @@ Plain text on a wall is much harder to tamper with at scale:
 3. **Hash integrity.** The verification hash covers the entire sign text. Change a single character — move "Outpatients" from "3 min" to "5 min," swap "east" for "west" — and the hash won't match. The verification fails, alerting the scanner that the sign has been altered.
 4. **Camera OCR is robust.** Modern phone cameras reliably OCR printed monospace text from a corridor sign at arm's length. No special app needed beyond the standard Live Verify browser extension.
 
-That does **not** mean text always beats QR. The trade-off is:
+That does not mean text always beats QR. The trade-off is:
 
 - **QR:** faster and easier for most visitors
 - **Plain text + verification:** more transparent if tamperability and domain legibility matter
 
 In many real deployments, QR may still win on convenience. The Live Verify case is strongest where the operator wants the physical sign itself to be a human-readable, inspectable launch surface into the live navigation system.
 
-## Data Verified
+## The Problem: Stale Signage
+
+Large buildings are not static. Hospital departments merge, split, relocate. University faculties move between buildings. Airport gates get reassigned. Exhibition hall layouts change weekly. Shopping centre tenants come and go. A sign printed in 2019 may point to a department that moved in 2022 to a building that didn't exist in 2019. The sign is not "wrong" — it was correct when posted. It's just stale.
+
+This is different from fraud. Nobody is tampering with corridor signs for profit. The problem is institutional inertia — updating hundreds of signs across a sprawling campus is expensive and slow, so it doesn't happen until a refurbishment forces it. Meanwhile, visitors follow outdated directions.
+
+The core fix is the operator's live navigation service. Live Verify can turn stale signs into trustworthy launch surfaces for that service. The physical text becomes a reference point rather than an instruction, and the verification response provides the current navigation data.
+
+## What Is Checked
 
 Location identifier (block/level/junction), nearest departments with walking times, nearest facilities (lifts, stairs, toilets), last-updated date, issuing trust/hospital name.
 
@@ -155,9 +163,9 @@ This is indoor navigation without Bluetooth beacons, without Wi-Fi triangulation
 
 **Progressive navigation:** A visitor scans the sign at the entrance, selects "Cardiology Outpatients," and gets directions. Three junctions later they're unsure — they scan another sign. The app recalculates from the new position. No GPS needed. No battery-draining Bluetooth scanning. Just printed text and a verification endpoint.
 
-## Second-Party Use
+## Who Holds It
 
-The **building operator** (issuer) benefits:
+The building operator (issuer) benefits:
 
 **Reduced front-desk load:** The single most common question at any hospital reception, university porter's lodge, airport information desk, or courthouse security checkpoint is "How do I get to X?" Verifiable wayfinding signs with navigation responses let visitors self-serve, freeing staff for their actual jobs.
 
@@ -165,7 +173,7 @@ The **building operator** (issuer) benefits:
 
 **Visitor flow analytics:** Anonymised scan data shows which junctions are most-scanned (confusion hotspots), which destinations are most-searched (demand indicators), and which routes are most-followed (traffic patterns). No personal data needed — just scan counts per sign per hour. A hospital learns where patients get lost; an airport learns where passengers hesitate; a university learns which buildings are hardest to find during freshers' week.
 
-## Third-Party Use
+## Who Checks It
 
 **Visitors and the General Public**
 The primary beneficiary. An elderly patient navigating to a clinic appointment. A first-year student looking for a lecture theatre in a building they've never entered. A passenger with 20 minutes until boarding. A family visiting a relative on a ward. A juror finding their courtroom. All currently rely on asking staff, following painted floor lines (which peel and fade), or printed maps that don't fit in a pocket.
@@ -179,15 +187,7 @@ Verifiable signs can include accessibility data in the navigation response — w
 **Event Attendees**
 Exhibition centres (NEC Birmingham, ExCeL London, Javits Center New York) host different events in different halls every week. The layout changes; the signage doesn't keep up. A scan at any junction tells you which hall your event is in and how to get there — without queuing at the information desk with 500 other arrivals.
 
-## Verification Architecture
-
-**The Stale Signage Problem**
-
-Large buildings are not static. Hospital departments merge, split, relocate. University faculties move between buildings. Airport gates get reassigned. Exhibition hall layouts change weekly. Shopping centre tenants come and go. A sign printed in 2019 may point to a department that moved in 2022 to a building that didn't exist in 2019. The sign is not "wrong" — it was correct when posted. It's just stale.
-
-This is different from fraud. Nobody is tampering with corridor signs for profit. The problem is institutional inertia — updating hundreds of signs across a sprawling campus is expensive and slow, so it doesn't happen until a refurbishment forces it. Meanwhile, visitors follow outdated directions.
-
-The core fix is the operator's live navigation service. Live Verify can turn stale signs into trustworthy launch surfaces for that service. The physical text becomes a reference point rather than an instruction, and the verification response provides the current navigation data.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

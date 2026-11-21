@@ -85,7 +85,23 @@ verify:ukas.com/accredited-labs
 </pre>
 </div>
 
-## Data Verified
+## The Problem: Accredited Laboratory Trust
+
+- **Logo copying:** Any website can display the UKAS crown and tick, the A2LA logo, or "ISO 17025 Accredited" — these are just images or text.
+- **Scope inflation:** A laboratory accredited for a narrow set of test methods presents itself as broadly accredited, hoping customers will not check the detailed schedule.
+- **Expired accreditation:** Accreditation runs on assessment cycles (typically 4 years with annual surveillance). A laboratory that fails reassessment may continue displaying accreditation claims.
+- **Post-suspension persistence:** A laboratory suspended for non-conformities may take weeks or months to update its website, if it updates at all.
+- **Fabricated accreditation numbers:** Some laboratories display plausible-looking accreditation schedule numbers that do not correspond to any real accreditation.
+
+The verifiable claim addresses these because:
+
+1. The accreditation body issues the claim — it is not self-asserted by the laboratory
+2. The claim names the specific site where it applies
+3. Suspension and withdrawal are immediate — the endpoint returns SUSPENDED or WITHDRAWN
+4. The browser extension can detect domain mismatches automatically
+5. The scope is fixed in the claim text — the laboratory cannot broaden it without a new hash
+
+## What Is Checked
 
 Laboratory legal name, website domain, accreditation body, accredited standard, test method scope, accreditation schedule reference, and current status.
 
@@ -96,7 +112,7 @@ Laboratory legal name, website domain, accreditation body, accredited standard, 
 
 **Privacy Salt:** Generally not required. Laboratory accreditation is a public-facing competence claim that the laboratory wants customers to see. The accreditation body may salt if specific scope details are commercially sensitive.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `ukas.com`, `a2la.org`) and the current accreditation status.
 
@@ -119,9 +135,9 @@ The `allowedDomains` field enables browser extensions to detect domain mismatche
 - **Scope Reduced** — Laboratory remains accredited but no longer for this specific test method.
 - **404** — No such accreditation was issued by the claimed accreditation body.
 
-## Second-Party Use
+## Who Holds It
 
-The **manufacturer commissioning tests** benefits directly.
+The manufacturer commissioning tests benefits directly.
 
 **Pre-engagement due diligence:** Before sending samples or signing a testing contract, the manufacturer can verify that the laboratory is genuinely accredited for the relevant test method, not just claiming to be.
 
@@ -129,7 +145,7 @@ The **manufacturer commissioning tests** benefits directly.
 
 **Scope confirmation:** A laboratory accredited for tensile testing of metals is not necessarily accredited for chemical composition analysis. The claim names the specific scope, preventing reliance on a laboratory operating outside its accredited competence.
 
-## Third-Party Use
+## Who Checks It
 
 **Regulators and Product Safety Authorities**
 
@@ -143,25 +159,7 @@ The **manufacturer commissioning tests** benefits directly.
 
 **Chain of testing integrity:** When multiple laboratories are involved in a product certification chain, each laboratory's accreditation can be verified independently.
 
-## Verification Architecture
-
-**The "Accredited Laboratory" Trust Problem**
-
-- **Logo copying:** Any website can display the UKAS crown and tick, the A2LA logo, or "ISO 17025 Accredited" — these are just images or text.
-- **Scope inflation:** A laboratory accredited for a narrow set of test methods presents itself as broadly accredited, hoping customers will not check the detailed schedule.
-- **Expired accreditation:** Accreditation runs on assessment cycles (typically 4 years with annual surveillance). A laboratory that fails reassessment may continue displaying accreditation claims.
-- **Post-suspension persistence:** A laboratory suspended for non-conformities may take weeks or months to update its website, if it updates at all.
-- **Fabricated accreditation numbers:** Some laboratories display plausible-looking accreditation schedule numbers that do not correspond to any real accreditation.
-
-The verifiable claim addresses these because:
-
-1. The accreditation body issues the claim — it is not self-asserted by the laboratory
-2. The claim names the specific site where it applies
-3. Suspension and withdrawal are immediate — the endpoint returns SUSPENDED or WITHDRAWN
-4. The browser extension can detect domain mismatches automatically
-5. The scope is fixed in the claim text — the laboratory cannot broaden it without a new hash
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | UKAS / A2LA Directory Search | Paper Certificate on Lab Wall | PDF of Accreditation Schedule |
 | :--- | :--- | :--- | :--- | :--- |

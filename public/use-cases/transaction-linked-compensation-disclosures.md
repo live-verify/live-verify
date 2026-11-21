@@ -82,13 +82,13 @@ Transaction Summary: INITIAL COMMISSION PAID
 
 ## Why the two-layer model matters
 
-The **general position** answers:
+The general position answers:
 
 - can this person take commission at all?
 - can they receive trail or revenue share?
 - what kinds of inducements are in scope?
 
-The **transaction record** answers:
+The transaction record answers:
 
 - what did they actually get on this deal?
 - from whom?
@@ -97,7 +97,17 @@ The **transaction record** answers:
 
 Without both, the client sees only part of the conflict.
 
-## Data Verified
+## The Problem: I Sound Independent, But...
+
+- **Abstract independence claims:** Adviser markets themselves as independent or unbiased while still taking product-linked compensation.
+- **Invisible transaction economics:** The client sees the recommendation but not the actual amount paid by the provider.
+- **Trail opacity:** Initial commission may be visible, but trailing compensation quietly continues for years.
+- **Proxy incentives:** Referral fees, revenue share, bonus grids, soft-dollar benefits, or volume-linked inducements substitute for obvious commission.
+- **Historic amnesia:** Years later, nobody can easily prove what was paid on the original deal.
+
+This use case does not require exact salary disclosure. It focuses on the narrower and more relevant question:
+
+## What Is Checked
 
 ### General position
 
@@ -114,7 +124,7 @@ Adviser name, firm, transaction reference, scheme/product reference, transaction
 - **Referral / Introducer Payment Record**
 - **Post-Transaction Compensation Amendment**
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain and the current status.
 
@@ -128,9 +138,9 @@ Shows the issuer domain and the current status.
 - **Amended** — Original transaction economics were corrected
 - **Voided** — The record was issued in error or the transaction unwound
 
-## Second-Party Use
+## Who Holds It
 
-The **client or customer** benefits first.
+The client or customer benefits first.
 
 **Point-of-decision clarity:** Before signing a transfer, investment, policy, or mortgage recommendation, the customer can verify both the adviser's general incentive model and the exact economics of this transaction.
 
@@ -140,7 +150,7 @@ The **client or customer** benefits first.
 
 **Reduced ambiguity:** The system makes it harder to answer the practical question with vague branding terms like "independent," "whole of market," or "aligned."
 
-## Third-Party Use
+## Who Checks It
 
 **Regulators and Ombudsmen**
 
@@ -158,17 +168,7 @@ The **client or customer** benefits first.
 
 **Conflict checking:** A lender, product provider, or professional counterparty can confirm whether a claimed "fee-only" or "independent" posture actually matches the economics in play.
 
-## Verification Architecture
-
-**The "I Sound Independent, But..." Problem**
-
-- **Abstract independence claims:** Adviser markets themselves as independent or unbiased while still taking product-linked compensation.
-- **Invisible transaction economics:** The client sees the recommendation but not the actual amount paid by the provider.
-- **Trail opacity:** Initial commission may be visible, but trailing compensation quietly continues for years.
-- **Proxy incentives:** Referral fees, revenue share, bonus grids, soft-dollar benefits, or volume-linked inducements substitute for obvious commission.
-- **Historic amnesia:** Years later, nobody can easily prove what was paid on the original deal.
-
-This use case does not require exact salary disclosure. It focuses on the narrower and more relevant question:
+## How Verification Works Here
 
 **what incentive exists, and what did this transaction pay?**
 
@@ -200,7 +200,7 @@ The standing disclosure answers that in principle.
 The transaction record answers it in fact.
 </details>
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Two-Layer Verified Disclosure | Terms of Business PDF | Adviser Verbal Answer | Regulator Filing Only |
 | :--- | :--- | :--- | :--- | :--- |

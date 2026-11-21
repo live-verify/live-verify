@@ -11,13 +11,13 @@ furtherDerivations: 1
 
 ## What is Peer-to-Peer Sale Witnessing?
 
-When Peter sells his MacBook to Mary via Craigslist, they meet at a Starbucks. The public venue provides **physical safety**, but nothing else. Mary has no recourse if:
+When Peter sells his MacBook to Mary via Craigslist, they meet at a Starbucks. The public venue provides physical safety, but nothing else. Mary has no recourse if:
 
 - The laptop turns out to be stolen (obscured by a fresh OS install)
 - Peter gave a fake name and burner phone number
 - The serial number is flagged a week later when Mary tries to get AppleCare
 
-This is a **notary for informal sales**—a witnessing organization that verifies identities and records the transaction, without touching the money.
+This is a notary for informal sales—a witnessing organization that verifies identities and records the transaction, without touching the money.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="p2p"></span>SAFESALE WITNESSED TRANSACTION
@@ -43,7 +43,14 @@ Identities verified via government ID.
 <span data-verify-line="p2p">verify:safesale.org/tx/v</span> <span verifiable-text="end" data-for="p2p"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Stranger Sale
+
+- **Fake Identity:** Seller uses a burner phone and fake name; buyer has no way to find them later.
+- **Stolen Goods:** Item appears legitimate but is stolen; buyer becomes unwitting fence.
+- **No Paper Trail:** Cash transactions leave no verifiable record of the exchange.
+- **Platform Limitations:** Facebook Marketplace and Craigslist facilitate introductions but don't verify identities or witness transactions.
+
+## What Is Checked
 
 Transaction ID, date/time, location, seller identity reference, buyer identity reference, item description, serial number, condition, sale price.
 
@@ -57,7 +64,7 @@ Transaction ID, date/time, location, seller identity reference, buyer identity r
 - Full item details including serial numbers
 - Timestamp and location
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the witnessing organization domain (`safesale.org`) and transaction status.
 
@@ -67,7 +74,7 @@ Shows the witnessing organization domain (`safesale.org`) and transaction status
 - **Resolved** — Dispute was resolved; may include outcome note.
 - **Police Hold** — Law enforcement has requested identity disclosure.
 
-## Second-Party Use
+## Who Holds It
 
 **The Buyer** benefits from verification.
 
@@ -81,7 +88,7 @@ Shows the witnessing organization domain (`safesale.org`) and transaction status
 
 **Buyer Accountability:** If Mary tries to falsely claim the item was defective or misrepresented, the witnessed transaction record protects Peter.
 
-## Third-Party Use
+## Who Checks It
 
 **Law Enforcement**
 
@@ -97,14 +104,7 @@ Shows the witnessing organization domain (`safesale.org`) and transaction status
 
 **Evidence:** Verified transaction records serve as evidence in disputes over private sales.
 
-## Verification Architecture
-
-**The "Stranger Sale" Problem**
-
-- **Fake Identity:** Seller uses a burner phone and fake name; buyer has no way to find them later.
-- **Stolen Goods:** Item appears legitimate but is stolen; buyer becomes unwitting fence.
-- **No Paper Trail:** Cash transactions leave no verifiable record of the exchange.
-- **Platform Limitations:** Facebook Marketplace and Craigslist facilitate introductions but don't verify identities or witness transactions.
+## How Verification Works Here
 
 **How Witnessing Solves This**
 
@@ -123,7 +123,7 @@ The witnessing organization provides what a Starbucks meetup cannot:
 - **Not a money transmitter** — Avoids heavy financial regulation
 - **Not a guarantor** — Doesn't insure the transaction
 
-This is purely **identity escrow and transaction witnessing**—a notary for informal sales.
+This is purely identity escrow and transaction witnessing—a notary for informal sales.
 
 **One-Time vs. Recurring Identity Escrow:**
 
@@ -153,7 +153,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer is the core of this use case — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the general mechanism. Here the witnessing firm goes further than hash custody: it verifies government-issued ID for both parties, records transaction details with timestamps, and retains identity information under strict access controls, disclosing it only via legal process or mutual consent. That gives both sides accountability (neither party can deny the transaction occurred), recourse (buyers can reach sellers after the fact), deterrence (sellers of stolen goods know their identity is on file), and evidence courts and police can rely on.
 
-## Competition vs. Existing Solutions
+## Compared With Existing Solutions
 
 | Feature | Witnessed P2P Sale | Facebook Marketplace | Pawn Shop | Cash in Parking Lot |
 | :--- | :--- | :--- | :--- | :--- |

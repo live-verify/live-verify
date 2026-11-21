@@ -85,7 +85,23 @@ verify:microsoft.com/partners
 </pre>
 </div>
 
-## Data Verified
+## The Problem: Authorized Partner Trust
+
+- **Badge copying:** Any website can display "Microsoft Gold Partner" or "Salesforce Consulting Partner" — these are images or text with no cryptographic binding to the vendor.
+- **Stale directories:** Vendor partner portals are often difficult to search, show outdated tier information, or require the buyer to know the partner's exact legal name.
+- **Grey-market licence keys:** Keys purchased in lower-cost regions, harvested from MSDN or developer subscriptions, or obtained through stolen credit cards, then resold as legitimate volume licences.
+- **Fraudulent volume licensing:** Sellers that issue fake licence confirmations or forge vendor correspondence to make grey-market keys appear legitimate.
+- **Post-revocation persistence:** A partner dropped from a vendor's programme may continue displaying authorization badges and selling from existing key stock for months.
+- **Compliance liability transfer:** The purchasing company — not the unauthorized reseller — bears the compliance risk when audited. The reseller has often disappeared by the time the audit occurs.
+
+The verifiable claim addresses these because:
+
+1. The vendor issues the claim — it is not self-asserted by the reseller
+2. The claim names the specific site where it applies
+3. Revocation is immediate — the endpoint returns REVOKED
+4. The browser extension can detect domain mismatches automatically
+
+## What Is Checked
 
 Partner legal name, authorized site domain, software vendor, product line or licensing programme, authorization period, and current status.
 
@@ -96,7 +112,7 @@ Partner legal name, authorized site domain, software vendor, product line or lic
 
 **Privacy Salt:** Generally not required. Partner authorizations are commercial claims that the partner wants to be public. The vendor may salt if the authorization tier or specific programme enrollment is commercially sensitive.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `microsoft.com`, `salesforce.com`, `oracle.com`) and the current authorization status.
 
@@ -119,9 +135,9 @@ The `allowedDomains` field enables browser extensions to detect domain mismatche
 - **Product Line Removed** — Partner is still authorized for other products but not this one.
 - **404** — No such authorization was issued by the claimed vendor.
 
-## Second-Party Use
+## Who Holds It
 
-The **purchasing company** (typically its IT department or procurement team) benefits directly.
+The purchasing company (typically its IT department or procurement team) benefits directly.
 
 **Pre-purchase licence confidence:** Before committing to a volume licence agreement, the buyer can verify that the reseller is genuinely authorized by the vendor, not a grey-market intermediary selling keys of uncertain provenance.
 
@@ -129,7 +145,7 @@ The **purchasing company** (typically its IT department or procurement team) ben
 
 **Domain-mismatch protection:** Even without the extension, the site domain in the claim text is a visible check. With the extension, domain mismatches produce an automatic warning — relevant when a procurement officer is evaluating an unfamiliar reseller found through a search engine.
 
-## Third-Party Use
+## Who Checks It
 
 **Software Vendors and Channel Teams**
 
@@ -145,25 +161,7 @@ The **purchasing company** (typically its IT department or procurement team) ben
 
 **Vendor vetting:** Large enterprises that maintain approved-supplier lists can use verified authorizations as part of the onboarding check for a new software reseller, rather than relying on the reseller's self-reported partner status.
 
-## Verification Architecture
-
-**The "Authorized Partner" Trust Problem**
-
-- **Badge copying:** Any website can display "Microsoft Gold Partner" or "Salesforce Consulting Partner" — these are images or text with no cryptographic binding to the vendor.
-- **Stale directories:** Vendor partner portals are often difficult to search, show outdated tier information, or require the buyer to know the partner's exact legal name.
-- **Grey-market licence keys:** Keys purchased in lower-cost regions, harvested from MSDN or developer subscriptions, or obtained through stolen credit cards, then resold as legitimate volume licences.
-- **Fraudulent volume licensing:** Sellers that issue fake licence confirmations or forge vendor correspondence to make grey-market keys appear legitimate.
-- **Post-revocation persistence:** A partner dropped from a vendor's programme may continue displaying authorization badges and selling from existing key stock for months.
-- **Compliance liability transfer:** The purchasing company — not the unauthorized reseller — bears the compliance risk when audited. The reseller has often disappeared by the time the audit occurs.
-
-The verifiable claim addresses these because:
-
-1. The vendor issues the claim — it is not self-asserted by the reseller
-2. The claim names the specific site where it applies
-3. Revocation is immediate — the endpoint returns REVOKED
-4. The browser extension can detect domain mismatches automatically
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | "Partner" Badge | Vendor Partner Portal | Invoice Only |
 | :--- | :--- | :--- | :--- | :--- |

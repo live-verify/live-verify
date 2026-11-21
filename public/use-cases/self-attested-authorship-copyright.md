@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 A copyright line is one of the most common claims on the internet — `© Name 2026`, `Portions
 Copyright …`, a byline, an "all rights reserved" footer — and one of the least verifiable. It asserts
-two things a reader cannot check: that **this person really claims this work**, and **which person of
+two things a reader cannot check: that this person really claims this work, and **which person of
 that name** is meant. Both are getting harder, not easier, as authorship becomes fluid:
 
 - **Name collisions are normal.** "Paul Hammant" might be a software author maintaining a repository,
@@ -25,9 +25,9 @@ that name** is meant. Both are getting harder, not easier, as authorship becomes
   they stand behind it?" is a question creators increasingly need to answer affirmatively, on their
   own terms.
 
-Official copyright **registration** (see [Copyright Registrations](copyrights.md)) answers some of
+Official copyright registration (see [Copyright Registrations](copyrights.md)) answers some of
 this for high-value works through a national office. But almost no one files a federal registration
-for a README, a blog post, a photo, or a song demo. The everyday case is a **self-attested** notice,
+for a README, a blog post, a photo, or a song demo. The everyday case is a self-attested notice,
 and today it carries no proof and no disambiguation at all.
 
 ## What gets attested
@@ -54,7 +54,7 @@ This combines two faces of one pattern: **the creator asserts; the domain disamb
 ## The byline as a decentralized author identity (an ORCID alternative)
 
 For journalists, writers, and researchers, the same primitive does something bigger than mark a
-copyright notice: a **`vfy:` byline becomes a persistent, self-sovereign author identity** — what ORCID
+copyright notice: a `vfy:` byline becomes a persistent, self-sovereign author identity — what ORCID
 is for academics, but decentralized and rooted in domain control rather than a single central registry.
 
 A piece carries `Written by Jane Doe — vfy:janedoe.com/me/v`. Resolving that line does the three things
@@ -71,7 +71,7 @@ an author-identity system exists to do:
 
 ### Where the decentralized version wins — and the one place it doesn't
 
-This is a genuine **ORCID alternative**, and for journalists in particular it is *stronger* on the
+This is a genuine ORCID alternative, and for journalists in particular it is *stronger* on the
 properties that matter most:
 
 | Property | ORCID (central registry) | `vfy:` byline (decentralized) |
@@ -83,9 +83,9 @@ properties that matter most:
 | **Survives the registry going away** | No — single point of failure | Yes — no central operator to defund or capture |
 | **Central discovery / aggregation** | **Yes** — one namespace everyone searches to find all of an author's work | **No** — a thousand author-domains are not a searchable index. This is the honest tradeoff |
 
-The one thing a purely decentralized scheme **cannot** match is ORCID's central-discovery value: there
+The one thing a purely decentralized scheme cannot match is ORCID's central-discovery value: there
 is no single place to query "everything Jane ever wrote." A domain-anchored byline gives you
-**verification and anti-impersonation** (is *this* byline genuinely hers?) but not **discovery** (find
+**verification and anti-impersonation** (is *this* byline genuinely hers?) but not discovery (find
 all her work). That limit is real and stated plainly rather than glossed.
 
 **The resolution is to compose, not choose.** The domain-anchored byline is the self-sovereign *root*
@@ -103,10 +103,10 @@ that *asserts* who you are" — that assertion layer is exactly what domain-anch
 commoditizes (anyone can verify a byline against its own domain, for free, with no registry). Its
 durable value is **discovery and aggregation**: one query that finds everything an author wrote. Those
 are separable. So the registry's strongest position is not to compete with self-sovereign identity but
-to **rest on it** — to stop being the *root* of trust and become the *index* over roots the authors
+to rest on it — to stop being the *root* of trust and become the *index* over roots the authors
 own: ORCID iDs that resolve *to* a domain-anchored identity rather than standing in place of one.
 
-That is the **up-stack move** the [Let's Encrypt](../../docs/lets-encrypt-precedent.md) and
+That is the up-stack move the [Let's Encrypt](../../docs/lets-encrypt-precedent.md) and
 [Merkle Tree Certificates](../../docs/merkle-tree-certificates-precedent.md) precedents describe — the
 incumbent concedes the commodity (assertion) and keeps the durable layer (discovery/operations) — and
 it is exactly the thesis of [decentralized trust graphs](../../docs/decentralized-trust-graphs.md):
@@ -134,9 +134,9 @@ MICHAEL CHEN" to someone reading that exact line adds nothing).
 
 **This use case is a deliberate, justified exception** — and it is worth stating plainly so it reads
 as a principled exception, not a violation. The reason the exception holds: the claim string here is
-*intentionally low-information*. "Paul Hammant" is precisely the part the verifier **cannot** resolve
+*intentionally low-information*. "Paul Hammant" is precisely the part the verifier cannot resolve
 from the document alone. So the post-verification disclosure is not echoing what they already
-have — it is supplying **exactly what the short notice deliberately leaves out**. The disclosure *is*
+have — it is supplying exactly what the short notice deliberately leaves out. The disclosure *is*
 the payload, not a redundant repeat.
 
 The test for when echoing is legitimate: *does the response tell the verifier something the document
@@ -181,13 +181,13 @@ The footer on the work stays as short as `Portions Copyright Paul Hammant 2026` 
 Everything above the salt is what the *endpoint* discloses on verification — deliberately, because
 that is the information the short notice omits.
 
-## Data Verified
+## What Is Checked
 
 That the controller of the named domain asserts this authorship/copyright notice; the asserted name
 and year; the disclosed disambiguating identity, scope, and licence the author chose to publish; the
 as-at timestamp; and the salt.
 
-**What this does and does not prove.** It proves **the domain owner asserts this claim** — it is an
+**What this does and does not prove.** It proves the domain owner asserts this claim — it is an
 authenticated assertion of authorship, not an adjudication of legal ownership. Live Verify cannot and
 does not decide a copyright dispute; that is a court's role, and for registered works the national
 office's record (see [Copyright Registrations](copyrights.md)) is the authority. What this adds is
@@ -201,7 +201,7 @@ assertion.
   disclosed)
 - personal data the author has not chosen to publish
 
-## Data Visible After Verification
+## What the Checker Sees
 
 The verifier sees the asserting domain, the disambiguated author identity, the claim scope, the
 licence, and the current standing of the claim.
@@ -216,9 +216,9 @@ licence, and the current standing of the claim.
   principle, an unverifiable authorship claim reads as unverified — never quietly as "probably the
   author."
 
-## Second-Party Use
+## Who Holds It
 
-The **creator / author** benefits directly.
+The creator / author benefits directly.
 
 **Disambiguation from same-named others:** A short, stable footer lets the right Paul Hammant be told
 apart from any other, because each anchors to a different domain and discloses different identity
@@ -232,7 +232,7 @@ theirs — complementary to platform/issuer-side
 [AI content provenance disclosure](ai-content-provenance-disclosure.md), which attests AI-vs-human
 origin from the platform side; this is the *author's own* assertion from the creator side.
 
-## Third-Party Use
+## Who Checks It
 
 **Publishers, labels, and platforms (e.g. Spotify, app stores, repositories)**
 
@@ -251,10 +251,10 @@ so someone confirming who made a work also learns how they may use it.
 **Attribution integrity:** Confirming a byline or copyright notice is genuinely the asserting author's
 before re-publishing or ingesting a work.
 
-## Verification Architecture
+## How Verification Works Here
 
 The verifiable artifact is a short, self-attested notice bound to the author's own domain; the
-endpoint returns an affirmative status plus the **deliberate disambiguating disclosure** described
+endpoint returns an affirmative status plus the deliberate disambiguating disclosure described
 above. The mechanism is the standard `text → normalize → SHA-256 → GET`; the only thing unusual is
 that the response intentionally adds identity information — justified because the notice is
 deliberately terse and the name is the very thing the verifier cannot otherwise resolve.
@@ -274,7 +274,7 @@ disclosure exposes only the identity information the author chose to publish.
 
 ## Adding weight: who can endorse the claim
 
-A bare self-attestation is the floor, not the ceiling. The author can layer **endorsers** into the
+A bare self-attestation is the floor, not the ceiling. The author can layer endorsers into the
 authority chain, each adding a *different kind* of weight — so you choose the endorser that matches
 the assurance the situation actually needs. The crucial point is that different endorsers attest
 different things; they are not interchangeable.
@@ -294,17 +294,17 @@ different things; they are not interchangeable.
 
 **C. Institutional / employment weight — "the entity that owns or sponsors the work confirms it"**
 - **Employer** — attests whether the work was done in the course of employment. This decides the
-  single most consequential copyright question — **work-for-hire vs. personal** — and is the sharpest
+  single most consequential copyright question — work-for-hire vs. personal — and is the sharpest
   way to disambiguate corporate from individual authorship.
 - **University / research institution** — affiliation plus that the work is the author's.
 - **Publisher / label / studio** — attests it holds or licensed rights from this author (ties to
   [Publishing Contracts & Royalties](publishing-contracts-royalties.md)).
 
 **D. Stewardship / governance weight — "the project or community vouches for the contributor"**
-- **Open-source foundation** (Apache, Linux Foundation, FSF) or **the project's own org** — attests
+- **Open-source foundation** (Apache, Linux Foundation, FSF) or the project's own org — attests
   "a recognized maintainer/contributor under our governance." For this repository, the `live-verify`
   GitHub org is the natural endorser of "Paul Hammant maintains this."
-- **Standards body / working group** — for spec authorship; **collective / DAO** — for
+- **Standards body / working group** — for spec authorship; collective / DAO — for
   community-owned works.
 
 **E. Registry / official weight — "an authority has it on record"**
@@ -352,7 +352,7 @@ floor — so it carries risks the default model doesn't. Enrich with these in mi
   expose.
 - **Stale enrichment.** Enrichment served today (employer, "works at Y") keeps circulating in copies
   of the work and caches after you've left, fallen out, or want to go quiet. Revocation updates the
-  endpoint; it does **not** reach copies already in the wild — and here the stale data is *who you
+  endpoint; it does not reach copies already in the wild — and here the stale data is *who you
   are*, not just a status string.
 - **Endorsement laundering.** An endorsement granted for one work can be contextually re-used to lend
   weight to another the endorser never vetted. Pin each endorsement's scope so its credibility can't
@@ -363,7 +363,7 @@ floor — so it carries risks the default model doesn't. Enrich with these in mi
 
 **The unfixable part:** public enrichment is permanent. Anything the endpoint serves publicly can be
 cached, indexed, and used in ways you didn't intend, including after you'd want it gone. The
-discipline is therefore to **disclose only the minimum that resolves the verifier's question** —
+discipline is therefore to disclose only the minimum that resolves the verifier's question —
 "which Paul Hammant?" needs a disambiguator, not a CV. Every extra field is a permanent, harvestable,
 correlatable disclosure.
 

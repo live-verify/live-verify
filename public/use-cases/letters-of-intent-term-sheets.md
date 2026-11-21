@@ -46,7 +46,16 @@ Each revision is a new verifiable claim. The previous claim returns `SUPERSEDED`
 
 Term sheets routinely reference fuller LOI documents with legal language, representations, and conditions. The `Detailed in:` line points to the full document. The attested summary governs on price, structure, exclusivity, and key conditions. Where the summary and the full LOI diverge, the recipient may choose which interpretation applies.
 
-## Data Verified
+## The Problem: Moving Target
+
+- **Selective versioning:** One party presents an older, more favorable version as current
+- **Oral amendments:** "We agreed to change the price on the phone" — unverifiable
+- **Advisor discrepancy:** Different advisors holding different versions of the terms
+- **Exclusivity disputes:** "The exclusivity period started on the 12th, not the 15th"
+
+**Why a revision chain helps:** Each version is independently verifiable with a timestamp. `SUPERSEDED` status on old hashes makes it clear which version is current. The chain is visible to both parties and their advisors.
+
+## What Is Checked
 
 Parties (acquirer/investor, target/company), transaction type, indicative price or valuation, key conditions, exclusivity period, elaboration reference, date.
 
@@ -58,13 +67,13 @@ Parties (acquirer/investor, target/company), transaction type, indicative price 
 - **EXPIRED** — Exclusivity or validity period has passed
 - **404** — Term sheet not found
 
-## Second-Party Use
+## Who Holds It
 
 **Target company board:** Can verify that the acquirer's domain actually attests to the $50M price and 45-day exclusivity, before entering exclusive negotiations and turning away other potential buyers.
 
 **Investors in the target:** Can verify the terms being presented to the board match what the acquirer actually proposed.
 
-## Third-Party Use
+## Who Checks It
 
 **Legal advisors**
 Both sides' lawyers can independently verify the current terms without relying on their client's copy.
@@ -74,17 +83,6 @@ Can verify the transaction terms that were attested at each stage of the review 
 
 **Lenders / Financing parties**
 Can verify the acquisition terms that underpin the financing request.
-
-## Verification Architecture
-
-**The "Moving Target" Problem**
-
-- **Selective versioning:** One party presents an older, more favorable version as current
-- **Oral amendments:** "We agreed to change the price on the phone" — unverifiable
-- **Advisor discrepancy:** Different advisors holding different versions of the terms
-- **Exclusivity disputes:** "The exclusivity period started on the 12th, not the 15th"
-
-**Why a revision chain helps:** Each version is independently verifiable with a timestamp. `SUPERSEDED` status on old hashes makes it clear which version is current. The chain is visible to both parties and their advisors.
 
 ## Authority Chain
 

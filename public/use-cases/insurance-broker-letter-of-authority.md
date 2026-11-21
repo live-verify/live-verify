@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Broker Letter of Authority?
 
-When a company or individual appoints an insurance broker, the broker needs to demonstrate to insurers and underwriters that they are authorized to act on the insured's behalf. The instrument is a **letter of authority** (LoA) — sometimes called a **broker of record letter** (BoR) — confirming that the broker has been appointed to place insurance on the insured's behalf, within a defined scope.
+When a company or individual appoints an insurance broker, the broker needs to demonstrate to insurers and underwriters that they are authorized to act on the insured's behalf. The instrument is a letter of authority (LoA) — sometimes called a broker of record letter (BoR) — confirming that the broker has been appointed to place insurance on the insured's behalf, within a defined scope.
 
 Insurers and underwriters rely on the LoA before quoting, binding cover, or processing mid-term adjustments. If the authority is fabricated, expired, or broader than the insured actually granted, the consequences fall on everyone: the insured may be bound to cover they did not authorize, the insurer may have written risk on a submission that lacked proper instruction, and claims may be disputed years later on grounds of unauthorized placement.
 
@@ -49,7 +49,7 @@ The insured issues a verifiable claim confirming the broker's appointment:
   </div>
 </div>
 
-The verify line points to the **insured's** domain, not the broker's. The insured is the party granting authority; they control whether the claim remains valid. This is the same principle as [Corporate Signing Authority](view.html?doc=contract-signing-authority) — the company declares who is authorized.
+The verify line points to the insured's domain, not the broker's. The insured is the party granting authority; they control whether the claim remains valid. This is the same principle as [Corporate Signing Authority](view.html?doc=contract-signing-authority) — the company declares who is authorized.
 
 ## The Scope Boundary
 
@@ -87,7 +87,7 @@ The `allowedDomains` field allows the broker to embed the claim on their own web
 - **Revoked** — Insured has withdrawn the broker's authority before expiry
 - **Superseded** — Replaced by a new claim (scope change, new broker appointment)
 
-## Second-Party Use
+## Who Holds It
 
 The broker is the primary consumer. They use the verifiable claim to prove their appointment when:
 
@@ -98,7 +98,7 @@ The broker is the primary consumer. They use the verifiable claim to prove their
 
 The broker embeds the claim on their website or includes the verification URL in placement submissions. The insured does not need to be involved each time the broker needs to prove their authority — the claim is self-service.
 
-## Third-Party Use
+## Who Checks It
 
 **Insurers and underwriters** — Verify before quoting or binding cover. In the London market, the lead underwriter can check the broker's authority before writing the slip. Following-market underwriters can do the same.
 
@@ -110,7 +110,7 @@ The broker embeds the claim on their website or includes the verification URL in
 
 **Sub-brokers** — If the insured authorizes sub-brokering, the primary broker's claim can reference the permitted arrangement. If it does not, the absence of any sub-brokering language is itself the evidence that sub-brokering was not authorized.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Fix:** The insured publishes a hashed claim at their own domain confirming the broker's appointment and scope. The broker carries the claim text. Anyone receiving a submission from the broker can verify the claim against the insured's domain. Revocation is immediate — the insured updates the endpoint, and the old claim stops verifying.
 
@@ -148,7 +148,7 @@ Commercial issuer — self-authorized. Trust rests on the insured's domain reput
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition
+## Compared With the Alternatives
 
 | Method | Limitation |
 |--------|-----------|

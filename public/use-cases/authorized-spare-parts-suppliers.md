@@ -86,7 +86,23 @@ verify:cat.com/authorized-suppliers
 </pre>
 </div>
 
-## Data Verified
+## The Problem: Genuine Parts Trust
+
+- **Badge copying:** Any website can display "Authorized Caterpillar Parts Supplier" or "Genuine Bosch Service Parts" — these are just images or text.
+- **Stale directories:** Manufacturer dealer-locator pages rarely cover independent parts distributors, and update slowly when authorizations change.
+- **Grey-market parts:** Components purchased in one market and resold in another, outside the manufacturer's authorized channel, potentially without proper storage, handling, or warranty coverage.
+- **Counterfeit infiltration:** Counterfeit parts enter the supply chain through unauthorized distributors who mix genuine and fake stock. The "authorized supplier" badge builds the trust that makes this possible.
+- **Post-revocation persistence:** A supplier dropped from the authorized channel may continue displaying authorization badges indefinitely. In parts markets, where repeat orders happen over years, this is particularly dangerous.
+- **Safety consequences:** Unlike counterfeit consumer electronics, counterfeit industrial, automotive, aviation, and medical parts can cause equipment failure, injury, or death. A fake hydraulic seal, a counterfeit brake disc, or a non-genuine turbine blade operates under stresses where material and manufacturing tolerances matter.
+
+The verifiable claim addresses these because:
+
+1. The manufacturer issues the claim — it is not self-asserted by the supplier
+2. The claim names the specific site where it applies
+3. Revocation is immediate — the endpoint returns REVOKED
+4. The browser extension can detect domain mismatches automatically
+
+## What Is Checked
 
 Supplier legal name, authorized site domain, manufacturer or brand, parts category or product range, authorization period, and current status.
 
@@ -97,7 +113,7 @@ Supplier legal name, authorized site domain, manufacturer or brand, parts catego
 
 **Privacy Salt:** Generally not required. Parts supplier authorizations are commercial claims that the supplier wants to be public. The manufacturer may salt if the authorized-supplier network structure is commercially sensitive.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `cat.com`, `bosch.com`, `honeywell.com`) and the current authorization status.
 
@@ -120,9 +136,9 @@ The `allowedDomains` field enables browser extensions to detect domain mismatche
 - **Product Range Restricted** — Supplier is still authorized for some parts but not this category.
 - **404** — No such authorization was issued by the claimed manufacturer.
 
-## Second-Party Use
+## Who Holds It
 
-The **maintenance team, fleet operator, or procurement department** benefits directly.
+The maintenance team, fleet operator, or procurement department benefits directly.
 
 **Pre-order confidence:** Before committing to a parts order — particularly for safety-critical components — the buyer can verify that the supplier is genuinely authorized by the manufacturer, not just claiming to be.
 
@@ -130,7 +146,7 @@ The **maintenance team, fleet operator, or procurement department** benefits dir
 
 **Domain-mismatch protection:** Even without the extension, the site domain in the claim text is a visible check. With the extension, domain mismatches produce an automatic warning.
 
-## Third-Party Use
+## Who Checks It
 
 **Manufacturers and Brand Protection Teams**
 
@@ -150,24 +166,6 @@ The **maintenance team, fleet operator, or procurement department** benefits dir
 
 **Counterfeit parts enforcement:** When investigating a complaint about suspect parts — particularly after a safety incident — the investigator can check whether the supplier was ever authorized by the manufacturer.
 
-## Verification Architecture
-
-**The "Genuine Parts" Trust Problem**
-
-- **Badge copying:** Any website can display "Authorized Caterpillar Parts Supplier" or "Genuine Bosch Service Parts" — these are just images or text.
-- **Stale directories:** Manufacturer dealer-locator pages rarely cover independent parts distributors, and update slowly when authorizations change.
-- **Grey-market parts:** Components purchased in one market and resold in another, outside the manufacturer's authorized channel, potentially without proper storage, handling, or warranty coverage.
-- **Counterfeit infiltration:** Counterfeit parts enter the supply chain through unauthorized distributors who mix genuine and fake stock. The "authorized supplier" badge builds the trust that makes this possible.
-- **Post-revocation persistence:** A supplier dropped from the authorized channel may continue displaying authorization badges indefinitely. In parts markets, where repeat orders happen over years, this is particularly dangerous.
-- **Safety consequences:** Unlike counterfeit consumer electronics, counterfeit industrial, automotive, aviation, and medical parts can cause equipment failure, injury, or death. A fake hydraulic seal, a counterfeit brake disc, or a non-genuine turbine blade operates under stresses where material and manufacturing tolerances matter.
-
-The verifiable claim addresses these because:
-
-1. The manufacturer issues the claim — it is not self-asserted by the supplier
-2. The claim names the specific site where it applies
-3. Revocation is immediate — the endpoint returns REVOKED
-4. The browser extension can detect domain mismatches automatically
-
 ## Attack Resistance: Text-Swap on a Counterfeit Parts Site
 
 The most sophisticated attack against this model is not copying the claim (which the domain-mismatch check catches) but **intercepting the verification flow on a hostile page.**
@@ -183,7 +181,7 @@ The most sophisticated attack against this model is not copying the claim (which
 
 **Honest assessment:** Content script isolation provides strong but not absolute protection against page-level manipulation. The domain-mismatch check is the backstop — it works even if the text swap somehow succeeds. The weakest link is the buyer not reading the verified detail, which is why the domain-mismatch warning should be prominent and unmissable.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | "Genuine Parts" Badge | Manufacturer Dealer Locator | Invoice / Packing Slip Only |
 | :--- | :--- | :--- | :--- | :--- |

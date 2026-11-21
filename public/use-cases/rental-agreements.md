@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Rental Agreement?
 
-A **Rental Agreement** is the temporary contract of possession for a vehicle or piece of high-value equipment (e.g., an excavator or a professional camera). It defines the financial terms (daily rate), the insurance coverage (Loss Damage Waiver), and the "Return Condition."
+A Rental Agreement is the temporary contract of possession for a vehicle or piece of high-value equipment (e.g., an excavator or a professional camera). It defines the financial terms (daily rate), the insurance coverage (Loss Damage Waiver), and the "Return Condition."
 
-This sector is plagued by high-volume, low-trust disputes. **Damage Fraud** is the primary issue: a rental company might "edit" a condition report to charge a customer for a scratch that was already there, or a customer might "edit" an agreement to show they paid for "Full Coverage" when they actually declined it. Verified hashes bind the **Odometer Reading, Fuel Level, and Coverage Selections** to the rental company's domain (e.g., `hertz.com` or `unitedrentals.com`).
+This sector is plagued by high-volume, low-trust disputes. Damage Fraud is the primary issue: a rental company might "edit" a condition report to charge a customer for a scratch that was already there, or a customer might "edit" an agreement to show they paid for "Full Coverage" when they actually declined it. Verified hashes bind the Odometer Reading, Fuel Level, and Coverage Selections to the rental company's domain (e.g., `hertz.com` or `unitedrentals.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="rental"></span>Hertz
@@ -71,7 +71,13 @@ is new; if it *is* on the record (same location, same or smaller size), the rent
 size field matters — a "4 cm scratch" that returns as a "20 cm scratch" in the same location is a
 *worsening*, a genuine new-damage claim the report supports rather than defeats.
 
-## Data Verified
+## The Problem: Scratch & Pay Fraud
+
+- **Odometer Padding:** Editing a return receipt to hide 500 "Over-Limit" miles.
+- **Coverage Masking:** Changing a "DECLINED" insurance choice to "ACCEPTED" after a crash.
+- **Lien Ghosting:** Creating a fake "Paid in Full" receipt to hide a $500 unpaid cleaning fee.
+
+## What Is Checked
 
 Rental Agreement (RA) number, renter name, vehicle VIN/Plate, unit number, pickup location/time, return location/time, starting odometer, fuel/charge level, accepted coverage options (LDW, PAI, SLI), daily rate, mileage limits, deposit amount, date of issuance. On the condition report specifically: **each pre-existing defect itemised by location, type, and measured size.**
 
@@ -81,25 +87,25 @@ Rental Agreement (RA) number, renter name, vehicle VIN/Plate, unit number, picku
 - **Final Return Receipt:** (Linked hash) showing actual charges.
 - **Accident Report Supplement:** Proof of damage reporting.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`hertz.com`, `enterprise.com`, `turo.com`) and the rental standing.
 
 **Status Indications:**
 - **Rental Active** — Vehicle is currently in the renter's possession.
 - **Closed / Settled** — Vehicle returned and final payment cleared.
-- **Damage Reported** — **ALERT:** A post-rental damage claim is active for this unit.
-- **Overdue** — **CRITICAL:** Vehicle has not been returned by the contracted date.
+- **Damage Reported** — A post-rental damage claim is active for this unit.
+- **Overdue** — Vehicle has not been returned by the contracted date.
 
-## Second-Party Use
+## Who Holds It
 
-The **Renter (Customer)** benefits from verification.
+The Renter (Customer) benefits from verification.
 
 **Damage Claim Defense:** If a rental company sends a $2,000 bill 3 weeks after the rental for a "dent on the rear bumper," the customer scans the verified hash of their "Pre-Rental Condition Report." Because the report itemises defect #3 as *"Rear bumper, center — Dent — ~2 cm dia."*, the customer has cryptographic proof the damage was recorded at pickup, at that location and size, and stops the fraudulent claim instantly. The itemised, measured list is what makes this defense work — a report that said only "some existing damage" would not.
 
 **Expense Reimbursement:** A business traveler can provide the verified hash of their "Final Receipt" to their employer. "Verified by Hertz" ensures the finance department that the "Fuel Service Charge" or "Upgrade Fee" was an actual corporate cost and not a manual edit to the PDF.
 
-## Third-Party Use
+## Who Checks It
 
 **Credit Card Insurers (Secondary Coverage)**
 **Claims Adjudication:** Many premium cards provide rental insurance. Before paying a claim, the card insurer scans the verified RA hash. Verification ensures that the renter didn't "edit" the RA to hide that they *accepted* the rental company's own LDW (which would void the credit card's secondary benefit).
@@ -110,13 +116,7 @@ The **Renter (Customer)** benefits from verification.
 **Law Enforcement**
 **Stolen Vehicle Recovery:** During a traffic stop, an officer can scan the "Rental App" or paper RA. Verified hashes eliminate the risk of "Fake Rental" papers used by criminals to drive stolen vehicles across state lines.
 
-## Verification Architecture
-
-**The "Scratch & Pay" Fraud Problem**
-
-- **Odometer Padding:** Editing a return receipt to hide 500 "Over-Limit" miles.
-- **Coverage Masking:** Changing a "DECLINED" insurance choice to "ACCEPTED" after a crash.
-- **Lien Ghosting:** Creating a fake "Paid in Full" receipt to hide a $500 unpaid cleaning fee.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

@@ -47,11 +47,11 @@ Resolved:      18 Mar 2026
 <span data-verify-line="cb-rejected">verify:barclaycard.co.uk/chargebacks/v</span> <span verifiable-text="end" data-for="cb-rejected"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Card issuer name, chargeback reference number, disputed amount and currency, merchant name, dispute reason category, status (upheld/rejected/in progress), and resolution date. The cardholder's name, full card number, and underlying transaction details are deliberately excluded.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`barclaycard.co.uk`, `americanexpress.com`, `chase.com`) and confirms whether the chargeback status claim is current.
 
@@ -60,13 +60,13 @@ Shows the issuer domain (`barclaycard.co.uk`, `americanexpress.com`, `chase.com`
 - **REJECTED — MERCHANT EVIDENCE ACCEPTED** — The issuer found the merchant's representment convincing; the charge stands.
 - **IN PROGRESS** — The dispute is still under investigation.
 
-## Second-Party Use
+## Who Holds It
 
-The **Cardholder** uses this to prove a chargeback outcome. In a small claims hearing against a merchant who failed to deliver goods, the consumer clips the "UPHELD — REFUND ISSUED" status and presents it to the court. The court verifies the hash against the issuer's domain, confirming the chargeback was genuinely upheld without needing to contact the issuer directly.
+The Cardholder uses this to prove a chargeback outcome. In a small claims hearing against a merchant who failed to deliver goods, the consumer clips the "UPHELD — REFUND ISSUED" status and presents it to the court. The court verifies the hash against the issuer's domain, confirming the chargeback was genuinely upheld without needing to contact the issuer directly.
 
 A cardholder whose chargeback was rejected can equally share the verified status with a solicitor, who can then advise on whether to escalate to the Financial Ombudsman Service or pursue other remedies.
 
-## Third-Party Use
+## Who Checks It
 
 **Merchants Disputing Chargeback Outcomes**
 A merchant who believes a chargeback was wrongly upheld may request evidence from the consumer. A verified status artifact confirms the issuer's actual decision, preventing a consumer from misrepresenting the outcome during negotiation.
@@ -77,7 +77,7 @@ When preparing a small claims case or consumer complaint, a solicitor needs to c
 **Trading Standards Officers**
 When investigating a pattern of complaints against a merchant, trading standards can accept verified chargeback status artifacts from multiple consumers as evidence that chargebacks were upheld, without contacting each card issuer individually.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Unverifiable Outcome Problem**
 
@@ -107,7 +107,7 @@ Barclaycard, a regulated card issuer, is authorized by the Financial Conduct Aut
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Manual Verification
+## Compared With Manual Verification
 
 | Feature | Live Verify | Letter / Email from Issuer | Screenshot of Online Portal |
 | :--- | :--- | :--- | :--- |

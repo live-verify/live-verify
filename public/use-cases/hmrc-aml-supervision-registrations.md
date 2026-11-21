@@ -18,7 +18,7 @@ Not all UK businesses that handle money are supervised by the FCA. HMRC is the A
 - **Estate agents** — property sales and lettings
 - **Accountancy Service Providers (ASPs)** — not supervised by a professional body
 
-When these businesses register with HMRC for AML supervision, HMRC issues a **registration confirmation** with a supervision reference number. This confirmation is their proof of legitimacy — and it matters enormously to fund managers who deal with these firms as counterparties.
+When these businesses register with HMRC for AML supervision, HMRC issues a registration confirmation with a supervision reference number. This confirmation is their proof of legitimacy — and it matters enormously to fund managers who deal with these firms as counterparties.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #0d47a1; background: #fff; padding: 0;">
   <div style="background: #0d47a1; color: #fff; padding: 15px;">
@@ -45,11 +45,21 @@ When these businesses register with HMRC for AML supervision, HMRC issues a **re
   </div>
 </div>
 
-## Data Verified
+## The Problem
+
+- TCSPs operating without HMRC supervision, creating shell structures for money laundering
+- Cancelled or refused registrations concealed from clients
+- Forged HMRC registration confirmations presented during bank account opening
+- "Supervision shopping" — firms refused by one supervisor attempting to register elsewhere
+- Expired registrations presented as current
+
+**The Fix:** HMRC hashes each registration confirmation with a status field. Cancellation, suspension, or refusal is reflected immediately. Banks and fund managers can verify the registration is current and genuine in real-time.
+
+## What Is Checked
 
 Business name, HMRC supervision reference number, Companies House number, supervised activity type, registration date, registration status, fit and proper test status.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 **Status Indications:**
 - **Active** — Business is currently registered and supervised
@@ -71,13 +81,13 @@ Fund managers encounter HMRC-supervised businesses as **counterparties and servi
 
 **The "supervision shopping" problem:** Unscrupulous TCSPs that have been refused or cancelled by HMRC may continue operating, presenting forged or expired registration confirmations to clients. A verified check against `hmrc.gov.uk` catches this instantly.
 
-## Second-Party Use
+## Who Holds It
 
 **HMRC-supervised businesses** — Proving their legitimacy to clients, banks, and counterparties. A verified registration confirmation is more credible than a printout from HMRC's website.
 
 **Fund managers** — CDD evidence that their service providers are properly supervised. Presented during FCA audits as part of counterparty due diligence.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks** — Account opening for MSBs and TCSPs requires proof of HMRC supervision. Banks increasingly de-risk these sectors; a verified registration helps maintain banking access.
 
@@ -86,17 +96,6 @@ Fund managers encounter HMRC-supervised businesses as **counterparties and servi
 **Other regulators** — Jersey, Guernsey, and Isle of Man financial regulators checking that UK TCSPs managing structures in their jurisdictions are properly supervised.
 
 **Investors** — Due diligence on the corporate service providers managing their offshore structures.
-
-## Verification Architecture
-
-**The Problem:**
-- TCSPs operating without HMRC supervision, creating shell structures for money laundering
-- Cancelled or refused registrations concealed from clients
-- Forged HMRC registration confirmations presented during bank account opening
-- "Supervision shopping" — firms refused by one supervisor attempting to register elsewhere
-- Expired registrations presented as current
-
-**The Fix:** HMRC hashes each registration confirmation with a status field. Cancellation, suspension, or refusal is reflected immediately. Banks and fund managers can verify the registration is current and genuine in real-time.
 
 ## Authority Chain
 

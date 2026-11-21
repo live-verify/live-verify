@@ -49,7 +49,7 @@ Ref:        7K2Q-9XJ4-W3MP
 
 The shopper scans this in the dairy aisle. The camera reads the block, the hash is computed, and the retailer's endpoint either confirms it as the current price or tells the shopper plainly that it does not match.
 
-## Data Verified
+## What Is Checked
 
 Product description, SKU (the canonical product identity), the displayed price, the previous ("was") price where a promotion applies, the promotional end-date, the issuing retailer, the as-at date the price was published, and an issuer-generated reference line for entropy.
 
@@ -58,7 +58,7 @@ Product description, SKU (the canonical product identity), the displayed price, 
 - **Promotional / Multibuy Label** — Carries the offer terms and the sale-ends date.
 - **Reduced-to-Clear Label** — A short-lived markdown price, re-published per item or per batch.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`retailer.example`) and whether the scanned price is the retailer's current published price.
 
@@ -70,23 +70,23 @@ Shows the issuer domain (`retailer.example`) and whether the scanned price is th
 
 ## Why these claims are short-lived
 
-Retail prices change constantly — daily promotions, end-of-day markdowns, supplier cost moves. A shelf-edge label is therefore a **point-in-time snapshot**, not a standing fact. It asserts "this was the price, as at 21 JUN 2026," and the retailer must re-publish the hash whenever the price changes.
+Retail prices change constantly — daily promotions, end-of-day markdowns, supplier cost moves. A shelf-edge label is therefore a point-in-time snapshot, not a standing fact. It asserts "this was the price, as at 21 JUN 2026," and the retailer must re-publish the hash whenever the price changes.
 
-This is the point-in-time-versus-current distinction in its sharpest form. A label printed for a price that has since changed should verify as **Price Changed** or surface its **As At** date — it must never resolve silently as the current price, because that would re-create the exact "shelf price ≠ till price" harm the system exists to prevent. The retailer's endpoint is the arbiter of "current"; the label only ever carries "as at." See [Point-in-Time vs. Current](../../docs/point-in-time-vs-current.md) for the general treatment.
+This is the point-in-time-versus-current distinction in its sharpest form. A label printed for a price that has since changed should verify as Price Changed or surface its As At date — it must never resolve silently as the current price, because that would re-create the exact "shelf price ≠ till price" harm the system exists to prevent. The retailer's endpoint is the arbiter of "current"; the label only ever carries "as at." See [Point-in-Time vs. Current](../../docs/point-in-time-vs-current.md) for the general treatment.
 
 In practice this means the retention window is the price-validity window: short, and re-issued on every change. That is a feature, not a limitation — a price tag that could "verify forever" would be a price tag that lies the moment the price moves.
 
-## Second-Party Use
+## Who Holds It
 
-The **shopper** is the second party at the point of scanning. They benefit directly:
+The shopper is the second party at the point of scanning. They benefit directly:
 
 **Confirm before the register:** Standing in the aisle, the shopper verifies that the shelf price is genuinely the retailer's current published price for that exact SKU — before they reach the checkout and the surprise. No more "it scanned higher than the shelf said."
 
-**Grounds for a dispute:** If the label says **Price Changed**, **Expired**, or **404**, the shopper has concrete, retailer-anchored evidence to challenge the till price or claim the lower advertised price under existing advertised-price rules — rather than a he-said-she-said argument with a cashier.
+**Grounds for a dispute:** If the label says Price Changed, Expired, or 404, the shopper has concrete, retailer-anchored evidence to challenge the till price or claim the lower advertised price under existing advertised-price rules — rather than a he-said-she-said argument with a cashier.
 
 **Trust in self-checkout:** At unattended tills, where there is no staff member to query, the scan is the shopper's only independent check that the price they are being charged is the price the retailer actually set.
 
-## Third-Party Use
+## Who Checks It
 
 **Retailer Self-Checkout / Loss Prevention**
 
@@ -100,20 +100,20 @@ The **shopper** is the second party at the point of scanning. They benefit direc
 
 **Provable in-store prices:** A comparison service photographing or sourcing shelf-edge prices can verify that a quoted price is genuinely the retailer's published figure, as at a stated date — not a guess, a scrape, or a planted decoy.
 
-## Verification Architecture
+## How Verification Works Here
 
-This is camera mode — a phone reading a printed label. The usual OCR caveat (dense pages read poorly) barely applies here: a shelf-edge label is **short, structured, high-contrast text** in a fixed layout — product, SKU, price, date — which is close to the best case for camera reading. Reliability is high precisely because the claim is small and regular, the opposite of trying to OCR a paragraph of fine print.
+This is camera mode — a phone reading a printed label. The usual OCR caveat (dense pages read poorly) barely applies here: a shelf-edge label is short, structured, high-contrast text in a fixed layout — product, SKU, price, date — which is close to the best case for camera reading. Reliability is high precisely because the claim is small and regular, the opposite of trying to OCR a paragraph of fine print.
 
 The architecture defeats the two fraud directions symmetrically:
 
 1. **Customer-swapped tag (pay less):** Moving a genuine cheap-item label onto an expensive item breaks the SKU binding — the hash is for a different product than the one being bought, so self-checkout rejects it.
-2. **Staff/third-party planted price (charge more):** A shelf-edge showing a sale price that rings up higher cannot verify, because the retailer never published that price for that SKU as current — the shopper's scan returns **Price Changed** or **404**, and the discrepancy is evidenced.
+2. **Staff/third-party planted price (charge more):** A shelf-edge showing a sale price that rings up higher cannot verify, because the retailer never published that price for that SKU as current — the shopper's scan returns Price Changed or 404, and the discrepancy is evidenced.
 
 The freshness model carries the weight: the hash is only meaningful as "the price as at this date." The endpoint, not the cardboard, decides whether that price is still current.
 
 ## Privacy Salt
 
-Required, and present as the **Ref** line. Shelf prices are low-entropy: a small set of round figures (£1.85, £2.30), common SKUs, and predictable dates. Without a salt, an attacker could enumerate price/SKU/date combinations and pre-compute hashes to forge a "valid" label for an arbitrary price. The retailer-generated reference line (`7K2Q-9XJ4-W3MP` in the example) adds unpredictability so that only the retailer's own published label produces a matching hash. The salt is not secret — it is printed on the label — it exists solely to defeat guess-and-hash enumeration.
+Required, and present as the Ref line. Shelf prices are low-entropy: a small set of round figures (£1.85, £2.30), common SKUs, and predictable dates. Without a salt, an attacker could enumerate price/SKU/date combinations and pre-compute hashes to forge a "valid" label for an arbitrary price. The retailer-generated reference line (`7K2Q-9XJ4-W3MP` in the example) adds unpredictability so that only the retailer's own published label produces a matching hash. The salt is not secret — it is printed on the label — it exists solely to defeat guess-and-hash enumeration.
 
 ## Authority Chain
 

@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Third-Party Verification Letters?
 
-In high-stakes financial decisions (Mortgages, Auto Loans, Rental Screening), lenders don't trust the applicant's word. They use a **Third-Party Verifier** (e.g., The Work Number, Equifax, or a CPA) to independently confirm the applicant's income and employment status.
+In high-stakes financial decisions (Mortgages, Auto Loans, Rental Screening), lenders don't trust the applicant's word. They use a Third-Party Verifier (e.g., The Work Number, Equifax, or a CPA) to independently confirm the applicant's income and employment status.
 
-These letters are the "Seal of Solvency." Fraud is rampant: people create fake "CPAs" with fake websites to "verify" their own income, or they "edit" a real verification report to hide a job termination or to double their salary. Verified hashes bind the **Subject's Name, Verified Income, and Verifier's Authority** to the verifier's domain (e.g., `equifax.com` or `experian.com`).
+These letters are the "Seal of Solvency." Fraud is rampant: people create fake "CPAs" with fake websites to "verify" their own income, or they "edit" a real verification report to hide a job termination or to double their salary. Verified hashes bind the Subject's Name, Verified Income, and Verifier's Authority to the verifier's domain (e.g., `equifax.com` or `experian.com`).
 
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; padding-bottom: 15px; margin-bottom: 30px;">
@@ -46,7 +46,13 @@ These letters are the "Seal of Solvency." Fraud is rampant: people create fake "
   </div>
 </div>
 
-## Data Verified
+## The Problem: Phantom Verifier Fraud
+
+- **Verifier Spoofing:** Creating a fake company website (e.g., `verified-income-cpa.com`) to vouch for a fraudulent loan application.
+- **Amount Inflation:** Changing a $45,000 verified salary to $145,000 on a PDF report.
+- **Job Status Hiding:** Presenting a "Verified Report" from 6 months ago as if it were "Today's" status for a person who was recently fired.
+
+## What Is Checked
 
 Subject name, SSN (masked), employer name, job title, employment status (Active/Inactive), date of hire, base salary, bonus/commission data, total year-to-date earnings, verifier ID, date of report.
 
@@ -56,25 +62,25 @@ Subject name, SSN (masked), employer name, job title, employment status (Active/
 - **Background Check Summary:** (Linked hash) criminal/credit check.
 - **CPA Certification Letter:** For self-employed individuals.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`equifax.com`, `workday.com`, `experian.com`) and the verification standing.
 
 **Status Indications:**
 - **Verified / Accurate** — Data matches the verifier's live payroll link.
-- **Employment Ended** — **ALERT:** The subject is no longer employed at the company.
-- **Data Mismatch** — **ALERT:** The salary on the paper does not match the payroll system.
-- **Revoked** — **ALERT:** Verifier has withdrawn the report (e.g., due to discovered applicant fraud).
+- **Employment Ended** — The subject is no longer employed at the company.
+- **Data Mismatch** — The salary on the paper does not match the payroll system.
+- **Revoked** — Verifier has withdrawn the report (e.g., due to discovered applicant fraud).
 
-## Second-Party Use
+## Who Holds It
 
-The **Applicant (Borrower / Tenant)** benefits from verification.
+The Applicant (Borrower / Tenant) benefits from verification.
 
-**Mortgage Approval Speed:** When applying for a loan, the borrower provides the verified hash of their "Work Number" report. The lender can instantly see **"VERIFIED SALARY: $145,000"** from a trusted third party, removing the 3-day "Manual Audit" delay and potentially securing a lower rate.
+**Mortgage Approval Speed:** When applying for a loan, the borrower provides the verified hash of their "Work Number" report. The lender can instantly see "VERIFIED SALARY: $145,000" from a trusted third party, removing the 3-day "Manual Audit" delay and potentially securing a lower rate.
 
 **Rental Applications:** A prospective tenant can show a verified income hash to a landlord. "Verified by Equifax" ensures the landlord that the applicant has the financial means to pay the rent, removing the need for 3 months of invasive bank statements.
 
-## Third-Party Use
+## Who Checks It
 
 **Mortgage Underwriters / Banks**
 **Zero-Trust Vetting:** Thousands of fake "CPA Letters" are submitted to banks every month. Live Verify connects the underwriter directly to the verifier's domain, stopping "Income Padding" fraud and protecting the bank's loan portfolio.
@@ -85,13 +91,7 @@ The **Applicant (Borrower / Tenant)** benefits from verification.
 **HR & Recruiting Firms**
 **Candidate Vetting:** Verifying that a candidate's "Previous Title and Salary" are accurate facts before making a high-value job offer.
 
-## Verification Architecture
-
-**The "Phantom Verifier" Fraud Problem**
-
-- **Verifier Spoofing:** Creating a fake company website (e.g., `verified-income-cpa.com`) to vouch for a fraudulent loan application.
-- **Amount Inflation:** Changing a $45,000 verified salary to $145,000 on a PDF report.
-- **Job Status Hiding:** Presenting a "Verified Report" from 6 months ago as if it were "Today's" status for a person who was recently fired.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

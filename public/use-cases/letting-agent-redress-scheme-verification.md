@@ -13,15 +13,15 @@ furtherDerivations: 0
 
 ## The Problem
 
-The cruel twist in the 2026 wave of London rental scams is that the fraudsters pass the exact due-diligence checks tenants are told to run. A [July 2026 London Centric investigation](https://www.londoncentric.media/p/london-rental-scammers-property-redress-scheme) followed "Callum," who paid a fake agency, "Anchor Gate Lettings," £3,500 for a Stoke Newington flat that turned out to be a Booking.com short-let rented for the weekend and dressed up as a long-term tenancy. Before paying, he did what every guide advises: he checked the agent was a member of a government-approved redress scheme carrying the royal coat of arms. Anchor Gate passed — because its membership was **real**.
+The cruel twist in the 2026 wave of London rental scams is that the fraudsters pass the exact due-diligence checks tenants are told to run. A [July 2026 London Centric investigation](https://www.londoncentric.media/p/london-rental-scammers-property-redress-scheme) followed "Callum," who paid a fake agency, "Anchor Gate Lettings," £3,500 for a Stoke Newington flat that turned out to be a Booking.com short-let rented for the weekend and dressed up as a long-term tenancy. Before paying, he did what every guide advises: he checked the agent was a member of a government-approved redress scheme carrying the royal coat of arms. Anchor Gate passed — because its membership was real.
 
 For under £250 the scammers had:
 
-- Registered **Anchor Gate Lettings Ltd** at Companies House for £50.
-- Joined the **Property Redress Scheme**'s public register of letting agents for £190.
-- Insured a "deposit" with the government-backed **MyDeposits** scheme for £27 — enough to generate an authentic protection link they forwarded to the victim.
+- Registered Anchor Gate Lettings Ltd at Companies House for £50.
+- Joined the Property Redress Scheme's public register of letting agents for £190.
+- Insured a "deposit" with the government-backed MyDeposits scheme for £27 — enough to generate an authentic protection link they forwarded to the victim.
 
-They then cited "we are proud members of the Property Redress Scheme (membership PRS055369)" in their emails — and it was true. The guardrail became the con. Worse, weeks after the fraud was reported, the scam company was **still listed as an active member** on the redress scheme's public register, and the flat was never theirs to let.
+They then cited "we are proud members of the Property Redress Scheme (membership PRS055369)" in their emails — and it was true. The guardrail became the con. Worse, weeks after the fraud was reported, the scam company was still listed as an active member on the redress scheme's public register, and the flat was never theirs to let.
 
 A central "approved list" fails here in three ways at once: anyone can pay to join it, it is slow to revoke, and — most importantly — **membership of a scheme is not the claim the tenant actually needs verified.** None of this makes the schemes useless: they remain the complaint and compensation mechanism once something has gone wrong, and nothing here replaces that. What Live Verify adds is making their memberships — and the two other claims that actually matter — checkable *in context*, at the moment the tenant is deciding whether to pay. The tenant needs to know three specific things, each answerable only by the party with real authority over it:
 
@@ -31,23 +31,23 @@ A central "approved list" fails here in three ways at once: anyone can pay to jo
 
 Live Verify cannot prove a stranger is honest. It replaces "do they display an approved badge?" — which the scammer defeats — with three claims bound to the domains that can actually answer them.
 
-## Data Verified
+## What Is Checked
 
-Verifying a rental letting safely means combining **three independent verifiable claims** — about the agent, the scheme membership, and the property — each hashed and looked up against a *different* issuer domain. The tenant is never asked to trust one badge; they watch three separate authorities answer.
+Verifying a rental letting safely means combining three independent verifiable claims — about the agent, the scheme membership, and the property — each hashed and looked up against a *different* issuer domain. The tenant is never asked to trust one badge; they watch three separate authorities answer.
 
 ### Claim 1 — Agent identity, accountability, and agency longevity
 
 Issued by the agency and chained to Companies House.
 
-Agent name (or first-name + last-initial + ID for privacy), agency legal name, Companies House company number, **agency incorporation date**, agent photograph (via hash), agent's current authorisation status, and a `verify:` line on the agency's own domain.
+Agent name (or first-name + last-initial + ID for privacy), agency legal name, Companies House company number, agency incorporation date, agent photograph (via hash), agent's current authorisation status, and a `verify:` line on the agency's own domain.
 
-The **incorporation date** is the load-bearing field the article shows was missing: it converts "looks like a real company" into "this company is eight weeks old," which — for someone about to wire a deposit — is exactly the signal a decade-old high-street agency would pass and Anchor Gate would fail.
+The incorporation date is the load-bearing field the article shows was missing: it converts "looks like a real company" into "this company is eight weeks old," which — for someone about to wire a deposit — is exactly the signal a decade-old high-street agency would pass and Anchor Gate would fail.
 
 ### Claim 2 — Redress / deposit-scheme membership (bound to the agent, not floating)
 
-Issued by the redress or deposit scheme (Property Redress Scheme, MyDeposits, DPS, TDS), and crucially **naming the member's registered domain and company number** inside the hashed text.
+Issued by the redress or deposit scheme (Property Redress Scheme, MyDeposits, DPS, TDS), and crucially naming the member's registered domain and company number inside the hashed text.
 
-Scheme name, membership number, **the exact member legal name + Companies House number + registered domain the scheme issued the membership to**, membership status, and the scheme's own `verify:` line.
+Scheme name, membership number, the exact member legal name + Companies House number + registered domain the scheme issued the membership to, membership status, and the scheme's own `verify:` line.
 
 This is the fix for the article's core failure. A membership number like `PRS055369` is just a copyable string. When the scheme publishes the claim *including the domain and company it belongs to*, a cloned or borrowed number no longer helps: the tenant's app flags that the number belongs to a different domain than the one advertising the flat. (Same [`allowedDomains`](../../docs/authority-chain-app-display.md) discipline used for [recruitment-agency-verification](view.html?doc=recruitment-agency-verification).)
 
@@ -57,9 +57,9 @@ Issued by a lettings authority — e.g. a London-wide lettings/short-let registe
 
 **Honest label: this register does not exist yet.** Claims 1 and 2 could be issued tomorrow by bodies that already exist (any letting agency, Companies House, the redress and deposit schemes). Claim 3 names *proposed* infrastructure — the nearest real analogues today are the patchily-enforced 90-night short-let cap in London and Scotland's letting-agent registration regime. It is included because it is the claim that would have caught this specific fraud at its root, and because short-let registers are actively debated policy; but an implementer should treat it as the aspirational third of the trio, not a current capability.
 
-Property address, listing reference, **declared use: LONG-TERM TENANCY vs SHORT-TERM LET**, the entity authorised to let it, any short-let night cap already consumed, and the register's `verify:` line.
+Property address, listing reference, declared use: LONG-TERM TENANCY vs SHORT-TERM LET, the entity authorised to let it, any short-let night cap already consumed, and the register's `verify:` line.
 
-This directly catches the Booking.com-flat-as-tenancy swap: a property flagged **SHORT-LET** on the register cannot honestly be advertised as a long-term home, and a property with no long-let authorisation from the controlling party is a red flag before any money moves.
+This directly catches the Booking.com-flat-as-tenancy swap: a property flagged SHORT-LET on the register cannot honestly be advertised as a long-term home, and a property with no long-let authorisation from the controlling party is a red flag before any money moves.
 
 **Privacy salt:** Recommended on applicant-specific and photo claims. Property addresses may be public, but applicant names, deposit amounts, and photo URLs can be enumerable or sensitive — issuers should add a random reference line and time-limited photo URLs.
 
@@ -101,15 +101,15 @@ The tenant points a phone at the badge at the viewing. Verification returns the 
   </div>
 </div>
 
-This block sits on the agency's listings and emails, but its `verify:` line points at the **scheme's** domain — the scheme, not the agent, answers. Because the member's registered domain is inside the hashed text, copying this block onto a scam site trips the app's domain-mismatch warning: the claim verifies, and simultaneously tells the verifier it belongs to somebody else.
+This block sits on the agency's listings and emails, but its `verify:` line points at the scheme's domain — the scheme, not the agent, answers. Because the member's registered domain is inside the hashed text, copying this block onto a scam site trips the app's domain-mismatch warning: the claim verifies, and simultaneously tells the verifier it belongs to somebody else.
 
-## Data Visible After Verification
+## What the Checker Sees
 
-Each claim shows its own issuer domain and responder text. Claim 1 additionally returns the **agent photograph** so the tenant can confirm the person in front of them is the person the agency vouches for — the "post-verification mugshot" that makes an on-the-doorstep viewing accountable.
+Each claim shows its own issuer domain and responder text. Claim 1 additionally returns the agent photograph so the tenant can confirm the person in front of them is the person the agency vouches for — the "post-verification mugshot" that makes an on-the-doorstep viewing accountable.
 
 **Claim 1 — Agent / agency status:**
 
-Be precise about what a green tick means here: a scammer who controls their own domain can happily self-attest — Anchor Gate could have run a verification endpoint on `anchorgate-lettings.example` and returned "Authorised" for its own fake agent. Claim 1's protective value is therefore **not** the green tick alone; it is the tick *plus* the [authority chain](../../docs/authority-chain-spec.md) and the Companies House longevity line that the tick drags into view.
+Be precise about what a green tick means here: a scammer who controls their own domain can happily self-attest — Anchor Gate could have run a verification endpoint on `anchorgate-lettings.example` and returned "Authorised" for its own fake agent. Claim 1's protective value is therefore not the green tick alone; it is the tick *plus* the [authority chain](../../docs/authority-chain-spec.md) and the Companies House longevity line that the tick drags into view.
 
 - **Authorised** — Current agent of the named agency, in good standing.
 - **Suspended / Revoked** — Known to the agency but not currently authorised.
@@ -123,7 +123,7 @@ The scheme's endpoint returns a simple status — it does not (and cannot) know 
 - **Active** — Membership is genuine and current.
 - **Lapsed / Expelled** — No longer a member.
 
-The **domain-mismatch check is the verifying app's job**, not the endpoint's: the member's registered domain is part of the hashed claim text, and the app compares it against the domain actually advertising the property (the same client-side `allowedDomains` mechanic cited above). *Active membership + mismatched domain* is the scam signal — a real membership number being displayed by someone it was never issued to.
+The domain-mismatch check is the verifying app's job, not the endpoint's: the member's registered domain is part of the hashed claim text, and the app compares it against the domain actually advertising the property (the same client-side `allowedDomains` mechanic cited above). *Active membership + mismatched domain* is the scam signal — a real membership number being displayed by someone it was never issued to.
 
 **Claim 3 — Property use** (proposed register — see the label above):
 - **Long-term tenancy — authorised** — The controlling party permits long lets here.
@@ -132,7 +132,7 @@ The **domain-mismatch check is the verifying app's job**, not the endpoint's: th
 
 **Longevity line (from Claim 1):** e.g. `AGENCY INCORPORATED: 12 Nov 2025 (4 months ago) [source: Companies House]` — matching the story's own timeline (incorporated in November, showing flats by March) and using the same multi-authority, source-attributed pattern as [company-good-standing-status](view.html?doc=company-good-standing-status).
 
-## Second-Party Use
+## Who Holds It
 
 The prospective tenant is the second party — the person being asked to hand over a deposit under time pressure.
 
@@ -142,7 +142,7 @@ The prospective tenant is the second party — the person being asked to hand ov
 
 **Keeping evidence:** All three verification results, with their timestamps and issuer domains, form a contemporaneous record if the tenant later needs to recover funds from their bank (as Callum did).
 
-## Third-Party Use
+## Who Checks It
 
 **Redress and deposit schemes (as issuers, and as their own auditors)**
 
@@ -160,7 +160,7 @@ When a defrauded customer reports an authorised push-payment loss, the three fai
 
 Platforms can require or display the three claims, and — critically — cross-check Claim 3 against their *own* short-let inventory, so the same flat cannot be simultaneously a weekend Booking.com let and a long-term OpenRent tenancy.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The letting-agent fraud problem**
 
@@ -182,7 +182,7 @@ Platforms can require or display the three claims, and — critically — cross-
 
 **Pattern:** Sovereign (each claim resolves up to a UK-government root). The tenant's human channel reads the domains (`companieshouse.gov.uk`, a real scheme domain, `london.gov.uk`); the machine channel walks each [authority chain](../../docs/authority-chain-spec.md) to a [sovereign root](../../docs/sovereign-roots.md). A claim that resolves only to `anchorgate-lettings.example` with nothing behind it is exactly the balk case. See the [Authority Chain Specification](../../docs/authority-chain-spec.md).
 
-## Competition
+## Compared With the Alternatives
 
 | Existing control | What it does well | The gap this fraud exploited |
 |---|---|---|

@@ -15,25 +15,25 @@ A summons lands on your phone by RCS, or in your inbox, or face-down on your doo
 
 Two things are wrong here at once, and they point in opposite directions.
 
-First, the document might be **fake**. "You've been served — pay this debt now or a warrant issues" is a standard scam template. Fraudsters mimic court letterhead, invent case numbers, and spoof a clerk's signature. The frightened recipient pays, or hands over personal details, or wires money to "settle" a lawsuit that never existed. The recipient has no way to tell a genuine summons from a forged one, because every signal on the page — the seal, the font, the legalese — can be copied.
+First, the document might be fake. "You've been served — pay this debt now or a warrant issues" is a standard scam template. Fraudsters mimic court letterhead, invent case numbers, and spoof a clerk's signature. The frightened recipient pays, or hands over personal details, or wires money to "settle" a lawsuit that never existed. The recipient has no way to tell a genuine summons from a forged one, because every signal on the page — the seal, the font, the legalese — can be copied.
 
-Second, the document might be **real**, and the recipient needs to know that too, because ignoring a genuine summons is how default judgments happen. The person who assumes "this is just a scam" and deletes it can lose the case by not showing up.
+Second, the document might be real, and the recipient needs to know that too, because ignoring a genuine summons is how default judgments happen. The person who assumes "this is just a scam" and deletes it can lose the case by not showing up.
 
 A recipient holding a scary legal document needs one answer before they panic, pay, or ignore it: **is this genuinely from the court that it names?**
 
 ## What Live Verify does — and the line it must not cross
 
-Live Verify binds the summons text to the issuing court's official domain. The recipient taps **Verify**; the app normalizes the text, hashes it, and performs a GET against the court's `.gov` (or national equivalent) endpoint. A match confirms the document is genuinely the one the court issued, unaltered. A 404 means the text does not match anything the court issued — forged, altered, or mistyped.
+Live Verify binds the summons text to the issuing court's official domain. The recipient taps Verify; the app normalizes the text, hashes it, and performs a GET against the court's `.gov` (or national equivalent) endpoint. A match confirms the document is genuinely the one the court issued, unaltered. A 404 means the text does not match anything the court issued — forged, altered, or mistyped.
 
-That is the strong, defensible claim: **authenticity**. Is this summons real?
+That is the strong, defensible claim: authenticity. Is this summons real?
 
-There is a second, weaker signal that is genuinely useful but must be described carefully. The verification GET is logged by the court's server: a device possessing the exact summons text contacted the endpoint at a specific time. That log — plus the `tx` receipt the recipient's device keeps — is **corroborating evidence that the document was authentic and was seen**.
+There is a second, weaker signal that is genuinely useful but must be described carefully. The verification GET is logged by the court's server: a device possessing the exact summons text contacted the endpoint at a specific time. That log — plus the `tx` receipt the recipient's device keeps — is corroborating evidence that the document was authentic and was seen.
 
-It is **not** proof of legal service.
+It is not proof of legal service.
 
-Service of process is a formal legal act with strict jurisdictional requirements — personal delivery by an authorized server, certified mail, or publication, depending on the rule and the jurisdiction. A GET request to a verification endpoint satisfies **none** of those requirements. Live Verify is an authenticity layer that *augments* existing service methods. It does not replace process servers, and verifying a summons does not constitute legal service. The honest framing is laid out in [Limitations](#limitations--not-a-substitute-for-formal-service) below, and it is the most important section in this document.
+Service of process is a formal legal act with strict jurisdictional requirements — personal delivery by an authorized server, certified mail, or publication, depending on the rule and the jurisdiction. A GET request to a verification endpoint satisfies none of those requirements. Live Verify is an authenticity layer that *augments* existing service methods. It does not replace process servers, and verifying a summons does not constitute legal service. The honest framing is laid out in [Limitations](#limitations--not-a-substitute-for-formal-service) below, and it is the most important section in this document.
 
-This is distinct from [Appointment & Summons Confirmations](view.html?doc=appointment-summons-confirmations), which is about an employer confirming that an appointment or jury date is real so as to grant an absence. This use case is about the **authenticity of the legal document itself** and the **evidence-of-receipt signal** that the act of verifying produces.
+This is distinct from [Appointment & Summons Confirmations](view.html?doc=appointment-summons-confirmations), which is about an employer confirming that an appointment or jury date is real so as to grant an absence. This use case is about the authenticity of the legal document itself and the evidence-of-receipt signal that the act of verifying produces.
 
 ## What gets verified
 
@@ -68,11 +68,11 @@ Salt:       7QF2-MXK9-3RBD-1WPA
 
 The recipient who got this by RCS taps Verify. The court's endpoint confirms the case number, parties, deadline, and salt all match the document the clerk issued — and the lookup is logged at the moment it happens.
 
-## Data Verified
+## What Is Checked
 
 Court name and jurisdiction, case number, plaintiff and defendant names, document type, response deadline and hearing date, issuing clerk, and the random salt. The endpoint never echoes any of this back (the recipient already holds the document) — it returns only a status and, optionally, a `tx` receipt.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 The endpoint returns a status code:
 
@@ -103,27 +103,27 @@ This creates a **dual record**: the court's server log holds one half (the hash 
 
 **What the `tx` receipt is:** corroborating evidence that a device possessing the exact summons text contacted the court's endpoint at a specific time — i.e., that an authentic document existed and was engaged with. It is analogous to a signed-for delivery receipt: a strong, timestamped, rebuttable signal.
 
-**What the `tx` receipt is not:** it is **not** proof of legal service, and it is not proof the named recipient personally read or understood the document. A flatmate could have opened the RCS. Software could have auto-verified. The recipient could have been incapacitated. It corroborates; it does not prove service.
+**What the `tx` receipt is not:** it is not proof of legal service, and it is not proof the named recipient personally read or understood the document. A flatmate could have opened the RCS. Software could have auto-verified. The recipient could have been incapacitated. It corroborates; it does not prove service.
 
 ## Limitations — not a substitute for formal service
 
 This section is non-negotiable, and it is the reason this use case is framed narrowly.
 
-Service of process is governed by formal rules — the Federal Rules of Civil Procedure, state rules of civil procedure, and their equivalents in other jurisdictions. Those rules specify *how* a defendant must be served for a court to have jurisdiction over them: personal delivery by an authorized process server or officer, substituted service, certified or registered mail, or service by publication. Each carries its own proof requirement — typically an **affidavit of service** sworn by the server.
+Service of process is governed by formal rules — the Federal Rules of Civil Procedure, state rules of civil procedure, and their equivalents in other jurisdictions. Those rules specify *how* a defendant must be served for a court to have jurisdiction over them: personal delivery by an authorized process server or officer, substituted service, certified or registered mail, or service by publication. Each carries its own proof requirement — typically an affidavit of service sworn by the server.
 
-A GET request to a verification endpoint satisfies **none** of these requirements. It is not personal delivery. It is not certified mail. It is not publication. A court will not accept "the defendant's phone verified the summons" as proof that service was properly effected.
+A GET request to a verification endpoint satisfies none of these requirements. It is not personal delivery. It is not certified mail. It is not publication. A court will not accept "the defendant's phone verified the summons" as proof that service was properly effected.
 
 Therefore:
 
-- Live Verify **does not replace process servers** and **does not constitute legal service**.
-- Verifying a document **does not** start, satisfy, or substitute for the formal act of service.
-- The `tx` receipt and the court's server log are **corroborating evidence** — a point of evidence about authenticity and receipt — **not legal proof of service**. They augment the affidavit of service; they do not replace it.
+- Live Verify does not replace process servers and does not constitute legal service.
+- Verifying a document does not start, satisfy, or substitute for the formal act of service.
+- The `tx` receipt and the court's server log are corroborating evidence — a point of evidence about authenticity and receipt — not legal proof of service. They augment the affidavit of service; they do not replace it.
 
 Where this evidence *does* help: a court weighing whether a defendant had actual notice (e.g., when formal service is disputed or when the defendant claims they never saw the document) may consider a verification record as one corroborating signal among many. It is rebuttable, and it is weighed alongside the affidavit and other evidence — never instead of them.
 
-## Second-Party Use
+## Who Holds It
 
-The **recipient** is the party this use case most directly protects.
+The recipient is the party this use case most directly protects.
 
 **Defeating fake-summons scams.** The recipient receives an alarming legal document — by RCS, email, or paper — demanding immediate payment or personal information. Before panicking, paying, or surrendering details, they verify. A genuine court summons returns VERIFIED against that court's own domain; a scam letter returns 404. The single most valuable moment in this entire use case is the frightened recipient discovering, in five seconds, that the "lawsuit" is fake.
 
@@ -131,7 +131,7 @@ The **recipient** is the party this use case most directly protects.
 
 **Checking current status.** A subpoena the recipient received last month may have been quashed. Re-verifying returns WITHDRAWN / QUASHED, so they don't comply with a document that no longer compels anything.
 
-## Third-Party Use
+## Who Checks It
 
 **Courts (augmented, not replaced).** Courts continue to issue documents and rely on formal service. Live Verify adds an authenticity layer on top: it cuts the volume of frantic clerk's-office calls from recipients asking "is this real?", and the verification log gives the court a corroborating receipt-of-engagement signal that augments — never replaces — the affidavit of service.
 
@@ -139,7 +139,7 @@ The **recipient** is the party this use case most directly protects.
 
 **Defendants disputing a matter.** A defendant who genuinely never received proper service can point to the absence of any verification record as one (rebuttable) signal supporting their position — just as a defendant who did verify cannot easily claim total ignorance of the document's contents.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The fake-legal-document problem**
 

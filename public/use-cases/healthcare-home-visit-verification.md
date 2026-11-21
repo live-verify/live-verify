@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 When an elderly relative receives home health care, a nurse or aide enters their private home.
 
-The **Care Professional Badge** is their "Security Token." It proves:
+The Care Professional Badge is their "Security Token." It proves:
 1.  **Identity:** The person at the door is the one the agency sent.
 2.  **Licensure:** They are a verified Registered Nurse (RN) or Certified Aide.
 3.  **Background:** They have passed a recent criminal background check.
@@ -64,7 +64,13 @@ Like utility and contractor doorstep checks, this is strongest because it is a t
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Nurse Fraud
+
+- **Identity Theft:** Burglars buying realistic-looking "Nurse Scrubs" and fake ID lanyards to gain entry into the homes of elderly people who live alone.
+- **Licensure Hiding:** A caregiver who had their license revoked for drug theft keeping their physical ID badge to continue finding work through private Craigslist ads.
+- **Agency Spoofing:** Creating a fake "Home Health Agency" website to provide "Verified" IDs for un-vetted, un-insured workers.
+
+## What Is Checked
 
 Worker name, photo (hash), professional license type (RN, LPN, CNA), state license number, agency name, scheduled visit ID, background check clearance date, current duty status (Active/Off-Duty).
 
@@ -133,15 +139,15 @@ The message explicitly states recording is *always* appropriate. This prevents:
 
 Every report is logged. The agency can triage later—but the patient/family is never told their input isn't wanted.
 
-## Second-Party Use
+## Who Holds It
 
-The **Home Visit Worker (Nurse/Aide)** benefits from verification.
+The Home Visit Worker (Nurse/Aide) benefits from verification.
 
 **Personal Safety:** Proving to a defensive family member or a security guard at a gated community that they are a legitimate healthcare professional. Verification reduces the chance of "Suspicious Person" calls to the police.
 
 **Credential Portability:** Proving their "Verified Active" status when picking up shifts through different staffing registries or agencies.
 
-## Third-Party Use
+## Who Checks It
 
 **Vulnerable Patients (Elderly/Alone)**
 **Abuse Prevention:** Before opening the door, a patient or their remote family member (via doorbell cam) can scan the nurse's badge. "Verified by Bayada" ensures the person at the door isn't a "Fake Nurse" home-invader or a predator with a fake uniform.
@@ -152,13 +158,7 @@ The **Home Visit Worker (Nurse/Aide)** benefits from verification.
 **Secondary Insurers**
 **Fraud Detection:** Verifying that a "Home Health Visit" actually occurred and was performed by a verified, licensed professional before paying out a claim.
 
-## Verification Architecture
-
-**The "Fake Nurse" Fraud Problem**
-
-- **Identity Theft:** Burglars buying realistic-looking "Nurse Scrubs" and fake ID lanyards to gain entry into the homes of elderly people who live alone.
-- **Licensure Hiding:** A caregiver who had their license revoked for drug theft keeping their physical ID badge to continue finding work through private Craigslist ads.
-- **Agency Spoofing:** Creating a fake "Home Health Agency" website to provide "Verified" IDs for un-vetted, un-insured workers.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -186,7 +186,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the care agency's hashes and status changes plus structured metadata (worker names, license types, license numbers, scheduled visit IDs, duty statuses) — never sensitive personal information — providing non-repudiation of worker verification.
 
-## Competition vs. Agency Phone Lines
+## Compared With Agency Phone Lines
 
 | Feature | Live Verify | Calling the Main Office | Static ID Card |
 | :--- | :--- | :--- | :--- |

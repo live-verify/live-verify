@@ -42,7 +42,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Phantom License Fraud
+
+- **Identity Theft:** Unlicensed individuals using a real therapist's name and license number to find work at un-vetted clinics.
+- **Disciplinary Hiding:** A practitioner who was banned for misconduct in one state moving to another state and using an old, valid-looking paper license to get a job.
+- **Template Forgery:** Scammers selling fake board certificates online to illicit massage parlor operators.
+
+## What Is Checked
 
 Licensee name, photo (hash), license number (MA), business establishment ID (if applicable), board certification status (e.g., NCBTMB), background check clearance date, disciplinary history status, expiration date, issuing state board.
 
@@ -52,19 +58,19 @@ Licensee name, photo (hash), license number (MA), business establishment ID (if 
 - **CEU Certificate:** Proving current educational units for renewal.
 - **Insurance Certificate:** (Linked hash) for professional liability.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`flhealthsource.gov`, `camtc.org`) and current standing.
 
 **Status Indications:**
 - **Active** — License is valid and in good standing.
-- **Suspended** — **ALERT:** Access revoked due to safety or legal violation.
+- **Suspended** — Access revoked due to safety or legal violation.
 - **Revoked** — Permanently barred from practicing (e.g., sexual misconduct).
 - **Expired** — Renewal or updated background check required.
 
-## Second-Party Use
+## Who Holds It
 
-The **Massage Therapist (Practitioner)** benefits from verification.
+The Massage Therapist (Practitioner) benefits from verification.
 
 **Protects both sides.** This is one of the few professions where verification genuinely protects both parties equally. The client needs to know the therapist has passed background checks before entering a private room. The therapist — particularly mobile therapists who visit clients' homes — needs a credible, state-backed credential to establish their professionalism immediately. The licensed therapist benefits because every unlicensed operator who cannot be distinguished from a professional drags the entire industry's trust downward.
 
@@ -72,7 +78,7 @@ The **Massage Therapist (Practitioner)** benefits from verification.
 
 **Personal Safety:** For mobile therapists entering private homes, having a verified, state-backed ID badge provides an extra layer of professional authority and safety.
 
-## Third-Party Use
+## Who Checks It
 
 **Spa Customers / Clients**
 **Assault Prevention:** Before entering a private room for a treatment, a customer can scan the therapist's badge. "Verified by State Board" ensures the person has passed the mandatory criminal and sex-offender background checks, reducing the risk of misconduct.
@@ -83,13 +89,7 @@ The **Massage Therapist (Practitioner)** benefits from verification.
 **Insurance Companies**
 **Malpractice Vetting:** Verifying that a therapist has an active, non-disciplined license before issuing or renewing professional liability coverage.
 
-## Verification Architecture
-
-**The "Phantom License" Fraud Problem**
-
-- **Identity Theft:** Unlicensed individuals using a real therapist's name and license number to find work at un-vetted clinics.
-- **Disciplinary Hiding:** A practitioner who was banned for misconduct in one state moving to another state and using an old, valid-looking paper license to get a job.
-- **Template Forgery:** Scammers selling fake board certificates online to illicit massage parlor operators.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -118,7 +118,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the board's hashes and status changes plus structured metadata (license number, issue date, expiration date, license status) — never therapist name, address, or background check details — providing non-repudiation of the license and an audit trail law enforcement can inspect.
 
 
-## Competition vs. Window Posters / Public Lookup
+## Compared With Window Posters / Public Lookup
 
 | Feature | Live Verify | Laminated Wall Poster | State Website Search |
 | :--- | :--- | :--- | :--- |

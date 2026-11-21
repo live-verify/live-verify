@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Pest Control License?
 
-If you hire someone to spray chemicals in your kitchen or drill into your foundation for termites, they must be a **Licensed Pest Control Operator (PCO)**. But at the door, the real question is narrower than "is this person in the trade?" It is:
+If you hire someone to spray chemicals in your kitchen or drill into your foundation for termites, they must be a Licensed Pest Control Operator (PCO). But at the door, the real question is narrower than "is this person in the trade?" It is:
 
 - is this the company I booked?
 - is this the technician actually assigned to my property now?
@@ -54,7 +54,15 @@ The problem is that "Pest Control" is a high-trust, high-risk trade. Criminals p
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Uniform Fraud
+
+- **Identity Spoofing:** Scammers using a real company's logo and a fake ID badge to "inspect" homes for burglary.
+- **Company Substitution:** Customer books one firm, but a cheaper or unknown subcontractor shows up instead.
+- **Visit Misassignment:** Real technician, wrong property or wrong day.
+- **Category Padding:** Editing a PDF to add "Termite" authority to a license that only allows "Ant/Roach" spraying.
+- **Revocation Hiding:** Continuing to practice using a physical "Valid" card after the board revoked the license for poisoning a client's pet.
+
+## What Is Checked
 
 License number, licensee full name, photograph (via hash), company name (DBA), assignment or work-order reference where applicable, license categories (e.g., Structural, Lawn, Termite), expiration date, background check timestamp, insurance policy ID, issuing state board.
 
@@ -64,28 +72,28 @@ License number, licensee full name, photograph (via hash), company name (DBA), a
 - **Pesticide Application Log:** (Linked hash) documenting specific chemicals used.
 - **WDI (Wood Destroying Insect) Report:** For real estate closings.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`texasag.gov`, `fdacs.gov`, `agriculture.ny.gov`) and the professional status.
 
 **Status Indications:**
 - **Active / Clear** — License is valid and the technician is in good standing for the claimed service.
-- **Suspended** — **CRITICAL:** Practice authority is temporarily revoked (e.g., due to safety violation).
-- **Insurance Lapsed** — **ALERT:** The technician is not currently covered by a bond.
-- **Restricted** — **ALERT:** Technician is not authorized for certain categories (e.g., "No Termites").
+- **Suspended** — Practice authority is temporarily revoked (e.g., due to safety violation).
+- **Insurance Lapsed** — The technician is not currently covered by a bond.
+- **Restricted** — Technician is not authorized for certain categories (e.g., "No Termites").
 - **WRONG_COMPANY** — The person may be real, but not from the firm the customer expected.
 - **NOT_ASSIGNED** — The person may be licensed, but is not the technician assigned for this visit.
 - **OUT_OF_SCOPE** — The technician or firm is real, but not authorized for the claimed treatment class or chemical use.
 
-## Second-Party Use
+## Who Holds It
 
-The **Technician (Practitioner)** benefits from verification.
+The Technician (Practitioner) benefits from verification.
 
 **Customer Trust Speed:** When arriving at a late-night emergency call (e.g., for a bed bug outbreak), the tech can proactively show a credential that confirms both licensure and company assignment. That lets the resident decide quickly without a long phone call or a risky guess.
 
 **Bid Credibility:** A small business owner can include verified license hashes in their service contracts. This proves to property managers that their crew is 100% licensed and background-checked, distinguishing them from "un-insured cash" competitors.
 
-## Third-Party Use
+## Who Checks It
 
 **Homeowners / Restaurant Managers**
 **Public Health Safety:** Before allowing someone to spray chemicals near food prep areas, a manager scans the badge. Verification ensures the tech isn't using a borrowed license number, arriving under the wrong company name, or claiming a treatment category they are not authorized to perform.
@@ -96,15 +104,7 @@ The **Technician (Practitioner)** benefits from verification.
 **Chemical Wholesalers**
 **Access Control:** Verifying the license hash before selling restricted-use pesticides (RUPs) to a customer, ensuring they aren't selling dangerous poisons to un-trained individuals.
 
-## Verification Architecture
-
-**The "Fake Uniform" Fraud Problem**
-
-- **Identity Spoofing:** Scammers using a real company's logo and a fake ID badge to "inspect" homes for burglary.
-- **Company Substitution:** Customer books one firm, but a cheaper or unknown subcontractor shows up instead.
-- **Visit Misassignment:** Real technician, wrong property or wrong day.
-- **Category Padding:** Editing a PDF to add "Termite" authority to a license that only allows "Ant/Roach" spraying.
-- **Revocation Hiding:** Continuing to practice using a physical "Valid" card after the board revoked the license for poisoning a client's pet.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

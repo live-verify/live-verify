@@ -46,11 +46,11 @@ Result:        This deposit reference does not exist at DPS.
 <span data-verify-line="deposit-notfound">verify:depositprotection.com/status/v</span> <span verifiable-text="end" data-for="deposit-notfound"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Scheme name, deposit reference number, deposit amount, property address, protection status, and date of protection. For a "not found" result, only the negative status and the scheme searched are confirmed.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the scheme domain (`depositprotection.com`, `mydeposits.co.uk`, `tenancydepositscheme.com`) and confirms whether the deposit protection claim is current.
 
@@ -58,11 +58,11 @@ Shows the scheme domain (`depositprotection.com`, `mydeposits.co.uk`, `tenancyde
 - **PROTECTED** — The deposit is held in a government-backed scheme.
 - **NOT FOUND IN THIS SCHEME** — The deposit reference does not exist at the scheme searched. The tenant should check the other two schemes before concluding the deposit is unprotected.
 
-## Second-Party Use
+## Who Holds It
 
-The **Tenant** uses this to confirm their deposit is protected. After moving into a new rental, the tenant clips the "PROTECTED" status from their scheme's portal and keeps it as verified evidence. If a dispute arises later about whether the deposit was ever protected, the tenant has a timestamped, hash-verified record rather than relying on memory or email threads.
+The Tenant uses this to confirm their deposit is protected. After moving into a new rental, the tenant clips the "PROTECTED" status from their scheme's portal and keeps it as verified evidence. If a dispute arises later about whether the deposit was ever protected, the tenant has a timestamped, hash-verified record rather than relying on memory or email threads.
 
-## Third-Party Use
+## Who Checks It
 
 **Citizens Advice Advisors**
 When a tenant seeks help with a deposit dispute, the advisor needs to establish whether the deposit was protected and when. A verified status confirmation provides an immediate factual basis for advising the tenant on their legal options under the Housing Act 2004.
@@ -76,7 +76,7 @@ Local authority enforcement officers investigating rogue landlords can use verif
 **Letting Agents**
 When taking over management of an existing tenancy, a letting agent needs to confirm the deposit is already protected before assuming responsibility. A verified status removes reliance on the previous agent's or landlord's word.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Trust Me, It's Protected" Problem**
 
@@ -105,7 +105,7 @@ The Deposit Protection Service, a government-backed tenancy deposit scheme, is a
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Manual Verification
+## Compared With Manual Verification
 
 | Feature | Live Verify | Scheme Website Lookup | Landlord's Word |
 | :--- | :--- | :--- | :--- |

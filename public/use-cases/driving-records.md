@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is an Authority-Issued Driving Record?
 
-A **driving record** is an official statement from the licensing authority (DVLA, DMV, etc.) showing a driver's current status: penalty points, endorsements, disqualifications, licence categories, and validity.
+A driving record is an official statement from the licensing authority (DVLA, DMV, etc.) showing a driver's current status: penalty points, endorsements, disqualifications, licence categories, and validity.
 
-Unlike a self-declaration ("I have no points"), an authority-issued record is **ground truth** — the authority confirms the actual state of the licence at that moment.
+Unlike a self-declaration ("I have no points"), an authority-issued record is ground truth — the authority confirms the actual state of the licence at that moment.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #003366; background: #fff; padding: 0;">
   <div style="background: #003366; color: #fff; padding: 15px;">
@@ -104,11 +104,20 @@ Unlike a self-declaration ("I have no points"), an authority-issued record is **
 
 **Live Verify solves:** Authority issues verifiable record → driver presents to employer/insurer → recipient scans → confirms genuine and current.
 
-## Data Verified
+## The Problem
 
-**Licence holder name**, **licence number**, **record date/time**, **penalty points total**, **endorsement codes and dates**, **disqualification status**, **licence categories held**, **category validity dates**.
+- Self-declarations are unreliable
+- Periodic batch checks miss interim changes
+- Plastic licence card shows categories but not points
+- DVLA check codes are clunky (enter code on website, not scannable)
 
-## Data Visible After Verification
+**The Fix:** DVLA/DMV issues scannable driving record. Driver obtains on demand. Third party scans verification URL → confirmed by authority domain.
+
+## What Is Checked
+
+**Licence holder name**, licence number, record date/time, penalty points total, endorsement codes and dates, disqualification status, licence categories held, category validity dates.
+
+## What the Checker Sees
 
 **Status Indications:**
 - **Valid - Clean** — No points, no endorsements, no restrictions
@@ -195,7 +204,7 @@ Unlike a self-declaration ("I have no points"), an authority-issued record is **
 
 ## The "Stale Record" Problem
 
-Driving records are **point-in-time**. Driver could:
+Driving records are point-in-time. Driver could:
 - Get points the day after obtaining clean record
 - Present "clean" record that's now outdated
 - Acquire disqualification between checks
@@ -205,15 +214,7 @@ Driving records are **point-in-time**. Driver could:
 - Frequent re-verification for high-risk roles (commercial drivers)
 - Future: Subscription-based alerts when status changes (requires driver consent)
 
-## Verification Architecture
-
-**The Problem:**
-- Self-declarations are unreliable
-- Periodic batch checks miss interim changes
-- Plastic licence card shows categories but not points
-- DVLA check codes are clunky (enter code on website, not scannable)
-
-**The Fix:** DVLA/DMV issues scannable driving record. Driver obtains on demand. Third party scans verification URL → confirmed by authority domain.
+## How Verification Works Here
 
 **Why the authority must issue:**
 - Only DVLA/DMV knows actual points and status

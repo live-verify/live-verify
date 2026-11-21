@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is Tour Guide Verification?
 
-For travelers—especially solo travelers and women—hiring a **Tour Guide** or a local host is an act of extreme trust. You are often alone with a stranger in an unfamiliar city, relying on them for navigation and safety.
+For travelers—especially solo travelers and women—hiring a Tour Guide or a local host is an act of extreme trust. You are often alone with a stranger in an unfamiliar city, relying on them for navigation and safety.
 
 The problem is that "Tour Guide" is a low-barrier profession. Anyone can buy a generic "Official Guide" badge online or print a fake certificate from a famous travel site (like TripAdvisor or Viator). Even legitimate guides may have had their licenses revoked for safety violations. Live Verify allows a traveler to scan the guide's ID badge to verify: **"Is this person currently licensed by the national tourism board, and have they passed a professional background check?"**
 
@@ -52,7 +52,13 @@ The problem is that "Tour Guide" is a low-barrier profession. Anyone can buy a g
 
 **Protects both sides (Pattern D):** Licensed guides benefit too. In tourist areas saturated with unlicensed operators, legitimate guides compete against people who undercut on price because they carry no insurance, have no training, and have passed no background check. A verified badge is the guide's proof of professionalism — to the traveler, to heritage sites that restrict access to licensed guides, and to platforms that list them.
 
-## Data Verified
+## The Problem: Unofficial Expert Fraud
+
+- **Identity Theft:** Scammers using a real guide's name and photo from a public website to create a fake physical badge.
+- **Status Hiding:** Continuing to use a "Certified" label after a license was revoked for stealing from a guest.
+- **Site Spoofing:** Claiming to be "Museum Authorized" to get higher tips, while actually being banned from the facility.
+
+## What Is Checked
 
 Guide name, license ID, issuing tourism board, photograph (via hash), languages spoken, first aid certification status, insurance policy ID, expiration date, background check timestamp, specialized site access (e.g., "MUSEUM AUTHORIZED").
 
@@ -115,15 +121,15 @@ Tip: https://visitportugal.gov/tip/PT-992288
 
 Guides should never tell travelers "don't bother" or "that's not necessary." Every report is logged. The tourism board can triage later—but the traveler is never made to feel their input isn't wanted. Given the vulnerability of solo travelers (especially in unfamiliar environments), safety concerns should always be respected.
 
-## Second-Party Use
+## Who Holds It
 
-The **Solo Traveler (Guest)** benefits from verification.
+The Solo Traveler (Guest) benefits from verification.
 
-**Anti-Harassment Safety:** A woman traveling alone is approached by a "Guide" at a train station. Instead of following him, she scans his badge. If it returns **"ACTIVE - MARCO SILVA,"** she can proceed with a higher level of trust. If it returns **"UNKNOWN,"** she stays in the public area and avoids a potential assault or theft.
+**Anti-Harassment Safety:** A woman traveling alone is approached by a "Guide" at a train station. Instead of following him, she scans his badge. If it returns "ACTIVE - MARCO SILVA," she can proceed with a higher level of trust. If it returns "UNKNOWN," she stays in the public area and avoids a potential assault or theft.
 
 **Price Integrity:** In markets with "Bargaining," a traveler can verify that the guide is a "Tier-1 Licensed Pro" to justify paying a higher, set rate over un-licensed, un-vetted locals.
 
-## Third-Party Use
+## Who Checks It
 
 **Heritage Sites / Museums (Access Control)**
 **Illicit Guide Prevention:** Many sites (e.g., The Vatican or Machu Picchu) only allow licensed guides. Security staff can instantly scan the badges of people leading groups. Verified hashes ensure the "Guide" hasn't "borrowed" a valid card to bypass the site's strict entry rules.
@@ -132,15 +138,9 @@ The **Solo Traveler (Guest)** benefits from verification.
 **Sub-contractor Vetting:** Before a hotel recommends a "Freelance Guide" to a guest, they scan the guide's verified hash. This ensures the hotel's brand is protected by only recommending vetted, insured professionals.
 
 **Travel Marketplaces (e.g., Airbnb Experiences)**
-**Continuous Monitoring:** Platforms can automatically scan the hashes of all listed guides. If a guide's license returns **"REVOKED"** in the government database, the platform can instantly de-list them to protect future travelers.
+**Continuous Monitoring:** Platforms can automatically scan the hashes of all listed guides. If a guide's license returns "REVOKED" in the government database, the platform can instantly de-list them to protect future travelers.
 
-## Verification Architecture
-
-**The "Unofficial Expert" Fraud Problem**
-
-- **Identity Theft:** Scammers using a real guide's name and photo from a public website to create a fake physical badge.
-- **Status Hiding:** Continuing to use a "Certified" label after a license was revoked for stealing from a guest.
-- **Site Spoofing:** Claiming to be "Museum Authorized" to get higher tips, while actually being banned from the facility.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

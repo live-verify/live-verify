@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 A "Ghost" beneficiary change is a common form of financial crime where a malicious actor (e.g., a hacker, a corrupt insurance agent, or a fraudulent family member) changes the beneficiary of a life insurance policy or a pension plan to themselves or a shell entity.
 
-The **Beneficiary Change Confirmation** is a receipt issued to the policyholder immediately after a change is made. It proves that a change occurred, when, and who the new beneficiary is. By making this document verifiable, the policyholder can audit their own records and catch unauthorized changes years before a claim is filed.
+The Beneficiary Change Confirmation is a receipt issued to the policyholder immediately after a change is made. It proves that a change occurred, when, and who the new beneficiary is. By making this document verifiable, the policyholder can audit their own records and catch unauthorized changes years before a claim is filed.
 
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #e91e63; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #e91e63; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -46,7 +46,13 @@ The **Beneficiary Change Confirmation** is a receipt issued to the policyholder 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Ghost Beneficiary Fraud
+
+- **Hacker Redirection:** A hacker gains access to an online account and silently changes the beneficiary to their own offshore entity.
+- **Insider Fraud:** A corrupt employee at the insurance company changes a high-value policy's beneficiary before the policyholder's death.
+- **Coercion:** A family member or caretaker forces a vulnerable elder to change a beneficiary.
+
+## What Is Checked
 
 Insurer name, policy number, policyholder name, new beneficiary name, relationship, update timestamp, reference number.
 
@@ -55,25 +61,25 @@ Insurer name, policy number, policyholder name, new beneficiary name, relationsh
 - **Annual Beneficiary Audit Statement:** A yearly summary for verification.
 - **Final Designation Record:** The "master" record of all current beneficiaries.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`metlife.com`, `prudential.com`) and the designation status.
 
 **Status Indications:**
 - **Current / Active** — Record matches the insurer's latest beneficiary file.
-- **Superseded** — **ALERT:** A newer beneficiary change has been made.
-- **In-Dispute** — **ALERT:** A contest to the designation is being reviewed.
+- **Superseded** — A newer beneficiary change has been made.
+- **In-Dispute** — A contest to the designation is being reviewed.
 - **Pending Signature** — Update authorized but waiting for final paperwork.
 
-## Second-Party Use
+## Who Holds It
 
-The **Policyholder / Account Owner** benefits from verification.
+The Policyholder / Account Owner benefits from verification.
 
 **Unauthorized Change Detection:** By auditing their own verified records, the policyholder catches unauthorized "Ghost" changes made by hackers or corrupt insiders.
 
 **Estate Planning:** Providing a verified confirmation to their executor or family to ensure the intended distribution path is documented and trusted.
 
-## Third-Party Use
+## Who Checks It
 
 **Executors / Trustees**
 **Claim Preparation:** Executors can verify the latest beneficiary designation to ensure they are correctly identifying the parties entitled to the proceeds.
@@ -84,13 +90,7 @@ The **Policyholder / Account Owner** benefits from verification.
 **Court Officers / Probates**
 **Will Contests:** Resolving disputes about who was the "last named beneficiary" by scanning the verified hash on the policy record.
 
-## Verification Architecture
-
-**The "Ghost Beneficiary" Fraud Problem**
-
-- **Hacker Redirection:** A hacker gains access to an online account and silently changes the beneficiary to their own offshore entity.
-- **Insider Fraud:** A corrupt employee at the insurance company changes a high-value policy's beneficiary before the policyholder's death.
-- **Coercion:** A family member or caretaker forces a vulnerable elder to change a beneficiary.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

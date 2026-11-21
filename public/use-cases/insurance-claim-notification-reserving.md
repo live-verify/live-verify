@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is a Claim Notification Receipt?
 
-In the insurance industry, the greatest risk to solvency isn't a lack of assets, but the **under-reporting of liabilities**. A "Reserving Fraud" occurs when management intentionally fails to "book" claims as they arrive, making the company appear more profitable and solvent than it actually is. This creates a Ponzi-like environment where new premiums are required to pay old, unbooked claims.
+In the insurance industry, the greatest risk to solvency isn't a lack of assets, but the under-reporting of liabilities. A "Reserving Fraud" occurs when management intentionally fails to "book" claims as they arrive, making the company appear more profitable and solvent than it actually is. This creates a Ponzi-like environment where new premiums are required to pay old, unbooked claims.
 
-The **Independent Insurance (UK, 2001)** collapse is the classic example: management failed to book £62 million in claims, and auditors were unable to detect the missing liabilities because management controlled the "ground truth" data.
+The Independent Insurance (UK, 2001) collapse is the classic example: management failed to book £62 million in claims, and auditors were unable to detect the missing liabilities because management controlled the "ground truth" data.
 
-Live Verify with **Independent Witnessing** solves the "Completeness Problem." The moment a claim is first notified (the "First Notice of Loss"), a digital or printed receipt is generated and hashed. This hash is sent to an independent third-party witness (the Regulator, an Audit Firm, or a Public Ledger).
+Live Verify with Independent Witnessing solves the "Completeness Problem." The moment a claim is first notified (the "First Notice of Loss"), a digital or printed receipt is generated and hashed. This hash is sent to an independent third-party witness (the Regulator, an Audit Firm, or a Public Ledger).
 
 <div style="max-width: 500px; margin: 24px auto; font-family: 'Courier New', Courier, monospace; border: 2px solid #002244; background: #fff; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #002244; padding-bottom: 10px; margin-bottom: 20px;">
@@ -42,27 +42,33 @@ Live Verify with **Independent Witnessing** solves the "Completeness Problem." T
   </div>
 </div>
 
-## Data Verified
+## The Problem: Management-Curated Reality
+
+- **Unbooked Claims:** Receiving a claim notification but intentionally not entering it into the accounting system to hide liabilities.
+- **Backdating:** Changing the date of a loss to fall within (or outside) a specific policy period.
+- **Reserve Manipulation:** Changing the "Type" of a claim from "Total Loss" to "Partial Loss" in the database while leaving the original paper notification unchanged.
+
+## What Is Checked
 
 Claim reference number, policy number, name of insured, date of loss, timestamp of reporting, claim type (e.g., motor, liability), status (Registered/Reserved).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`globalliability.com`) and the claim status.
 
 **Status Indications:**
 - **In-Process** — Claim is open and being adjusted.
-- **Settled** — **ALERT:** Payment has been made and liability is closed.
+- **Settled** — Payment has been made and liability is closed.
 - **Withdrawn** — Claimant retracted the claim.
-- **Invalid** — **CRITICAL:** Hash does not match any record.
+- **Invalid** — Hash does not match any record.
 
-## Second-Party Use
+## Who Holds It
 
-The **Policyholder / Claimant** benefits from verification.
+The Policyholder / Claimant benefits from verification.
 
 **Anti-Welching Protection:** In unregulated or poorly supervised markets, an insurer might attempt to "lose" a large claim notification to avoid payment. The witnessed receipt provides the claimant with an undeniable legal proof of notification that cannot be deleted from the historical record.
 
-## Third-Party Use
+## Who Checks It
 
 **Regulators (FSA, PRA, State DOI)**
 **Solvency Monitoring:** Regulators can compare the total volume of witnessed hashes against the insurer's reported reserves. If the Witness service has 10,000 hashes but the insurer only reports 8,000 claims on their balance sheet, the regulator has immediate evidence of reserving fraud.
@@ -74,7 +80,7 @@ The **Policyholder / Claimant** benefits from verification.
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (claim reference, policy number, date of loss, date reported) — never plaintext or sensitive personal information — providing non-repudiation of the claim notification.
 
-## Competition vs. National Reporting Databases
+## Compared With National Reporting Databases
 
 | Feature | Text-to-Hash (Witnessed) | Legacy Databases (CUE, ISO) |
 | :--- | :--- | :--- |
@@ -83,15 +89,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Authority** | **Cryptographic.** Witness provides neutral proof. | **Administrative.** Relies on insurer data entry. |
 | **Accessibility** | **Open Protocol.** Anyone with the receipt can verify. | **Closed Loop.** Only available to member insurers. |
 
-**Why Text-to-Hash wins:** Legacy reporting systems like the UK's **CUE** or the US's **ISO ClaimSearch** are designed to help insurers catch fraudulent *policyholders*. They are virtually useless at catching fraudulent *management teams* because the insurer remains the gatekeeper of what data is uploaded. Text-to-Hash flips the script: the moment the public notifies the insurer, the "Witness" locks in the liability, making it impossible for management to hide it later.
+**Why Text-to-Hash wins:** Legacy reporting systems like the UK's CUE or the US's ISO ClaimSearch are designed to help insurers catch fraudulent *policyholders*. They are virtually useless at catching fraudulent *management teams* because the insurer remains the gatekeeper of what data is uploaded. Text-to-Hash flips the script: the moment the public notifies the insurer, the "Witness" locks in the liability, making it impossible for management to hide it later.
 
-## Verification Architecture
-
-**The "Management-Curated Reality" Problem**
-
-- **Unbooked Claims:** Receiving a claim notification but intentionally not entering it into the accounting system to hide liabilities.
-- **Backdating:** Changing the date of a loss to fall within (or outside) a specific policy period.
-- **Reserve Manipulation:** Changing the "Type" of a claim from "Total Loss" to "Partial Loss" in the database while leaving the original paper notification unchanged.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

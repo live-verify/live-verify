@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is Seed Certification?
 
-In global agriculture, a **Seed Certification Tag** (often a blue, purple, or white tag sewn into a bag) is the proof that the seed inside is exactly what the label says it is. It guarantees the "Genetic Purity" of the variety and that the seeds have passed tests for **Germination Rate** and absence of "Noxious Weeds."
+In global agriculture, a Seed Certification Tag (often a blue, purple, or white tag sewn into a bag) is the proof that the seed inside is exactly what the label says it is. It guarantees the "Genetic Purity" of the variety and that the seeds have passed tests for Germination Rate and absence of "Noxious Weeds."
 
-These tags are the "Intellectual Property" of the seed world. Fraud is common in high-value crops (e.g., GMO Soybeans or Hybrid Corn). Shady dealers often "edit" a tag to turn generic, low-quality grain into a "Certified High-Yield" variety to sell it at a 500% markup. Similarly, they might hide a poor germination test result. Verified hashes bind the **Lot Number, Variety Name, and Purity Metrics** to the state's or the breeder's domain (e.g., `aosca.org` or `monsanto.com`).
+These tags are the "Intellectual Property" of the seed world. Fraud is common in high-value crops (e.g., GMO Soybeans or Hybrid Corn). Shady dealers often "edit" a tag to turn generic, low-quality grain into a "Certified High-Yield" variety to sell it at a 500% markup. Similarly, they might hide a poor germination test result. Verified hashes bind the Lot Number, Variety Name, and Purity Metrics to the state's or the breeder's domain (e.g., `aosca.org` or `monsanto.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="seed"></span>
@@ -36,7 +36,13 @@ Noxious Weeds:                                                 NONE
 <span data-verify-line="seed">verify:aosca.org/v</span> <span verifiable-text="end" data-for="seed"></span>
 </div>
 
-## Data Verified
+## The Problem: Brown Bag Fraud
+
+- **Variety Masking:** Selling cheap "Generic" wheat in a bag with a fake "Premium Variety" tag.
+- **Germination Padding:** Editing a "75%" (Poor) germination result into a "95%" (Excellent) one on a PDF analysis report.
+- **Tag Re-Use:** Harvesting the blue tags from a real shipment and sewing them onto bags of low-quality grain.
+
+## What Is Checked
 
 Lot number, tag ID, crop name, variety name (e.g., "Golden-Harvest 42"), class of seed (Foundation/Registered/Certified), germination percentage, pure seed percentage, inert matter percentage, weed seed count, date of test, certifier name/state, grower name.
 
@@ -46,19 +52,19 @@ Lot number, tag ID, crop name, variety name (e.g., "Golden-Harvest 42"), class o
 - **Bulk Sales Certificate:** For tractor-trailer loads.
 - **PVP (Plant Variety Protection) License:** Proof of legal right to sell.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`aosca.org`, `state-crop-improvement.org`, `corteva.com`) and the seed standing.
 
 **Status Indications:**
 - **Certified / Valid** — Seed matches the original lab and field audit.
-- **Test Expired** — **ALERT:** Germination data is more than 9 months old; re-test required.
-- **Banned Lot** — **CRITICAL:** High levels of restricted weeds found; do not plant.
-- **IP Dispute** — **ALERT:** Sale of this variety is blocked due to a licensing violation.
+- **Test Expired** — Germination data is more than 9 months old; re-test required.
+- **Banned Lot** — High levels of restricted weeds found; do not plant.
+- **IP Dispute** — Sale of this variety is blocked due to a licensing violation.
 
-## Second-Party Use
+## Who Holds It
 
-The **Farmer** (second party) receives the seed certification from the certifying agency (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Farmer (second party) receives the seed certification from the certifying agency (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** The farmer has their own verified copy of the seed quality metrics. Most of the time, the document sits in their farm records—the verification value is latent, there *if needed*.
 
@@ -66,7 +72,7 @@ The **Farmer** (second party) receives the seed certification from the certifyin
 
 **Future Optionality:** If a dispute arises—whether about crop failure, IP compliance audits, or loan defaults—the farmer has cryptographic proof ready without needing to contact the certifying agency.
 
-## Third-Party Use
+## Who Checks It
 
 The farmer (second party) may hand the verified document to various third parties:
 
@@ -82,13 +88,7 @@ Customs officials receive verified seed certifications to confirm that seeds bei
 **Seed Dealers / Wholesalers (Inventory Verification)**
 A dealer receiving 500 bags of seed scans the verified hashes to ensure the lot numbers match the shipping manifest and that no "uncertified" bags have been mixed into the high-value shipment.
 
-## Verification Architecture
-
-**The "Brown Bag" Fraud Problem**
-
-- **Variety Masking:** Selling cheap "Generic" wheat in a bag with a fake "Premium Variety" tag.
-- **Germination Padding:** Editing a "75%" (Poor) germination result into a "95%" (Excellent) one on a PDF analysis report.
-- **Tag Re-Use:** Harvesting the blue tags from a real shipment and sewing them onto bags of low-quality grain.
+## Who Issues It
 
 **Issuer Types (First Party)**
 

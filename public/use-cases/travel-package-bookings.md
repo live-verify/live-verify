@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Travel Package Confirmations?
 
-A **Travel Package Confirmation** is the "Master Receipt" for an all-inclusive vacation. It bundles together high-value assets: round-trip airfare, 7 nights at a luxury resort, airport transfers, and excursions. These vouchers are worth thousands of dollars and serve as the "Key" to enter the resort and board the flights.
+A Travel Package Confirmation is the "Master Receipt" for an all-inclusive vacation. It bundles together high-value assets: round-trip airfare, 7 nights at a luxury resort, airport transfers, and excursions. These vouchers are worth thousands of dollars and serve as the "Key" to enter the resort and board the flights.
 
-Fraud is common in the "Secondary Market." Scammers sell fake "Discounted Packages" on social media using realistic-looking templates from famous operators. Similarly, travelers sometimes "edit" a confirmation to add an extra person or a "Premium Drink Package" that wasn't paid for. Verified hashes bind the **Traveler Names, Inclusions, and Booking Reference** to the tour operator's domain (e.g., `tui.com` or `expedia.com`).
+Fraud is common in the "Secondary Market." Scammers sell fake "Discounted Packages" on social media using realistic-looking templates from famous operators. Similarly, travelers sometimes "edit" a confirmation to add an extra person or a "Premium Drink Package" that wasn't paid for. Verified hashes bind the Traveler Names, Inclusions, and Booking Reference to the tour operator's domain (e.g., `tui.com` or `expedia.com`).
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Segoe UI', Tahoma, sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="background: #00bcd4; color: #fff; padding: 25px; display: flex; justify-content: space-between; align-items: center;">
@@ -64,7 +64,13 @@ Fraud is common in the "Secondary Market." Scammers sell fake "Discounted Packag
   </div>
 </div>
 
-## Data Verified
+## The Problem: Bundle Bypass Fraud
+
+- **Perk Inflation:** Adding a "$500 Resort Credit" line to a standard PDF voucher.
+- **Ghost Bookings:** Creating fake confirmations for a resort that has no record of the guest.
+- **Resell Scams:** Selling the same "Verified" PDF to 5 different people (verification reveals the "Already Checked In" status).
+
+## What Is Checked
 
 Booking reference number, operator name, traveler names, destination, resort name, stay dates, room category, itemized inclusions (e.g., beverage tier, credits), payment status, cancellation policy hash.
 
@@ -74,25 +80,25 @@ Booking reference number, operator name, traveler names, destination, resort nam
 - **Transfer Notice:** For the airport shuttle driver.
 - **Exclusion List:** (Linked hash) what the package *doesn't* cover.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`tui.com`, `expedia.com`, `sandals.com`) and the booking standing.
 
 **Status Indications:**
 - **Fully Paid / Confirmed** — Booking is valid and funds are cleared.
 - **Checked In** — Guests have arrived at the resort.
-- **Cancelled** — **ALERT:** The trip has been voided; no services authorized.
+- **Cancelled** — The trip has been voided; no services authorized.
 - **Modification Active** — A newer version of the package exists.
 
-## Second-Party Use
+## Who Holds It
 
-The **Traveler (Guest)** benefits from verification.
+The Traveler (Guest) benefits from verification.
 
-**Anti-Fraud Assurance:** When buying a "Last Minute Deal" from a third-party seller, the guest can scan the provided confirmation hash. If it returns **"VERIFIED - ISLAND ESCAPES,"** they can pay with confidence. If it returns **"UNKNOWN,"** they avoid a $4,000 scam.
+**Anti-Fraud Assurance:** When buying a "Last Minute Deal" from a third-party seller, the guest can scan the provided confirmation hash. If it returns "VERIFIED - ISLAND ESCAPES," they can pay with confidence. If it returns "UNKNOWN," they avoid a $4,000 scam.
 
 **Resort Check-in:** Upon arrival at a busy resort, the guest scans their own voucher. "Verified by Island Escapes" ensures the front desk that the "Premium Suite" and "Butler Service" listed on the paper are actually paid for, preventing awkward disputes at the desk.
 
-## Third-Party Use
+## Who Checks It
 
 **Resort Front-Office Managers**
 **Inclusion Integrity:** Verifying that a guest claiming "Unlimited Spa Access" actually has it in their verified package, stopping the common "pencil-editing" of printed vouchers to gain free perks.
@@ -103,13 +109,7 @@ The **Traveler (Guest)** benefits from verification.
 **Charter Flight Operators**
 **Manifest Vetting:** Ensuring that every passenger boarding the "Package Flight" has a verified, paid-in-full booking with the tour operator.
 
-## Verification Architecture
-
-**The "Bundle Bypass" Fraud Problem**
-
-- **Perk Inflation:** Adding a "$500 Resort Credit" line to a standard PDF voucher.
-- **Ghost Bookings:** Creating fake confirmations for a resort that has no record of the guest.
-- **Resell Scams:** Selling the same "Verified" PDF to 5 different people (verification reveals the "Already Checked In" status).
+## Who Issues It
 
 **Issuer Types** (First Party)
 

@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a DAML Consent Response?
 
-When a UK firm suspects a transaction involves criminal property but needs to proceed with it (e.g., a client wants to withdraw funds, or a payment is due), the firm faces a dilemma: proceeding might constitute money laundering under POCA s.327-329, but refusing to act might "tip off" the client. The solution is a **Defence Against Money Laundering (DAML)** consent request to the NCA.
+When a UK firm suspects a transaction involves criminal property but needs to proceed with it (e.g., a client wants to withdraw funds, or a payment is due), the firm faces a dilemma: proceeding might constitute money laundering under POCA s.327-329, but refusing to act might "tip off" the client. The solution is a Defence Against Money Laundering (DAML) consent request to the NCA.
 
-The firm files a SAR with the NCA requesting **consent** to proceed with the specific transaction. The NCA then either:
+The firm files a SAR with the NCA requesting consent to proceed with the specific transaction. The NCA then either:
 - **Grants consent** (the firm may proceed — this provides a statutory defence under POCA s.335)
 - **Refuses consent** (the firm must not proceed for 31 days, during which the NCA can apply for a restraint order)
 - **Allows the moratorium to expire** (consent is deemed granted after 31 days if no refusal is issued)
@@ -45,13 +45,22 @@ The NCA's consent response is one of the most critical compliance documents a fu
   </div>
 </div>
 
-## Data Verified
+## The Problem
+
+- Fabricated DAML consent responses to create retrospective defences
+- Transactions processed before consent was actually obtained
+- Confusion about "deemed consent" timing and whether a refusal was issued
+- MLROs claiming they sought consent when they didn't
+
+**The Fix:** NCA hashes each consent decision at time of issue. The timestamp is cryptographically bound. A fund manager cannot fabricate a pre-dated consent, and the "deemed consent" status is recorded with the exact moratorium expiry date. FCA auditors and prosecutors can verify the consent was genuine and pre-dated the transaction.
+
+## What Is Checked
 
 DAML reference number, linked SAR reference, date of decision, reporting entity name, FCA firm reference, consent decision (granted / refused / deemed granted by expiry of moratorium).
 
 **Privacy constraint:** The response does NOT contain the client's identity, the transaction amount, or the nature of the suspicion. Only the consent decision and its administrative references are verifiable.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 **Status Indications:**
 - **Consent Granted** — NCA does not object; firm has s.335 defence
@@ -62,21 +71,21 @@ DAML reference number, linked SAR reference, date of decision, reporting entity 
 
 ## Why This Matters
 
-DAML consent is the fund manager's **statutory shield**. Without it, processing a suspicious transaction is a criminal offence punishable by up to 14 years' imprisonment. The consent letter is existential evidence.
+DAML consent is the fund manager's statutory shield. Without it, processing a suspicious transaction is a criminal offence punishable by up to 14 years' imprisonment. The consent letter is existential evidence.
 
-**The timing problem:** POCA s.335(1) requires consent to be obtained **before** the transaction proceeds. If a firm processes the transaction and then seeks consent retrospectively, the defence fails. A verified timestamp on the NCA response proves the consent was in place before the transaction occurred.
+**The timing problem:** POCA s.335(1) requires consent to be obtained before the transaction proceeds. If a firm processes the transaction and then seeks consent retrospectively, the defence fails. A verified timestamp on the NCA response proves the consent was in place before the transaction occurred.
 
 **The fabrication risk:** A fund manager who processed a suspicious transaction without seeking consent could fabricate a DAML response to create a retrospective defence. The amounts at stake (and the prison sentences) create strong incentives for forgery.
 
 **The "deemed consent" problem:** When the NCA doesn't respond within 31 days, consent is deemed granted. But proving this requires proving a negative — that no refusal was issued. A verified status of "Deemed Consent" with a timestamp resolves this cleanly.
 
-## Second-Party Use
+## Who Holds It
 
 **Fund managers / MLROs** — The primary beneficiary. The DAML consent letter is their personal defence against criminal prosecution. Verification makes it unimpeachable.
 
 **Transaction processing teams** — Before executing a flagged transaction, the operations team can verify the DAML consent is genuine and current, rather than relying on an email from the MLRO.
 
-## Third-Party Use
+## Who Checks It
 
 **FCA supervisors** — Reviewing the firm's DAML consent regime. Are they seeking consent when they should? Are they acting on refusals? Verified responses provide the complete picture.
 
@@ -85,16 +94,6 @@ DAML consent is the fund manager's **statutory shield**. Without it, processing 
 **Legal counsel** — Defence in criminal proceedings. "We obtained NCA consent before proceeding — here's the verified response" is a complete s.335 defence.
 
 **Crown Prosecution Service** — In money laundering prosecutions, verifying whether a valid DAML consent existed at the time of the transaction.
-
-## Verification Architecture
-
-**The Problem:**
-- Fabricated DAML consent responses to create retrospective defences
-- Transactions processed before consent was actually obtained
-- Confusion about "deemed consent" timing and whether a refusal was issued
-- MLROs claiming they sought consent when they didn't
-
-**The Fix:** NCA hashes each consent decision at time of issue. The timestamp is cryptographically bound. A fund manager cannot fabricate a pre-dated consent, and the "deemed consent" status is recorded with the exact moratorium expiry date. FCA auditors and prosecutors can verify the consent was genuine and pre-dated the transaction.
 
 ## Authority Chain
 

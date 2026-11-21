@@ -26,7 +26,7 @@ This matters because:
 
 A verifiable franchise location claim is a short statement, issued by the franchisor, naming the operator and the location where the license applies. The customer can verify it in place — on the premises or on the ordering page — without searching the brand's store locator.
 
-This document covers the **consumer-facing** angle: "Is this actually a real Costa / Subway / McDonald's?" For the **investor-facing** angle — franchise disclosure documents, Item 19 earnings claims, and FDD integrity — see [Franchise Agreements and Disclosure Documents](franchise-agreements.md).
+This document covers the consumer-facing angle: "Is this actually a real Costa / Subway / McDonald's?" For the investor-facing angle — franchise disclosure documents, Item 19 earnings claims, and FDD integrity — see [Franchise Agreements and Disclosure Documents](franchise-agreements.md).
 
 ## Example: Physical Premises (Printed or Displayed)
 
@@ -92,7 +92,21 @@ verify:subway.com/locations
 
 The parenthesized domain serves the same purpose as in [Licensed Reseller Authorizations](licensed-reseller-authorizations.md) — it enables both human-readable and automated domain-mismatch detection.
 
-## Data Verified
+## The Problem: Is This Really a [Brand]?
+
+- **Signage persistence:** Franchise signage is expensive. Terminated franchisees often leave it up for months or longer, because removing it signals the business is failing.
+- **Platform listing inertia:** Delivery platforms rarely verify franchise status at onboarding and almost never re-check it. A terminated franchisee can continue receiving orders under the brand name indefinitely.
+- **Store locator lag:** Brand "find a store" pages are updated periodically, not in real time. A terminated location may appear on the locator for weeks after termination.
+- **Consumer assumption:** Customers assume that any location bearing a brand's name and livery is a current, quality-controlled franchise. This assumption is usually correct, but when it is wrong, the consequences (food safety, insurance, complaint handling) fall on the customer.
+
+The verifiable claim addresses these because:
+
+1. The franchisor issues the claim — it is not self-asserted by the operator
+2. The claim names the specific location and operator
+3. Termination is immediate — the endpoint returns TERMINATED
+4. For web claims, the browser extension can detect domain mismatches automatically
+
+## What Is Checked
 
 Franchisor brand, franchisee operator legal name, licensed location address, operator domain (for web claims), and current license status.
 
@@ -102,7 +116,7 @@ Franchisor brand, franchisee operator legal name, licensed location address, ope
 
 **Privacy Salt:** Generally not required. Franchise location claims are commercial claims that both the franchisor and franchisee want to be public.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `costa.co.uk`, `subway.com`, `mcdonalds.com`) and the current license status.
 
@@ -144,9 +158,9 @@ A restaurant lists itself on a delivery platform under a franchise brand name wi
 
 A verifiable claim — required at listing time — gives the platform an automated check: does this operator have a current, verified franchise license for this location from this brand?
 
-## Second-Party Use
+## Who Holds It
 
-The **customer** benefits directly.
+The customer benefits directly.
 
 **On-premises confidence:** Before ordering, the customer can verify that the location is a current, licensed franchise — not a terminated operator still trading under the brand, and not a fake.
 
@@ -154,7 +168,7 @@ The **customer** benefits directly.
 
 **Complaint and refund routing:** If something goes wrong, the verification status confirms whether the customer's complaint should go to the brand (licensed) or only to the operator (terminated/fake). This matters for food safety incidents in particular.
 
-## Third-Party Use
+## Who Checks It
 
 **Franchisor Brand Protection Teams**
 
@@ -172,23 +186,7 @@ The **customer** benefits directly.
 
 **Complaint investigation:** When a consumer reports a food safety or trading standards issue at a branded location, the investigator can check whether the location is (or was) a licensed franchise. This affects which entity is responsible and what enforcement powers apply.
 
-## Verification Architecture
-
-**The "Is This Really a [Brand]?" Problem**
-
-- **Signage persistence:** Franchise signage is expensive. Terminated franchisees often leave it up for months or longer, because removing it signals the business is failing.
-- **Platform listing inertia:** Delivery platforms rarely verify franchise status at onboarding and almost never re-check it. A terminated franchisee can continue receiving orders under the brand name indefinitely.
-- **Store locator lag:** Brand "find a store" pages are updated periodically, not in real time. A terminated location may appear on the locator for weeks after termination.
-- **Consumer assumption:** Customers assume that any location bearing a brand's name and livery is a current, quality-controlled franchise. This assumption is usually correct, but when it is wrong, the consequences (food safety, insurance, complaint handling) fall on the customer.
-
-The verifiable claim addresses these because:
-
-1. The franchisor issues the claim — it is not self-asserted by the operator
-2. The claim names the specific location and operator
-3. Termination is immediate — the endpoint returns TERMINATED
-4. For web claims, the browser extension can detect domain mismatches automatically
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Brand Store Locator | Delivery Platform Listing | Signage Alone |
 | :--- | :--- | :--- | :--- | :--- |

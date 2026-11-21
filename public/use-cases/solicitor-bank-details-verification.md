@@ -85,7 +85,21 @@ verify:turnerassociates.co.uk/bank-details/v
 
 The mismatch is unambiguous. The buyer knows not to transfer.
 
-## Data Verified
+## The Problem: Email Interception
+
+- **Email is insecure by default:** Standard email (SMTP) can be intercepted, modified, or spoofed. Even with TLS in transit, emails are stored in plaintext on mail servers. Compromised mailboxes are common.
+- **Bank details are high-value targets:** A single intercepted email containing bank details for a property completion can yield £100,000+ for the attacker.
+- **No verification channel exists:** The buyer receives bank details by email and has no independent channel to verify them. Calling the solicitor is advised but rarely done — and the phone number in the email may also be compromised.
+- **Time pressure:** Completions are time-sensitive. The buyer is told to transfer "today" or risk losing the property. This pressure discourages careful verification.
+
+The verifiable claim addresses these because:
+
+1. The hash is published on the solicitor's domain, which the criminal does not control
+2. Modifying the bank details in the email breaks the hash — the tampering is detectable
+3. The verification is fast — it does not delay the transaction
+4. The verify line in the email is a clear prompt to check before transferring
+
+## What Is Checked
 
 Solicitor firm name, client account sort code, client account number, and matter-specific payment reference.
 
@@ -95,7 +109,7 @@ Solicitor firm name, client account sort code, client account number, and matter
 
 **Privacy Salt:** Required. Bank account details are sensitive. The salt prevents brute-force reconstruction of sort code and account number combinations from the published hash. Without a salt, the relatively small keyspace of UK sort codes (6 digits) and account numbers (8 digits) would be vulnerable to enumeration.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `turnerassociates.co.uk`) and whether the claim is current.
 
@@ -117,9 +131,9 @@ The response deliberately does not echo the bank details back. The buyer already
 - **Revoked** — The solicitor has revoked this claim, likely because the matter has completed or the details have changed.
 - **404** — No such claim exists at the solicitor's domain. The bank details may be fraudulent.
 
-## Second-Party Use
+## Who Holds It
 
-The **solicitor's firm** benefits directly.
+The solicitor's firm benefits directly.
 
 **Fraud prevention for clients:** The firm can demonstrate it has taken active steps to protect clients from payment redirection fraud during conveyancing. This is a professional obligation under SRA guidance.
 
@@ -127,7 +141,7 @@ The **solicitor's firm** benefits directly.
 
 **Professional reputation:** Conveyancing fraud damages the reputation of the entire profession. Firms that adopt verifiable bank details distinguish themselves from those that rely on email alone.
 
-## Third-Party Use
+## Who Checks It
 
 **Property Buyers**
 
@@ -145,23 +159,7 @@ The **solicitor's firm** benefits directly.
 
 **Risk assessment:** Insurers providing professional indemnity cover for conveyancing firms could factor verifiable bank details into their risk models, potentially reducing premiums for firms that adopt the practice.
 
-## Verification Architecture
-
-**The Email Interception Problem**
-
-- **Email is insecure by default:** Standard email (SMTP) can be intercepted, modified, or spoofed. Even with TLS in transit, emails are stored in plaintext on mail servers. Compromised mailboxes are common.
-- **Bank details are high-value targets:** A single intercepted email containing bank details for a property completion can yield £100,000+ for the attacker.
-- **No verification channel exists:** The buyer receives bank details by email and has no independent channel to verify them. Calling the solicitor is advised but rarely done — and the phone number in the email may also be compromised.
-- **Time pressure:** Completions are time-sensitive. The buyer is told to transfer "today" or risk losing the property. This pressure discourages careful verification.
-
-The verifiable claim addresses these because:
-
-1. The hash is published on the solicitor's domain, which the criminal does not control
-2. Modifying the bank details in the email breaks the hash — the tampering is detectable
-3. The verification is fast — it does not delay the transaction
-4. The verify line in the email is a clear prompt to check before transferring
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Phone Callback | Confirmation of Payee (CoP) | PDF Letterhead |
 | :--- | :--- | :--- | :--- | :--- |

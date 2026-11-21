@@ -11,7 +11,7 @@ furtherDerivations: 7
 
 ## What is International Tax & Social Security Coordination?
 
-When you work across borders, two countries may both claim taxing rights on your income—and both may demand social security contributions. **Tax treaties** prevent double taxation. **Totalization agreements** ensure your social security contributions in one country count toward benefits in another.
+When you work across borders, two countries may both claim taxing rights on your income—and both may demand social security contributions. Tax treaties prevent double taxation. Totalization agreements ensure your social security contributions in one country count toward benefits in another.
 
 These documents are crucial for expats, remote workers, multinational employees, and retirees abroad. Fraud and disputes are common: fake residency certificates, forged coverage certificates, and disputes over which country's system applies.
 
@@ -172,7 +172,14 @@ These documents are crucial for expats, remote workers, multinational employees,
 - Treaty benefits apply automatically at source
 - Disputes resolved with cryptographic proof of status
 
-## Data Verified
+## The Problem: Treaty Fraud
+
+- **Fake Residency Certificates:** Claiming treaty benefits without actual residency
+- **Fraudulent Coverage Certificates:** Avoiding social security in both countries
+- **Double Dipping:** Claiming pension credits that were never earned
+- **Treaty Shopping:** Using certificates from treaty havens without genuine connection
+
+## What Is Checked
 
 Taxpayer/worker identity, issuing authority, treaty/agreement referenced, coverage period, applicable country, exemption type, certificate number, issue date, expiration.
 
@@ -184,7 +191,7 @@ Taxpayer/worker identity, issuing authority, treaty/agreement referenced, covera
 - **Pension Entitlement Statement:** Shows combined credits from multiple countries
 - **Totalization Benefit Calculation:** How foreign credits translate to domestic benefits
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (tax authority, social security agency) and certificate validity.
 
@@ -195,9 +202,9 @@ Shows the issuer domain (tax authority, social security agency) and certificate 
 - **Revoked** — Withdrawn (e.g., residency no longer applies)
 - **Pending** — Application submitted, awaiting approval
 
-## Second-Party Use
+## Who Holds It
 
-The **Worker / Taxpayer** benefits from verification.
+The Worker / Taxpayer benefits from verification.
 
 **Employer Onboarding:** When starting a job abroad, verified coverage certificates prove which country's social security applies—avoiding double deductions from payroll.
 
@@ -207,7 +214,7 @@ The **Worker / Taxpayer** benefits from verification.
 
 **Investment Income:** Verified treaty certificates ensure dividends and interest are taxed at treaty rates, not full withholding.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers (HR / Payroll)**
 **Compliance:** Verify which country's social security system applies before making payroll deductions. Avoid incorrect withholding.
@@ -224,14 +231,7 @@ The **Worker / Taxpayer** benefits from verification.
 **Immigration Authorities**
 **Residency Verification:** Tax residency certificates can support visa/residency applications.
 
-## Verification Architecture
-
-**The Treaty Fraud Problem**
-
-- **Fake Residency Certificates:** Claiming treaty benefits without actual residency
-- **Fraudulent Coverage Certificates:** Avoiding social security in both countries
-- **Double Dipping:** Claiming pension credits that were never earned
-- **Treaty Shopping:** Using certificates from treaty havens without genuine connection
+## How Verification Works Here
 
 **Bilateral and Multilateral Frameworks**
 

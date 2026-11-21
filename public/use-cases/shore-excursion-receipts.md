@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 When a cruise ship docks at a port (e.g., Cozumel or Santorini), thousands of passengers disembark for "Shore Excursions"—from scuba diving to bus tours. These tickets are high-value vouchers, often costing $150 to $500 per person.
 
-Fraud is common in the "Port Market." Unlicensed tour operators create fake "Official Cruise Line" tickets to trick passengers into boarding unsafe vehicles. Similarly, passengers sometimes "edit" a receipt to claim a refund for a tour they actually attended. Verified hashes bind the **Excursion Name, Ship/Cabin Number, and Date** to the cruise line's or the operator's domain (e.g., `royalcaribbean.com` or `viator.com`).
+Fraud is common in the "Port Market." Unlicensed tour operators create fake "Official Cruise Line" tickets to trick passengers into boarding unsafe vehicles. Similarly, passengers sometimes "edit" a receipt to claim a refund for a tour they actually attended. Verified hashes bind the Excursion Name, Ship/Cabin Number, and Date to the cruise line's or the operator's domain (e.g., `royalcaribbean.com` or `viator.com`).
 
 <div style="max-width: 450px; margin: 24px auto; font-family: 'Trebuchet MS', sans-serif; border: 2px solid #0072b2; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
   <div style="background: #0072b2; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
@@ -58,7 +58,13 @@ Fraud is common in the "Port Market." Unlicensed tour operators create fake "Off
   </div>
 </div>
 
-## Data Verified
+## The Problem: Pier-Side Pitch Fraud
+
+- **Logo Mimicry:** Unlicensed operators using a cruise line's logo on fake tickets to lure passengers into unsafe boats.
+- **Manifest Padding:** Operators adding "Ghost Passengers" to their paper logs to over-charge the cruise line.
+- **Waiver Hiding:** Editing a liability waiver to remove the "Risk Disclosure" section before a lawsuit.
+
+## What Is Checked
 
 Excursion name, port of call, date, guest name, cabin number, booking reference, price, meeting time, tour operator name, waiver status (linked hash).
 
@@ -68,25 +74,25 @@ Excursion name, port of call, date, guest name, cabin number, booking reference,
 - **Refund Voucher:** Issued if a tour is cancelled due to weather.
 - **Liability Waiver:** (Linked hash) signed by the guest.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`carnival.com`, `rccl.com`, `viator.com`) and the ticket standing.
 
 **Status Indications:**
 - **Confirmed / Paid** — Ticket is valid; passenger is on the manifest.
 - **Checked In** — Passenger has boarded the excursion.
-- **Cancelled (Weather)** — **ALERT:** Excursion voided due to conditions; refund active.
-- **Voided** — **ALERT:** Ticket reported lost or stolen.
+- **Cancelled (Weather)** — Excursion voided due to conditions; refund active.
+- **Voided** — Ticket reported lost or stolen.
 
-## Second-Party Use
+## Who Holds It
 
-The **Cruise Passenger** benefits from verification.
+The Cruise Passenger benefits from verification.
 
-**Anti-Scam Protection:** A passenger standing on a busy pier is approached by a "Tour Guide" claiming to be their official cruise contact. The passenger scans the guide's clipboard hash. If it returns **"VERIFIED - CARNIVAL VOYAGER,"** they can board the bus safely. If it returns **"UNKNOWN,"** they know it's an unlicensed operator.
+**Anti-Scam Protection:** A passenger standing on a busy pier is approached by a "Tour Guide" claiming to be their official cruise contact. The passenger scans the guide's clipboard hash. If it returns "VERIFIED - CARNIVAL VOYAGER," they can board the bus safely. If it returns "UNKNOWN," they know it's an unlicensed operator.
 
 **Refund Disputes:** If an excursion is "shortened" or doesn't deliver the promised activities (e.g., no ruins, just a gift shop), the passenger can use the verified hash of the original itinerary to prove they didn't get what they paid for when filing a claim with the ship's ShoreEx desk.
 
-## Third-Party Use
+## Who Checks It
 
 **Port Security / Authorities**
 **Crowd Control:** Verifying the identity of tour operators allowed onto the restricted "Cruise Pier" by scanning their verified manifest hashes.
@@ -97,13 +103,7 @@ The **Cruise Passenger** benefits from verification.
 **Cruise Line Revenue Audit**
 **Operator Reconciliation:** Verifying that the number of passengers who actually boarded the bus (scanned hashes) matches what the local tour operator is billing the cruise line for.
 
-## Verification Architecture
-
-**The "Pier-Side Pitch" Fraud Problem**
-
-- **Logo Mimicry:** Unlicensed operators using a cruise line's logo on fake tickets to lure passengers into unsafe boats.
-- **Manifest Padding:** Operators adding "Ghost Passengers" to their paper logs to over-charge the cruise line.
-- **Waiver Hiding:** Editing a liability waiver to remove the "Risk Disclosure" section before a lawsuit.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

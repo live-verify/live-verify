@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is an OFSI Licence Authorisation?
 
-When a firm holds funds belonging to a **designated person** (someone on the UK sanctions list), those funds are frozen by law. But sometimes there are legitimate reasons to release some of those funds — paying legal fees, meeting basic living expenses, or winding down a position. The firm must apply to **OFSI** (Office of Financial Sanctions Implementation, part of HM Treasury) for a **licence** authorising the specific transaction.
+When a firm holds funds belonging to a designated person (someone on the UK sanctions list), those funds are frozen by law. But sometimes there are legitimate reasons to release some of those funds — paying legal fees, meeting basic living expenses, or winding down a position. The firm must apply to OFSI (Office of Financial Sanctions Implementation, part of HM Treasury) for a licence authorising the specific transaction.
 
 OFSI issues a licence letter specifying exactly what's permitted: the amount, the purpose, the conditions, and the expiry date. This licence is critical evidence during FCA audits — it proves the firm didn't just unilaterally release sanctioned funds. Currently it's a PDF letter with no verification mechanism. A fund manager could fabricate or alter a licence to justify an unauthorised release.
 
@@ -42,11 +42,20 @@ OFSI issues a licence letter specifying exactly what's permitted: the amount, th
   </div>
 </div>
 
-## Data Verified
+## The Problem
+
+- Forged licences justifying unauthorised release of frozen funds
+- Altered conditions (changing the amount, extending the expiry, widening the permitted activity)
+- Using an expired or revoked licence as if it were still active
+- Fabricating a licence retrospectively after an unauthorised release
+
+**The Fix:** OFSI hashes each licence at time of issue. Any alteration to the reference number, amount, conditions, or expiry produces a different hash that won't verify. Revocation is reflected by changing the status to "Revoked." The FCA auditor gets real-time confirmation without phoning OFSI.
+
+## What Is Checked
 
 Licence reference number, date of issue, licence holder name, designated person reference (redacted or hashed), regulation under which licence is granted, authorised activity description, maximum amount and currency, expiry date, issuing officer.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 **Status Indications:**
 - **Active** — Licence is current and the authorised activity may proceed
@@ -61,29 +70,19 @@ During an FCA informal audit, the supervisor asks: "You released £75,000 from a
 
 **The fabrication risk is real:** A corrupt compliance officer could forge an OFSI licence to justify releasing sanctioned funds to themselves or an associate. The amounts involved are often substantial (legal fees, wind-down costs for entire portfolios). Verified hashes eliminate this vector entirely.
 
-## Second-Party Use
+## Who Holds It
 
 **Fund managers / banks** — Proving to FCA that their release of frozen funds was authorised. The licence is their legal shield.
 
 **Solicitors** — Law firms receiving payment from frozen funds need to confirm the licence is genuine before accepting the money (or they risk handling proceeds of sanctions evasion).
 
-## Third-Party Use
+## Who Checks It
 
 **FCA supervisors** — During thematic reviews of sanctions compliance, scanning licence letters across multiple firms to confirm all releases were genuinely authorised.
 
 **Correspondent banks** — When processing a payment that touches frozen funds, the correspondent bank needs to see a verified OFSI licence before allowing the wire.
 
 **Auditors** — External auditors reviewing sanctions compliance can verify licence authenticity without contacting OFSI directly.
-
-## Verification Architecture
-
-**The Problem:**
-- Forged licences justifying unauthorised release of frozen funds
-- Altered conditions (changing the amount, extending the expiry, widening the permitted activity)
-- Using an expired or revoked licence as if it were still active
-- Fabricating a licence retrospectively after an unauthorised release
-
-**The Fix:** OFSI hashes each licence at time of issue. Any alteration to the reference number, amount, conditions, or expiry produces a different hash that won't verify. Revocation is reflected by changing the status to "Revoked." The FCA auditor gets real-time confirmation without phoning OFSI.
 
 ## Authority Chain
 

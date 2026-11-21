@@ -34,11 +34,11 @@ Retired On:    15 Mar 2026
 <span data-verify-line="retirement">verify:verra.org/retirements/v</span> <span verifiable-text="end" data-for="retirement"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Registry name and standard (Verra VCS, Gold Standard, American Carbon Registry), credit ID, project name, vintage year, quantity in tonnes CO2e, retirement status, the entity that retired the credits, and the retirement date.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`verra.org`, `goldstandard.org`, `americancarbonregistry.org`) and confirms whether the retirement claim matches the registry's record.
 
@@ -47,11 +47,11 @@ Shows the issuer domain (`verra.org`, `goldstandard.org`, `americancarbonregistr
 - **ACTIVE** — Credit still tradeable; not yet retired against any entity's footprint.
 - **CANCELLED** — Credit voided, typically due to project failure or reversal.
 
-## Second-Party Use
+## Who Holds It
 
-The **company claiming the offset** (second party) receives the retirement confirmation from the carbon registry (first party) and uses it to prove its offsets are genuine and retired. When reporting ESG metrics to investors, responding to supply chain carbon disclosure requests, or submitting annual sustainability reports, the company clips the retirement confirmation and shares it. The recipient verifies the hash against the registry's domain in seconds, confirming the credit ID, quantity, and retirement status without navigating the registry manually.
+The company claiming the offset (second party) receives the retirement confirmation from the carbon registry (first party) and uses it to prove its offsets are genuine and retired. When reporting ESG metrics to investors, responding to supply chain carbon disclosure requests, or submitting annual sustainability reports, the company clips the retirement confirmation and shares it. The recipient verifies the hash against the registry's domain in seconds, confirming the credit ID, quantity, and retirement status without navigating the registry manually.
 
-## Third-Party Use
+## Who Checks It
 
 **Auditors and Assurance Providers**
 Firms conducting limited or reasonable assurance over corporate greenhouse gas inventories need to verify that claimed retirements actually occurred. A verified retirement confirmation provides a cryptographic link between the corporate claim and the registry record, replacing manual registry lookups for each line item in a carbon inventory.
@@ -68,7 +68,7 @@ Investigative journalists and NGOs examining corporate greenwashing claims can v
 **Supply Chain Counterparties**
 Companies with Scope 3 commitments increasingly require suppliers to demonstrate their own offset retirements. A supplier clips its retirement confirmation and shares it upstream. The buyer verifies it without needing registry credentials or manual checking.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Double-Counting Problem**
 
@@ -103,7 +103,7 @@ If a jurisdiction mandates verified retirement confirmations for compliance-mark
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Manual Registry Lookup
+## Compared With Manual Registry Lookup
 
 | Feature | Live Verify | Manual Registry Search | Scanned PDF Certificate |
 | :--- | :--- | :--- | :--- |

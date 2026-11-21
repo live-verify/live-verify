@@ -26,11 +26,11 @@ Scheme Status:  OPEN TO TRANSFERS
 <span data-verify-line="pensiontv">verify:northbridgepensions.co.uk/transfer-values/v</span> <span verifiable-text="end" data-for="pensiontv"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Scheme name, member reference, cash equivalent transfer value (CETV), guarantee date, guarantee expiry date, and scheme transfer status.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`northbridgepensions.co.uk`, `railwayspensions.co.uk`, `uss.co.uk`) and current statement status.
 
@@ -38,17 +38,17 @@ Shows the issuer domain (`northbridgepensions.co.uk`, `railwayspensions.co.uk`, 
 - **Current** — Transfer value is within the guarantee period and the scheme remains open to transfers.
 - **Expired** — The guarantee period has passed; a new CETV must be requested.
 - **Superseded** — A newer transfer value statement has been issued for this member.
-- **Scheme Closed to Transfers** — **ALERT:** The scheme is no longer accepting transfer-out requests. This may indicate a scheme in wind-up or under a Pensions Regulator order.
+- **Scheme Closed to Transfers** — The scheme is no longer accepting transfer-out requests. This may indicate a scheme in wind-up or under a Pensions Regulator order.
 
-## Second-Party Use
+## Who Holds It
 
-The **Scheme Member** benefits from a verifiable transfer value statement in several contexts.
+The Scheme Member benefits from a verifiable transfer value statement in several contexts.
 
 **Retirement Planning:** Presenting a verified CETV to an independent financial adviser so the adviser can give accurate guidance on whether transferring out is appropriate, without waiting for a separate confirmation from the scheme.
 
 **Divorce Proceedings:** Providing a verified transfer value to a solicitor for inclusion in a pension sharing order application. The other party's legal team can confirm the value independently, reducing disputes over pension assets.
 
-## Third-Party Use
+## Who Checks It
 
 **Receiving Pension Schemes / SIPP Providers**
 **Transfer-In Due Diligence:** When a member requests a transfer, the receiving scheme must confirm the transfer value is genuine. A verified statement from the ceding scheme provides immediate confirmation, reducing the window in which a scam intermediary could substitute fabricated documents.
@@ -62,7 +62,7 @@ The **Scheme Member** benefits from a verifiable transfer value statement in sev
 **FCA / The Pensions Regulator (TPR)**
 **Scam Investigation:** When investigating suspected pension fraud, regulators need to compare what the member was shown with what the scheme actually issued. Verified statements create a clear evidence trail.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Fabrication Problem**
 
@@ -97,7 +97,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Pension transfer scams are not abstract. A worker with 30 years of service receives a call from a "pension adviser" showing a transfer value of GBP 400,000 and an "investment opportunity" returning 8% annually. The transfer value statement looks real — same scheme name, same format, plausible numbers. The worker signs. The money leaves the DB scheme and enters a fraudulent SIPP or offshore structure. Six months later the "investment" is worthless and the defined benefit pension is gone permanently. There is no undo. The worker loses their retirement income for life, and the state picks up the cost through means-tested benefits. A verifiable transfer value statement — one the worker or their legitimate IFA can scan and confirm came from the actual scheme administrator — would have stopped the fraud at the moment of decision, before the irreversible transfer was signed.
 
-## Competition vs. Manual Verification
+## Compared With Manual Verification
 
 | Feature | Live Verify | Direct Scheme Contact | Scanned PDF / Letter |
 | :--- | :--- | :--- | :--- |

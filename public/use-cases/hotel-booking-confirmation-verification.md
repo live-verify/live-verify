@@ -51,13 +51,13 @@ Status:         CANCELLED
 <span data-verify-line="booking-cancelled">verify:grandhotel-york.co.uk/bookings/v</span> <span verifiable-text="end" data-for="booking-cancelled"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Hotel name, booking reference, guest name, check-in date, check-out date, and current booking status. Room type and rate are deliberately excluded — this artifact answers "does this booking exist?" not "how much did it cost?"
 
 **Scope note:** This artifact confirms booking existence and current status. It does not confirm that the guest actually stayed, that the booking was the accommodation relied on for a visa application, or that the expense claim is otherwise legitimate. For expense and visa contexts, the booking-existence check is one input to a broader assessment, not a complete answer.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`grandhotel-york.co.uk`, `marriott.com`, `booking.com`) and confirms whether the booking status claim is current.
 
@@ -68,15 +68,15 @@ Shows the issuer domain (`grandhotel-york.co.uk`, `marriott.com`, `booking.com`)
 - **CHECKED-IN** — The guest has arrived and is currently staying.
 - **CHECKED-OUT** — The stay is complete.
 
-## Second-Party Use
+## Who Holds It
 
-The **Guest** uses this to prove their booking is real.
+The Guest uses this to prove their booking is real.
 
 **Visa Applications:** An applicant clips the CONFIRMED status from their booking confirmation and submits it as part of their visa package. The embassy or consulate verifies the hash against the hotel's domain, confirming the reservation exists without needing to phone the hotel. If the applicant cancels the booking after obtaining the visa, a re-check returns CANCELLED — the status is live, not a frozen snapshot.
 
 **Employer Reimbursement:** An employee submitting a pre-trip expense approval clips the confirmation to prove the booking exists and is prepaid. The finance team verifies it against the hotel's domain rather than trusting a forwarded email.
 
-## Third-Party Use
+## Who Checks It
 
 **Embassies and Consulates**
 Visa processing desks handle thousands of accommodation proofs per week. Verified booking confirmations allow batch or spot-check verification against hotel domains, replacing the current approach of trusting unverifiable PDFs. A booking that returns CANCELLED at the time of visa decision is a material change the embassy can act on.
@@ -87,7 +87,7 @@ When processing expense claims or pre-trip approvals, a verified booking confirm
 **Travel Insurers**
 Trip cancellation claims require proof that a booking existed and was subsequently cancelled. A verified confirmation that currently reads CANCELLED, combined with a prior verification that read CONFIRMED, establishes the timeline insurers need for claim adjudication.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Phantom Booking" Problem**
 
@@ -118,7 +118,7 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Email Confirmation
+## Compared With Email Confirmation
 
 | Feature | Live Verify | Email / PDF Confirmation | Phone Call to Hotel |
 | :--- | :--- | :--- | :--- |

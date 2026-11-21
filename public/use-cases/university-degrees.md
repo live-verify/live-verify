@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is a University Degree?
 
-A **University Degree** (Diploma) is the official credential proving that an individual has completed a specific course of study at an accredited institution. It is the "Master Key" for high-value employment.
+A University Degree (Diploma) is the official credential proving that an individual has completed a specific course of study at an accredited institution. It is the "Master Key" for high-value employment.
 
-Beyond the diploma on the wall, the **Academic Transcript** is the granular record of every class, grade, and credit hour earned.
+Beyond the diploma on the wall, the Academic Transcript is the granular record of every class, grade, and credit hour earned.
 
-**"Diploma Mill"** fraud is a multi-billion dollar industry. Criminals create fake universities with real-sounding names or buy high-quality forged diplomas from prestigious schools like Harvard or Oxford for a few hundred dollars. Even more common is **"GPA Inflation,"** where applicants edit their PDF transcripts to turn a "C" in a critical math class into an "A." The strongest architecture is still the university registrar, clearinghouse, or national education-verification system where one already exists. Live Verify is more credible as a bridge when the diploma, transcript PDF, or completion letter is already the artifact in circulation outside those systems.
+**"Diploma Mill"** fraud is a multi-billion dollar industry. Criminals create fake universities with real-sounding names or buy high-quality forged diplomas from prestigious schools like Harvard or Oxford for a few hundred dollars. Even more common is "GPA Inflation," where applicants edit their PDF transcripts to turn a "C" in a critical math class into an "A." The strongest architecture is still the university registrar, clearinghouse, or national education-verification system where one already exists. Live Verify is more credible as a bridge when the diploma, transcript PDF, or completion letter is already the artifact in circulation outside those systems.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Old English Text MT', serif; border: 10px solid #d4af37; padding: 50px; text-align: center; background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.1); position: relative;">
   <div style="margin-bottom: 40px;">
@@ -40,7 +40,13 @@ Beyond the diploma on the wall, the **Academic Transcript** is the granular reco
   </div>
 </div>
 
-## Data Verified
+## The Problem: Diploma Mill Fraud
+
+- **Template Forgery:** Using high-end parchment and fake seals to create a "Degree" from a real university for someone who never attended.
+- **GPA Tampering:** Editing a 2.5 GPA to 3.9 on a PDF transcript to get into a top-tier MBA program.
+- **Major Inflation:** Changing a "Sociology" degree to "Computer Science" to qualify for a technical role.
+
+## What Is Checked
 
 Student name, University name, Degree title (e.g., MSc, PhD), Major/Major field of study, Date of graduation, Classification/Honors (e.g., Class I, Summa Cum Laude), Unique Student ID, Registrar signature ID.
 
@@ -78,15 +84,15 @@ The status code is the decision point. No POST form or additional workflow neede
 
 If an employer needs the full transcript (GPA, specific courses), that's a separate request to the registrar — not a post-verification action. The diploma verification answers "did they graduate?" not "what grades did they get?"
 
-## Second-Party Use
+## Who Holds It
 
-The **Graduate (Alumnus)** benefits from verification.
+The Graduate (Alumnus) benefits from verification.
 
 **Job Applications:** Proving to a potential employer that a degree or honors classification isn't fabricated. This is strongest when the employer is working from the diploma or transcript artifact before a formal registrar or clearinghouse check completes.
 
 **Global Mobility:** Providing a verified hash to an international visa agency. This removes the need for expensive "Consular Legalization" or "Apostille" of physical diplomas, which can cost $500+ and take months.
 
-## Third-Party Use
+## Who Checks It
 
 **Hiring Managers / HR Teams**
 **Fraud Prevention:** Diploma mills sell realistic-looking degrees for any subject. Live Verify connects the recruiter directly to the real university's domain, stopping "Fake Ivy League" fraud at the source.
@@ -97,13 +103,7 @@ The **Graduate (Alumnus)** benefits from verification.
 **Professional Licensing Boards**
 **Credentialing:** Ensuring that a candidate for a Medical or Law license has actually graduated from an accredited university before they are allowed to take the board exams.
 
-## Verification Architecture
-
-**The "Diploma Mill" Fraud Problem**
-
-- **Template Forgery:** Using high-end parchment and fake seals to create a "Degree" from a real university for someone who never attended.
-- **GPA Tampering:** Editing a 2.5 GPA to 3.9 on a PDF transcript to get into a top-tier MBA program.
-- **Major Inflation:** Changing a "Sociology" degree to "Computer Science" to qualify for a technical role.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -128,7 +128,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the university registrar's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the degree.
 
 
-## Competition vs. Education Clearinghouses (NSC)
+## Compared With Education Clearinghouses (NSC)
 
 | Feature | Live Verify | National Student Clearinghouse | Physical Diploma |
 | :--- | :--- | :--- | :--- |

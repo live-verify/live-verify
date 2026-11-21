@@ -36,7 +36,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Barred Broker Fraud
+
+- **Ghost Credentials:** A broker who was barred for stealing client funds continuing to use their old, unexpired "Registration Certificate" to lure in new victims.
+- **Firm Impersonation:** Using the name of a real, famous firm (e.g., Goldman Sachs) on a fake certificate to legitimize a Ponzi scheme.
+- **Disciplinary Hiding:** Editing a PDF summary to remove "Customer Complaints" or "Regulatory Fines."
+
+## What Is Checked
 
 Representative name, CRD (Central Registration Depository) number, current firm affiliation, registration status (Active/Suspended/Barred), examination history (Series 7, 63, 24), disciplinary disclosures flag, date of issuance.
 
@@ -45,7 +51,7 @@ Representative name, CRD (Central Registration Depository) number, current firm 
 - **Representative ID Card:** For face-to-face client meetings.
 - **Disciplinary Summary:** Detailed list of past "Regulator Alerts."
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`finra.org`, `sec.gov`) and current regulatory standing.
 
@@ -59,15 +65,15 @@ Shows the issuer domain (`finra.org`, `sec.gov`) and current regulatory standing
 
 Because the person sitting across the table is asking you to hand over your retirement savings. FINRA bars roughly 500 individuals per year for fraud, theft, or unauthorized trading. A barred broker who keeps their old registration certificate can open a new "advisory firm," target communities where word-of-mouth referrals substitute for due diligence, and run the same scheme again. The consequences for the investor are not abstract: retirees lose homes, college funds disappear, and recovery through FINRA arbitration — where it is available — takes years and often returns pennies on the dollar. BrokerCheck exists precisely because the industry knows this happens. Verification at the point of the meeting, from the credential itself, closes the gap between "I should check" and "I actually did."
 
-## Second-Party Use
+## Who Holds It
 
-The **Broker / Representative** benefits from verification.
+The Broker / Representative benefits from verification.
 
 **Client Trust:** Proving to a potential high-net-worth investor that they are a "Verified Registered Rep" and not an impostor. The client can scan the badge during an initial meeting to see the "Active" status directly from FINRA.
 
 **License Portability:** Speeding up the onboarding process when moving to a new firm by providing a verified record of their exams and clean disciplinary history.
 
-## Third-Party Use
+## Who Checks It
 
 **Retail Investors (Consumers)**
 **Fraud Prevention:** Before handing over a life-savings check, an investor can verify the broker's credentials. This stops "affinity fraud" where scammers pose as brokers to target specific communities.
@@ -78,13 +84,7 @@ The **Broker / Representative** benefits from verification.
 **Lenders / Banks**
 **Authorized Signers:** Verifying that the person signing a corporate brokerage resolution has the regulatory authority to do so.
 
-## Verification Architecture
-
-**The "Barred Broker" Fraud Problem**
-
-- **Ghost Credentials:** A broker who was barred for stealing client funds continuing to use their old, unexpired "Registration Certificate" to lure in new victims.
-- **Firm Impersonation:** Using the name of a real, famous firm (e.g., Goldman Sachs) on a fake certificate to legitimize a Ponzi scheme.
-- **Disciplinary Hiding:** Editing a PDF summary to remove "Customer Complaints" or "Regulatory Fines."
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -111,7 +111,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive FINRA's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the registration certificate.
 
 
-## Competition vs. FINRA BrokerCheck (Search)
+## Compared With FINRA BrokerCheck (Search)
 
 | Feature | Live Verify | BrokerCheck Website | Paper Certificate |
 | :--- | :--- | :--- |

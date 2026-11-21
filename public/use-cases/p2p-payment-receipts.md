@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a P2P Payment Receipt?
 
-In the modern mobile economy, **P2P (Peer-to-Peer) Payments** move money in seconds. When you send money via Venmo, Zelle, or Cash App, you receive a digital receipt.
+In the modern mobile economy, P2P (Peer-to-Peer) Payments move money in seconds. When you send money via Venmo, Zelle, or Cash App, you receive a digital receipt.
 
-Because these apps move money instantly, they are the #1 target for **"Screenshot Scams."** A dishonest buyer shows a seller a pixel-perfect fake "Sent" screenshot to trick them into handing over a high-value item (like a phone or a car), when in reality, no money was ever moved. Verified hashes bind the **Transaction ID, Receiver @Handle, and Amount** to the payment platform's domain (e.g., `venmo.com` or `zellepay.com`).
+Because these apps move money instantly, they are the #1 target for "Screenshot Scams." A dishonest buyer shows a seller a pixel-perfect fake "Sent" screenshot to trick them into handing over a high-value item (like a phone or a car), when in reality, no money was ever moved. Verified hashes bind the Transaction ID, Receiver @Handle, and Amount to the payment platform's domain (e.g., `venmo.com` or `zellepay.com`).
 
 **Why you should bother verifying:**
 
@@ -44,7 +44,13 @@ Because these apps move money instantly, they are the #1 target for **"Screensho
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake App Fraud
+
+- **Screenshot Fabricators:** Apps that generate a realistic "Venmo Green" or "Zelle Blue" screen for any name and amount.
+- **Status Masking:** Showing a "Sent" screen for a payment that the sender instantly cancelled using a stolen credit card.
+- **Handle Spoofing:** Sending $1 to a handle like "@Venmo-Verification" to get a "Success" screen, then editing the $1 to $1,000 on a PDF.
+
+## What Is Checked
 
 Transaction ID, platform name (Venmo/Zelle/CashApp), sender name/@handle, receiver name/@handle, payment amount, date/time of transfer, payment status (Completed/Pending), note/memo text, payment method (last 4).
 
@@ -54,25 +60,25 @@ Transaction ID, platform name (Venmo/Zelle/CashApp), sender name/@handle, receiv
 - **Monthly Transaction History:** (Linked hash) for tax/audit purposes.
 - **Dispute Record:** Proof that a payment was flagged or reversed.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`venmo.com`, `zellepay.com`, `cash.app`) and the real-time status.
 
 **Status Indications:**
 - **Completed / Paid** — Funds have been successfully moved and cleared.
-- **Pending / In-Review** — **ALERT:** Funds are held; do not hand over goods yet.
-- **Cancelled / Failed** — **CRITICAL:** The payment was stopped; the paper/screenshot is a fraud.
-- **Reversed** — **ALERT:** The sender has filed a fraud claim to pull the money back.
+- **Pending / In-Review** — Funds are held; do not hand over goods yet.
+- **Cancelled / Failed** — The payment was stopped; the paper/screenshot is a fraud.
+- **Reversed** — The sender has filed a fraud claim to pull the money back.
 
-## Second-Party Use
+## Who Holds It
 
-The **Seller / Recipient** benefits from verification.
+The Seller / Recipient benefits from verification.
 
 **Face-to-Face Sales Safety:** When selling a car on Facebook Marketplace, the seller asks the buyer to show the "Sent" screen. The seller scans the hash. "Verified by Venmo" ensures the seller that the $5,000 is actually in transit and the screenshot isn't a "Fake App" designed to steal the car.
 
 **Rent Payment Proof:** A tenant can provide the verified hash of their "Rent Payment" to a landlord. This provides the landlord with cryptographic proof of payment, preventing "Late Fee" disputes caused by bank processing delays.
 
-## Third-Party Use
+## Who Checks It
 
 **Tax Authorities / IRS**
 **Business Income Audit:** For gig workers or small shops, verified P2P hashes provide "Audit-Proof" evidence of income, protecting them from being accused of "Under-Reporting" cash sales.
@@ -83,13 +89,7 @@ The **Seller / Recipient** benefits from verification.
 **Banks & Financial Lenders**
 **Income Vetting:** Using verified P2P history as a "Secondary Income Signal" for individuals who don't have traditional W-2 jobs but have a high volume of verified gig-economy payments.
 
-## Verification Architecture
-
-**The "Fake App" Fraud Problem**
-
-- **Screenshot Fabricators:** Apps that generate a realistic "Venmo Green" or "Zelle Blue" screen for any name and amount.
-- **Status Masking:** Showing a "Sent" screen for a payment that the sender instantly cancelled using a stolen credit card.
-- **Handle Spoofing:** Sending $1 to a handle like "@Venmo-Verification" to get a "Success" screen, then editing the $1 to $1,000 on a PDF.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

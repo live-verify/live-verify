@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is Operational Authority?
 
-Beyond contracts and money, companies need people authorized to make **operational commitments** — selecting vendors, approving projects, committing to service levels, granting exceptions. These decisions bind the company to deliver something.
+Beyond contracts and money, companies need people authorized to make operational commitments — selecting vendors, approving projects, committing to service levels, granting exceptions. These decisions bind the company to deliver something.
 
 When a vendor is told "you've been selected," or a customer is promised an SLA, or a partner is given a commitment — someone with authority needs to have made that call.
 
@@ -124,11 +124,20 @@ When a vendor is told "you've been selected," or a customer is promised an SLA, 
 | **Unapproved project** | Team starts project without proper authorization | Budget overruns, audit findings |
 | **Exceeded exceptions** | Operations grants customer exceptions beyond their limit | Precedent set, other customers demand same |
 
-## Data Verified
+## The Problem
 
-**Authorized person**, **company**, **authority type** (vendor/project/SLA/exception), **scope** (regions, departments, customer tiers), **limits** (monetary, duration, parameters), **escalation triggers**, **delegating officer**, **validity period**.
+- Vendors invest in relationships based on selection decisions that may not have been authorized
+- Customers are promised SLAs that operations can't deliver
+- Projects proceed without proper approval, then get cancelled
+- No clear trail of who authorized what operational decisions
 
-## Data Visible After Verification
+**The Fix:** Operational authority confirmations for managers. Major decisions (vendor selection, project approval, SLA commitment) generate verifiable documents. Third parties can confirm: this decision was made by someone with authority.
+
+## What Is Checked
+
+**Authorized person**, company, authority type (vendor/project/SLA/exception), scope (regions, departments, customer tiers), limits (monetary, duration, parameters), escalation triggers, delegating officer, validity period.
+
+## What the Checker Sees
 
 **Status Indications:**
 - **Active** — Authority currently valid
@@ -137,7 +146,7 @@ When a vendor is told "you've been selected," or a customer is promised an SLA, 
 - **Suspended** — Temporarily inactive
 - **Scope Limited** — Restrictions applied to original authority
 
-## Third-Party Use
+## Who Checks It
 
 **Vendors** — Verify they were legitimately selected before investing in relationship
 **Customers** — Verify SLA commitments are authorized
@@ -145,15 +154,7 @@ When a vendor is told "you've been selected," or a customer is promised an SLA, 
 **Project teams** — Confirm authorization before commencing work
 **Insurance** — Claims relating to unauthorized commitments
 
-## Verification Architecture
-
-**The Problem:**
-- Vendors invest in relationships based on selection decisions that may not have been authorized
-- Customers are promised SLAs that operations can't deliver
-- Projects proceed without proper approval, then get cancelled
-- No clear trail of who authorized what operational decisions
-
-**The Fix:** Operational authority confirmations for managers. Major decisions (vendor selection, project approval, SLA commitment) generate verifiable documents. Third parties can confirm: this decision was made by someone with authority.
+## How Verification Works Here
 
 **The vendor confidence flow:**
 1. Vendor is told they've been selected

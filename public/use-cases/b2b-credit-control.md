@@ -61,11 +61,20 @@ The classic fraud: someone claims purchasing authority they don't have, places o
 
 **With verification:** Supplier scans purchasing authority confirmation before shipping. Authority is current, specific limits are clear, and there's cryptographic proof of what was authorized.
 
-## Data Verified
+## The Problem
 
-**Authorized person name**, **company name**, **company registration number**, **role/title**, **specific authority limits** (monetary, category, duration), **excluded authorities**, **issuing officer**, **issue date**, **expiry date**.
+- Suppliers can't easily verify if someone placing an order is actually authorized
+- Fraudsters exploit gaps between employee termination and supplier notification
+- Disputes about authority are expensive to litigate
+- Trade references can be fabricated or from colluding parties
 
-## Data Visible After Verification
+**The Fix:** Company issues purchasing authority confirmations with verification URLs. Suppliers check before extending credit or shipping high-value orders. Revocation is immediate — terminated employee's authority shows "Revoked" the same day.
+
+## What Is Checked
+
+**Authorized person name**, company name, company registration number, role/title, specific authority limits (monetary, category, duration), excluded authorities, issuing officer, issue date, expiry date.
+
+## What the Checker Sees
 
 **Status Indications:**
 - **Active** — Authority currently valid
@@ -155,7 +164,7 @@ The classic fraud: someone claims purchasing authority they don't have, places o
 
 **Key legal concept:** "Apparent authority" — if a company holds someone out as having authority (title, business cards, past dealings), third parties may be able to enforce contracts even if actual authority was lacking. Verification creates clearer boundaries.
 
-## Third-Party Use
+## Who Checks It
 
 **Suppliers/vendors** — Verify before shipping on credit terms
 **Credit insurers** — Assess whether proper controls exist
@@ -163,15 +172,7 @@ The classic fraud: someone claims purchasing authority they don't have, places o
 **Auditors** — Test purchasing controls and segregation of duties
 **Legal counsel** — Evidence in debt recovery, fraud cases
 
-## Verification Architecture
-
-**The Problem:**
-- Suppliers can't easily verify if someone placing an order is actually authorized
-- Fraudsters exploit gaps between employee termination and supplier notification
-- Disputes about authority are expensive to litigate
-- Trade references can be fabricated or from colluding parties
-
-**The Fix:** Company issues purchasing authority confirmations with verification URLs. Suppliers check before extending credit or shipping high-value orders. Revocation is immediate — terminated employee's authority shows "Revoked" the same day.
+## How Verification Works Here
 
 **The workflow:**
 1. New supplier relationship → Buyer provides purchasing authority confirmation

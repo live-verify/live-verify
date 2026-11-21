@@ -82,7 +82,11 @@ When presented with a physical driver badge, a passenger must rely on visual ins
 
 *The server rotates the salt — after each successful scan (burn-on-verify) or on TTL expiry of an unscanned salt — and the badge re-renders to match. The screen is always in lockstep with the salt the server will honour, so a photograph is worthless unless verified in the moment. See [E-Ink ID Cards](../e-ink-id-cards.md) for how this prevents cloning and protects driver privacy.*
 
-## Data Verified
+## The Problem: Unlicensed Driver Fraud
+
+The Sarah Everard case (2021) heightened awareness of predatory unlicensed drivers. TfL statistics show hundreds of unlicensed operators active in London at any time. Victims are often women alone, late at night, in unfamiliar areas.
+
+## What Is Checked
 
 Driver name (partial for privacy), photo (hash), PCO licence number, vehicle details (make/model/colour/registration plate), operator affiliation, licence expiry date, DBS check date, current active status.
 
@@ -92,7 +96,7 @@ Driver name (partial for privacy), photo (hash), PCO licence number, vehicle det
 - **Mobile App Display:** Backup credential shown on the driver's phone.
 - **Operator Platform Verification:** In-app proof from Uber, Bolt, or other platforms (where available).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`drivers.tfl.gov.uk`, local authority licensing boards) and current driver status.
 
@@ -120,9 +124,9 @@ The 10-second window between a car arriving and a passenger entering is where ve
 - **Suspended status:** Driver has serious compliance issues. Decline the ride.
 - **Network unavailable:** Fall back to manual visual inspection; ask for government-issued ID (passport/driving licence) and cross-check photo.
 
-## Second-Party Use
+## Who Holds It
 
-The **Taxi / Private Hire Driver** (second party) receives the PCO licence and ID badge from the licensing authority (first party), **keeps it**, and displays it to third parties as part of normal passenger interaction.
+The Taxi / Private Hire Driver (second party) receives the PCO licence and ID badge from the licensing authority (first party), keeps it, and displays it to third parties as part of normal passenger interaction.
 
 **Personal Record:** Drivers have their own verified credential proving their licensed status. The badge sits on their lanyard during every shift—the verification value is always at hand.
 
@@ -132,7 +136,7 @@ The **Taxi / Private Hire Driver** (second party) receives the PCO licence and I
 
 **Dispute Resolution:** If a passenger later claims the driver was unlicensed or unsafe, the driver has cryptographic proof of their licensed status at the time of the trip—supporting defense against false allegations.
 
-## Third-Party Use
+## Who Checks It
 
 The taxi driver (second party) presents the verified credential to various third parties:
 
@@ -154,11 +158,7 @@ This is the primary use case. A woman alone late at night can make an informed s
 **Police at Roadside Checks**
 **Enforcement:** Police performing traffic enforcement or routine stops can verify that drivers are properly licensed as private hire operators, catching unlicensed drivers who prey on vulnerable passengers.
 
-## Verification Architecture
-
-**The "Unlicensed Driver" Fraud Problem**
-
-The Sarah Everard case (2021) heightened awareness of predatory unlicensed drivers. TfL statistics show hundreds of unlicensed operators active in London at any time. Victims are often women alone, late at night, in unfamiliar areas.
+## How Verification Works Here
 
 **Fraud Schemes:**
 - **Unlicensed drivers posing as private hire:** Criminals without background checks or regulatory oversight, targeting vulnerable passengers.
@@ -208,7 +208,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Primary scenario: Physical OCR, not text-to-hash.**
 
-This use case is fundamentally **in-vehicle-based**. The verification happens in person: a passenger looks at the driver's badge in the car before departure, scanning it in seconds. The badge is physical (lanyard, card, e-ink display), and the verification happens via camera/OCR in real time.
+This use case is fundamentally in-vehicle-based. The verification happens in person: a passenger looks at the driver's badge in the car before departure, scanning it in seconds. The badge is physical (lanyard, card, e-ink display), and the verification happens via camera/OCR in real time.
 
 **Text-to-hash applicability is limited to:**
 - **Incident reporting / HR disputes:** A passenger reports an unsafe driver; the recipient (operator, TfL) selects the badge details from a passenger's photo or video recording and verifies the driver's status at the time of the trip.

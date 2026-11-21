@@ -67,7 +67,14 @@ Citation fraud is common: fake dismissals to avoid insurance increases, fabricat
   <span data-verify-line="fix">verify:dmv.ca.gov/citations</span> <span verifiable-text="end" data-for="fix"></span>
 </div>
 
-## Data Verified
+## The Problem: Citation Fraud
+
+- **Fake Dismissals:** Forged court orders claiming violations were dismissed.
+- **Proof of Correction Fraud:** Fake "fix-it" ticket sign-offs.
+- **Point Manipulation:** Fraudulent dismissals to keep licenses valid.
+- **Insurance Premium Fraud:** Fake dismissals to avoid rate increases.
+
+## What Is Checked
 
 Issuing authority, citation/ticket number, defendant/violator name, violation type and code, citation date, dismissal date, reason for dismissal, any residual obligations.
 
@@ -78,7 +85,7 @@ Issuing authority, citation/ticket number, defendant/violator name, violation ty
 - **Proof of Correction:** Fix-it ticket verified as corrected.
 - **Red Light Camera Dismissal:** Photo enforcement citation dismissed.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`courts.ca.gov`, `chicago.gov`) and citation status.
 
@@ -89,9 +96,9 @@ Shows the issuer domain (`courts.ca.gov`, `chicago.gov`) and citation status.
 - **Reduced** — Violation reduced to lesser offense or fine only.
 - **Appealed** — Dismissal under appeal by issuing agency.
 
-## Second-Party Use
+## Who Holds It
 
-The **Defendant/Violator** benefits from verification.
+The Defendant/Violator benefits from verification.
 
 **Insurance Rates:** Moving violations increase insurance premiums. A verified dismissal proves the violation shouldn't affect rates.
 
@@ -101,7 +108,7 @@ The **Defendant/Violator** benefits from verification.
 
 **Rental Car Disputes:** When rental companies claim unpaid citations, verified dismissals prove the tickets were already resolved.
 
-## Third-Party Use
+## Who Checks It
 
 **Insurance Companies**
 **Rate Setting:** Insurers access driving records for underwriting. Verified dismissals ensure accurate rating.
@@ -118,14 +125,7 @@ The **Defendant/Violator** benefits from verification.
 **Toll Authorities**
 **Dispute Resolution:** When toll violations are dismissed, verified notices prevent continued collection efforts.
 
-## Verification Architecture
-
-**The Citation Fraud Problem**
-
-- **Fake Dismissals:** Forged court orders claiming violations were dismissed.
-- **Proof of Correction Fraud:** Fake "fix-it" ticket sign-offs.
-- **Point Manipulation:** Fraudulent dismissals to keep licenses valid.
-- **Insurance Premium Fraud:** Fake dismissals to avoid rate increases.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

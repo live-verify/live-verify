@@ -53,7 +53,16 @@ This is therefore a stronger portability case than most government-ID documents.
   </div>
 </div>
 
-## Data Verified
+## The Problem: Police Clearance Fraud
+
+- **Forged certificates** — The most common fraud. Fabricated certificates from countries the immigration officer can't verify. A convincing letterhead, a plausible reference number, and a stamp — that's all it takes when the officer has never seen a genuine certificate from that country.
+- **Altered results** — Changing "convictions found" to "no convictions" on a genuine certificate. A single word change that's invisible without verification.
+- **Certificates from countries with no verification infrastructure** — Some developing nations issue certificates that are effectively unverifiable. The receiving authority must trust the paper because there's no alternative.
+- **Identity substitution** — Obtaining a certificate in someone else's name. Particularly easy in countries where identity verification at the police office is weak.
+- **Expired certificates presented as current** — A conviction occurred after the certificate was issued, but the applicant presents the old certificate showing a clean record.
+- **The multilingual problem** — Certificates arrive in French, Arabic, Portuguese, Mandarin. The immigration officer often can't even read them, let alone verify them. Live Verify bypasses the language barrier entirely — the hash is language-agnostic. The French certificate and the English certificate produce different hashes, but both resolve to the same issuing authority's domain. The verification response is what matters, not whether the officer can read the document.
+
+## What Is Checked
 
 Applicant name, date of birth, nationality/nationalities, issuing authority, country, reference number, date issued, validity period, result (no convictions / convictions found — but NOT the details of any convictions, which are in the full disclosure version).
 
@@ -75,9 +84,9 @@ The endpoint returns a status code:
 
 The issuer domain is visible from the `verify:` line on the certificate itself (e.g., `acro.police.uk`).
 
-## Second-Party Use
+## Who Holds It
 
-The **Applicant** (second party) benefits from verification.
+The Applicant (second party) benefits from verification.
 
 **Immigration Applications:** Presenting to immigration authorities is the primary use. The applicant obtains certificates from every country they've lived in and presents them as part of a visa or residency application. A verified certificate removes the receiving officer's doubt instantly — no phone calls to foreign police forces, no waiting for bilateral confirmation.
 
@@ -89,7 +98,7 @@ The **Applicant** (second party) benefits from verification.
 
 **University Enrollment:** International programs requiring clearance as a condition of admission.
 
-## Third-Party Use
+## Who Checks It
 
 **Immigration Authorities (Primary Verifier)**
 Every visa and residency application worldwide requires police clearance from the applicant's countries of residence. This is the highest-volume use. An Australian immigration officer processing 50 applications a day, each with 2-3 certificates from different countries, can verify all of them in seconds instead of filing them as "unable to verify" and hoping for the best.
@@ -112,16 +121,7 @@ Safeguarding checks for international volunteers. NGOs sending volunteers to wor
 **Consulates**
 Visa processing. Consular officers process police clearance certificates daily and have no practical verification mechanism for most of them.
 
-## Verification Architecture
-
-**The Police Clearance Fraud Problem**
-
-- **Forged certificates** — The most common fraud. Fabricated certificates from countries the immigration officer can't verify. A convincing letterhead, a plausible reference number, and a stamp — that's all it takes when the officer has never seen a genuine certificate from that country.
-- **Altered results** — Changing "convictions found" to "no convictions" on a genuine certificate. A single word change that's invisible without verification.
-- **Certificates from countries with no verification infrastructure** — Some developing nations issue certificates that are effectively unverifiable. The receiving authority must trust the paper because there's no alternative.
-- **Identity substitution** — Obtaining a certificate in someone else's name. Particularly easy in countries where identity verification at the police office is weak.
-- **Expired certificates presented as current** — A conviction occurred after the certificate was issued, but the applicant presents the old certificate showing a clean record.
-- **The multilingual problem** — Certificates arrive in French, Arabic, Portuguese, Mandarin. The immigration officer often can't even read them, let alone verify them. Live Verify bypasses the language barrier entirely — the hash is language-agnostic. The French certificate and the English certificate produce different hashes, but both resolve to the same issuing authority's domain. The verification response is what matters, not whether the officer can read the document.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -181,7 +181,7 @@ Australia (AFP → gov.au):
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Existing Verification Methods
+## Compared With Existing Verification Methods
 
 | Feature | Live Verify | Bilateral Law Enforcement Requests | Interpol Channels | Apostille | Trusting the Paper |
 | :--- | :--- | :--- | :--- | :--- | :--- |

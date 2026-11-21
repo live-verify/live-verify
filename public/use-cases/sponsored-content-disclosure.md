@@ -25,16 +25,16 @@ placed by the very party with an incentive to make it disappear. A label anyone 
 anyone can omit — or fake. The reader has no way to *check* whether a given piece of content is
 editorial or paid, and no way to tell a genuine "Sponsored" tag from decorative chrome.
 
-This use case makes the legally-required disclosure **verifiable** rather than merely *displayed*. A
+This use case makes the legally-required disclosure verifiable rather than merely *displayed*. A
 reader can ask, of a specific piece of content, "is this editorial, or did someone pay for it to
 appear — or to appear favourably?" — and get an answer bound to the **publisher's or platform's own
-domain**, not to a label the page drew. It does **not** detect payment the platform is itself
+domain, not to a label the page drew. It does not** detect payment the platform is itself
 concealing; it makes the platform's *disclosure* checkable, and makes the *absence* of one
 conspicuous.
 
 ## What gets verified
 
-The verifiable artifact is the **paid-placement status of one specific piece of content**, attested
+The verifiable artifact is the paid-placement status of one specific piece of content, attested
 by the publisher or platform against its own domain. For a given article, feed post, "recommended"
 item, product placement in a review, or search result, the disclosure states: this content is paid
 placement (or is not), who paid for it, and the publisher or platform standing behind that statement.
@@ -54,16 +54,16 @@ conspicuous rather than silently assumed to be honest editorial.
 Live Verify already has a sponsorship-disclosure use case — the
 [Influencer & Creator Sponsorship Disclosures](compensation-conflict-disclosures.md#influencer--creator-sponsorship-disclosures)
 section of the compensation-conflict-disclosures document. That case and this one look superficially
-similar (both make a paid relationship verifiable) but they sit on **opposite sides** of the
+similar (both make a paid relationship verifiable) but they sit on opposite sides of the
 disclosure, and must not be conflated:
 
 | | Creator-side #ad (existing case) | Platform-side native-ad (this case) |
 |---|---|---|
-| **Who discloses** | the **individual creator** | the **publisher / platform** |
+| **Who discloses** | the individual creator | the publisher / platform |
 | **What is disclosed** | "this brand really pays me" | "this *content* is paid placement" |
 | **Where it lives** | a social post the creator controls | editorial/feed/search surface the *platform* controls |
 | **Anchor domain** | the *brand's* domain (`creators.nike.com`) | the *publisher's/platform's* own domain |
-| **The disguise** | a personal endorsement | content disguised as **editorial or organic** |
+| **The disguise** | a personal endorsement | content disguised as editorial or organic |
 | **Faked direction** | creator fakes a deal to look successful | platform omits a label to make an ad look like journalism |
 
 The influencer case is **creator-side and self-attested**: an individual adds a verify line to their
@@ -101,10 +101,10 @@ Salt:       4Q8M2X7B
 The article *looks* like the rest of the publication; the verified disclosure says plainly that
 `purewell-filters.example` paid for it, attested by `dailyexample-news.com`'s own domain. Had the same
 article carried no disclosure block — or a block that failed to resolve — the reader would learn that
-too, and that is the more important case: an advertorial with **no verifiable disclosure** is no
+too, and that is the more important case: an advertorial with no verifiable disclosure is no
 longer silently passing as journalism.
 
-## Data Verified
+## What Is Checked
 
 The content reference and human-readable title, the paid-placement status, the advertiser/payer who
 funded the placement, the publisher or platform attesting the statement, the placement type (sponsored
@@ -119,7 +119,7 @@ who paid* — anchored to the publisher's domain.
 - the commercial terms, rate, or contract value of the placement
 - any user-identifying or targeting data about the reader
 
-## Data Visible After Verification
+## What the Checker Sees
 
 The paid-placement status of the specific content, the funding advertiser, and the attesting
 publisher/platform, rendered from the publisher's own domain.
@@ -136,9 +136,9 @@ publisher/platform, rendered from the publisher's own domain.
   a blank. Undisclosed native content is exactly what the regulators' rules exist to catch, and
   absence-as-finding is what makes it legible.
 
-## Second-Party Use
+## Who Holds It
 
-The **publisher or platform** is the discloser and benefits directly:
+The publisher or platform is the discloser and benefits directly:
 
 - **Converts a compliance obligation into a trust feature.** A publisher already required to disclose
   paid placement can make that disclosure *checkable* — demonstrating to readers and regulators that
@@ -148,7 +148,7 @@ The **publisher or platform** is the discloser and benefits directly:
 - **Creates a defensible compliance record.** A signed, timestamped disclosure bound to the
   publisher's domain is evidence of "clear and conspicuous" disclosure if an FTC/ASA challenge arises.
 
-## Third-Party Use
+## Who Checks It
 
 **Readers / consumers**
 
@@ -174,7 +174,7 @@ rewards the advertiser who wanted to comply.
 Reporting on advertorial creep or pay-for-placement can cite verifiable disclosures (or document
 their conspicuous absence) rather than relying on a publisher's deniable styling.
 
-## Verification Architecture
+## How Verification Works Here
 
 This use case is an instance of
 [Safe-Sequence Platform Disclosure](../../docs/safe-sequence-platform-disclosure.md), and it is named
@@ -193,13 +193,13 @@ that branch hold:
   legible signal* — "no verifiable disclosure" — never rounded up to "editorial and fine."
 
 The cryptography is unchanged from the rest of the protocol (`text → normalize → SHA-256 → GET`); the
-verification is a deliberate **clip-style action** the reader invokes, not something that runs behind
+verification is a deliberate clip-style action the reader invokes, not something that runs behind
 their back. What is novel is the direction (the platform is made to publish), and the semantics of
 absence (a missing disclosure is conspicuous, not innocent).
 
 ## The honest limit
 
-This use case verifies the platform's **disclosure** of paid placement. It does **not** detect paid
+This use case verifies the platform's disclosure of paid placement. It does not detect paid
 placement the platform is itself concealing. If a publisher takes money and publishes *no* disclosure
 — or signs a disclosure that falsely says "editorial" — the cryptography cannot, by itself, expose the
 lie inside the platform's own books. That is a platform-integrity and enforcement problem, not
@@ -228,7 +228,7 @@ The salt is required. Each content disclosure carries a unique salt so that:
 
 **Pattern:** Commercial, anchored at the publisher/platform domain.
 
-The disclosure terminates at the **publisher's or platform's own domain** — the second party that
+The disclosure terminates at the publisher's or platform's own domain — the second party that
 chose to publish or rank the content and is therefore the accountable discloser. The chain expresses a
 *commercial disclosure* (this content is paid, by this advertiser, attested by this publisher) rather
 than a regulatory authorization:

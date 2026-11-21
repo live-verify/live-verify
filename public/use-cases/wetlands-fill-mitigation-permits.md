@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Wetlands Fill Permit?
 
-Under **Section 404 of the Clean Water Act**, it is illegal to dump dirt (fill) into a wetland unless you have an official **Fill Permit** from the US Army Corps of Engineers (USACE). To get this permit, a developer must often buy "Mitigation Credits" from a **Mitigation Bank**—which uses the money to restore wetlands elsewhere.
+Under Section 404 of the Clean Water Act, it is illegal to dump dirt (fill) into a wetland unless you have an official Fill Permit from the US Army Corps of Engineers (USACE). To get this permit, a developer must often buy "Mitigation Credits" from a Mitigation Bank—which uses the money to restore wetlands elsewhere.
 
-These permits are the "Final Barrier" to construction. Fraud is high-stakes: developers often "edit" a permit to turn a "0.1 Acre Fill" authorization into a "1.0 Acre" authorization, or they create fake "Mitigation Credit Receipts" to avoid paying hundreds of thousands of dollars into a conservation fund. Verified hashes bind the **Fill Acreage, Mitigation Ratio, and Permit Serial Number** to the USACE's or the state's domain (e.g., `usace.army.mil`).
+These permits are the "Final Barrier" to construction. Fraud is high-stakes: developers often "edit" a permit to turn a "0.1 Acre Fill" authorization into a "1.0 Acre" authorization, or they create fake "Mitigation Credit Receipts" to avoid paying hundreds of thousands of dollars into a conservation fund. Verified hashes bind the Fill Acreage, Mitigation Ratio, and Permit Serial Number to the USACE's or the state's domain (e.g., `usace.army.mil`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="fill"></span>U.S. ARMY CORPS OF ENGINEERS
@@ -38,7 +38,13 @@ verified acreage is a federal violation.
 <span data-verify-line="fill">verify:usace.army.mil/v</span> <span verifiable-text="end" data-for="fill"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Dirty Dirt Fraud
+
+- **Fill Inflation:** Changing a "0.1 Acre" (Minimal Impact) permit to "1.0 Acre" (Major Impact) on a PDF.
+- **Mitigation Ghosting:** Removing the "Required Credits" line from a permit to save $500,000 in conservation fees.
+- **ID Cloning:** Using a valid permit for a "Safe" neighboring parcel to cover for illegal work on a "Protected" parcel.
+
+## What Is Checked
 
 Permit ID, permittee name, project name, total authorized fill acreage, temporary impact acreage, required mitigation credits, name of mitigation bank, credit retirement ID, effective date, expiration date, USACE District Engineer ID.
 
@@ -48,25 +54,25 @@ Permit ID, permittee name, project name, total authorized fill acreage, temporar
 - **Dredge & Fill Manifest:** (Linked hash) for moving material onto the site.
 - **Annual Monitoring Report:** Proof the restored wetland is healthy.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`usace.army.mil`, `epa.gov`, `mitigation-bank.org`) and the permit standing.
 
 **Status Indications:**
 - **Active / Authorized** — Fill work is permitted and mitigation is funded.
-- **Mitigation Gap Alert** — **CRITICAL:** Fill is authorized but required credits have not been retired.
-- **Violation Flag** — **CRITICAL:** Field inspection found fill outside the verified boundaries.
-- **Expired** — **ALERT:** The 2-year construction window has passed.
+- **Mitigation Gap Alert** — Fill is authorized but required credits have not been retired.
+- **Violation Flag** — Field inspection found fill outside the verified boundaries.
+- **Expired** — The 2-year construction window has passed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Developer / Construction Firm** benefits from verification.
+The Developer / Construction Firm benefits from verification.
 
 **Bank Progress Draws:** Before a lender releases a $5M "Site Prep" payment, they scan the verified fill permit. "Verified by USACE" ensures the bank that the developer isn't risking a federal "Cease and Desist" order, allowing the project to proceed with financial confidence.
 
 **Public Relations:** A developer can post the verified "Mitigation Hash" on their site fence. This proves to concerned neighbors that every acre of wetland they fill is being offset by *two* acres of verified restoration elsewhere, reducing community friction.
 
-## Third-Party Use
+## Who Checks It
 
 **Environmental Regulators (EPA / USACE)**
 **Field Audit:** During a surprise site visit, the agent scans the placard. Live Verify ensures the "Mitigation Receipt" in the file isn't a "Photoshopped" duplicate used for three different projects, stopping "Double-Counting" of conservation.
@@ -77,13 +83,7 @@ The **Developer / Construction Firm** benefits from verification.
 **Mitigation Bank Managers**
 **Inventory Integrity:** Verifying that the credits they sold to a developer have been correctly applied to the specific permit ID, maintaining the "Chain of Conservation."
 
-## Verification Architecture
-
-**The "Dirty Dirt" Fraud Problem**
-
-- **Fill Inflation:** Changing a "0.1 Acre" (Minimal Impact) permit to "1.0 Acre" (Major Impact) on a PDF.
-- **Mitigation Ghosting:** Removing the "Required Credits" line from a permit to save $500,000 in conservation fees.
-- **ID Cloning:** Using a valid permit for a "Safe" neighboring parcel to cover for illegal work on a "Protected" parcel.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

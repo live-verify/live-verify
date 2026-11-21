@@ -11,7 +11,7 @@ furtherDerivations: 3
 
 ## What is a Software Release Announcement?
 
-When a project ships a new version — curl 8.12.0, React 19.1, Spring Boot 3.5 — the release announcement is the **human-readable document** that tells the world what changed, where to get it, and how to verify it. It appears as a blog post, a GitHub release page, a mailing list message, a changelog entry, or a package registry page.
+When a project ships a new version — curl 8.12.0, React 19.1, Spring Boot 3.5 — the release announcement is the human-readable document that tells the world what changed, where to get it, and how to verify it. It appears as a blog post, a GitHub release page, a mailing list message, a changelog entry, or a package registry page.
 
 These announcements are the bridge between cryptographic provenance (GPG signatures, Sigstore attestations, SLSA provenance) and the humans who actually decide whether to upgrade. The problem: they're trivially forgeable. A compromised mirror, a spoofed blog post, a phishing email pretending to be a release notice, or a tampered package registry page can redirect thousands of developers to a malicious download — and the human reader has no way to tell.
 
@@ -85,7 +85,18 @@ Source Tag:     github.com/spring-projects/spring-framework/
 <span data-verify-line="maven">verify:central.sonatype.com/provenance/v</span> <span verifiable-text="end" data-for="maven"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Software Release Fraud
+
+Daniel Stenberg's curl blog post enumerates the threats well. The core patterns:
+
+- **Compromised Mirror / CDN:** The tarball or package at the download URL is not the one the project released. The announcement (SHA, version, changelog) looks right, but the actual bytes are malicious. This is the XZ Utils attack pattern.
+- **Spoofed Announcement:** A fake blog post, email, or social media post claims a new release is available. Links point to a malicious download. Deepfake video of a project maintainer endorsing the release adds credibility.
+- **Registry Compromise:** A package registry page is altered (via stolen credentials, compromised CI, or registry vulnerability) to point to a malicious tarball while showing legitimate-looking metadata.
+- **Typosquat / Impersonation:** A package with a similar name (`cur1` instead of `curl`, `react-native-community` instead of `@react-native-community`) publishes a release announcement designed to look like the real project.
+- **Stale Announcement Replay:** An old, legitimate release announcement is re-circulated to trick users into downgrading to a version with known vulnerabilities.
+- **Build System Compromise:** The CI/CD system that builds the release is infiltrated. The source code in git is clean, but the published binary/tarball contains injected code. The announcement truthfully reflects the git state but not the binary.
+
+## What Is Checked
 
 **Variant 1 (Release Announcement):** Project name, version, release date, git commit/tag, release manager name, tarball SHA-256, CVE fixes, changelog reference.
 
@@ -98,21 +109,21 @@ Source Tag:     github.com/spring-projects/spring-framework/
 - **Mirror Download Page:** Third-party mirrors or CDNs serving the tarball.
 - **Security Advisory / CVE Fix Announcement:** Urgent "please upgrade" notices for vulnerability fixes.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`curl.se`, `npmjs.com`, `central.sonatype.com`, `pypi.org`) and release status.
 
 **Status Indications:**
 - **Current** — This is the latest release; no known issues.
 - **Superseded** — A newer version has been released; consider upgrading.
-- **Security Update Available** — **ALERT:** A vulnerability was found after this release; a patched version exists.
-- **Recalled** — **CRITICAL:** This release was pulled (build compromise, critical bug, supply chain incident). Do not use.
+- **Security Update Available** — A vulnerability was found after this release; a patched version exists.
+- **Recalled** — This release was pulled (build compromise, critical bug, supply chain incident). Do not use.
 - **Yanked** — Registry-specific term (npm `unpublish`, PyPI yank, Maven Central cannot yank — but the status could reflect the project's recommendation).
-- **Spoofed** — **CRITICAL:** Hash not found at issuer domain. This announcement did not come from the project or registry.
+- **Spoofed** — Hash not found at issuer domain. This announcement did not come from the project or registry.
 
-## Second-Party Use
+## Who Holds It
 
-The **Developer / DevOps Engineer** benefits from verification.
+The Developer / DevOps Engineer benefits from verification.
 
 **Copy-Paste Confidence:** When someone pastes a release announcement in Slack saying "we need to upgrade to curl 8.12.0, here's the SHA," verification confirms that announcement actually came from `curl.se` and hasn't been tampered with in transit.
 
@@ -122,7 +133,7 @@ The **Developer / DevOps Engineer** benefits from verification.
 
 **Audit Trail:** Enterprise developers can keep verified release announcements as evidence of what they deployed and when — useful for compliance audits and incident forensics.
 
-## Third-Party Use
+## Who Checks It
 
 **Enterprise Security / CISO Teams**
 **Supply Chain Governance:** Before approving a dependency upgrade, the security team verifies that the release announcement and package provenance are genuine and attested by the expected domain. This is the human-readable complement to automated tools like `npm audit signatures` or `cosign verify`.
@@ -139,18 +150,7 @@ The **Developer / DevOps Engineer** benefits from verification.
 **Downstream Distributors**
 **Repackaging Confidence:** Linux distributions (Debian, Fedora, Homebrew) repackage upstream releases. Verifying the upstream announcement confirms the distributor is working from the genuine source, not a compromised mirror.
 
-## Verification Architecture
-
-**The Software Release Fraud Problem**
-
-Daniel Stenberg's curl blog post enumerates the threats well. The core patterns:
-
-- **Compromised Mirror / CDN:** The tarball or package at the download URL is not the one the project released. The announcement (SHA, version, changelog) looks right, but the actual bytes are malicious. This is the XZ Utils attack pattern.
-- **Spoofed Announcement:** A fake blog post, email, or social media post claims a new release is available. Links point to a malicious download. Deepfake video of a project maintainer endorsing the release adds credibility.
-- **Registry Compromise:** A package registry page is altered (via stolen credentials, compromised CI, or registry vulnerability) to point to a malicious tarball while showing legitimate-looking metadata.
-- **Typosquat / Impersonation:** A package with a similar name (`cur1` instead of `curl`, `react-native-community` instead of `@react-native-community`) publishes a release announcement designed to look like the real project.
-- **Stale Announcement Replay:** An old, legitimate release announcement is re-circulated to trick users into downgrading to a version with known vulnerabilities.
-- **Build System Compromise:** The CI/CD system that builds the release is infiltrated. The source code in git is clean, but the published binary/tarball contains injected code. The announcement truthfully reflects the git state but not the binary.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -177,7 +177,7 @@ npm and PyPI lead with Sigstore-based provenance. Maven Central requires GPG but
 
 **Complementary, Not Replacement**
 
-Live Verify does not replace GPG, Sigstore, SLSA, or `npm audit signatures`. Those tools verify the cryptographic chain from source to binary. Live Verify verifies the **announcement** — the human-readable text that tells developers what to download and why. The two work together:
+Live Verify does not replace GPG, Sigstore, SLSA, or `npm audit signatures`. Those tools verify the cryptographic chain from source to binary. Live Verify verifies the announcement — the human-readable text that tells developers what to download and why. The two work together:
 
 - Sigstore proves the binary came from the CI pipeline
 - GPG proves the tarball was signed by the release manager
@@ -204,7 +204,7 @@ Self-authorized — the project or registry is the canonical authority for its o
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | GPG / Sigstore | Package Registry UI | `npm audit signatures` / CLI tools |
 | :--- | :--- | :--- | :--- | :--- |

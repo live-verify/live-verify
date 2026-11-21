@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Renewable Energy Certificate?
 
-In the energy market, a **Renewable Energy Certificate (REC)** is the proof that 1 Megawatt-hour (MWh) of electricity was generated from a renewable source (Solar, Wind, Hydro) and delivered to the grid. These certificates are the "Currency of Green Power." Companies buy RECs to prove they are using "100% Renewable Energy" for their factories or data centers.
+In the energy market, a Renewable Energy Certificate (REC) is the proof that 1 Megawatt-hour (MWh) of electricity was generated from a renewable source (Solar, Wind, Hydro) and delivered to the grid. These certificates are the "Currency of Green Power." Companies buy RECs to prove they are using "100% Renewable Energy" for their factories or data centers.
 
-The problem is that a REC can only be used once. "Double-Counting" is a massive fraud where a solar farm sells the same MWh of energy to two different companies. Similarly, shady firms create fake "Green Certificates" to greenwash their carbon footprint. Verified hashes bind the **Generator ID, MWh Amount, and Vintage Year** to the tracking registry's domain (e.g., `mirecs.org` or `wregis.org`).
+The problem is that a REC can only be used once. "Double-Counting" is a massive fraud where a solar farm sells the same MWh of energy to two different companies. Similarly, shady firms create fake "Green Certificates" to greenwash their carbon footprint. Verified hashes bind the Generator ID, MWh Amount, and Vintage Year to the tracking registry's domain (e.g., `mirecs.org` or `wregis.org`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="rec"></span>NORTH AMERICAN RENEWABLE REGISTRY
@@ -34,7 +34,13 @@ CAISO balancing authority area.
 <span data-verify-line="rec">verify:wregis.org/v</span> <span verifiable-text="end" data-for="rec"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Ghost MWh Fraud
+
+- **Double-Counting:** Selling the same 1 MWh of solar energy to two different buyers using two separate paper certificates.
+- **Vintage Inflation:** Editing a 2023 REC to read "2026" because newer vintage years are more valuable.
+- **Fuel Type Masking:** Describing "Dirty" energy as "Renewable" on a fake certificate.
+
+## What Is Checked
 
 Certificate ID, facility name, facility ID, fuel type (Solar/Wind/etc.), balancing authority (e.g., CAISO), vintage month/year, total MWh quantity, purchaser name (if retired), date of generation, date of registry entry.
 
@@ -44,25 +50,25 @@ Certificate ID, facility name, facility ID, fuel type (Solar/Wind/etc.), balanci
 - **Generation Summary:** The aggregate output of a facility for a month.
 - **PPA (Power Purchase Agreement) Extract:** (Linked hash) proving the long-term deal.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`wregis.org`, `mirecs.org`, `apx.com`) and the asset standing.
 
 **Status Indications:**
 - **Active / Tradable** — Certificate is valid and can be sold to a buyer.
-- **Retired** — **ALERT:** The green attributes have been "used" by a buyer (shows owner name).
-- **Cancelled** — **CRITICAL:** The generation was found to be erroneous or fraudulent.
-- **Pledged** — **ALERT:** The REC is held as collateral for a trade-finance loan.
+- **Retired** — The green attributes have been "used" by a buyer (shows owner name).
+- **Cancelled** — The generation was found to be erroneous or fraudulent.
+- **Pledged** — The REC is held as collateral for a trade-finance loan.
 
-## Second-Party Use
+## Who Holds It
 
-The **Energy Buyer (Corporation)** benefits from verification.
+The Energy Buyer (Corporation) benefits from verification.
 
-**ESG Reporting Speed:** When a company like Google or Amazon files its annual "Sustainability Report," they include the verified hashes of their REC portfolio. Auditors can instantly see **"VERIFIED RETIRED - 1,000 MWh"** on their phone, removing the need for a 2-week manual audit of registry portal logins.
+**ESG Reporting Speed:** When a company like Google or Amazon files its annual "Sustainability Report," they include the verified hashes of their REC portfolio. Auditors can instantly see "VERIFIED RETIRED - 1,000 MWh" on their phone, removing the need for a 2-week manual audit of registry portal logins.
 
 **Greenwashing Defense:** If a competitor accuses a brand of "Fake Green Claims," the company can point to the verified REC hashes on its public website. This provides the cryptographic proof needed to stop a PR crisis instantly.
 
-## Third-Party Use
+## Who Checks It
 
 **Carbon and ESG Auditors**
 **Inventory Audit:** During a "Net Zero" audit, the accountant scans a random sample of the client's RECs. Live Verify ensures the company isn't "Double-Counting" RECs or using "Phantom Credits" from a non-existent solar farm.
@@ -73,13 +79,7 @@ The **Energy Buyer (Corporation)** benefits from verification.
 **Regulators (FTC / State Boards)**
 **Consumer Protection:** Verifying that "Green Energy" retail plans sold to homeowners are actually backed by verified, retired RECs as required by law.
 
-## Verification Architecture
-
-**The "Ghost MWh" Fraud Problem**
-
-- **Double-Counting:** Selling the same 1 MWh of solar energy to two different buyers using two separate paper certificates.
-- **Vintage Inflation:** Editing a 2023 REC to read "2026" because newer vintage years are more valuable.
-- **Fuel Type Masking:** Describing "Dirty" energy as "Renewable" on a fake certificate.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

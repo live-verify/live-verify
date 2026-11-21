@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Civil or Administrative Approval?
 
-When a government body or public agency grants a *specific* application or request, it issues a **decision** — a planning consent, a grant award, a benefit-eligibility determination, a zoning variance, a regulatory clearance for a product. This is different from an ongoing **license** or **permit**: a license says you may keep practising; a permit is a standing grant tied to a site or activity. An administrative approval is a **one-off decision on a request**, recorded in a decision letter or notice, often with conditions and an appeal window.
+When a government body or public agency grants a *specific* application or request, it issues a decision — a planning consent, a grant award, a benefit-eligibility determination, a zoning variance, a regulatory clearance for a product. This is different from an ongoing license or **permit**: a license says you may keep practising; a permit is a standing grant tied to a site or activity. An administrative approval is a one-off decision on a request, recorded in a decision letter or notice, often with conditions and an appeal window.
 
 The decision letter is the artifact people act on. A developer starts building on a planning consent. A grantee draws down funds on an award letter. A claimant relies on a benefit-eligibility decision. A manufacturer ships on a regulatory clearance. Today these letters are PDFs on agency letterhead — and agency letterhead is among the easiest things to forge. A verifiable approval lets anyone confirm the issuing authority actually made *this* decision, on *this* application, with *these* conditions, and that it has not been varied or revoked on appeal.
 
@@ -61,11 +61,20 @@ Each is a discrete decision on a request, recorded, conditional, and potentially
 
 A verifiable approval binds the decision, the conditions, and the application reference to the issuing authority's domain, with a status that reflects appeal outcomes and lapse.
 
-## Data Verified
+## The Problem
+
+- Decision letters on agency letterhead are easy to forge or selectively edit
+- Recipients and relying parties cannot easily confirm a decision or its conditions
+- Approvals lapse or are overturned on appeal with no signal on the circulating letter
+- Eligibility and grant fraud exploit the trust placed in official-looking decisions
+
+**The Fix:** The authority publishes a verifiable decision record at its own (often `.gov`) domain. Anyone holding the decision letter clips it and confirms the decision, conditions, and live status.
+
+## What Is Checked
 
 Issuing authority, application/decision reference, applicant/recipient, the subject of the decision (site, project, claim), the decision itself (granted/refused/varied), the conditions (or a binding reference to the condition schedule), the decision date, the appeal window, and the deciding officer or committee.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `springfield.gov`) and the current status of the decision.
 
@@ -86,15 +95,15 @@ Shows the issuer domain (e.g., `springfield.gov`) and the current status of the 
 - **Lapsed** — A time-limited consent expired (e.g., development not commenced in time).
 - **404** — No such decision exists (never issued, forged, or OCR error).
 
-## Second-Party Use
+## Who Holds It
 
-The **applicant / recipient** benefits.
+The applicant / recipient benefits.
 
 **Proving the grant cleanly:** A developer, grantee, or claimant can present a verifiable decision that proves the approval is genuine and unaltered — useful to lenders, partners, and buyers who would otherwise take a PDF on trust.
 
 **Conveyancing and sale:** A property seller can demonstrate that the planning consent attached to the property is real, current, and carries exactly the conditions stated — reducing diligence friction.
 
-## Third-Party Use
+## Who Checks It
 
 **Buyers, Conveyancers, and Title Examiners**
 
@@ -112,15 +121,7 @@ The **applicant / recipient** benefits.
 
 **Grant assurance:** Auditors confirm that claimed grant awards correspond to real decisions for the stated amount and purpose, deterring grant-award fraud.
 
-## Verification Architecture
-
-**The Problem:**
-- Decision letters on agency letterhead are easy to forge or selectively edit
-- Recipients and relying parties cannot easily confirm a decision or its conditions
-- Approvals lapse or are overturned on appeal with no signal on the circulating letter
-- Eligibility and grant fraud exploit the trust placed in official-looking decisions
-
-**The Fix:** The authority publishes a verifiable decision record at its own (often `.gov`) domain. Anyone holding the decision letter clips it and confirms the decision, conditions, and live status.
+## How Verification Works Here
 
 **The reliance flow:**
 1. The authority makes a decision on an application

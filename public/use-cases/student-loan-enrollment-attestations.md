@@ -51,7 +51,7 @@ This follows the [Corporate Signing Authority](view.html?doc=contract-signing-au
 
 ## Witnessing by the Funding Body
 
-The funding body (Student Loans Company in the UK, Federal Student Aid in the US, Department of Education in Australia) **witnesses** the enrollment attestation at the point of issuance, following the regulatory witnessing model in [Witnessing and Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md).
+The funding body (Student Loans Company in the UK, Federal Student Aid in the US, Department of Education in Australia) witnesses the enrollment attestation at the point of issuance, following the regulatory witnessing model in [Witnessing and Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md).
 
 The funding body now has a verifiable, timestamped record that:
 - This college attested this student enrolled on this programme on this date
@@ -62,9 +62,9 @@ If the college later claims "we never enrolled that student" or disputes the ter
 
 ## What This Does NOT Cover
 
-This use case covers **enrollment attestation only** — the factual claim that a student enrolled on a specific date, on a specific programme, at a specific institution.
+This use case covers enrollment attestation only — the factual claim that a student enrolled on a specific date, on a specific programme, at a specific institution.
 
-It does **not** cover ongoing attendance monitoring, participation tracking, or engagement measurement. Those are operationally important but the verification model for them is weaker:
+It does not cover ongoing attendance monitoring, participation tracking, or engagement measurement. Those are operationally important but the verification model for them is weaker:
 - Attendance attestation is a forward prediction, not a backward fact
 - Named individuals cannot be held criminally liable for predictions that turn out wrong
 - Source systems (VLE, swipe cards) are controlled by the college and can be gamed
@@ -78,13 +78,13 @@ The absence signal still works at the enrollment level. If a college claims 500 
 
 This is simpler and more defensible than attendance-based absence signals: either the enrollment attestation exists or it doesn't. No judgment calls about attendance thresholds or engagement metrics.
 
-## Data Verified
+## What Is Checked
 
 Institution name, student reference, programme title, mode of study (full-time/part-time), start date, expected end date, loan eligibility status, and the name and role of the attesting individual.
 
 **Privacy Salt:** Required. Student references combined with institution identifiers could be enumerated.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the institution's domain and the enrollment status.
 
@@ -96,9 +96,9 @@ Shows the institution's domain and the enrollment status.
 - **Revoked** — Enrollment attestation withdrawn by the institution (e.g., discovered to be fraudulent)
 - **404** — No such enrollment attestation exists
 
-## Second-Party Use
+## Who Holds It
 
-The **student** benefits from a verifiable enrollment record:
+The student benefits from a verifiable enrollment record:
 
 **Visa compliance:** International students must prove genuine enrollment for visa purposes. A verified attestation from the college, checkable against the college's domain, is stronger than a letter.
 
@@ -106,7 +106,7 @@ The **student** benefits from a verifiable enrollment record:
 
 **Employer education benefits:** Some employers fund employee education and require proof of enrollment before reimbursing fees.
 
-## Third-Party Use
+## Who Checks It
 
 **Funding Bodies (SLC, FSA, Dept of Education)**
 
@@ -160,7 +160,7 @@ US accreditation is handled by regional and national accrediting agencies recogn
 Post-VET FEE-HELP reform, provider registration requirements were tightened, but enrollment verification remains institution-level.
 </details>
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Verified Enrollment Attestation | Institutional Bulk Reporting | Portal Self-Service |
 | :--- | :--- | :--- | :--- |

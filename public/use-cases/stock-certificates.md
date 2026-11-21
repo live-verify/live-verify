@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Stock Certificate?
 
-Before electronic trading, ownership of a company was proven by a physical paper **Stock Certificate**.
+Before electronic trading, ownership of a company was proven by a physical paper Stock Certificate.
 
-While public stocks (like Apple) are now digital, **Private Companies** and **Small Businesses** still use paper certificates or PDF equivalents to prove who owns the business.
+While public stocks (like Apple) are now digital, Private Companies and Small Businesses still use paper certificates or PDF equivalents to prove who owns the business.
 
 If you are buying a small business or investing in a private startup, you need to verify the seller actually owns the shares they are selling. Fraudsters often sell "fake shares" in companies they don't own. Verified hashes link the certificate directly to the Company Secretary or Transfer Agent's ledger, preventing duplicate sales.
 
@@ -68,7 +68,20 @@ Shareholder name, number of shares, share class, certificate number, company nam
 
 **The Physical Certificate Reality:** While most public company shares are held in "street name" through DTC (book-entry), private company shares, estate settlements, and historical certificates remain physical documents requiring verification.
 
-## Data Visible After Verification
+## The Problem: Stock Certificate Fraud
+
+Certificate fraud enables significant theft:
+
+- **Forged Certificates:** Entirely fake certificates with fabricated share counts
+- **Altered Certificates:** Genuine certificates with modified share numbers
+- **Cancelled Presented as Valid:** Cancelled certificates used fraudulently
+- **Impersonation:** Certificates attributed to wrong shareholders
+- **Duplicate Claims:** Same shares claimed by multiple parties
+- **Restrictive Legend Removal:** Removing transfer restrictions
+
+Live Verify addresses forgery and alteration. Transfer agent records confirm current ownership status.
+
+## What the Checker Sees
 
 Shows the issuer domain (the company or transfer agent) and the responder text.
 
@@ -82,7 +95,7 @@ Shows the issuer domain (the company or transfer agent) and the responder text.
 
 **Share Count Confirmation:** Verification may confirm shares: "Valid - 10,000 shares of Class A Common Stock."
 
-## Second-Party Use (Shareholder Verifying Their Own Certificates)
+## Who Holds It (Shareholder Verifying Their Own Certificates)
 
 Shareholders benefit from verification.
 
@@ -96,7 +109,7 @@ Shareholders benefit from verification.
 
 **Portfolio Documentation:** Maintain verified records of private company holdings.
 
-## Third-Party Use
+## Who Checks It
 
 **Prospective Buyers**
 
@@ -180,20 +193,7 @@ Portfolio management:
 
 **Due Diligence:** Verify target company's equity structure.
 
-## Verification Architecture
-
-**The Stock Certificate Fraud Problem**
-
-Certificate fraud enables significant theft:
-
-- **Forged Certificates:** Entirely fake certificates with fabricated share counts
-- **Altered Certificates:** Genuine certificates with modified share numbers
-- **Cancelled Presented as Valid:** Cancelled certificates used fraudulently
-- **Impersonation:** Certificates attributed to wrong shareholders
-- **Duplicate Claims:** Same shares claimed by multiple parties
-- **Restrictive Legend Removal:** Removing transfer restrictions
-
-Live Verify addresses forgery and alteration. Transfer agent records confirm current ownership status.
+## How Verification Works Here
 
 **Companies and Transfer Agents as Issuers**
 
@@ -324,7 +324,6 @@ Collectible and archival value:
 **Historical Research:** Verifying provenance for collectors.
 
 Historical certificates may verify as "Cancelled - Historical interest only."
-
 
 
 ## Authority Chain

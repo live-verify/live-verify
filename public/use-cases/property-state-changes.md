@@ -23,7 +23,7 @@ The title register tells you who has the legal interest and how the parcel sits 
 
 Those are not all title changes. But they are often economically or legally material.
 
-A **Property State Change Record** is a verifiable status object that separates the main dimensions of property state so that relying parties do not misuse the deed layer for questions it was never designed to answer.
+A Property State Change Record is a verifiable status object that separates the main dimensions of property state so that relying parties do not misuse the deed layer for questions it was never designed to answer.
 
 ## The Four-Dimension Model
 
@@ -128,7 +128,22 @@ Effective From:    20 Mar 2026
   <span verifiable-text="end" data-for="propertystate3"></span>
 </div>
 
-## Data Verified
+## The Problem: Wrong Layer
+
+- people use deeds to answer occupancy questions
+- people use utility bills to answer ownership questions
+- lenders use listing status as a proxy for title risk
+- insurers use title documents to infer use class
+
+That produces too much paper and the wrong answers.
+
+The cleaner property model is:
+
+- [Property Title Deeds](view.html?doc=property-deeds) for permanent chain-of-title and recorded instruments
+- [Proof of Home Ownership](view.html?doc=proof-of-home-ownership) for short-lived private proof of current ownership
+- this page for multidimensional state monitoring relevant to lenders, insurers, and other relying parties
+
+## What Is Checked
 
 Property address or title reference, effective date, title status, occupancy/use status, market status, parcel/physical status, and optionally the source class for each status (registry filing, owner attestation, lender inspection, insurer report, local authority action).
 
@@ -139,7 +154,7 @@ Property address or title reference, effective date, title status, occupancy/use
 - **Parcel Change Record**
 - **Physical Damage / Destruction Status Record**
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain and the four status dimensions.
 
@@ -151,15 +166,15 @@ Shows the issuer domain and the four status dimensions.
 
 The point is that these should not be collapsed into one overloaded status field.
 
-## Second-Party Use
+## Who Holds It
 
-The **property owner** benefits from clarity.
+The property owner benefits from clarity.
 
 **Correct treatment:** A homeowner should not be treated as having a title defect merely because the property is for sale, or as lacking ownership merely because the building burned down.
 
 **Reduced over-disclosure:** Counterparties can ask for the specific state they need, rather than demanding the full deed or title pack.
 
-## Third-Party Use
+## Who Checks It
 
 **Mortgage Lenders and Servicers**
 
@@ -177,24 +192,7 @@ The **property owner** benefits from clarity.
 
 **Authority and use checks:** The person requesting a service may need only proof of current ownership plus whether the property is owner-occupied or tenanted.
 
-## Verification Architecture
-
-**The "Wrong Layer" Problem**
-
-- people use deeds to answer occupancy questions
-- people use utility bills to answer ownership questions
-- lenders use listing status as a proxy for title risk
-- insurers use title documents to infer use class
-
-That produces too much paper and the wrong answers.
-
-The cleaner property model is:
-
-- [Property Title Deeds](view.html?doc=property-deeds) for permanent chain-of-title and recorded instruments
-- [Proof of Home Ownership](view.html?doc=proof-of-home-ownership) for short-lived private proof of current ownership
-- this page for multidimensional state monitoring relevant to lenders, insurers, and other relying parties
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Property State Record | Full Deed / Title Pack | Utility Bill / Council Tax Bill |
 | :--- | :--- | :--- | :--- |

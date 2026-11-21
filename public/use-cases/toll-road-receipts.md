@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Toll Road Receipts?
 
-For commercial drivers and business travelers, **Toll Road Receipts** (e.g., E-ZPass, FasTrak, SunPass) are a major source of micro-expense paperwork. While individual tolls are small ($2 to $25), they can aggregate to thousands of dollars per month for a fleet.
+For commercial drivers and business travelers, Toll Road Receipts (e.g., E-ZPass, FasTrak, SunPass) are a major source of micro-expense paperwork. While individual tolls are small ($2 to $25), they can aggregate to thousands of dollars per month for a fleet.
 
-Fraud is high-volume and low-detection: employees use "Toll Receipt Generator" apps to create hundreds of fake $15 receipts for bridges they never crossed. Similarly, rental car agencies often "Estimate" tolls for customers, leading to disputes over the actual amount charged. Verified hashes bind the **Transaction ID, Plaza Location, and License Plate** to the toll authority's domain (e.g., `e-zpassny.com`).
+Fraud is high-volume and low-detection: employees use "Toll Receipt Generator" apps to create hundreds of fake $15 receipts for bridges they never crossed. Similarly, rental car agencies often "Estimate" tolls for customers, leading to disputes over the actual amount charged. Verified hashes bind the Transaction ID, Plaza Location, and License Plate to the toll authority's domain (e.g., `e-zpassny.com`).
 
 <div style="max-width: 400px; margin: 24px auto; font-family: 'Courier New', monospace; border: 1px solid #999; background: #fff; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 1px dashed #333; padding-bottom: 15px; margin-bottom: 15px;">
@@ -40,7 +40,13 @@ Fraud is high-volume and low-detection: employees use "Toll Receipt Generator" a
   </div>
 </div>
 
-## Data Verified
+## The Problem: Ghost Receipt Fraud
+
+- **Receipt Generators:** Using web tools to create fake E-ZPass receipts for reimbursement.
+- **Amount Padding:** Changing a $2.50 off-peak toll to a $16.00 peak-time toll on a PDF.
+- **Plate Swapping:** Using a receipt from one vehicle to claim expenses for a second, non-business vehicle.
+
+## What Is Checked
 
 Transaction ID, account number (masked), transponder ID, license plate, date/time of crossing, plaza/location name, toll amount, vehicle class (e.g., 2-axle), payment status.
 
@@ -50,25 +56,25 @@ Transaction ID, account number (masked), transponder ID, license plate, date/tim
 - **Violation Notice:** For unpaid tolls (verification proves the debt).
 - **Rental Car Toll Report:** Issued by Hertz/Avis/Enterprise.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`e-zpassny.com`, `bayareafastrak.org`) and the transaction standing.
 
 **Status Indications:**
 - **Posted / Paid** — The toll has been successfully charged and cleared.
 - **Pending** — Crossing detected but funds not yet settled.
-- **Reversed** — **ALERT:** The charge was credited back (e.g., for a billing error).
-- **Violation** — **ALERT:** Toll was unpaid; fines are outstanding.
+- **Reversed** — The charge was credited back (e.g., for a billing error).
+- **Violation** — Toll was unpaid; fines are outstanding.
 
-## Second-Party Use
+## Who Holds It
 
-The **Driver / Fleet Manager** benefits from verification.
+The Driver / Fleet Manager benefits from verification.
 
 **Tax Compliance:** A self-employed delivery driver can maintain a verified log of every bridge crossing. During an IRS audit, the verified hashes provide "Audit-Proof" evidence of business mileage and costs, preventing the rejection of deductions due to "Illegible Thermal Paper."
 
-**Rental Dispute:** A traveler can scan the "Toll Report" provided by a rental car agency. If the hash returns **"TRANSACTION NOT FOUND,"** they have the cryptographic proof needed to fight a fraudulent $50 toll convenience fee.
+**Rental Dispute:** A traveler can scan the "Toll Report" provided by a rental car agency. If the hash returns "TRANSACTION NOT FOUND," they have the cryptographic proof needed to fight a fraudulent $50 toll convenience fee.
 
-## Third-Party Use
+## Who Checks It
 
 **Corporate Expense Teams**
 **Automated Audit:** Platforms like Concur can automatically scan toll receipt hashes. If an employee submits 10 tolls for the same bridge at the same time, the system can instantly flag the duplicates as "Fraudulent" using the verified transaction IDs.
@@ -79,13 +85,7 @@ The **Driver / Fleet Manager** benefits from verification.
 **Insurance Companies**
 **Accident Forensics:** Verifying the exact second a vehicle passed a specific toll plaza to confirm or disprove a driver's statement about their location at the time of a collision.
 
-## Verification Architecture
-
-**The "Ghost Receipt" Fraud Problem**
-
-- **Receipt Generators:** Using web tools to create fake E-ZPass receipts for reimbursement.
-- **Amount Padding:** Changing a $2.50 off-peak toll to a $16.00 peak-time toll on a PDF.
-- **Plate Swapping:** Using a receipt from one vehicle to claim expenses for a second, non-business vehicle.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

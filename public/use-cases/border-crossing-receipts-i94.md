@@ -43,7 +43,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: I-94 Alteration Fraud
+
+- **Date Extension:** Changing the "Admit Until" date from 2024 to 2026 in a PDF editor to hide an overstay.
+- **Class Swapping:** Changing a "B-2" (Tourist - No Work) to an "H-1B" (Work Authorized) to get a job.
+- **Record Fabrication:** Creating a fake I-94 number for a person who entered the country illegally.
+
+## What Is Checked
 
 Admission (I-94) Record Number, full name, date of birth, passport number, country of issuance, class of admission (e.g., B-1, F-1, H-1B), date of entry, "Admit Until" date.
 
@@ -52,7 +58,7 @@ Admission (I-94) Record Number, full name, date of birth, passport number, count
 - **Paper I-94 (White/Green):** Issued at land borders or in rare cases.
 - **I-94A:** For certain classes of admission.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`cbp.gov`) and current admission status.
 
@@ -62,9 +68,9 @@ Shows the issuer domain (`cbp.gov`) and current admission status.
 - **Departed** — Traveler has left the U.S. (record closed).
 - **Adjusted** — Status has changed (e.g., to Permanent Resident).
 
-## Second-Party Use
+## Who Holds It
 
-The **Traveler** (Non-citizen) benefits from verification.
+The Traveler (Non-citizen) benefits from verification.
 
 **Employment (I-9):** The authoritative answer should still come from the official employer-authorization workflow where one exists. Live Verify is more credible when the employer is holding only a copied I-94 printout and needs a bridge back to current government status.
 
@@ -72,7 +78,7 @@ The **Traveler** (Non-citizen) benefits from verification.
 
 **SSN Application:** Proving legal status to the Social Security Administration for number issuance.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers (HR Departments)**
 **Compliance:** Ensuring they don't hire someone with an expired or fake I-94, which avoids massive federal fines. The strongest production path is still the official employer-authorization workflow; Live Verify is only the portability layer when the copied printout is what is actually circulating.
@@ -83,13 +89,7 @@ The **Traveler** (Non-citizen) benefits from verification.
 **Banks / Mortgage Lenders**
 **Legal Presence:** Verifying that a borrower is legally present in the U.S. for the duration of a loan or to comply with KYC/AML regulations.
 
-## Verification Architecture
-
-**The "I-94 Alteration" Fraud Problem**
-
-- **Date Extension:** Changing the "Admit Until" date from 2024 to 2026 in a PDF editor to hide an overstay.
-- **Class Swapping:** Changing a "B-2" (Tourist - No Work) to an "H-1B" (Work Authorized) to get a job.
-- **Record Fabrication:** Creating a fake I-94 number for a person who entered the country illegally.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -116,7 +116,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive CBP's hashes and status changes plus structured metadata (I-94 numbers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the admission record it created.
 
 
-## Competition vs. DHS SAVE System
+## Compared With DHS SAVE System
 
 | Feature | Live Verify | DHS SAVE System | Paper Printout |
 | :--- | :--- | :--- | :--- |

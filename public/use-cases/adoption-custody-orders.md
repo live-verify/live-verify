@@ -11,12 +11,12 @@ furtherDerivations: 1
 
 ## What is a Custody Order?
 
-A **Custody Order** (or Allocation Judgment) is a court decree defining who is responsible for a child. It answers critical questions:
+A Custody Order (or Allocation Judgment) is a court decree defining who is responsible for a child. It answers critical questions:
 1.  **Who decides?** (School, Doctor, Religion)
 2.  **Who has the child when?** (Weekends, Holidays)
 3.  **Are there restrictions?** (No leaving the state, supervised visits only)
 
-These documents are presented to schools, police, doctors, and passport agents. The problem is that parents often present **outdated orders** to authorities to override the other parent's rights.
+These documents are presented to schools, police, doctors, and passport agents. The problem is that parents often present outdated orders to authorities to override the other parent's rights.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
   <div style="text-align: center; margin-bottom: 30px;">
@@ -62,7 +62,13 @@ These documents are presented to schools, police, doctors, and passport agents. 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Custody Fraud
+
+- **Outdated Orders:** The most common issue. A parent presents the 2023 order giving them full custody, hiding the 2025 order that switched custody to the other parent.
+- **Forgery:** Photoshop is easily used to remove "Supervised Visitation Only" restrictions.
+- **Jurisdiction Shopping:** Presenting an order from another state that has been superseded by the home state's court.
+
+## What Is Checked
 
 Child's name, parents' names, court jurisdiction, case number, judge name, order type (custody, adoption, visitation), effective date, key restrictions (e.g., "no international travel").
 
@@ -74,7 +80,7 @@ Child's name, parents' names, court jurisdiction, case number, judge name, order
 
 **Privacy and Salt:** Given the extreme sensitivity of child records, the hash MUST use a high-entropy random salt (printed on the document) to prevent "brute force guessing" of hashes to find children's names.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `cookcountycourt.org`) and the order status.
 
@@ -83,9 +89,9 @@ Shows the issuer domain (e.g., `cookcountycourt.org`) and the order status.
 - **Modified** — Superseded by a more recent court order (critical for custody disputes).
 - **Vacated** — Order is no longer in effect.
 
-## Second-Party Use
+## Who Holds It
 
-The **Custodial Parent** or **Adoptive Parent** benefits from verification.
+The Custodial Parent or Adoptive Parent benefits from verification.
 
 **School Enrollment:** Proving to a school registrar that they have the sole authority to enroll the child and designate emergency contacts.
 
@@ -93,7 +99,7 @@ The **Custodial Parent** or **Adoptive Parent** benefits from verification.
 
 **Healthcare Decisions:** Proving to a hospital that they have decision-making power for the child's surgery.
 
-## Third-Party Use
+## Who Checks It
 
 **Schools**
 **Enrollment Integrity:** Schools often face "parent wars" where one parent tries to override the other's instructions. A verified, current court order definitively settles who has decision-making power.
@@ -107,13 +113,7 @@ The **Custodial Parent** or **Adoptive Parent** benefits from verification.
 **Passport Agencies**
 **Passport Issuance:** The State Department requires proof of sole custody or two-parent consent. Verification prevents one parent from fraudulently obtaining a passport for a child.
 
-## Verification Architecture
-
-**The Custody Fraud Problem**
-
-- **Outdated Orders:** The most common issue. A parent presents the 2023 order giving them full custody, hiding the 2025 order that switched custody to the other parent.
-- **Forgery:** Photoshop is easily used to remove "Supervised Visitation Only" restrictions.
-- **Jurisdiction Shopping:** Presenting an order from another state that has been superseded by the home state's court.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -164,7 +164,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **If a court cannot guarantee real-time status updates, this use case may create false confidence.**
 
-## Competition vs. Certified Copies
+## Compared With Certified Copies
 
 | Feature | Live Verify | Certified Copy (Raised Seal) |
 | :--- | :--- | :--- |

@@ -26,12 +26,12 @@ attestation as one proving *"my loan is current,"* just at the zero end. A relyi
 "is your student finance settled?" is satisfied by any of the three.
 
 This complements [Student Loan Balance Confirmations](student-loan-balance-confirmations.md), which
-proves the *amount*. This use case proves the *standing* — and deliberately does **not** reveal the
+proves the *amount*. This use case proves the *standing* — and deliberately does not reveal the
 balance, the repayment history, or income.
 
 ## Limitations — read before relying on this
 
-This is a **narrow, single-source signal, not a creditworthiness assessment**, and it is genuinely
+This is a narrow, single-source signal, not a creditworthiness assessment, and it is genuinely
 imperfect. Treat it as one weak input, not a financial clearance:
 
 - **Single-register tunnel vision.** "Student finance: in good standing" says *only* that one
@@ -108,7 +108,17 @@ Salt:          M8K4N2V7
   <span verifiable-text="end" data-for="sfnoloan"></span>
 </div>
 
-## Data Verified
+## The Problem: answering more than was asked
+
+- A full loan statement (or even a balance confirmation) over-answers a pure standing question.
+- Scholarship- and self-funded graduates have *no* document to offer for the negative case, so they
+  over-share unrelated financial records to prove a non-fact.
+- Screenshots of account dashboards are unverifiable and trivially edited.
+
+This use case solves a narrower problem: short-lived, verifiable proof of **current student-finance
+standing**, including the zero case, without exposing amounts, history, or income.
+
+## What Is Checked
 
 Loan servicer/provider, standing result (in good standing / settled / no loan on record), plan
 type where a loan exists, issue timestamp, expiry timestamp, and salt.
@@ -127,11 +137,11 @@ type where a loan exists, issue timestamp, expiry timestamp, and salt.
 - repayment threshold or interest rate
 
 Those belong to the full statement layer, not the privacy-preserving standing layer. In particular,
-the **standing** confirmation never states *why* a loan is or isn't in good standing — only that it
+the standing confirmation never states *why* a loan is or isn't in good standing — only that it
 is, exactly as the [Revocation Cause guidance](../../docs/Verification-Response-Format.md) requires
 for administrative status (no leaking of arrears or financial cause).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain and the current standing result. This page answers the narrow question of
 **current student-finance standing only** — not balance, not history, not income.
@@ -147,15 +157,15 @@ Shows the issuer domain and the current standing result. This page answers the n
 > **Note — "no loan" and the limits of a negative.** The Student Loans Company can truthfully attest
 > *"no student loan on record with us."* It cannot attest that the studies were *self- or
 > family-funded* — that is not a fact the SLC holds. Where a scholarship was awarded by a named body
-> (a university, a trust, a research council), **that body** is the correct issuer of a positive
+> (a university, a trust, a research council), that body is the correct issuer of a positive
 > *"scholarship awarded"* attestation on its own domain. A purely self- or family-funded student has
 > no single issuer for the positive claim; the honest artifact available to them is the SLC's
 > negative *"no loan on record,"* not a manufactured proof of private payment. This gap is real and
 > named here rather than papered over.
 
-## Second-Party Use
+## Who Holds It
 
-The **borrower / graduate** benefits directly.
+The borrower / graduate benefits directly.
 
 **Privacy-preserving proof of standing:** Prove "current" or "settled" or "no loan" without
 forwarding statements, balances, or income.
@@ -166,7 +176,7 @@ discharged.
 **Asserting the zero case:** A scholarship- or self-funded graduate can answer "is your student
 finance settled?" with a verifiable "no loan on record" instead of having no document at all.
 
-## Third-Party Use
+## Who Checks It
 
 **Emigration, Visa, and Residency Advisers**
 
@@ -190,18 +200,6 @@ repayment ledger to all parties.
 **Award confirmation:** A university or trust that awarded a scholarship can issue its own verifiable
 "scholarship awarded" attestation, complementing the SLC's "no loan on record."
 
-## Verification Architecture
-
-**The "answering more than was asked" problem**
-
-- A full loan statement (or even a balance confirmation) over-answers a pure standing question.
-- Scholarship- and self-funded graduates have *no* document to offer for the negative case, so they
-  over-share unrelated financial records to prove a non-fact.
-- Screenshots of account dashboards are unverifiable and trivially edited.
-
-This use case solves a narrower problem: short-lived, verifiable proof of **current student-finance
-standing**, including the zero case, without exposing amounts, history, or income.
-
 ## Privacy Salt
 
 The salt value is required. Each standing confirmation carries a unique salt, ensuring that:
@@ -210,12 +208,12 @@ The salt value is required. Each standing confirmation carries a unique salt, en
 - a relying party cannot correlate confirmations across time without the subject's participation
 - the confirmation cannot be pre-computed or rainbow-tabled
 
-This matters especially for the **"no loan on record"** case: without a per-issuance salt, a fixed
+This matters especially for the "no loan on record" case: without a per-issuance salt, a fixed
 "no loan" string for a known subject could be probed or enumerated. The salt makes each issuance
 unique and unguessable. The salt is generated by the provider and included in the confirmation text;
 it has no meaning beyond making the hash unique to this issuance.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Short-Lived Good-Standing Confirmation | PDF Loan Statement | Verbal/Email Assurance |
 | :--- | :--- | :--- | :--- |

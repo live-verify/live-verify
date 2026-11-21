@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is an Umbrella Liability Policy?
 
-An **Umbrella Liability Policy** is the "Final Line of Defense" for a person's net worth. It provides broad coverage over and above primary policies like Home and Auto. If a policyholder is sued for $2 million after a car accident, but their auto policy only pays $500,000, the "Umbrella" pays the remaining $1.5 million.
+An Umbrella Liability Policy is the "Final Line of Defense" for a person's net worth. It provides broad coverage over and above primary policies like Home and Auto. If a policyholder is sued for $2 million after a car accident, but their auto policy only pays $500,000, the "Umbrella" pays the remaining $1.5 million.
 
-These policies are critical for **Asset Protection**. Fraud is high-stakes: high-net-worth individuals or professionals (e.g., Doctors, CEOs) might "edit" a policy to show a $5M limit instead of a $1M limit to qualify for a business partnership or a high-value lease. Similarly, they might hide that their "Underlying Policy" (Auto) was cancelled, which legally voids the Umbrella coverage. Verified hashes bind the **Excess Limits, Underlying Policy IDs, and Effective Dates** to the insurer's domain (e.g., `libertymutual.com` or `chubb.com`).
+These policies are critical for Asset Protection. Fraud is high-stakes: high-net-worth individuals or professionals (e.g., Doctors, CEOs) might "edit" a policy to show a $5M limit instead of a $1M limit to qualify for a business partnership or a high-value lease. Similarly, they might hide that their "Underlying Policy" (Auto) was cancelled, which legally voids the Umbrella coverage. Verified hashes bind the Excess Limits, Underlying Policy IDs, and Effective Dates to the insurer's domain (e.g., `libertymutual.com` or `chubb.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="umbrella"></span>CHUBB PERSONAL RISK
@@ -37,7 +37,13 @@ Homeowners:   (CHUBB #8844)                  $ 1,000,000 Personal
 <span data-verify-line="umbrella">verify:chubb.com/umbrella/v</span> <span verifiable-text="end" data-for="umbrella"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Phantom Shield Fraud
+
+- **Limit Inflation:** Changing a $1M umbrella to a $10M one on a PDF to bypass a lender's "Net Worth" requirement.
+- **Underlying Policy Hiding:** Editing a policy to remove the "Mandatory underlying auto limit" clause to hide a gap.
+- **Date Stretching:** Presenting an expired policy as "Active" to close a business deal.
+
+## What Is Checked
 
 Policy number, insurer name, policyholder name, residential address, excess liability limit (per occurrence and aggregate), underlying policy numbers and limits (Auto/Home/Watercraft), policy term, worldwide coverage status, retained limit (SIR), broker ID.
 
@@ -47,25 +53,25 @@ Policy number, insurer name, policyholder name, residential address, excess liab
 - **Evidence of Umbrella Insurance:** For business or legal requirements.
 - **Underlying Coverage Audit:** Proof that the base policies are active.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`chubb.com`, `pureinsurance.com`, `libertymutual.com`) and the policy standing.
 
 **Status Indications:**
 - **Active / Verified** — Full excess coverage is in force.
-- **Underlying Gap Alert** — **CRITICAL:** One of the base policies (e.g., Auto) has lapsed, voiding the umbrella.
-- **Cancelled** — **CRITICAL:** The umbrella policy has been terminated for non-payment or risk change.
-- **Limit Mismatch** — **ALERT:** The $5M limit on the paper was altered from the $1M limit in the system.
+- **Underlying Gap Alert** — One of the base policies (e.g., Auto) has lapsed, voiding the umbrella.
+- **Cancelled** — The umbrella policy has been terminated for non-payment or risk change.
+- **Limit Mismatch** — The $5M limit on the paper was altered from the $1M limit in the system.
 
-## Second-Party Use
+## Who Holds It
 
-The **Policyholder (Asset Owner)** benefits from verification.
+The Policyholder (Asset Owner) benefits from verification.
 
-**Business Deal Closure:** When a high-net-worth individual joins a private partnership or board, they must prove they have substantial personal liability coverage. A verified hash allows the other partners to see **"VERIFIED $5M UMBRELLA"** on their phone, removing the doubt that the new partner is a "Liability Risk."
+**Business Deal Closure:** When a high-net-worth individual joins a private partnership or board, they must prove they have substantial personal liability coverage. A verified hash allows the other partners to see "VERIFIED $5M UMBRELLA" on their phone, removing the doubt that the new partner is a "Liability Risk."
 
 **Estate Planning:** Providing a verified hash of total personal protection to an estate executor or trustee to ensure the "Asset Protection Plan" is fully funded and active.
 
-## Third-Party Use
+## Who Checks It
 
 **Lenders to High-Net-Worth Individuals**
 **Risk Management:** Before issuing a "Lombard Loan" (lending against stock portfolios), the bank scans the borrower's umbrella hash. This ensures the borrower's wealth won't be wiped out by a random lawsuit, protecting the bank's source of repayment.
@@ -76,13 +82,7 @@ The **Policyholder (Asset Owner)** benefits from verification.
 **Real Estate Developers**
 **Contractor Vetting:** Ensuring that a high-end general contractor has the "Excess Liability" required to cover a structural failure on a luxury condo project.
 
-## Verification Architecture
-
-**The "Phantom Shield" Fraud Problem**
-
-- **Limit Inflation:** Changing a $1M umbrella to a $10M one on a PDF to bypass a lender's "Net Worth" requirement.
-- **Underlying Policy Hiding:** Editing a policy to remove the "Mandatory underlying auto limit" clause to hide a gap.
-- **Date Stretching:** Presenting an expired policy as "Active" to close a business deal.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

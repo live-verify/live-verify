@@ -330,7 +330,7 @@ Each worker has their own scannable poster. Neighbor approaches worker → worke
 - Authorized dates
 - Individual QR code linking to worker-specific verification
 
-## Third-Party Use
+## Who Checks It
 
 **Neighbors** — Verify clearance is legitimate before valuables disappear
 **Police** — On-scene verification; clear basis for intervention if verification fails
@@ -348,7 +348,7 @@ Each worker has their own scannable poster. Neighbor approaches worker → worke
 | **Northern Ireland** | Probate Office Belfast | Separate system |
 | **US** | State probate courts | Varies by state; some require court supervision of sales |
 
-## Verification Architecture
+## How Verification Works Here
 
 **The core insight:** Live Verify only works if the attestation comes from an authority that:
 1. Cannot be created by criminals

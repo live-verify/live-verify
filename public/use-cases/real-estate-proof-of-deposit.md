@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 Real estate is a primary vector for global money laundering. High-value property transactions are often used to "wash" illicit funds. Sellers, closing banks, and title companies struggle to verify the "clean" origin of large deposits.
 
-A **Source of Funds Attestation (SOFA)** is a document issued by the buyer's primary bank to the closing entity. It attests to the *origin* of a specific deposit — where the money came from (e.g., the sale of another property, years of savings, or a verified inheritance) and how long the bank has held it. The bank is not certifying the funds are "clean" — that's a compliance judgement no bank will put its name to. It is confirming provenance: this money entered through this channel, on this date, from this source. By making this attestation verifiable, we provide an "AML Bridge" that lets closing entities trace fund origins without relying on easily-forged paper statements.
+A Source of Funds Attestation (SOFA) is a document issued by the buyer's primary bank to the closing entity. It attests to the *origin* of a specific deposit — where the money came from (e.g., the sale of another property, years of savings, or a verified inheritance) and how long the bank has held it. The bank is not certifying the funds are "clean" — that's a compliance judgement no bank will put its name to. It is confirming provenance: this money entered through this channel, on this date, from this source. By making this attestation verifiable, we provide an "AML Bridge" that lets closing entities trace fund origins without relying on easily-forged paper statements.
 
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #0d47a1; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #0d47a1; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -46,7 +46,13 @@ A **Source of Funds Attestation (SOFA)** is a document issued by the buyer's pri
   </div>
 </div>
 
-## Data Verified
+## The Problem: Dirty Money Fraud
+
+- **Layering:** Depositing small amounts over time through multiple channels to obscure the trail, then presenting a large balance as "savings."
+- **Fake Origin Documents:** Scammers creating fake "Inheritance Letters" or "Sale Documents" to fabricate a provenance narrative.
+- **Identity Proxy:** Using an unconnected person to buy property for a sanctioned individual.
+
+## What Is Checked
 
 Issuing bank name, buyer name, deposit amount, verified source (e.g., sale, savings, inheritance), holding period, AML compliance officer ID, reference number.
 
@@ -55,25 +61,25 @@ Issuing bank name, buyer name, deposit amount, verified source (e.g., sale, savi
 - **Fund Origin Certificate:** Summary of deposit source and holding period.
 - **Transaction Origin Record:** Specific details on a single high-value wire.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`barclays.com`, `hsbc.com`) and the attestation status.
 
 **Status Indications:**
 - **Attested / Current** — Record matches the bank's fund origin records.
-- **Under Review** — **ALERT:** The bank is re-examining the provenance of these funds.
-- **Referred** — **ALERT:** Funds have been referred for enhanced due diligence.
-- **Withdrawn** — **ALERT:** Attestation rescinded by the issuing bank.
+- **Under Review** — The bank is re-examining the provenance of these funds.
+- **Referred** — Funds have been referred for enhanced due diligence.
+- **Withdrawn** — Attestation rescinded by the issuing bank.
 
-## Second-Party Use
+## Who Holds It
 
-The **Property Buyer** benefits from verification.
+The Property Buyer benefits from verification.
 
 **Closing Speed:** By providing a bank-attested fund origin record, the buyer prevents the "2-week delay" while the title company or closing bank manually investigates the origins of their money.
 
 **Financial Privacy:** Proving fund provenance without giving the title company full access to their private bank statements or years of tax returns.
 
-## Third-Party Use
+## Who Checks It
 
 **Title Companies / Closing Agents**
 **AML Compliance:** Instantly verifying a buyer's fund origin by linking directly to the bank's domain record, meeting their regulatory obligation to establish provenance under AML laws.
@@ -84,13 +90,7 @@ The **Property Buyer** benefits from verification.
 **Real Estate Regulators (FINTRAC, FinCEN)**
 **Market Integrity:** Auditing fund origin attestations across transactions to detect patterns consistent with layering or structuring.
 
-## Verification Architecture
-
-**The "Dirty Money" Fraud Problem**
-
-- **Layering:** Depositing small amounts over time through multiple channels to obscure the trail, then presenting a large balance as "savings."
-- **Fake Origin Documents:** Scammers creating fake "Inheritance Letters" or "Sale Documents" to fabricate a provenance narrative.
-- **Identity Proxy:** Using an unconnected person to buy property for a sanctioned individual.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

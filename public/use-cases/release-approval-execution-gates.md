@@ -13,18 +13,18 @@ furtherDerivations: 1
 
 In ITIL change management, a release is authorized by a Change Advisory Board (CAB) or a delegated
 change manager: *Change CHG-2026-0417 is approved for deployment in the Saturday 02:00 window.* But
-approval and execution are **separated in time**. The CAB approves on Wednesday; the release runs on
+approval and execution are separated in time. The CAB approves on Wednesday; the release runs on
 Saturday night, often automatically, often after the humans have gone home.
 
 Between those two moments the approval can rot:
 
-- The CAB **reversed or paused** the change after a late-breaking incident, but the pipeline never
+- The CAB reversed or paused the change after a late-breaking incident, but the pipeline never
   heard about it.
-- The approval was **for a different artifact** — approved build `1.4.2`, but `1.4.3` is what's
+- The approval was for a different artifact — approved build `1.4.2`, but `1.4.3` is what's
   queued.
-- The approval was **scoped to a window** that has since passed, or to conditions (a freeze lifted, a
+- The approval was scoped to a window that has since passed, or to conditions (a freeze lifted, a
   dependent change landed) that no longer hold.
-- Someone **pasted a stale or fabricated approval** into the deployment plan to push a change the CAB
+- Someone pasted a stale or fabricated approval into the deployment plan to push a change the CAB
   never actually cleared.
 
 Today the deployment pipeline trusts a copied-in approval ID, a Jira link, or a screenshot pasted
@@ -33,7 +33,7 @@ segregation of duties between who approves and who deploys — is defeated the i
 a string someone copy-pastes into executable automation.
 
 This use case closes that gap: an engineer copies an approval into an **executable release plan (as
-code, with a UI presentation)**, and the plan **re-verifies the approval against the issuer's domain
+code, with a UI presentation), and the plan re-verifies the approval against the issuer's domain
 at execution time** — refusing to run if the CAB's record no longer says "approved."
 
 ## What's different here: the verification is deferred and automated
@@ -107,9 +107,9 @@ verify:change.northbridge.example/cab/v
 </pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
-Change reference, release title, the **exact artifact/build hash** approved, the approved deployment
+Change reference, release title, the exact artifact/build hash approved, the approved deployment
 window, the approving body/approver, stated conditions, and the salt. Because the artifact hash is
 pinned in the approval text, an approval for build `1.4.2` will not verify a plan that quietly
 queued `1.4.3` — the change in artifact changes the hash and the gate refuses.
@@ -121,7 +121,7 @@ queued `1.4.3` — the change in artifact changes the hash and the gate refuses.
 - internal CAB deliberation, dissent, or incident detail
 - approver personal data beyond the role/name needed to evidence authority
 
-## Data Visible After Verification
+## What the Checker Sees
 
 The pipeline (and any human reading the plan UI) sees the issuer domain and the live approval status.
 
@@ -133,13 +133,13 @@ The pipeline (and any human reading the plan UI) sees the issuer domain and the 
 - **Expired** — The approved window has passed. Gate fails; a fresh approval is required.
 - **404** — No matching approval (fabricated, mistyped, or wrong change ref). Gate fails loudly.
 
-Per the project's fail-loudly principle, **any non-`verified` result halts the release** — the gate
+Per the project's fail-loudly principle, any non-`verified` result halts the release — the gate
 never "assumes approved" on a network error or ambiguous response. A gate that cannot reach the
 issuer fails closed and surfaces the reason, rather than degrading to a pass.
 
-## Second-Party Use
+## Who Holds It
 
-The **release engineer / deployment pipeline** benefits directly.
+The release engineer / deployment pipeline benefits directly.
 
 **Tamper-evident approval in the plan:** A pasted approval that was altered (to widen the window,
 swap the artifact, forge the approver) produces a hash the CAB never published — it fails to verify.
@@ -150,7 +150,7 @@ CAB's domain can return `verified`. Copy-paste into automation no longer defeats
 **Catch late withdrawals automatically:** If the CAB reverses the change after sign-off, the gate
 sees `revoked` at 02:00 and refuses — no human has to remember to re-check.
 
-## Third-Party Use
+## Who Checks It
 
 **Auditors and compliance (SOX, ITIL, ISO 20000, SOC 2)**
 
@@ -169,7 +169,7 @@ from "someone bypassed the gate."
 Where change control is a regulatory obligation, an execution-time re-verification gate is evidence
 that approval was not merely obtained but *still held* when the change went live.
 
-## Verification Architecture
+## How Verification Works Here
 
 The novel property is **deferred, automated re-verification**: the same pipeline that other use
 cases run once, here runs *at the deployment gate*, by the automation, against live status. The
@@ -196,7 +196,7 @@ probe the CAB endpoint to discover which changes exist or are approved. The salt
 hash unique and unguessable; it is generated by the change-management system and included in the
 approval text.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Execution-Time Verification Gate | Pasted Approval ID / Jira Link | Screenshot in Runbook |
 | :--- | :--- | :--- | :--- |

@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## The Problem
 
-Something is wrong **right now**, and the person or system it is wrong *about* needs a way to say
+Something is wrong right now, and the person or system it is wrong *about* needs a way to say
 so that strangers can trust. Two everyday shapes:
 
 - **A hacked account.** Fred Flintstone's X account is sending strange DMs asking contacts to wire
@@ -33,14 +33,14 @@ own published "yes, this is happening, as of right now."
 
 Live Verify moved warrant canaries out of the active catalogue (see
 [the canary discussion](../../docs/warrant_canary_discussion.md)). The reason is structural, not
-incidental: a canary signals by **absence**. You publish "no warrant received," and observers must
-*infer* trouble when the statement **stops** appearing. That inference is fragile — did the canary
+incidental: a canary signals by absence. You publish "no warrant received," and observers must
+*infer* trouble when the statement stops appearing. That inference is fragile — did the canary
 stop because of a gag order, because the server went down, because the cron job died, or because
 someone was on holiday? Verifying *absence* is a monitoring problem, not a verification problem, and
-the project's architecture verifies **presence**.
+the project's architecture verifies presence.
 
-This use case is the **opposite, and stronger**. The signal is not silence — it is a live,
-timestamped, **affirmative** claim that something is currently true. Instead of "infer danger when I
+This use case is the opposite, and stronger. The signal is not silence — it is a live,
+timestamped, affirmative claim that something is currently true. Instead of "infer danger when I
 go quiet," it is "I am telling you, affirmatively and freshly, that this is happening now." There is
 no ambiguity to resolve about *why* a thing is absent, because nothing is absent: the warning is
 present, signed to a domain, and dated. The canary doc itself anticipated exactly this — its
@@ -53,7 +53,7 @@ carry the signal.
 ## What gets attested
 
 The owner of a thing — a person about their account, an operator about their system — publishes a
-short, affirmative status claim bound by a `vfy:` line to a domain **they** control:
+short, affirmative status claim bound by a `vfy:` line to a domain they control:
 
 ```
 ACCOUNT COMPROMISE WARNING
@@ -66,7 +66,7 @@ Three things make it work:
 
 1. **It is affirmative.** It states a condition that *is true now*, not a thing whose disappearance
    you must notice.
-2. **It is fresh.** The **As At** timestamp is the load-bearing field. The endpoint keeps it
+2. **It is fresh.** The As At timestamp is the load-bearing field. The endpoint keeps it
    current while the incident is live, and the value of the whole claim is "ongoing *as of a recent
    moment*."
 3. **It is domain-anchored to the owner.** Critically, it is bound to a domain the *attacker does
@@ -99,7 +99,7 @@ as fraudulent.
   <span verifiable-text="end" data-for="incident"></span>
 </div>
 
-The red border marks this as a **warning**, not a clearance. The contact does not have to decide
+The red border marks this as a warning, not a clearance. The contact does not have to decide
 whether to trust the suspicious DM on its own merits — they check Fred's domain, see a fresh
 ONGOING warning, and disbelieve the channel.
 
@@ -115,33 +115,33 @@ Started: 2026-06-27 14:20 UTC   As At: 2026-06-27 14:38 UTC
 vfy:status.acme.example/incident/v
 ```
 
-This is deliberately **elective and self-attested** — the operator chooses to publish, and it is
-*their* word about *their* system, anchored to *their* domain. It is **not** a centralized
-monitoring service and **not** Down Detector: there is no third party probing the API and inferring
-health from the outside. The operator affirmatively asserts the state and keeps the **As At** fresh.
+This is deliberately elective and self-attested — the operator chooses to publish, and it is
+*their* word about *their* system, anchored to *their* domain. It is not a centralized
+monitoring service and not Down Detector: there is no third party probing the API and inferring
+health from the outside. The operator affirmatively asserts the state and keeps the As At fresh.
 
 The affirmative all-clear — "we checked, nothing is wrong, as of now" — is the sibling pattern;
-when an incident **resolves**, the natural next attestation is an all-clear. See
+when an incident resolves, the natural next attestation is an all-clear. See
 [Live All-Clear / Affirmative-Canary Status](view.html?doc=live-allclear-canary-status) for that
 positive-status counterpart.
 
-## Data Verified
+## What Is Checked
 
 That the controller of the named domain currently asserts this incident/warning; the subject (a
-person or a named system); the affected channel or service; the stated start time; the **As At**
+person or a named system); the affected channel or service; the stated start time; the As At
 freshness timestamp; the status; and the salt.
 
 **What this proves and does not prove.** It proves **the domain owner publicly asserts this
-incident is ongoing** — an authenticated, dated, affirmative warning. It does **not** independently
+incident is ongoing — an authenticated, dated, affirmative warning. It does not** independently
 confirm that the hack or outage actually occurred; that is the owner's word. But a *domain-anchored
 owner's word* is precisely the useful thing here: it lets a recipient stop trusting messages coming
 from the owner's compromised channel, on the strength of the owner's own out-of-band, attacker-proof
 declaration.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 The verifier sees the asserting domain, the subject, the affected channel/service, the start time,
-the status, and — above all — the **As At** timestamp. **Freshness is the load-bearing signal.** A
+the status, and — above all — the As At timestamp. **Freshness is the load-bearing signal.** A
 status string alone means little; "ONGOING *as of a recent moment*" is what carries weight.
 
 **Status Indications:**
@@ -153,21 +153,21 @@ status string alone means little; "ONGOING *as of a recent moment*" is what carr
 - **RESOLVED** — The owner affirmatively withdrew the warning, with a resolution timestamp
   ("resolved as of 2026-06-27 11:30 UTC"). The endpoint can transition from ONGOING to RESOLVED in
   place, so the same `vfy:` line later reads as cleared.
-- **STALE / AS-AT-OLD** — The claim still verifies and still says ONGOING, but the **As At** is no
-  longer recent. Per fail-loudly, this is surfaced **plainly** and must **not** be read either as
+- **STALE / AS-AT-OLD** — The claim still verifies and still says ONGOING, but the As At is no
+  longer recent. Per fail-loudly, this is surfaced plainly and must not be read either as
   "definitely still ongoing" or as "definitely resolved." It means **the owner stopped updating —
   re-check.** A stale ongoing warning is a prompt to seek a fresher signal, not a conclusion.
 - **404 / No Claim** — No such warning exists at this domain for this text. Stated plainly: there is
   no active warning from this owner for this claim — never quietly softened into "probably fine."
 
-## Second-Party Use
+## Who Holds It
 
-The **owner / operator** benefits directly. A hacked person gets an attacker-proof way to warn their
+The owner / operator benefits directly. A hacked person gets an attacker-proof way to warn their
 contacts: they can't be trusted *through* the compromised account, but their own domain can carry
 "don't trust my X account right now." An operator gets a verifiable, spoof-resistant incident notice
 that integrators can check on demand, instead of an unauthenticated status page anyone could fake.
 
-## Third-Party Use
+## Who Checks It
 
 **Recipients of suspicious messages** — a contact who gets a money request from `@fredf` checks
 Fred's domain, finds a fresh ONGOING warning, and refuses the request. The warning travels on a
@@ -181,30 +181,30 @@ banner on a *verified* signal rather than guessing.
 originates from the domain-anchored owner before acting on it (e.g. freezing the affected account),
 rather than acting on a claim that could itself be the attacker.
 
-## Verification Architecture
+## How Verification Works Here
 
 The mechanism is the standard `text → normalize → SHA-256 → GET`. Two things distinguish it:
 
-**Freshness re-attestation.** While the incident is live, the issuer keeps the **As At** current —
+**Freshness re-attestation.** While the incident is live, the issuer keeps the As At current —
 re-attesting on a schedule so the claim reads as freshly ongoing. The endpoint returns the changing
 "as of" detail ("ongoing as of 09:14", later "ongoing as of 10:02", later "resolved as of 11:30").
 This is the [point-in-time vs current](../../docs/point-in-time-vs-current.md) freshness mechanic
 applied affirmatively: the value of the claim depends on being current, so the *recency of the As At*
-is exactly what the verifier reads. When the issuer stops re-attesting, the claim goes **stale** —
+is exactly what the verifier reads. When the issuer stops re-attesting, the claim goes stale —
 and staleness is the signal to re-check, not a verdict either way.
 
 **Cross-channel trust.** The whole design rests on the warning living on a *different* domain from
-the compromised channel. The attacker controls `@fredf`; they do **not** control
+the compromised channel. The attacker controls `@fredf`; they do not control
 `fredflintstone.example`. So the owner's domain can authoritatively warn about the owner's
 compromised channel — the cross-channel trust the project is built on, here turned inward to let a
 victim discredit their own captured account.
 
 ## The honest limit
 
-This is **self-asserted, not independently confirmed**. The endpoint proves the domain owner
+This is self-asserted, not independently confirmed. The endpoint proves the domain owner
 *claims* the incident — it does not prove the hack or outage happened. A malicious or mistaken owner
 could publish a false warning. The honest scope is narrow and real: it converts an unverifiable,
-spoofable, often out-of-reach warning into a **domain-anchored, dated, affirmative one** that an
+spoofable, often out-of-reach warning into a domain-anchored, dated, affirmative one that an
 attacker on the compromised channel cannot forge or suppress. That is enough to do the job —
 discrediting a captured channel from a place the attacker can't touch — without overclaiming to be
 an independent adjudication of the underlying event.
@@ -222,7 +222,7 @@ publish.
 **Pattern:** Personal / Self-Attested (for a person); Commercial / operator-attested (for a system).
 
 For a person warning about their own compromised account, the claim is asserted from their own
-domain with no regulatory chain — legitimately **unanchored**, judged on the credibility of the
+domain with no regulatory chain — legitimately unanchored, judged on the credibility of the
 domain itself:
 
 ```

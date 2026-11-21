@@ -39,7 +39,14 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Fast Fraud
+
+- **Hand-Timing Fraud:** Claiming a 10.2s 100m time (hand-timed) as if it were a 10.2s FAT (Fully Automatic Timing) time.
+- **Course Cutting:** In marathons, cutting corners or using a relay runner but claiming the full distance.
+- **Wind-Aided Records:** Presenting a record set with +4.0 m/s wind (illegal) as a "Wind-Legal" record.
+- **Age-Class Fraud:** Adults competing in youth categories to win scholarships.
+
+## What Is Checked
 
 Athlete name, event discipline (e.g., 100m, Marathon), time/distance achieved (to 1/1000th precision), wind speed, reaction time, venue, date of performance, timing system used (FAT vs Chip), ratification status.
 
@@ -49,7 +56,7 @@ Athlete name, event discipline (e.g., 100m, Marathon), time/distance achieved (t
 - **Doping Control Receipt:** Linking the performance to a clean test (hash-binding).
 - **Course Certification:** Proving a marathon route was actually the claimed distance.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`worldathletics.org`, `ncaa.org`) and the current standing.
 
@@ -59,9 +66,9 @@ Shows the issuer domain (`worldathletics.org`, `ncaa.org`) and the current stand
 - **Invalidated** — Disqualified (e.g., doping violation found later).
 - **Former Record** — Performance was a record but has since been broken.
 
-## Second-Party Use
+## Who Holds It
 
-The **Athlete** benefits from verification.
+The Athlete benefits from verification.
 
 **Sponsorship Contracts:** Proving to Nike or Adidas that a claimed "Personal Best" or "World Ranking" is official, triggering performance bonuses in their contract.
 
@@ -69,7 +76,7 @@ The **Athlete** benefits from verification.
 
 **Olympic Entry:** Proving they have met the "Olympic Qualifying Standard" at a sanctioned meet.
 
-## Third-Party Use
+## Who Checks It
 
 **College Coaches / Scouts**
 **Talent Identification:** Coaches scan thousands of athlete profiles. Verification allows them to instantly trust times from remote, unknown competitions without calling meet directors.
@@ -80,14 +87,7 @@ The **Athlete** benefits from verification.
 **Sports Media / Broadcasters**
 **Fact Checking:** Instantly verifying "World Lead" claims during a live broadcast by scanning the official results sheet.
 
-## Verification Architecture
-
-**The "Fake Fast" Fraud Problem**
-
-- **Hand-Timing Fraud:** Claiming a 10.2s 100m time (hand-timed) as if it were a 10.2s FAT (Fully Automatic Timing) time.
-- **Course Cutting:** In marathons, cutting corners or using a relay runner but claiming the full distance.
-- **Wind-Aided Records:** Presenting a record set with +4.0 m/s wind (illegal) as a "Wind-Legal" record.
-- **Age-Class Fraud:** Adults competing in youth categories to win scholarships.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -127,7 +127,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Realistic scope:** Live Verify is a bridge technology for the long tail of athletic events that haven't digitized. For elite sports and well-funded programs, digital-native verification is already dominant. This use case targets the gap — the rural high school meet timed by a volunteer with a stopwatch and a printed certificate.
 
-## Competition vs. Result Databases
+## Compared With Result Databases
 
 | Feature | Live Verify | Online Results (Athletic.net) | Photo-Finish (Visual) |
 | :--- | :--- | :--- | :--- |

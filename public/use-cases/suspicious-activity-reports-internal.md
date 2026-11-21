@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Internal SAR Records?
 
-In the banking industry, a **Suspicious Activity Report (SAR)** is a highly confidential document filed with FinCEN (in the US) when a bank detects potential money laundering or fraud. While the filed SAR itself is secret, the bank must maintain **Internal Filing Records** to prove to regulators that they are actually monitoring and reporting suspicious behavior.
+In the banking industry, a Suspicious Activity Report (SAR) is a highly confidential document filed with FinCEN (in the US) when a bank detects potential money laundering or fraud. While the filed SAR itself is secret, the bank must maintain Internal Filing Records to prove to regulators that they are actually monitoring and reporting suspicious behavior.
 
-These internal records are "Compliance Insurance." During a regulatory exam (e.g., by the OCC or Fed), the bank must prove that "Account #9922" was indeed flagged and reported. Fraud is an "Omission" risk: a corrupt branch manager might "edit" internal logs to hide that they failed to report a high-value client's suspicious wires. Verified hashes bind the **Filing Date, Subject Name, and Internal Tracking ID** to the bank's compliance domain (e.g., `chase.com` or `hsbc.com`).
+These internal records are "Compliance Insurance." During a regulatory exam (e.g., by the OCC or Fed), the bank must prove that "Account #9922" was indeed flagged and reported. Fraud is an "Omission" risk: a corrupt branch manager might "edit" internal logs to hide that they failed to report a high-value client's suspicious wires. Verified hashes bind the Filing Date, Subject Name, and Internal Tracking ID to the bank's compliance domain (e.g., `chase.com` or `hsbc.com`).
 
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #d32f2f; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #d32f2f; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -56,7 +56,13 @@ These internal records are "Compliance Insurance." During a regulatory exam (e.g
   </div>
 </div>
 
-## Data Verified
+## The Problem: Clean-Up Fraud
+
+- **Log Tampering:** Deleting a record from the internal log before an exam to hide that a high-value client was involved in a crime.
+- **Back-Dating:** Adding a record today but dating it "2024" to satisfy a regulator's finding of a "Monitoring Gap."
+- **Subject Masking:** Editing the name on an internal report to hide the identity of a politically-exposed person (PEP).
+
+## What Is Checked
 
 Internal SAR tracking ID, FinCEN E-Filing ID, filing date, institution name, branch ID, primary subject name (or account hash), summary of suspicion (hash), filing officer ID, regulatory agency ID.
 
@@ -66,25 +72,25 @@ Internal SAR tracking ID, FinCEN E-Filing ID, filing date, institution name, bra
 - **FinCEN Acknowledgment Receipt:** (Linked hash) the government's confirmation.
 - **EDD (Enhanced Due Diligence) Summary:** The deep-dive investigation file.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`chase.com`, `wellsfargo.com`) and the filing standing.
 
 **Status Indications:**
 - **Filed / Confirmed** — Record matches the institution's official AML audit trail.
-- **Alert Suppressed** — **ALERT:** An alert was generated but investigation closed it as "Clear."
+- **Alert Suppressed** — An alert was generated but investigation closed it as "Clear."
 - **Superseded** — An amended/updated SAR was filed for this subject.
-- **Incomplete** — **ALERT:** Record exists but mandatory FinCEN acknowledgment is missing.
+- **Incomplete** — Record exists but mandatory FinCEN acknowledgment is missing.
 
-## Second-Party Use
+## Who Holds It
 
-The **Internal Compliance Department** benefits from verification.
+The Internal Compliance Department benefits from verification.
 
 **Regulatory Exams:** During a surprise audit by the Fed or OCC, the compliance team provides a verified manifest of all SARs filed. The examiners can instantly scan the paper files to ensure they match the digital portal, removing the suspicion of "Post-Dated Filings" or "Log Doctoring."
 
 **Liability Protection:** If a bank is sued for "Failing to Monitor" a specific criminal, the AML team can use verified, timestamped hashes to prove they actually detected and reported the activity years earlier, defending against billion-dollar fines.
 
-## Third-Party Use
+## Who Checks It
 
 **Federal Regulators (Fed, OCC, FDIC)**
 **Systemic Audit:** Verifying the "Integrity of the Log." Examiners scan random internal SAR records. Live Verify ensures that the bank's internal "Proof of Filing" isn't a fabrication designed to hide a lack of monitoring.
@@ -95,13 +101,7 @@ The **Internal Compliance Department** benefits from verification.
 **Internal Audit Committees**
 **Board Oversight:** Providing the Board of Directors with a verified summary of AML activity, ensuring that management isn't hiding the true volume of suspicious activity from the board.
 
-## Verification Architecture
-
-**The "Clean-Up" Fraud Problem**
-
-- **Log Tampering:** Deleting a record from the internal log before an exam to hide that a high-value client was involved in a crime.
-- **Back-Dating:** Adding a record today but dating it "2024" to satisfy a regulator's finding of a "Monitoring Gap."
-- **Subject Masking:** Editing the name on an internal report to hide the identity of a politically-exposed person (PEP).
+## Who Issues It
 
 **Issuer Types** (First Party)
 

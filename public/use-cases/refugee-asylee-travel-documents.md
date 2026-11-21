@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Refugee Travel Document?
 
-A **Refugee Travel Document (Form I-571)** is a passport-style booklet issued to a person who has refugee or asylee status in the US and cannot obtain a passport from their home country. It is their only legal "Ticket to the World" and their only way to return to the United States.
+A Refugee Travel Document (Form I-571) is a passport-style booklet issued to a person who has refugee or asylee status in the US and cannot obtain a passport from their home country. It is their only legal "Ticket to the World" and their only way to return to the United States.
 
-For a refugee, this document is a fragile lifeline. If an airline agent in a foreign airport (e.g., in Turkey or Jordan) doesn't recognize the blue booklet or think it looks "fake," the traveler can be stranded in a dangerous location. Verified hashes bind the **Document ID, Validity Dates, and Holder's Photo** to the `uscis.gov` domain, providing global authorities with an instant way to trust the document.
+For a refugee, this document is a fragile lifeline. If an airline agent in a foreign airport (e.g., in Turkey or Jordan) doesn't recognize the blue booklet or think it looks "fake," the traveler can be stranded in a dangerous location. Verified hashes bind the Document ID, Validity Dates, and Holder's Photo to the `uscis.gov` domain, providing global authorities with an instant way to trust the document.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="refugee"></span>UNITED STATES OF AMERICA
@@ -35,7 +35,13 @@ relating to the Status of Refugees."
 <span data-verify-line="refugee">verify:uscis.gov/v/i571</span> <span verifiable-text="end" data-for="refugee"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Stateless Scam Fraud
+
+- **Photo Substitution:** Replacing the original photo in the booklet with a lookalike's photo.
+- **Revocation Hiding:** A person whose refugee status was revoked (e.g., for fraud) keeping their physical booklet to continue traveling or to hide their "Inadmissible" status.
+- **Date Stretching:** Altering the 1-year expiration date to 2 years to avoid the high cost of renewal.
+
+## What Is Checked
 
 Document number (RT prefix), holder's full name, date of birth, country of birth, sex, date of issuance, date of expiration, photograph (via hash), USCIS alien registration number (A-Number), issuing office.
 
@@ -45,25 +51,25 @@ Document number (RT prefix), holder's full name, date of birth, country of birth
 - **Form I-512L:** Advance Parole (Paper sheet).
 - **Consular Return Letter:** (Linked hash) for emergency re-entry.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`uscis.gov`) and the document standing.
 
 **Status Indications:**
 - **Valid / Current** — Document is authentic and authorized for international travel.
-- **Revoked** — **CRITICAL:** Status has been terminated (e.g., due to denied asylum or criminal acts).
-- **Expired** — **ALERT:** The validity period has lapsed; re-entry may be denied.
-- **Lost/Stolen Flag** — **ALERT:** This document number has been reported missing.
+- **Revoked** — Status has been terminated (e.g., due to denied asylum or criminal acts).
+- **Expired** — The validity period has lapsed; re-entry may be denied.
+- **Lost/Stolen Flag** — This document number has been reported missing.
 
-## Second-Party Use
+## Who Holds It
 
-The **Refugee / Asylee (Traveler)** benefits from verification.
+The Refugee / Asylee (Traveler) benefits from verification.
 
-**Secure Boarding:** A traveler in a remote airport can show the verified hash to the airline check-in agent. The agent can instantly see **"VALID - USCIS"** on their phone, removing the "fake document" fear that often leads to refugees being wrongfully denied boarding on the way home to the US.
+**Secure Boarding:** A traveler in a remote airport can show the verified hash to the airline check-in agent. The agent can instantly see "VALID - USCIS" on their phone, removing the "fake document" fear that often leads to refugees being wrongfully denied boarding on the way home to the US.
 
 **Proof of Status:** When checking into a hotel or renting a car abroad, the traveler can use the verified hash to prove their legal status in the US, providing a higher level of trust than a mere physical booklet.
 
-## Third-Party Use
+## Who Checks It
 
 **Airlines / Carrier Security**
 **Sanction Prevention:** Airlines are fined $5,000+ for every "Inadmissible" passenger they fly to the US. Live Verify allows them to instantly verify the booklet's authenticity, protecting the airline's revenue and the traveler's journey.
@@ -74,13 +80,7 @@ The **Refugee / Asylee (Traveler)** benefits from verification.
 **International Banks**
 **KYC Compliance:** Using the verified Refugee Travel Document as a secondary form of identity for account opening for individuals without a home-country passport.
 
-## Verification Architecture
-
-**The "Stateless Scam" Fraud Problem**
-
-- **Photo Substitution:** Replacing the original photo in the booklet with a lookalike's photo.
-- **Revocation Hiding:** A person whose refugee status was revoked (e.g., for fraud) keeping their physical booklet to continue traveling or to hide their "Inadmissible" status.
-- **Date Stretching:** Altering the 1-year expiration date to 2 years to avoid the high cost of renewal.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

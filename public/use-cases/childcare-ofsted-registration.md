@@ -131,7 +131,25 @@ A provider whose rating has changed may continue displaying an outdated claim on
 - **Downgrade concealment:** A nursery rated "Good" is re-inspected and rated "Requires Improvement" but does not update its website.
 - **De-registration:** A childminder's registration is suspended or cancelled (for safeguarding concerns, for example) but the claim remains on display.
 
-## Data Verified
+## The Problem: Unregistered and Misrepresented Provider
+
+Parents rely heavily on claimed Ofsted ratings when choosing childcare. The consequences of misrepresentation are direct:
+
+- **Unregistered childminders** — It is a criminal offence to provide childcare for reward without registration, but enforcement is reactive. Unregistered providers advertise on social media, local Facebook groups, and word-of-mouth networks with no Ofsted oversight.
+- **Outdated ratings** — A nursery rated "Good" three years ago may have been re-inspected and downgraded to "Requires Improvement" or "Inadequate." The website may not reflect the change for months.
+- **Fabricated ratings** — A provider claims "Outstanding" on their website when their actual rating is "Good" or worse. Parents would need to check the Ofsted site to catch this.
+- **Suspended providers** — Ofsted can suspend a provider's registration with immediate effect (typically for safeguarding concerns). The provider's website and signage do not update automatically.
+- **Transferred registrations** — A nursery changes ownership. The new owner inherits the premises but not necessarily the registration. The old Ofsted rating may remain on the website under the new operator.
+
+The verifiable claim addresses these because:
+
+1. Ofsted issues the claim — it is not self-asserted by the provider
+2. The claim names the specific website where it applies
+3. Rating changes and suspensions are reflected immediately at the verification endpoint
+4. The browser extension detects domain mismatches when claims are copied to other sites
+5. The registration number ties the claim to a specific provider, not a premises
+
+## What Is Checked
 
 Provider name, regulator-assigned registration number (e.g. Ofsted URN), registration type (childminder, childcare on domestic/non-domestic premises), current rating (where the regulator issues one), date of last inspection, registered website domain, and current registration status.
 
@@ -142,7 +160,7 @@ Provider name, regulator-assigned registration number (e.g. Ofsted URN), registr
 
 **Privacy Salt:** Generally not required. Ofsted registrations are public information. The provider actively wants to display their rating. Ofsted may salt if internal inspection metadata is included in the verified response.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`ofsted.gov.uk`) and the provider's current registration status and rating.
 
@@ -163,9 +181,9 @@ Shows the issuer domain (`ofsted.gov.uk`) and the provider's current registratio
 - **Expired** — Registration lapsed and was not renewed.
 - **404** — No such registration exists at Ofsted.
 
-## Second-Party Use
+## Who Holds It
 
-The **childcare provider** uses the verifiable claim to prove their status to parents.
+The childcare provider uses the verifiable claim to prove their status to parents.
 
 **On their website:** The nursery embeds the Ofsted-issued claim on their homepage or admissions page. Parents researching nurseries clip the claim and receive confirmation that the registration and rating are current. The provider does not need to direct parents to the Ofsted website or ask them to search by URN.
 
@@ -173,7 +191,7 @@ The **childcare provider** uses the verifiable claim to prove their status to pa
 
 **In communications:** When responding to enquiries from parents, the provider can include the verifiable claim text in emails or messages. The parent verifies without needing to cross-reference the Ofsted website.
 
-## Third-Party Use
+## Who Checks It
 
 **Parents**
 
@@ -191,27 +209,7 @@ The **childcare provider** uses the verifiable claim to prove their status to pa
 
 **Network membership:** Childminder agencies that recruit and support childminders need to confirm individual registration status. Verified claims provide an auditable check at the point of onboarding.
 
-## Verification Architecture
-
-**The Unregistered and Misrepresented Provider Problem**
-
-Parents rely heavily on claimed Ofsted ratings when choosing childcare. The consequences of misrepresentation are direct:
-
-- **Unregistered childminders** — It is a criminal offence to provide childcare for reward without registration, but enforcement is reactive. Unregistered providers advertise on social media, local Facebook groups, and word-of-mouth networks with no Ofsted oversight.
-- **Outdated ratings** — A nursery rated "Good" three years ago may have been re-inspected and downgraded to "Requires Improvement" or "Inadequate." The website may not reflect the change for months.
-- **Fabricated ratings** — A provider claims "Outstanding" on their website when their actual rating is "Good" or worse. Parents would need to check the Ofsted site to catch this.
-- **Suspended providers** — Ofsted can suspend a provider's registration with immediate effect (typically for safeguarding concerns). The provider's website and signage do not update automatically.
-- **Transferred registrations** — A nursery changes ownership. The new owner inherits the premises but not necessarily the registration. The old Ofsted rating may remain on the website under the new operator.
-
-The verifiable claim addresses these because:
-
-1. Ofsted issues the claim — it is not self-asserted by the provider
-2. The claim names the specific website where it applies
-3. Rating changes and suspensions are reflected immediately at the verification endpoint
-4. The browser extension detects domain mismatches when claims are copied to other sites
-5. The registration number ties the claim to a specific provider, not a premises
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Ofsted Website Search | Printed Ofsted Certificate | Word of Mouth |
 | :--- | :--- | :--- | :--- | :--- |

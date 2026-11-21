@@ -178,7 +178,16 @@ The homeowner sees the destination address and confirms: "Yes, that's me" or "Ye
 
 This model lets platforms protect driver privacy while still enabling doorstep verification and maintaining accountability.
 
-## Data Verified
+## The Problem: Fake ID
+
+- **eBay Uniforms:** High-vis jackets, lanyards, and branded clothing are freely available
+- **Printed Badges:** Anyone with a color printer can create convincing-looking ID cards
+- **Cloned Badges:** Copying a real employee's badge details onto a fake card
+- **Wrong-Company Claim:** Visitor uses one firm's branding while really representing another firm or unaffiliated subcontractor
+- **Route/Visit Misrepresentation:** Real badge, but no current authority for this area, address, or collection campaign
+- **Expired Employees:** Using genuine credentials after leaving employment
+
+## What Is Checked
 
 Employee name, photo, employee ID, employing organization, role/job title, authorized activities, geographic region, badge validity dates, visit or route entitlement where applicable, DBS/background check status (where relevant).
 
@@ -188,7 +197,7 @@ Employee name, photo, employee ID, employing organization, role/job title, autho
 - **Charity Collector Permit** — Licensed street/door collection authorization
 - **Trading Standards Registration** — For traders offering doorstep services
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`thameswater.co.uk`, `britishgas.co.uk`, `camden.gov.uk`) and current employment status.
 
@@ -215,9 +224,9 @@ Shows the issuer domain (`thameswater.co.uk`, `britishgas.co.uk`, `camden.gov.uk
 **Remote Verification for Elderly:**
 Adult children with access to parent's Ring doorbell can verify the cold-caller's badge remotely before advising whether to open the door.
 
-## Second-Party Use
+## Who Holds It
 
-The **Employee** benefits from verification.
+The Employee benefits from verification.
 
 **Building Trust:** Legitimate workers face suspicion because of criminals who abuse uniforms. A verifiable badge lets them say: "Please scan my ID before you open the door — it will confirm both who I work for and whether I'm expected here."
 
@@ -225,7 +234,7 @@ The **Employee** benefits from verification.
 
 **Safety:** Verified identity means the worker is accountable. Reduces risk of false accusations because interactions are logged.
 
-## Third-Party Use
+## Who Checks It
 
 **Homeowners (Potential Victims)**
 
@@ -247,16 +256,7 @@ The **Employee** benefits from verification.
 
 **Licensed Collection:** Charity Commission and local authorities can verify that collectors have valid permits. Fake charity collection is a significant fraud category.
 
-## Verification Architecture
-
-**The Fake ID Problem:**
-
-- **eBay Uniforms:** High-vis jackets, lanyards, and branded clothing are freely available
-- **Printed Badges:** Anyone with a color printer can create convincing-looking ID cards
-- **Cloned Badges:** Copying a real employee's badge details onto a fake card
-- **Wrong-Company Claim:** Visitor uses one firm's branding while really representing another firm or unaffiliated subcontractor
-- **Route/Visit Misrepresentation:** Real badge, but no current authority for this area, address, or collection campaign
-- **Expired Employees:** Using genuine credentials after leaving employment
+## Who Issues It
 
 **Issuer Types:**
 
@@ -337,7 +337,7 @@ For specific appointments, verification can confirm: "Sarah Jenkins is authorize
 ## Jurisdictional Witnessing (Optional)
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the regulatory body's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the credential certificate.
-## Competition vs. Current Methods
+## Compared With Current Methods
 
 | Feature | Live Verify | Password Scheme | Visual Inspection |
 |---------|-------------|-----------------|-------------------|

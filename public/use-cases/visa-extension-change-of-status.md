@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Visa Extension Approval?
 
-When a person in the US on a temporary visa (e.g., H-1B, F-1, or B-2) wants to stay longer or switch to a different visa type, they file a **Change of Status (COS)** or **Extension of Stay (EOS)**. The approval arrives as an **I-797A Notice of Action**, often with a new paper I-94 attached at the bottom.
+When a person in the US on a temporary visa (e.g., H-1B, F-1, or B-2) wants to stay longer or switch to a different visa type, they file a Change of Status (COS) or Extension of Stay (EOS). The approval arrives as an I-797A Notice of Action, often with a new paper I-94 attached at the bottom.
 
 These documents are the "Proof of Legal Presence." Fraud is rampant: people whose extensions were denied often "edit" a 2024 approval into a 2026 approval to hide their illegal overstay and trick employers or landlords into believing they are still in status. But the strongest answer is still the official USCIS/CBP/SAVE workflow where available. Live Verify is only credible as a bridge when a relying party is holding the paper notice or PDF outside that native government system.
 
@@ -35,7 +35,13 @@ The beneficiary's status is extended from 03/15/2026 to 03/14/2029.
 <span data-verify-line="extension">verify:uscis.gov/v/i797</span> <span verifiable-text="end" data-for="extension"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Date Stretch Fraud
+
+- **Validity Inflation:** Changing a 2024 expiration date to 2027 on a PDF to hide an overstay.
+- **Class Swapping:** Editing a "B-2" (Tourist - No Work) notice into an "H-1B" (Worker) notice.
+- **Notice Fabrication:** Creating a fake "Approval Notice" for a case that was actually denied.
+
+## What Is Checked
 
 Receipt number (e.g., WAC/LIN/EAC), petitioner/employer name, beneficiary name, case type (I-129/I-539), notice date, approval dates (start/end), new visa class (e.g., H-1B, O-1, L-1), I-94 number (linked), issuing office ID.
 
@@ -45,25 +51,25 @@ Receipt number (e.g., WAC/LIN/EAC), petitioner/employer name, beneficiary name, 
 - **Form I-94 Arrival/Departure Record:** (Linked hash) the underlying stay record.
 - **SEVIS Form I-20:** (Linked hash) for students extending their program.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`uscis.gov`) and the real-time case standing.
 
 **Status Indications:**
 - **Approved / Active** — The extension is valid and the subject is in legal status.
-- **Case Reopened** — **ALERT:** The approval is under post-decision review.
-- **Revoked** — **CRITICAL:** The approval has been cancelled (e.g., due to job loss or fraud).
-- **Unknown** — **CRITICAL:** Hash not found; high risk of a "Synthetic Notice" forgery.
+- **Case Reopened** — The approval is under post-decision review.
+- **Revoked** — The approval has been cancelled (e.g., due to job loss or fraud).
+- **Unknown** — Hash not found; high risk of a "Synthetic Notice" forgery.
 
-## Second-Party Use
+## Who Holds It
 
-The **Employee (Beneficiary)** benefits from verification.
+The Employee (Beneficiary) benefits from verification.
 
 **Employment Onboarding (I-9):** The strongest production path is still the official employer-verification workflow. Live Verify is more plausible when HR is holding only the approval notice or PDF and needs a lighter bridge back to current government status.
 
 **Driver's License Renewal:** DMVs require proof of legal stay to renew a Real ID. A bridge from the notice to current status may help when staff are working from the notice itself, but SAVE or other direct government checks should remain primary.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers / HR Managers**
 **Zero-Trust Vetting:** Thousands of fake I-797s are sold globally every year. The official government workflow should remain primary; Live Verify is only the portability layer when the document itself is what is circulating.
@@ -74,13 +80,7 @@ The **Employee (Beneficiary)** benefits from verification.
 **International Travel Checkpoints**
 **Boarding Prep:** This is only defensible as an edge-case bridge from the paper notice to current status. Carrier-facing government document systems should remain dominant.
 
-## Verification Architecture
-
-**The "Date Stretch" Fraud Problem**
-
-- **Validity Inflation:** Changing a 2024 expiration date to 2027 on a PDF to hide an overstay.
-- **Class Swapping:** Editing a "B-2" (Tourist - No Work) notice into an "H-1B" (Worker) notice.
-- **Notice Fabrication:** Creating a fake "Approval Notice" for a case that was actually denied.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

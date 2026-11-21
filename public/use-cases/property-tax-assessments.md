@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Property Tax Assessment?
 
-A **Notice of Property Tax Assessment** is the official government record of a property's value for taxation purposes. It determines the "Ad Valorem" tax that the owner must pay to the county or city.
+A Notice of Property Tax Assessment is the official government record of a property's value for taxation purposes. It determines the "Ad Valorem" tax that the owner must pay to the county or city.
 
-These documents are "Financial Anchors." Lenders use them to calculate "Escrow Reserves" for mortgages, and they are the primary evidence in **Tax Appeals**. Fraud is common: owners might "edit" an assessment to show a lower value to evade taxes, or conversely, "inflate" the value on a PDF to trick a private lender into thinking the property has more equity than it does. Verified hashes bind the **Assessed Market Value, Taxable Value, and Parcel ID** to the county assessor's domain (e.g., `cookcountyassessor.com` or `maricopa.gov`).
+These documents are "Financial Anchors." Lenders use them to calculate "Escrow Reserves" for mortgages, and they are the primary evidence in Tax Appeals. Fraud is common: owners might "edit" an assessment to show a lower value to evade taxes, or conversely, "inflate" the value on a PDF to trick a private lender into thinking the property has more equity than it does. Verified hashes bind the Assessed Market Value, Taxable Value, and Parcel ID to the county assessor's domain (e.g., `cookcountyassessor.com` or `maricopa.gov`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="tax-assess"></span>
@@ -43,7 +43,13 @@ final tax bill."
 <span data-verify-line="tax-assess">verify:springfieldassessor.gov/v</span> <span verifiable-text="end" data-for="tax-assess"></span>
 </div>
 
-## Data Verified
+## The Problem: Value Shrinking Fraud
+
+- **Assessment Deflation:** Editing a $1M commercial assessment into a $500k one to pay less tax.
+- **Exemption Padding:** Adding a "Disabled Veteran" exemption line to a PDF that the owner didn't actually earn.
+- **PIN Swapping:** Using a low-value parcel's assessment notice to cover for a high-value parcel.
+
+## What Is Checked
 
 PIN/Parcel ID number, property owner name, property address, tax year, market value (appraised), assessed value, taxable value (net of exemptions), property class (e.g., Residential/Commercial), township/precinct, date of notice.
 
@@ -53,19 +59,19 @@ PIN/Parcel ID number, property owner name, property address, tax year, market va
 - **Exemption Certificate:** Proving eligibility for "Senior" or "Homeowner" discounts.
 - **Board of Review Decision:** Proof of a successful tax appeal.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`assessor.county.gov`, `state-tax-portal.gov`) and the valuation standing.
 
 **Status Indications:**
 - **Verified / Current** — Valuation matches the official county roll for the tax year.
-- **Under Appeal** — **ALERT:** The value is currently being contested by the owner.
-- **Amended** — **ALERT:** The assessor has corrected the value (e.g., due to a mapping error).
+- **Under Appeal** — The value is currently being contested by the owner.
+- **Amended** — The assessor has corrected the value (e.g., due to a mapping error).
 - **Superseded** — A newer assessment for the following tax year exists.
 
-## Second-Party Use
+## Who Holds It
 
-The **Homeowner / Taxpayer** (second party) receives the assessment notice from the county assessor (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Homeowner / Taxpayer (second party) receives the assessment notice from the county assessor (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the property valuation. Most of the time, the document sits in their files—the verification value is latent, there *if needed*.
 
@@ -73,7 +79,7 @@ The **Homeowner / Taxpayer** (second party) receives the assessment notice from 
 
 **Future Optionality:** If they file a tax appeal or apply for refinancing, they have cryptographic proof ready without needing to contact the assessor's office.
 
-## Third-Party Use
+## Who Checks It
 
 The homeowner / taxpayer (second party) may hand the verified document to various third parties:
 
@@ -86,13 +92,7 @@ The homeowner / taxpayer (second party) may hand the verified document to variou
 **Tax Consultants / Attorneys**
 **Batch Auditing:** Verifying the assessment status of a large commercial portfolio (e.g., 500 warehouses) in minutes rather than manual database lookups.
 
-## Verification Architecture
-
-**The "Value Shrinking" Fraud Problem**
-
-- **Assessment Deflation:** Editing a $1M commercial assessment into a $500k one to pay less tax.
-- **Exemption Padding:** Adding a "Disabled Veteran" exemption line to a PDF that the owner didn't actually earn.
-- **PIN Swapping:** Using a low-value parcel's assessment notice to cover for a high-value parcel.
+## Who Issues It
 
 **Issuer Types (First Party)**
 

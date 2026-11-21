@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Green Card?
 
-The **Permanent Resident Card (Form I-551)**, commonly known as a **Green Card**, is the most high-value identity document in the United States. It proves that a non-citizen is authorized to live and work in the country indefinitely. It is the "Master Key" to employment, social security benefits, and international travel.
+The Permanent Resident Card (Form I-551), commonly known as a Green Card, is the most high-value identity document in the United States. It proves that a non-citizen is authorized to live and work in the country indefinitely. It is the "Master Key" to employment, social security benefits, and international travel.
 
-Because it grants broad rights, Green Cards are a major target for high-end forgery. But the strongest verification paths are still the official ones: USCIS, DHS-backed systems, employer workflows like I-9/E-Verify, and carrier or border systems where available. Live Verify is therefore a **complementary** bridge for copy-based or lower-capability relying parties, not the dominant architecture.
+Because it grants broad rights, Green Cards are a major target for high-end forgery. But the strongest verification paths are still the official ones: USCIS, DHS-backed systems, employer workflows like I-9/E-Verify, and carrier or border systems where available. Live Verify is therefore a complementary bridge for copy-based or lower-capability relying parties, not the dominant architecture.
 
 <div style="max-width: 450px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; border-radius: 15px; background: linear-gradient(135deg, #e8f5e9 0%, #fff 100%); overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.2); position: relative;">
   <div style="background: #002d62; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid #ce9e00;">
@@ -49,7 +49,13 @@ Because it grants broad rights, Green Cards are a major target for high-end forg
   </div>
 </div>
 
-## Data Verified
+## The Problem: Super-Clone Fraud
+
+- **Photo Return:** The verification response should include the USCIS Authoritative Photo. If the face on the phone doesn't match the face on the plastic card, the card is a clone.
+- **Geo-Anomaly Detection:** If a card hash is scanned in New York at 9 AM and Los Angeles at 10 AM, the system flags a "Cloned Identity" in circulation.
+- **Category Tampering:** Changing a "Student" visa class to a "Permanent Resident" class on a fake card.
+
+## What Is Checked
 
 USCIS Alien Registration Number (A-Number), full name, category code (e.g., CR1, E11, RE8), card serial number, date of birth, country of birth, resident-since date, card expiration date, photograph (via hash), fingerprint status (hash), issuing office.
 
@@ -59,25 +65,25 @@ USCIS Alien Registration Number (A-Number), full name, category code (e.g., CR1,
 - **I-797 Extension Notice:** (Linked hash) extending an expired card.
 - **Transportation Letter:** (Linked hash) for boarding if the card is lost abroad.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`uscis.gov`) and the real-time status.
 
 **Status Indications:**
 - **Authorized / Permanent** — Holder is in good standing and authorized to work.
-- **Conditional** — **ALERT:** Subject must file to remove conditions by [Date].
-- **Revoked** — **CRITICAL:** Status terminated (e.g., due to criminal acts or fraud).
-- **Reported Stolen** — **CRITICAL:** The card number has been flagged by the owner.
+- **Conditional** — Subject must file to remove conditions by [Date].
+- **Revoked** — Status terminated (e.g., due to criminal acts or fraud).
+- **Reported Stolen** — The card number has been flagged by the owner.
 
-## Second-Party Use
+## Who Holds It
 
-The **Permanent Resident (Holder)** benefits from verification.
+The Permanent Resident (Holder) benefits from verification.
 
 **Copy-Based Employment Prep:** Before formal I-9 completion, a worker may send a copy-based credential packet to HR or a recruiter. Live Verify can help the employer treat that copy more safely, while understanding that formal work-authorization systems remain primary.
 
 **Record Confidence:** A resident can check whether a card copy or linked extension notice still maps to a current USCIS record, while understanding that border and carrier systems remain authoritative.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers / Federal Contractors**
 For formal work authorization, official employment-verification workflows remain primary. Live Verify is more plausible as a bridge on copied card images or pre-hire packets before those formal checks run.
@@ -88,13 +94,7 @@ For formal work authorization, official employment-verification workflows remain
 **Airlines / Carrier Security**
 Official carrier and border systems should remain primary. A verified card copy is only a secondary convenience surface.
 
-## Verification Architecture
-
-**The "Super-Clone" Fraud Problem**
-
-- **Photo Return:** The verification response should include the **USCIS Authoritative Photo**. If the face on the phone doesn't match the face on the plastic card, the card is a clone.
-- **Geo-Anomaly Detection:** If a card hash is scanned in New York at 9 AM and Los Angeles at 10 AM, the system flags a "Cloned Identity" in circulation.
-- **Category Tampering:** Changing a "Student" visa class to a "Permanent Resident" class on a fake card.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

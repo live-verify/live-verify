@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What are Food Hygiene Postings?
 
-When you walk into a restaurant, the **Food Hygiene Rating** (often an "A" card or a "5-Star" sticker in the window) is the only evidence you have that the kitchen is clean and the food is safe. These ratings are issued by health departments after rigorous, surprise inspections.
+When you walk into a restaurant, the Food Hygiene Rating (often an "A" card or a "5-Star" sticker in the window) is the only evidence you have that the kitchen is clean and the food is safe. These ratings are issued by health departments after rigorous, surprise inspections.
 
 The problem is that these stickers are incredibly easy to fake or simply leave on the window for years. A restaurant that was "5-Star" in 2023 but dropped to "1-Star" in 2025 because of a rat infestation will almost certainly leave the old "5-Star" sticker on the door to avoid losing customers.
 
@@ -46,7 +46,13 @@ Live Verify allows a diner to scan the window sticker to verify: **"Is this the 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Old Sticker Fraud
+
+- **Grade Inflation:** Keeping a 2023 "A" card on the wall to hide a 2025 "C" grade.
+- **Template Forgery:** Buying fake "Rating Stickers" on the black market to look official without ever having an inspection.
+- **ID Cloning:** Using one staff member's valid "Manager Certificate" for multiple restaurants in a chain.
+
+## What Is Checked
 
 Business name, establishment address, hygiene rating (0-5 or A/B/C), inspection date, inspector ID, specific violations found (optional linked hash), next inspection window.
 
@@ -56,42 +62,36 @@ Business name, establishment address, hygiene rating (0-5 or A/B/C), inspection 
 - **Food Handler Certificate:** Vocational license for individual kitchen staff.
 - **Mobile Food Permit:** For food trucks and carts.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`food.gov.uk`, `nyc.gov/health`) and the latest official grade.
 
 **Status Indications:**
 - **Current** — Rating matches the most recent inspection on file.
-- **Closed** — **CRITICAL:** Facility has been ordered to shut down for safety violations.
+- **Closed** — Facility has been ordered to shut down for safety violations.
 - **Appealed** — Rating is currently being contested by the business owner.
 - **Expired** — Mandatory inspection period has passed without a new visit.
 
-## Second-Party Use
+## Who Holds It
 
-The **Restaurant Owner / Manager** benefits from verification.
+The Restaurant Owner / Manager benefits from verification.
 
 **Brand Integrity:** A restaurant that prides itself on cleanliness can use the "Verified" status to distinguish themselves from competitors who might be using fake stickers.
 
 **Staff Oversight:** Managers can scan the "Food Handler Cards" of their employees to ensure they are actually trained and that the cards aren't "Photoshopped" fakes, protecting the business from liability if an outbreak occurs.
 
-## Third-Party Use
+## Who Checks It
 
 **Diners / Public**
 **Real-Time Safety:** A customer can verify that the "5-Star" rating on the window wasn't revoked last week. This is critical for high-risk populations (pregnant women, elderly) who rely on safe food handling.
 
 **Food Delivery Apps (UberEats / DoorDash)**
-**Merchant Vetting:** Apps can automatically scan the hashes of their partner restaurants. If a restaurant is marked **"CLOSED - HEALTH VIOLATION,"** the app can instantly delist them from the platform until the issue is resolved.
+**Merchant Vetting:** Apps can automatically scan the hashes of their partner restaurants. If a restaurant is marked "CLOSED - HEALTH VIOLATION," the app can instantly delist them from the platform until the issue is resolved.
 
 **Commercial Landlords**
 **Compliance Monitoring:** Ensuring that their restaurant tenants are maintaining the hygiene standards required by the lease agreement.
 
-## Verification Architecture
-
-**The "Old Sticker" Fraud Problem**
-
-- **Grade Inflation:** Keeping a 2023 "A" card on the wall to hide a 2025 "C" grade.
-- **Template Forgery:** Buying fake "Rating Stickers" on the black market to look official without ever having an inspection.
-- **ID Cloning:** Using one staff member's valid "Manager Certificate" for multiple restaurants in a chain.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

@@ -14,11 +14,11 @@ furtherDerivations: 1
 A gig worker is parked at 2 AM waiting for the next rideshare request, or sitting in a car outside a
 house with a delivery, or a night-shift utility worker is in a place their job legitimately requires
 at an hour that looks odd. An officer approaches: *"What are you doing here?"* The worker has a real,
-checkable answer — *"I'm on an active shift right now"* — and being able to **prove** it, on their own
+checkable answer — *"I'm on an active shift right now"* — and being able to prove it, on their own
 initiative, can defuse the encounter before it escalates.
 
 That is the genuine value. But it sits directly next to a dangerous one, and this use case exists as
-much to **draw the line** as to enable the good case.
+much to draw the line as to enable the good case.
 
 **The "papers, please" hazard.** Every other in-person verification in this project points the safe
 way: the *citizen* verifies the *authority* (a [doorstep police officer](police-officer-verification.md),
@@ -36,7 +36,7 @@ So this use case is **only legitimate in one direction**: worker-initiated, volu
 
 The thing that keeps the good version separate from the papers-please version is a legal fact, not a
 design preference: a person stopped by law enforcement generally has the **right to remain silent and
-not to incriminate themselves.** A demand to "verify your job status" is one a citizen **may decline.**
+not to incriminate themselves. A demand to "verify your job status" is one a citizen may decline.**
 
 This protocol must therefore be built so that:
 
@@ -45,7 +45,7 @@ This protocol must therefore be built so that:
   for an officer to *compel* it.
 - **Absence is never suspicion.** A worker who does not verify has told you *nothing* — not that they
   are doing anything wrong. The "absence of a checkable claim is a signal" principle that works for
-  *fraudsters impersonating authority* is **reversed and dangerous** here, because the citizen is the
+  *fraudsters impersonating authority* is reversed and dangerous here, because the citizen is the
   vulnerable party, not the impersonator. An officer (or a downstream system) treating non-verification
   as an indicator is the abuse this document exists to forbid.
 - **No officer-side log by default.** The check, when it happens, is the worker showing a status; it is
@@ -57,7 +57,7 @@ has crossed the line.
 
 ## What gets attested (and what deliberately does not)
 
-The verifiable claim is the worker's **live on-duty status** — the same primitive as
+The verifiable claim is the worker's live on-duty status — the same primitive as
 [On-Duty Status & Lone-Worker Check-Ins](on-duty-status-lone-worker-checkins.md): a salted, short-lived
 attestation that the bearer is on an active shift right now, bound to the platform's or employer's
 domain.
@@ -84,7 +84,7 @@ right now?* — and nothing that would turn a roadside de-escalation into a doss
 [data-minimization](verification-chain-civil-liberties-safeguards.md) and
 [one-question](age-gating-without-dob.md) discipline applied to the most sensitive possible context.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 **Status Indications:**
 - **On Active Shift** — The bearer is on a live shift with the named operator as of now.
@@ -94,9 +94,9 @@ right now?* — and nothing that would turn a roadside de-escalation into a doss
   critically here — **unconfirmed must never be read as suspicious.** It is the worker's right to
   present nothing.
 
-## Second-Party Use
+## Who Holds It
 
-The **worker** benefits directly, and is the only party who initiates.
+The worker benefits directly, and is the only party who initiates.
 
 **Proactive de-escalation:** A driver waiting for a request at night, a courier near a house, a
 night-shift field worker, a process server, a journalist working unusual hours — anyone whose job
@@ -107,12 +107,12 @@ working right now" to defuse the encounter on their own terms.
 ([police-officer-verification](police-officer-verification.md)) — the doorstep model — and *optionally*
 offer their own status in return. Both directions are consensual; neither is compelled.
 
-## Third-Party Use
+## Who Checks It
 
 **Law enforcement (recipient only, never demander):** An officer *may receive* a status a worker
 chooses to show, the same way they receive any voluntary explanation. They get a cryptographically
-backed reason to de-escalate. They get **no** mechanism to compel the check, **no** standing log of it,
-and **no** basis to treat its absence as cause. Verification here lowers the temperature of an
+backed reason to de-escalate. They get no mechanism to compel the check, no standing log of it,
+and no basis to treat its absence as cause. Verification here lowers the temperature of an
 encounter; it does not add a power to it.
 
 **Civil-liberties oversight:** This use case should be deployed only with the
@@ -120,7 +120,7 @@ encounter; it does not add a power to it.
 requires — because an authority-facing verification, even a voluntary one, is exactly where mission
 creep toward compelled use begins.
 
-## Verification Architecture
+## How Verification Works Here
 
 Mechanically this is the on-duty primitive: a short-lived, salted, status-only attestation read by the
 standard `text → normalize → SHA-256 → GET`. What is unusual is not the cryptography but the

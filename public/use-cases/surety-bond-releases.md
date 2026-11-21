@@ -53,7 +53,14 @@ Bond releases are critical for contractors, licensed professionals, and anyone w
   <span data-verify-line="collateral">verify:firstbankcommerce.com/surety</span> <span verifiable-text="end" data-for="collateral"></span>
 </div>
 
-## Data Verified
+## The Problem: Bond Release Fraud
+
+- **Premature Collateral Recovery:** Forged releases used to recover posted collateral before project completion.
+- **False Completion Claims:** Fake releases claiming projects finished when work remains.
+- **Claims Concealment:** Altered releases hiding pending or settled claims from new sureties.
+- **Identity Fraud:** Using another contractor's clean bond history.
+
+## What Is Checked
 
 Surety company name, bond number, principal (contractor/licensee), obligee (protected party), bond type, bond amount, project or license description, release date, reason for release, any continuing obligations.
 
@@ -64,7 +71,7 @@ Surety company name, bond number, principal (contractor/licensee), obligee (prot
 - **Bid Bond Release:** Contract awarded or bid withdrawn.
 - **Collateral Release:** Posted collateral returned after bond expiration.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`travelers.com`, `cna.com`) and current bond status.
 
@@ -75,9 +82,9 @@ Shows the issuer domain (`travelers.com`, `cna.com`) and current bond status.
 - **Warranty Period** — Performance complete but warranty bond still active.
 - **Reinstated** — Release rescinded due to discovered defects or claims.
 
-## Second-Party Use
+## Who Holds It
 
-The **Principal (Contractor/Licensee)** benefits from verification.
+The Principal (Contractor/Licensee) benefits from verification.
 
 **Collateral Recovery:** Principals often post certificates of deposit or other collateral to secure bonds. A verified release letter allows them to recover their collateral from the bank.
 
@@ -85,7 +92,7 @@ The **Principal (Contractor/Licensee)** benefits from verification.
 
 **Business Sale:** When selling a company, buyers want proof that past bond obligations are fully resolved.
 
-## Third-Party Use
+## Who Checks It
 
 **Obligees (Project Owners / Government Agencies)**
 **Close-Out Verification:** Project owners need to confirm bonds are properly released before final payment. A verified release prevents disputes about continuing obligations.
@@ -99,14 +106,7 @@ The **Principal (Contractor/Licensee)** benefits from verification.
 **Licensing Authorities**
 **License Renewal:** State licensing boards may require proof that prior license bonds were released without claims before issuing new licenses.
 
-## Verification Architecture
-
-**The Bond Release Fraud Problem**
-
-- **Premature Collateral Recovery:** Forged releases used to recover posted collateral before project completion.
-- **False Completion Claims:** Fake releases claiming projects finished when work remains.
-- **Claims Concealment:** Altered releases hiding pending or settled claims from new sureties.
-- **Identity Fraud:** Using another contractor's clean bond history.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

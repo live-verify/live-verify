@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Wetlands Delineation Report?
 
-In the land development industry, a **Wetlands Delineation Report** is the official environmental map of a property. It identifies the boundaries of "Jurisdictional Waters of the United States"—areas like marshes, bogs, and streams protected by the Clean Water Act.
+In the land development industry, a Wetlands Delineation Report is the official environmental map of a property. It identifies the boundaries of "Jurisdictional Waters of the United States"—areas like marshes, bogs, and streams protected by the Clean Water Act.
 
-These reports are "Development Killers." If a property is 50% wetlands, it may be impossible to build on. Fraud is high-stakes: developers often "edit" a report to turn a "High-Quality Wetland" into "Dry Land" on a PDF, or they "shrink" the boundaries of a protected stream to fit a new building. Verified hashes bind the **Wetland Acreage, Delineation Date, and Scientist's License** to the environmental firm's or the US Army Corps of Engineers' (USACE) domain.
+These reports are "Development Killers." If a property is 50% wetlands, it may be impossible to build on. Fraud is high-stakes: developers often "edit" a report to turn a "High-Quality Wetland" into "Dry Land" on a PDF, or they "shrink" the boundaries of a protected stream to fit a new building. Verified hashes bind the Wetland Acreage, Delineation Date, and Scientist's License to the environmental firm's or the US Army Corps of Engineers' (USACE) domain.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="wetland"></span>ECO-STREAM ENVIRONMENTAL
@@ -40,7 +40,13 @@ Soil Type:                                            Hydric (Gleyed)
 <span data-verify-line="wetland">verify:eco-stream.com/v</span> <span verifiable-text="end" data-for="wetland"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Wetland Shrinking Fraud
+
+- **Acreage Padding:** Changing a "10.0 Acre" wetland finding into a "1.0 Acre" finding on a PDF.
+- **Jurisdiction Flipping:** Editing a report to change "JURISDICTIONAL" (Protected) to "NON-JURISDICTIONAL" (Un-protected).
+- **Date Stretching:** Using a 10-year-old report (where wetlands were smaller) for a current project.
+
+## What Is Checked
 
 Report number, site name, parcel ID (APN), property address, total acreage surveyed, verified wetland acreage, wetland classification (e.g., Emergent, Forested, Scrub-Shrub), USACE jurisdictional status (JD), hydrology indicators, vegetation dominance results, hydric soil findings, scientist name/certification (PWS), date of survey.
 
@@ -50,25 +56,25 @@ Report number, site name, parcel ID (APN), property address, total acreage surve
 - **Section 404 Mitigation Plan:** Proof of "Off-setting" wetland loss.
 - **Critical Areas Report:** For local municipal compliance.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`eco-stream.com`, `usace.army.mil`, `epa.gov`) and the report standing.
 
 **Status Indications:**
 - **Verified / Final** — The report matches the scientist's original field audit.
-- **Superseded** — **ALERT:** A newer survey has found different boundaries (wetlands shift).
-- **In Dispute** — **ALERT:** The USACE has rejected the boundaries found in this report.
-- **Expired** — **ALERT:** The survey is more than 5 years old (statutory limit).
+- **Superseded** — A newer survey has found different boundaries (wetlands shift).
+- **In Dispute** — The USACE has rejected the boundaries found in this report.
+- **Expired** — The survey is more than 5 years old (statutory limit).
 
-## Second-Party Use
+## Who Holds It
 
-The **Property Owner / Developer** benefits from verification.
+The Property Owner / Developer benefits from verification.
 
-**Land Valuation Speed:** When selling a multi-million dollar development site, the owner provides the verified hash of their "Clean" survey. The buyer's environmental underwriter can instantly see **"VERIFIED 0.00 ACRES WETLAND"** on their phone, allowing the sale to close without a 30-day "Due Diligence" wait for a new survey.
+**Land Valuation Speed:** When selling a multi-million dollar development site, the owner provides the verified hash of their "Clean" survey. The buyer's environmental underwriter can instantly see "VERIFIED 0.00 ACRES WETLAND" on their phone, allowing the sale to close without a 30-day "Due Diligence" wait for a new survey.
 
 **Construction Permitting:** When submitting building plans, the developer provides the verified hash. The city's environmental clerk can instantly verify that the building footprint is outside the "Verified Wetland Buffer," speeding up the permit approval.
 
-## Third-Party Use
+## Who Checks It
 
 **US Army Corps of Engineers (USACE)**
 **Field Audit:** During a random check of a development site, the agent scans the report placard. Live Verify ensures the contractor hasn't "Shrunk" the protected zone on the paper plans to allow for illegal filling of a stream.
@@ -79,13 +85,7 @@ The **Property Owner / Developer** benefits from verification.
 **Environmental NGOs / Watchdogs**
 **Conservation Monitoring:** A community group concerned about a local marsh can scan the developer's verified hash. Verification ensures the project is adhering to the *exact* boundaries required by federal law.
 
-## Verification Architecture
-
-**The "Wetland Shrinking" Fraud Problem**
-
-- **Acreage Padding:** Changing a "10.0 Acre" wetland finding into a "1.0 Acre" finding on a PDF.
-- **Jurisdiction Flipping:** Editing a report to change "JURISDICTIONAL" (Protected) to "NON-JURISDICTIONAL" (Un-protected).
-- **Date Stretching:** Using a 10-year-old report (where wetlands were smaller) for a current project.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

@@ -153,13 +153,30 @@ verify:cqc.org.uk/providers/v
 
 A family relying on the care home's own marketing materials would see the registration claim and assume it was current. Verification catches this before a vulnerable person is placed there.
 
-## Data Verified
+## The Problem: Unregistered and Misrated Care Home
+
+In every jurisdiction, the regulator's register is public and searchable, but families typically encounter a care home's rating on the home's own website or marketing materials, not on the regulator's site. The following patterns use CQC as the example, but apply universally:
+
+- **Unregistered care homes** operating without CQC registration. This is a criminal offence but it happens, particularly with smaller providers offering domiciliary care or supported living that blurs the boundary with regulated activity.
+- **Outdated ratings** — a care home was rated "Good" two years ago but has since been reinspected and downgraded. The website still shows the old rating because nobody updated the page, or because the home deliberately chose not to update it.
+- **Suspended or cancelled registration** — following safeguarding concerns, the CQC suspends or cancels registration. The home's website and reception display continue showing the old registration as if nothing has changed.
+- **Fabricated registration numbers** — an unregistered provider displays a plausible-looking CQC registration number and rating on their website. A family unfamiliar with the CQC's search tool has no easy way to check.
+
+The verifiable claim addresses these because:
+
+1. The CQC issues the claim — it is not self-asserted by the care home
+2. The claim names the specific website where it applies
+3. Rating changes and registration cancellations are reflected immediately — the endpoint returns the current status
+4. The browser extension detects domain mismatches when claims are copied to other sites
+5. Families can verify at the moment they are making their decision, on the care home's own site
+
+## What Is Checked
 
 Facility name, registration or licence number, current registration status, current inspection rating or accreditation level, date of last inspection, registered services (e.g., accommodation for persons who require nursing or personal care), and the registered site domain. The specific fields vary by jurisdiction — for example, CQC registration number in England, CMS certification number in the US, or HIQA registration number in Ireland.
 
 **Privacy Salt:** Generally not required. CQC registrations and inspection ratings are public information that care homes are legally required to display.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`cqc.org.uk`) and the care home's current registration status and rating.
 
@@ -180,9 +197,9 @@ Shows the issuer domain (`cqc.org.uk`) and the care home's current registration 
 - **Conditions applied** — Registration is active but the CQC has imposed conditions restricting the provider's operations.
 - **404** — No such registration exists at the CQC.
 
-## Second-Party Use
+## Who Holds It
 
-The **care home** benefits by proving its status to prospective families.
+The care home benefits by proving its status to prospective families.
 
 **On the care home's website:** A family researching care options encounters the care home's site. The site claims CQC registration with a specific rating. The family clips the claim. Verification confirms the registration is current and the rating matches. The family proceeds knowing the claim is not self-asserted.
 
@@ -190,7 +207,7 @@ The **care home** benefits by proving its status to prospective families.
 
 **Competitive differentiation:** A care home with a genuine "Good" or "Outstanding" rating can prove it verifiably, distinguishing itself from homes that merely claim a good rating in their marketing.
 
-## Third-Party Use
+## Who Checks It
 
 **Families and Representatives**
 
@@ -212,26 +229,7 @@ The **care home** benefits by proving its status to prospective families.
 
 **Deputyship and welfare decisions:** Solicitors acting as deputies for adults who lack capacity to make their own decisions need to confirm the regulatory status of care providers. Verified registration claims provide a documented check that the provider was registered at the time of placement.
 
-## Verification Architecture
-
-**The Unregistered and Misrated Care Home Problem**
-
-In every jurisdiction, the regulator's register is public and searchable, but families typically encounter a care home's rating on the home's own website or marketing materials, not on the regulator's site. The following patterns use CQC as the example, but apply universally:
-
-- **Unregistered care homes** operating without CQC registration. This is a criminal offence but it happens, particularly with smaller providers offering domiciliary care or supported living that blurs the boundary with regulated activity.
-- **Outdated ratings** — a care home was rated "Good" two years ago but has since been reinspected and downgraded. The website still shows the old rating because nobody updated the page, or because the home deliberately chose not to update it.
-- **Suspended or cancelled registration** — following safeguarding concerns, the CQC suspends or cancels registration. The home's website and reception display continue showing the old registration as if nothing has changed.
-- **Fabricated registration numbers** — an unregistered provider displays a plausible-looking CQC registration number and rating on their website. A family unfamiliar with the CQC's search tool has no easy way to check.
-
-The verifiable claim addresses these because:
-
-1. The CQC issues the claim — it is not self-asserted by the care home
-2. The claim names the specific website where it applies
-3. Rating changes and registration cancellations are reflected immediately — the endpoint returns the current status
-4. The browser extension detects domain mismatches when claims are copied to other sites
-5. Families can verify at the moment they are making their decision, on the care home's own site
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | CQC Website Lookup | Care Home's Own Marketing | Phone Call to CQC |
 | :--- | :--- | :--- | :--- | :--- |

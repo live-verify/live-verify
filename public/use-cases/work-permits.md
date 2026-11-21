@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Work Permit?
 
-A **work permit** is the document a country issues to a non-citizen authorizing them to take paid employment. Nearly every nation on earth requires one in some form—visa sticker, plastic card, digital grant notice, or stamped labour card. The ILO estimates roughly 170 million international migrant workers worldwide; each one holds (or should hold) a document proving their right to work.
+A work permit is the document a country issues to a non-citizen authorizing them to take paid employment. Nearly every nation on earth requires one in some form—visa sticker, plastic card, digital grant notice, or stamped labour card. The ILO estimates roughly 170 million international migrant workers worldwide; each one holds (or should hold) a document proving their right to work.
 
 The core question is always the same: **is this person legally allowed to work here, right now?**
 
@@ -74,7 +74,18 @@ Work permits under the kafala (sponsorship) system. Labour cards, residence-work
 **Singapore**
 Employment Pass (professionals), S Pass (mid-skilled), Work Permit (semi-skilled). Ministry of Manpower operates an online verification portal. Employers can check pass status; workers can check their own.
 
-## Data Verified
+## The Problem: Work Permit Fraud
+
+Work permit fraud is a global industry. Common patterns:
+
+- **High-quality forgeries:** Professional-grade fake EADs, BRPs, and labour cards. Some are visually indistinguishable from genuine documents. A cottage industry in every country with significant immigration.
+- **Expired permits presented as current:** The most common form of fraud. A worker whose visa expired continues using the physical card, which still "looks" valid.
+- **Employer-tied permits used after changing jobs:** In systems where the permit is tied to a specific employer (kafala, many H-1B situations), the worker changes jobs but continues presenting the old permit.
+- **Borrowed or shared permits:** A worker with no authorization uses someone else's permit, relying on the employer not checking the photo carefully.
+- **Category tampering:** Altering a restricted permit (e.g., "student, 20 hours/week") to appear unrestricted.
+- **Kafala system abuse:** Sponsors cancelling permits without the worker's knowledge, leaving them undocumented. Or workers fleeing abusive sponsors and working on cancelled permits because they have no alternative.
+
+## What Is Checked
 
 Common elements across jurisdictions: full name, permit/visa number, employer name (if tied), job title or occupation code, validity start date, expiration date, issuing authority and office, nationality, restrictions or conditions.
 
@@ -108,9 +119,9 @@ None typically. The verification confirms work authorization status; that's the 
 
 Some jurisdictions may link to employer obligation pages (e.g., "You are now required to retain a copy of this check for 2 years" under UK right-to-work rules), but these are informational—the status code is the value.
 
-## Second-Party Use
+## Who Holds It
 
-The **Worker** benefits from verification.
+The Worker benefits from verification.
 
 **Proving Right to Work:** A worker presenting their permit to a new employer can demonstrate it's genuine and current—not expired, not revoked, not tied to a previous employer. This removes the employer's hesitation and speeds up hiring.
 
@@ -120,7 +131,7 @@ The **Worker** benefits from verification.
 
 **Avoiding Document Surrender:** Under kafala systems and in some other jurisdictions, employers illegally confiscate workers' passports and permits. A digital verification link means the worker can prove status to third parties (banks, hospitals, police) even without the physical document.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers (HR / Hiring Managers)**
 **Right-to-Work Compliance:** The strongest production answer is still the official right-to-work or employer-verification system for that jurisdiction. Live Verify is better understood as a bridge when the employer is holding only a copied permit or grant notice and needs a direct path back to current government status.
@@ -140,18 +151,7 @@ The **Worker** benefits from verification.
 **Sponsored-Role Compliance**
 In employer-sponsored routes, the official check should begin with a neutral status-routing question suited to the jurisdiction, such as: "Which applies to your right to work here: citizen or permanent resident, unrestricted work authorization, or permission tied to a visa, sponsor, employer, occupation, location, hours, or other condition?" The answer routes the check but does not decide it. A sponsored result should lead to sponsor, occupation or role, salary or wage floor where relevant, permitted worksite or region, and employer-record comparison against observed duties. A mismatch is a compliance lead, not automatic proof of worker misconduct.
 
-## Verification Architecture
-
-**The Work Permit Fraud Problem**
-
-Work permit fraud is a global industry. Common patterns:
-
-- **High-quality forgeries:** Professional-grade fake EADs, BRPs, and labour cards. Some are visually indistinguishable from genuine documents. A cottage industry in every country with significant immigration.
-- **Expired permits presented as current:** The most common form of fraud. A worker whose visa expired continues using the physical card, which still "looks" valid.
-- **Employer-tied permits used after changing jobs:** In systems where the permit is tied to a specific employer (kafala, many H-1B situations), the worker changes jobs but continues presenting the old permit.
-- **Borrowed or shared permits:** A worker with no authorization uses someone else's permit, relying on the employer not checking the photo carefully.
-- **Category tampering:** Altering a restricted permit (e.g., "student, 20 hours/week") to appear unrestricted.
-- **Kafala system abuse:** Sponsors cancelling permits without the worker's knowledge, leaving them undocumented. Or workers fleeing abusive sponsors and working on cancelled permits because they have no alternative.
+## Who Issues It
 
 **Issuer Types**
 
@@ -176,7 +176,7 @@ Self-authorized — this is a sovereign body whose authority derives from statut
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Existing Systems
+## Compared With Existing Systems
 
 | Feature | Live Verify | Government Portals (E-Verify, VEVO, Share Code) | Physical Document Inspection |
 | :--- | :--- | :--- | :--- |

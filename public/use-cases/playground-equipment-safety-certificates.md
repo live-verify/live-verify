@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Playground Safety Certificates?
 
-In schools and public parks, every slide, swing, and climbing frame is a potential high-velocity hazard. A **Playground Safety Compliance Certificate** proves that a "Certified Playground Safety Inspector" (CPSI) has audited the equipment for "Entrapment Zones" (where a child's head could get stuck) and "Surface Attenuation" (ensuring the rubber or woodchips are soft enough to prevent a brain injury after a fall).
+In schools and public parks, every slide, swing, and climbing frame is a potential high-velocity hazard. A Playground Safety Compliance Certificate proves that a "Certified Playground Safety Inspector" (CPSI) has audited the equipment for "Entrapment Zones" (where a child's head could get stuck) and "Surface Attenuation" (ensuring the rubber or woodchips are soft enough to prevent a brain injury after a fall).
 
-These documents are the "Shield of Public Trust." Fraud is high-stakes: un-certified vendors or negligent landlords often "pencil whip" a safety check, creating fake PDFs for equipment that hasn't been tested in years to avoid the high cost of surfacing replacement. In high-risk zones, a fake certificate can lead to preventable traumatic injuries. Verified hashes bind the **Equipment Serial Numbers, Surface Test Results (HIC), and Inspector ID** to the city's or the inspector's domain (e.g., `parks.city.gov` or `nrpa.org`).
+These documents are the "Shield of Public Trust." Fraud is high-stakes: un-certified vendors or negligent landlords often "pencil whip" a safety check, creating fake PDFs for equipment that hasn't been tested in years to avoid the high cost of surfacing replacement. In high-risk zones, a fake certificate can lead to preventable traumatic injuries. Verified hashes bind the Equipment Serial Numbers, Surface Test Results (HIC), and Inspector ID to the city's or the inspector's domain (e.g., `parks.city.gov` or `nrpa.org`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="play"></span>
@@ -42,7 +42,13 @@ Inspection Date: 15 MAR 2026
 <span data-verify-line="play">verify:austin-parks.gov/v</span> <span verifiable-text="end" data-for="play"></span>
 </div>
 
-## Data Verified
+## The Problem: Paper Safety Fraud
+
+- **Pencil Whipping:** Signing a safety tag today but dating it "Yesterday" to satisfy a quarterly quota.
+- **Surface Faking:** Editing a failed HIC score of "1200" (Unsafe) to "800" (Safe) on a PDF report.
+- **Logo Mimicry:** Using a CPSI's branding on a fake certificate for equipment that was never inspected.
+
+## What Is Checked
 
 Equipment serial number, site/park name, specific structure name (e.g., "The Castle"), surface type (e.g., Poured Rubber, Woodchips), HIC (Head Injury Criterion) score, ASTM F1487 status, CPSI (Certified Playground Safety Inspector) ID, inspection date, expiration date, issuing department.
 
@@ -52,19 +58,19 @@ Equipment serial number, site/park name, specific structure name (e.g., "The Cas
 - **ADA Access Certificate:** Proving the site is inclusive.
 - **Red Tag Notice:** (Linked hash) marking a specific structure as "Out of Use."
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`parks.city.gov`, `nrpa.org`, `cpsc.gov`) and the equipment standing.
 
 **Status Indications:**
 - **Safe / Certified** — Equipment is current and passed all safety checks.
-- **Closed / Red Tagged** — **CRITICAL:** A serious safety hazard was found; structure is unsafe.
-- **Expired** — **ALERT:** Mandatory annual audit is overdue; use at own risk.
-- **Surface Low** — **ALERT:** Attenuation material (e.g., woodchips) needs refill.
+- **Closed / Red Tagged** — A serious safety hazard was found; structure is unsafe.
+- **Expired** — Mandatory annual audit is overdue; use at own risk.
+- **Surface Low** — Attenuation material (e.g., woodchips) needs refill.
 
-## Second-Party Use
+## Who Holds It
 
-The **Park Director / School Principal** (second party) receives the safety certificate from the inspector or parks department (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Park Director / School Principal (second party) receives the safety certificate from the inspector or parks department (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the safety audit results. Most of the time, the document sits in their compliance files—the verification value is latent, there *if needed*.
 
@@ -72,26 +78,20 @@ The **Park Director / School Principal** (second party) receives the safety cert
 
 **Future Optionality:** If a child is injured or an inspection is challenged, they have cryptographic proof ready without needing to contact the inspector or city department.
 
-## Third-Party Use
+## Who Checks It
 
 The park director / school principal (second party) may hand the verified document to various third parties:
 
 **Parents / PTA**
-**Public Safety Audit:** A concerned parent can scan the placard on the fence. If the hash returns **"EXPIRED"** or **"SURFACE LOW,"** they have the verified evidence needed to demand immediate maintenance before an injury occurs.
+**Public Safety Audit:** A concerned parent can scan the placard on the fence. If the hash returns "EXPIRED" or "SURFACE LOW," they have the verified evidence needed to demand immediate maintenance before an injury occurs.
 
 **City Risk Managers**
-**Portfolio Vetting:** Automatically monitoring the safety status of 500 city playgrounds. If any structure's hash returns **"RED TAGGED,"** the manager can instantly dispatch a repair crew and notify the city's legal department.
+**Portfolio Vetting:** Automatically monitoring the safety status of 500 city playgrounds. If any structure's hash returns "RED TAGGED," the manager can instantly dispatch a repair crew and notify the city's legal department.
 
 **Insurance Loss Adjusters**
 **Incident Forensics:** After a traumatic fall, the insurer verifies the original HIC scores from the last inspection. Verification ensures the surfacing met safety standards at the time of the accident.
 
-## Verification Architecture
-
-**The "Paper Safety" Fraud Problem**
-
-- **Pencil Whipping:** Signing a safety tag today but dating it "Yesterday" to satisfy a quarterly quota.
-- **Surface Faking:** Editing a failed HIC score of "1200" (Unsafe) to "800" (Safe) on a PDF report.
-- **Logo Mimicry:** Using a CPSI's branding on a fake certificate for equipment that was never inspected.
+## Who Issues It
 
 **Issuer Types (First Party)**
 

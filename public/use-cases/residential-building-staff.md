@@ -15,7 +15,7 @@ furtherDerivations: 1
 
 In an apartment building or residential complex, a plumber, electrician, HVAC technician, or maintenance worker may arrive at your door to provide service. As a resident—especially if alone, elderly, or unfamiliar with the building—you face a critical decision: **is this person actually authorized to be here?**
 
-The **Building Service Staff Badge** is the contractor's or employee's proof of authorization from the building management or property owner.
+The Building Service Staff Badge is the contractor's or employee's proof of authorization from the building management or property owner.
 
 Impostors posing as maintenance workers use this as a pretense to gain entry: they case the apartment, steal valuables, follow residents inside to assess layout and security, or worse. E-Ink badges with real-time authorization status allow residents to verify a worker's credentials before opening the door—confirming they're assigned to that property, to that unit, and authorized to work at that time.
 
@@ -78,7 +78,15 @@ This is one of the stronger Live Verify families precisely because it is not a d
 
 *The server rotates the salt — after each successful scan (burn-on-verify) or on TTL expiry of an unscanned salt — and the badge re-renders to match. The screen is always in lockstep with the salt the server will honour, so a photograph is worthless unless verified in the moment. See [E-Ink ID Cards](../e-ink-id-cards.md) for how this prevents cloning and tracking.*
 
-## Data Verified
+## The Problem: Contractor Imposter Fraud
+
+- **Residential Burglary:** Impostors in work clothes scout apartments, test doors for valuables, or gain entry when residents are out
+- **Follow-In Burglary:** Impostor follows resident inside ("I'm here to fix the AC"), then commits theft or assault after resident is in a compromised position
+- **Identity Theft:** Impostors gain access to documents, mail, or personal information during "maintenance" calls
+- **Credential Spoofing:** Unlicensed contractors falsely claiming to be from a licensed company; fake uniforms and vests purchased online
+- **License Fraud:** Contractors with suspended or expired licenses continuing to work
+
+## What Is Checked
 
 Staff or contractor name, photo (hash), license/credential number (for licensed trades), company affiliation, license status (Active/Expired/Suspended), assigned property and unit(s), work order number and scope, authorized time window (date range, hours), insurance/bonding status (hash), and background check clearance (hash).
 
@@ -138,9 +146,9 @@ Fields:
 
 Contractors should never tell residents "don't bother" or "that's not necessary." Every report is logged. Management can triage later—but the resident is never made to feel their input isn't wanted.
 
-## Second-Party Use
+## Who Holds It
 
-The **Building Staff Member or Contractor** benefits from verification.
+The Building Staff Member or Contractor benefits from verification.
 
 **Professional Credibility & Safety:** Verification reduces confrontation when entering a resident's home. Residents are less suspicious when they can instantly confirm legitimacy, reducing chance of alarm calls or aggressive confrontation.
 
@@ -148,7 +156,7 @@ The **Building Staff Member or Contractor** benefits from verification.
 
 **Access to Secured Areas:** Proving verified status to building entry systems, elevator access control, or utility room locks.
 
-## Third-Party Use
+## Who Checks It
 
 **Residents**
 **Fraud & Burglary Prevention:** Before opening the door, a resident can request to see the contractor's badge and scan it (via peephole camera, doorbell camera, or by viewing through a partially open door). Verification confirms the person is a legitimate, authorized contractor for their unit at this time—preventing "maintenance imposter" burglaries.
@@ -166,15 +174,7 @@ The **Building Staff Member or Contractor** benefits from verification.
 
 **Incident Investigation:** When theft or property damage occurs, cross-referencing verified scans with incident timing identifies who was actually present
 
-## Verification Architecture
-
-**The "Contractor Imposter" Fraud Problem**
-
-- **Residential Burglary:** Impostors in work clothes scout apartments, test doors for valuables, or gain entry when residents are out
-- **Follow-In Burglary:** Impostor follows resident inside ("I'm here to fix the AC"), then commits theft or assault after resident is in a compromised position
-- **Identity Theft:** Impostors gain access to documents, mail, or personal information during "maintenance" calls
-- **Credential Spoofing:** Unlicensed contractors falsely claiming to be from a licensed company; fake uniforms and vests purchased online
-- **License Fraud:** Contractors with suspended or expired licenses continuing to work
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -204,7 +204,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the management company's hashes and status changes plus structured metadata (contractor ID, work order number, unit assignment, authorized time window) — never contractor address or service history — providing non-repudiation of the authorization and an audit trail residents and management can inspect.
 
 
-## Competition vs. Uniforms / Management Call-Back
+## Compared With Uniforms / Management Call-Back
 
 | Feature | Live Verify | Uniform & Visible Badge | Calling Building Management | Asking for ID |
 | :--- | :--- | :--- | :--- | :--- |
@@ -236,7 +236,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 ## Further Derivations
 
-This use case belongs to the **Mobile Service Staff in Ungated Facilities** pattern. Related scenarios include:
+This use case belongs to the Mobile Service Staff in Ungated Facilities pattern. Related scenarios include:
 
 - [Police Officer Verification](view.html?doc=police-officer-verification) — Citizens verify law enforcement.
 - [Mobile Service Staff (Hotels)](view.html?doc=hotel-staff-verification) — Guests verify hotel staff.

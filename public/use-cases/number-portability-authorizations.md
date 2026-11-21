@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Porting Authorization?
 
-When you switch your phone number from one carrier to another (e.g., AT&T to T-Mobile), you must sign a **Letter of Agency (LOA)**. This document is the legal "Key" to your digital identity. In the era of 2FA (Two-Factor Authentication), your phone number is often the only thing standing between a hacker and your bank account.
+When you switch your phone number from one carrier to another (e.g., AT&T to T-Mobile), you must sign a Letter of Agency (LOA). This document is the legal "Key" to your digital identity. In the era of 2FA (Two-Factor Authentication), your phone number is often the only thing standing between a hacker and your bank account.
 
-**SIM Swapping** is a major global crime where hackers forge these authorizations to steal a victim's phone number. Once they control the number, they reset passwords and drain accounts. Verified hashes bind the **Account Number, Zip Code, and Intent to Port** to the losing carrier's domain (e.g., `att.com` or `verizon.com`), ensuring that a "Porting Request" is a verified action from the real owner.
+**SIM Swapping** is a major global crime where hackers forge these authorizations to steal a victim's phone number. Once they control the number, they reset passwords and drain accounts. Verified hashes bind the Account Number, Zip Code, and Intent to Port to the losing carrier's domain (e.g., `att.com` or `verizon.com`), ensuring that a "Porting Request" is a verified action from the real owner.
 
 <div style="max-width: 500px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); overflow: hidden;">
   <div style="background: #000; color: #fff; padding: 20px; text-align: center; border-bottom: 3px solid #000;">
@@ -43,7 +43,13 @@ When you switch your phone number from one carrier to another (e.g., AT&T to T-M
   </div>
 </div>
 
-## Data Verified
+## The Problem: Phantom Port Fraud
+
+- **PIN Theft:** Hackers social-engineering a customer's porting PIN and then creating a fake LOA to match it.
+- **Account Number Padding:** Editing a PDF to add 10 "Ghost Numbers" to a legitimate single-number porting request.
+- **Identity Mimicry:** Creating a fake LOA for a victim's number using PII stolen from a data breach.
+
+## What Is Checked
 
 Authorized signer name, telephone number(s) to be ported, losing carrier name, winning carrier name, account number (masked), service address zip code, date of authorization, porting PIN status, internal fraud-score hash.
 
@@ -53,25 +59,25 @@ Authorized signer name, telephone number(s) to be ported, losing carrier name, w
 - **CSR (Customer Service Record):** (Linked hash) proving account ownership.
 - **Identity Verification Receipt:** Proof the customer passed a biometric check.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`att.com`, `t-mobile.com`, `verizon.com`) and the porting standing.
 
 **Status Indications:**
 - **Authorized / Pending** — The porting request is valid and awaiting execution.
-- **Port Completed** — **ALERT:** The number has already been moved; this paper is historic.
-- **Fraud Alert** — **CRITICAL:** The account holder has flagged this number for "No Porting."
-- **Invalid PIN** — **ALERT:** The porting PIN on the paper does not match the system.
+- **Port Completed** — The number has already been moved; this paper is historic.
+- **Fraud Alert** — The account holder has flagged this number for "No Porting."
+- **Invalid PIN** — The porting PIN on the paper does not match the system.
 
-## Second-Party Use
+## Who Holds It
 
-The **Account Holder (Consumer)** benefits from verification.
+The Account Holder (Consumer) benefits from verification.
 
-**SIM Swap Defense:** An owner can place a "Verified Lock" on their number. If a hacker tries to port the number using a fake PDF, the winning carrier's automated system scans the hash. If it returns **"FRAUD ALERT"** or **"NOT AUTHORIZED,"** the port is blocked instantly, protecting the owner's bank and email accounts.
+**SIM Swap Defense:** An owner can place a "Verified Lock" on their number. If a hacker tries to port the number using a fake PDF, the winning carrier's automated system scans the hash. If it returns "FRAUD ALERT" or "NOT AUTHORIZED," the port is blocked instantly, protecting the owner's bank and email accounts.
 
-**Carrier Switching:** When arriving at a new store (e.g., T-Mobile) to switch service, the customer provides the verified hash from their old carrier (e.g., AT&T). The clerk can instantly see **"VERIFIED INTENT"** on their screen, removing the need for 30-minute "manual verification" phone calls between carriers.
+**Carrier Switching:** When arriving at a new store (e.g., T-Mobile) to switch service, the customer provides the verified hash from their old carrier (e.g., AT&T). The clerk can instantly see "VERIFIED INTENT" on their screen, removing the need for 30-minute "manual verification" phone calls between carriers.
 
-## Third-Party Use
+## Who Checks It
 
 **Winning Carriers (The Receiving Provider)**
 **Compliance Vetting:** FCC rules require the winning carrier to obtain a valid LOA. Live Verify allows them to bulk-verify that thousands of incoming porting requests are authentic and haven't been "Faked" by aggressive sales agents trying to meet quotas.
@@ -82,13 +88,7 @@ The **Account Holder (Consumer)** benefits from verification.
 **Law Enforcement**
 **Crime Investigation:** Verifying the "Chain of Authorization" for a phone number used in a fraudulent transaction to determine if the number was stolen via a fake LOA.
 
-## Verification Architecture
-
-**The "Phantom Port" Fraud Problem**
-
-- **PIN Theft:** Hackers social-engineering a customer's porting PIN and then creating a fake LOA to match it.
-- **Account Number Padding:** Editing a PDF to add 10 "Ghost Numbers" to a legitimate single-number porting request.
-- **Identity Mimicry:** Creating a fake LOA for a victim's number using PII stolen from a data breach.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

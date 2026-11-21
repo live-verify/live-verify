@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 When you hire a nanny or babysitter from an app (like Care.com), they have supposedly passed a criminal background check.
 
-The **Provider ID Badge** is the digital or physical card the nanny carries. It proves:
+The Provider ID Badge is the digital or physical card the nanny carries. It proves:
 1.  **Identity:** The person at your door is the one who passed the check.
 2.  **Safety:** They have a clear criminal and sex-offender record.
 3.  **Training:** They are certified in First Aid and CPR.
@@ -52,7 +52,13 @@ Tragically, some people use "ID Swapping"—using a sibling's clear background c
   </div>
 </div>
 
-## Data Verified
+## The Problem: High-Stakes Fraud
+
+- **Identity Swapping:** Using a "Clean" sibling's ID to pass a background check while the person actually working has a criminal record.
+- **Photoshop Forgery:** Editing an old "Cleared" PDF from 3 years ago to show a "MAR 2026" date.
+- **Fake Certifications:** Printing a fake Red Cross First Aid card from a template.
+
+## What Is Checked
 
 Provider name, photo (hash), background check status (Clear/Fail), background check date, first aid/CPR certification, childcare training (e.g., CDA), state registry ID, reference count.
 
@@ -109,15 +115,15 @@ Fields:
 
 Providers should never tell parents "don't bother" or "that's not necessary." Every report is logged. The platform can triage later—but the parent is never made to feel their input isn't wanted. Given the vulnerability of children, parental instincts should always be respected.
 
-## Second-Party Use
+## Who Holds It
 
-The **Childcare Provider** benefits from verification.
+The Childcare Provider benefits from verification.
 
 **Competitive Advantage:** Proving to parents that they aren't just "somebody from the internet," but a verified professional who has passed a recent, rigorous background check. This allows them to charge higher rates.
 
 **Seamless Onboarding:** Instead of handing over sensitive SSN/address data to every new parent for a background check, they simply show their "Verified Badge."
 
-## Third-Party Use
+## Who Checks It
 
 **Parents / Guardians**
 **Absolute Confidence:** Before leaving their child with a stranger, parents scan the badge. "Verified by Care.com" provides the peace of mind that the person standing in their kitchen is exactly who they claim to be and has no criminal record.
@@ -128,13 +134,7 @@ The **Childcare Provider** benefits from verification.
 **Insurance Companies**
 **Homeowners Coverage:** Verifying that domestic staff are qualified, which can impact liability coverage for in-home accidents.
 
-## Verification Architecture
-
-**The "High-Stakes" Fraud Problem**
-
-- **Identity Swapping:** Using a "Clean" sibling's ID to pass a background check while the person actually working has a criminal record.
-- **Photoshop Forgery:** Editing an old "Cleared" PDF from 3 years ago to show a "MAR 2026" date.
-- **Fake Certifications:** Printing a fake Red Cross First Aid card from a template.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -163,7 +163,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the childcare network or regulator's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the verification it issued.
 
 
-## Competition vs. Physical References
+## Compared With Physical References
 
 | Feature | Live Verify | Phone References | Background Check PDF |
 | :--- | :--- | :--- | :--- |

@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Search Warrant?
 
-A **Search Warrant** is a judicial authorization permitting law enforcement to search a specific place, person, or thing for specific items connected to a crime. In the United States, the Fourth Amendment requires warrants to be issued by a judge upon a showing of probable cause. Equivalent protections exist in virtually every democracy: the UK's Police and Criminal Evidence Act (PACE), the EU Charter of Fundamental Rights (Article 7), Canada's Criminal Code (s.487).
+A Search Warrant is a judicial authorization permitting law enforcement to search a specific place, person, or thing for specific items connected to a crime. In the United States, the Fourth Amendment requires warrants to be issued by a judge upon a showing of probable cause. Equivalent protections exist in virtually every democracy: the UK's Police and Criminal Evidence Act (PACE), the EU Charter of Fundamental Rights (Article 7), Canada's Criminal Code (s.487).
 
 The core problem: **the person being searched has no practical way to verify the warrant is real.**
 
@@ -56,7 +56,16 @@ Court and law-enforcement warrant systems should remain primary for officers, cl
   </div>
 </div>
 
-## Data Verified
+## The Problem: Search Warrant Fraud
+
+- **Forged warrants for illegal searches** — Criminals impersonating police to gain entry to homes, or corrupt officers conducting unauthorized searches without judicial approval. The victim complies because the paper looks official.
+- **Scope inflation** — A warrant authorizes search of the garage; officers search the entire house. The subject has no way to check the actual scope in real time. With a verify line, they can.
+- **Expired warrants executed late** — A warrant had a 10-day execution window; officers show up on day 14. Currently, the subject wouldn't know. The verification response shows EXPIRED.
+- **Fabricated warrants for intimidation** — State actors creating fake warrants to coerce dissidents, journalists, or political opponents. Recent reporting has documented authoritarian regimes fabricating legal documents — including warrants and court orders — as weapons against targets abroad. A verify line against an independent court domain exposes these instantly.
+- **Warrant return tampering** — Altering the inventory of seized items after the fact to add evidence that wasn't actually found, or to omit items that were taken but shouldn't have been.
+- **Judge shopping and forged signatures** — Presenting a warrant bearing a real judge's name who never signed it. The verification response confirms the actual issuing judge.
+
+## What Is Checked
 
 Court jurisdiction, case number, issuing judge, address/location authorized for search, items/categories authorized for seizure, date of issuance, expiration date and time, time-of-day restrictions (daytime only vs. nighttime authorization), executing agency, any special conditions (no-knock authorization, nighttime execution permission, scope limitations).
 
@@ -82,7 +91,7 @@ The issuer domain is visible from the `verify:` line on the warrant itself (e.g.
 
 ## Post-Verification Actions
 
-Unlike most use cases, search warrants have a meaningful post-verification chain: the **warrant return**.
+Unlike most use cases, search warrants have a meaningful post-verification chain: the warrant return.
 
 After executing a search, law enforcement must file an inventory of everything seized with the issuing court within a specified period (typically 10 days in federal cases). This return could itself carry a verify line, creating a verifiable chain:
 
@@ -90,9 +99,9 @@ After executing a search, law enforcement must file an inventory of everything s
 
 Each link is independently verifiable. A defense attorney can confirm that the warrant was valid at the time of execution, that the return was timely filed, and that the inventory matches what was actually taken. This chain is the foundation of evidence integrity for everything seized — if any link is broken, suppression motions follow.
 
-## Second-Party Use
+## Who Holds It
 
-The **subject of the search** — the homeowner, business owner, tenant, or individual whose property or person is being searched.
+The subject of the search — the homeowner, business owner, tenant, or individual whose property or person is being searched.
 
 **Verifying the warrant is real:** When officers arrive at the door, the subject scans the verify line. ACTIVE confirms it's genuine. 404 means it's forged — call 911. This is the most time-critical verification in the entire Live Verify ecosystem: the subject has seconds, not hours.
 
@@ -102,7 +111,7 @@ The **subject of the search** — the homeowner, business owner, tenant, or indi
 
 **Verifying the warrant exists at all:** The most fundamental check. Criminals impersonating police, corrupt officers conducting unauthorized searches, and state actors fabricating warrants to intimidate targets — all produce documents that return 404.
 
-## Third-Party Use
+## Who Checks It
 
 **Defense Attorneys**
 
@@ -132,20 +141,11 @@ The **subject of the search** — the homeowner, business owner, tenant, or indi
 
 **Press freedom cases:** When reporting on warrants served against journalists, newsrooms, or whistleblowers, media organizations can verify the warrants are real and accurately described. This is essential for public interest reporting on government overreach.
 
-## Verification Architecture
-
-**The Search Warrant Fraud Problem**
-
-- **Forged warrants for illegal searches** — Criminals impersonating police to gain entry to homes, or corrupt officers conducting unauthorized searches without judicial approval. The victim complies because the paper looks official.
-- **Scope inflation** — A warrant authorizes search of the garage; officers search the entire house. The subject has no way to check the actual scope in real time. With a verify line, they can.
-- **Expired warrants executed late** — A warrant had a 10-day execution window; officers show up on day 14. Currently, the subject wouldn't know. The verification response shows EXPIRED.
-- **Fabricated warrants for intimidation** — State actors creating fake warrants to coerce dissidents, journalists, or political opponents. Recent reporting has documented authoritarian regimes fabricating legal documents — including warrants and court orders — as weapons against targets abroad. A verify line against an independent court domain exposes these instantly.
-- **Warrant return tampering** — Altering the inventory of seized items after the fact to add evidence that wasn't actually found, or to omit items that were taken but shouldn't have been.
-- **Judge shopping and forged signatures** — Presenting a warrant bearing a real judge's name who never signed it. The verification response confirms the actual issuing judge.
+## How Verification Works Here
 
 **The "Fake Warrant at the Door" Problem**
 
-This is the uniquely time-sensitive verification scenario. Unlike a diploma or insurance certificate, where verification can wait days, a person confronted with a search warrant has **seconds** to decide whether to comply.
+This is the uniquely time-sensitive verification scenario. Unlike a diploma or insurance certificate, where verification can wait days, a person confronted with a search warrant has seconds to decide whether to comply.
 
 **Currently:** Comply or face obstruction charges. Challenge later, after the damage is done.
 
@@ -181,7 +181,7 @@ If an adversary can iterate through possible warrant numbers and discover which 
 
 The issuer-generated random salt line (printed on the warrant but not derivable from public information) prevents this. Without the salt, no amount of guessing case numbers will produce a valid hash. The warrant's existence is only confirmable by someone who possesses the physical or digital document.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | Call the Court Clerk | Trust the Paper | Electronic Warrant Systems (JAWS, e-Warrants) |
 | :--- | :--- | :--- | :--- | :--- |

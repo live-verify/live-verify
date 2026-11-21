@@ -20,7 +20,7 @@ The contractor — typically a limited company or sole trader — displays their
 
 A verifiable registration claim is text issued by the registry body, embedded on the contractor's website or printed on physical credentials. The homeowner verifies it in place — by clipping the text on the website, or by clipping text from a photo of the badge — without navigating away to the registry's lookup tool.
 
-This use case covers the **company registration** displayed on websites and physical materials. For individual engineer ID cards verified by camera scan at the doorstep, see [Gas Safe & Regulated Trade ID Cards](gas-safe-regulated-trade-cards.md).
+This use case covers the company registration displayed on websites and physical materials. For individual engineer ID cards verified by camera scan at the doorstep, see [Gas Safe & Regulated Trade ID Cards](gas-safe-regulated-trade-cards.md).
 
 ## Example: Website Registration Claim
 
@@ -116,7 +116,26 @@ verify:gassaferegister.co.uk/engineers
 
 A contractor whose registration has expired may continue displaying the claim on their website for months. The verification endpoint returns the current status — not the status when the claim was first issued.
 
-## Data Verified
+## The Problem: Unregistered Contractor
+
+Hundreds of thousands of gas, electrical, and oil jobs are carried out each year by unregistered contractors in the UK. The consequences are not theoretical:
+
+- **Carbon monoxide poisoning** from badly installed gas appliances kills 30-40 people annually in the UK and hospitalises hundreds. Many cases involve unregistered fitters.
+- **Electrical fires** from non-compliant wiring. Faulty electrical installations are a leading cause of accidental house fires.
+- **Fake Gas Safe ID cards** are available online for trivial cost. The hologram on the genuine card is the only anti-forgery feature.
+- **Expired registrations** — a contractor fails an inspection and loses registration but continues trading on the old claim. Their website still says "Gas Safe Registered" because nobody updated the page.
+- **Scope overreach** — a contractor registered for boiler servicing claims competence for full installations, or a domestic electrical installer takes on commercial work outside their registered scope.
+- **CORGI confusion** — CORGI was replaced by Gas Safe in 2009, but some operators still claim "CORGI registered" to exploit residual brand recognition. CORGI now operates as a commercial home services brand unrelated to gas safety registration.
+
+The verifiable claim addresses these because:
+
+1. The registry body issues the claim — it is not self-asserted by the contractor
+2. The claim names the specific website where it applies
+3. Expiry and revocation are immediate — the endpoint returns the current status
+4. The browser extension detects domain mismatches when claims are copied to other sites
+5. The scope of registered work is part of the verified response, not just the printed claim
+
+## What Is Checked
 
 Contractor business name, registration number, registration body, registered site domain, scope of registered work (gas appliance categories, electrical work types, oil/solid fuel specialisms), and current registration status.
 
@@ -130,7 +149,7 @@ Contractor business name, registration number, registration body, registered sit
 
 **Privacy Salt:** Generally not required. Contractor registrations are public-facing commercial claims that the contractor actively wants to display. The registry may salt if internal registration metadata is commercially sensitive.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `gassaferegister.co.uk`, `niceic.com`, `napit.org.uk`) and the contractor's current registration status.
 
@@ -151,9 +170,9 @@ Shows the issuer domain (e.g., `gassaferegister.co.uk`, `niceic.com`, `napit.org
 - **Scope Restricted** — Registered, but one or more work categories removed since the claim was issued. The contractor may be registered for boiler servicing but no longer for new installations.
 - **404** — No such registration exists at the claimed registry.
 
-## Second-Party Use
+## Who Holds It
 
-The **homeowner** benefits directly.
+The homeowner benefits directly.
 
 **When booking online:** The homeowner finds a contractor's website claiming Gas Safe registration. They clip the registration claim on the page. The response confirms the contractor is currently registered and the domain matches. The homeowner books the work with confidence that the claim is not self-asserted.
 
@@ -161,7 +180,7 @@ The **homeowner** benefits directly.
 
 **Scope check:** The contractor's website says "Gas Safe registered." The homeowner is booking a gas fire installation. Verification confirms the contractor is registered for boilers and cookers but not fires. The registration is genuine — just not for this job.
 
-## Third-Party Use
+## Who Checks It
 
 **Insurers**
 
@@ -183,28 +202,7 @@ The **homeowner** benefits directly.
 
 **Installation validation:** Boiler and appliance manufacturers (Worcester Bosch, Vaillant, Baxi) require installation by a registered contractor for warranty to apply. Verified registration at the time of installation proves the warranty condition was met.
 
-## Verification Architecture
-
-**The Unregistered Contractor Problem**
-
-Hundreds of thousands of gas, electrical, and oil jobs are carried out each year by unregistered contractors in the UK. The consequences are not theoretical:
-
-- **Carbon monoxide poisoning** from badly installed gas appliances kills 30-40 people annually in the UK and hospitalises hundreds. Many cases involve unregistered fitters.
-- **Electrical fires** from non-compliant wiring. Faulty electrical installations are a leading cause of accidental house fires.
-- **Fake Gas Safe ID cards** are available online for trivial cost. The hologram on the genuine card is the only anti-forgery feature.
-- **Expired registrations** — a contractor fails an inspection and loses registration but continues trading on the old claim. Their website still says "Gas Safe Registered" because nobody updated the page.
-- **Scope overreach** — a contractor registered for boiler servicing claims competence for full installations, or a domestic electrical installer takes on commercial work outside their registered scope.
-- **CORGI confusion** — CORGI was replaced by Gas Safe in 2009, but some operators still claim "CORGI registered" to exploit residual brand recognition. CORGI now operates as a commercial home services brand unrelated to gas safety registration.
-
-The verifiable claim addresses these because:
-
-1. The registry body issues the claim — it is not self-asserted by the contractor
-2. The claim names the specific website where it applies
-3. Expiry and revocation are immediate — the endpoint returns the current status
-4. The browser extension detects domain mismatches when claims are copied to other sites
-5. The scope of registered work is part of the verified response, not just the printed claim
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Registry Website Lookup | Plastic ID Card | Phone Call to Registry |
 | :--- | :--- | :--- | :--- | :--- |

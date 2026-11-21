@@ -15,7 +15,7 @@ Pawnbrokers and second-hand dealers have been regulated since medieval Europe fo
 
 The problem is that these records are siloed. A pawnbroker in Brooklyn files reports with NYPD. A gold buyer in Newark files with Newark PD. A "We Buy Electronics" shop in Jersey City files with Jersey City PD. A thief working the PATH train between all three is invisible to each individual department. The records exist — they're just not connected.
 
-A **Verifiable Pawn Transaction Record** is a receipt issued by the dealer at the point of purchase or pledge. It records the item description, the seller's ID, the amount paid, and the statutory hold period. By making this verifiable against the dealer's domain, police departments, insurers investigating theft claims, and other dealers can cross-reference transactions without relying on manual inter-agency requests.
+A Verifiable Pawn Transaction Record is a receipt issued by the dealer at the point of purchase or pledge. It records the item description, the seller's ID, the amount paid, and the statutory hold period. By making this verifiable against the dealer's domain, police departments, insurers investigating theft claims, and other dealers can cross-reference transactions without relying on manual inter-agency requests.
 
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #bf360c; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #bf360c; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -85,7 +85,15 @@ A **Verifiable Pawn Transaction Record** is a receipt issued by the dealer at th
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fence
+
+Pawnbrokers and second-hand dealers sit at the intersection of two criminal economies:
+
+- **Stolen Goods:** A thief steals a laptop, sells it to a pawn shop for cash. The pawn shop records the transaction (as required by law) but the record sits in a filing cabinet or a local police database that isn't searchable by the victim, their insurer, or the police department one town over.
+- **Cash Laundering:** A drug dealer with $20,000 in small bills buys gold chains from a jeweller, then pawns them across multiple shops over several weeks. Each transaction is below any reporting threshold. The dealer collects cash or cheques from the pawn shops — now "legitimate" income from selling jewellery.
+- **Smurfing via Consumer Goods:** The modern equivalent uses electronics. Buy 20 iPhones with cash from different retailers, sell them to "We Buy Phones" shops for slightly less, collect clean cheques. The economics are worse than casino laundering (you lose 30-40% to the buy/sell spread) but the individual transactions are smaller and less scrutinised.
+
+## What Is Checked
 
 Dealer name and license number, item description (category, material, weight, distinguishing marks), serial number (if present), amount paid, payment method, seller ID type and masked number, transaction date, statutory hold period and expiry, police reporting reference.
 
@@ -95,7 +103,7 @@ Dealer name and license number, item description (category, material, weight, di
 - **Electronics Buy-Back Record:** Specialised receipt for serialised electronics.
 - **Precious Metals Purchase Record:** Gold, silver, platinum purchases with weight and assay.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`empiregoldpawn.com`, `webuyelectronics.com`) and the item/transaction status.
 
@@ -106,15 +114,15 @@ Shows the issuer domain (`empiregoldpawn.com`, `webuyelectronics.com`) and the i
 - **Redeemed** — Pledged item reclaimed by the original seller (pawn loan repaid).
 - **Reported Stolen** — Item matched against a stolen property report.
 
-## Second-Party Use
+## Who Holds It
 
-The **Seller / Pledgor** benefits from verification.
+The Seller / Pledgor benefits from verification.
 
 **Proof of Sale:** When a seller's stolen property claim is investigated by their insurer, a verified pawn receipt proves they *sold* the item rather than "lost" it — relevant for insurance fraud investigations that cut both ways.
 
 **Redemption Rights:** For pawn pledges, a verified ticket proves the terms of the loan and the redemption deadline, preventing disputes with the dealer.
 
-## Third-Party Use
+## Who Checks It
 
 **Police Departments**
 **Stolen Property Recovery:** Instead of manually checking each pawnbroker's paper filings, detectives can search verified transaction hashes across dealers. The verification trail crosses jurisdictional boundaries that paper filings do not.
@@ -128,15 +136,7 @@ The **Seller / Pledgor** benefits from verification.
 **Victims of Theft**
 **Recovery:** A theft victim searching for their property can verify whether items matching their description have appeared at licensed dealers, without physically visiting every shop in the metro area.
 
-## Verification Architecture
-
-**The "Fence" Problem**
-
-Pawnbrokers and second-hand dealers sit at the intersection of two criminal economies:
-
-- **Stolen Goods:** A thief steals a laptop, sells it to a pawn shop for cash. The pawn shop records the transaction (as required by law) but the record sits in a filing cabinet or a local police database that isn't searchable by the victim, their insurer, or the police department one town over.
-- **Cash Laundering:** A drug dealer with $20,000 in small bills buys gold chains from a jeweller, then pawns them across multiple shops over several weeks. Each transaction is below any reporting threshold. The dealer collects cash or cheques from the pawn shops — now "legitimate" income from selling jewellery.
-- **Smurfing via Consumer Goods:** The modern equivalent uses electronics. Buy 20 iPhones with cash from different retailers, sell them to "We Buy Phones" shops for slightly less, collect clean cheques. The economics are worse than casino laundering (you lose 30-40% to the buy/sell spread) but the individual transactions are smaller and less scrutinised.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

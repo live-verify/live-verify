@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Travel Agency Invoices?
 
-For complex, multi-city trips or luxury vacations, travelers often use a **Travel Agency** to bundle flights, hotels, tours, and transfers into a single **Itinerary & Invoice**.
+For complex, multi-city trips or luxury vacations, travelers often use a Travel Agency to bundle flights, hotels, tours, and transfers into a single Itinerary & Invoice.
 
-These documents are high-stakes because they are used as proof of "Intent to Travel" for **Visa Applications** at embassies and for **Corporate Expense Reimbursement**. Fraud is common: people create "Ghost Itineraries" using fake travel agency templates to fraudulently obtain visas or to "double-expense" a trip to their employer. Verified hashes bind the **Full Itinerary Details and Payment Status** to the agency's domain (e.g., `amextravel.com` or `abercrombiekent.com`).
+These documents are high-stakes because they are used as proof of "Intent to Travel" for Visa Applications at embassies and for Corporate Expense Reimbursement. Fraud is common: people create "Ghost Itineraries" using fake travel agency templates to fraudulently obtain visas or to "double-expense" a trip to their employer. Verified hashes bind the Full Itinerary Details and Payment Status to the agency's domain (e.g., `amextravel.com` or `abercrombiekent.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="travel"></span>ELITE TRAVEL PARTNERS                       INVOICE # ETP-2026-8844
@@ -39,7 +39,13 @@ TOTAL PAID (USD):                                   $ 14,750.00
 <span data-verify-line="travel">verify:elitetravel.com/v</span> <span verifiable-text="end" data-for="travel"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Ghost Trip Fraud
+
+- **Itinerary Inflation:** Changing a $2,000 Economy trip into a $14,000 Business Class trip on an invoice to claim a higher reimbursement.
+- **Visa Scams:** Printing "Confirmed" itineraries for travel that has already been cancelled.
+- **Template Mimicry:** Using a high-end agency's branding to vouch for a trip that was never booked.
+
+## What Is Checked
 
 Invoice number, agency name, traveler name, destination, trip dates, itemized itinerary (flights/hotels), total price, payment status (Paid/Deposit/Pending), IATA/ARC number, agent ID.
 
@@ -49,25 +55,25 @@ Invoice number, agency name, traveler name, destination, trip dates, itemized it
 - **Voucher:** Proving payment for a specific hotel or tour.
 - **Cancellation Notice:** Proof of refund eligibility.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`elitetravel.com`, `amextravel.com`) and the trip standing.
 
 **Status Indications:**
 - **Fully Paid** — Booking is confirmed and funds are cleared.
 - **Confirmed / Deposit Paid** — Booking is active but final payment is pending.
-- **Cancelled** — **ALERT:** The trip has been voided; this document is no longer valid.
+- **Cancelled** — The trip has been voided; this document is no longer valid.
 - **Amended** — A newer version of the itinerary exists.
 
-## Second-Party Use
+## Who Holds It
 
-The **Traveler (Client)** benefits from verification.
+The Traveler (Client) benefits from verification.
 
-**Visa Approval:** A traveler applying for a Schengen visa can provide the verified hash of their itinerary. Consular officers can instantly see **"FULLY PAID - ELITE TRAVEL PARTNERS"** directly from the agency's domain, removing the common "fake booking" suspicion that leads to visa denials.
+**Visa Approval:** A traveler applying for a Schengen visa can provide the verified hash of their itinerary. Consular officers can instantly see "FULLY PAID - ELITE TRAVEL PARTNERS" directly from the agency's domain, removing the common "fake booking" suspicion that leads to visa denials.
 
 **Insurance Claims:** If a trip is interrupted, the traveler provides the verified invoice to their travel insurer. The insurer can instantly verify the "Pre-Paid" value of the trip without needing to call the agency, speeding up the payout.
 
-## Third-Party Use
+## Who Checks It
 
 **Embassies and Consulates**
 **Visa Adjudication:** Verifying that "Hotel Bookings" provided by an applicant aren't just "Reservations" that were cancelled 5 minutes after the confirmation was printed. Verified status shows the current live state of the booking.
@@ -78,13 +84,7 @@ The **Traveler (Client)** benefits from verification.
 **Travel Management Companies (TMCs)**
 **Reconciliation:** Ensuring that "Leisure" travel booked by employees (which may have corporate-linked perks) is correctly tracked and verified for liability purposes.
 
-## Verification Architecture
-
-**The "Ghost Trip" Fraud Problem**
-
-- **Itinerary Inflation:** Changing a $2,000 Economy trip into a $14,000 Business Class trip on an invoice to claim a higher reimbursement.
-- **Visa Scams:** Printing "Confirmed" itineraries for travel that has already been cancelled.
-- **Template Mimicry:** Using a high-end agency's branding to vouch for a trip that was never booked.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

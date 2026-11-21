@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 Just because someone has a law degree doesn't mean they are allowed to practice law today. They might have been suspended for stealing client money or disbarred for ethics violations.
 
-A **Certificate of Good Standing** is the "Live License" for a lawyer. It is issued by the Supreme Court of their state and proves they are active and compliant.
+A Certificate of Good Standing is the "Live License" for a lawyer. It is issued by the Supreme Court of their state and proves they are active and compliant.
 
 **Why would you bother verifying?** Because the consequences of engaging a suspended or disbarred lawyer are severe and often irreversible. Contracts drafted by an unauthorized practitioner may be voidable. Court filings made by someone not in good standing can be struck, causing missed deadlines that cannot be recovered. A client who discovers their lawyer was suspended only after losing a case or a property transaction has limited recourse — malpractice insurance typically does not cover unauthorized practice, and the disciplinary system is designed to protect future clients, not to compensate past ones. The harm compounds: the client loses the case, loses the fees paid, and may face costs awarded to the other side — all because the person standing in court was not actually permitted to be there.
 
@@ -44,7 +44,13 @@ The strongest architecture is still the court or bar's own public status page or
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Lawyer Fraud
+
+- **Identity Theft:** A non-lawyer using the name and bar number of a real, perhaps retired, attorney to open a fake firm and steal client deposits.
+- **Suspension Concealment:** An attorney who was suspended last month presenting a "Good Standing" letter they printed three months ago.
+- **Fabricated Credentials:** Using a high-quality template to create a bar admission certificate for a non-existent lawyer.
+
+## What Is Checked
 
 Attorney name, bar registration number, admission date, current status (Good Standing, Suspended, Disbarred), disciplinary history summary, issuing court/department, date of letter.
 
@@ -77,15 +83,15 @@ More: https://nycourts.gov/attorneys/profile/saul-goodman
 
 This page shows admission date, disciplinary history, CLE compliance, and contact details for the bar association if you have concerns. The existing complaint infrastructure handles reporting—no need to duplicate it here.
 
-## Second-Party Use
+## Who Holds It
 
-The **Attorney** benefits from verification.
+The Attorney benefits from verification.
 
 **Pro Hac Vice Admission:** When an attorney needs to practice in a foreign state for one specific case, the foreign court requires a "Good Standing" letter from their home state. A verified letter prevents the 2-week delay of mailing physical paper between court clerks.
 
 **Job Applications:** Proving to a law firm or corporate legal department that their license is active and they have no hidden disciplinary history.
 
-## Third-Party Use
+## Who Checks It
 
 **Courts and Judges**
 **Authority to Practice:** A judge can scan the attorney's ID or standing letter in the courtroom to ensure the person standing before them is actually a member of the bar and hasn't been quietly suspended.
@@ -96,13 +102,7 @@ The **Attorney** benefits from verification.
 **Clients**
 **Consumer Protection:** A client can verify their lawyer's status before signing a retainer or handing over a large deposit.
 
-## Verification Architecture
-
-**The "Fake Lawyer" Fraud Problem**
-
-- **Identity Theft:** A non-lawyer using the name and bar number of a real, perhaps retired, attorney to open a fake firm and steal client deposits.
-- **Suspension Concealment:** An attorney who was suspended last month presenting a "Good Standing" letter they printed three months ago.
-- **Fabricated Credentials:** Using a high-quality template to create a bar admission certificate for a non-existent lawyer.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -134,7 +134,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 ## Jurisdictional Witnessing (Optional)
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the bar association's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the admission certificate.
-## Competition vs. Public Search (Attorney Search)
+## Compared With Public Search (Attorney Search)
 
 | Feature | Live Verify | Public Attorney Search | Paper Certificate |
 | :--- | :--- | :--- | :--- |

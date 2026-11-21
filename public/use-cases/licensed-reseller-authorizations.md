@@ -84,7 +84,22 @@ verify:nvidia.com/resellers
 </pre>
 </div>
 
-## Data Verified
+## The Problem: Authorized Dealer Trust
+
+- **Badge copying:** Any website can display "Authorized NVIDIA Partner" or "Official Apple Reseller" — these are just images or text.
+- **Stale directories:** Manufacturer "where to buy" pages are often incomplete, slow to update, and don't cover online-only retailers.
+- **Grey-market laundering:** Goods purchased in one market and resold in another, outside the manufacturer's authorized channel, with no warranty coverage.
+- **Counterfeit cover:** Unauthorized sellers mix genuine and counterfeit stock, using the "authorized" badge to build trust.
+- **Post-revocation persistence:** A retailer dropped from the authorized channel may continue displaying authorization badges for months or years.
+
+The verifiable claim addresses these because:
+
+1. The manufacturer issues the claim — it is not self-asserted by the retailer
+2. The claim names the specific site where it applies
+3. Revocation is immediate — the endpoint returns REVOKED
+4. The browser extension can detect domain mismatches automatically
+
+## What Is Checked
 
 Reseller legal name, authorized site domain, manufacturer or brand, product line or category, authorization period, and current status.
 
@@ -95,7 +110,7 @@ Reseller legal name, authorized site domain, manufacturer or brand, product line
 
 **Privacy Salt:** Generally not required. Reseller authorizations are commercial claims that the reseller wants to be public. The manufacturer may salt if the authorization structure itself is commercially sensitive.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `nvidia.com`, `apple.com`, `bosch.com`) and the current authorization status.
 
@@ -118,9 +133,9 @@ The `allowedDomains` field enables browser extensions to detect domain mismatche
 - **Product Line Removed** — Reseller is still authorized for other products but not this one.
 - **404** — No such authorization was issued by the claimed manufacturer.
 
-## Second-Party Use
+## Who Holds It
 
-The **buyer** benefits directly.
+The buyer benefits directly.
 
 **Pre-purchase confidence:** Before committing to a high-value purchase, the buyer can verify that the retailer is genuinely authorized by the manufacturer, not just claiming to be.
 
@@ -128,7 +143,7 @@ The **buyer** benefits directly.
 
 **Domain-mismatch protection:** Even without the extension, the site domain in the claim text is a visible check. With the extension, domain mismatches produce an automatic warning.
 
-## Third-Party Use
+## Who Checks It
 
 **Manufacturers and Brand Protection Teams**
 
@@ -143,23 +158,6 @@ The **buyer** benefits directly.
 **Consumer Protection and Trading Standards**
 
 **Complaint triage:** When a consumer complains about counterfeit goods, the investigator can check whether the seller was ever authorized by the manufacturer.
-
-## Verification Architecture
-
-**The "Authorized Dealer" Trust Problem**
-
-- **Badge copying:** Any website can display "Authorized NVIDIA Partner" or "Official Apple Reseller" — these are just images or text.
-- **Stale directories:** Manufacturer "where to buy" pages are often incomplete, slow to update, and don't cover online-only retailers.
-- **Grey-market laundering:** Goods purchased in one market and resold in another, outside the manufacturer's authorized channel, with no warranty coverage.
-- **Counterfeit cover:** Unauthorized sellers mix genuine and counterfeit stock, using the "authorized" badge to build trust.
-- **Post-revocation persistence:** A retailer dropped from the authorized channel may continue displaying authorization badges for months or years.
-
-The verifiable claim addresses these because:
-
-1. The manufacturer issues the claim — it is not self-asserted by the retailer
-2. The claim names the specific site where it applies
-3. Revocation is immediate — the endpoint returns REVOKED
-4. The browser extension can detect domain mismatches automatically
 
 ## Attack Resistance: Text-Swap on a Scam Site
 
@@ -176,7 +174,7 @@ The most sophisticated attack against this model is not copying the claim (which
 
 **Honest assessment:** Content script isolation provides strong but not absolute protection against page-level manipulation. The domain-mismatch check is the backstop — it works even if the text swap somehow succeeds. The weakest link is the buyer not reading the verified detail, which is why the domain-mismatch warning should be prominent and unmissable.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | "Authorized Dealer" Badge | Manufacturer Directory | Invoice Only |
 | :--- | :--- | :--- | :--- | :--- |

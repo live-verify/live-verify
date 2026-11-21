@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Voter Registration Card?
 
-A **Voter Registration Card** (or Confirmation) is the official proof that a citizen is registered to vote in a specific jurisdiction. It lists the voter's name, address, party affiliation, and—crucially—their **Precinct and Polling Place**.
+A Voter Registration Card (or Confirmation) is the official proof that a citizen is registered to vote in a specific jurisdiction. It lists the voter's name, address, party affiliation, and—crucially—their Precinct and Polling Place.
 
-These cards are the "Ticket to the Ballot Box." Fraud is high-stakes: partisan actors or fraudsters might "edit" a registration card to show a fake address to illegally vote in a "swing" precinct, or they might create fake cards for non-citizens to bypass election security. Verified hashes bind the **Voter Name, Precinct ID, and Home Address** to the state's or the county's election domain (e.g., `sos.ca.gov` or `vote.county.org`).
+These cards are the "Ticket to the Ballot Box." Fraud is high-stakes: partisan actors or fraudsters might "edit" a registration card to show a fake address to illegally vote in a "swing" precinct, or they might create fake cards for non-citizens to bypass election security. Verified hashes bind the Voter Name, Precinct ID, and Home Address to the state's or the county's election domain (e.g., `sos.ca.gov` or `vote.county.org`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="vote"></span>VOTER REGISTRATION
@@ -31,7 +31,13 @@ POLLING PLACE: Springfield Library, 1st Ave Entrance
 <span data-verify-line="vote">verify:elections.il.gov/v</span> <span verifiable-text="end" data-for="vote"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Phantom Voter Fraud
+
+- **Address Swapping:** Changing a residence to a "Swing Precinct" on a PDF card to influence a local election.
+- **Registration Fabrication:** Creating fake cards for non-existent people to "Stuff the Rolls."
+- **Status Masking:** Presenting a "Cancelled" registration as if it were still "Active" to bypass ID requirements.
+
+## What Is Checked
 
 Voter ID number, voter name, residential address, party affiliation, precinct/ward ID, polling place location, registration date, status (Active/Inactive), date of last ballot cast (hash), issuing board name.
 
@@ -41,25 +47,25 @@ Voter ID number, voter name, residential address, party affiliation, precinct/wa
 - **Voter Information Pamphlet:** (Linked hash) specifically for the voter's precinct.
 - **Absentee Ballot Application:** Proof of authorized request.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`sos.state.gov`, `vote.county.org`) and the voter standing.
 
 **Status Indications:**
 - **Active / Registered** — Voter is currently authorized to cast a ballot in this precinct.
-- **Inactive** — **ALERT:** Address needs verification; voter must re-confirm status.
-- **Cancelled** — **CRITICAL:** Registration has been terminated (e.g., moved out of state).
-- **Unknown** — **CRITICAL:** Hash not found; high risk of "Synthetic Voter" fraud.
+- **Inactive** — Address needs verification; voter must re-confirm status.
+- **Cancelled** — Registration has been terminated (e.g., moved out of state).
+- **Unknown** — Hash not found; high risk of "Synthetic Voter" fraud.
 
-## Second-Party Use
+## Who Holds It
 
-The **Voter (Citizen)** benefits from verification.
+The Voter (Citizen) benefits from verification.
 
 **Polling Place Speed:** On Election Day, the voter scans their own card for the poll worker. "Verified by State Board" ensures the worker that the voter is in the correct precinct and has an active registration, removing the 10-minute "manual lookup" in the paper books.
 
 **Address Proof:** A citizen can use their verified voter registration as a "Secondary Proof of Residency" when applying for local benefits, parking permits, or library cards, providing a higher level of trust than a utility bill.
 
-## Third-Party Use
+## Who Checks It
 
 **Poll Workers / Chief Judges**
 **Integrity Vetting:** Before issuing a ballot, the worker scans the registration card. Verified hashes eliminate the risk of "Precinct Jumping" where a voter tries to use a fake card to vote in a different ward.
@@ -70,13 +76,7 @@ The **Voter (Citizen)** benefits from verification.
 **Political Campaigns**
 **Canvassing Integrity:** Campaigns can scan the "Voter List" provided by the state to ensure the people they are contacting are verified, active voters, improving the accuracy of their outreach.
 
-## Verification Architecture
-
-**The "Phantom Voter" Fraud Problem**
-
-- **Address Swapping:** Changing a residence to a "Swing Precinct" on a PDF card to influence a local election.
-- **Registration Fabrication:** Creating fake cards for non-existent people to "Stuff the Rolls."
-- **Status Masking:** Presenting a "Cancelled" registration as if it were still "Active" to bypass ID requirements.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

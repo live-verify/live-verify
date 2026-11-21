@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Salon License?
 
-To cut hair or perform skin treatments (like chemical peels), a person must be licensed by the **State Board of Cosmetology**.
+To cut hair or perform skin treatments (like chemical peels), a person must be licensed by the State Board of Cosmetology.
 
-This license isn't just about fashion; it's about **Health**. It proves the stylist knows how to properly disinfect tools to prevent the spread of infections, lice, or diseases like Hepatitis.
+This license isn't just about fashion; it's about Health. It proves the stylist knows how to properly disinfect tools to prevent the spread of infections, lice, or diseases like Hepatitis.
 
 Stylists are required by law to post their license at their station. Some people use "License Swapping"—using a friend's physical card—to hide that they never passed the health exam. Live Verify allows a customer to scan the badge and see the verified photo and status from the state board instantly.
 
@@ -47,7 +47,13 @@ Stylists are required by law to post their license at their station. Some people
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Stylist Fraud
+
+- **License Swapping:** An unlicensed person using a friend's physical license and relying on customers not looking closely at the photo.
+- **Expired Display:** Leaving last year's license on the wall to avoid renewal fees and background checks.
+- **Sanitation Concealment:** Continuing to work after the Board has suspended the license for "Unsanitary Tools" or "Dirty Foot-baths."
+
+## What Is Checked
 
 Licensee name, photo (hash), license number, license type (Cosmetologist, Barber, Esthetician, Manicurist), expiration date, disciplinary history flag, issuing state board.
 
@@ -56,7 +62,7 @@ Licensee name, photo (hash), license number, license type (Cosmetologist, Barber
 - **Establishment License:** For the salon/shop itself.
 - **Instructional License:** For teachers in beauty schools.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`barbercosmo.ca.gov`, `dos.ny.gov`) and current standing.
 
@@ -66,15 +72,15 @@ Shows the issuer domain (`barbercosmo.ca.gov`, `dos.ny.gov`) and current standin
 - **Suspended** — Temporarily prohibited from practicing (e.g., sanitation violations).
 - **Revoked** — Permanently barred from the profession.
 
-## Second-Party Use
+## Who Holds It
 
-The **Practitioner** benefits from verification.
+The Practitioner benefits from verification.
 
 **Employment Portability:** Proving to a new salon owner that their "Active License" claim is verified by the state. This separates the professional from "Unlicensed Kitchen Cutters" who try to work in salons without a background check or sanitation training.
 
 **Insurance Compliance:** Proving to a professional liability insurer that their license is active to maintain malpractice coverage.
 
-## Third-Party Use
+## Who Checks It
 
 **Salon Customers**
 **Public Safety:** Before getting a chemical peel or a straight-razor shave, a customer can scan the license at the station. "Verified by State Board" provides instant assurance that the person has passed the mandatory health and sanitation exams.
@@ -85,13 +91,7 @@ The **Practitioner** benefits from verification.
 **Department of Health**
 **Sanitation Audits:** Verifying that all practitioners in a facility are current on their health training to prevent outbreaks of skin infections or communicable diseases.
 
-## Verification Architecture
-
-**The "Fake Stylist" Fraud Problem**
-
-- **License Swapping:** An unlicensed person using a friend's physical license and relying on customers not looking closely at the photo.
-- **Expired Display:** Leaving last year's license on the wall to avoid renewal fees and background checks.
-- **Sanitation Concealment:** Continuing to work after the Board has suspended the license for "Unsanitary Tools" or "Dirty Foot-baths."
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -116,7 +116,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the state board's hashes and status changes plus structured metadata (license number, practitioner name, license level, issue and expiration dates, disciplinary status) — never photographs or personal details — providing non-repudiation of licensing status and an audit trail for salon oversight and public health protection.
 
 
-## Competition vs. Window Stickers / Public Lookup
+## Compared With Window Stickers / Public Lookup
 
 | Feature | Live Verify | Window/Wall Sticker | State Website Lookup |
 | :--- | :--- | :--- | :--- |

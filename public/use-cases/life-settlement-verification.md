@@ -41,7 +41,7 @@ Insured Age:        72
 <span data-verify-line="lifeset">verify:newyorklife.com/settlement-verify/v</span> <span verifiable-text="end" data-for="lifeset"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Carrier name, policy number, face amount (death benefit), policy status (in force, lapsed, paid-up), premium payment status and paid-through date, outstanding loan balance, prior assignment history, policy age (years since issue), insured age at last birthday, and policy type (whole life, universal life, term).
 
@@ -51,20 +51,20 @@ Carrier name, policy number, face amount (death benefit), policy status (in forc
 - **Assignment Release:** Confirmation that no prior collateral assignments or ownership transfers encumber the policy.
 - **Premium Payment History:** Record of payments confirming the policy has not lapsed and been reinstated under different terms.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`newyorklife.com`, `prudential.com`, `metlife.com`) and current policy standing.
 
 **Status Indications:**
 - **In Force** — Coverage active, premiums current.
-- **Lapsed** — **ALERT:** Coverage terminated due to non-payment.
-- **Loans Outstanding** — **ALERT:** Policy has one or more outstanding loans reducing the net death benefit.
-- **Assignment on Record** — **ALERT:** A prior ownership transfer or collateral assignment exists.
+- **Lapsed** — Coverage terminated due to non-payment.
+- **Loans Outstanding** — Policy has one or more outstanding loans reducing the net death benefit.
+- **Assignment on Record** — A prior ownership transfer or collateral assignment exists.
 - **Paid-Up** — No further premiums required.
 
-## Second-Party Use
+## Who Holds It
 
-The **policyholder selling their policy** benefits from verification.
+The policyholder selling their policy benefits from verification.
 
 **Proving a clean policy:** A seller offering their policy on the secondary market can provide a verifiable settlement letter showing no outstanding loans, no prior assignments, and current premium status. This reduces buyer skepticism and speeds up the transaction.
 
@@ -72,7 +72,7 @@ The **policyholder selling their policy** benefits from verification.
 
 **Price negotiation:** A seller with a verifiable, unencumbered policy can negotiate from a stronger position than one whose documentation is unverifiable.
 
-## Third-Party Use
+## Who Checks It
 
 **Life Settlement Providers and Institutional Investors**
 
@@ -90,7 +90,7 @@ The **policyholder selling their policy** benefits from verification.
 
 **Input validation:** Medical underwriters pricing the longevity risk of the insured need confidence that the insured's age and policy details are as represented. A verified insured age eliminates one variable from the underwriting model.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Multiple Sale" Fraud Problem**
 
@@ -124,7 +124,7 @@ New York Life, a regulated life insurance carrier, is authorized by state insura
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Carrier Phone/Fax Inquiry | Broker-Provided PDF | LISA / Industry Database |
 | :--- | :--- | :--- | :--- | :--- |

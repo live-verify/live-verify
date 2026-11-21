@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Pest Inspection Certificate?
 
-In the real estate world, the **Wood Destroying Insect (WDI)** report (commonly called a "Termite Certificate") is a critical closing document. It is a formal certification by a licensed inspector stating whether a house has active infestations or past structural damage from termites, carpenter ants, or beetles.
+In the real estate world, the Wood Destroying Insect (WDI) report (commonly called a "Termite Certificate") is a critical closing document. It is a formal certification by a licensed inspector stating whether a house has active infestations or past structural damage from termites, carpenter ants, or beetles.
 
-Because a "Positive" finding can kill a home sale or require a $5,000 treatment, these reports are primary targets for fraud. Sellers often "edit" a report to turn "Active Infestation" into "None Found," or they "delete" a section that mentions $10,000 in hidden structural damage. Verified hashes bind the **Property Address, Inspection Findings, and Inspector's License** to the inspection firm's or the state board's domain (e.g., `orkin.com` or `pest-registry.gov`).
+Because a "Positive" finding can kill a home sale or require a $5,000 treatment, these reports are primary targets for fraud. Sellers often "edit" a report to turn "Active Infestation" into "None Found," or they "delete" a section that mentions $10,000 in hidden structural damage. Verified hashes bind the Property Address, Inspection Findings, and Inspector's License to the inspection firm's or the state board's domain (e.g., `orkin.com` or `pest-registry.gov`).
 
 <div style="max-width: 650px; margin: 24px auto; font-family: 'Times New Roman', Times, serif; border: 1px solid #333; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 30px;">
@@ -56,7 +56,13 @@ Because a "Positive" finding can kill a home sale or require a $5,000 treatment,
   </div>
 </div>
 
-## Data Verified
+## The Problem: Finding Scrubbing Fraud
+
+- **Infestation Masking:** Changing an "Active" checkbox to "None" on a PDF to hide a termite problem.
+- **Damage Deletion:** Removing a page of the report that shows a photo of a rotted sill plate.
+- **License Mimicry:** Creating a fake report using a reputable inspector's name and license number from a public board.
+
+## What Is Checked
 
 Report ID, property address, owner name (optional/masked), buyer name, inspection date, active infestation status (Yes/No), previous damage location/severity, treatment recommendations, inspector name/license, company name, date of signature.
 
@@ -66,25 +72,25 @@ Report ID, property address, owner name (optional/masked), buyer name, inspectio
 - **Termite Bond:** (Linked hash) the ongoing maintenance guarantee.
 - **Wood Infestation Letter:** A simplified summary for some lenders.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`orkin.com`, `terminix.com`, `state-ag-board.gov`) and the report standing.
 
 **Status Indications:**
 - **Verified / Clear** — Report matches the original digital record; no active bugs.
-- **Treatment Required** — **ALERT:** The original report recommended immediate chemical treatment.
-- **Damage Flagged** — **ALERT:** Structural issues were identified that require a contractor audit.
-- **Expired** — **ALERT:** Report is more than 30 days old; re-inspection required for closing.
+- **Treatment Required** — The original report recommended immediate chemical treatment.
+- **Damage Flagged** — Structural issues were identified that require a contractor audit.
+- **Expired** — Report is more than 30 days old; re-inspection required for closing.
 
-## Second-Party Use
+## Who Holds It
 
-The **Home Seller / Real Estate Agent** benefits from verification.
+The Home Seller / Real Estate Agent benefits from verification.
 
 **Closing Speed:** Before a bank releases a $500,000 mortgage, the underwriter scans the seller's WDI hash. "Verified by Orkin" ensures the bank that the house isn't "Bug Infested," removing the 3-day "Manual Report Vetting" delay and allowing the deal to close on schedule.
 
 **Disclosure Shield:** A seller can use the verified hash to prove exactly what they disclosed to the buyer at the time of sale, defending against a "Hidden Damage" lawsuit filed 2 years later.
 
-## Third-Party Use
+## Who Checks It
 
 **Mortgage Lenders / Underwriters**
 **Collateral Risk Audit:** Thousands of "Edited" PDF reports are submitted to banks every month. Live Verify connects the underwriter directly to the inspection firm's domain, stopping "Termite Fraud" at the source and protecting the bank's property lien.
@@ -95,13 +101,7 @@ The **Home Seller / Real Estate Agent** benefits from verification.
 **Title and Escrow Companies**
 **Closing Audit:** Verifying that the WDI report in the file is the final, un-altered version required by the lender's instructions.
 
-## Verification Architecture
-
-**The "Finding Scrubbing" Fraud Problem**
-
-- **Infestation Masking:** Changing an "Active" checkbox to "None" on a PDF to hide a termite problem.
-- **Damage Deletion:** Removing a page of the report that shows a photo of a rotted sill plate.
-- **License Mimicry:** Creating a fake report using a reputable inspector's name and license number from a public board.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

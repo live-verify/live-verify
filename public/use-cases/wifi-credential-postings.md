@@ -15,7 +15,7 @@ This use case is less about verifying a document and more about what happens *af
 
 The value is in the **post-verification action**: the venue's endpoint issues a network access token, and the access point's walled garden opens up. Before verification, you can reach exactly one domain. After verification, you have full internet access. The verification is the authentication step. The network access is the product.
 
-This makes Wi-Fi credential postings a **Live Verify Action** use case — the verification itself is a means to an end, not the end. It is also a reminder that the hard problem here is product and platform integration: captive portals, OS onboarding, access-point token handling, and router setup flows. Without that integration, the verification layer alone does not solve much.
+This makes Wi-Fi credential postings a Live Verify Action use case — the verification itself is a means to an end, not the end. It is also a reminder that the hard problem here is product and platform integration: captive portals, OS onboarding, access-point token handling, and router setup flows. Without that integration, the verification layer alone does not solve much.
 
 ### The Problem It Solves
 
@@ -59,11 +59,11 @@ The customer scans the posting with their phone camera. The `verify:` line resol
 
 ### Step 2 — Connect to the Network
 
-The customer connects using the SSID and password from the verified posting. They're now on the venue's network — but in a **walled garden**. They can reach the venue's verification domain and nothing else. No internet. No email. No banking app. Just the one domain they need for Step 3.
+The customer connects using the SSID and password from the verified posting. They're now on the venue's network — but in a walled garden. They can reach the venue's verification domain and nothing else. No internet. No email. No banking app. Just the one domain they need for Step 3.
 
 ### Step 3 — The Action: Token Exchange Opens the Internet
 
-This is the point of the whole use case. The verification response includes a **network access token** — and the customer's device presents it to the access point to unlock full internet access.
+This is the point of the whole use case. The verification response includes a network access token — and the customer's device presents it to the access point to unlock full internet access.
 
 ```
 HTTP 200 OK
@@ -93,7 +93,7 @@ to 7 days and receive the next passphrase rotation.
 
 ### How the Walled Garden Works
 
-The access point runs a **walled garden** — the industry term for a captive portal's DNS/IP allow-list. Before the token exchange, a connected device can reach exactly one destination: the venue's verification endpoint. Every other DNS query resolves to the captive portal page. Every other IP is blocked.
+The access point runs a walled garden — the industry term for a captive portal's DNS/IP allow-list. Before the token exchange, a connected device can reach exactly one destination: the venue's verification endpoint. Every other DNS query resolves to the captive portal page. Every other IP is blocked.
 
 This is infrastructure that already exists. Hotel Wi-Fi and airport Wi-Fi work this way today. But the deployment burden is the point: the use case only works if the venue controls the captive portal, token validation, and OS onboarding flow. This is why the problem is primarily integration, not document integrity.
 
@@ -113,7 +113,7 @@ The posting on the wall authenticates the network. Today, nothing does.
 
 A printed card with a static password is fine for a café that changes it monthly. But for venues with higher security requirements — co-working spaces, corporate visitor networks, hospital staff Wi-Fi — the passphrase should rotate regularly.
 
-An **eInk display** mounted on the wall replaces the printed card. The venue's system rotates the WPA passphrase — hourly, daily, weekly — and the eInk display updates to show the new credentials. The `verify:` hash updates simultaneously at the endpoint.
+An eInk display mounted on the wall replaces the printed card. The venue's system rotates the WPA passphrase — hourly, daily, weekly — and the eInk display updates to show the new credentials. The `verify:` hash updates simultaneously at the endpoint.
 
 <div style="max-width: 550px; margin: 24px auto; border: 2px solid #333; background: #f5f5f0; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="wifi2"></span>WEWORK MOORGATE — MEMBER WI-FI
@@ -182,7 +182,7 @@ This turns the router sticker from a squint-and-type chore into a scan-and-conne
 
 ### Both Patterns in One Home
 
-A homeowner buys a router. They scan the manufacturer's sticker on the underside — `devices.tp-link.com` verifies, the post-verification action auto-connects their phone and nudges them to change the default password. That's the **router setup** use of this pattern.
+A homeowner buys a router. They scan the manufacturer's sticker on the underside — `devices.tp-link.com` verifies, the post-verification action auto-connects their phone and nudges them to change the default password. That's the router setup use of this pattern.
 
 Then they print a card for the kitchen — `wifi: OakHouse-Guest / welcome2025` with a `verify:` line — and stick it on the fridge. When friends visit, parents come to stay, or a plumber needs to look something up, they scan the card instead of asking "what's the Wi-Fi password?" and watching someone dictate it character by character.
 
@@ -190,7 +190,7 @@ An Airbnb host does the same thing but at higher volume. So does a pub, a café,
 
 Same technology, two moments. The router sticker got the owner online. The kitchen card gets everyone else online.
 
-## Data Verified
+## What Is Checked
 
 SSID, passphrase, issuing venue or manufacturer name, credential validity period, rotation schedule (if applicable), access point identifier, device serial and MAC (for router stickers).
 
@@ -209,9 +209,9 @@ SSID, passphrase, issuing venue or manufacturer name, credential validity period
 - **REVOKED** — Network has been taken offline (venue closed, security incident).
 - **404** — Credentials not recognised. Possible evil twin — the posting the customer scanned doesn't match any credential set published by this venue.
 
-## Second-Party Use
+## Who Holds It
 
-The **venue operator** (issuer) benefits:
+The venue operator (issuer) benefits:
 
 **Evil twin protection for customers.** Venues currently have no way to assure customers their network is legitimate. A verified Wi-Fi posting is the first credible answer to "how do I know this is really your network?"
 
@@ -221,7 +221,7 @@ The **venue operator** (issuer) benefits:
 
 **Visitor analytics.** Scan counts per hour, email opt-in rates, session durations — all without inspecting traffic. The access token provides aggregate usage data; the walled garden means no device connects without a verified scan.
 
-## Third-Party Use
+## Who Checks It
 
 **Customers / Guests**
 The primary beneficiary. A business traveller connecting to hotel Wi-Fi with banking credentials on their device. A journalist at a conference who can't afford to have their traffic intercepted. A parent whose child's tablet auto-connects to any open network with a familiar SSID.
@@ -235,7 +235,7 @@ Conferences, trade shows, festivals. Hundreds of attendees connecting to a tempo
 **Hotel Chains**
 A Marriott guest in any city scans the room card and sees `wifi.marriott.com` in the chain. They know it's Marriott's network, not a rogue hotspot set up by a guest in the next room. The chain's domain is the trust anchor across all properties.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Trust Gap in Wireless Networking**
 
@@ -296,7 +296,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Not typically required for Wi-Fi credential postings. The credentials are ephemeral (they rotate), non-personal (the SSID and password are the same for all guests), and the security value is in the real-time verification, not in a historical audit trail.
 
-However, for **corporate visitor networks** subject to compliance requirements (financial services, healthcare), the witnessing firm could attest that credential rotation occurred on schedule and that the walled garden was enforced — providing evidence for regulatory audits of network security practices.
+However, for corporate visitor networks subject to compliance requirements (financial services, healthcare), the witnessing firm could attest that credential rotation occurred on schedule and that the walled garden was enforced — providing evidence for regulatory audits of network security practices.
 
 ## Implementation Reality
 

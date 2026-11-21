@@ -47,11 +47,11 @@ As At:          21 Mar 2026
 
 **Condition detail is excluded from the verifiable text.** The snapshot confirms how many conditions exist and how many remain outstanding, but does not enumerate the individual conditions (e.g., materials samples, drainage scheme, landscaping). A solicitor who sees outstanding conditions would request the full condition discharge history from the council through the normal channels. The verifiable snapshot flags the issue; the detail follows through established processes.
 
-## Data Verified
+## What Is Checked
 
 Property address, application reference number, description of development, permission status and date of decision, number of conditions and how many are discharged or outstanding, implementation expiry date, and the as-at date of the snapshot.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`york.gov.uk`) and confirms whether the planning permission status claim is current.
 
@@ -60,13 +60,13 @@ Shows the issuer domain (`york.gov.uk`) and confirms whether the planning permis
 - **APPROVED, conditions OUTSTANDING** — Permission was granted but one or more conditions remain undischarged. This is a flag, not a legal conclusion — some outstanding conditions are serious (pre-commencement conditions that may affect validity), some are regularisable, and some are immaterial to the current risk. A solicitor seeing this flag would investigate the specific conditions through established channels.
 - **REFUSED / WITHDRAWN / EXPIRED** — Other statuses that may appear for applications that did not proceed or where the implementation window has passed.
 
-## Second-Party Use
+## Who Holds It
 
-The **property owner** (or the seller's solicitor) uses this to demonstrate that building work was properly permitted and that conditions have been met. When a buyer asks about the rear extension or loft conversion, the seller clips the planning permission snapshot and shares it. The recipient verifies the hash against the council's domain within seconds, confirming the permission status without navigating the council's planning portal.
+The property owner (or the seller's solicitor) uses this to demonstrate that building work was properly permitted and that conditions have been met. When a buyer asks about the rear extension or loft conversion, the seller clips the planning permission snapshot and shares it. The recipient verifies the hash against the council's domain within seconds, confirming the permission status without navigating the council's planning portal.
 
 Builders and contractors can also use this to show prospective clients or building control that planning permission is in place before work begins.
 
-## Third-Party Use
+## Who Checks It
 
 **Buyer's Solicitors**
 The primary consumer during conveyancing. A solicitor acting for a buyer needs to confirm that any building work visible at the property was carried out with proper planning permission and that conditions were discharged. Outstanding conditions are a flag for further investigation. Some may be serious (pre-commencement conditions that could affect validity), others may be regularisable or immaterial. Because the snapshot deliberately omits condition detail, it should be read as a prompt to investigate, not as a legal conclusion about the permission's validity.
@@ -80,7 +80,7 @@ A neighbour who was notified of a planning application can verify what was actua
 **Building Control**
 Building control officers can confirm that planning permission exists before issuing a building control completion certificate. The two regimes (planning and building control) are separate but related, and a verified planning snapshot reduces the risk of work proceeding under building regulations alone without the necessary planning consent.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Was It Approved?" Problem**
 
@@ -109,7 +109,7 @@ The local planning authority (here, City of York Council) is the authoritative s
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Manual Verification
+## Compared With Manual Verification
 
 | Feature | Live Verify | Council Planning Portal | Local Authority Search (CON29) |
 | :--- | :--- | :--- | :--- |

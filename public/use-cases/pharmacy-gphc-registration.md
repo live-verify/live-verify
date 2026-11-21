@@ -127,7 +127,25 @@ verify:pharmacyregulation.org/pharmacies/v
 
 A pharmacy whose registration has been suspended after disciplinary action may continue operating its website for weeks or months before patients notice. The verification endpoint returns the current status — not the status when the claim was first issued. This matters because pharmacies can be suspended for serious failings: dispensing errors, controlled drug mismanagement, or operating without a superintendent pharmacist.
 
-## Data Verified
+## The Problem: Fake Online Pharmacy
+
+Online pharmacy fraud is a well-documented public health risk:
+
+- **Completely fake pharmacies** — Websites with no registration at all, selling counterfeit or unlicensed medication. These sites often appear in search results and social media advertising.
+- **Stolen registration numbers** — A fake site displays a genuine GPhC registration number belonging to a different pharmacy. The number checks out on the register, but the website is not the registered pharmacy.
+- **Suspended pharmacies continuing to trade** — A pharmacy's registration is suspended after a GPhC Fitness to Practise hearing, but the website continues to accept orders. The registration number is genuine but no longer active.
+- **Operating from unregistered premises** — A pharmacy registered at one address operates a fulfilment warehouse at another. The registration covers the registered premises, not the actual dispensing location.
+- **Counterfeit medicines** — The WHO estimates that up to 1 in 10 medical products in low- and middle-income countries is substandard or falsified. Fake online pharmacies are a primary distribution channel.
+
+The verifiable claim addresses these because:
+
+1. The GPhC issues the claim — it is not self-asserted by the pharmacy
+2. The claim names the specific website domain where it applies
+3. Suspension and revocation are immediate — the endpoint returns the current status
+4. The browser extension detects domain mismatches when claims are copied to fake sites
+5. The `allowedDomains` field is particularly important here — the domain IS the pharmacy for online operations
+
+## What Is Checked
 
 Pharmacy name, GPhC registration number, registered website domain, registered premises address, superintendent pharmacist on record, and current registration status.
 
@@ -136,7 +154,7 @@ Pharmacy name, GPhC registration number, registered website domain, registered p
 
 **Privacy Salt:** Generally not required. Pharmacy registrations are public-facing commercial claims. The GPhC register is already publicly searchable. The pharmacy actively wants to display its registration.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`pharmacyregulation.org`) and the pharmacy's current registration status.
 
@@ -157,9 +175,9 @@ Shows the issuer domain (`pharmacyregulation.org`) and the pharmacy's current re
 - **Voluntary Removal** — The pharmacy has voluntarily deregistered. Registration is no longer active.
 - **404** — No such registration exists on the GPhC register.
 
-## Second-Party Use
+## Who Holds It
 
-The **pharmacy** benefits directly by proving its legitimacy.
+The pharmacy benefits directly by proving its legitimacy.
 
 **Online pharmacy trust:** An online pharmacy embeds the GPhC-issued claim on its website. Patients clip the claim before ordering. The response confirms active registration and domain match. For online pharmacies, where there is no physical premises to inspect, this is the primary trust signal available at the point of purchase.
 
@@ -167,7 +185,7 @@ The **pharmacy** benefits directly by proving its legitimacy.
 
 **Legitimate pharmacy differentiation:** Pharmacies competing with unregistered operators can point to their verifiable claim as evidence of registration. The claim is issued by the regulator, not self-asserted.
 
-## Third-Party Use
+## Who Checks It
 
 **Patients Buying Medication Online**
 
@@ -189,27 +207,7 @@ The **pharmacy** benefits directly by proving its legitimacy.
 
 **Pharmacy supplier vetting:** Care homes and hospitals procuring medicines from external pharmacies can verify registration status at point of order rather than relying on periodic manual checks against the register.
 
-## Verification Architecture
-
-**The Fake Online Pharmacy Problem**
-
-Online pharmacy fraud is a well-documented public health risk:
-
-- **Completely fake pharmacies** — Websites with no registration at all, selling counterfeit or unlicensed medication. These sites often appear in search results and social media advertising.
-- **Stolen registration numbers** — A fake site displays a genuine GPhC registration number belonging to a different pharmacy. The number checks out on the register, but the website is not the registered pharmacy.
-- **Suspended pharmacies continuing to trade** — A pharmacy's registration is suspended after a GPhC Fitness to Practise hearing, but the website continues to accept orders. The registration number is genuine but no longer active.
-- **Operating from unregistered premises** — A pharmacy registered at one address operates a fulfilment warehouse at another. The registration covers the registered premises, not the actual dispensing location.
-- **Counterfeit medicines** — The WHO estimates that up to 1 in 10 medical products in low- and middle-income countries is substandard or falsified. Fake online pharmacies are a primary distribution channel.
-
-The verifiable claim addresses these because:
-
-1. The GPhC issues the claim — it is not self-asserted by the pharmacy
-2. The claim names the specific website domain where it applies
-3. Suspension and revocation are immediate — the endpoint returns the current status
-4. The browser extension detects domain mismatches when claims are copied to fake sites
-5. The `allowedDomains` field is particularly important here — the domain IS the pharmacy for online operations
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | GPhC Register Lookup | EU Common Logo | Internet Pharmacy Logo (Voluntary) |
 | :--- | :--- | :--- | :--- | :--- |

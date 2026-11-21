@@ -18,7 +18,7 @@ statements, select the one line that matters, right-click, and choose "Make Live
 get back a short, self-contained plain-text claim you can email or print, which a third party can
 verify against your bank's domain.
 
-The proof is **narrow by design** — one transaction, not your whole statement. And it is
+The proof is narrow by design — one transaction, not your whole statement. And it is
 **holder-triggered but issuer-published**: you choose the line and request it, but the *bank's* system
 produces the canonical text and publishes the matching hash on the *bank's own domain*. That split is
 what makes it trustworthy — see [Trust model](#trust-model-holder-triggered-issuer-published) below.
@@ -42,15 +42,15 @@ bank is vouching for*, made explicit by the label on each line (see
 
 ## Trust model: holder-triggered, issuer-published
 
-The holder does **not** self-host or self-certify this proof. A self-asserted bank balance backed by
+The holder does not self-host or self-certify this proof. A self-asserted bank balance backed by
 nobody would be worthless. Instead:
 
 1. The holder, logged into online banking, selects a transaction and requests a proof.
-2. The **bank's** system generates the canonical claim text from its own system of record, computes
+2. The bank's system generates the canonical claim text from its own system of record, computes
    the hash, and publishes it at `verify:proofs.<bank>/c`.
 3. The holder receives the plain text to forward or print.
 
-So "right-click → make proof" is a **feature the bank builds into online banking**, closely related to
+So "right-click → make proof" is a feature the bank builds into online banking, closely related to
 [Retrospective Verification](../retrospective-verification-saas.md) — the difference is that this is
 **holder-initiated, on-demand, and single-line**, rather than a bulk issuer backfill. The trust root
 is the bank, exactly as with an ordinary [bank statement](view.html?doc=bank-statements); the holder
@@ -63,22 +63,22 @@ separate is a fraud-and-confusion safeguard:
 
 | Date | Answers | Example |
 |---|---|---|
-| **Event date** | Did it happen, and when? | Payment on **3 Mar 2026** |
-| **As-of date** | When was an issuer status-line true? | No CIFAS marker **as of 3 Mar 2026** |
-| **Produced date** | How fresh is this document I'm holding? | Produced at holder's request **9 Aug 2026** |
+| **Event date** | Did it happen, and when? | Payment on 3 Mar 2026 |
+| **As-of date** | When was an issuer status-line true? | No CIFAS marker as of 3 Mar 2026 |
+| **Produced date** | How fresh is this document I'm holding? | Produced at holder's request 9 Aug 2026 |
 
-The **produced date** is the one that gives the artifact its chain of custody. Because it is *inside*
+The produced date is the one that gives the artifact its chain of custody. Because it is *inside*
 the hash and *set by the bank*, the holder cannot back-date a proof — a different produced date is a
 different hash, and the endpoint has no record of it. A verifier handed the proof months later sees
 exactly how old it is, rather than trusting the sender's framing.
 
-Phrasing matters: the bank vouches that a proof **was produced on** that date at the holder's request.
-It does **not** vouch for *why* — "someone told me I needed it" is holder context, and belongs in the
+Phrasing matters: the bank vouches that a proof was produced on that date at the holder's request.
+It does not vouch for *why* — "someone told me I needed it" is holder context, and belongs in the
 optional holder note below, not in the issuer-verified text.
 
 ## Expiry: the holder sets a validity window
 
-The distinctive control here is **holder-set expiry**. At mint time the holder chooses one or both:
+The distinctive control here is holder-set expiry. At mint time the holder chooses one or both:
 
 - **After N verifications** — the endpoint answers `verified` up to N times, then returns `404`.
 - **After NN days** — the endpoint returns `404` once the window closes.
@@ -97,7 +97,7 @@ not un-see what was seen.
 
 ## Key:value structure, and per-line trust
 
-Because a minted proof is far more likely to be **machine-read** — ingested by a finance system, parsed
+Because a minted proof is far more likely to be machine-read — ingested by a finance system, parsed
 by an automated verifier — than a decorative prose credential, the claim is laid out as **labelled
 `Key: value` lines**. This makes it reliably parseable *and* makes the trust status of each line
 explicit from its label.
@@ -116,7 +116,7 @@ that distinction:
 ## Holder note: inside the hash, caveated inline
 
 The holder may attach a short comment — *"re: your invoice #58"*, *"my half of the dinner on the
-3rd"*. It is genuinely useful, and it goes **inside** the hashed, bank-answered text — so it is
+3rd"*. It is genuinely useful, and it goes inside the hashed, bank-answered text — so it is
 tamper-evident and cannot be swapped in transit.
 
 The safeguard is not to fence it *out* of the verified block, but to **caveat it inline with
@@ -126,7 +126,7 @@ bank-authored framing**:
 Holder-Note (Bank notes this text is holder-entered): re: your invoice #58
 ```
 
-What the bank hashes and vouches for here is the **framing** — *"this text is holder-entered"* — not
+What the bank hashes and vouches for here is the framing — *"this text is holder-entered"* — not
 the note's content. So the bank truthfully attests *"the account-holder wrote this note,"* and never
 *"this note is true."* This is the same discipline as a signed email: the signature proves the sender,
 not the truth of the message. Because the caveat is itself part of the hashed text, a holder cannot
@@ -140,33 +140,40 @@ separation, and the inline `Key (caveat): value` form carries the trust boundary
 ## Optional issuer status-line (bank-attested, `as of` a date)
 
 Unlike the holder note, the bank *can* attach its own status assertions to the verified text, because
-the bank is the party that knows them. The canonical UK example is a **CIFAS-negative** line:
+the bank is the party that knows them. The canonical UK example is a CIFAS-negative line:
 
 ```
 No CIFAS marker recorded against this account in Barclays' records as of 3 Mar 2026
 ```
 
-This is bank-vouched and lives **inside** the hash. Three guardrails apply, and they are load-bearing:
+This is bank-vouched and lives inside the hash. Three guardrails apply, and they are load-bearing:
 
 - **Mandatory `as of DATE`, and scoped precisely.** A negative assertion ("no marker") ages badly — a
-  marker could be added the next day. It must read "no marker recorded **against this account** in
-  **this bank's** records **as of DATE**", never the inflated "this person has no fraud history." This
+  marker could be added the next day. It must read "no marker recorded against this account in
+  **this bank's** records as of DATE", never the inflated "this person has no fraud history." This
   is the [point-in-time-vs-current](../docs/point-in-time-vs-current.md) problem in its sharpest form,
-  and it argues for pairing a status-line with a **short expiry**.
+  and it argues for pairing a status-line with a short expiry.
 - **Absence-of-record is weaker than presence.** "No CIFAS marker" means *this bank found none in the
   database it checked* — not that none exists anywhere, is pending, or is held by another member.
 - **Only what the issuer is entitled *and legally permitted* to assert.** A bank must have the right to
   surface third-party fraud-database data (subject to the subject's own data-protection interests — see
   [dataHandling](../docs/verification-meta-schemas.md)). Some signals are deliberately
-  **un-transportable**: a US **SAR** (suspicious activity report) is legally confidential, and surfacing
-  it could be an illegal *tipping-off* — so "no SAR" must **not** be offered as a proof line. The
+  **un-transportable**: a US SAR (suspicious activity report) is legally confidential, and surfacing
+  it could be an illegal *tipping-off* — so "no SAR" must not be offered as a proof line. The
   pattern is "issuer meta is transportable when the issuer may lawfully assert it; some AML signals
   never are."
 
 Generalises to: "account in good standing as of DATE", "account opened before DATE" (account-age proof
 for lending), and similar bank-owned status facts.
 
-## Data Verified
+## The Problem
+
+- **Screenshot forgery** — an edited statement screenshot is trivial; a bank-domain-answered hash is not.
+- **Staff-issued-letter friction** — slow, costly, human-in-the-loop for what should be self-service.
+- **Over-disclosure** — sending a whole statement to prove one payment leaks every other line.
+- **Stale proof presented as current** — the produced-on date and expiry make age and validity explicit.
+
+## What Is Checked
 
 - **Transaction line** — amount, counterparty, date, masked account — the core fact, bank-attested.
 - **Produced-on timestamp** — when the proof was minted at the holder's request (inside the hash).
@@ -175,7 +182,7 @@ for lending), and similar bank-owned status facts.
 - **Optional holder note** — free text, inside the hash, inline-caveated as holder-entered (the bank
   vouches the holder wrote it, not that it is true).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`proofs.barclays.co.uk`) and the status.
 
@@ -185,9 +192,9 @@ Shows the issuer domain (`proofs.barclays.co.uk`) and the status.
 - **Withdrawn** — the holder revoked the proof before expiry
 - **404** — never issued, altered text, or expired (indistinguishable by design at maximal privacy)
 
-## Second-Party Use
+## Who Holds It
 
-The **account-holder** is the second party and the whole point:
+The account-holder is the second party and the whole point:
 
 - **Produce proof on demand, long after the event**, without waiting on bank staff or paying for a
   letter.
@@ -196,7 +203,7 @@ The **account-holder** is the second party and the whole point:
 - **Bound the exposure** with expiry, so the proof is good for the one purpose it was minted for.
 - **Add context** via the inline-caveated holder note without implicating the bank in its truth.
 
-## Third-Party Use
+## Who Checks It
 
 **Whoever asked for the proof** (landlord, counterparty, small-claims court, an employer's finance
 team) verifies against the bank's domain and sees:
@@ -212,14 +219,7 @@ is authentic says nothing about whether the *use* of it is legitimate (whether a
 warranted, whether the note's framing is fair). The green tick means "this transaction really happened
 and the bank stands behind these lines" — not "this claim about the transaction should be accepted."
 
-## Verification Architecture
-
-**The problem this addresses**
-
-- **Screenshot forgery** — an edited statement screenshot is trivial; a bank-domain-answered hash is not.
-- **Staff-issued-letter friction** — slow, costly, human-in-the-loop for what should be self-service.
-- **Over-disclosure** — sending a whole statement to prove one payment leaks every other line.
-- **Stale proof presented as current** — the produced-on date and expiry make age and validity explicit.
+## How Verification Works Here
 
 **What it explicitly does not address**
 

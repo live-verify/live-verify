@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What are Vehicle Display Postings?
 
-In the urban transport economy, **Vehicle Postings** are the "ID Cards" for cars. From the **Taxi Medallion** on the hood to the **For-Hire Vehicle (FHV) Permit** on the dashboard, these documents prove the vehicle is legally licensed, insured, and safe for passengers.
+In the urban transport economy, Vehicle Postings are the "ID Cards" for cars. From the Taxi Medallion on the hood to the For-Hire Vehicle (FHV) Permit on the dashboard, these documents prove the vehicle is legally licensed, insured, and safe for passengers.
 
 These postings are the primary defense against "Ghost Taxis"—unlicensed cars that roam city streets to prey on tourists or late-night travelers. Fraud is high-stakes: criminals often use fake dashboard cards to bypass airport security or to trick passengers into entering an un-insured vehicle.
 
@@ -48,7 +48,15 @@ The issuing registry remains the source of truth. Live Verify allows a passenger
   </div>
 </div>
 
-## Data Verified
+## The Problem: Ghost Cab Fraud
+
+- **Dashboard Mimicry:** Printing realistic city permits using a high-end color printer to pose as a legitimate taxi.
+- **ID Duplication:** Using one valid card for 10 different vehicles in an illegal fleet.
+- **Revocation Hiding:** A driver whose license was revoked for safety violations keeping their physical card to continue working "Off-Book."
+- **Placard Misuse:** Using a deceased relative's disabled placard, a borrowed permit, or a forged accessibility card to occupy reserved spaces.
+- **Zone Abuse:** Displaying a posting that looks official to occupy pickup lanes, loading bays, or parent-and-infant spaces without current entitlement.
+
+## What Is Checked
 
 License number, driver name, vehicle license plate (linked), vehicle VIN, photograph (via hash), expiration date, background check status, insurance policy ID, carrier/company name (e.g., Yellow Cab #42).
 
@@ -60,23 +68,23 @@ License number, driver name, vehicle license plate (linked), vehicle VIN, photog
 - **Accessible / Disabled Parking Placard:** Proving the right to occupy a reserved bay.
 - **Site-Specific Parking Authorization:** Parent-and-infant, contractor, staff, loading, or hotel/venue pickup permissions where the operator uses visible vehicle postings.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`nyctlc.gov`, `london.gov.uk`, `uber.com`) and the driver's standing.
 
 **Status Indications:**
 - **Active Duty** — Driver and vehicle are currently authorized for hire.
-- **Suspended** — **CRITICAL:** Authority is revoked (e.g., due to expired insurance).
+- **Suspended** — Authority is revoked (e.g., due to expired insurance).
 - **Expired** — Mandatory annual renewal or background check is overdue.
-- **Plate Mismatch** — **ALERT:** The card is valid, but belongs to a DIFFERENT vehicle.
+- **Plate Mismatch** — The card is valid, but belongs to a DIFFERENT vehicle.
 - **Zone Authorized** — Vehicle is currently entitled to occupy this reserved bay / queue / pickup area.
 - **Zone Not Authorized** — Posting exists but does not grant the claimed parking / loading / waiting right.
 
-## Second-Party Use
+## Who Holds It
 
-The **Passenger / Driver / Permit Holder** benefits from verification.
+The Passenger / Driver / Permit Holder benefits from verification.
 
-**Anti-Kidnapping Safety:** A rider alone at night is about to enter a "Taxi" that looks slightly different. They scan the dashboard hash through the window. If it returns **"ACTIVE - SARAH SMITH,"** they can enter with confidence. If it returns **"UNKNOWN,"** they stay on the sidewalk and call a verified ride.
+**Anti-Kidnapping Safety:** A rider alone at night is about to enter a "Taxi" that looks slightly different. They scan the dashboard hash through the window. If it returns "ACTIVE - SARAH SMITH," they can enter with confidence. If it returns "UNKNOWN," they stay on the sidewalk and call a verified ride.
 
 **Over-Charge Disputes:** A passenger can use the verified hash of the driver's ID to file a complaint about an illegal "flat rate" or detour, ensuring they have the cryptographic proof of exactly which driver was operating the vehicle.
 
@@ -84,7 +92,7 @@ The **Passenger / Driver / Permit Holder** benefits from verification.
 
 **Reserved-Bay Disputes:** A parent with an infant, hotel guest in a pickup zone, or contractor in a loading bay can show that the visible posting really does grant access to that specific class of space.
 
-## Third-Party Use
+## Who Checks It
 
 **Traffic Wardens / Parking Enforcement**
 **Spot Integrity:** A warden scans the visible posting without waiting for the driver to return. Verification confirms whether the vehicle is legitimately occupying an accessible bay, loading area, parent-and-infant space, or other reserved zone that the site or authority actively enforces.
@@ -96,20 +104,12 @@ The **Passenger / Driver / Permit Holder** benefits from verification.
 **Rapid Vetting:** During a traffic stop, the officer scans the dashboard card. Verified hashes eliminate the risk of "Paper Swapping" where an unlicensed driver uses a relative's valid card.
 
 **Airport Ground Transportation / Site Marshals**
-**Queue Integrity:** Security staff at airport terminals, hospitals, hotels, or stadium pickup lanes can scan vehicles in holding lots or pickup zones. If a vehicle's hash returns **"SUSPENDED"** or **"ZONE NOT AUTHORIZED,"** they can remove the vehicle from the queue, ensuring only safe, insured, or currently entitled vehicles use the controlled area.
+**Queue Integrity:** Security staff at airport terminals, hospitals, hotels, or stadium pickup lanes can scan vehicles in holding lots or pickup zones. If a vehicle's hash returns "SUSPENDED" or "ZONE NOT AUTHORIZED," they can remove the vehicle from the queue, ensuring only safe, insured, or currently entitled vehicles use the controlled area.
 
 **Insurance Companies (Commercial)**
 **Loss Control Audit:** Verifying that a fleet of 500 taxis is maintaining 100% verified, active dash-permits to ensure coverage remains valid.
 
-## Verification Architecture
-
-**The "Ghost Cab" Fraud Problem**
-
-- **Dashboard Mimicry:** Printing realistic city permits using a high-end color printer to pose as a legitimate taxi.
-- **ID Duplication:** Using one valid card for 10 different vehicles in an illegal fleet.
-- **Revocation Hiding:** A driver whose license was revoked for safety violations keeping their physical card to continue working "Off-Book."
-- **Placard Misuse:** Using a deceased relative's disabled placard, a borrowed permit, or a forged accessibility card to occupy reserved spaces.
-- **Zone Abuse:** Displaying a posting that looks official to occupy pickup lanes, loading bays, or parent-and-infant spaces without current entitlement.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

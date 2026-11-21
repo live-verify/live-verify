@@ -57,11 +57,11 @@ As At:         21 Mar 2026
 <span data-verify-line="status-distressed">verify:companieshouse.gov.uk/status/v</span> <span verifiable-text="end" data-for="status-distressed"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Company name, company number, active/inactive status, filed accounts status, CCJ count, winding-up petition status, administration status, source authority for each dimension, and the as-at date of the snapshot. Companies House can authoritatively attest to incorporation and filing status; CCJ and insolvency dimensions are sourced from courts and the Insolvency Service respectively. The composite view aggregates these, but each fact is traceable to its originating authority.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuing authority domain (`companieshouse.gov.uk`, `sos.ca.gov`, etc.) and confirms whether the company status claim is current.
 
@@ -72,11 +72,11 @@ Shows the issuing authority domain (`companieshouse.gov.uk`, `sos.ca.gov`, etc.)
 - **PETITION FILED** — A winding-up petition has been filed with the court.
 - **IN ADMINISTRATION** — An administrator has been appointed.
 
-## Second-Party Use
+## Who Holds It
 
-The **company itself** uses this to prove its good standing when bidding for contracts, onboarding with a new supplier, or applying for credit facilities. The company clips the verified status and shares it with the counterparty, who checks the hash against the Companies House domain. This replaces emailing a PDF company search that the recipient has no way to authenticate.
+The company itself uses this to prove its good standing when bidding for contracts, onboarding with a new supplier, or applying for credit facilities. The company clips the verified status and shares it with the counterparty, who checks the hash against the Companies House domain. This replaces emailing a PDF company search that the recipient has no way to authenticate.
 
-## Third-Party Use
+## Who Checks It
 
 **Procurement Teams**
 Before awarding a contract, a procurement team needs assurance that the winning bidder is not subject to a winding-up petition or in administration. A verified status snapshot provides that assurance without relying on a credit agency's stale report.
@@ -90,7 +90,7 @@ A landlord letting commercial premises needs to know the prospective tenant is s
 **Counterparties in Supply Chains**
 A manufacturer extending 60-day payment terms to a distributor can verify the distributor's company status before shipping goods on credit.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Hidden Distress" Problem**
 
@@ -119,7 +119,7 @@ Companies House, the UK's statutory registrar of companies, is authorized to iss
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Manual Verification
+## Compared With Manual Verification
 
 | Feature | Live Verify | PDF Company Search | Credit Report |
 | :--- | :--- | :--- | :--- |

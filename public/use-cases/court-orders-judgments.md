@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Court Order?
 
-A **Court Order** is a legal command issued by a judge that compels a person or entity to take a specific action (or stop doing something). It is the "Voice of the Law."
+A Court Order is a legal command issued by a judge that compels a person or entity to take a specific action (or stop doing something). It is the "Voice of the Law."
 
 It is used for life-altering events:
 1.  **Divorce Decrees:** Dividing assets and ending a marriage.
@@ -21,7 +21,7 @@ It is used for life-altering events:
 
 **"Judgment Fraud"** is a high-stakes crime. Fraudsters edit "Final Judgments" to change dollar amounts from $5,000 to $50,000, or they create fake "Eviction Orders" to illegally remove tenants. In some cases, criminals forge "Name Change" orders to steal identities.
 
-Live Verify binds the **Judge's name, the Case ID, and the exact verdict text** to the court's official domain. A bank or a police officer can instantly verify that the paper order they are holding matches the **final, un-altered ruling** in the clerk's database.
+Live Verify binds the Judge's name, the Case ID, and the exact verdict text to the court's official domain. A bank or a police officer can instantly verify that the paper order they are holding matches the final, un-altered ruling in the clerk's database.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Georgia', serif; border: 1px solid #333; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="text-align: center; margin-bottom: 30px;">
@@ -58,7 +58,13 @@ Live Verify binds the **Judge's name, the Case ID, and the exact verdict text** 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Order Fraud
+
+- **Amount Inflation:** Editing a $1,000 small claims judgment to $10,000 to trick a collections agency.
+- **Status Faking:** Presenting a "Temporary Order" as a "Final Order" to hide that a trial is still ongoing.
+- **Clerk Seal Forgery:** Creating fake "Raised Seals" using a digital template to make a fraudulent order look official.
+
+## What Is Checked
 
 Case Number, Court Jurisdiction, Judge Name, Names of Parties, Verdict/Amount (numerical and text), Date of Filing, Clerk ID, specific conditions (e.g., "Effective Immediately").
 
@@ -92,32 +98,26 @@ None typically. The verification confirms the order's status; that's the decisio
 
 The status code is the value. If it's OK, enforce. If it's VACATED or 404, don't. No POST form or additional workflow needed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Winning Party (Plaintiff/Creditor)** benefits from verification.
+The Winning Party (Plaintiff/Creditor) benefits from verification.
 
 **Asset Seizure:** Proving to a bank or a sheriff that the "Writ of Execution" is verified and authentic. This prevents the "Verification Call" to the court clerk that often delays the freezing of funds by 24-48 hours, giving the debtor time to hide assets.
 
 **Identity Updates:** Providing a verified "Name Change Order" to the DMV or Social Security office to update records instantly.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks and Financial Institutions**
 **Compliance Vetting:** Before obeying a "Garnishment Order," the bank scans the hash. "Verified by Courts.gov" ensures the bank isn't participating in a "Fake Debt" scam designed to drain a customer's account.
 
 **Police Officers**
-**Enforcement Decisions:** During a domestic dispute, an officer scans a "Restraining Order" paper. Verification confirms the order is **Active and Not Vacated**, allowing the officer to make an arrest with confidence.
+**Enforcement Decisions:** During a domestic dispute, an officer scans a "Restraining Order" paper. Verification confirms the order is Active and Not Vacated, allowing the officer to make an arrest with confidence.
 
 **Landlords and Employers**
 **Background Integrity:** Verifying that a "Dismissal Order" provided by a candidate is authentic and not a "Photoshopped" document designed to hide a criminal conviction.
 
-## Verification Architecture
-
-**The "Fake Order" Fraud Problem**
-
-- **Amount Inflation:** Editing a $1,000 small claims judgment to $10,000 to trick a collections agency.
-- **Status Faking:** Presenting a "Temporary Order" as a "Final Order" to hide that a trial is still ongoing.
-- **Clerk Seal Forgery:** Creating fake "Raised Seals" using a digital template to make a fraudulent order look official.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -143,7 +143,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the court's hashes and status changes plus structured metadata (case number, court jurisdiction, filing date, verdict amount) — never party names, judges' notes, or sensitive personal information — providing non-repudiation of the court order and judgment issuance.
 
 
-## Competition vs. PACER / Online Dockets
+## Compared With PACER / Online Dockets
 
 | Feature | Live Verify | PACER (Federal) | Paper with Seal |
 | :--- | :--- | :--- | :--- |

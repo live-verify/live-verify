@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is Social Services Verification?
 
-In child welfare and adult protective services, the "Home Visit" is a critical and sensitive moment. A worker from **Child Protective Services (CPS)** or a **Welfare Officer** may knock on a door at any time to inspect a child's environment or check on a vulnerable senior.
+In child welfare and adult protective services, the "Home Visit" is a critical and sensitive moment. A worker from Child Protective Services (CPS) or a Welfare Officer may knock on a door at any time to inspect a child's environment or check on a vulnerable senior.
 
-This high-stakes authority is a primary weapon for criminals. Scammers pose as "Social Workers" to gain entry for home invasion, robbery, or in extreme cases, **Child Abduction.** Families are often too scared or intimidated to challenge the person's authority.
+This high-stakes authority is a primary weapon for criminals. Scammers pose as "Social Workers" to gain entry for home invasion, robbery, or in extreme cases, Child Abduction. Families are often too scared or intimidated to challenge the person's authority.
 
 Live Verify allows a family to scan the worker's ID card to verify: **"Is this a legitimate government employee, and are they currently authorized to conduct field investigations?"**
 
@@ -61,7 +61,13 @@ Live Verify allows a family to scan the worker's ID card to verify: **"Is this a
   </div>
 </div>
 
-## Data Verified
+## The Problem: State Authority Fraud
+
+- **Intimidation Scams:** Criminals using fake "DCFS" badges to threaten parents into paying "fines" or giving up children.
+- **Information Gathering:** Posing as a social worker to "interview" neighbors and gather PII for identity theft.
+- **Revocation Hiding:** A worker who was fired for abuse keeping their ID to continue harassing former clients.
+
+## What Is Checked
 
 Worker name, employee ID number, agency name, photograph (via hash), role/title, supervisor name, office location, expiration date, background check status.
 
@@ -70,7 +76,7 @@ Worker name, employee ID number, agency name, photograph (via hash), role/title,
 - **Notice of Welfare Check:** Paper left if the resident isn't home.
 - **Warrant of Entry:** (In some jurisdictions) Formal court-linked authority.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`dcfs.illinois.gov`, `dcyf.wa.gov`) and the worker's status.
 
@@ -78,17 +84,17 @@ Shows the issuer domain (`dcfs.illinois.gov`, `dcyf.wa.gov`) and the worker's st
 - **Active Duty** — Worker is currently employed and authorized for field work.
 - **Verified Investigation** — (Optional) A case number exists for this household today.
 - **Inactive** — Person is no longer an agency employee.
-- **Fraud Alert** — **ALERT:** This ID has been flagged for impersonation attempts.
+- **Fraud Alert** — This ID has been flagged for impersonation attempts.
 
-## Second-Party Use
+## Who Holds It
 
-The **Family / Citizen** benefits from verification.
+The Family / Citizen benefits from verification.
 
-**Anti-Abduction Safety:** A person claiming to be "from the state" arrives to take a child into protective custody. The terrified parent scans the worker's ID. If it returns **"ACTIVE DUTY - DCFS,"** they know they must comply with the legal process. If it returns **"UNKNOWN,"** they immediately lock the door and call 911 to prevent a kidnapping.
+**Anti-Abduction Safety:** A person claiming to be "from the state" arrives to take a child into protective custody. The terrified parent scans the worker's ID. If it returns "ACTIVE DUTY - DCFS," they know they must comply with the legal process. If it returns "UNKNOWN," they immediately lock the door and call 911 to prevent a kidnapping.
 
 **Home Security:** A senior citizen living alone is visited by an "Adult Protective Services" worker. They verify the credentials through the screen door, ensuring the visitor is a vetted professional and not a "Sweetheart Swindler" or burglar.
 
-## Third-Party Use
+## Who Checks It
 
 **Police and First Responders**
 **Scene Coordination:** Patrol officers called to a "Domestic Incident" can quickly verify the identity of social workers already on the scene, ensuring that the "Civilian" presence is authorized and not an interloper.
@@ -96,13 +102,7 @@ The **Family / Citizen** benefits from verification.
 **Hospital Security**
 **Patient Access:** Verifying the credentials of caseworkers visiting children or seniors in the ER or ICU to ensure they have the legal right to access medical info.
 
-## Verification Architecture
-
-**The "State Authority" Fraud Problem**
-
-- **Intimidation Scams:** Criminals using fake "DCFS" badges to threaten parents into paying "fines" or giving up children.
-- **Information Gathering:** Posing as a social worker to "interview" neighbors and gather PII for identity theft.
-- **Revocation Hiding:** A worker who was fired for abuse keeping their ID to continue harassing former clients.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

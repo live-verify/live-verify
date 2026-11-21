@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Visa Fee Receipt?
 
-A **Machine Readable Visa (MRV) Fee Receipt** is the proof that an applicant has paid the mandatory government fee (e.g., $185) to apply for a visa. This receipt—carrying a unique "CGI Reference" or bank transaction ID—is the "Key" needed to book an interview at an embassy or consulate.
+A Machine Readable Visa (MRV) Fee Receipt is the proof that an applicant has paid the mandatory government fee (e.g., $185) to apply for a visa. This receipt—carrying a unique "CGI Reference" or bank transaction ID—is the "Key" needed to book an interview at an embassy or consulate.
 
-These receipts are "Digital Currency." Fraud is high-stakes in the "Visa Consultant" market: shady agents often sell the same "Used Receipt" to multiple applicants or create "Phantom Receipts" to trick people into paying for "Express Appointments" that don't exist. Similarly, employees often "edit" a receipt to turn a $15 personal fee into a $185 business fee for reimbursement. Verified hashes bind the **Receipt Number, Amount, and Payer Name** to the bank's or the payment portal's domain (e.g., `usvisa-info.com` or `ustraveldocs.com`).
+These receipts are "Digital Currency." Fraud is high-stakes in the "Visa Consultant" market: shady agents often sell the same "Used Receipt" to multiple applicants or create "Phantom Receipts" to trick people into paying for "Express Appointments" that don't exist. Similarly, employees often "edit" a receipt to turn a $15 personal fee into a $185 business fee for reimbursement. Verified hashes bind the Receipt Number, Amount, and Payer Name to the bank's or the payment portal's domain (e.g., `usvisa-info.com` or `ustraveldocs.com`).
 
 <div style="max-width: 400px; margin: 24px auto; font-family: 'Courier New', monospace; border: 1px solid #999; background: #fff; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 1px dashed #333; padding-bottom: 15px; margin-bottom: 15px;">
@@ -40,7 +40,13 @@ These receipts are "Digital Currency." Fraud is high-stakes in the "Visa Consult
     </div>
 </div>
 
-## Data Verified
+## The Problem: Vulture Agent Fraud
+
+- **Receipt Recycling:** Selling the same valid receipt to 5 different people (verification reveals the "Used" or "Booked" alert).
+- **Amount Padding:** Changing a "$15" local courier fee into a "$185" MRV fee on a PDF.
+- **Ghost Portals:** Creating fake "Official Visa" websites that issue fake receipts to steal credit card info and PII.
+
+## What Is Checked
 
 Receipt number (CGI Ref), applicant name, passport number (masked), fee amount (USD), equivalent in local currency, payment date/time, consular post location, visa type (e.g., B1/B2), payment method (Cash/EFT/Credit).
 
@@ -50,25 +56,25 @@ Receipt number (CGI Ref), applicant name, passport number (masked), fee amount (
 - **Reciprocity Fee Receipt:** (Linked hash) issued after interview.
 - **Biometrics Receipt:** Proving the fingerprint fee was paid.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`usvisa-info.com`, `vfs-global.com`, `ustraveldocs.com`) and the receipt standing.
 
 **Status Indications:**
 - **Available / Valid** — Receipt is paid and hasn't been used to book an appointment yet.
-- **Used / Booked** — **ALERT:** This receipt is already tied to an interview (prevents resale).
-- **Refunded** — **ALERT:** The fee was credited back; receipt is void.
-- **Unknown** — **CRITICAL:** Hash not found; high risk of a "Phantom Receipt" forgery.
+- **Used / Booked** — This receipt is already tied to an interview (prevents resale).
+- **Refunded** — The fee was credited back; receipt is void.
+- **Unknown** — Hash not found; high risk of a "Phantom Receipt" forgery.
 
-## Second-Party Use
+## Who Holds It
 
-The **Visa Applicant** benefits from verification.
+The Visa Applicant benefits from verification.
 
-**Appointment Booking Speed:** If a technical glitch occurs on the visa portal, the applicant can provide the verified hash of their payment. Consular tech support can instantly see **"VERIFIED PAID - $185"** on their end, allowing them to manually override the system and grant the interview slot without a 3-day bank-reconciliation wait.
+**Appointment Booking Speed:** If a technical glitch occurs on the visa portal, the applicant can provide the verified hash of their payment. Consular tech support can instantly see "VERIFIED PAID - $185" on their end, allowing them to manually override the system and grant the interview slot without a 3-day bank-reconciliation wait.
 
 **Expense Reimbursement:** A business traveler can provide the verified hash to their company's finance department. "Verified by CGI Federal" ensures the company that the $185 charge was an actual federal fee and not a manual edit to a different bank receipt.
 
-## Third-Party Use
+## Who Checks It
 
 **Consulate Entrance Security**
 **Access Control:** Before allowing an applicant into the building, the guard scans the receipt. Verification ensures the person isn't "Gate-Crashing" with a fake or reused receipt from another applicant.
@@ -79,13 +85,7 @@ The **Visa Applicant** benefits from verification.
 **Auditors (State Dept)**
 **Financial Audit:** Verifying the "Chain of Payout" from local banks in foreign countries to the US Treasury, ensuring that the volume of "Verified Receipts" matches the volume of cash received.
 
-## Verification Architecture
-
-**The "Vulture Agent" Fraud Problem**
-
-- **Receipt Recycling:** Selling the same valid receipt to 5 different people (verification reveals the "Used" or "Booked" alert).
-- **Amount Padding:** Changing a "$15" local courier fee into a "$185" MRV fee on a PDF.
-- **Ghost Portals:** Creating fake "Official Visa" websites that issue fake receipts to steal credit card info and PII.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

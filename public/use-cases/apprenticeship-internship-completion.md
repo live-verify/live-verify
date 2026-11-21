@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 In trades like plumbing, electrical, or software engineering, you don't just go to school; you complete thousands of hours of on-the-job training.
 
-The **Certificate of Completion** is the proof that you finished those hours. For a plumber, it's the "Journeyman" card that lets them work without a supervisor. For a software intern, it's the proof that they actually did real work at a major company.
+The Certificate of Completion is the proof that you finished those hours. For a plumber, it's the "Journeyman" card that lets them work without a supervisor. For a software intern, it's the proof that they actually did real work at a major company.
 
 Because these lead directly to high-paying jobs, "internship fraud" (faking a certificate from Google or a local union) is a major problem for recruiters.
 
@@ -47,7 +47,13 @@ Because these lead directly to high-paying jobs, "internship fraud" (faking a ce
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Internship Fraud
+
+- **Impostor Companies:** Websites that pretend to be real companies and provide fake "completion letters" for a fee.
+- **Inflated Scope:** Changing a "Marketing Intern" certificate to read "Senior Product Intern" to get a better job.
+- **Date Stretching:** Altering a 4-week internship to appear as a 12-week program.
+
+## What Is Checked
 
 Intern/Apprentice name, sponsor organization, specific program name (e.g., "Journeyman Electrician"), start/end dates, total hours completed, supervisor name, issuing date.
 
@@ -56,7 +62,7 @@ Intern/Apprentice name, sponsor organization, specific program name (e.g., "Jour
 - **Journeyman Card:** For skilled trades (Electrical, Plumbing, HVAC).
 - **Certificate of Apprenticeship:** Formal government-recognized program.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Company or Union) and current status.
 
@@ -66,9 +72,9 @@ Shows the issuer domain (the Company or Union) and current status.
 - **Withdrawn** — Did not finish the program.
 - **Revoked** — Certificate pulled due to disciplinary issues.
 
-## Second-Party Use
+## Who Holds It
 
-The **Intern** or **Apprentice** benefits from verification.
+The Intern or Apprentice benefits from verification.
 
 **Job Hunting:** Proving to a future employer that they didn't just "hang out" at a famous company for a summer, but actually completed a structured 480-hour program with a verified CTO.
 
@@ -76,7 +82,7 @@ The **Intern** or **Apprentice** benefits from verification.
 
 **Trade Licensing:** Using verified hours to qualify for a state professional license (e.g., a Master Plumber license requires verified apprenticeship hours).
 
-## Third-Party Use
+## Who Checks It
 
 **Hiring Managers / Recruiters**
 **Resume De-risking:** Internship fraud is common. Scanning the certificate hash instantly confirms the candidate actually worked those dates and wasn't just a friend of someone at the company.
@@ -87,13 +93,7 @@ The **Intern** or **Apprentice** benefits from verification.
 **University Registrars**
 **Credit Validation:** Ensuring that the "summer internship" submitted for credit was a legitimate, completed program.
 
-## Verification Architecture
-
-**The "Fake Internship" Fraud Problem**
-
-- **Impostor Companies:** Websites that pretend to be real companies and provide fake "completion letters" for a fee.
-- **Inflated Scope:** Changing a "Marketing Intern" certificate to read "Senior Product Intern" to get a better job.
-- **Date Stretching:** Altering a 4-week internship to appear as a 12-week program.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -134,7 +134,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **The trust hierarchy:** Verification proves "this domain attests to this claim." For major employers, that attestation is valuable because their reputation is on the line. For unknown companies, the verifier still needs to assess whether the *issuer* is credible — and verification doesn't help with that step.
 
-## Competition vs. LinkedIn / Background Checks
+## Compared With LinkedIn / Background Checks
 
 | Feature | Live Verify | LinkedIn | Background Check (Checkr/Hireright) |
 | :--- | :--- | :--- | :--- |

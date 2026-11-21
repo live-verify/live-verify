@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is Regulatory Filing Authority?
 
-Companies must file documents with regulators — annual accounts, tax returns, director changes, statutory declarations. These filings carry legal consequences. **Regulatory filing authority** defines who can sign and submit these documents on behalf of the company.
+Companies must file documents with regulators — annual accounts, tax returns, director changes, statutory declarations. These filings carry legal consequences. Regulatory filing authority defines who can sign and submit these documents on behalf of the company.
 
 Filing the wrong information, or filing without authority, can result in penalties, director disqualification, or criminal prosecution.
 
@@ -135,11 +135,20 @@ Filing the wrong information, or filing without authority, can result in penalti
 | **Expired authority** | Former company secretary still has portal access | Unauthorized changes to public record |
 | **Wrong signatory** | Accounts signed by non-director | Filing rejected or invalid |
 
-## Data Verified
+## The Problem
 
-**Authorized person**, **company**, **registration number**, **filing types authorized**, **authority source** (board resolution, delegation), **portal credentials held** (if applicable), **excluded filings**, **validity period**.
+- Regulators can't easily verify that the person filing had authority
+- Former employees may retain portal credentials
+- Fraudulent filings (fake accounts, false confirmations) damage stakeholders
+- Disputes about who authorized filings are hard to resolve
 
-## Data Visible After Verification
+**The Fix:** Filing authority confirmations maintained by companies. Before accepting major filings, regulators or filing agents can verify signatory authority. Revocation is immediate — terminated company secretary's authority shows "Revoked" same day.
+
+## What Is Checked
+
+**Authorized person**, company, registration number, filing types authorized, authority source (board resolution, delegation), portal credentials held (if applicable), excluded filings, validity period.
+
+## What the Checker Sees
 
 **Status Indications:**
 - **Active** — Authority currently valid
@@ -157,7 +166,7 @@ Filing the wrong information, or filing without authority, can result in penalti
 | **EU** | National registries | Some require notarized filings |
 | **Offshore** | Local registries | Often stricter on authorized signatories |
 
-## Third-Party Use
+## Who Checks It
 
 **Auditors** — Verify authority before accepting representation letters
 **Regulators** — Confirm filings came from authorized persons
@@ -165,15 +174,7 @@ Filing the wrong information, or filing without authority, can result in penalti
 **Legal counsel** — Due diligence on filing history
 **Lenders** — Covenant compliance filings
 
-## Verification Architecture
-
-**The Problem:**
-- Regulators can't easily verify that the person filing had authority
-- Former employees may retain portal credentials
-- Fraudulent filings (fake accounts, false confirmations) damage stakeholders
-- Disputes about who authorized filings are hard to resolve
-
-**The Fix:** Filing authority confirmations maintained by companies. Before accepting major filings, regulators or filing agents can verify signatory authority. Revocation is immediate — terminated company secretary's authority shows "Revoked" same day.
+## How Verification Works Here
 
 **The audit protection flow:**
 1. Auditors require representation letter

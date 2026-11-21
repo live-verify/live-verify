@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Trademark Registration?
 
-A **Trademark Registration** is the legal proof of brand ownership. It grants a company the exclusive right to use a name, logo, or slogan in a specific industry (e.g., "Nike" for shoes). These certificates are the primary weapons used to shut down counterfeits on platforms like Amazon or eBay.
+A Trademark Registration is the legal proof of brand ownership. It grants a company the exclusive right to use a name, logo, or slogan in a specific industry (e.g., "Nike" for shoes). These certificates are the primary weapons used to shut down counterfeits on platforms like Amazon or eBay.
 
-Fraud is high-stakes in the digital economy. Scammers create "Phantom Registrations" by Photoshopping a real USPTO certificate to claim ownership of a famous brand name they don't own. They then use these fake papers to file "Takedown Requests" against legitimate competitors. Verified hashes bind the **Registration Number, Mark Name, and Owner Entity** to the national trademark office's domain (e.g., `uspto.gov` or `euipo.europa.eu`).
+Fraud is high-stakes in the digital economy. Scammers create "Phantom Registrations" by Photoshopping a real USPTO certificate to claim ownership of a famous brand name they don't own. They then use these fake papers to file "Takedown Requests" against legitimate competitors. Verified hashes bind the Registration Number, Mark Name, and Owner Entity to the national trademark office's domain (e.g., `uspto.gov` or `euipo.europa.eu`).
 
 <div style="max-width: 650px; margin: 24px auto; font-family: 'Times New Roman', Times, serif; border: 1px solid #ccc; background: #fff; padding: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
   <!-- Decorative Background Seal -->
@@ -49,7 +49,13 @@ Fraud is high-stakes in the digital economy. Scammers create "Phantom Registrati
   </div>
 </div>
 
-## Data Verified
+## The Problem: Phantom Brand Fraud
+
+- **Ownership Hijacking:** Editing a PDF to change the "Owner Name" from a big company to a scammer's shell company.
+- **Class Padding:** Adding "Medical Devices" to a trademark that was only registered for "T-shirts."
+- **Status Masking:** Presenting a "Cancelled" registration as if it were still "Active" to close a business sale.
+
+## What Is Checked
 
 Registration number, mark type (Word/Design/Combined), mark text (for word marks), design file hash (for logos), owner name, goods/services classification (Nice Classes), registration date, first use date, jurisdiction, renewal expiration date, current status.
 
@@ -59,25 +65,25 @@ Registration number, mark type (Word/Design/Combined), mark text (for word marks
 - **Assignment Record:** (Linked hash) proving the mark was legally sold to a new owner.
 - **Notice of Opposition:** Warning that the mark is under legal challenge.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`uspto.gov`, `euipo.europa.eu`, `wipo.int`) and the brand standing.
 
 **Status Indications:**
 - **Registered / Active** — The mark is valid and protected by law.
-- **Cancelled** — **CRITICAL:** The mark has been voided (e.g., due to non-use or legal loss).
-- **Abandoned** — **ALERT:** The application was never finalized; no legal protection.
-- **Expired** — **ALERT:** The owner failed to file a 10-year renewal.
+- **Cancelled** — The mark has been voided (e.g., due to non-use or legal loss).
+- **Abandoned** — The application was never finalized; no legal protection.
+- **Expired** — The owner failed to file a 10-year renewal.
 
-## Second-Party Use
+## Who Holds It
 
-The **Brand Owner / IP Attorney** benefits from verification.
+The Brand Owner / IP Attorney benefits from verification.
 
-**Marketplace Enforcement:** When a counterfeit seller appears on Amazon, the brand owner provides the verified hash of their "Registration." Amazon's "Brand Registry" system can instantly see **"REGISTERED - ACME CORP"** on the official USPTO domain, allowing them to ban the scammer in minutes instead of waiting 5 days for manual document review.
+**Marketplace Enforcement:** When a counterfeit seller appears on Amazon, the brand owner provides the verified hash of their "Registration." Amazon's "Brand Registry" system can instantly see "REGISTERED - ACME CORP" on the official USPTO domain, allowing them to ban the scammer in minutes instead of waiting 5 days for manual document review.
 
 **Licensing Integrity:** When selling a license to a foreign distributor, the owner provides the verified hash. The distributor can see the exact "Design Hash" and "Goods Classes" authorized, ensuring they are paying for a legitimate, protected asset.
 
-## Third-Party Use
+## Who Checks It
 
 **E-commerce Trust Teams (Trust & Safety)**
 **Anti-Phishing Vetting:** Automatically scanning the hashes provided in "IP Takedown Requests." Verified hashes ensure that the person filing the complaint actually owns the mark, stopping "IP Bullying" where scammers use fake papers to destroy competitors.
@@ -88,13 +94,7 @@ The **Brand Owner / IP Attorney** benefits from verification.
 **Customs & Border Protection (CBP)**
 **Counterfeit Seizure:** Officers in a shipping port scan the logo on a crate of electronics. If the hash doesn't match the verified owner's record, they can seize the goods as counterfeit.
 
-## Verification Architecture
-
-**The "Phantom Brand" Fraud Problem**
-
-- **Ownership Hijacking:** Editing a PDF to change the "Owner Name" from a big company to a scammer's shell company.
-- **Class Padding:** Adding "Medical Devices" to a trademark that was only registered for "T-shirts."
-- **Status Masking:** Presenting a "Cancelled" registration as if it were still "Active" to close a business sale.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

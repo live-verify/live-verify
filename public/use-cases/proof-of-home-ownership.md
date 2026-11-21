@@ -11,7 +11,7 @@ furtherDerivations: 2
 
 ## What is Proof of Home Ownership?
 
-Sometimes a homeowner needs to prove they are the registered owner of a property, but does **not** need to reveal the full permanent land-record artifact.
+Sometimes a homeowner needs to prove they are the registered owner of a property, but does not need to reveal the full permanent land-record artifact.
 
 Examples:
 
@@ -27,7 +27,7 @@ The existing land register or county recorder entry remains the canonical perman
 - it can be scraped and replayed
 - it may reveal more than the relying party actually needs
 
-A **Proof of Home Ownership** certificate is a short-lived, salted derivative view issued from the registry record. It says, in effect:
+A Proof of Home Ownership certificate is a short-lived, salted derivative view issued from the registry record. It says, in effect:
 
 **this person is the current registered owner of this property as of now**
 
@@ -101,7 +101,19 @@ verify:landregistry.gov.uk/ownerproof/v
 </pre>
 </div>
 
-## Data Verified
+## The Problem: Too Much Paper
+
+- The permanent title record is too revealing for routine reuse.
+- Homeowners overshare deeds, title extracts, and purchase records because there is no narrower proof object.
+- Shared title documents sit in inboxes and case-management systems for years.
+- Scrapers and data brokers gain value from stable, replayable ownership artifacts.
+
+This use case solves a narrower problem than [Property Title Deeds](view.html?doc=property-deeds):
+
+- not chain-of-title integrity
+- but short-lived proof of current home ownership
+
+## What Is Checked
 
 Property address or title reference, current ownership status, registry issue timestamp, expiry timestamp, salt, and optionally a privacy-minimized holder label.
 
@@ -120,11 +132,11 @@ Property address or title reference, current ownership status, registry issue ti
 
 Those belong to the permanent title layer, not the privacy-preserving proof layer.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain and the current ownership-proof result.
 
-**Important:** this page answers the narrow question of **current registered ownership only**. It does not carry occupancy, use, market, or physical state — those belong in the [Property State Changes](view.html?doc=property-state-changes) layer.
+**Important:** this page answers the narrow question of current registered ownership only. It does not carry occupancy, use, market, or physical state — those belong in the [Property State Changes](view.html?doc=property-state-changes) layer.
 
 **Status Indications:**
 - **Current Registered Owner Confirmed** — Current ownership confirmed within validity window
@@ -133,9 +145,9 @@ Shows the issuer domain and the current ownership-proof result.
 - **Not Current Owner** — Current registry does not support the claim
 - **404** — No matching short-lived proof exists
 
-## Second-Party Use
+## Who Holds It
 
-The **homeowner** benefits directly.
+The homeowner benefits directly.
 
 **Privacy-preserving proof:** The homeowner can prove current ownership without forwarding the permanent title record.
 
@@ -143,7 +155,7 @@ The **homeowner** benefits directly.
 
 **Reduced document spread:** Instead of copies of deeds and title extracts circulating indefinitely by email, the shared proof naturally dies.
 
-## Third-Party Use
+## Who Checks It
 
 **Insurers**
 
@@ -161,31 +173,17 @@ The **homeowner** benefits directly.
 
 **Fast owner confirmation:** Checking that the claimed owner relationship is current, without relying on stale PDFs or screenshots.
 
-## Verification Architecture
-
-**The "Too Much Paper" Problem**
-
-- The permanent title record is too revealing for routine reuse.
-- Homeowners overshare deeds, title extracts, and purchase records because there is no narrower proof object.
-- Shared title documents sit in inboxes and case-management systems for years.
-- Scrapers and data brokers gain value from stable, replayable ownership artifacts.
-
-This use case solves a narrower problem than [Property Title Deeds](view.html?doc=property-deeds):
-
-- not chain-of-title integrity
-- but short-lived proof of **current home ownership**
-
 ## Relationship to Property Title Deeds
 
-- [Property Title Deeds](view.html?doc=property-deeds) should model the **permanent title and chain-of-history** layer.
-- This use case models the **short-lived derivative proof** layer.
-- [Property State Changes](view.html?doc=property-state-changes) should model the **occupancy / market / parcel / physical state** monitoring layer.
+- [Property Title Deeds](view.html?doc=property-deeds) should model the permanent title and chain-of-history layer.
+- This use case models the short-lived derivative proof layer.
+- [Property State Changes](view.html?doc=property-state-changes) should model the occupancy / market / parcel / physical state monitoring layer.
 
 The first is about registry truth over time.
 
 The second is about privacy-preserving reuse in the present.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Short-Lived Ownership Proof | Full Title Extract / Deed Copy | Utility Bill |
 | :--- | :--- | :--- | :--- |

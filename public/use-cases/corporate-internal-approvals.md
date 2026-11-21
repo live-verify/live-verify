@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Corporate Internal Approval?
 
-A **license** says a person is permitted to do a kind of work. **Signing authority** says a person may commit the company in general. An **approval** is narrower and more specific: *this particular request was authorized by a person with the authority to authorize it.* A purchase order was approved. An expense claim was signed off. A customer's credit limit was raised. A change was approved for deployment. A new hire's offer was approved at the agreed band.
+A license says a person is permitted to do a kind of work. Signing authority says a person may commit the company in general. An approval is narrower and more specific: *this particular request was authorized by a person with the authority to authorize it.* A purchase order was approved. An expense claim was signed off. A customer's credit limit was raised. A change was approved for deployment. A new hire's offer was approved at the agreed band.
 
-An approval is a **discrete decision event**: it has an approver, a scope (what was approved), often an amount or condition, a timestamp, and a status that can later change — it can be **rescinded, superseded, or expire**. That distinguishes it from the standing delegations covered in [Corporate Signing Authority and Delegation Limits](view.html?doc=contract-signing-authority): that document proves a person *can* approve; this one proves a specific thing *was* approved, by whom, and that the approval is still in force.
+An approval is a **discrete decision event**: it has an approver, a scope (what was approved), often an amount or condition, a timestamp, and a status that can later change — it can be rescinded, superseded, or expire. That distinguishes it from the standing delegations covered in [Corporate Signing Authority and Delegation Limits](view.html?doc=contract-signing-authority): that document proves a person *can* approve; this one proves a specific thing *was* approved, by whom, and that the approval is still in force.
 
 The recipient of an internal approval — a supplier holding a PO, a colleague acting on a sign-off, an auditor reviewing a control — encounters the approval as a line in an email, a PDF, or an ERP screenshot. Today they trust it on its face. A verifiable approval lets them confirm the issuing company actually recorded that approval, at that scope, and has not withdrawn it.
 
@@ -67,11 +67,20 @@ Approvals are a prime target because they sit between *wanting* something and *g
 
 A verifiable approval addresses these: the company — not the requester — issues and hosts the record; the hash binds the amount and approver so tampering breaks verification; and the status reflects rescission immediately.
 
-## Data Verified
+## The Problem
+
+- Approvals are asserted in emails and PDFs that are trivial to forge or alter
+- Recipients (suppliers, finance, auditors) cannot independently confirm an approval happened
+- Rescinded approvals keep circulating with no signal that they are dead
+- BEC and self-approval fraud exploit the gap between "looks approved" and "is approved"
+
+**The Fix:** The company issues a verifiable approval record at its own domain for each material approval. The recipient clips the approval text and verifies the hash, amount, approver, and live status before acting.
+
+## What Is Checked
 
 Company name and registration, approval type, reference number (PO/expense/change ID), the item or counterparty, the amount or scope, the named approver and their role, the date of approval, any second-approver requirement, the controlling budget line or policy, and the validity condition.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `northbridge.com`) and the current status of the approval.
 
@@ -92,15 +101,15 @@ Shows the issuer domain (e.g., `northbridge.com`) and the current status of the 
 - **Fulfilled / closed** — The approval was consumed (goods received, expense paid); no longer actionable.
 - **404** — No such approval exists on the company's record (never issued, forged, or OCR error).
 
-## Second-Party Use
+## Who Holds It
 
-The **approving company** benefits.
+The approving company benefits.
 
 **Disownment of forgeries:** A company can declare that all material approvals carry verifiable records at its domain, and that anything presented without one is not recognised — the same pre-emptive-disownment pattern used for signing authority. A forged "CFO approved" instruction has no verifiable record, so it fails at the door.
 
 **Audit evidence:** The company's own internal audit and external auditors can confirm that approvals in the ledger correspond to real, in-force authorizations — turning a manual controls-testing exercise into a clip check.
 
-## Third-Party Use
+## Who Checks It
 
 **Suppliers**
 
@@ -118,15 +127,7 @@ The **approving company** benefits.
 
 **Offer reliance:** A candidate (or their recruiter) can confirm that a job offer was genuinely approved at the stated band by the budget holder, not informally promised by a line manager who can't authorize it.
 
-## Verification Architecture
-
-**The Problem:**
-- Approvals are asserted in emails and PDFs that are trivial to forge or alter
-- Recipients (suppliers, finance, auditors) cannot independently confirm an approval happened
-- Rescinded approvals keep circulating with no signal that they are dead
-- BEC and self-approval fraud exploit the gap between "looks approved" and "is approved"
-
-**The Fix:** The company issues a verifiable approval record at its own domain for each material approval. The recipient clips the approval text and verifies the hash, amount, approver, and live status before acting.
+## How Verification Works Here
 
 **The reliance flow:**
 1. An approval is granted in the company's ERP/workflow system

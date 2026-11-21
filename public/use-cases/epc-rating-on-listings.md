@@ -97,7 +97,7 @@ verify:epcregister.com/ratings/v
 
 The listing platform still shows "EPC: C" because it has not updated its data. But the consumer who clips and verifies sees SUPERSEDED. The agent cannot claim the rating is current — the verification endpoint is public.
 
-## Data Verified
+## What Is Checked
 
 Property address, EPC rating band (A–G), energy efficiency score, certificate validity dates, and current status.
 
@@ -107,7 +107,7 @@ Property address, EPC rating band (A–G), energy efficiency score, certificate 
 
 **Privacy Salt:** Not required. EPC ratings are public record, searchable on the government's EPC register.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`epcregister.com`) and the current official certificate status.
 
@@ -128,15 +128,15 @@ The `allowedDomains` field enables browser extensions to detect domain mismatche
 - **Expired** — The 10-year validity period has passed; a new assessment is required before the property can be marketed.
 - **404** — No such certificate was issued for this property address.
 
-## Second-Party Use
+## Who Holds It
 
-The **seller or landlord** benefits from verification.
+The seller or landlord benefits from verification.
 
 **Proving the EPC is current:** A seller or landlord whose property has a valid, high-rated EPC currently has no way to prove that on a listing platform — the displayed letter grade is just a field in a database. A verifiable claim lets them demonstrate the rating directly to prospective buyers or tenants, on whichever platform they are browsing.
 
 **Letting compliance:** It is illegal in England and Wales to let a property with an EPC rating below E (with limited exemptions). A landlord with a valid certificate at E or above can use the verifiable claim as evidence of compliance when questioned by a prospective tenant or local authority.
 
-## Third-Party Use
+## Who Checks It
 
 **Buyers and Tenants**
 
@@ -154,7 +154,7 @@ The **seller or landlord** benefits from verification.
 
 **Minimum energy efficiency monitoring:** Local authorities enforce the Minimum Energy Efficiency Standard (MEES) for rental properties. A verifiable claim from the EPC register provides direct evidence of a property's rating, simplifying enforcement against landlords marketing properties below the legal minimum.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Self-Asserted Rating on Portals" Problem**
 
@@ -172,7 +172,7 @@ The verifiable claim addresses these because:
 4. Expiry and supersession are immediate — the endpoint returns SUPERSEDED or EXPIRED when the certificate status changes
 5. The same claim text and hash work identically across all authorized sites
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Portal-Displayed Rating | EPC Register Lookup | Paper Certificate |
 | :--- | :--- | :--- | :--- | :--- |

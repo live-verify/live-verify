@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Biometric Likeness Claim?
 
-A **Biometric Likeness Claim** is a time-limited, state-verified assertion that a photograph matches a citizen's current appearance. Unlike static ID cards that show a photo taken years ago, this system requires periodic photo renewal and generates ephemeral verification tokens.
+A Biometric Likeness Claim is a time-limited, state-verified assertion that a photograph matches a citizen's current appearance. Unlike static ID cards that show a photo taken years ago, this system requires periodic photo renewal and generates ephemeral verification tokens.
 
 The core insight: **identity documents prove who you are on paper; likeness claims prove the person standing in front of the verifier is that person.**
 
@@ -77,14 +77,29 @@ The verifier (bank teller, landlord, border agent, employer):
 4. Receives `OK` from the state endpoint
 5. Confirms the face matches
 
-**Salt consumption:** Once the endpoint returns `OK`, that salt is **burned**—single-use, now invalid. The next time the citizen's app connects to the network, it fetches a fresh salt and the verification line updates.
+**Salt consumption:** Once the endpoint returns `OK`, that salt is burned—single-use, now invalid. The next time the citizen's app connects to the network, it fetches a fresh salt and the verification line updates.
 
 The single-use salt means:
 - Each verification is unlinkable to previous verifications
 - A photographed verification line is useless (already consumed)
 - Lost/stolen phones don't provide lasting identity theft vectors (salt burned on first fraudulent use, then dead)
 
-## Data Verified
+## The Problem: Person Standing Here
+
+Traditional identity verification has a gap:
+
+```
+Document proves: "James Wilson exists and has these attributes"
+Document does NOT prove: "The person holding this document is James Wilson"
+```
+
+Biometric likeness claims close this gap by combining:
+- State-verified identity record
+- Recent photo (within 1 year)
+- Ephemeral salt proving the claim is fresh
+- Live comparison by the verifier
+
+## What Is Checked
 
 The claim itself contains: name, date of birth, photo, photo date, verification URL with single-use salt.
 
@@ -107,7 +122,7 @@ The endpoint returns a simple status code:
 
 ## First-Party Use
 
-The **State Authority** (DMV, passport office, national ID authority) benefits from verification.
+The State Authority (DMV, passport office, national ID authority) benefits from verification.
 
 **Reduced Document Fraud:** Physical ID cards are copied, altered, and borrowed. Ephemeral digital claims with live photo verification are far harder to fake—the fraudster would need to compromise the state app itself.
 
@@ -115,9 +130,9 @@ The **State Authority** (DMV, passport office, national ID authority) benefits f
 
 **Audit and Analytics:** The state can track verification patterns (anonymized) to detect fraud rings, identity theft clusters, or system abuse—without tracking individual citizens' movements.
 
-## Second-Party Use
+## Who Holds It
 
-The **Citizen** benefits from verification.
+The Citizen benefits from verification.
 
 **Stronger Identity Protection:** If someone steals your wallet, they have your driver's license photo for years. If someone steals your phone, the biometric lock prevents app access, and any observed verification line expires in minutes.
 
@@ -125,7 +140,7 @@ The **Citizen** benefits from verification.
 
 **Privacy-Preserving:** Each verification uses a fresh salt. Unlike showing a driver's license (which has the same number every time), biometric likeness claims don't create a tracking trail across verifiers.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks / Financial Institutions (KYC)**
 **Account Opening:** Remote account opening typically requires uploading a selfie and ID photo for comparison. Biometric likeness claims provide a state-verified alternative—the bank verifies against the state endpoint rather than running their own facial comparison.
@@ -169,7 +184,7 @@ Some jurisdictions are deploying real-time facial recognition: camera captures f
 | **Surveillance potential** | Low (ephemeral, unlinkable) | High (persistent, linkable) |
 | **Civil liberties** | Preserves autonomy | Erodes autonomy |
 
-Biometric likeness claims are **citizen-initiated identity assertion**, not **state-initiated identity capture**. The citizen decides when to prove their identity, generates the claim themselves, and controls the interaction.
+Biometric likeness claims are citizen-initiated identity assertion, not state-initiated identity capture. The citizen decides when to prove their identity, generates the claim themselves, and controls the interaction.
 
 ## AI-Assisted Photo Renewal
 
@@ -215,24 +230,9 @@ Not every jurisdiction will implement this system. Adoption depends on:
 - Areas with low smartphone penetration
 - Regions with distrust of government digital systems
 
-The system is **opt-in for jurisdictions**—it doesn't replace physical ID, it supplements it.
+The system is opt-in for jurisdictions—it doesn't replace physical ID, it supplements it.
 
-## Verification Architecture
-
-**The "Person Standing Here" Problem**
-
-Traditional identity verification has a gap:
-
-```
-Document proves: "James Wilson exists and has these attributes"
-Document does NOT prove: "The person holding this document is James Wilson"
-```
-
-Biometric likeness claims close this gap by combining:
-- State-verified identity record
-- Recent photo (within 1 year)
-- Ephemeral salt proving the claim is fresh
-- Live comparison by the verifier
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -292,7 +292,7 @@ A national digital ID app bundles many capabilities into one system:
 | Health service ID | ✗ | ✓ |
 | Tax reference | ✗ | ✓ |
 
-The biometric likeness claim is a **composable primitive**—it answers "is this the person?" and can be combined with other verified claims that answer "what are they entitled to?"
+The biometric likeness claim is a composable primitive—it answers "is this the person?" and can be combined with other verified claims that answer "what are they entitled to?"
 
 Each claim type has its own issuer, its own verification endpoint, its own lifecycle. The citizen assembles what they need for a given interaction, rather than presenting a monolithic credential that bundles everything.
 
@@ -314,4 +314,4 @@ Biometric likeness claims complement, not replace, other identity documents:
 | Work Authorization | Right to work | "This is the authorized worker" |
 | Age Verification | Date of birth | "This is the person with that DOB" |
 
-The likeness claim is a **verification layer** that can be combined with any other identity document to prove current possession.
+The likeness claim is a verification layer that can be combined with any other identity document to prove current possession.

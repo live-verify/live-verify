@@ -52,7 +52,14 @@ Gift card fraud is extensive: draining cards before legitimate use, fake balance
   <span data-verify-line="voucher">verify:delta.com/vouchers</span> <span verifiable-text="end" data-for="voucher"></span>
 </div>
 
-## Data Verified
+## The Problem: Gift Card Fraud
+
+- **Card Draining:** Criminals copy card numbers in stores and drain them after activation.
+- **Balance Disputes:** Claims that cards had value when they were already exhausted.
+- **Fake Issuance:** Fraudulent gift cards sold that have no actual value.
+- **Scam Payments:** Victims pay scammers in gift cards; redemption tracking supports recovery efforts.
+
+## What Is Checked
 
 Issuer name, card/voucher number (masked), original value, transaction details, amount used, remaining balance, redemption date, card status.
 
@@ -63,7 +70,7 @@ Issuer name, card/voucher number (masked), original value, transaction details, 
 - **Store Credit:** Return credit applied to purchase.
 - **Digital Wallet:** Closed-loop payment credit used.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`target.com`, `delta.com`) and card status.
 
@@ -74,9 +81,9 @@ Shows the issuer domain (`target.com`, `delta.com`) and card status.
 - **Blocked** — Card frozen due to fraud or dispute.
 - **Refunded** — Unused value returned to purchaser.
 
-## Second-Party Use
+## Who Holds It
 
-The **Cardholder** benefits from verification.
+The Cardholder benefits from verification.
 
 **Dispute Prevention:** When gift cards are disputed as "never received value," verified redemption receipts prove the card was used.
 
@@ -84,7 +91,7 @@ The **Cardholder** benefits from verification.
 
 **Balance Confirmation:** Cardholders can verify their balance history matches the issuer's records.
 
-## Third-Party Use
+## Who Checks It
 
 **Retailers / Merchants**
 **Fraud Investigation:** When investigating gift card fraud rings, verified redemption history traces the flow of value.
@@ -98,14 +105,7 @@ The **Cardholder** benefits from verification.
 **Estate Executors**
 **Asset Recovery:** When settling estates, executors need to verify what stored value remains and what was already spent.
 
-## Verification Architecture
-
-**The Gift Card Fraud Problem**
-
-- **Card Draining:** Criminals copy card numbers in stores and drain them after activation.
-- **Balance Disputes:** Claims that cards had value when they were already exhausted.
-- **Fake Issuance:** Fraudulent gift cards sold that have no actual value.
-- **Scam Payments:** Victims pay scammers in gift cards; redemption tracking supports recovery efforts.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

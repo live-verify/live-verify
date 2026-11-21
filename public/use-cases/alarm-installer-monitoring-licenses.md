@@ -47,7 +47,13 @@ Always scan the badge before letting a "technician" into your home to learn your
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Installer Fraud
+
+- **Casing Burglars:** Criminals posing as alarm technicians to gain access to homes, learn codes, and identify valuables.
+- **Unlicensed Moonlighting:** Technicians doing side jobs without company insurance/bonding. If they burn the house down, the homeowner is unprotected.
+- **Expired Licenses:** Technicians working after their background check has lapsed.
+
+## What Is Checked
 
 Licensee name, photo (hash), license number, company affiliation, expiration date, endorsements (fire, burglary, access control), issuing state agency.
 
@@ -56,7 +62,7 @@ Licensee name, photo (hash), license number, company affiliation, expiration dat
 - **Wall Certificate:** Posted at the business office.
 - **Monitoring Station License:** For the central station itself.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`dps.texas.gov`, `bsis.ca.gov`) and current status.
 
@@ -70,15 +76,15 @@ Shows the issuer domain (`dps.texas.gov`, `bsis.ca.gov`) and current status.
 
 An alarm installer is not just another tradesperson. They learn the layout of your home, the location of every sensor and camera, the bypass codes, the monitoring schedule, and which entry points are covered. An impostor with that information does not need to break in — they know exactly how to walk in undetected. This makes alarm installation one of the highest-trust home-access professions, alongside locksmiths and gas engineers. The difference is that the consequences of a compromised alarm system may not be discovered until a burglary occurs — and even then, the connection to the "installer" who visited months earlier may never be made.
 
-## Second-Party Use
+## Who Holds It
 
-The **Homeowner** or **Business Owner** benefits from verification.
+The Homeowner or Business Owner benefits from verification.
 
 **Safety Check:** Before letting a stranger into your home to install cameras/sensors, scanning their ID card verifies they are a licensed, background-checked professional and not an impostor casing the house.
 
 **Insurance Compliance:** Many homeowner insurance policies give discounts for monitored alarms, but *only* if installed by a licensed professional. A verified license proves eligibility.
 
-## Third-Party Use
+## Who Checks It
 
 **Police Departments**
 **False Alarm Fines:** Police often refuse to respond to unpermitted alarms. Verifying the monitoring company's license ensures they are a legitimate entity that follows verified dispatch protocols (ECV - Enhanced Call Verification).
@@ -89,13 +95,7 @@ The **Homeowner** or **Business Owner** benefits from verification.
 **General Contractors**
 **Subcontractor Vetting:** Ensuring the security sub-contractor is licensed prevents liability issues on large construction projects.
 
-## Verification Architecture
-
-**The "Fake Installer" Fraud Problem**
-
-- **Casing Burglars:** Criminals posing as alarm technicians to gain access to homes, learn codes, and identify valuables.
-- **Unlicensed Moonlighting:** Technicians doing side jobs without company insurance/bonding. If they burn the house down, the homeowner is unprotected.
-- **Expired Licenses:** Technicians working after their background check has lapsed.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -121,7 +121,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the license.
 
 
-## Competition vs. Online Lookups
+## Compared With Online Lookups
 
 | Feature | Live Verify | State Website Lookup |
 | :--- | :--- | :--- |

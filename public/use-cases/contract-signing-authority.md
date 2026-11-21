@@ -11,7 +11,7 @@ furtherDerivations: 2
 
 ## What is Contract Signing Authority?
 
-Not everyone in a company can sign contracts that legally bind the organization. **Signing authority** is the formal delegation allowing specific individuals to commit the company to contractual obligations — up to defined limits.
+Not everyone in a company can sign contracts that legally bind the organization. Signing authority is the formal delegation allowing specific individuals to commit the company to contractual obligations — up to defined limits.
 
 When you're about to sign a major deal, you need to know: does the person across the table actually have authority to bind their company? If they don't, you might have an unenforceable agreement.
 
@@ -50,7 +50,7 @@ When you're about to sign a major deal, you need to know: does the person across
 
 ## The Company Policy Declaration
 
-The strongest version of this use case is not just individual authority claims — it is a **company-wide policy declaration** that all officers carry verifiable authority claims, and that nothing outside the verified claims is recognised.
+The strongest version of this use case is not just individual authority claims — it is a company-wide policy declaration that all officers carry verifiable authority claims, and that nothing outside the verified claims is recognised.
 
 The company publishes a policy statement (on its website, in its terms of business, in its supplier onboarding materials):
 
@@ -67,7 +67,7 @@ This shifts the default. Without the policy, a counterparty who deals with an un
 
 ## Purchasing Authority
 
-Contract signing authority is one layer. **Purchasing authority** — the ability to commit the company to spending — is a related but separate delegation:
+Contract signing authority is one layer. Purchasing authority — the ability to commit the company to spending — is a related but separate delegation:
 
 - **Purchase order limits** — "Jane can raise POs up to £50,000. Anything above requires finance director approval."
 - **Capital expenditure** — "The operations director can approve capex up to £100,000 per item."
@@ -128,11 +128,20 @@ In each case, the counterparty's defence is the same: **ask for the verifiable a
 
 **The legal doctrine:** "Apparent authority" may protect the counterparty if the company held someone out as authorized. But proving apparent authority is expensive litigation — better to verify upfront.
 
-## Data Verified
+## The Problem
 
-**Authorized person name**, **company name**, **company registration**, **role/title**, **contract types authorized**, **monetary limits**, **duration limits**, **specific exclusions**, **delegating authority** (board resolution reference), **validity period**.
+- Counterparties can't easily verify if signatory has authority
+- Authority documents are often confidential, not shared
+- Disputes emerge years later when deals go wrong
+- Former employees may still appear authorized externally
 
-## Data Visible After Verification
+**The Fix:** Company issues signing authority confirmations to authorized individuals. Before signing material contracts, counterparty requests verification. Instant confirmation of current authority and limits.
+
+## What Is Checked
+
+**Authorized person name**, company name, company registration, role/title, contract types authorized, monetary limits, duration limits, specific exclusions, delegating authority (board resolution reference), validity period.
+
+## What the Checker Sees
 
 **Status Indications:**
 - **Active** — Current authority in force
@@ -153,7 +162,7 @@ In each case, the counterparty's defence is the same: **ask for the verifiable a
 | **Financing agreements** | CFO, board | Usually board reserved |
 | **M&A documents** | Board only | Always reserved matter |
 
-## Third-Party Use
+## Who Checks It
 
 **Counterparties** — Verify before signing (especially large deals)
 **Law firms** — Due diligence on transaction authority
@@ -172,15 +181,7 @@ In each case, the counterparty's defence is the same: **ask for the verifiable a
 
 **Cross-border deals:** When contracting with foreign entities, local law determines authority requirements. Verification is especially valuable — reduces reliance on unfamiliar legal regimes.
 
-## Verification Architecture
-
-**The Problem:**
-- Counterparties can't easily verify if signatory has authority
-- Authority documents are often confidential, not shared
-- Disputes emerge years later when deals go wrong
-- Former employees may still appear authorized externally
-
-**The Fix:** Company issues signing authority confirmations to authorized individuals. Before signing material contracts, counterparty requests verification. Instant confirmation of current authority and limits.
+## How Verification Works Here
 
 **The negotiation flow:**
 1. Deal reaches signature stage

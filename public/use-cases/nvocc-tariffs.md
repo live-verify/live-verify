@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is an NVOCC Tariff?
 
-A **Non-Vessel Operating Common Carrier (NVOCC)** is a freight forwarder that buys space on ships and resells it to shippers. By US law (**FMC Regulations**), NVOCCs must publish their **Tariffs**—the official prices they charge for shipping. These rates must be filed publicly and applied equally to all similarly situated customers.
+A Non-Vessel Operating Common Carrier (NVOCC) is a freight forwarder that buys space on ships and resells it to shippers. By US law (FMC Regulations), NVOCCs must publish their Tariffs—the official prices they charge for shipping. These rates must be filed publicly and applied equally to all similarly situated customers.
 
-The problem is that freight rates are volatile. To win business, some NVOCCs "edit" their tariff sheets to show a lower "filed" rate than they actually reported to the government, or they add "hidden surcharges" that aren't in the legal tariff. Verified hashes bind the **Route, Rate, and Surcharge Codes** to the carrier's official tariff domain (e.g., `expeditors.com` or `flexport.com`), ensuring that the price on the paper matches the price filed with the regulator.
+The problem is that freight rates are volatile. To win business, some NVOCCs "edit" their tariff sheets to show a lower "filed" rate than they actually reported to the government, or they add "hidden surcharges" that aren't in the legal tariff. Verified hashes bind the Route, Rate, and Surcharge Codes to the carrier's official tariff domain (e.g., `expeditors.com` or `flexport.com`), ensuring that the price on the paper matches the price filed with the regulator.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="tariff"></span>GLOBAL FREIGHT LOGISTICS
@@ -37,7 +37,13 @@ FMC Compliance: Filed with Federal Maritime Commission.
 <span data-verify-line="tariff">verify:gfreight.com/tariffs/v</span> <span verifiable-text="end" data-for="tariff"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Invisible Fee Fraud
+
+- **Surcharge Padding:** Manually adding a "$200 Congestion Surcharge" to a PDF that wasn't in the filed tariff.
+- **Backdating Filings:** Editing a tariff to change the "Effective Date" to hide an illegal over-charge from a prior month.
+- **Rebate Hiding:** Showing a high rate on the public tariff while secretly giving a lower, un-filed rate to a preferred customer.
+
+## What Is Checked
 
 Tariff number, FMC license number, route (Origin/Destination ports), container type (e.g., 40' HC), commodity description, effective date, expiration date, base freight rate, individual surcharge amounts (BAF, CAF, PSS), total filed value, filing timestamp.
 
@@ -47,25 +53,25 @@ Tariff number, FMC license number, route (Origin/Destination ports), container t
 - **Booking Confirmation:** (Linked hash) proving the rate was applied.
 - **Invoice:** Final bill reflecting the filed tariff.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`gfreight.com`, `expeditors.com`, `flexport.com`) and the filing standing.
 
 **Status Indications:**
 - **Current / Filed** — Rate is active and matches the official FMC filing.
 - **Expired** — The validity period for this specific rate has passed.
-- **Amended** — **ALERT:** A corrected or updated rate filing exists.
-- **Disputed** — **ALERT:** The regulator has flagged this tariff for investigation.
+- **Amended** — A corrected or updated rate filing exists.
+- **Disputed** — The regulator has flagged this tariff for investigation.
 
-## Second-Party Use
+## Who Holds It
 
-The **Shipper (Exporters / Importers)** benefits from verification.
+The Shipper (Exporters / Importers) benefits from verification.
 
 **Billing Protection:** Before paying a $50,000 ocean freight invoice, the shipper scans the original tariff hash. "Verified by Global Freight" ensures that the NVOCC isn't "Padding" the bill with surcharges that were never filed with the government, preventing over-payment.
 
 **Audit Compliance:** Large shippers can maintain a verified library of all rates used. During a corporate audit, they can prove that their logistics spending was transparent and met all US Shipping Act requirements.
 
-## Third-Party Use
+## Who Checks It
 
 **Federal Maritime Commission (FMC) Inspectors**
 **Rapid Vetting:** During an audit of an NVOCC's records, the inspector can scan random invoices. Live Verify ensures the invoice prices match the public tariff filings, stopping "Secret Rebates" or "Off-Book Deals" that distort market competition.
@@ -76,13 +82,7 @@ The **Shipper (Exporters / Importers)** benefits from verification.
 **Customs Brokers**
 **Valuation Proof:** Providing verified tariff hashes to customs to prove the "Landings Cost" of goods for accurate duty calculation.
 
-## Verification Architecture
-
-**The "Invisible Fee" Fraud Problem**
-
-- **Surcharge Padding:** Manually adding a "$200 Congestion Surcharge" to a PDF that wasn't in the filed tariff.
-- **Backdating Filings:** Editing a tariff to change the "Effective Date" to hide an illegal over-charge from a prior month.
-- **Rebate Hiding:** Showing a high rate on the public tariff while secretly giving a lower, un-filed rate to a preferred customer.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

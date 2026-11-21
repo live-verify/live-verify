@@ -53,7 +53,14 @@ This is life-changing documentation. Fraud includes fake expungements to pass ba
   <span data-verify-line="pardon">verify:governor.virginia.gov/pardons</span> <span verifiable-text="end" data-for="pardon"></span>
 </div>
 
-## Data Verified
+## The Problem: Expungement Fraud
+
+- **Fake Expungements:** Forged court orders claiming convictions were expunged.
+- **Scope Inflation:** Claiming all convictions expunged when only one was.
+- **Jurisdiction Shopping:** Using expungement from one state to claim clean record in another.
+- **Stale Records:** Legitimate expungements not reflected in background check databases.
+
+## What Is Checked
 
 Court/issuing authority, case number, petitioner/defendant name, original offense(s), conviction date, type of relief (expungement/sealing/pardon), grant date, scope of relief, any exceptions or limitations.
 
@@ -64,7 +71,7 @@ Court/issuing authority, case number, petitioner/defendant name, original offens
 - **Pardon Certificate:** Executive clemency forgiving the offense.
 - **Certificate of Relief:** Removes collateral consequences without expunging.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`courts.ca.gov`, `governor.virginia.gov`) and record status.
 
@@ -76,9 +83,9 @@ Shows the issuer domain (`courts.ca.gov`, `governor.virginia.gov`) and record st
 - **Pending Appeal** — Expungement granted but under appeal by prosecution.
 - **Reversed** — Expungement reversed due to new offense or fraud.
 
-## Second-Party Use
+## Who Holds It
 
-The **Petitioner (Expungee)** benefits from verification.
+The Petitioner (Expungee) benefits from verification.
 
 **Employment Applications:** Many applications ask about convictions. A verified expungement proves the person can legally answer "no" and provides documentation if the record still appears in background checks.
 
@@ -88,7 +95,7 @@ The **Petitioner (Expungee)** benefits from verification.
 
 **Firearm Rights Restoration:** Some expungements restore firearm rights. Verified documentation proves eligibility to pass NICS checks.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers**
 **Background Check Interpretation:** When background checks return expunged records (some databases lag), employers need verified expungement orders to know the record is legally irrelevant.
@@ -105,14 +112,7 @@ The **Petitioner (Expungee)** benefits from verification.
 **Public Defenders / Legal Aid**
 **Verification Services:** Helping clients prove their expungements are valid when encountering stale records.
 
-## Verification Architecture
-
-**The Expungement Fraud Problem**
-
-- **Fake Expungements:** Forged court orders claiming convictions were expunged.
-- **Scope Inflation:** Claiming all convictions expunged when only one was.
-- **Jurisdiction Shopping:** Using expungement from one state to claim clean record in another.
-- **Stale Records:** Legitimate expungements not reflected in background check databases.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

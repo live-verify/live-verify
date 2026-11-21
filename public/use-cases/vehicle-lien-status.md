@@ -15,7 +15,7 @@ Buying a used car privately carries a hidden risk: the vehicle may still have ou
 
 In the UK, HPI checks and similar services exist. In the US, Carfax and the NMVTIS database serve a similar role. But these are third-party data aggregators — they report what they found (or didn't find) in their databases, not what the actual lender knows. A gap between reality and the aggregator's data is always possible. And the buyer has to pay for and run these checks independently, after the fact.
 
-A verifiable claim from a finance company is stronger than an aggregator search — but it is **lender-specific**. A "NO OUTSTANDING FINANCE" claim from Black Horse means Black Horse has no lien. It does not mean no other lender has a lien. The buyer still needs to know the vehicle is clear across all lenders, not just one.
+A verifiable claim from a finance company is stronger than an aggregator search — but it is lender-specific. A "NO OUTSTANDING FINANCE" claim from Black Horse means Black Horse has no lien. It does not mean no other lender has a lien. The buyer still needs to know the vehicle is clear across all lenders, not just one.
 
 Two models address this:
 
@@ -25,7 +25,7 @@ Two models address this:
 
 The lender-specific model works now with no infrastructure changes. The registry model is stronger but requires registries to publish verifiable lien status, which is a systems upgrade.
 
-This page models the **lender-specific** version. The mockups show a claim from a single finance company, not a universal "clear of all finance" assertion.
+This page models the lender-specific version. The mockups show a claim from a single finance company, not a universal "clear of all finance" assertion.
 
 This page deliberately stays narrow: lien presence at this lender, outstanding balance, and agreement type. Not a full vehicle history, MOT record, or mileage verification.
 
@@ -53,11 +53,11 @@ As At:         21 Mar 2026
 <span data-verify-line="lien-active">verify:blackhorse.co.uk/vehicle-finance/v</span> <span verifiable-text="end" data-for="lien-active"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Vehicle registration, VIN, finance status (clear or active), outstanding balance (if any), agreement type (if applicable), and the as-at date of the snapshot. Vehicle condition, mileage, MOT history, and ownership chain are deliberately excluded — this is strictly about whether the lender has a claim on the vehicle.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`blackhorse.co.uk`, `closebrothers.co.uk`, `ally.com`, `capitalone.com`) and confirms whether the finance status claim is current.
 
@@ -65,11 +65,11 @@ Shows the issuer domain (`blackhorse.co.uk`, `closebrothers.co.uk`, `ally.com`, 
 - **NO OUTSTANDING FINANCE** — This lender has no outstanding interest in the vehicle. (Does not speak for other lenders.)
 - **FINANCE ACTIVE** — The lender holds an outstanding interest in the vehicle.
 
-## Second-Party Use
+## Who Holds It
 
-The **Seller** uses this to prove the vehicle is unencumbered. When listing a car for private sale, the seller clips the "NO OUTSTANDING FINANCE" status and includes it in the advertisement. The buyer verifies the hash against the finance company's domain before committing to the purchase, replacing the need for a separate paid check.
+The Seller uses this to prove the vehicle is unencumbered. When listing a car for private sale, the seller clips the "NO OUTSTANDING FINANCE" status and includes it in the advertisement. The buyer verifies the hash against the finance company's domain before committing to the purchase, replacing the need for a separate paid check.
 
-## Third-Party Use
+## Who Checks It
 
 **Private Buyers**
 The primary beneficiary. A buyer considering a used car from a private seller can verify within seconds that no finance company has a claim on the vehicle. The trust anchor is the lender's own domain, not a third-party aggregator's database.
@@ -83,7 +83,7 @@ Auction houses and car buying services processing high volumes of vehicles need 
 **Insurers**
 When settling a total loss claim, the insurer needs to know whether a finance company is owed part of the payout. A verified lien status confirms the split without manual calls to the lender.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Hidden Finance" Problem**
 
@@ -113,7 +113,7 @@ Black Horse, a regulated motor finance provider and subsidiary of Lloyds Banking
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. HPI / Carfax
+## Compared With HPI / Carfax
 
 | Feature | Live Verify | HPI / Carfax | Seller's Word |
 | :--- | :--- | :--- | :--- |

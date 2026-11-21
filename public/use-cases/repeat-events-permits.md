@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What are Repeat Events Permits?
 
-Unlike a one-off parade, **Repeat Events Permits** cover recurring activities—such as a **Farmers Market** that happens every Saturday, or a **Seasonal Parklet** for outdoor dining. These permits prove that a vendor is authorized to use public space and, in the case of food markets, that they are a "Certified Producer" who actually grows what they sell.
+Unlike a one-off parade, Repeat Events Permits cover recurring activities—such as a Farmers Market that happens every Saturday, or a Seasonal Parklet for outdoor dining. These permits prove that a vendor is authorized to use public space and, in the case of food markets, that they are a "Certified Producer" who actually grows what they sell.
 
 The problem is that these permits are often valid for 6 to 12 months. Shady vendors might "edit" an expired 2024 permit to work for 2026, or a "reseller" might create a fake certificate to sell warehouse produce as "local organic." Similarly, a restaurant might expand a sidewalk café beyond its legal 2-table limit. Live Verify allows a shopper, neighbor, or market manager to scan the placard to verify: **"Is this vendor currently authorized, and are the products they are selling today on their approved list?"**
 
@@ -59,7 +59,13 @@ The problem is that these permits are often valid for 6 to 12 months. Shady vend
   </div>
 </div>
 
-## Data Verified
+## The Problem: Wholesale Ringer Fraud
+
+- **Reselling Masking:** Buying cheap generic produce at a distributor and selling it as "Family Farm Heritage" using a fake certificate.
+- **Permit Cloning:** Photopying one valid $500 seasonal permit for 10 different stalls in an illegal chain.
+- **Date Stretching:** Altering a "Summer Season" permit to work during the "Holiday Market."
+
+## What Is Checked
 
 Vendor name, farm/business location, stall assignment ID, seasonal validity dates, list of authorized products, certification level (e.g., Organic/Sustainable), market manager ID, permit fee status, background check timestamp.
 
@@ -69,28 +75,28 @@ Vendor name, farm/business location, stall assignment ID, seasonal validity date
 - **Seasonal Parklet Permit:** Posted in restaurant windows.
 - **Mobile Food Unit Permit:** For recurring food truck locations.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`springfieldmarket.org`, `grownyc.org`, `city.gov`) and the status.
 
 **Status Indications:**
 - **Authorized / Current** — Vendor is in good standing for the current market day.
-- **Suspended** — **CRITICAL:** Permit temporarily revoked (e.g., due to health violation).
-- **Product Alert** — **ALERT:** Vendor is trying to sell items not on their approved list.
+- **Suspended** — Permit temporarily revoked (e.g., due to health violation).
+- **Product Alert** — Vendor is trying to sell items not on their approved list.
 - **Expired** — The seasonal permit has lapsed; renewal required.
 
-## Second-Party Use
+## Who Holds It
 
-The **Vendor / Farmer** benefits from verification.
+The Vendor / Farmer benefits from verification.
 
 **Direct-to-Consumer Trust:** A farmer can proactively show the "Verified" hash to a skeptical customer. "Verified by Springfield Market" provides the customer with the cryptographic proof that the apples were grown on the farmer's land and aren't "Warehouse Resells," allowing the farmer to maintain their premium pricing.
 
 **Market Set-up Speed:** Upon arriving at 5 AM, the vendor scans their own placard for the market manager. Verification ensures they are in the correct stall and that their fees are paid, bypassing the need for a manual "Clipboard Check."
 
-## Third-Party Use
+## Who Checks It
 
 **Market Managers / Organizers**
-**Integrity Auditing:** Instead of arguing with a vendor about their "Product List," the manager scans the hash. If it returns **"EXCLUDED: PROCESSED GOODS,"** they have the proof needed to order the removal of the items, maintaining the market's "Producer-Only" brand.
+**Integrity Auditing:** Instead of arguing with a vendor about their "Product List," the manager scans the hash. If it returns "EXCLUDED: PROCESSED GOODS," they have the proof needed to order the removal of the items, maintaining the market's "Producer-Only" brand.
 
 **Health Inspectors**
 **Rapid Vetting:** During a busy Saturday market, the inspector scans placards. Live Verify ensures that every food vendor has a verified, active health permit on file, protecting the public from "Pop-Up" food poisoning risks.
@@ -98,13 +104,7 @@ The **Vendor / Farmer** benefits from verification.
 **Nearby Brick-and-Mortar Businesses**
 **Compliance Monitoring:** A restaurant owner can scan a rival's "Parklet Permit" to ensure they aren't illegally expanding into additional parking spots that are reserved for customers.
 
-## Verification Architecture
-
-**The "Wholesale Ringer" Fraud Problem**
-
-- **Reselling Masking:** Buying cheap generic produce at a distributor and selling it as "Family Farm Heritage" using a fake certificate.
-- **Permit Cloning:** Photopying one valid $500 seasonal permit for 10 different stalls in an illegal chain.
-- **Date Stretching:** Altering a "Summer Season" permit to work during the "Holiday Market."
+## Who Issues It
 
 **Issuer Types** (First Party)
 

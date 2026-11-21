@@ -49,7 +49,13 @@ If a traveler loses this paper, or if an airline agent in Paris thinks it looks 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Parole Fraud
+
+- **Photo Substitution:** Replacing the photo on the paper I-512L with a lookalike.
+- **Expired Documents:** Altering the "Valid Until" date to extend travel windows.
+- **Revoked Status:** Using a parole document after the underlying Green Card application has been denied (which voids the parole), but the physical paper wasn't surrendered.
+
+## What Is Checked
 
 Full name, Alien Registration Number (A-Number), date of birth, country of birth, permit type (Advance Parole vs Re-Entry Permit), validity dates, photograph (via hash of photo data or photo ID), restrictions.
 
@@ -58,7 +64,7 @@ Full name, Alien Registration Number (A-Number), date of birth, country of birth
 - **I-327:** Re-Entry Permit (passport-style booklet).
 - **Refugee Travel Document:** (I-571).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`uscis.gov`) and the document status.
 
@@ -67,15 +73,15 @@ Shows the issuer domain (`uscis.gov`) and the document status.
 - **Revoked** — The underlying application (e.g., I-485) was denied, invalidating the parole document.
 - **Lost/Stolen** — Document reported missing.
 
-## Second-Party Use
+## Who Holds It
 
-The **Applicant** (traveler) benefits from verification.
+The Applicant (traveler) benefits from verification.
 
 **Airline Boarding:** The biggest anxiety for Advance Parole holders is being denied boarding in a foreign country because the airline staff doesn't recognize the paper document. A bridge from the paper to current official status may help in that edge case, but it should not be treated as a replacement for carrier-facing government document checks.
 
 **Employer I-9:** Proving work authorization (parole documents can sometimes be used for I-9 purposes).
 
-## Third-Party Use
+## Who Checks It
 
 **Airlines (Foreign Airports)**
 
@@ -89,13 +95,7 @@ The **Applicant** (traveler) benefits from verification.
 
 **Driver's Licenses:** States require proof of legal presence. Verifying I-512 documents helps issue Real ID-compliant licenses.
 
-## Verification Architecture
-
-**The Parole Fraud Problem**
-
-- **Photo Substitution:** Replacing the photo on the paper I-512L with a lookalike.
-- **Expired Documents:** Altering the "Valid Until" date to extend travel windows.
-- **Revoked Status:** Using a parole document after the underlying Green Card application has been denied (which voids the parole), but the physical paper wasn't surrendered.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -121,7 +121,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive USCIS's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the document.
 
 
-## Competition vs. Central Databases (CBP)
+## Compared With Central Databases (CBP)
 
 | Feature | Live Verify | CBP Systems (TECS) |
 | :--- | :--- | :--- |

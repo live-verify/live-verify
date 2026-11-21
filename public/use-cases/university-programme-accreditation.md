@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is University Programme Accreditation?
 
-A **professional body** accredits specific degree programmes at specific universities, confirming that the curriculum meets professional standards. The university displays this claim on its course page — "This programme is accredited by BCS, The Chartered Institute for IT" — and prospective students rely on it when choosing where to study.
+A professional body accredits specific degree programmes at specific universities, confirming that the curriculum meets professional standards. The university displays this claim on its course page — "This programme is accredited by BCS, The Chartered Institute for IT" — and prospective students rely on it when choosing where to study.
 
 The student has no practical way to verify that claim at the point of decision. The accrediting body publishes a directory of accredited programmes, but students typically arrive at the university's own course page through search results, league tables, or UCAS/Common App — not through the professional body's directory. Meanwhile, the accreditation claim on the course page is just text. Any university can write it.
 
@@ -81,69 +81,7 @@ The domain in the claim text also serves as a human-readable check — a careful
 
 **Accreditation applied too broadly.** A university holds accreditation for its BSc Computer Science at its main campus but applies the same claim to its online delivery, a franchise partner, or a different campus where the programme has not been separately assessed. The accrediting body granted accreditation for a specific programme at a specific location; the university extends it beyond scope.
 
-## Data Verified
-
-University name, programme title, accrediting body, accreditation level or type, site domain, and current status.
-
-**Document Types:**
-- **Programme Accreditation** — The primary claim: this specific programme at this institution meets the professional body's standards.
-- **Provisional Accreditation** — Programme is newly approved and accredited subject to a first-cycle review.
-- **Accreditation Renewal** — Confirmation that accreditation has been renewed following periodic review.
-
-**Privacy Salt:** Generally not required. Programme accreditation is a public claim that the university wants prospective students to see. The professional body may salt if the detailed assessment outcome is commercially sensitive.
-
-## Verification Response
-
-```json
-{
-  "status": "verified",
-  "allowedDomains": ["northbridge.ac.uk", "*.northbridge.ac.uk"]
-}
-```
-
-The `allowedDomains` field enables browser extensions to detect domain mismatches — where a valid claim has been copied onto a site not associated with the accredited institution.
-
-**Status Indications:**
-- **Accredited** — Current accreditation is active for this programme.
-- **Provisional** — Accreditation granted subject to conditions; review pending.
-- **Expired** — Accreditation period ended; renewal not yet confirmed.
-- **Revoked** — Professional body has withdrawn accreditation.
-- **Suspended** — Accreditation paused pending investigation or remediation.
-- **404** — No such accreditation was issued by the claimed professional body.
-
-## Second-Party Use
-
-The **university** benefits from verification.
-
-**Recruitment credibility:** A university with genuine accreditation can differentiate its programme from competitors that merely claim it. Embedding a verifiable claim on the course page is a stronger signal than a logo or text assertion.
-
-**Clearing and admissions:** During competitive admissions periods, verifiable accreditation on the course page gives applicants confidence without requiring them to cross-reference the professional body's directory.
-
-**Institutional audit:** The university can demonstrate to its own quality assurance processes that accreditation claims on its website are current and issuer-controlled, not stale marketing copy.
-
-## Third-Party Use
-
-**Prospective Students**
-
-**Pre-enrolment confidence:** Before committing to a multi-year programme costing tens of thousands in fees, the student can verify on the course page that the programme is genuinely accredited by the relevant professional body. This is the highest-stakes moment — the point at which the claim matters most.
-
-**Employers**
-
-**Degree validation:** When hiring for roles that require a professionally accredited degree (chartered engineer, registered architect, qualified solicitor), the employer can check whether the candidate's programme was accredited at the time of study. This matters when the employer is working from a CV claim, not a professional body register.
-
-**Professional Bodies**
-
-**Brand protection:** The professional body can detect where its accreditation claims are being displayed — and where they are being applied to programmes or campuses that were never accredited — through verification-endpoint analytics.
-
-**Withdrawal enforcement:** When a programme loses accreditation, the verification endpoint returns REVOKED. The claim may still exist on the course page but now fails verification. This is faster and more visible than updating a directory entry.
-
-**Student Loan Providers**
-
-**Lending decisions:** Public and private lenders extending student finance can verify that the programme the student is enrolling in holds current professional accreditation, which is relevant to employability risk and, in some jurisdictions, to loan eligibility criteria.
-
-## Verification Architecture
-
-**The "Accredited Programme" Trust Problem**
+## The Problem: Accredited Programme Trust
 
 - **Logo copying:** Any university can display "Accredited by ABET" or "BCS Accredited" — these are just images or text on a web page.
 - **Stale claims:** Professional body directories are authoritative but students rarely check them at the point of decision. The course page is where the claim is consumed.
@@ -211,7 +149,67 @@ A student choosing an accounting degree may prioritise maximum exemptions from p
 
 </details>
 
-## Competition vs. Current Practice
+## What Is Checked
+
+University name, programme title, accrediting body, accreditation level or type, site domain, and current status.
+
+**Document Types:**
+- **Programme Accreditation** — The primary claim: this specific programme at this institution meets the professional body's standards.
+- **Provisional Accreditation** — Programme is newly approved and accredited subject to a first-cycle review.
+- **Accreditation Renewal** — Confirmation that accreditation has been renewed following periodic review.
+
+**Privacy Salt:** Generally not required. Programme accreditation is a public claim that the university wants prospective students to see. The professional body may salt if the detailed assessment outcome is commercially sensitive.
+
+## Verification Response
+
+```json
+{
+  "status": "verified",
+  "allowedDomains": ["northbridge.ac.uk", "*.northbridge.ac.uk"]
+}
+```
+
+The `allowedDomains` field enables browser extensions to detect domain mismatches — where a valid claim has been copied onto a site not associated with the accredited institution.
+
+**Status Indications:**
+- **Accredited** — Current accreditation is active for this programme.
+- **Provisional** — Accreditation granted subject to conditions; review pending.
+- **Expired** — Accreditation period ended; renewal not yet confirmed.
+- **Revoked** — Professional body has withdrawn accreditation.
+- **Suspended** — Accreditation paused pending investigation or remediation.
+- **404** — No such accreditation was issued by the claimed professional body.
+
+## Who Holds It
+
+The university benefits from verification.
+
+**Recruitment credibility:** A university with genuine accreditation can differentiate its programme from competitors that merely claim it. Embedding a verifiable claim on the course page is a stronger signal than a logo or text assertion.
+
+**Clearing and admissions:** During competitive admissions periods, verifiable accreditation on the course page gives applicants confidence without requiring them to cross-reference the professional body's directory.
+
+**Institutional audit:** The university can demonstrate to its own quality assurance processes that accreditation claims on its website are current and issuer-controlled, not stale marketing copy.
+
+## Who Checks It
+
+**Prospective Students**
+
+**Pre-enrolment confidence:** Before committing to a multi-year programme costing tens of thousands in fees, the student can verify on the course page that the programme is genuinely accredited by the relevant professional body. This is the highest-stakes moment — the point at which the claim matters most.
+
+**Employers**
+
+**Degree validation:** When hiring for roles that require a professionally accredited degree (chartered engineer, registered architect, qualified solicitor), the employer can check whether the candidate's programme was accredited at the time of study. This matters when the employer is working from a CV claim, not a professional body register.
+
+**Professional Bodies**
+
+**Brand protection:** The professional body can detect where its accreditation claims are being displayed — and where they are being applied to programmes or campuses that were never accredited — through verification-endpoint analytics.
+
+**Withdrawal enforcement:** When a programme loses accreditation, the verification endpoint returns REVOKED. The claim may still exist on the course page but now fails verification. This is faster and more visible than updating a directory entry.
+
+**Student Loan Providers**
+
+**Lending decisions:** Public and private lenders extending student finance can verify that the programme the student is enrolling in holds current professional accreditation, which is relevant to employability risk and, in some jurisdictions, to loan eligibility criteria.
+
+## Compared With Current Practice
 
 | Feature | Live Verify | Logo / Text on Course Page | Professional Body Directory | University Prospectus |
 | :--- | :--- | :--- | :--- | :--- |

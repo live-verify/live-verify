@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is an I-864 Affidavit of Support?
 
-The **I-864 Affidavit of Support** is a legally binding contract between a US sponsor and the US government. By signing it, the sponsor agrees to financially support an immigrant so they don't become a "Public Charge" (dependent on government welfare). If the immigrant receives certain public benefits, the government can sue the sponsor for reimbursement.
+The I-864 Affidavit of Support is a legally binding contract between a US sponsor and the US government. By signing it, the sponsor agrees to financially support an immigrant so they don't become a "Public Charge" (dependent on government welfare). If the immigrant receives certain public benefits, the government can sue the sponsor for reimbursement.
 
-These documents are high-stakes legal instruments. Fraud is common: people often "Photoshop" an I-864 to inflate their income (to meet the poverty guidelines) or to forge a signature from a wealthy relative who never actually agreed to be a sponsor. Verified hashes bind the **Sponsor Name, Income Level, and Beneficiary Name** to the `uscis.gov` domain.
+These documents are high-stakes legal instruments. Fraud is common: people often "Photoshop" an I-864 to inflate their income (to meet the poverty guidelines) or to forge a signature from a wealthy relative who never actually agreed to be a sponsor. Verified hashes bind the Sponsor Name, Income Level, and Beneficiary Name to the `uscis.gov` domain.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; padding-bottom: 15px; margin-bottom: 30px;">
@@ -45,7 +45,13 @@ These documents are high-stakes legal instruments. Fraud is common: people often
   </div>
 </div>
 
-## Data Verified
+## The Problem: Income Padding Fraud
+
+- **Threshold Inflation:** Changing a $20,000 income to $45,000 on a PDF to bypass the poverty line.
+- **Signature Forgery:** Using a high-end printer to place a relative's signature on an affidavit they never saw.
+- **Stale Data:** Presenting a 2023 tax return as if it were the "Most Recent" 2025 record.
+
+## What Is Checked
 
 Sponsor name, beneficiary name, household size, most recent tax-year income, total assets (if used for qualification), date of signature, sponsor's citizenship status, case receipt number.
 
@@ -55,25 +61,25 @@ Sponsor name, beneficiary name, household size, most recent tax-year income, tot
 - **I-864EZ:** Simplified version for certain sponsors.
 - **IRS Tax Transcript:** (Linked hash) proving the income stated on the I-864.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`uscis.gov`) and the contract standing.
 
 **Status Indications:**
 - **Verified / Enforceable** — Contract is on file and meets poverty guidelines.
-- **Income Mismatch** — **ALERT:** The income on the paper does not match the verified tax record.
-- **Revoked** — **ALERT:** The sponsor has attempted to withdraw the petition (restricted).
+- **Income Mismatch** — The income on the paper does not match the verified tax record.
+- **Revoked** — The sponsor has attempted to withdraw the petition (restricted).
 - **Superseded** — A newer sponsor has been added to the case.
 
-## Second-Party Use
+## Who Holds It
 
-The **Immigrant (Beneficiary)** benefits from verification.
+The Immigrant (Beneficiary) benefits from verification.
 
-**Visa Interview Confidence:** At a consular interview, the beneficiary shows the verified hash of their sponsor's I-864. The officer can instantly see **"VERIFIED INCOME: $78,450"** directly from USCIS records, removing the common "Consular Suspicion" that leads to 221(g) administrative processing delays.
+**Visa Interview Confidence:** At a consular interview, the beneficiary shows the verified hash of their sponsor's I-864. The officer can instantly see "VERIFIED INCOME: $78,450" directly from USCIS records, removing the common "Consular Suspicion" that leads to 221(g) administrative processing delays.
 
 **Public Benefit Defense:** If an immigrant is wrongly accused of being a "Public Charge," they can provide the verified sponsorship hash to prove they have a solvent legal backer who is responsible for their support.
 
-## Third-Party Use
+## Who Checks It
 
 **Consular Officers / Consulates**
 **Fraud Detection:** Thousands of fake I-864s are submitted globally every year. Live Verify connects the officer directly to the US-based record in seconds, stopping "Immigration Consultant" scams where fake sponsors are sold to applicants.
@@ -84,13 +90,7 @@ The **Immigrant (Beneficiary)** benefits from verification.
 **Attorneys / Non-Profits**
 **Case Management:** Verifying that the client's sponsor actually meets the 125% Poverty Guidelines before submitting the final green card packet.
 
-## Verification Architecture
-
-**The "Income Padding" Fraud Problem**
-
-- **Threshold Inflation:** Changing a $20,000 income to $45,000 on a PDF to bypass the poverty line.
-- **Signature Forgery:** Using a high-end printer to place a relative's signature on an affidavit they never saw.
-- **Stale Data:** Presenting a 2023 tax return as if it were the "Most Recent" 2025 record.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -124,7 +124,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 ## Footnote: UK Certificate of Sponsorship (CoS)
 
-The UK's **Certificate of Sponsorship** is the functional equivalent of the I-864 for employer-sponsored work visas (Skilled Worker, Health & Care Worker, Senior or Specialist Worker, etc.). It is not a physical document — it is an electronic record issued by a Home Office–licensed sponsor via the **Sponsorship Management System (SMS)**, referenced by a unique CoS number.
+The UK's Certificate of Sponsorship is the functional equivalent of the I-864 for employer-sponsored work visas (Skilled Worker, Health & Care Worker, Senior or Specialist Worker, etc.). It is not a physical document — it is an electronic record issued by a Home Office–licensed sponsor via the Sponsorship Management System (SMS), referenced by a unique CoS number.
 
 **Key fraud vectors:**
 - **Fake CoS numbers** — Applicants are given fabricated reference numbers by unlicensed "immigration consultants" who charge fees for non-existent sponsorships.
@@ -132,4 +132,4 @@ The UK's **Certificate of Sponsorship** is the functional equivalent of the I-86
 - **Salary inflation** — The CoS states a salary meeting the going rate threshold, but the actual employment pays below it (or the job doesn't exist).
 - **Post-assignment changes** — Sponsor assigns CoS then withdraws or changes the role after the visa is granted.
 
-**How Live Verify would help:** A verifiable hash binding the **CoS reference number, sponsor name, job title, SOC code, and salary** to a `gov.uk` endpoint would let visa applicants, UKVI caseworkers, and third parties (banks, landlords checking right-to-work) instantly confirm the sponsorship is genuine — without exposing the full SMS record. Status values could include **Assigned**, **Used**, **Withdrawn**, or **Expired**.
+**How Live Verify would help:** A verifiable hash binding the CoS reference number, sponsor name, job title, SOC code, and salary to a `gov.uk` endpoint would let visa applicants, UKVI caseworkers, and third parties (banks, landlords checking right-to-work) instantly confirm the sponsorship is genuine — without exposing the full SMS record. Status values could include Assigned, Used, Withdrawn, or Expired.

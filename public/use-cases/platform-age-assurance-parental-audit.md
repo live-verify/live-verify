@@ -24,13 +24,13 @@ sign-up by typing a fake birth year, whether the platform did any real assurance
 it correctly understands the account as a minor and is applying minor protections. The platform's
 age belief is a private fact the platform never has to show.
 
-This use case turns that private belief into a **parent-auditable, verifiable claim** — including,
-crucially, the case where there is **no claim at all**, because the absence of any age assurance is
+This use case turns that private belief into a parent-auditable, verifiable claim — including,
+crucially, the case where there is no claim at all, because the absence of any age assurance is
 itself the finding a parent most needs to see.
 
 ## The inverse of age-gating
 
-This is **not** the same as [Age-Gating Without Revealing Date of Birth](age-gating-without-dob.md),
+This is not the same as [Age-Gating Without Revealing Date of Birth](age-gating-without-dob.md),
 and the difference is the whole point:
 
 - **Age-gating** is the *subject* presenting an "over 18" token to a *gatekeeper* who controls access
@@ -47,7 +47,7 @@ it.
 ## How a parent invokes it
 
 The trigger has to be something a child cannot silently disable or fake, which means it belongs at
-the **operating-system level**, not inside the app the child controls:
+the operating-system level, not inside the app the child controls:
 
 1. **The parent performs a non-overridable "safe sequence" on the app icon** — a long-press on the
    child's Reddit (or other) icon that opens an OS-level age-assurance panel, the way a long-press
@@ -59,7 +59,7 @@ the **operating-system level**, not inside the app the child controls:
    this user to be over/under a certain age, and on what basis.*
 3. **The parent's phone (or a second device) scans or clips the panel** and Live Verify walks the
    verification chain back to the provider of the assurance — confirming the platform genuinely
-   asserts this, and surfacing **who actually did the age check** (the platform itself, a third-party
+   asserts this, and surfacing who actually did the age check (the platform itself, a third-party
    age-verification provider, a government ID service, or *nobody*).
 
 The result is an answer the parent can trust because it is bound to the platform's domain and
@@ -108,8 +108,8 @@ to verify is the informative outcome*, not an error.
 
 The "no assurance" result is the worst case. There is also a *best* case worth naming, because it is
 where this is heading. Rather than serving a minor the full adult product with bolt-on restrictions,
-a platform can serve a genuinely **cut-down children's version** — the way YouTube offers a separate
-Kids experience — whose content scope and safety design are **signed off by the nation-state**. As
+a platform can serve a genuinely cut-down children's version — the way YouTube offers a separate
+Kids experience — whose content scope and safety design are signed off by the nation-state. As
 the legislation and licence-to-operate regimes that the new age-assurance laws imply come into force,
 that sign-off becomes a thing an authority *grants and can revoke*: a licence that *this* children's
 tier is approved for minors in *this* jurisdiction.
@@ -133,7 +133,7 @@ all* (the damning case). Today a parent cannot tell these apart; the verifiable 
 difference legible — and makes a *claimed* "child-safe mode" with no licence behind it fail to verify,
 just as a fabricated assurance does.
 
-## Data Verified
+## What Is Checked
 
 The platform, a salted account token (never the username or content), the age band the platform
 understands the account to fall in (e.g. UNDER 18 / OVER 18 / OVER 16), the assurance method and the
@@ -149,7 +149,7 @@ party that performed it, the assurance date, and the as-at timestamp.
 The audit answers "what does the platform believe about this account's age, and who checked?" — not
 "who is this child and what do they do online?"
 
-## Data Visible After Verification
+## What the Checker Sees
 
 The parent (or regulator) sees the platform's domain, the age band, the assurance provider, and the
 chain status.
@@ -173,9 +173,9 @@ chain status.
 A network error or unreachable endpoint is reported as *"could not confirm"* — never rounded up to
 "assured." For child-safety, an unconfirmable claim must read as unconfirmed.
 
-## Second-Party Use
+## Who Holds It
 
-The **parent / guardian** benefits directly.
+The parent / guardian benefits directly.
 
 **Audit on demand:** The safe-sequence gesture lets a parent check, at any moment, what the platform
 believes about their child's account — and whether any real assurance happened.
@@ -187,7 +187,7 @@ discover today.
 **Non-spoofable surface:** Because the gesture and panel are drawn by the OS and the claim is bound
 to the platform's domain, the child cannot fake a reassuring screen.
 
-## Third-Party Use
+## Who Checks It
 
 **Regulators (Ofcom and equivalents)**
 
@@ -206,13 +206,13 @@ pairs with existing parental-control frameworks.
 Where a duty of care exists, a safeguarding lead can confirm whether a platform applies minor
 protections to a known minor's account — without surveilling the account's content.
 
-## Verification Architecture
+## How Verification Works Here
 
 This use case is an instance of [Safe-Sequence Platform Disclosure](../../docs/safe-sequence-platform-disclosure.md):
 the platform is the subject of scrutiny, the parent turns verification inward via an OS-drawn gesture
 the child's app cannot suppress, and the *absence* of an assurance chain is the finding that matters.
 
-The verifiable artifact is the **platform's own age-assurance statement**, published as canonical
+The verifiable artifact is the platform's own age-assurance statement, published as canonical
 text bound to the platform's domain, surfaced through an OS-level safe-sequence gesture the child
 cannot intercept. The parent's device runs the standard `text → normalize → SHA-256 → GET` check and
 walks the chain to the assurance provider.

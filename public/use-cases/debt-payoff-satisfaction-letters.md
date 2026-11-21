@@ -56,7 +56,14 @@ Fraud is common: altered payoff amounts, fake lien releases, and fraudulent "pai
   <span data-verify-line="student">verify:studentaid.gov/discharge</span> <span verifiable-text="end" data-for="student"></span>
 </div>
 
-## Data Verified
+## The Problem: Debt Satisfaction Fraud
+
+- **Forged Releases:** Criminals create fake lien releases to enable property fraud.
+- **Amount Alteration:** Changing the payoff amount on legitimate letters to claim "paid in full" when balance remains.
+- **Date Manipulation:** Backdating satisfaction letters to avoid foreclosure or judgment liens.
+- **Identity Fraud:** Using someone else's payoff letter by changing the borrower name.
+
+## What Is Checked
 
 Lender name, loan/account number, borrower name, original loan amount, property/collateral description (if secured), payoff date, final payment amount, lien release status, any remaining obligations.
 
@@ -67,7 +74,7 @@ Lender name, loan/account number, borrower name, original loan amount, property/
 - **Discharge Notice:** Student loan or bankruptcy discharge confirmation.
 - **Title Release:** Vehicle title transferred to owner after payoff.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`firstnationalbank.com`, `studentaid.gov`) and current debt status.
 
@@ -78,9 +85,9 @@ Shows the issuer domain (`firstnationalbank.com`, `studentaid.gov`) and current 
 - **Reinstated** — Debt reopened due to returned payment, fraud, or error.
 - **Superseded** — Replaced by corrected satisfaction (e.g., recording error fixed).
 
-## Second-Party Use
+## Who Holds It
 
-The **Borrower** benefits from verification.
+The Borrower benefits from verification.
 
 **Property Sale:** Proving clear title to a buyer. Sellers need to show the mortgage was satisfied before transfer. A verified hash from the lender's domain eliminates title company concerns about forged releases.
 
@@ -88,7 +95,7 @@ The **Borrower** benefits from verification.
 
 **Refinancing:** When refinancing, borrowers must prove prior liens are cleared. Lenders accept verified satisfaction letters without manual confirmation calls.
 
-## Third-Party Use
+## Who Checks It
 
 **Title Companies / Escrow Officers**
 **Fraud Prevention:** Fake lien releases are a significant real estate fraud vector. A forged satisfaction letter lets criminals sell property they don't own or take out second mortgages. Live Verify connects the title company directly to the lender's domain.
@@ -102,14 +109,7 @@ The **Borrower** benefits from verification.
 **County Recorders**
 **Recording Integrity:** Some jurisdictions are exploring verified satisfaction letters to prevent fraudulent lien release recordings.
 
-## Verification Architecture
-
-**The Debt Satisfaction Fraud Problem**
-
-- **Forged Releases:** Criminals create fake lien releases to enable property fraud.
-- **Amount Alteration:** Changing the payoff amount on legitimate letters to claim "paid in full" when balance remains.
-- **Date Manipulation:** Backdating satisfaction letters to avoid foreclosure or judgment liens.
-- **Identity Fraud:** Using someone else's payoff letter by changing the borrower name.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

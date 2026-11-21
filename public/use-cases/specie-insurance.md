@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is Specie Insurance?
 
-In the world of high-value logistics, **Specie Insurance** covers the transport and storage of "portable wealth"—specifically **Fine Art**, **Diamonds/Jewels**, and **Gold Bullion**. These policies are "All-Risk" and often cover a single transit event (e.g., moving a Van Gogh from London to New York) worth $50 million or more.
+In the world of high-value logistics, Specie Insurance covers the transport and storage of "portable wealth"—specifically Fine Art, Diamonds/Jewels, and Gold Bullion. These policies are "All-Risk" and often cover a single transit event (e.g., moving a Van Gogh from London to New York) worth $50 million or more.
 
-These documents are the "Proof of Protection" for the most valuable items on Earth. Fraud is high-stakes: a courier might create a fake "Lloyd's" certificate to trick a museum into releasing a painting, or an owner might "edit" a policy to hide a "No-Armored-Car" exclusion after a theft. Verified hashes bind the **Item Description, Transit Route, and Security Protocols** to the specialist insurer's domain (e.g., `lloyds.com` or `axa-art.com`).
+These documents are the "Proof of Protection" for the most valuable items on Earth. Fraud is high-stakes: a courier might create a fake "Lloyd's" certificate to trick a museum into releasing a painting, or an owner might "edit" a policy to hide a "No-Armored-Car" exclusion after a theft. Verified hashes bind the Item Description, Transit Route, and Security Protocols to the specialist insurer's domain (e.g., `lloyds.com` or `axa-art.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="specie"></span>AXA ART SPECIALTY
@@ -39,7 +39,13 @@ protocols stated above.
 <span data-verify-line="specie">verify:axa-art.com/v</span> <span verifiable-text="end" data-for="specie"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Vanishing Van Gogh Fraud
+
+- **Security Downgrading:** Editing a PDF to remove a "GPS Tracking" requirement so the owner can use a cheaper, un-tracked van.
+- **Value Padding:** Changing a $5M insured value to $50M before a planned "Theft" to scam the insurer.
+- **Carrier Spoofing:** Creating a fake policy from a non-existent "Premium Art Insurer" to steal a consignment.
+
+## What Is Checked
 
 Policy number, insurer name, insured name, itemized asset list (with serials/ID), total insured value, transit route (Origin/Destination), approved carrier name, security protocol level (e.g., Armored), storage requirements, effective date, expiration date, broker ID.
 
@@ -49,25 +55,25 @@ Policy number, insurer name, insured name, itemized asset list (with serials/ID)
 - **Evidence of Fine Art Insurance:** Provided to museums and galleries.
 - **Armored Courier Manifest:** (Linked hash) for the physical handoff.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`axa-art.com`, `hisicox.com`, `lloyds.com`) and the policy standing.
 
 **Status Indications:**
 - **Active / Bound** — Coverage is in force for the stated transit.
-- **Protocol Mismatch** — **ALERT:** The security requirements on the paper don't match the insurer's record.
-- **Expired** — **ALERT:** The transit window has passed; asset is un-insured.
-- **Claim Active** — **ALERT:** A loss or damage event has been reported for this asset.
+- **Protocol Mismatch** — The security requirements on the paper don't match the insurer's record.
+- **Expired** — The transit window has passed; asset is un-insured.
+- **Claim Active** — A loss or damage event has been reported for this asset.
 
-## Second-Party Use
+## Who Holds It
 
-The **Collector / Museum Director** benefits from verification.
+The Collector / Museum Director benefits from verification.
 
 **Loan Approval Speed:** Before a gallery releases a $10M painting for an exhibition, they scan the borrower's insurance hash. "Verified by AXA Art" gives the gallery the cryptographic proof needed to release the asset, removing the 48-hour "Broker Call" delay.
 
 **Buyer Confidence:** In a private sale of a high-end watch or diamond, the seller shows the verified insurance hash. This proves to the buyer that the item was recently valued and insured by a top-tier firm, acting as a "Secondary Appraisal."
 
-## Third-Party Use
+## Who Checks It
 
 **Armored Carriers (Brinks / Malca-Amit)**
 **Liability Vetting:** Before picking up a crate of gold, the courier scans the verified insurance hash. This ensures that the insurer has "Authorized" the specific carrier and route, protecting the courier from being held liable for a loss that the insurer might otherwise deny.
@@ -78,13 +84,7 @@ The **Collector / Museum Director** benefits from verification.
 **Customs & Port Security**
 **High-Value Vetting:** Verifying the declared value of "Diplomatic Pouches" or armored crates by scanning the accompanying insurance hashes, preventing "Under-Declaration" of duty-heavy jewels.
 
-## Verification Architecture
-
-**The "Vanishing Van Gogh" Fraud Problem**
-
-- **Security Downgrading:** Editing a PDF to remove a "GPS Tracking" requirement so the owner can use a cheaper, un-tracked van.
-- **Value Padding:** Changing a $5M insured value to $50M before a planned "Theft" to scam the insurer.
-- **Carrier Spoofing:** Creating a fake policy from a non-existent "Premium Art Insurer" to steal a consignment.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

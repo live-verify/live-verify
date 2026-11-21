@@ -17,7 +17,7 @@ The catch is matching a *specific* item in your hands to that recall. The inform
 
 The other failure mode is staleness. A "no open recalls" sheet printed at the point of sale is true for exactly as long as no recall is issued. The day after, it is a dangerous fiction — it reassures precisely the people who should be alarmed. Recalls are issued *after* the product is in the world, often years after sale. A printed clearance is the wrong tool for a moving target.
 
-Live Verify binds the **recall status of a specific item** to an authoritative domain. The identifier on the product — VIN, batch/lot, model+serial, or GTIN — normalizes to a hash, and a GET against the manufacturer's (or regulator's) domain returns today's status for that exact item. Instant, item-specific, and live.
+Live Verify binds the recall status of a specific item to an authoritative domain. The identifier on the product — VIN, batch/lot, model+serial, or GTIN — normalizes to a hash, and a GET against the manufacturer's (or regulator's) domain returns today's status for that exact item. Instant, item-specific, and live.
 
 ## Why live status matters here
 
@@ -62,26 +62,26 @@ Salt:         9f2c-7a18-bd04
 
 The red border signals what the status says: this batch is under an active recall. Scanning a different identifier — a remedied unit, or a batch that was never affected — returns a different status from the same endpoint. The page on the product never changes; the live response does.
 
-## Data Verified
+## What Is Checked
 
 Product name/description, identifier (VIN, batch/lot, model+serial, or GTIN), manufacturer name, recall status, recall reference(s) (the official NHTSA/CPSC/MHRA/RAPEX notice numbers), the remedy, the "as at" date, and a salt line where the identifier alone is low-entropy.
 
 The identifier is the load-bearing field. Everything else is context the response can confirm but the check is anchored on matching the specific item.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer's domain (`manufacturer.example`, or a regulator's domain where the regulator operates the endpoint) and the item's current recall status.
 
 **Status Indications:**
-- **CLEAR / NO_RECALL** — No active recall affects this identifier as of the query time. **Not a permanent clearance** — a recall could issue tomorrow. Re-checkable, always.
+- **CLEAR / NO_RECALL** — No active recall affects this identifier as of the query time. Not a permanent clearance — a recall could issue tomorrow. Re-checkable, always.
 - **RECALLED** — This identifier is named in an active safety recall. The response carries the recall reference and the remedy. Do not use / do not sell / arrange the fix.
 - **REMEDIED** — This specific item was under recall and the remedy has been recorded as applied. Safe to use. (An un-remedied item in the same batch will still return RECALLED.)
 - **SUPERSEDED** — The recall covering this item has been replaced or expanded by a newer notice; the response points to the current reference.
 - **404** — No record found for this identifier at this domain. **This is not a clearance.** It may mean a wrong identifier, an OCR error, the wrong domain, or an item this issuer does not track. For a safety check, an unanswered query is unresolved, not safe — see the Verification Architecture note.
 
-## Second-Party Use
+## Who Holds It
 
-The **consumer / owner** of the product benefits directly.
+The consumer / owner of the product benefits directly.
 
 **Used-goods safety check:** A parent buys a second-hand car seat at a yard sale. There is no warranty card and no receipt — but there is a batch number moulded into the shell. A single scan against the manufacturer's domain returns RECALLED with the chest-clip remedy, or REMEDIED, or CLEAR. No knowing which database to search, no interpreting notices.
 
@@ -89,7 +89,7 @@ The **consumer / owner** of the product benefits directly.
 
 **Owner re-check:** Because recalls issue years after sale, the owner can re-scan the same product periodically. The item that was CLEAR at purchase may be RECALLED a year on — and the same printed identifier surfaces that change with no new document needed.
 
-## Third-Party Use
+## Who Checks It
 
 **Retailers (pre-sale stock screening)**
 A retailer scans GTINs or batch codes across incoming stock and shelf inventory before sale. A RECALLED hit pulls the affected SKU before it reaches a customer — the single highest-leverage moment to stop a dangerous product, and one that manual database trawling makes impractical at scale.
@@ -105,11 +105,11 @@ A service centre confirms whether the unit in front of them is RECALLED and, aft
 
 This pairs with the safety-critical tracing in [Aircraft & Safety-Critical Parts Traceability](aircraft-parts-traceability.md), where the same identity-on-the-item pattern carries airworthiness and recall status for individual components.
 
-## Verification Architecture
+## How Verification Works Here
 
 **Fail loudly — an unconfirmed safety check is not "safe."**
 
-The single most important rule here is that the absence of a confirmation must never read as a clearance. If the network is down, the domain is unreachable, the identifier was mis-read, or the endpoint returns 404, the result is **unresolved** — explicitly, in those words. The app must not silently degrade an error or a not-found into "no recalls." For a safety check, treating "couldn't confirm" as "safe" is the exact failure that gets someone hurt. CLEAR/NO_RECALL is a positive answer from the issuer's domain at query time; everything else, including 404 and any network failure, is "not confirmed clear — check again / check the official database."
+The single most important rule here is that the absence of a confirmation must never read as a clearance. If the network is down, the domain is unreachable, the identifier was mis-read, or the endpoint returns 404, the result is unresolved — explicitly, in those words. The app must not silently degrade an error or a not-found into "no recalls." For a safety check, treating "couldn't confirm" as "safe" is the exact failure that gets someone hurt. CLEAR/NO_RECALL is a positive answer from the issuer's domain at query time; everything else, including 404 and any network failure, is "not confirmed clear — check again / check the official database."
 
 **Complementary to official databases.** The authoritative record of recalls is the regulators': NHTSA (vehicles, US), CPSC (consumer products, US), MHRA (medical/pharma, UK), the EU Safety Gate / RAPEX (EU). Live Verify does not duplicate or supersede them — it carries the recall *reference* in every RECALLED response, pointing back to the official notice. The contribution is binding a *specific item's* current status to an authoritative domain so the check is instant and item-level, rather than a model-level manual search a consumer is unlikely to perform.
 
@@ -121,13 +121,13 @@ Both can coexist: the verify line names whichever domain attests.
 
 ## Privacy Salt
 
-Recall identifiers are often **low-entropy**. A VIN follows a structured 17-character format; batch and lot numbers and GTINs are short and frequently sequential or guessable. With a public endpoint, that invites enumeration — an attacker could hash identifier after identifier to map which items are recalled, or to confirm a guessed identifier exists.
+Recall identifiers are often low-entropy. A VIN follows a structured 17-character format; batch and lot numbers and GTINs are short and frequently sequential or guessable. With a public endpoint, that invites enumeration — an attacker could hash identifier after identifier to map which items are recalled, or to confirm a guessed identifier exists.
 
 The honest position: a salt line printed on the product (as in the mockup) defeats guess-and-hash by making the verifiable text depend on a value the attacker cannot predict from the identifier alone. That is the standard mitigation and it works.
 
 **But recall status is frequently *meant* to be public.** Regulators publish recalls precisely so anyone can look them up; NHTSA's VIN recall lookup is openly queryable by VIN with no secret. For those flows, enumeration resistance is not a goal — the data is deliberately open, and adding a salt would *break* the very property that lets a stranger check a used product with only the identifier moulded into it. Requiring a printed salt would defeat the "scan a second-hand item with no paperwork" case that is the whole point.
 
-So salt here is **optional and context-dependent**, not a blanket requirement:
+So salt here is optional and context-dependent, not a blanket requirement:
 - **Salt it** when the issuer treats the existence or status of a recall as sensitive, or where enumeration of who-owns-what is a real concern, or where the endpoint also exposes data beyond bare status.
 - **Skip the salt** when the recall register is deliberately public and the value is exactly that any identifier resolves without a secret — which is the common case for consumer-safety recalls.
 

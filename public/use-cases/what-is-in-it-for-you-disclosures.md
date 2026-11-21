@@ -78,7 +78,20 @@ Summary: I may be paid by more than one party if this deal goes ahead.
   <span verifiable-text="end" data-for="wiifmulti"></span>
 </div>
 
-## Data Verified
+## The Problem: Technically Disclosed, Practically Hidden
+
+- The incentive exists, but only in fine print.
+- The customer receives a disclosure, but cannot realistically understand it.
+- The adviser answers verbally in a softer way than the legal paperwork implies.
+- Years later, the customer remembers "I thought they were fee-only" while the firm points to a buried paragraph on page 19.
+
+This use case solves a narrower problem than the full transaction-linked disclosure:
+
+not just whether the economics were legally documented,
+
+but whether the customer got a short, legible answer to the question they actually cared about.
+
+## What Is Checked
 
 In its simplest form, the object verifies only the fields a customer actually needs at the point of decision:
 
@@ -92,7 +105,7 @@ In its simplest form, the object verifies only the fields a customer actually ne
 
 This is deliberately narrower than a full conflict disclosure or transaction compensation record.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain and a simple status.
 
@@ -103,9 +116,9 @@ Shows the issuer domain and a simple status.
 - **Expired** — Summary no longer current
 - **Voided** — Summary issued in error
 
-## Second-Party Use
+## Who Holds It
 
-The **customer** benefits most.
+The customer benefits most.
 
 **Fast comparison:** Two advisers, two brokers, or two intermediaries can be compared in seconds without reading 30-page PDFs.
 
@@ -113,7 +126,7 @@ The **customer** benefits most.
 
 **Complaint memory aid:** Months or years later, the customer can still show the simple summary they relied on when deciding.
 
-## Third-Party Use
+## Who Checks It
 
 **Families and Trusted Contacts**
 
@@ -126,21 +139,6 @@ The plain-English sheet makes it easier to test whether the short consumer-facin
 **Regulators**
 
 Supervisors can require firms to provide not just technically correct disclosures, but intelligible ones.
-
-## Verification Architecture
-
-**The "Technically Disclosed, Practically Hidden" Problem**
-
-- The incentive exists, but only in fine print.
-- The customer receives a disclosure, but cannot realistically understand it.
-- The adviser answers verbally in a softer way than the legal paperwork implies.
-- Years later, the customer remembers "I thought they were fee-only" while the firm points to a buried paragraph on page 19.
-
-This use case solves a narrower problem than the full transaction-linked disclosure:
-
-not just whether the economics were legally documented,
-
-but whether the customer got a short, legible answer to the question they actually cared about.
 
 ## Relationship to Existing Use Cases
 
@@ -164,7 +162,7 @@ This page turns that instinct into a standardized prompt:
 
 That question is short enough for a meeting room, a kitchen table, or a phone screen.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Plain-English Verified Sheet | Terms of Business PDF | Verbal Answer |
 | :--- | :--- | :--- | :--- |

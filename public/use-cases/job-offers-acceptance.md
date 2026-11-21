@@ -48,7 +48,14 @@ The offer summary references an elaborating document (the full offer letter with
 
 Where the attested summary and the elaboration diverge, the recipient may choose which interpretation applies. This protects the candidate: if the full letter says "start date subject to background check completion" but the attested summary says "Start date: 1 June 2026," the candidate can hold the employer to June 1st.
 
-## Data Verified
+## The Problem: Inflated Offer
+
+- **Salary inflation:** Candidate edits the PDF to show a higher salary for a mortgage or visa application
+- **Role inflation:** "Senior Engineer" becomes "VP of Engineering" in the forwarded version
+- **Fabricated offers:** Creating an offer letter from a company that never made one
+- **Stale offers:** Presenting a rescinded or expired offer as current
+
+## What Is Checked
 
 Employer name, candidate name, role/title, base compensation, start date, location, offer validity period, elaboration reference.
 
@@ -62,9 +69,9 @@ Employer name, candidate name, role/title, base compensation, start date, locati
 - **EXPIRED** — Offer validity period has passed
 - **404** — Offer not found (forged or wrong domain)
 
-## Second-Party Use
+## Who Holds It
 
-The **candidate** benefits from verification:
+The candidate benefits from verification:
 
 **Immigration filing:** The immigration lawyer needs proof of a job offer at a specific salary for an H-1B or work visa petition. A verified offer from `hr.acme-corp.com` is stronger than a forwarded PDF. (See also: [H-1B Visa Fraud Documents](view.html?doc=h1b-visa-fraud-documents).)
 
@@ -72,7 +79,7 @@ The **candidate** benefits from verification:
 
 **Counteroffer negotiation:** The candidate shows their current employer a verified offer. The current employer knows it's genuine — no need to call Acme's HR to confirm.
 
-## Third-Party Use
+## Who Checks It
 
 **Immigration Authorities**
 Verifying that the sponsoring employer actually issued the offer at the claimed salary and role. Reduces petition fraud where applicants fabricate or inflate offer letters.
@@ -83,14 +90,7 @@ Confirming future employment and income for pre-approval. The verified offer sup
 **Background Check Firms**
 Cross-referencing the candidate's claimed offer against the employer's attested record.
 
-## Verification Architecture
-
-**The "Inflated Offer" Problem**
-
-- **Salary inflation:** Candidate edits the PDF to show a higher salary for a mortgage or visa application
-- **Role inflation:** "Senior Engineer" becomes "VP of Engineering" in the forwarded version
-- **Fabricated offers:** Creating an offer letter from a company that never made one
-- **Stale offers:** Presenting a rescinded or expired offer as current
+## Who Issues It
 
 **Issuer Types** (First Party)
 

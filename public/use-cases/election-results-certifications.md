@@ -74,7 +74,14 @@ Election result fraud includes altering vote counts, fabricating precinct report
   <span data-verify-line="state">verify:azsos.gov/elections/certified</span> <span verifiable-text="end" data-for="state"></span>
 </div>
 
-## Data Verified
+## The Problem: Election Result Fraud
+
+- **Count Manipulation:** Altering vote totals in result reports.
+- **Precinct Fabrication:** Creating fake precinct-level results.
+- **Certification Forgery:** Fake certification documents claiming different winners.
+- **Historical Revisionism:** Altering archived results after the fact.
+
+## What Is Checked
 
 Election date and type, jurisdiction, office/contest, candidate names, vote counts, total ballots, turnout percentage, certification date, certifying officials, any recount/audit notes.
 
@@ -86,7 +93,7 @@ Election date and type, jurisdiction, office/contest, candidate names, vote coun
 - **State Certification:** Final state-level certified results.
 - **Recount Report:** Results after official recount.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`elections.maricopa.gov`, `azsos.gov`) and result status.
 
@@ -98,9 +105,9 @@ Shows the issuer domain (`elections.maricopa.gov`, `azsos.gov`) and result statu
 - **Contested** — Legal challenge pending.
 - **Final** — All challenges resolved, result is permanent.
 
-## Second-Party Use
+## Who Holds It
 
-The **Candidates / Campaigns** benefit from verification.
+The Candidates / Campaigns benefit from verification.
 
 **Result Confirmation:** Candidates can verify that official results match what was publicly announced.
 
@@ -108,7 +115,7 @@ The **Candidates / Campaigns** benefit from verification.
 
 **Historical Record:** Winners can prove their certified election results for biographical purposes.
 
-## Third-Party Use
+## Who Checks It
 
 **Media / Journalists**
 **Result Verification:** News organizations can verify that numbers they're reporting match official certified results.
@@ -125,14 +132,7 @@ The **Candidates / Campaigns** benefit from verification.
 **Opposing Campaigns**
 **Audit Trail:** Losing candidates can verify the chain of results from precinct to state certification.
 
-## Verification Architecture
-
-**The Election Result Fraud Problem**
-
-- **Count Manipulation:** Altering vote totals in result reports.
-- **Precinct Fabrication:** Creating fake precinct-level results.
-- **Certification Forgery:** Fake certification documents claiming different winners.
-- **Historical Revisionism:** Altering archived results after the fact.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

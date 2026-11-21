@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Solar Efficiency Certificates?
 
-In the renewable energy industry, a **Solar Efficiency Certificate** (or Flash Test Report) is the "Birth Certificate" for a photovoltaic (PV) panel. It records the exact electrical output of a specific panel under **Standard Test Conditions (STC)**—measuring its Wattage (e.g., 400W) and its conversion efficiency percentage (e.g., 21.5%).
+In the renewable energy industry, a Solar Efficiency Certificate (or Flash Test Report) is the "Birth Certificate" for a photovoltaic (PV) panel. It records the exact electrical output of a specific panel under Standard Test Conditions (STC)—measuring its Wattage (e.g., 400W) and its conversion efficiency percentage (e.g., 21.5%).
 
-These certificates are the foundation of **Solar Financing** and **Warranties**. Fraud is common in the "Budget Solar" market: shady distributors often "edit" a certificate to turn a low-efficiency generic panel into a high-performance "Tier-1" brand like SunPower or LG. Similarly, they might inflate the wattage to charge a homeowner more for a smaller system. Verified hashes bind the **Panel Serial Number, STC Wattage, and Testing Date** to the manufacturer's or the testing lab's domain (e.g., `trinasolar.com` or `tuv.com`).
+These certificates are the foundation of Solar Financing and Warranties. Fraud is common in the "Budget Solar" market: shady distributors often "edit" a certificate to turn a low-efficiency generic panel into a high-performance "Tier-1" brand like SunPower or LG. Similarly, they might inflate the wattage to charge a homeowner more for a smaller system. Verified hashes bind the Panel Serial Number, STC Wattage, and Testing Date to the manufacturer's or the testing lab's domain (e.g., `trinasolar.com` or `tuv.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="solar"></span>TRINA SOLAR LABS
@@ -36,7 +36,13 @@ the Linear Power Warranty.
 <span data-verify-line="solar">verify:trinasolar.com/v</span> <span verifiable-text="end" data-for="solar"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Wattage Padding Fraud
+
+- **Efficiency Inflation:** Changing a 19% efficiency rating to 22% on a PDF to qualify for a government "Solar Rebate."
+- **Brand Mimicry:** Printing fake "Tier-1" stickers and placing them over the labels of un-branded, lower-quality panels.
+- **Serial Recycling:** Using a single valid flash report for 100 different panels.
+
+## What Is Checked
 
 Panel serial number, model name/number, testing date, peak wattage (Pmax), module efficiency percentage, open-circuit voltage (Voc), short-circuit current (Isc), fill factor, testing lab ID, IEC/UL certification standard codes.
 
@@ -46,25 +52,25 @@ Panel serial number, model name/number, testing date, peak wattage (Pmax), modul
 - **Efficiency Label:** The sticker on the back of the panel.
 - **Warranty Certificate:** (Linked hash) the 25-year performance guarantee.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`trinasolar.com`, `jinkosolar.com`, `tuv.com`) and the panel standing.
 
 **Status Indications:**
 - **Verified / Grade-A** — Panel matches the original factory flash-test.
 - **Warranty Active** — Confirms the panel is registered for performance protection.
-- **Recalled** — **CRITICAL:** The specific batch has been flagged for safety/performance defects.
-- **Counterfeit Alert** — **CRITICAL:** The serial number does not exist or was used on a different model.
+- **Recalled** — The specific batch has been flagged for safety/performance defects.
+- **Counterfeit Alert** — The serial number does not exist or was used on a different model.
 
-## Second-Party Use
+## Who Holds It
 
-The **Homeowner / System Owner** benefits from verification.
+The Homeowner / System Owner benefits from verification.
 
 **Performance Audit:** After a $20,000 solar installation, the homeowner scans the labels on their roof. "Verified by Trina Solar" ensures them that the installer actually used the high-efficiency 425W panels they paid for, and didn't swap them for cheaper 350W panels to pocket the difference.
 
-**Home Resale Value:** When selling a home with solar, the owner provides the verified hashes of the panel certificates. The buyer can instantly see **"VERIFIED 21.8% EFFICIENCY"** on their phone, allowing the seller to justify a higher home price based on verified energy-production potential.
+**Home Resale Value:** When selling a home with solar, the owner provides the verified hashes of the panel certificates. The buyer can instantly see "VERIFIED 21.8% EFFICIENCY" on their phone, allowing the seller to justify a higher home price based on verified energy-production potential.
 
-## Third-Party Use
+## Who Checks It
 
 **Green Energy Lenders (Banks)**
 **Collateral Vetting:** Before releasing a $50,000 "Green Loan," the bank scans the verified flash-test hashes. This ensures the loan is backed by high-tier, insured assets that will actually produce the energy needed to repay the debt.
@@ -75,13 +81,7 @@ The **Homeowner / System Owner** benefits from verification.
 **Insurance Underwriters**
 **Loss Adjustment:** After a hail storm, the insurer verifies the original efficiency of the damaged panels. Verification ensures they are paying for high-end replacements and not "rounding up" the value of generic gear.
 
-## Verification Architecture
-
-**The "Wattage Padding" Fraud Problem**
-
-- **Efficiency Inflation:** Changing a 19% efficiency rating to 22% on a PDF to qualify for a government "Solar Rebate."
-- **Brand Mimicry:** Printing fake "Tier-1" stickers and placing them over the labels of un-branded, lower-quality panels.
-- **Serial Recycling:** Using a single valid flash report for 100 different panels.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

@@ -17,7 +17,7 @@ The scheme scales. In *Person of Interest* (Season 2, Episode 18, "All In"), the
 
 This isn't fiction. FinCEN has fined casinos hundreds of millions for AML failures. In 2015, the Tinian Dynasty Hotel & Casino was fined $75 million. Las Vegas Sands paid $47 million in 2013. The pattern repeats because casino records are siloed — the cage knows what happened, but nobody outside the cage can verify it.
 
-A **Verifiable Gaming Session Record** is a receipt issued by the casino cage at cash-out. It summarises the session: buy-in amount and method, duration of play, table/machine allocation, and cash-out amount and method. By making this verifiable against the casino's domain, the bank receiving the cheque can confirm: this person actually played, for this long, with these results.
+A Verifiable Gaming Session Record is a receipt issued by the casino cage at cash-out. It summarises the session: buy-in amount and method, duration of play, table/machine allocation, and cash-out amount and method. By making this verifiable against the casino's domain, the bank receiving the cheque can confirm: this person actually played, for this long, with these results.
 
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #1b5e20; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #1b5e20; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -84,7 +84,16 @@ A **Verifiable Gaming Session Record** is a receipt issued by the casino cage at
   </div>
 </div>
 
-## Data Verified
+## The Problem: Walk-Through Laundering
+
+The classic casino launder has several variants, all exploiting the same gap — the casino's internal records don't travel with the money:
+
+- **Cash-to-Cheque Conversion:** Buy $50,000 in chips with cash, play two hands of blackjack, cash out with a house cheque. Total cost: a few hundred in losses. The cheque looks like "gambling winnings" to any bank.
+- **Structuring Across Properties:** Buy in for $9,000 at Casino A, $9,000 at Casino B, $9,000 at Casino C — all on the same day. Each is below the CTRC threshold. No single casino sees the pattern.
+- **Proxy Play:** Send "smurfs" (unwitting or complicit third parties) to play with your cash. Each smurf cashes out a modest amount. The *Person of Interest* pharmacy-to-seniors-to-casino pipeline is this pattern at scale.
+- **Minimal Play:** The tell-tale sign is the ratio of buy-in to play time. A genuine gambler buying $25,000 in chips plays for hours. A launderer buying $25,000 in chips and cashing out in 20 minutes is not there for the entertainment.
+
+## What Is Checked
 
 Casino/property name, patron name, player card number (masked), session start/end times, buy-in amount and method (cash/credit/wire), table/machine assignment, cash-out amount and method, net result, CTRC filing reference (if applicable).
 
@@ -94,7 +103,7 @@ Casino/property name, patron name, player card number (masked), session start/en
 - **Chip Redemption Receipt:** Proof that chips were converted to cash or cheque.
 - **Marker Settlement Record:** Proof that a casino credit line (marker) was drawn and repaid.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`bellagio.mgmresorts.com`, `caesarspalace.com`) and the session status.
 
@@ -104,15 +113,15 @@ Shows the issuer domain (`bellagio.mgmresorts.com`, `caesarspalace.com`) and the
 - **Under Review** — Casino compliance is reviewing the session (SAR consideration).
 - **Voided** — Session record invalidated (e.g., dispute, system error).
 
-## Second-Party Use
+## Who Holds It
 
-The **Casino Patron** benefits from verification.
+The Casino Patron benefits from verification.
 
 **Tax Documentation:** Professional gamblers and high-rollers need verifiable win/loss records for IRS Schedule C or equivalent. Currently they rely on self-kept logs that the IRS routinely challenges.
 
 **Source of Funds:** When depositing a casino cheque, the patron's bank may ask where the money came from. A verified session record from the casino's domain is stronger than a paper receipt.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks (Receiving Deposits)**
 **AML Compliance:** When a customer deposits a $50,000 cheque from a casino, the bank can verify the underlying gaming session. Did this person actually play for four hours and win, or did they walk in with cash and walk out with a cheque 20 minutes later? The session duration and play pattern are the tell.
@@ -126,16 +135,7 @@ The **Casino Patron** benefits from verification.
 **Casino Compliance Officers**
 **Internal Audit:** Cross-referencing cage records with verified session hashes to detect internal manipulation — employees voiding or altering session records after the fact.
 
-## Verification Architecture
-
-**The "Walk-Through" Laundering Problem**
-
-The classic casino launder has several variants, all exploiting the same gap — the casino's internal records don't travel with the money:
-
-- **Cash-to-Cheque Conversion:** Buy $50,000 in chips with cash, play two hands of blackjack, cash out with a house cheque. Total cost: a few hundred in losses. The cheque looks like "gambling winnings" to any bank.
-- **Structuring Across Properties:** Buy in for $9,000 at Casino A, $9,000 at Casino B, $9,000 at Casino C — all on the same day. Each is below the CTRC threshold. No single casino sees the pattern.
-- **Proxy Play:** Send "smurfs" (unwitting or complicit third parties) to play with your cash. Each smurf cashes out a modest amount. The *Person of Interest* pharmacy-to-seniors-to-casino pipeline is this pattern at scale.
-- **Minimal Play:** The tell-tale sign is the ratio of buy-in to play time. A genuine gambler buying $25,000 in chips plays for hours. A launderer buying $25,000 in chips and cashing out in 20 minutes is not there for the entertainment.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

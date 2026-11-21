@@ -37,7 +37,7 @@ Fabrication is not hypothetical:
 <details>
 <summary><strong>United States</strong></summary>
 
-- **HMO networks** require a primary care physician (PCP) referral before a patient can see a specialist, with prior authorization from the insurer. **PPO networks** allow self-referral but may require authorization for certain procedures.
+- **HMO networks** require a primary care physician (PCP) referral before a patient can see a specialist, with prior authorization from the insurer. PPO networks allow self-referral but may require authorization for certain procedures.
 - Referral letters are used for specialist consultations, second opinions, and insurance pre-authorization. The referring physician's documentation supports the medical necessity determination.
 - No centralized national referral system exists. Each health plan and provider network has its own referral and authorization workflow, creating significant variation.
 - Fabricated referrals are a vector for insurance fraud — a fake referral letter justifying an unnecessary procedure that the insurer then pays for.
@@ -47,7 +47,7 @@ Fabrication is not hypothetical:
 <details>
 <summary><strong>Australia</strong></summary>
 
-- A **GP referral is required** for a patient to receive the Medicare rebate when seeing a specialist. Without a valid referral, the patient pays the full specialist fee with no government subsidy.
+- A GP referral is required for a patient to receive the Medicare rebate when seeing a specialist. Without a valid referral, the patient pays the full specialist fee with no government subsidy.
 - Referrals are typically valid for 12 months (or 3 months for specialists requesting a shorter validity). Indefinite referrals exist for chronic conditions.
 - The financial incentive to fabricate or extend referrals is direct — the difference between a rebated and unrebated consultation can be hundreds of dollars.
 
@@ -91,7 +91,14 @@ With Live Verify, the referral letter carries a `verify:` line bound to the refe
 
 **Note:** The patient's name is not in the verifiable text — only a reference number. The receiving clinician matches the reference to the person in front of them through their own identity verification process. This separates the verifiable claim ("this referral was genuinely issued") from the identity question ("is this the right patient?"), keeping clinical data within appropriate boundaries.
 
-## Data Verified
+## The Problem: Fabricated Referral
+
+- **Complete fabrication.** A patient creates a referral letter on letterhead obtained from a previous genuine visit, or downloaded from the practice's website. The letter names a real GP and a plausible reason for referral. The receiving hospital has no practical way to detect this — they accept referral letters at face value.
+- **Urgency manipulation.** A genuine referral exists but was marked ROUTINE. The patient alters the letter to say URGENT or TWO WEEK WAIT before presenting it, jumping the queue ahead of genuinely urgent patients.
+- **Specialty switching.** A patient is referred to physiotherapy but alters the letter to say orthopaedic surgery, seeking a surgical opinion the GP declined to arrange.
+- **Self-referral laundering.** In systems where self-referral is not permitted, a fabricated referral letter creates the appearance of a legitimate clinical pathway. The patient bypasses the gatekeeping function that the referral system is designed to provide.
+
+## What Is Checked
 
 Referring clinician name, referring practice name and address, patient reference number, referred-to specialty and institution, urgency level, reason for referral, date of referral.
 
@@ -109,9 +116,9 @@ The endpoint returns a status code:
 
 The issuer domain is visible from the `verify:` line on the letter itself (e.g., `riversidemedical.co.uk`).
 
-## Second-Party Use
+## Who Holds It
 
-The **Patient** carries the referral from the referring clinician (first party) to the receiving specialist.
+The Patient carries the referral from the referring clinician (first party) to the receiving specialist.
 
 **Proving a genuine referral at the specialist's office** — the most common use. The patient arrives at a hospital outpatient clinic with a referral letter. The receptionist or triage nurse clips the verifiable text and confirms it matches a real, current referral. No phone calls to the referring practice, no waiting for eRS to sync, no ambiguity.
 
@@ -121,7 +128,7 @@ The **Patient** carries the referral from the referring clinician (first party) 
 
 **Protecting the referring clinician** — this is a less obvious second-party benefit. If a patient claims "my GP referred me" and the GP did not, the absence of a verifiable referral is the signal. The referring clinician is protected from false attribution. A patient cannot claim a referral exists when the referring practice's verification endpoint has no matching record.
 
-## Third-Party Use
+## Who Checks It
 
 **Receiving Specialists / Hospitals**
 The primary verifier. The receiving clinician or their admin team confirms the referral is genuine before allocating a clinic slot. This matters most for services under pressure — a cardiology or orthopaedic outpatient clinic with a 12-week wait cannot afford to give slots to fabricated referrals.
@@ -135,14 +142,7 @@ Integrated Care Boards (ICBs) in the UK, Medicare Administrative Contractors in 
 **Medical Defence Organisations**
 When a clinical negligence claim involves a disputed referral ("my GP should have referred me earlier" or "my GP never referred me at all"), a verified referral with a timestamp provides evidence of what was actually issued and when.
 
-## Verification Architecture
-
-**The Fabricated Referral Problem**
-
-- **Complete fabrication.** A patient creates a referral letter on letterhead obtained from a previous genuine visit, or downloaded from the practice's website. The letter names a real GP and a plausible reason for referral. The receiving hospital has no practical way to detect this — they accept referral letters at face value.
-- **Urgency manipulation.** A genuine referral exists but was marked ROUTINE. The patient alters the letter to say URGENT or TWO WEEK WAIT before presenting it, jumping the queue ahead of genuinely urgent patients.
-- **Specialty switching.** A patient is referred to physiotherapy but alters the letter to say orthopaedic surgery, seeking a surgical opinion the GP declined to arrange.
-- **Self-referral laundering.** In systems where self-referral is not permitted, a fabricated referral letter creates the appearance of a legitimate clinical pathway. The patient bypasses the gatekeeping function that the referral system is designed to provide.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -186,7 +186,7 @@ Australian chain (GP practice → AHPRA):
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | System-to-System (eRS, HMO portals) | Phone Call to Referring Practice | Accepting the Letter on Trust |
 | :--- | :--- | :--- | :--- | :--- |

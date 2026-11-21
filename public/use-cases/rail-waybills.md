@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Rail Waybill?
 
-In the freight industry, the **Rail Waybill** is the primary contract of carriage for goods moving by train. It serves as the "Instruction Manual" for the railroad, detailing the origin, destination, cargo weight, and specific railcar or container IDs. For intermodal shipments (Ship &rarr; Rail &rarr; Truck), the waybill is the "Digital Handshake" that bridges the modes of transport.
+In the freight industry, the Rail Waybill is the primary contract of carriage for goods moving by train. It serves as the "Instruction Manual" for the railroad, detailing the origin, destination, cargo weight, and specific railcar or container IDs. For intermodal shipments (Ship &rarr; Rail &rarr; Truck), the waybill is the "Digital Handshake" that bridges the modes of transport.
 
-Fraud is high-stakes in bulk commodities (e.g., grain, coal, chemicals). Shady shippers often "edit" a waybill to misrepresent the weight of the cargo to under-pay the railroad, or to hide the presence of **Hazardous Materials** to bypass safety fees. Verified hashes bind the **Railcar ID, Cargo Weight, and Consignee** to the railroad's domain (e.g., `up.com` or `bnsf.com`).
+Fraud is high-stakes in bulk commodities (e.g., grain, coal, chemicals). Shady shippers often "edit" a waybill to misrepresent the weight of the cargo to under-pay the railroad, or to hide the presence of Hazardous Materials to bypass safety fees. Verified hashes bind the Railcar ID, Cargo Weight, and Consignee to the railroad's domain (e.g., `up.com` or `bnsf.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="rail"></span>UNION PACIFIC
@@ -41,7 +41,13 @@ Federal Rail Safety Standards.
 <span data-verify-line="rail">verify:up.com/waybill/v</span> <span verifiable-text="end" data-for="rail"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Heavy Load Fraud
+
+- **Weight Padding:** Editing a PDF to show 10% more weight to over-bill a buyer.
+- **Hazmat Masking:** Describing "Dangerous Chemicals" as "Liquid Fertilizer" to avoid restricted-route safety fees.
+- **Railcar Cloning:** Using one valid waybill number to cover for 10 "Ghost Cars" loaded with stolen goods.
+
+## What Is Checked
 
 Waybill number, railroad name, shipper name, consignee name, origin city/state, destination city/state, railcar ID, STCC (Standard Transportation Commodity Code), gross weight, tare weight, net weight, freight charges (Prepaid/Collect), route codes, date of lading.
 
@@ -51,25 +57,25 @@ Waybill number, railroad name, shipper name, consignee name, origin city/state, 
 - **Arrival Notice:** Sent to the consignee at the destination.
 - **Switch Order:** Instruction to move a car inside a terminal.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`up.com`, `bnsf.com`, `csx.com`) and the shipment standing.
 
 **Status Indications:**
 - **In-Transit / Verified** — Cargo is currently moving on the rail network.
-- **Interchanged** — **ALERT:** Shipment has been handed to a partner railroad.
-- **Delivered / Spotted** — **ALERT:** The car has reached the destination dock; paper is now historic.
-- **Bad Order** — **CRITICAL:** The railcar is damaged and under repair; shipment is delayed.
+- **Interchanged** — Shipment has been handed to a partner railroad.
+- **Delivered / Spotted** — The car has reached the destination dock; paper is now historic.
+- **Bad Order** — The railcar is damaged and under repair; shipment is delayed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Shipper (The Exporter)** benefits from verification.
+The Shipper (The Exporter) benefits from verification.
 
-**Payment Speed:** When exporting $500,000 in grain, the shipper provides the verified "Rail Waybill" hash to their bank. The bank can instantly see **"VERIFIED WEIGHT: 142,500 LBS"** from the railroad, allowing them to release payment under a "Letter of Credit" without waiting for manual document vetting.
+**Payment Speed:** When exporting $500,000 in grain, the shipper provides the verified "Rail Waybill" hash to their bank. The bank can instantly see "VERIFIED WEIGHT: 142,500 LBS" from the railroad, allowing them to release payment under a "Letter of Credit" without waiting for manual document vetting.
 
 **Loss Control:** If a hopper car arrives at the port empty (theft), the shipper uses the verified "Weight at Origin" hash to prove the loss occurred while in the railroad's possession, ensuring a full insurance payout.
 
-## Third-Party Use
+## Who Checks It
 
 **Customs & Border Protection (CBP)**
 **Manifest Integrity:** Officers at a border crossing (e.g., Laredo or Detroit) scan the waybill hash. Verification ensures the "Wheat" declared on the paper isn't actually "Un-manifested Consumer Electronics" designed to evade import duties.
@@ -80,13 +86,7 @@ The **Shipper (The Exporter)** benefits from verification.
 **Port Terminal Operators**
 **Traffic Coordination:** Automatically verifying the weight and car ID of incoming trains to prioritize the unloading of "High-Priority" or "Hazardous" shipments.
 
-## Verification Architecture
-
-**The "Heavy Load" Fraud Problem**
-
-- **Weight Padding:** Editing a PDF to show 10% more weight to over-bill a buyer.
-- **Hazmat Masking:** Describing "Dangerous Chemicals" as "Liquid Fertilizer" to avoid restricted-route safety fees.
-- **Railcar Cloning:** Using one valid waybill number to cover for 10 "Ghost Cars" loaded with stolen goods.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

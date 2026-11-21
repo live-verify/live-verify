@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Robo-Advisor Statement?
 
-In the modern fintech world, **Robo-Advisors** (like Betterment, Wealthfront, or Acorns) manage billions in automated investments. A **Portfolio Statement** is the monthly or quarterly record of an investor's net worth, asset allocation, and performance.
+In the modern fintech world, Robo-Advisors (like Betterment, Wealthfront, or Acorns) manage billions in automated investments. A Portfolio Statement is the monthly or quarterly record of an investor's net worth, asset allocation, and performance.
 
-These digital-first documents are the "Proof of Wealth" for a new generation of investors. Fraud is high-frequency: individuals use "Inspect Element" or PDF editors to turn a $5,000 "emergency fund" into a $250,000 "investment portfolio" to qualify for a high-limit credit card or a mortgage. Verified hashes bind the **Net Account Value, Asset Mix, and Client ID** to the advisor's domain (e.g., `betterment.com` or `wealthfront.com`).
+These digital-first documents are the "Proof of Wealth" for a new generation of investors. Fraud is high-frequency: individuals use "Inspect Element" or PDF editors to turn a $5,000 "emergency fund" into a $250,000 "investment portfolio" to qualify for a high-limit credit card or a mortgage. Verified hashes bind the Net Account Value, Asset Mix, and Client ID to the advisor's domain (e.g., `betterment.com` or `wealthfront.com`).
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #eee; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="background: #00bcd4; color: #fff; padding: 25px; display: flex; align-items: center; justify-content: space-between;">
@@ -55,7 +55,13 @@ These digital-first documents are the "Proof of Wealth" for a new generation of 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Madoff Scenario Fraud
+
+- **Balance Padding:** Editing a $5,000 balance to read $50,000 on a PDF to trick a landlord or lender.
+- **Performance Inflation:** Changing a 2% return into a 20% return to "sell" a strategy to friends or family (Private Placement fraud).
+- **Account Mimicry:** Creating fake "Wealthfront" emails to trick people into giving up their login credentials or to steal PII.
+
+## What Is Checked
 
 Client name, account number (masked), net portfolio value, asset allocation mix (Stocks/Bonds/Cash), time-weighted performance (TWR), dividend income, tax-loss harvesting amount, advisor CRD/SEC ID, date of statement, specific ticker holdings (top 5).
 
@@ -65,25 +71,25 @@ Client name, account number (masked), net portfolio value, asset allocation mix 
 - **Account Opening Confirmation:** Proof of initial funding.
 - **Wealth Certificate:** For high-net-worth "Private Client" access.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`betterment.com`, `wealthfront.com`, `acorns.com`) and the account standing.
 
 **Status Indications:**
 - **Verified / Active** — Portfolio value matches the live brokerage record.
-- **In-Transfer** — **ALERT:** Assets are being moved to a different advisor (ACATS).
-- **Fraud Alert** — **CRITICAL:** The account has been flagged for suspicious PII changes.
-- **Closed** — **ALERT:** The account has been liquidated since this statement was issued.
+- **In-Transfer** — Assets are being moved to a different advisor (ACATS).
+- **Fraud Alert** — The account has been flagged for suspicious PII changes.
+- **Closed** — The account has been liquidated since this statement was issued.
 
-## Second-Party Use
+## Who Holds It
 
-The **Investor (Client)** benefits from verification.
+The Investor (Client) benefits from verification.
 
-**Mortgage Approval Speed:** When applying for a loan, the investor provides the verified hash of their "Robo Portfolio." The bank can instantly see **"VERIFIED LIQUIDITY: $142,500"** from a trusted firm like Betterment, removing the 3-day "Bank Statement Review" delay and speeding up the home-buying process.
+**Mortgage Approval Speed:** When applying for a loan, the investor provides the verified hash of their "Robo Portfolio." The bank can instantly see "VERIFIED LIQUIDITY: $142,500" from a trusted firm like Betterment, removing the 3-day "Bank Statement Review" delay and speeding up the home-buying process.
 
 **Visa / Residency Proof:** For high-skilled migrants or digital nomads, providing a verified hash of their global investment portfolio proves "Financial Means" to foreign consulates without needing to notarize physical bank letters.
 
-## Third-Party Use
+## Who Checks It
 
 **Mortgage Lenders / Underwriters**
 **Zero-Trust Wealth Vetting:** Thousands of "Edited" digital statements are submitted to banks every month. Live Verify connects the underwriter directly to the advisor's domain, stopping "Asset Padding" fraud at the source and protecting the bank's credit risk.
@@ -94,13 +100,7 @@ The **Investor (Client)** benefits from verification.
 **Secondary Credit Issuers (Amex / Chase)**
 **Credit Limit Vetting:** Verifying the "Liquid Net Worth" of an applicant before granting a $50,000+ credit limit on a premium card.
 
-## Verification Architecture
-
-**The "Madoff Scenario" Fraud Problem**
-
-- **Balance Padding:** Editing a $5,000 balance to read $50,000 on a PDF to trick a landlord or lender.
-- **Performance Inflation:** Changing a 2% return into a 20% return to "sell" a strategy to friends or family (Private Placement fraud).
-- **Account Mimicry:** Creating fake "Wealthfront" emails to trick people into giving up their login credentials or to steal PII.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

@@ -52,7 +52,13 @@ Live Verify allows a neighbor or building inspector to scan the permit from the 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Sidewalk Scrape Fraud
+
+- **Scope Inflation:** A permit authorized for a "Kitchen Remodel" being used to build an entire ADU (Accessory Dwelling Unit).
+- **Date Stretching:** Using an expired 2024 permit placard for a 2026 project.
+- **Unlicensed Impersonation:** Using a reputable contractor's name and license number on a fake permit to trick the building department.
+
+## What Is Checked
 
 Permit number, project address, description of work (scope), contractor name/license, owner name, issue date, expiration date, required inspection list, plan version hash.
 
@@ -62,25 +68,25 @@ Permit number, project address, description of work (scope), contractor name/lic
 - **Certificate of Occupancy (CO):** Final proof that the building is safe to live in.
 - **Demolition Authorization:** For safe removal of structures.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`springfield.gov`, `cityofchicago.org`) and the project standing.
 
 **Status Indications:**
 - **Active** — Permit is valid; work is authorized.
-- **Stop Work Order** — **CRITICAL:** City has ordered all work to cease due to a violation.
+- **Stop Work Order** — City has ordered all work to cease due to a violation.
 - **Expired** — Time limit for work has passed; renewal required.
 - **Completed** — Final inspections passed; CO issued.
 
-## Second-Party Use
+## Who Holds It
 
-The **Homeowner / Contractor** benefits from verification.
+The Homeowner / Contractor benefits from verification.
 
 **Neighbor Relations:** A homeowner can proactively show neighbors the "Verified" status of their project to prove they aren't "Cutting Corners" or building an illegal structure, reducing neighborhood friction and anonymous complaints.
 
 **Bank Progress Payments:** Contractors can scan the permit's verified inspection milestones (e.g., "Foundation Passed") to trigger automated progress payments from the owner's construction loan.
 
-## Third-Party Use
+## Who Checks It
 
 **Neighbors / Community**
 **Enforcement Accountability:** A neighbor sees a contractor dumping debris into a local creek. They scan the permit and see **"STOP WORK ORDER - HAZMAT VIOLATION."** This allows them to provide verified evidence to authorities that the order is being ignored.
@@ -89,15 +95,9 @@ The **Homeowner / Contractor** benefits from verification.
 **Due Diligence:** A potential buyer can scan the permits posted at a "Fix-and-Flip" house to ensure the new kitchen and bath were actually permitted and inspected, protecting them from buying a "Death Trap" with faulty wiring.
 
 **Building Inspectors**
-**Fraud Detection:** An inspector arriving at a site scans the placard. If the hash returns **"PERMIT CANCELLED - NON-PAYMENT,"** they can immediately issue a citation, even if the paper placard looks perfectly real.
+**Fraud Detection:** An inspector arriving at a site scans the placard. If the hash returns "PERMIT CANCELLED - NON-PAYMENT," they can immediately issue a citation, even if the paper placard looks perfectly real.
 
-## Verification Architecture
-
-**The "Sidewalk Scrape" Fraud Problem**
-
-- **Scope Inflation:** A permit authorized for a "Kitchen Remodel" being used to build an entire ADU (Accessory Dwelling Unit).
-- **Date Stretching:** Using an expired 2024 permit placard for a 2026 project.
-- **Unlicensed Impersonation:** Using a reputable contractor's name and license number on a fake permit to trick the building department.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

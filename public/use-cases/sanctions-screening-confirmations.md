@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Sanctions Screening Confirmation?
 
-Before doing business with someone — opening an account, processing a payment, entering a contract — firms must check they're not on a sanctions list. The **screening confirmation** documents that this check was performed, when, against which lists, and the result.
+Before doing business with someone — opening an account, processing a payment, entering a contract — firms must check they're not on a sanctions list. The screening confirmation documents that this check was performed, when, against which lists, and the result.
 
 If you do business with a sanctioned party, even accidentally, the penalties are severe (fines, criminal prosecution, reputational destruction). The screening confirmation proves you did your due diligence.
 
@@ -43,11 +43,22 @@ If you do business with a sanctioned party, even accidentally, the penalties are
   </div>
 </div>
 
-## Data Verified
+## The Problem
 
-**Screened party name**, **screening timestamp**, **reference number**, **lists checked** (with versions), **result** (no match / potential match / confirmed match), **screening provider**, **compliance officer sign-off**.
+- Firms claim they screened when they didn't
+- Screening results are backdated after problems emerge
+- Fabricated confirmations to satisfy audit requirements
+- Disputes about what lists were checked and when
 
-## Data Visible After Verification
+**The Fix:** Screening confirmation hashed at time of screening, with timestamp and list versions. Auditor or regulator can verify: this exact screening occurred at this exact time against these exact list versions. Can't be fabricated after the fact.
+
+**Rescreening visibility:** When a party is re-screened, previous confirmations remain valid but show "Superseded" — the audit trail is preserved. If a re-screening reveals a match, the timeline is clear.
+
+## What Is Checked
+
+**Screened party name**, screening timestamp, reference number, lists checked (with versions), result (no match / potential match / confirmed match), screening provider, compliance officer sign-off.
+
+## What the Checker Sees
 
 **Status Indications:**
 - **Clear** — No matches at time of screening
@@ -63,7 +74,7 @@ Sanctions lists change constantly. Someone cleared today might be sanctioned tom
 - Re-screen periodically (daily for payments, quarterly for dormant relationships)
 - Re-screen when lists update
 
-A confirmation is a **point-in-time snapshot**. It proves you checked — but doesn't guarantee the party is still clear.
+A confirmation is a point-in-time snapshot. It proves you checked — but doesn't guarantee the party is still clear.
 
 ## Jurisdiction Differences
 
@@ -76,25 +87,13 @@ A confirmation is a **point-in-time snapshot**. It proves you checked — but do
 
 US OFAC applies extraterritorially — even non-US firms processing USD transactions must comply.
 
-## Third-Party Use
+## Who Checks It
 
 **Correspondent banks** — Before processing payments through your institution
 **Auditors** — Testing AML/sanctions program effectiveness
 **Regulators** — Examinations, enforcement investigations
 **Counterparties** — Due diligence before entering contracts
 **Insurers** — Trade credit, political risk (sanctions compliance warranties)
-
-## Verification Architecture
-
-**The Problem:**
-- Firms claim they screened when they didn't
-- Screening results are backdated after problems emerge
-- Fabricated confirmations to satisfy audit requirements
-- Disputes about what lists were checked and when
-
-**The Fix:** Screening confirmation hashed at time of screening, with timestamp and list versions. Auditor or regulator can verify: this exact screening occurred at this exact time against these exact list versions. Can't be fabricated after the fact.
-
-**Rescreening visibility:** When a party is re-screened, previous confirmations remain valid but show "Superseded" — the audit trail is preserved. If a re-screening reveals a match, the timeline is clear.
 
 ## Authority Chain
 

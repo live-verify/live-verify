@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Property Appraisal?
 
-A **Property Appraisal** is the professional "Opinion of Value" for a piece of real estate. For residential homes, this is documented in the **Uniform Residential Appraisal Report (URAR)**. It is the "Anchor of Collateral" for the multi-trillion dollar mortgage market.
+A Property Appraisal is the professional "Opinion of Value" for a piece of real estate. For residential homes, this is documented in the Uniform Residential Appraisal Report (URAR). It is the "Anchor of Collateral" for the multi-trillion dollar mortgage market.
 
-Because the appraisal determines how much money a bank will lend, it is a primary target for **Valuation Fraud**. Shady owners or "Fix-and-Flip" scammers often "edit" an appraisal to turn a $400,000 value into a $600,000 one to bypass equity requirements. Similarly, they might use a fake "Certified" letter from a non-existent appraiser. Verified hashes bind the **Final Opinion of Value, Property Condition, and Appraiser License** to the appraisal firm's or the state's domain (e.g., `corelogic.com` or `state-appraisal-board.gov`).
+Because the appraisal determines how much money a bank will lend, it is a primary target for Valuation Fraud. Shady owners or "Fix-and-Flip" scammers often "edit" an appraisal to turn a $400,000 value into a $600,000 one to bypass equity requirements. Similarly, they might use a fake "Certified" letter from a non-existent appraiser. Verified hashes bind the Final Opinion of Value, Property Condition, and Appraiser License to the appraisal firm's or the state's domain (e.g., `corelogic.com` or `state-appraisal-board.gov`).
 
 **Why verification matters here:**
 
@@ -45,7 +45,13 @@ License: #TX-992288 - Exp: 2027
 <span data-verify-line="appraise">verify:summit-eval.com/v</span> <span verifiable-text="end" data-for="appraise"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Kitchen Renovation Fraud
+
+- **Value Padding:** Changing a $400,000 value to $450,000 on a PDF to qualify for a home equity line of credit (HELOC).
+- **Condition Inflation:** Editing a "C4" (Fair) condition rating into a "C2" (Excellent) to hide deferred maintenance.
+- **Appraiser Spoofing:** Creating a fake report using a reputable appraiser's name and license number from a public registry.
+
+## What Is Checked
 
 Appraisal reference number, property address, appraiser name/license, opinion of value (numerical and text), effective date of valuation, overall property condition rating (e.g., C1-C6), square footage, year built, client name, AMC (Appraisal Management Company) ID.
 
@@ -55,25 +61,25 @@ Appraisal reference number, property address, appraiser name/license, opinion of
 - **Desktop Valuation:** A faster, non-inspection evaluation.
 - **BPO (Broker Price Opinion):** A less formal realtor-led valuation.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`corelogic.com`, `veros.com`, `summit-eval.com`) and the valuation standing.
 
 **Status Indications:**
 - **Verified / Current** — Valuation matches the appraiser's original digital record.
-- **Value Mismatch** — **CRITICAL:** The amount on the paper has been altered from the original finding.
-- **Expired** — **ALERT:** Appraisal is more than 6 months old; a re-certification is required.
-- **Redlined** — **ALERT:** The property is in a restricted or high-risk zone (e.g., flood/fire).
+- **Value Mismatch** — The amount on the paper has been altered from the original finding.
+- **Expired** — Appraisal is more than 6 months old; a re-certification is required.
+- **Redlined** — The property is in a restricted or high-risk zone (e.g., flood/fire).
 
-## Second-Party Use
+## Who Holds It
 
-The **Homeowner / Seller** benefits from verification.
+The Homeowner / Seller benefits from verification.
 
-**Sales Price Justification:** A homeowner selling their house can show the verified "Appraisal Hash" to a potential buyer. The buyer scans it and sees **"VERIFIED VALUE: $545,000"** from a certified appraiser. This removes the doubt that the seller is "Exaggerating" the home's value, potentially closing the sale faster.
+**Sales Price Justification:** A homeowner selling their house can show the verified "Appraisal Hash" to a potential buyer. The buyer scans it and sees "VERIFIED VALUE: $545,000" from a certified appraiser. This removes the doubt that the seller is "Exaggerating" the home's value, potentially closing the sale faster.
 
 **Tax Appeal Evidence:** If a property tax assessor over-values a home, the owner can provide the verified hash of a recent professional appraisal to prove the "Fair Market Value" with cryptographic certainty, winning the appeal without a hearing.
 
-## Third-Party Use
+## Who Checks It
 
 **Mortgage Lenders / Underwriters**
 **Zero-Trust Collateral Vetting:** Thousands of "Edited" appraisals are submitted to banks every year. Live Verify connects the underwriter directly to the appraisal firm's domain, stopping "Equity Siphoning" fraud at the source and protecting the bank's loan-to-value (LTV) ratios.
@@ -84,13 +90,7 @@ The **Homeowner / Seller** benefits from verification.
 **State Appraisal Boards**
 **Disciplinary Audit:** Verifying that a specific "Opinion of Value" was actually signed by the licensed appraiser claimed on the paper, stopping the "Clone License" fraud used by unlicensed workers.
 
-## Verification Architecture
-
-**The "Kitchen Renovation" Fraud Problem**
-
-- **Value Padding:** Changing a $400,000 value to $450,000 on a PDF to qualify for a home equity line of credit (HELOC).
-- **Condition Inflation:** Editing a "C4" (Fair) condition rating into a "C2" (Excellent) to hide deferred maintenance.
-- **Appraiser Spoofing:** Creating a fake report using a reputable appraiser's name and license number from a public registry.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Safe Deposit Box Access Log?
 
-A **Safe Deposit Box Access Log** is the physical record of every time a high-security vault box was opened. It records the date, time, and the identity of the person who entered the vault, along with the signature of the bank officer who witnessed the access.
+A Safe Deposit Box Access Log is the physical record of every time a high-security vault box was opened. It records the date, time, and the identity of the person who entered the vault, along with the signature of the bank officer who witnessed the access.
 
-In the world of **Estate Law**, these logs are "The Smoking Gun." If a box holder dies and their $100,000 diamond ring is missing, the family scans the access log to see if a greedy relative "visited" the box before the executor was appointed. Fraud is high-stakes: dishonest bank employees or relatives may try to "backdate" or "delete" a log entry to hide an unauthorized entry. Verified hashes bind the **Access Timestamp, Box Number, and Officer ID** to the bank's domain (e.g., `wellsfargo.com` or `barclays.co.uk`).
+In the world of Estate Law, these logs are "The Smoking Gun." If a box holder dies and their $100,000 diamond ring is missing, the family scans the access log to see if a greedy relative "visited" the box before the executor was appointed. Fraud is high-stakes: dishonest bank employees or relatives may try to "backdate" or "delete" a log entry to hide an unauthorized entry. Verified hashes bind the Access Timestamp, Box Number, and Officer ID to the bank's domain (e.g., `wellsfargo.com` or `barclays.co.uk`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="vault"></span>
@@ -42,7 +42,13 @@ Employee ID: #992288
 <span data-verify-line="vault">verify:goliathbank.com/v</span> <span verifiable-text="end" data-for="vault"></span>
 </div>
 
-## Data Verified
+## The Problem: Paper Ghost Fraud
+
+- **Entry Deletion:** Removing a line from a paper card to hide that a suspect visited the vault.
+- **Backdating:** Adding an entry today but dating it "Last Month" to satisfy a legal requirement.
+- **Officer Impersonation:** Forging a bank officer's signature on a fake "Power of Attorney" access event.
+
+## What Is Checked
 
 Box number, branch ID, holder name, authorized signer name, identification method (e.g., ID verified), date of access, precise entry/exit timestamps, bank officer name/ID, witness signature (via hash).
 
@@ -52,19 +58,19 @@ Box number, branch ID, holder name, authorized signer name, identification metho
 - **Power of Attorney Authorization:** (Linked hash) proving someone else was allowed in.
 - **Box Drill Report:** Record of a forced opening (e.g., for non-payment).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`chase.com`, `hsbc.com`) and the log integrity.
 
 **Status Indications:**
 - **Verified Entry** — The access event matches the bank's internal vault security record.
-- **Unauthorized Alert** — **CRITICAL:** A visit was recorded on the paper that has no matching entry in the bank's digital security system.
-- **Amended Log** — **ALERT:** An error in the log was corrected; see corrected version.
-- **Access Blocked** — **ALERT:** The box is under legal hold or police seal.
+- **Unauthorized Alert** — A visit was recorded on the paper that has no matching entry in the bank's digital security system.
+- **Amended Log** — An error in the log was corrected; see corrected version.
+- **Access Blocked** — The box is under legal hold or police seal.
 
-## Second-Party Use
+## Who Holds It
 
-The **Box Holder** (second party) receives the access log from the bank (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Box Holder (second party) receives the access log from the bank (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** The box holder has their own verified copy of every vault access. Most of the time, the document sits in their personal files—the verification value is latent, there *if needed*.
 
@@ -72,12 +78,12 @@ The **Box Holder** (second party) receives the access log from the bank (first p
 
 **Future Optionality:** If a dispute arises—whether about estate matters, insurance claims, or suspected theft—the box holder or their heirs have cryptographic proof ready without needing to contact the bank.
 
-## Third-Party Use
+## Who Checks It
 
 The box holder (second party) may hand the verified document to various third parties:
 
 **Probate Courts / Executors (Asset Reconciliation)**
-When a box holder dies, the executor receives verified access logs from the estate. If the logs show **"VERIFIED ENTRY - 15 MAR,"** and the decedent died on 14 MAR, they have cryptographic proof to investigate whoever accessed the box, ensuring no assets were siphoned off before the estate was settled.
+When a box holder dies, the executor receives verified access logs from the estate. If the logs show "VERIFIED ENTRY - 15 MAR," and the decedent died on 14 MAR, they have cryptographic proof to investigate whoever accessed the box, ensuring no assets were siphoned off before the estate was settled.
 
 **Insurance Companies (Claims Evidence)**
 When filing a claim for stolen jewelry, the box holder provides verified access logs to prove the items were kept in the bank vault and to establish a timeline of when theft could have occurred.
@@ -88,13 +94,7 @@ Bank auditors randomly scan access cards across 50 branches. Verification ensure
 **Law Enforcement (Investigation)**
 During a money laundering investigation, police receive verified access logs showing the "Pattern of Access" for a suspect's safe deposit box without needing to wait for a 2-week subpoena response from the bank's legal department.
 
-## Verification Architecture
-
-**The "Paper Ghost" Fraud Problem**
-
-- **Entry Deletion:** Removing a line from a paper card to hide that a suspect visited the vault.
-- **Backdating:** Adding an entry today but dating it "Last Month" to satisfy a legal requirement.
-- **Officer Impersonation:** Forging a bank officer's signature on a fake "Power of Attorney" access event.
+## Who Issues It
 
 **Issuer Types (First Party)**
 

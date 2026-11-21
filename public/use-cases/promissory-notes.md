@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Promissory Note?
 
-A **Promissory Note** is a legal "Promise to Pay." It is a financial instrument that contains a written promise by one party (the maker or borrower) to pay a specific sum of money to another party (the payee or lender), either on demand or at a specified future date.
+A Promissory Note is a legal "Promise to Pay." It is a financial instrument that contains a written promise by one party (the maker or borrower) to pay a specific sum of money to another party (the payee or lender), either on demand or at a specified future date.
 
-These documents are the "Paper Gold" of the lending industry. In the **Secondary Market**, promissory notes are bought and sold for millions of dollars. Fraud is high-stakes: a dishonest person might "edit" a note to change a 5% interest rate to 15%, or to increase the principal amount. Similarly, a borrower might use a fake "Satisfied" stamp to hide a debt. Verified hashes bind the **Principal, Interest Rate, and Maturity Date** to the lender's or the servicing agent's domain (e.g., `chase.com` or `fanniemae.com`).
+These documents are the "Paper Gold" of the lending industry. In the Secondary Market, promissory notes are bought and sold for millions of dollars. Fraud is high-stakes: a dishonest person might "edit" a note to change a 5% interest rate to 15%, or to increase the principal amount. Similarly, a borrower might use a fake "Satisfied" stamp to hide a debt. Verified hashes bind the Principal, Interest Rate, and Maturity Date to the lender's or the servicing agent's domain (e.g., `chase.com` or `fanniemae.com`).
 
 **Why verification matters here:**
 
@@ -48,7 +48,13 @@ These documents are the "Paper Gold" of the lending industry. In the **Secondary
   </div>
 </div>
 
-## Data Verified
+## The Problem: Paper Profit Fraud
+
+- **Rate Padding:** Editing a PDF note to turn a 4% low-interest loan into a 12% high-yield asset to sell to an investor.
+- **Zombie Notes:** Trying to collect on a note that was already "Paid in Full" years ago.
+- **Double-Selling:** Selling the same physical note to two different investors (verification reveals the "Assigned to [Buyer A]" alert).
+
+## What Is Checked
 
 Principal amount (numerical and text), interest rate (fixed/variable), borrower name, lender name, payment frequency, installment amount, maturity date, collateral reference, late fee terms, date of execution, loan ID.
 
@@ -58,25 +64,25 @@ Principal amount (numerical and text), interest rate (fixed/variable), borrower 
 - **Commercial Term Note:** For business equipment or capital.
 - **Convertible Note:** For startup seed investments.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`chase.com`, `quickenloans.com`, `circleup.com`) and the note standing.
 
 **Status Indications:**
 - **Active / Current** — Borrower is making payments as agreed.
-- **Satisfied / Paid** — **ALERT:** The debt is fully cleared; this paper is no longer a liability.
-- **In Default** — **CRITICAL:** Borrower has missed payments; legal action active.
-- **Assigned / Sold** — **ALERT:** The note was sold to a different lender (shows new holder).
+- **Satisfied / Paid** — The debt is fully cleared; this paper is no longer a liability.
+- **In Default** — Borrower has missed payments; legal action active.
+- **Assigned / Sold** — The note was sold to a different lender (shows new holder).
 
-## Second-Party Use
+## Who Holds It
 
-The **Borrower (Maker)** benefits from verification.
+The Borrower (Maker) benefits from verification.
 
-**Payoff Protection:** When a borrower makes their final payment, the lender updates the hash status to **"PAID IN FULL."** The borrower can then use this verified hash to prove to future lenders or credit bureaus that the debt is gone, even if they lost the original "Satisfied" paper letter.
+**Payoff Protection:** When a borrower makes their final payment, the lender updates the hash status to "PAID IN FULL." The borrower can then use this verified hash to prove to future lenders or credit bureaus that the debt is gone, even if they lost the original "Satisfied" paper letter.
 
 **Dispute Defense:** If a lender's system has a glitch and claims a 10% interest rate, the borrower can scan the verified note to prove the original agreed-upon rate of 6.5% with cryptographic certainty.
 
-## Third-Party Use
+## Who Checks It
 
 **Note Buyers (Secondary Market)**
 **Due Diligence:** Before buying a portfolio of 1,000 notes, an investor scans the hashes. Verification ensures the "Principal Balances" and "Maturity Dates" haven't been inflated by the seller to make the portfolio look more valuable than it is.
@@ -87,13 +93,7 @@ The **Borrower (Maker)** benefits from verification.
 **Attorneys / Estate Executors**
 **Asset Reconciliation:** Verifying the true value and terms of notes held by a deceased person to ensure the estate is accurately valued for tax and distribution.
 
-## Verification Architecture
-
-**The "Paper Profit" Fraud Problem**
-
-- **Rate Padding:** Editing a PDF note to turn a 4% low-interest loan into a 12% high-yield asset to sell to an investor.
-- **Zombie Notes:** Trying to collect on a note that was already "Paid in Full" years ago.
-- **Double-Selling:** Selling the same physical note to two different investors (verification reveals the "Assigned to [Buyer A]" alert).
+## Who Issues It
 
 **Issuer Types** (First Party)
 

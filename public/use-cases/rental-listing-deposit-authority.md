@@ -23,7 +23,16 @@ Live Verify cannot prove that a stranger is honest. It can, however, make the cr
 
 The check happens before money moves.
 
-## Data Verified
+## The Problem: Rental Deposit Scam
+
+- **Fake Listing:** Scammer copies photos from a real advert and creates a new advert under their own contact details.
+- **Authority Fabrication:** Scammer claims to be the landlord, agent, or "property manager" but has no right to let the property.
+- **Payment Instruction Swap:** Genuine-looking documents are altered to replace the client account with a personal account.
+- **Multiple Deposit Collection:** Scammer collects holding deposits from many applicants for the same nonexistent or unavailable tenancy.
+- **Pressure Tactics:** "Pay today or lose the flat" discourages callback verification and careful domain checking.
+- **Post-Payment Denial:** A dishonest actor claims a deposit was never received or was for a different property/applicant.
+
+## What Is Checked
 
 Property address, listing reference, issuer name, agent or landlord identity, authorization basis, permitted payment recipient, deposit amount or cap, deposit scheme or client-money account reference, issue date, expiry date, and verification URL.
 
@@ -60,7 +69,7 @@ Property address, listing reference, issuer name, agent or landlord identity, au
 
 The prospective tenant selects or scans the whole block before sending money. If the hash verifies against the letting agent's domain, the app can show that the agent currently stands behind the exact payment instruction. If a scammer changes the bank details, applicant name, deposit amount, property address, or expiry date, the hash changes and verification fails.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain and the current status of the listing or payment instruction.
 
@@ -75,7 +84,7 @@ Shows the issuer domain and the current status of the listing or payment instruc
 
 Responses should not echo full applicant identity, full bank account details, or unnecessary PII. The verifier already has the instruction text; the endpoint confirms status.
 
-## Second-Party Use
+## Who Holds It
 
 The prospective tenant is the second party. They receive a listing, viewing confirmation, payment instruction, or deposit receipt and need to decide whether to trust it.
 
@@ -87,7 +96,7 @@ The prospective tenant is the second party. They receive a listing, viewing conf
 
 **During a Dispute:** Tenant sends verified payment/deposit documents to a bank, housing authority, court, or deposit adjudicator.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks and Payment Providers**
 
@@ -109,16 +118,7 @@ Investigators can verify whether a disputed listing or payment instruction was e
 
 When multiple victims report the same property advert, investigators can compare failed verification attempts, copied text, bank references, and claimed issuer domains without needing victims to upload entire document bundles.
 
-## Verification Architecture
-
-**The Rental Deposit Scam Problem**
-
-- **Fake Listing:** Scammer copies photos from a real advert and creates a new advert under their own contact details.
-- **Authority Fabrication:** Scammer claims to be the landlord, agent, or "property manager" but has no right to let the property.
-- **Payment Instruction Swap:** Genuine-looking documents are altered to replace the client account with a personal account.
-- **Multiple Deposit Collection:** Scammer collects holding deposits from many applicants for the same nonexistent or unavailable tenancy.
-- **Pressure Tactics:** "Pay today or lose the flat" discourages callback verification and careful domain checking.
-- **Post-Payment Denial:** A dishonest actor claims a deposit was never received or was for a different property/applicant.
+## Who Issues It
 
 **Issuer Types**
 

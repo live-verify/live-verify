@@ -18,7 +18,7 @@ targeting of political advertising. The legal premise is sound — a voter is en
 stands behind a political message before they weigh it. But the disclosure as it exists today is
 **merely asserted**. "Paid for by Concerned Citizens for a Better Tomorrow" is just printed text.
 Anyone can print it. A scrolling imprint at the foot of a sponsored post is typed by the same party
-that wrote the ad. Nothing about the line is **checkable** by the person reading it.
+that wrote the ad. Nothing about the line is checkable by the person reading it.
 
 This is precisely where dark money, undisclosed funding, and foreign interference disguised as
 domestic operate. A shell committee with an anodyne name, a sponsor field that names a front rather
@@ -27,28 +27,28 @@ disclosure law while nominally (or not even nominally) complying with its *lette
 way to ask the one question disclosure law exists to answer: **does the entity named here actually
 stand behind this, and is it registered with the electoral authority that says it must be?**
 
-This use case makes the legally-required disclosure **verifiable** rather than merely printed. It
+This use case makes the legally-required disclosure verifiable rather than merely printed. It
 does not replace imprint and disclaimer law — it gives that law a checkable surface, and it makes the
 **absence** of a real disclosure conspicuous instead of unremarkable.
 
 ## What gets verified
 
-The verifiable artifact is the **funding disclosure itself** — the "paid for by" imprint rendered as
+The verifiable artifact is the funding disclosure itself — the "paid for by" imprint rendered as
 a short, signed, domain-bound statement: the committee or entity that paid for the ad, its
 registration identifier with the electoral regulator (e.g. its FEC committee ID), the top funders
 where the regime requires them disclosed, a reference to the specific ad, and the time the disclosure
 was made. The user surfaces and checks it by an explicit action — clipping the printed/broadcast
 imprint, or invoking a platform/browser "Who paid for this?" gesture on a digital ad.
 
-The hash of that normalized disclosure resolves against the **disclosing entity's own domain**, and
-that domain's verification record chains **upward to the electoral regulator** — `fec.gov` in the US,
+The hash of that normalized disclosure resolves against the disclosing entity's own domain, and
+that domain's verification record chains upward to the electoral regulator — `fec.gov` in the US,
 `electoralcommission.org.uk` in the UK, the registry mandated under the EU political-ads regulation.
 The chain answers two things at once: that the named committee published this disclosure, and that
 the committee is one the regulator recognises as registered to run political advertising.
 
 This is distinct from [Ad Placement Provenance](ad-placement-provenance.md), which answers "who
-**placed** this ad in the supply chain, and who is **liable** for it?" — a publisher-anchored
-liability chain. This use case answers a different question: "who **paid for** and **sponsors** this
+**placed** this ad in the supply chain, and who is liable for it?" — a publisher-anchored
+liability chain. This use case answers a different question: "who paid for and sponsors this
 political message, and is that disclosure registered with the electoral authority?" — a
 funding-transparency chain anchored at the regulator. The two are complementary: one names the
 delivery chain, the other names the money and the mandate behind the message.
@@ -84,12 +84,12 @@ confirmed up to `fec.gov`. Had the imprint named a committee that did not resolv
 checkable disclosure at all, the reader would have been told so plainly — and for a political ad,
 **that silence is the finding.**
 
-## Data Verified
+## What Is Checked
 
 The paying committee/entity name, its electoral-regulator registration identifier, the sponsor, the
 top funders where the regime mandates them, the ad reference, the channel, the disclosure timestamp,
 and the salt. The hash binds *the disclosure the entity published and the entity's registration with
-the regulator* — it does **not** bind the truthfulness of the ad's political claims, the targeting
+the regulator* — it does not bind the truthfulness of the ad's political claims, the targeting
 applied to the viewer, or the underlying money trail.
 
 **What is deliberately NOT included:**
@@ -99,7 +99,7 @@ applied to the viewer, or the underlying money trail.
 - the full donor ledger or bank records (top-funder disclosure only, per the applicable regime)
 - any verdict on whether the funding is "legitimate" beyond *registered and disclosed as stated*
 
-## Data Visible After Verification
+## What the Checker Sees
 
 The paying entity, its registration ID and status at the regulator, the sponsor, the disclosed
 funders, and the chain up to the electoral authority.
@@ -119,9 +119,9 @@ funders, and the chain up to the electoral authority.
   dark-money, or spoofed-imprint ad. The UI renders "no checkable sponsor" as a definite, readable
   finding (fail-loudly), never as nothing.
 
-## Second-Party Use
+## Who Holds It
 
-The **disclosing committee or entity** benefits directly. Signing and publishing a verifiable
+The disclosing committee or entity benefits directly. Signing and publishing a verifiable
 disclosure:
 
 - **Turns a legal obligation into a credibility signal.** A committee that can be *checked* —
@@ -133,7 +133,7 @@ disclosure:
 - **Creates a clean compliance record.** A signed, timestamped disclosure chained to its regulator ID
   is exactly the documentary trail an electoral filing or audit requires.
 
-## Third-Party Use
+## Who Checks It
 
 **Voters / readers**
 
@@ -157,16 +157,16 @@ artifact rather than an unverified text field.
 **Journalists and fact-checkers**
 
 Tracing a coordinated campaign across dozens of ads, a fact-checker can cluster by which committee ID
-each verifiable disclosure resolves to — and flag the ads that carry **no** resolvable sponsor as the
+each verifiable disclosure resolves to — and flag the ads that carry no resolvable sponsor as the
 candidates for dark-money or foreign-interference reporting.
 
-## Verification Architecture
+## How Verification Works Here
 
 This use case is an instance of
 [Safe-Sequence Platform Disclosure](../../docs/safe-sequence-platform-disclosure.md): the political
-ad — and the imprint the platform or sponsor attaches to it — is the **subject** under scrutiny; the
-voter **turns verification inward** via a clip of the printed imprint or a platform/browser gesture
-the ad cannot intercept or redraw; and the **absence** of a verifiable funding disclosure is itself
+ad — and the imprint the platform or sponsor attaches to it — is the subject under scrutiny; the
+voter turns verification inward via a clip of the printed imprint or a platform/browser gesture
+the ad cannot intercept or redraw; and the absence of a verifiable funding disclosure is itself
 the finding, not an error to be smoothed over. A political ad that cannot produce a resolvable
 "paid for by" has, by that very fact, answered the voter's question.
 
@@ -181,16 +181,16 @@ issuer cannot fabricate an endorsement it was never granted.
 
 ## The honest limit — disclosure, not forensic audit
 
-This must be stated plainly. The mechanism verifies the **disclosed** funding and sponsor — that the
+This must be stated plainly. The mechanism verifies the disclosed funding and sponsor — that the
 named committee published this imprint and that the committee is registered with the electoral
-regulator. It does **not**, by itself, audit the money trail, trace funds through intermediaries, or
+regulator. It does not, by itself, audit the money trail, trace funds through intermediaries, or
 unmask a committee that has been *deliberately laundered* through a compliant-looking shell. If a
 front group is genuinely registered and the disclosed top funders are themselves opaque pass-through
 entities, the disclosure will resolve as VERIFIED while the *true* origin of the money remains a
 matter for enforcement, investigative journalism, and the regulator's audit powers — not for a hash
 check.
 
-What this use case does is narrower and real: it makes the legally-required disclosure **checkable**
+What this use case does is narrower and real: it makes the legally-required disclosure checkable
 instead of merely asserted, so a faked or spoofed imprint fails to resolve, and it makes the
 **absence** of any disclosure conspicuous, so dark-money and undisclosed ads stand out precisely
 because they return NO_DISCLOSURE. It raises the floor and lights up the gaps; it does not replace the

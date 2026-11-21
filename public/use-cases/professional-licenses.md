@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Professional License?
 
-A **Professional License** is the legal authorization to practice in a high-stakes field like medicine, law, engineering, or teaching. These licenses are the primary defense against "Unlicensed Practice," which can lead to medical malpractice, legal incompetence, or structural failures.
+A Professional License is the legal authorization to practice in a high-stakes field like medicine, law, engineering, or teaching. These licenses are the primary defense against "Unlicensed Practice," which can lead to medical malpractice, legal incompetence, or structural failures.
 
-The licensing board's registry remains the source of truth. Live Verify is strongest here as a **complementary bridge** when professional-status claims travel outside that registry in human workflows:
+The licensing board's registry remains the source of truth. Live Verify is strongest here as a complementary bridge when professional-status claims travel outside that registry in human workflows:
 
 - a patient scans a wall certificate in a waiting room before the consultation starts
 - a hospital receives a portable letter of good standing in a credential packet
@@ -35,7 +35,13 @@ Authorized to practice medicine in the State of New York.
 <span data-verify-line="prof">verify:nysed.gov/v/med</span> <span verifiable-text="end" data-for="prof"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Ghost Practitioner Fraud
+
+- **Status Hiding:** Continuing to practice using a physical "Valid" card after the board revoked the license for drug abuse or theft.
+- **Specialty Inflation:** Claiming to be "Board Certified" in Neurosurgery when only licensed as a General Practitioner.
+- **Credential Mimicry:** Using a stolen license number and name to open a "pill mill" or fraudulent law clinic.
+
+## What Is Checked
 
 Licensee name, license number, profession (e.g., Physician, Attorney, PE), primary specialty, issuing jurisdiction (State/Board), date of initial licensure, expiration date, photograph (via hash), disciplinary status (Clear/Flagged), background check timestamp.
 
@@ -82,32 +88,26 @@ Professional licensing boards already have robust complaint mechanisms—adding 
 
 This mirrors the bar-admission pattern: verification proves standing, existing infrastructure handles deeper inquiries.
 
-## Second-Party Use
+## Who Holds It
 
-The **Professional (Practitioner)** benefits from verification.
+The Professional (Practitioner) benefits from verification.
 
 **Credentialing Speed:** When a doctor applies for hospital privileges at a new facility, they can provide a portable good-standing or temporary-authority document with a verification line. The Medical Staff Office can pre-screen it immediately while formal primary-source verification continues through the board and the hospital's normal process.
 
 **Reciprocity Claims:** An engineer licensed in Ohio can show a verified hash to a client in Indiana to prove they meet the requirements for "Temporary Practice" without needing to mail physical documents.
 
-## Third-Party Use
+## Who Checks It
 
 **Patients and Clients**
 **Discreet Waiting-Room Verification:** Before undergoing a private procedure or signing a legal retainer, a patient or client can discreetly scan the visible wall certificate in a waiting room or reception area. The certificate works as a visible surface that bridges to current board status without interrupting the consultation itself.
 
 **Employers (Hospitals / Law Firms)**
-**Continuous Monitoring:** Instead of checking licenses once a year, HR software can automatically scan the hashes of all 500 staff members. If a nurse's license returns **"SUSPENDED"** on a random Tuesday, the system can instantly alert the shift manager to pull them from duty.
+**Continuous Monitoring:** Instead of checking licenses once a year, HR software can automatically scan the hashes of all 500 staff members. If a nurse's license returns "SUSPENDED" on a random Tuesday, the system can instantly alert the shift manager to pull them from duty.
 
 **Insurance Companies (Malpractice)**
 **Risk Underwriting:** Verifying the current standing of all insured practitioners before renewing a professional liability policy.
 
-## Verification Architecture
-
-**The "Ghost Practitioner" Fraud Problem**
-
-- **Status Hiding:** Continuing to practice using a physical "Valid" card after the board revoked the license for drug abuse or theft.
-- **Specialty Inflation:** Claiming to be "Board Certified" in Neurosurgery when only licensed as a General Practitioner.
-- **Credential Mimicry:** Using a stolen license number and name to open a "pill mill" or fraudulent law clinic.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

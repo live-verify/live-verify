@@ -18,7 +18,7 @@ exercise as part of a hiring process. The employer has to decide two separate th
    time, under the stated conditions, and unaltered since?
 2. **Is it any good** — does it demonstrate the skill the role needs?
 
-Live Verify addresses only the **first** question. The second is, and remains, human judgement.
+Live Verify addresses only the first question. The second is, and remains, human judgement.
 
 This distinction matters more than it used to. As the [Huntress "AI arms race in
 recruiting"](https://www.huntress.com/blog) framing describes, candidate-side tooling can generate
@@ -26,7 +26,7 @@ flawless, technically-correct submissions for screening tests and take-home assi
 An employer reviewing a polished artifact has no way to tell *when* it was produced, *whether it was
 edited after submission*, or *whether the person who submitted it is the person who will do the job*.
 
-A **work-sample provenance claim** is a short, stable statement — bound by a `verify:` line to a
+A work-sample provenance claim is a short, stable statement — bound by a `verify:` line to a
 domain that can actually stand behind it — that pins the artifact to a moment, an identity reference,
 and a set of conditions. It does not, and cannot, prove the artifact was produced without AI
 assistance. Stating that limit loudly is the whole point of the design.
@@ -59,7 +59,20 @@ employer exactly what was and was not controlled. A provenance claim that implie
 assignment was unproctored would be a lie the hash would faithfully preserve. See the honest-limit
 section below.
 
-## Data Verified
+## The Problem: work-sample fraud
+
+- **Post-submission editing** — the candidate submits, then keeps improving, then presents the improved
+  version as the original timed submission. The seal's timestamp defeats this.
+- **Substitution** — a different, better artifact is swapped in for the one actually submitted. The hash
+  fails on any change.
+- **Invented portfolio** — work attributed to a candidate that they did not produce. A self-attested
+  claim bound to a *controllable authoritative* domain (a bootcamp, a prior employer) is checkable;
+  a bare PDF is not.
+- **Ghost-writing / collusion** — someone other than the candidate produced the work. Provenance
+  **cannot** catch this on its own; it can only record the declared conditions and surface an
+  `Under Review` integrity flag when the issuer has independent reason to doubt.
+
+## What Is Checked
 
 - **Issuer** — who operates the endpoint and stands behind the seal (an assessment platform, a
   bootcamp, a prior employer, or the candidate's own domain for self-attested portfolio work)
@@ -74,7 +87,7 @@ the seal covers this short header; the header should name the artifact's own con
 tamper-evidence over the whole artifact is required, exactly as
 [Page-at-a-time hashing](../docs/page-at-a-time-hashing.md) binds a document body to a short claim.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain and the responder status. No claim content is echoed — the employer already
 holds the submission.
@@ -86,7 +99,7 @@ holds the submission.
 - **Under Review** — an integrity flag is open (e.g. plagiarism/collusion query); the seal stands but
   the issuer signals caution
 
-## Second-Party Use
+## Who Holds It
 
 The candidate is the second party and benefits directly:
 
@@ -99,7 +112,7 @@ The candidate is the second party and benefits directly:
 - **Rebut a false accusation:** if an employer suspects post-submission editing, the seal settles the
   factual question of *when* and *whether-altered* — leaving only the judgement question.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers / hiring managers**
 - **Confirm a submission is unaltered:** the artifact under review is the one sealed at submission time,
@@ -117,20 +130,7 @@ The candidate is the second party and benefits directly:
   genuinely produced in their programme, closing the "invented portfolio" gap the Huntress article
   describes (a stolen LinkedIn profile used to manufacture a plausible history).
 
-## Verification Architecture
-
-**The work-sample fraud problem**
-
-- **Post-submission editing** — the candidate submits, then keeps improving, then presents the improved
-  version as the original timed submission. The seal's timestamp defeats this.
-- **Substitution** — a different, better artifact is swapped in for the one actually submitted. The hash
-  fails on any change.
-- **Invented portfolio** — work attributed to a candidate that they did not produce. A self-attested
-  claim bound to a *controllable authoritative* domain (a bootcamp, a prior employer) is checkable;
-  a bare PDF is not.
-- **Ghost-writing / collusion** — someone other than the candidate produced the work. Provenance
-  **cannot** catch this on its own; it can only record the declared conditions and surface an
-  `Under Review` integrity flag when the issuer has independent reason to doubt.
+## Who Issues It
 
 **Who issues these**
 
@@ -149,8 +149,8 @@ the exam page for the score and this page for the sample.
 
 ## The honest limit: provenance is not proof-of-humanity
 
-This is the single most important section. Live Verify seals **what** was submitted, **when**, and
-**that it is unaltered** — attributed to a reference under **declared conditions**. It does **not** and
+This is the single most important section. Live Verify seals what was submitted, when, and
+**that it is unaltered** — attributed to a reference under declared conditions. It does not and
 **cannot** establish that:
 
 - no LLM or AI tool was used to produce the artifact, or

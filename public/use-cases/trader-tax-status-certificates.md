@@ -13,7 +13,7 @@ furtherDerivations: 3
 
 When a plumber quotes you £800 for a boiler replacement, you have no practical way to know whether they're VAT-registered (meaning the price should include VAT), under the VAT threshold (legitimately not charging VAT), or simply evading tax. You also have no way to know whether they're authorised to accept cash at that amount — a question that's already regulated in France (€1,000 limit since 2015), Italy (€5,000, repeatedly lowered), Spain (€1,000 for professionals), and is on a clear trajectory toward the UK.
 
-A **Trader Tax Status Certificate** is a document issued by the tax authority confirming a trader's current registration status. Not their tax returns, not their accounts — just their status: VAT-registered or below-threshold, authorised payment methods, and whether their tax filings are current.
+A Trader Tax Status Certificate is a document issued by the tax authority confirming a trader's current registration status. Not their tax returns, not their accounts — just their status: VAT-registered or below-threshold, authorised payment methods, and whether their tax filings are current.
 
 The customer checks before paying. The trader carries proof. The tax authority gains a real-time incentive network where customers are the enforcement mechanism.
 
@@ -115,7 +115,16 @@ The customer checks before paying. The trader carries proof. The tax authority g
 
 **Note on existing HMRC services:** HMRC already operates a public "Check a UK VAT number" service (`gov.uk/check-uk-vat-number`) which confirms whether a VAT number is valid and returns the registered name and address. However, the current service is binary — valid or invalid — and does not expose suspension status, filing compliance, or MTD status. It is unclear whether HMRC would choose to make suspension status public; suspension was introduced in 2019 primarily to combat carousel (MTIC) fraud, and HMRC communicates it directly to the trader rather than publishing it. The suspended specimen above is aspirational — it represents what a richer status certificate *could* show. Even without suspension data, the gap between "is this VAT number real?" (which the current checker answers) and "should I expect VAT on this invoice, and is this trader's registration in good standing?" (which it doesn't) is the verification problem this use case addresses.
 
-## Data Verified
+## The Problem: Cash Economy
+
+The UK tax gap from the hidden economy (unreported income, primarily from trades and services) is estimated at £2-3 billion annually. The patterns are well-understood:
+
+- **"Cash discount, no VAT":** The trader quotes £1,000 including VAT, then offers £800 cash "without the paperwork." The customer saves money; the trader evades VAT and income tax. Both parties benefit; neither has incentive to report.
+- **Threshold gaming:** A trader genuinely below the £90,000 VAT threshold takes on one large job that pushes them over. They don't register. Without verification, no customer knows they should be charging VAT.
+- **Fake VAT charges:** A non-registered trader adds "VAT" to invoices. The customer pays it. The trader pockets what they've labelled as tax. The customer may even try to reclaim it — creating a fraudulent input tax claim.
+- **Ghost traders:** Traders operating entirely outside the tax system — no UTR, no Self Assessment, no NI contributions. They undercut registered competitors on price because they carry none of the tax burden.
+
+## What Is Checked
 
 Business name, masked UTR (Unique Taxpayer Reference), VAT registration number (if registered), VAT registration status, registration date, Making Tax Digital compliance status, Self Assessment filing status, cash acceptance authorisation (where applicable under future regulation).
 
@@ -124,7 +133,7 @@ Business name, masked UTR (Unique Taxpayer Reference), VAT registration number (
 - **Below-Threshold Certificate:** Confirms the trader legitimately operates below the VAT threshold. VAT should not be charged.
 - **Suspended/Deregistered Notice:** Trader's VAT registration has been suspended or cancelled. Critical warning — invoices issued by this trader should not include VAT, and any VAT paid cannot be recovered.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`hmrc.gov.uk`) and the trader's current tax status.
 
@@ -132,13 +141,13 @@ Shows the issuer domain (`hmrc.gov.uk`) and the trader's current tax status.
 - **VAT Registered (Current)** — Active registration, MTD-compliant, filings up to date.
 - **VAT Registered (Overdue)** — Registered but returns are late. Proceed with caution.
 - **Below Threshold** — Legitimately not VAT-registered. No VAT should appear on invoices.
-- **Suspended** — **ALERT:** Registration suspended. Do not pay VAT to this trader.
+- **Suspended** — Registration suspended. Do not pay VAT to this trader.
 - **Deregistered** — VAT registration cancelled. If trader is still charging VAT, this is fraud.
 - **Cash Restricted** — Trader is not authorised to accept cash above the applicable limit (where regulation applies).
 
-## Second-Party Use
+## Who Holds It
 
-The **Customer (Homeowner/Business)** benefits from verification.
+The Customer (Homeowner/Business) benefits from verification.
 
 **Before paying:** You're about to hand £800 cash to a builder. Scan their certificate. `hmrc.gov.uk` confirms "Below VAT Threshold / Cash Accepted" — you know the price correctly excludes VAT and the cash payment is legitimate. Or it returns "VAT Registered" — and the quote should include VAT. If it doesn't, either the trader is pocketing the VAT or they've given you an ex-VAT price without saying so.
 
@@ -146,7 +155,7 @@ The **Customer (Homeowner/Business)** benefits from verification.
 
 **Spotting fake VAT numbers:** A trader charges you £1,200 + £240 "VAT" = £1,440 — but they're not VAT-registered. They pocket the £240. Currently you'd need to manually check HMRC's VAT checker website. A verified certificate on the trader's van, card, or invoice makes this instant.
 
-## Third-Party Use
+## Who Checks It
 
 **HMRC**
 **Real-Time Compliance:** Every customer verification is a signal. If a trader claiming to be below-threshold is being verified 200 times a month for jobs averaging £2,000, the arithmetic tells HMRC they've breached the threshold. The verification system becomes a passive audit tool.
@@ -163,16 +172,7 @@ The **Customer (Homeowner/Business)** benefits from verification.
 **Insurers**
 **Claims Validation:** When a homeowner claims for work done by a tradesperson, the insurer can verify the trader's registration status at the time of the work. Unregistered or suspended traders suggest uninsured, unlicensed work — material to the claim.
 
-## Verification Architecture
-
-**The Cash Economy Problem**
-
-The UK tax gap from the hidden economy (unreported income, primarily from trades and services) is estimated at £2-3 billion annually. The patterns are well-understood:
-
-- **"Cash discount, no VAT":** The trader quotes £1,000 including VAT, then offers £800 cash "without the paperwork." The customer saves money; the trader evades VAT and income tax. Both parties benefit; neither has incentive to report.
-- **Threshold gaming:** A trader genuinely below the £90,000 VAT threshold takes on one large job that pushes them over. They don't register. Without verification, no customer knows they should be charging VAT.
-- **Fake VAT charges:** A non-registered trader adds "VAT" to invoices. The customer pays it. The trader pockets what they've labelled as tax. The customer may even try to reclaim it — creating a fraudulent input tax claim.
-- **Ghost traders:** Traders operating entirely outside the tax system — no UTR, no Self Assessment, no NI contributions. They undercut registered competitors on price because they carry none of the tax burden.
+## How Verification Works Here
 
 **The European Trajectory**
 
@@ -195,7 +195,7 @@ The UK has no cash limit yet but HMRC's Making Tax Digital programme is building
 
 **EU Member State Tax Authorities** — Each operates its own VAT registration system, but the EU's VIES (VAT Information Exchange System) enables cross-border verification. A verified certificate from `impots.gouv.fr` or `agenziaentrate.gov.it` follows the same pattern.
 
-**International equivalents:** VAT is the UK/EU term. The same consumption tax goes by different names elsewhere: **GST** (Goods and Services Tax) in Australia, New Zealand, Canada, India, Singapore, and Malaysia; **Sales Tax** in the US (state-level, no federal equivalent); **IVA** (Impuesto sobre el Valor Añadido / Imposta sul Valore Aggiunto) in Spain and Italy; **TVA** (Taxe sur la Valeur Ajoutée) in France and francophone countries; **MwSt** (Mehrwertsteuer) in Germany and Austria; **JCT** (Japanese Consumption Tax) in Japan. The trader status verification pattern applies wherever a registration threshold exists and traders operate below it — which is virtually everywhere with a consumption tax.
+**International equivalents:** VAT is the UK/EU term. The same consumption tax goes by different names elsewhere: GST (Goods and Services Tax) in Australia, New Zealand, Canada, India, Singapore, and Malaysia; Sales Tax in the US (state-level, no federal equivalent); IVA (Impuesto sobre el Valor Añadido / Imposta sul Valore Aggiunto) in Spain and Italy; TVA (Taxe sur la Valeur Ajoutée) in France and francophone countries; MwSt (Mehrwertsteuer) in Germany and Austria; JCT (Japanese Consumption Tax) in Japan. The trader status verification pattern applies wherever a registration threshold exists and traders operate below it — which is virtually everywhere with a consumption tax.
 
 **Privacy Salt:** Important. The certificate shows the trader's business name and masked UTR — enough to identify the trader for the transaction, not enough to enumerate HMRC's database.
 

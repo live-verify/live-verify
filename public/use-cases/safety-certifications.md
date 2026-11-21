@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Safety Certifications?
 
-For any manufactured product—especially electronics, toys, and building materials—a **Safety Certification** (like a UL Listing or a CE Mark) is the proof that the item won't catch fire, explode, or leach toxins. These certifications are issued by independent labs after rigorous testing against thousands of pages of safety codes.
+For any manufactured product—especially electronics, toys, and building materials—a Safety Certification (like a UL Listing or a CE Mark) is the proof that the item won't catch fire, explode, or leach toxins. These certifications are issued by independent labs after rigorous testing against thousands of pages of safety codes.
 
-These documents are the "Entry Permit" for global commerce. US Customs, Amazon, and Walmart will not sell or import a product unless it has a verified **Certificate of Compliance (CoC)**. Fraud is a massive global issue: factories in unregulated regions often place fake "UL" or "CE" labels on un-tested, dangerous products to save on testing costs. Verified hashes bind the **Product Model, Testing Standard, and Lab ID** to the certifying body's domain (e.g., `ul.com` or `intertek.com`).
+These documents are the "Entry Permit" for global commerce. US Customs, Amazon, and Walmart will not sell or import a product unless it has a verified Certificate of Compliance (CoC). Fraud is a massive global issue: factories in unregulated regions often place fake "UL" or "CE" labels on un-tested, dangerous products to save on testing costs. Verified hashes bind the Product Model, Testing Standard, and Lab ID to the certifying body's domain (e.g., `ul.com` or `intertek.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="safety"></span>UL SOLUTIONS
@@ -35,7 +35,13 @@ Representative samples tested and found to meet requirements.
 <span data-verify-line="safety">verify:ul.com/v</span> <span verifiable-text="end" data-for="safety"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Fake Label Fraud
+
+- **Standard Padding:** Printing a "UL Listed" logo on a product that was never tested by UL.
+- **Model Masking:** Using a valid certificate for a "Safe" model to cover for a "Cheaper, Dangerous" model.
+- **Lab Spoofing:** Creating a fake "CoC" from a non-existent testing lab with a fraudulent website.
+
+## What Is Checked
 
 Certificate number, manufacturer name, factory location ID, product model name/number, specific safety standards met (e.g., UL 60950), date of issuance, expiration date (if applicable), testing lab ID, follow-up service (FUS) status, signing engineer name.
 
@@ -45,22 +51,22 @@ Certificate number, manufacturer name, factory location ID, product model name/n
 - **Factory Inspection Report:** Proof the factory itself is audited.
 - **Mark Authorization:** Permission to print the "UL" or "CE" logo.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`ul.com`, `intertek.com`, `tuv.com`) and the listing standing.
 
 **Status Indications:**
 - **Listed / Verified** — Product is current and in full safety compliance.
-- **Withdrawn** — **CRITICAL:** The listing has been cancelled (e.g., due to failed factory audit).
-- **Recalled** — **CRITICAL:** Product has a safety defect; stop use immediately.
-- **Expired** — **ALERT:** The certification period has passed; re-testing required.
+- **Withdrawn** — The listing has been cancelled (e.g., due to failed factory audit).
+- **Recalled** — Product has a safety defect; stop use immediately.
+- **Expired** — The certification period has passed; re-testing required.
 
 ### Scope enrichment: what the certificate actually covers
 
 A certificate is authentic and yet still be *over-applied* — a genuine cert for a small tested run
 waved through a far larger untested production run, or a cert for one model reused for a variant it
 never covered. Binding the model and standard into the hash defeats *editing* the certificate; it does
-not, on its own, tell a buyer whether the unit **in their hands** falls within what the cert covers.
+not, on its own, tell a buyer whether the unit in their hands falls within what the cert covers.
 
 Because a safety certificate carries no personal data, the certifying body can safely **echo the scope
 of the certificate on verification** — the accountability facts the terse label had no room for. On a
@@ -100,32 +106,26 @@ is legitimate). The certifier discloses only accountability facts it is entitled
 is to stop a genuine, narrow certificate being over-read as a blanket guarantee — which is the core
 mechanism of certificate-scope fraud.
 
-## Second-Party Use
+## Who Holds It
 
-The **Manufacturer / Importer** benefits from verification.
+The Manufacturer / Importer benefits from verification.
 
 **Retailer Approval:** To get a product onto Amazon or Target, the importer provides the verified hash of their safety certificate. The retailer's "Automated Compliance Bot" scans the hash and instantly confirms the listing is real, removing the 2-week delay of manual lab-record checks.
 
 **Insurance Underwriting:** Manufacturers can use verified hashes of their "Low-Risk" safety history to negotiate lower product liability premiums, proving their commitment to engineering standards with cryptographic certainty.
 
-## Third-Party Use
+## Who Checks It
 
 **Customs & Border Protection (CBP)**
-**Anti-Counterfeit Vetting:** In a busy port, an officer scans the label on a crate of lithium batteries. If the hash returns **"NOT FOUND"** or **"DOMAIN MISMATCH,"** they can seize the shipment immediately, stopping dangerous un-tested electronics from entering the market.
+**Anti-Counterfeit Vetting:** In a busy port, an officer scans the label on a crate of lithium batteries. If the hash returns "NOT FOUND" or "DOMAIN MISMATCH," they can seize the shipment immediately, stopping dangerous un-tested electronics from entering the market.
 
 **Fire Marshals / Safety Inspectors**
 **Field Integrity:** During a building inspection, the marshal scans the "Verified" stickers on the electrical panels or commercial kitchen equipment. Live Verify ensures the equipment hasn't been "Fake Labeled" to hide a lack of certification.
 
 **Amazon / E-commerce Platforms**
-**Merchant Accountability:** Automatically de-listing any seller whose verified safety hash returns a **"RECALLED"** or **"WITHDRAWN"** status, protecting customers from exploding chargers or toxic toys.
+**Merchant Accountability:** Automatically de-listing any seller whose verified safety hash returns a "RECALLED" or "WITHDRAWN" status, protecting customers from exploding chargers or toxic toys.
 
-## Verification Architecture
-
-**The "Fake Label" Fraud Problem**
-
-- **Standard Padding:** Printing a "UL Listed" logo on a product that was never tested by UL.
-- **Model Masking:** Using a valid certificate for a "Safe" model to cover for a "Cheaper, Dangerous" model.
-- **Lab Spoofing:** Creating a fake "CoC" from a non-existent testing lab with a fraudulent website.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

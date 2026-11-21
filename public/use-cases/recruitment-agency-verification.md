@@ -94,7 +94,25 @@ verify:rec.uk.com/members/v
 </pre>
 </div>
 
-## Data Verified
+## The Problem: REC Member Trust
+
+- **Badge copying:** Any website can display "REC Member" or the REC logo — these are images and text strings, trivially reproduced.
+- **Stale directories:** Industry-body member directories exist but candidates under time pressure do not check them. Directories also lag behind membership changes.
+- **Clone sites:** Scammers replicate a genuine agency's entire web presence on a similar domain, including its real membership number.
+- **Post-expulsion persistence:** An agency expelled from REC may continue displaying membership badges indefinitely.
+- **Cross-border opacity:** A UK candidate may not know how to verify an agency claiming ASA membership, or vice versa.
+
+The verifiable claim addresses these because:
+
+1. The industry body issues the claim — it is not self-asserted by the agency
+2. The claim names the specific domain where it applies
+3. Revocation is immediate — the endpoint returns SUSPENDED or EXPELLED
+4. The browser extension detects domain mismatches automatically
+
+<details>
+<summary>Other Jurisdictions</summary>
+
+## What Is Checked
 
 Agency legal name, website domain, industry body, membership number, membership category, and current status.
 
@@ -105,7 +123,7 @@ Agency legal name, website domain, industry body, membership number, membership 
 
 **Privacy Salt:** Generally not required. Membership of a professional body is a commercial claim the agency wants to be public. The industry body may salt if disciplinary status is included.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `rec.uk.com`, `americanstaffing.net`, `rcsa.com.au`) and the current membership status.
 
@@ -127,9 +145,9 @@ The `allowedDomains` field enables browser extensions to detect domain mismatche
 - **Expelled** — Membership terminated following a disciplinary finding.
 - **404** — No such membership was issued by the claimed industry body.
 
-## Second-Party Use
+## Who Holds It
 
-The **agency** benefits directly.
+The agency benefits directly.
 
 **Client confidence:** Employers choosing a recruitment agency can verify its industry-body membership on the agency's own site, without searching external directories.
 
@@ -137,7 +155,7 @@ The **agency** benefits directly.
 
 **Competitive differentiation:** Legitimate agencies distinguish themselves from unregulated operators and outright scams.
 
-## Third-Party Use
+## Who Checks It
 
 **Job Applicants**
 
@@ -155,25 +173,7 @@ The **agency** benefits directly.
 
 **Listing quality:** Job boards can require verified industry-body membership before allowing an agency to post listings, reducing fake job scams on the platform.
 
-## Verification Architecture
-
-**The "REC Member" Trust Problem**
-
-- **Badge copying:** Any website can display "REC Member" or the REC logo — these are images and text strings, trivially reproduced.
-- **Stale directories:** Industry-body member directories exist but candidates under time pressure do not check them. Directories also lag behind membership changes.
-- **Clone sites:** Scammers replicate a genuine agency's entire web presence on a similar domain, including its real membership number.
-- **Post-expulsion persistence:** An agency expelled from REC may continue displaying membership badges indefinitely.
-- **Cross-border opacity:** A UK candidate may not know how to verify an agency claiming ASA membership, or vice versa.
-
-The verifiable claim addresses these because:
-
-1. The industry body issues the claim — it is not self-asserted by the agency
-2. The claim names the specific domain where it applies
-3. Revocation is immediate — the endpoint returns SUSPENDED or EXPELLED
-4. The browser extension detects domain mismatches automatically
-
-<details>
-<summary>Other Jurisdictions</summary>
+## How Verification Works Here
 
 **United States — American Staffing Association (ASA)**
 
@@ -203,7 +203,7 @@ Australian-specific considerations: the RCSA operates across Australia and New Z
 
 </details>
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | "Member" Badge | Industry Body Directory | Agency Self-Declaration |
 | :--- | :--- | :--- | :--- | :--- |

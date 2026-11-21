@@ -113,7 +113,18 @@ A practitioner registered as an occupational therapist (HCPC OT441762) presents 
 
 If the practitioner uses their genuine occupational therapy claim instead, the text reads "is a registered occupational therapist" — which does not match the role the clinic advertises. The mismatch is visible to any patient who reads the claim text.
 
-## Data Verified
+## The Problem: 15-Profession
+
+The HCPC's breadth creates a verification challenge that does not exist for single-profession regulators like the GMC (doctors) or NMC (nurses and midwives). With 15 professions under one regulator:
+
+- A registration number alone confirms HCPC registration but not which profession
+- A practitioner registered in one profession could misrepresent themselves as another
+- Protected titles exist for each profession, but title misuse is difficult to detect without checking the register
+- The register search returns the profession, but employers and patients must actively look it up
+
+The verifiable claim solves this by including the profession in the hashed text. The HCPC issues claims per-practitioner per-profession. The claim text states "is a registered physiotherapist" or "is a registered paramedic" — the profession is not a field the practitioner or employer can change without invalidating the hash.
+
+## What Is Checked
 
 Practitioner name, HCPC registration number, registered profession, and current registration status.
 
@@ -122,7 +133,7 @@ Practitioner name, HCPC registration number, registered profession, and current 
 
 **Privacy Salt:** Generally not required. HCPC registration is a professional credential. The register is publicly searchable. Practitioners in patient-facing roles have a professional obligation to be identifiable.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`hcpc-uk.org`) and the practitioner's current registration status and profession.
 
@@ -143,15 +154,15 @@ Shows the issuer domain (`hcpc-uk.org`) and the practitioner's current registrat
 - **Lapsed** — Registration has expired and not been renewed. The practitioner must not practise.
 - **404** — No such registration exists on the HCPC register.
 
-## Second-Party Use
+## Who Holds It
 
-The **practice or employer** benefits by proving its practitioners are registered.
+The practice or employer benefits by proving its practitioners are registered.
 
 **Practice website trust:** A physiotherapy, occupational therapy, or speech therapy practice embeds HCPC-issued claims for each practitioner. Patients can verify before booking. For practices offering home visits, where the patient cannot see the premises, the claim is the primary trust signal.
 
 **Agency and locum verification:** Healthcare staffing agencies placing HCPC-registered professionals into hospitals or clinics can provide verifiable claims for each placement. The receiving organisation confirms both registration and profession before the practitioner starts work.
 
-## Third-Party Use
+## Who Checks It
 
 **Patients**
 
@@ -169,20 +180,7 @@ The **practice or employer** benefits by proving its practitioners are registere
 
 **Inspection evidence:** The CQC inspects healthcare services and checks that practitioners hold appropriate registration. Verifiable claims provide a current, machine-checkable record of registration status at the time of inspection.
 
-## Verification Architecture
-
-**The 15-Profession Problem**
-
-The HCPC's breadth creates a verification challenge that does not exist for single-profession regulators like the GMC (doctors) or NMC (nurses and midwives). With 15 professions under one regulator:
-
-- A registration number alone confirms HCPC registration but not which profession
-- A practitioner registered in one profession could misrepresent themselves as another
-- Protected titles exist for each profession, but title misuse is difficult to detect without checking the register
-- The register search returns the profession, but employers and patients must actively look it up
-
-The verifiable claim solves this by including the profession in the hashed text. The HCPC issues claims per-practitioner per-profession. The claim text states "is a registered physiotherapist" or "is a registered paramedic" — the profession is not a field the practitioner or employer can change without invalidating the hash.
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | HCPC Online Register | Employer Manual Check |
 | :--- | :--- | :--- | :--- |

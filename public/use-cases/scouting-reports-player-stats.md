@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Scouting Report?
 
-In professional and collegiate sports (Baseball, Football, Soccer), a **Scouting Report** is the official evaluation of an athlete's physical talent and character. It lists critical "Objective Stats"—like a 40-yard dash time, a fastball velocity (MPH), or a goal-scoring record—alongside "Subjective Grades" from a professional scout.
+In professional and collegiate sports (Baseball, Football, Soccer), a Scouting Report is the official evaluation of an athlete's physical talent and character. It lists critical "Objective Stats"—like a 40-yard dash time, a fastball velocity (MPH), or a goal-scoring record—alongside "Subjective Grades" from a professional scout.
 
-These documents are the "Resumes" of the sports world. They determine who gets a $1M pro contract or a full-ride college scholarship. Fraud is common: parents or agents often "edit" a report to turn a 90 MPH fastball into a 95 MPH one, or to hide a "Character Red Flag" found by a scout. Verified hashes bind the **Player's Name, Core Stats, and Scout's Credentials** to the team's or the combine's domain (e.g., `mlb.com`, `nflcombine.com`, or `imgacademy.com`).
+These documents are the "Resumes" of the sports world. They determine who gets a $1M pro contract or a full-ride college scholarship. Fraud is common: parents or agents often "edit" a report to turn a 90 MPH fastball into a 95 MPH one, or to hide a "Character Red Flag" found by a scout. Verified hashes bind the Player's Name, Core Stats, and Scout's Credentials to the team's or the combine's domain (e.g., `mlb.com`, `nflcombine.com`, or `imgacademy.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="scout"></span>
@@ -43,7 +43,13 @@ Character Grade: A. Recommended for Tier-1 recruitment.
 <span data-verify-line="scout">verify:nationscout.com/v</span> <span verifiable-text="end" data-for="scout"></span>
 </div>
 
-## Data Verified
+## The Problem: Dad-with-a-PDF Fraud
+
+- **Metric Inflation:** Editing a 4.8s dash to 4.4s to get onto a college radar.
+- **Age Fraud:** Changing a player's birth year on a scouting report to make them appear more "Advanced" for their age.
+- **Scout Impersonation:** Creating a fake report from a famous scout to trick a small pro league in a foreign country.
+
+## What Is Checked
 
 Player name, date of birth, graduation class, primary position, height/weight, physical metrics (e.g., speed, strength), performance stats (e.g., GPA, PPG), scout name/ID, scouting organization, date of evaluation.
 
@@ -53,19 +59,19 @@ Player name, date of birth, graduation class, primary position, height/weight, p
 - **Academic/Athletic Transcript:** Summary for college recruitment.
 - **Injury Clearance Report:** (Linked hash) proving recovery from surgery.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`ncaa.org`, `nfl.com`, `PerfectGame.org`) and the athlete's standing.
 
 **Status Indications:**
 - **Verified Metrics** — Data matches the original combine/test record.
-- **Suspended** — **ALERT:** The athlete has been flagged for disciplinary or eligibility issues.
-- **Recanted** — **ALERT:** The scout has withdrawn the evaluation (e.g., due to discovered fraud).
+- **Suspended** — The athlete has been flagged for disciplinary or eligibility issues.
+- **Recanted** — The scout has withdrawn the evaluation (e.g., due to discovered fraud).
 - **Draft Eligible** — Confirms the athlete meets league age/academic rules.
 
-## Second-Party Use
+## Who Holds It
 
-The **Athlete** (second party) receives the scouting report from the scouting bureau or combine (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Athlete (second party) receives the scouting report from the scouting bureau or combine (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** The athlete has their own verified copy of their performance metrics. Most of the time, the document sits in their portfolio—the verification value is latent, there *if needed*.
 
@@ -73,12 +79,12 @@ The **Athlete** (second party) receives the scouting report from the scouting bu
 
 **Future Optionality:** If a dispute arises—whether about recruitment offers, contract negotiations, or eligibility—the athlete has cryptographic proof ready without needing to contact the scouting bureau.
 
-## Third-Party Use
+## Who Checks It
 
 The athlete (second party) may hand the verified document to various third parties:
 
 **College Coaches / Recruiters (Recruiting)**
-A high school athlete includes a verified "Performance Hash" in their emails to college coaches. The coach can instantly see **"VERIFIED 4.4s DASH - NFL COMBINE"** on their phone, moving that player to the top of the recruitment list over players with unverified self-reported stats.
+A high school athlete includes a verified "Performance Hash" in their emails to college coaches. The coach can instantly see "VERIFIED 4.4s DASH - NFL COMBINE" on their phone, moving that player to the top of the recruitment list over players with unverified self-reported stats.
 
 **Sports Agents / Agencies (Market Valuation)**
 When negotiating endorsement deals, the agent provides verified stats to brands. "Verified by MLB Scouting Bureau" gives the brand (e.g., Nike) the proof needed to sign a high-value contract.
@@ -89,13 +95,7 @@ During the draft process, teams receive verified reports to filter for authentic
 **Anti-Doping & Integrity Units (Anomaly Detection)**
 League integrity officers track verified physical growth patterns. If an athlete's "Verified Strength" jumps 50% in 2 months, it triggers an immediate investigation into PED use.
 
-## Verification Architecture
-
-**The "Dad-with-a-PDF" Fraud Problem**
-
-- **Metric Inflation:** Editing a 4.8s dash to 4.4s to get onto a college radar.
-- **Age Fraud:** Changing a player's birth year on a scouting report to make them appear more "Advanced" for their age.
-- **Scout Impersonation:** Creating a fake report from a famous scout to trick a small pro league in a foreign country.
+## Who Issues It
 
 **Issuer Types (First Party)**
 

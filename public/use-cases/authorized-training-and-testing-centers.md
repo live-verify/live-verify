@@ -85,7 +85,22 @@ verify:pearsonvue.com/test-centers
 </pre>
 </div>
 
-## Data Verified
+## The Problem: Authorized Test Center Trust
+
+- **Badge copying:** Any website can display "Authorized Pearson VUE Test Center" or "Official AWS Training Partner" — these are just images or text.
+- **Fake boot camps:** Unlicensed providers charge full price for "certification training" that does not include actual proctored exams, or issue certificates that the certification body does not recognize.
+- **Phishing sites:** Sites impersonating real test centers collect payment and personal data, then disappear. The candidate loses money and may have identity information compromised.
+- **Stale directories:** Certification body "find a test center" pages are often incomplete or slow to reflect closures and revocations.
+- **Post-revocation persistence:** A center dropped from the authorized network may continue displaying authorization badges and booking exams it cannot legitimately deliver.
+
+The verifiable claim addresses these because:
+
+1. The certification body issues the claim — it is not self-asserted by the center
+2. The claim names the specific site where it applies
+3. Revocation is immediate — the endpoint returns REVOKED
+4. The browser extension can detect domain mismatches automatically
+
+## What Is Checked
 
 Center legal name, authorized site domain, certification body, exam programs covered, authorization period, and current status.
 
@@ -96,7 +111,7 @@ Center legal name, authorized site domain, certification body, exam programs cov
 
 **Privacy Salt:** Generally not required. Testing center authorizations are commercial claims that the center wants to be public. The certification body may salt if the authorization structure itself is commercially sensitive.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `pearsonvue.com`, `aws.amazon.com/training`, `cisco.com`) and the current authorization status.
 
@@ -119,9 +134,9 @@ The `allowedDomains` field enables browser extensions to detect domain mismatche
 - **Program Removed** — Center is still authorized for other exam programs but not this one.
 - **404** — No such authorization was issued by the claimed certification body.
 
-## Second-Party Use
+## Who Holds It
 
-The **candidate** benefits directly.
+The candidate benefits directly.
 
 **Pre-booking confidence:** Before paying several hundred dollars for an exam sitting, the candidate can verify that the center is genuinely authorized by the certification body, not just claiming to be.
 
@@ -129,7 +144,7 @@ The **candidate** benefits directly.
 
 **Domain-mismatch protection:** Even without the extension, the site domain in the claim text is a visible check. With the extension, domain mismatches produce an automatic warning.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers**
 
@@ -145,24 +160,7 @@ The **candidate** benefits directly.
 
 **Vendor vetting:** An organization purchasing bulk training or exam vouchers for its employees can verify that the provider is genuinely authorized before committing budget.
 
-## Verification Architecture
-
-**The "Authorized Test Center" Trust Problem**
-
-- **Badge copying:** Any website can display "Authorized Pearson VUE Test Center" or "Official AWS Training Partner" — these are just images or text.
-- **Fake boot camps:** Unlicensed providers charge full price for "certification training" that does not include actual proctored exams, or issue certificates that the certification body does not recognize.
-- **Phishing sites:** Sites impersonating real test centers collect payment and personal data, then disappear. The candidate loses money and may have identity information compromised.
-- **Stale directories:** Certification body "find a test center" pages are often incomplete or slow to reflect closures and revocations.
-- **Post-revocation persistence:** A center dropped from the authorized network may continue displaying authorization badges and booking exams it cannot legitimately deliver.
-
-The verifiable claim addresses these because:
-
-1. The certification body issues the claim — it is not self-asserted by the center
-2. The claim names the specific site where it applies
-3. Revocation is immediate — the endpoint returns REVOKED
-4. The browser extension can detect domain mismatches automatically
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | "Authorized Center" Badge | Certification Body Directory | Word of Mouth |
 | :--- | :--- | :--- | :--- | :--- |

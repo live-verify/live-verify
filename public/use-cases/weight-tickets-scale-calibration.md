@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Weight Tickets?
 
-In the shipping and bulk commodity industries (e.g., grain, scrap metal, gravel), the **Weight Ticket** is the "Cash Receipt" for the cargo. It records the weight of a truck when full (Gross) and when empty (Tare) to determine the weight of the goods (Net).
+In the shipping and bulk commodity industries (e.g., grain, scrap metal, gravel), the Weight Ticket is the "Cash Receipt" for the cargo. It records the weight of a truck when full (Gross) and when empty (Tare) to determine the weight of the goods (Net).
 
-Because weight determines the price of multimillion-dollar shipments, these tickets are a primary target for **Weight Fraud**. A dishonest driver might "edit" a 40,000 lb ticket to read 45,000 lbs to over-charge a buyer. Similarly, they might use a "Ghost Ticket" from a non-existent scale to steal cargo. Verified hashes bind the **Gross/Tare Weights, Plate Number, and Timestamp** to the scale operator's domain (e.g., `catscale.com` or `pilotflyingj.com`).
+Because weight determines the price of multimillion-dollar shipments, these tickets are a primary target for Weight Fraud. A dishonest driver might "edit" a 40,000 lb ticket to read 45,000 lbs to over-charge a buyer. Similarly, they might use a "Ghost Ticket" from a non-existent scale to steal cargo. Verified hashes bind the Gross/Tare Weights, Plate Number, and Timestamp to the scale operator's domain (e.g., `catscale.com` or `pilotflyingj.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="weight"></span>
@@ -39,7 +39,13 @@ Verification protects trade integrity.
 <span data-verify-line="weight">verify:midwest-scales.com/v</span> <span verifiable-text="end" data-for="weight"></span>
 </div>
 
-## Data Verified
+## The Problem: Phantom Pound Fraud
+
+- **Tare Tampering:** Weighing the truck empty with a full fuel tank, but weighing it full with an empty tank to inflate the "Net" weight.
+- **PDF Inflation:** Editing a "42,000 lb" net weight to read "48,000 lb" before invoicing the buyer.
+- **Facility Spoofing:** Creating a fake ticket from a reputable scale operator to hide the fact that the goods were never weighed.
+
+## What Is Checked
 
 Ticket number, scale ID, facility location, date/time, vehicle plate/VIN, gross weight, tare weight, net weight, weighmaster name/ID, calibration expiration date.
 
@@ -49,19 +55,19 @@ Ticket number, scale ID, facility location, date/time, vehicle plate/VIN, gross 
 - **Scale Calibration Certificate:** (Linked hash) proving the scale is accurate.
 - **Automatic Manifest:** For unattended unmanned scales.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`catscale.com`, `pilotj.com`, `loves.com`) and the ticket standing.
 
 **Status Indications:**
 - **Verified / Certified** — Weight data matches the scale's original digital log.
-- **Out of Calibration** — **ALERT:** Scale was overdue for mandatory NIST testing at the time of weighing.
-- **Voided** — **ALERT:** Ticket was cancelled (e.g., due to a re-weigh).
-- **Plate Mismatch** — **ALERT:** The physical plate on the truck doesn't match the verified hash.
+- **Out of Calibration** — Scale was overdue for mandatory NIST testing at the time of weighing.
+- **Voided** — Ticket was cancelled (e.g., due to a re-weigh).
+- **Plate Mismatch** — The physical plate on the truck doesn't match the verified hash.
 
-## Second-Party Use
+## Who Holds It
 
-The **Driver** (second party) receives the weight ticket from the scale operator (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Driver (second party) receives the weight ticket from the scale operator (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** The driver has their own verified copy of the weight measurement. Most of the time, the document sits in their truck documentation—the verification value is latent, there *if needed*.
 
@@ -69,12 +75,12 @@ The **Driver** (second party) receives the weight ticket from the scale operator
 
 **Future Optionality:** If a dispute arises—whether about DOT violations, billing disputes, or accident investigations—the driver has cryptographic proof ready without needing to contact the scale operator.
 
-## Third-Party Use
+## Who Checks It
 
 The driver (second party) may hand the verified document to various third parties:
 
 **DOT Inspectors (Roadside Compliance)**
-During a roadside inspection for "Overweight" violations, the driver provides the verified hash of their scale ticket. The Trooper can instantly see **"VERIFIED 78,450 LBS"** from a certified scale, proving the truck is legally under the 80,000 lb limit and preventing a $2,000 fine.
+During a roadside inspection for "Overweight" violations, the driver provides the verified hash of their scale ticket. The Trooper can instantly see "VERIFIED 78,450 LBS" from a certified scale, proving the truck is legally under the 80,000 lb limit and preventing a $2,000 fine.
 
 **Shippers and Receivers (Billing & Inventory)**
 The carrier provides verified weight hashes with their invoices, allowing the shipper's system to perform an instant "Weight Audit." A factory receiving 100 trucks of scrap metal per day can bulk-verify all incoming tickets. If a driver attempts to "pad" a ticket with an extra 5,000 lbs, the system flags the fraud instantly, reducing payment time from 30 days to 24 hours for legitimate tickets.
@@ -85,13 +91,7 @@ Regulators receive verified tickets to confirm that public scales are correctly 
 **Insurance Companies (Accident Forensics)**
 In a crash involving a heavy truck, the insurer receives the last verified weight ticket to determine if the vehicle was "overloaded," which can significantly impact liability and stopping-distance calculations.
 
-## Verification Architecture
-
-**The "Phantom Pound" Fraud Problem**
-
-- **Tare Tampering:** Weighing the truck empty with a full fuel tank, but weighing it full with an empty tank to inflate the "Net" weight.
-- **PDF Inflation:** Editing a "42,000 lb" net weight to read "48,000 lb" before invoicing the buyer.
-- **Facility Spoofing:** Creating a fake ticket from a reputable scale operator to hide the fact that the goods were never weighed.
+## Who Issues It
 
 **Issuer Types (First Party)**
 

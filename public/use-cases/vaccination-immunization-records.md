@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Immunization Records?
 
-An **Immunization Record** (often a wallet card like the CDC "White Card" or a state-issued certificate) is the official proof that a person has received specific vaccines. These records are the "Gates of Entry" for **K-12 Schooling**, **University Dorms**, and **International Travel** to countries with endemic diseases like Yellow Fever.
+An Immunization Record (often a wallet card like the CDC "White Card" or a state-issued certificate) is the official proof that a person has received specific vaccines. These records are the "Gates of Entry" for K-12 Schooling, University Dorms, and International Travel to countries with endemic diseases like Yellow Fever.
 
-The problem is that physical cards are easy to fake. During the COVID-19 pandemic, a massive black market emerged for "Fake White Cards," where people used real lot numbers on forged paper to bypass employment and travel rules. Similarly, students sometimes "edit" their childhood MMR records to meet college requirements. Verified hashes bind the **Patient Name, Vaccine Lot Number, and Date of Administration** to the provider's or the health department's domain (e.g., `cvs.com`, `cdc.gov`, or `doh.wa.gov`).
+The problem is that physical cards are easy to fake. During the COVID-19 pandemic, a massive black market emerged for "Fake White Cards," where people used real lot numbers on forged paper to bypass employment and travel rules. Similarly, students sometimes "edit" their childhood MMR records to meet college requirements. Verified hashes bind the Patient Name, Vaccine Lot Number, and Date of Administration to the provider's or the health department's domain (e.g., `cvs.com`, `cdc.gov`, or `doh.wa.gov`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="vax"></span>
@@ -37,7 +37,13 @@ about the vaccines you have received.
 <span data-verify-line="vax">verify:cvs.com/vax/v</span> <span verifiable-text="end" data-for="vax"></span>
 </div>
 
-## Data Verified
+## The Problem: Kitchen Table Fraud
+
+- **Lot Number Harvesting:** Using a real lot number from a friend's card to create a fake card for oneself.
+- **Date Masking:** Changing a 2022 vaccination date to 2026 to bypass a "Recent Booster" requirement.
+- **Provider Mimicry:** Using a reputable pharmacy's logo on a fake card to avoid taking a mandatory vaccine.
+
+## What Is Checked
 
 Patient full name, date of birth, vaccine type/manufacturer (e.g., Pfizer/Moderna), lot number, dose number (1st/2nd/Booster), administration date, healthcare provider name/facility ID, state immunization registry ID.
 
@@ -71,9 +77,9 @@ None typically. The verification confirms vaccination status; that's the decisio
 
 The status code is the value. If it's OK, grant access. If it's INVALID_LOT or 404, reject the card. No POST form needed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Patient** (second party) receives the immunization record from the healthcare provider (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Patient (second party) receives the immunization record from the healthcare provider (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** The patient has their own verified copy of their vaccination history. Most of the time, the document sits in their wallet or health records—the verification value is latent, there *if needed*.
 
@@ -81,12 +87,12 @@ The **Patient** (second party) receives the immunization record from the healthc
 
 **Future Optionality:** If a dispute arises—whether about school enrollment, travel requirements, or employment—the patient has cryptographic proof ready without needing to contact the healthcare provider.
 
-## Third-Party Use
+## Who Checks It
 
 The patient (second party) may hand the verified document to various third parties:
 
 **Schools / University Registrars (Enrollment)**
-A parent enrolling a child in a new school provides the verified hash of the child's immunization record. The school registrar can instantly see **"VERIFIED - MMR & POLIO"** on their phone, removing the 5-day delay of calling the pediatrician's office and protecting the student population from outbreak risk.
+A parent enrolling a child in a new school provides the verified hash of the child's immunization record. The school registrar can instantly see "VERIFIED - MMR & POLIO" on their phone, removing the 5-day delay of calling the pediatrician's office and protecting the student population from outbreak risk.
 
 **Airlines / Border Security (Travel Requirements)**
 Travelers provide verified hashes of "Yellow Cards" when arriving from endemic zones (e.g., Yellow Fever). Border officials can instantly verify the certificates aren't "port-side forgeries," preventing traumatic refusal of entry.
@@ -97,13 +103,7 @@ Healthcare facilities and senior care homes receive verified immunization record
 **Fraud Detection Systems**
 Schools and employers use verification to filter thousands of vaccine cards, instantly identifying only verified, provider-backed records and rejecting fraudulent claims that could lead to disease outbreaks.
 
-## Verification Architecture
-
-**The "Kitchen Table" Fraud Problem**
-
-- **Lot Number Harvesting:** Using a real lot number from a friend's card to create a fake card for oneself.
-- **Date Masking:** Changing a 2022 vaccination date to 2026 to bypass a "Recent Booster" requirement.
-- **Provider Mimicry:** Using a reputable pharmacy's logo on a fake card to avoid taking a mandatory vaccine.
+## Who Issues It
 
 **Issuer Types (First Party)**
 

@@ -59,7 +59,16 @@ This is stronger than DocuSign for cross-organizational agreements where one par
 
 Both claims may reference an elaborating document (the full tenancy agreement, the surgical consent form, the financial authorization). The attested summary governs on the material terms. Where the summary and elaboration diverge, the recipient of the communication may choose which interpretation applies.
 
-## Data Verified
+## The Problem: Different Versions
+
+- **Post-hoc revision:** One party claims different terms were agreed after the fact
+- **Selective disclosure:** Proposer shows one version to the consenter and a different version to a third party
+- **Missing consent:** Proposer claims consent was given but the consenter has no record
+- **Coerced revision:** One party pressures the other to accept revised terms and claims the revision was the original
+
+**Why two independent attestations help:** Neither party controls the other's `verify:` endpoint. Both claims are independently verifiable. If the two claims contain different terms, the divergence is visible to any third party.
+
+## What Is Checked
 
 Proposer identity, consenter identity, subject matter, material terms (dates, amounts, scope), elaboration reference, date of proposal, date of consent.
 
@@ -89,15 +98,15 @@ As shown above. Both sides attest the material terms independently. Disputes abo
 
 Before work begins, both sides attest the agreed scope and price. Links directly to [Quotes & Estimates](view.html?doc=quotes-estimates) — the quote is the proposal, the acceptance is the consent.
 
-## Second-Party Use
+## Who Holds It
 
-The **consenting party** benefits:
+The consenting party benefits:
 
 **Proof of what was agreed:** The consent claim is attested by their own domain. The proposer cannot later claim different terms were agreed, because the consenter's independently verified claim shows exactly what they said yes to.
 
 **Withdrawal evidence:** If consent is withdrawn (where legally permitted), the claim status changes. The consenter has verifiable proof of when they withdrew.
 
-## Third-Party Use
+## Who Checks It
 
 **Courts / Dispute Resolution**
 Both parties' attested claims provide independent evidence of what was agreed. No need to rely on one party's copy of the document.
@@ -107,17 +116,6 @@ Can verify the exact terms both parties attested to before adding their own guar
 
 **Regulators**
 Can verify that informed consent was obtained (medical, financial) and that both parties attested to the same disclosure text.
-
-## Verification Architecture
-
-**The "Different Versions" Problem**
-
-- **Post-hoc revision:** One party claims different terms were agreed after the fact
-- **Selective disclosure:** Proposer shows one version to the consenter and a different version to a third party
-- **Missing consent:** Proposer claims consent was given but the consenter has no record
-- **Coerced revision:** One party pressures the other to accept revised terms and claims the revision was the original
-
-**Why two independent attestations help:** Neither party controls the other's `verify:` endpoint. Both claims are independently verifiable. If the two claims contain different terms, the divergence is visible to any third party.
 
 ## Authority Chain
 

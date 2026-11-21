@@ -88,7 +88,23 @@ verify:oisc.gov.uk/advisers
 </pre>
 </div>
 
-## Data Verified
+## The Problem: Registered Adviser Trust
+
+- **Badge copying:** Any website can display "OISC Registered" or "MARA Agent" — these are just images or text with no binding to the regulator.
+- **Level inflation:** An adviser registered at Level 1 (basic advice only) may advertise as Level 3 (full competence including tribunal representation).
+- **Stale registers:** Regulatory registers are accurate but require the client to know the register exists, find it, and search it correctly — steps many vulnerable clients do not take.
+- **Post-suspension persistence:** An adviser suspended or struck off may continue operating their website unchanged for months, taking on new clients who have no idea.
+- **No-registration fraud:** Individuals with no registration at all set up professional-looking websites offering immigration services. The absence of a registration number is not obvious to someone unfamiliar with the regulatory framework.
+
+The verifiable claim addresses these because:
+
+1. The regulator issues the claim — it is not self-asserted by the adviser
+2. The claim names the specific site where it applies
+3. The claim states the competence level, verified against the regulator's own data
+4. Suspension or cancellation is immediate — the endpoint returns SUSPENDED or CANCELLED
+5. The browser extension can detect domain mismatches automatically
+
+## What Is Checked
 
 Adviser or firm legal name, registered site domain, regulatory body, registration level or category, registration period, and current status.
 
@@ -99,7 +115,7 @@ Adviser or firm legal name, registered site domain, regulatory body, registratio
 
 **Privacy Salt:** Generally not required. Immigration adviser registrations are public-register information that the adviser wants clients to see. The regulator may salt if enforcement-sensitive detail is attached to the claim.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `oisc.gov.uk`, `mara.gov.au`, `iaa.govt.nz`) and the current registration status.
 
@@ -122,9 +138,9 @@ The `allowedDomains` field enables browser extensions to detect domain mismatche
 - **Level Downgraded** — Adviser remains registered but at a lower competence level than the claim states.
 - **404** — No such registration was issued by the claimed regulatory body.
 
-## Second-Party Use
+## Who Holds It
 
-The **visa applicant** benefits directly.
+The visa applicant benefits directly.
 
 **Pre-engagement confidence:** Before sharing personal documents and paying fees, the applicant can verify that the adviser is genuinely registered at the claimed level, not merely asserting it.
 
@@ -132,7 +148,7 @@ The **visa applicant** benefits directly.
 
 **Domain-mismatch protection:** Even without the extension, the site domain in the claim text is a visible check. With the extension, domain mismatches produce an automatic warning — relevant when a scam site clones a legitimate adviser's branding.
 
-## Third-Party Use
+## Who Checks It
 
 **Home Office and Immigration Authorities**
 
@@ -146,25 +162,7 @@ The **visa applicant** benefits directly.
 
 **Adviser vetting:** Employers using immigration advisers to handle sponsored worker visas can verify the adviser's registration before engaging them. A failed or mismatched verification is a reason to choose a different adviser.
 
-## Verification Architecture
-
-**The "Registered Adviser" Trust Problem**
-
-- **Badge copying:** Any website can display "OISC Registered" or "MARA Agent" — these are just images or text with no binding to the regulator.
-- **Level inflation:** An adviser registered at Level 1 (basic advice only) may advertise as Level 3 (full competence including tribunal representation).
-- **Stale registers:** Regulatory registers are accurate but require the client to know the register exists, find it, and search it correctly — steps many vulnerable clients do not take.
-- **Post-suspension persistence:** An adviser suspended or struck off may continue operating their website unchanged for months, taking on new clients who have no idea.
-- **No-registration fraud:** Individuals with no registration at all set up professional-looking websites offering immigration services. The absence of a registration number is not obvious to someone unfamiliar with the regulatory framework.
-
-The verifiable claim addresses these because:
-
-1. The regulator issues the claim — it is not self-asserted by the adviser
-2. The claim names the specific site where it applies
-3. The claim states the competence level, verified against the regulator's own data
-4. Suspension or cancellation is immediate — the endpoint returns SUSPENDED or CANCELLED
-5. The browser extension can detect domain mismatches automatically
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | OISC Register Search | Adviser's Own Website Claim |
 | :--- | :--- | :--- | :--- |

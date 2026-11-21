@@ -41,11 +41,11 @@ As At:         21 Mar 2026
 <span data-verify-line="loan-active">verify:newyorklife.com/policy-loans/v</span> <span verifiable-text="end" data-for="loan-active"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Policy number, loan status (clear or active), outstanding loan balance (if any), loan interest rate and basis (if applicable), and the as-at date of the snapshot. Cash value and net surrender value are deliberately excluded — those belong to the [Cash Surrender Value](view.html?doc=life-insurance-cash-surrender-values) artifact.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`newyorklife.com`, `prudential.com`, `northwesternmutual.com`) and confirms whether the policy loan status claim is current.
 
@@ -53,11 +53,11 @@ Shows the issuer domain (`newyorklife.com`, `prudential.com`, `northwesternmutua
 - **NO OUTSTANDING LOANS** — Cash value is unencumbered.
 - **LOAN ACTIVE** — One or more loans are outstanding against the policy's cash value.
 
-## Second-Party Use
+## Who Holds It
 
-The **Policyholder** uses this to prove their policy is unencumbered. When applying for a mortgage or business loan using a whole life policy as collateral, the policyholder clips the "NO OUTSTANDING LOANS" status and shares it with the lender. The lender verifies the hash against the insurer's domain within seconds, replacing the weeks-long manual verification process.
+The Policyholder uses this to prove their policy is unencumbered. When applying for a mortgage or business loan using a whole life policy as collateral, the policyholder clips the "NO OUTSTANDING LOANS" status and shares it with the lender. The lender verifies the hash against the insurer's domain within seconds, replacing the weeks-long manual verification process.
 
-## Third-Party Use
+## Who Checks It
 
 **Lenders Considering the Policy as Collateral**
 A bank evaluating a whole life policy as loan collateral needs to know whether prior loans have already reduced the net value. The verified loan status confirms the exact net value available, preventing double-pledging.
@@ -71,7 +71,7 @@ When structuring an estate plan around a permanent life insurance policy, the pl
 **Life Settlement Buyers**
 Firms purchasing existing life insurance policies on the secondary market need accurate net value figures during due diligence. A policy with $42,000 in outstanding loans against $142,500 in cash value is a materially different asset than an unencumbered one.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Hidden Lien" Problem**
 
@@ -101,7 +101,7 @@ New York Life, a regulated life insurance provider, is authorized by state insur
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Manual Verification
+## Compared With Manual Verification
 
 | Feature | Live Verify | Phone/Letter Verification | Scanned PDF |
 | :--- | :--- | :--- | :--- |

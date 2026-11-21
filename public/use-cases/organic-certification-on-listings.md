@@ -99,7 +99,7 @@ verify:soilassociation.org/organic/v
 
 The product may still appear on retail platforms with an organic logo, because the platform has not been notified. But a consumer who clips and verifies sees SUSPENDED. The platform cannot claim ignorance — the verification endpoint is public.
 
-## Data Verified
+## What Is Checked
 
 Producer name, registered business domain, certification body, licence or certificate number, product categories covered (e.g. dairy, arable, horticulture), and current certification status.
 
@@ -110,7 +110,7 @@ Producer name, registered business domain, certification body, licence or certif
 
 **Privacy Salt:** Not required. Organic certification status is public record. Certification bodies publish licensee directories as a condition of their accreditation.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g. `soilassociation.org`) and the current certification status.
 
@@ -132,9 +132,9 @@ The `allowedDomains` field enables browser extensions to detect domain mismatche
 - **Withdrawn** — Certification has been permanently revoked.
 - **404** — No such certification was issued by this body for this producer.
 
-## Second-Party Use
+## Who Holds It
 
-The **producer or farm** benefits from verification.
+The producer or farm benefits from verification.
 
 **Proving certification across retail platforms:** A farm with genuine organic certification currently has no way to prove that on Ocado, Amazon Fresh, or any other platform — the platform's organic label is just a tag in a database. A verifiable claim lets the producer demonstrate its certification directly to consumers, regardless of which platform they are browsing.
 
@@ -142,7 +142,7 @@ The **producer or farm** benefits from verification.
 
 **Export documentation:** Organic certification claims can support export compliance. A buyer in another jurisdiction can verify the claim against the issuing body's domain without needing to navigate a foreign-language register.
 
-## Third-Party Use
+## Who Checks It
 
 **Consumers on Retail Platforms**
 
@@ -162,7 +162,7 @@ The **producer or farm** benefits from verification.
 
 **Brand protection:** Certification bodies have a direct interest in preventing misuse of their marks. The verifiable claim creates a public, checkable record that distinguishes genuine licensees from those displaying the logo without authorization.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Copyable Logo" Problem**
 
@@ -221,7 +221,7 @@ The pattern applies across jurisdictions. Each certification body would operate 
 
 </details>
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Organic Logo on Listing | Certification Body Register | Paper Certificate |
 | :--- | :--- | :--- | :--- | :--- |

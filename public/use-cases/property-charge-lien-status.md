@@ -47,11 +47,11 @@ As At:         21 Mar 2026
 
 For this use case to be fully operational, the verification response should support an **authorized-expanded view**: a solicitor acting for a buyer in an active transaction could receive an expanded response from the land registry that includes chargee identities. This is analogous to how the current official search process provides full details to parties with legitimate interest. The protocol for authorized-expanded responses is an open design question.
 
-## Data Verified
+## What Is Checked
 
 Title reference number, number of registered charges, charge type for each entry (first legal mortgage, second charge, restriction, etc.), chargee category (residential lender, secured loan provider, etc.), overall status (no additional charges or multiple charges registered), and the as-at date of the snapshot.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`landregistry.gov.uk`) and confirms whether the charge status claim is current.
 
@@ -59,11 +59,11 @@ Shows the issuer domain (`landregistry.gov.uk`) and confirms whether the charge 
 - **NO ADDITIONAL CHARGES** — Only the expected first mortgage is registered against the title.
 - **MULTIPLE CHARGES REGISTERED** — More than one charge exists. The number and type of each charge are listed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Seller** (or the seller's solicitor) uses this to demonstrate the charge position on the property early in the transaction. When a buyer's solicitor requests evidence of the title's encumbrance status, the seller clips the charge status snapshot and shares it. The buyer's solicitor verifies the hash against the land registry's domain within seconds, confirming how many charges are registered and their types — without waiting for the formal search to complete.
+The Seller (or the seller's solicitor) uses this to demonstrate the charge position on the property early in the transaction. When a buyer's solicitor requests evidence of the title's encumbrance status, the seller clips the charge status snapshot and shares it. The buyer's solicitor verifies the hash against the land registry's domain within seconds, confirming how many charges are registered and their types — without waiting for the formal search to complete.
 
-## Third-Party Use
+## Who Checks It
 
 **Buyer's Solicitors**
 The primary consumer. A solicitor acting for a buyer needs to know what charges must be discharged at completion and whether the sale proceeds will be sufficient to clear them. A verified charge status snapshot provides early warning if the title carries unexpected second charges or restrictions, before the solicitor commits time and the buyer commits funds to surveys and other due diligence.
@@ -77,7 +77,7 @@ In a chain of transactions, delays cascade. If a buyer's solicitor discovers und
 **Auction Buyers**
 Property auctions require completion within a fixed period (typically 28 days). Auction buyers and their solicitors have limited time for due diligence. A verified charge snapshot gives immediate confidence about the encumbrance position before bidding.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Undisclosed Charge" Problem**
 
@@ -106,7 +106,7 @@ HM Land Registry, a government agency, is the authoritative source for registere
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Manual Verification
+## Compared With Manual Verification
 
 | Feature | Live Verify | Official Search (Form OS1/OS2) | Seller's Solicitor Disclosure |
 | :--- | :--- | :--- | :--- |

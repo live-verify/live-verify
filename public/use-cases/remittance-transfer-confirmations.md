@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Remittance Confirmation?
 
-In global finance, a **Remittance Confirmation** (or Receipt) is the proof that money was sent across borders—typically from a worker in a high-income nation to their family in their home country. These receipts (carrying an **MTCN** or reference number) act as "Digital Cash" that can be picked up at any participating agent location.
+In global finance, a Remittance Confirmation (or Receipt) is the proof that money was sent across borders—typically from a worker in a high-income nation to their family in their home country. These receipts (carrying an MTCN or reference number) act as "Digital Cash" that can be picked up at any participating agent location.
 
-Because these papers are essentially vouchers for cash, they are high-stakes targets for fraud. Scammers use "Fake Receipts" to trick people into sending goods or "processing fees" for a lottery win that doesn't exist. Similarly, a dishonest person might "edit" a receipt to show a $5,000 transfer instead of $50 to trick an immigration officer or a lender. Verified hashes bind the **MTCN, Receiver Name, and Amount** to the provider's domain (e.g., `westernunion.com` or `moneygram.com`).
+Because these papers are essentially vouchers for cash, they are high-stakes targets for fraud. Scammers use "Fake Receipts" to trick people into sending goods or "processing fees" for a lottery win that doesn't exist. Similarly, a dishonest person might "edit" a receipt to show a $5,000 transfer instead of $50 to trick an immigration officer or a lender. Verified hashes bind the MTCN, Receiver Name, and Amount to the provider's domain (e.g., `westernunion.com` or `moneygram.com`).
 
 <div style="max-width: 400px; margin: 24px auto; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
   <div style="background: #ffcc00; color: #000; padding: 20px; text-align: center; border-bottom: 2px solid #000;">
@@ -52,7 +52,13 @@ Because these papers are essentially vouchers for cash, they are high-stakes tar
   </div>
 </div>
 
-## Data Verified
+## The Problem: Z-Receipt Fraud
+
+- **MTCN Re-Use:** Selling the same physical receipt to multiple people as "proof" of payment.
+- **Amount Inflation:** Changing a $50 transfer into a $5,000 one on a printed PDF to meet a wealth requirement.
+- **Ghost Transfers:** Creating fake "MoneyGram" emails to trick people into paying a "Fee" to release a larger non-existent sum.
+
+## What Is Checked
 
 MTCN (Money Transfer Control Number), sender name, receiver name, origin country, destination country, transfer amount (USD), exchange rate, payout amount (local currency), fees paid, date/time of transfer, agent location ID.
 
@@ -62,25 +68,25 @@ MTCN (Money Transfer Control Number), sender name, receiver name, origin country
 - **Statement of History:** Aggregate report for immigration/tax purposes.
 - **Refund Confirmation:** (Linked hash) proving money was returned.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`wu.com`, `moneygram.com`, `wise.com`) and the transfer standing.
 
 **Status Indications:**
 - **Available for Pickup** — Money is waiting at an agent location.
-- **Paid / Picked Up** — **ALERT:** The cash has already been collected; this paper is now worthless.
-- **Refunded** — **ALERT:** The sender cancelled the transfer and took the money back.
-- **Held / Fraud Alert** — **CRITICAL:** The transfer is blocked for compliance review.
+- **Paid / Picked Up** — The cash has already been collected; this paper is now worthless.
+- **Refunded** — The sender cancelled the transfer and took the money back.
+- **Held / Fraud Alert** — The transfer is blocked for compliance review.
 
-## Second-Party Use
+## Who Holds It
 
-The **Sender / Receiver** benefits from verification.
+The Sender / Receiver benefits from verification.
 
-**Anti-Scam Protection:** A person buying a laptop on Facebook Marketplace is sent a "Photo of a Western Union Receipt" as proof of payment. The seller scans the hash. If it returns **"PAID"** or **"REFUNDED,"** they know the buyer is trying to scam them with an old or cancelled receipt, potentially saving them from a $1,000 loss.
+**Anti-Scam Protection:** A person buying a laptop on Facebook Marketplace is sent a "Photo of a Western Union Receipt" as proof of payment. The seller scans the hash. If it returns "PAID" or "REFUNDED," they know the buyer is trying to scam them with an old or cancelled receipt, potentially saving them from a $1,000 loss.
 
 **Pickup Speed:** A receiver at a busy agent in Mexico City scans their own receipt. "Verified by WU" ensures the agent that the MTCN is valid and the payout amount is accurate, bypassing the 10-minute "Legacy System Search" and reducing errors in cash counting.
 
-## Third-Party Use
+## Who Checks It
 
 **Immigration Authorities (USCIS / Consulates)**
 **Proof of Support:** Immigrants often use verified remittance hashes to prove they are financially supporting their family back home, which is a key factor in many "Hardship Waiver" cases. Verified hashes ensure the support is real and not a "Photoshop Fabrication."
@@ -91,13 +97,7 @@ The **Sender / Receiver** benefits from verification.
 **Banks & Lenders**
 **Income Vetting:** Using verified remittance history as a "Secondary Credit Score" for unbanked individuals, allowing them to qualify for loans based on their verified payment behavior.
 
-## Verification Architecture
-
-**The "Z-Receipt" Fraud Problem**
-
-- **MTCN Re-Use:** Selling the same physical receipt to multiple people as "proof" of payment.
-- **Amount Inflation:** Changing a $50 transfer into a $5,000 one on a printed PDF to meet a wealth requirement.
-- **Ghost Transfers:** Creating fake "MoneyGram" emails to trick people into paying a "Fee" to release a larger non-existent sum.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

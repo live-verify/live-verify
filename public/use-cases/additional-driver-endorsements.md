@@ -11,9 +11,9 @@ furtherDerivations: 2
 
 ## What is a Driver Endorsement?
 
-In the auto insurance industry, an **Additional Driver Endorsement** is the formal proof that a person who doesn't own the car is legally covered to drive it. This is common when lending a car to a friend for a road trip, adding a teenager with a learner's permit, or authorizing a visiting relative.
+In the auto insurance industry, an Additional Driver Endorsement is the formal proof that a person who doesn't own the car is legally covered to drive it. This is common when lending a car to a friend for a road trip, adding a teenager with a learner's permit, or authorizing a visiting relative.
 
-These documents are the "Permission to Drive." Fraud is high-frequency: individuals whose own insurance was cancelled for accidents often "edit" a friend's insurance card or PDF to add their own name, making them look insured to police or rental agencies. Verified hashes bind the **Additional Driver Name, License Number, and Validity Dates** to the insurer's domain (e.g., `geico.com` or `progressive.com`).
+These documents are the "Permission to Drive." Fraud is high-frequency: individuals whose own insurance was cancelled for accidents often "edit" a friend's insurance card or PDF to add their own name, making them look insured to police or rental agencies. Verified hashes bind the Additional Driver Name, License Number, and Validity Dates to the insurer's domain (e.g., `geico.com` or `progressive.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="endorse"></span>SAFEGUARD INSURANCE
@@ -35,7 +35,13 @@ with owner's permission.
 <span data-verify-line="endorse">verify:safeguard-ins.com/v</span> <span verifiable-text="end" data-for="endorse"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Post-Crash Fraud
+
+- **Identity Hijacking:** Editing a "Clean" driver's certificate to put a "High-Risk" driver's name on it.
+- **Date Stretching:** Changing a 3-day weekend endorsement to look like a 30-day monthly policy on a PDF.
+- **Premium Evasion:** Hiding a driver with multiple DUIs from the insurer but showing their name on a fake paper endorsement to the car owner.
+
+## What Is Checked
 
 Policy number, policyholder name, additional driver full name, driver's license number (masked), vehicle license plate, effective start date/time, expiration date/time
 
@@ -79,17 +85,17 @@ The person being added shouldn't just take the policyholder's word for it. Consi
 
 4. **Temp Driver Self-Check** — Some insurers allow anyone to check coverage by entering policy number + driver name + DOB. Returns "Covered" or "Not Found."
 
-The key insight: **verification removes social awkwardness**. The son-in-law doesn't have to call FIL a liar—they just say "mind if I snap the screen? I like to keep records." Then they verify independently.
+The key insight: verification removes social awkwardness. The son-in-law doesn't have to call FIL a liar—they just say "mind if I snap the screen? I like to keep records." Then they verify independently.
 
-## Second-Party Use
+## Who Holds It
 
-The **Additional Driver / Vehicle Owner** benefits from verification.
+The Additional Driver / Vehicle Owner benefits from verification.
 
 **Borrowing Peace of Mind:** Before handing over the keys to a $50,000 car, the owner scans the friend's digital endorsement. "Verified by Safeguard" ensures the owner that their friend is actually insured, protecting the owner's personal premiums from an un-insured accident.
 
-**Roadside Stop Speed:** If pulled over by police while driving a borrowed car, the driver shows the verified hash. The officer can instantly see **"VERIFIED ACTIVE"** on their phone, removing the suspicion of a "Borrowed Car" theft or a fake insurance card.
+**Roadside Stop Speed:** If pulled over by police while driving a borrowed car, the driver shows the verified hash. The officer can instantly see "VERIFIED ACTIVE" on their phone, removing the suspicion of a "Borrowed Car" theft or a fake insurance card.
 
-## Third-Party Use
+## Who Checks It
 
 **Police / Traffic Enforcement**
 **Fraud Detection:** During a traffic stop, the officer scans the endorsement hash. Verification ensures the PDF hasn't been "edited" to add a driver who is actually unlicensed or un-insured, stopping the high-volume fraud of "un-insured driver cards."
@@ -113,7 +119,7 @@ A QR code often is faster to scan at a roadside stop. The real question is not "
 
 **The real constraint:** There is no federation between 50 state DMVs, hundreds of insurers, and thousands of police departments. A QR pointing to Safeguard's internal system is useless to an officer with no Safeguard account.
 
-Live Verify with a **public verification endpoint** handles this correctly:
+Live Verify with a public verification endpoint handles this correctly:
 - No integration required between insurers and police
 - The domain (`safeguard-ins.com`) is the trust anchor
 - Anyone with internet access can verify
@@ -176,13 +182,7 @@ Fields:
 
 **The Authentication Gap:** Anyone who sees the endorsement can verify it and submit reports. This is a feature, not a bug—in an accident, the *other driver* needs to verify your coverage. Low friction beats perfect authentication in roadside scenarios.
 
-## Verification Architecture
-
-**The "Post-Crash" Fraud Problem**
-
-- **Identity Hijacking:** Editing a "Clean" driver's certificate to put a "High-Risk" driver's name on it.
-- **Date Stretching:** Changing a 3-day weekend endorsement to look like a 30-day monthly policy on a PDF.
-- **Premium Evasion:** Hiding a driver with multiple DUIs from the insurer but showing their name on a fake paper endorsement to the car owner.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

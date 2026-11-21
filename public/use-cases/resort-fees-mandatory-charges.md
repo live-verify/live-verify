@@ -15,7 +15,7 @@ In the hospitality industry, "Drip Pricing" is a major consumer protection issue
 
 Government regulators (like the FTC) now require these fees to be clearly disclosed at the time of booking. At check-in, the hotel emails the guest a disclosure receipt confirming the mandatory fees for their stay. This email is the primary artifact—the guest keeps it in their inbox as a verified record of what was agreed.
 
-Verified hashes bind the **Mandatory Fee Amounts and Included Services** to the hotel brand's domain (e.g., `mgmresorts.com` or `hilton.com`), providing an immutable record of the price agreement. If the fees charged differ from what was disclosed at booking, the guest has cryptographic evidence of the discrepancy.
+Verified hashes bind the Mandatory Fee Amounts and Included Services to the hotel brand's domain (e.g., `mgmresorts.com` or `hilton.com`), providing an immutable record of the price agreement. If the fees charged differ from what was disclosed at booking, the guest has cryptographic evidence of the discrepancy.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="resort"></span>
@@ -44,7 +44,13 @@ Total mandatory fees for 3 nights:                         $ 172.50
 <span data-verify-line="resort">verify:grandazure.com/fees/v</span> <span verifiable-text="end" data-for="resort"></span>
 </div>
 
-## Data Verified
+## The Problem: Drip Pricing Fraud
+
+- **Hidden Fee Insertion:** Adding a mandatory fee at the last step of checkout that wasn't in the initial quote.
+- **Folio Alteration:** Changing a "Gym Fee" (optional) to a "Resort Fee" (mandatory) on the final bill to hide a policy violation.
+- **Bait and Switch:** Offering a low rate on a third-party site but refusing to honor it without a "mandatory supplement" at check-in.
+
+## What Is Checked
 
 Guest name, confirmation number, room type, stay dates, itemized mandatory fee amounts, total mandatory charge, disclosure timestamp, hotel ID.
 
@@ -53,19 +59,19 @@ Guest name, confirmation number, room type, stay dates, itemized mandatory fee a
 - **Pre-Arrival Disclosure:** Emailed or on-screen proof of price.
 - **Check-in Acknowledgment:** The paper signed at the front desk.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`marriott.com`, `expedia.com`, `caesars.com`) and the pricing standing.
 
 **Status Indications:**
 - **Verified Disclosure** — Pricing matches the hotel's official rate-file.
-- **Refunded** — **ALERT:** The resort fee was waived/refunded (important for expense claims).
-- **Rate Mismatch** — **ALERT:** The paper bill does not match the online disclosure.
+- **Refunded** — The resort fee was waived/refunded (important for expense claims).
+- **Rate Mismatch** — The paper bill does not match the online disclosure.
 - **Void** — Reservation cancelled.
 
-## Second-Party Use
+## Who Holds It
 
-The **Hotel Guest** (second party) receives the disclosure receipt from the hotel (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Hotel Guest (second party) receives the disclosure receipt from the hotel (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** The guest has their own verified copy of what was agreed. Most of the time, the document just sits in their inbox—the verification value is latent, there *if needed*.
 
@@ -73,7 +79,7 @@ The **Hotel Guest** (second party) receives the disclosure receipt from the hote
 
 **Future Optionality:** If a dispute arises—whether days or years later—the guest has cryptographic proof ready. They don't need to contact the hotel or hope the hotel kept records. 
 
-## Third-Party Use
+## Who Checks It
 
 The guest (second party) may hand the verified document to various third parties:
 
@@ -92,13 +98,7 @@ For business travelers, the verified receipt substantiates travel expense deduct
 **Lawyer (Litigation Evidence)**
 In consumer protection lawsuits, verified receipts serve as admissible evidence of what the hotel disclosed.
 
-## Verification Architecture
-
-**The "Drip Pricing" Fraud Problem**
-
-- **Hidden Fee Insertion:** Adding a mandatory fee at the last step of checkout that wasn't in the initial quote.
-- **Folio Alteration:** Changing a "Gym Fee" (optional) to a "Resort Fee" (mandatory) on the final bill to hide a policy violation.
-- **Bait and Switch:** Offering a low rate on a third-party site but refusing to honor it without a "mandatory supplement" at check-in.
+## Who Issues It
 
 **Issuer Types (First Party)**
 

@@ -64,7 +64,14 @@ These certificates are high-value fraud targets. A fake "no convictions" certifi
   <span data-verify-line="fin">verify:finra.org/brokercheck</span> <span verifiable-text="end" data-for="fin"></span>
 </div>
 
-## Data Verified
+## The Problem: No Convictions Fraud
+
+- **Fabricated Certificates:** Entirely fake clearance documents.
+- **Scope Misrepresentation:** Narrow clearances presented as comprehensive.
+- **Expired Clearances:** Old certificates presented as current.
+- **Identity Fraud:** Someone else's clearance used with altered name.
+
+## What Is Checked
 
 Issuing authority, applicant/holder name, certificate/license number, scope of certification, specific disqualifying categories checked, certification date, validity period.
 
@@ -75,7 +82,7 @@ Issuing authority, applicant/holder name, certificate/license number, scope of c
 - **Financial Industry Check:** No regulatory disclosures or complaints.
 - **Healthcare Worker Clearance:** No patient abuse or professional misconduct.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`dmv.ca.gov`, `finra.org`) and certification status.
 
@@ -86,9 +93,9 @@ Shows the issuer domain (`dmv.ca.gov`, `finra.org`) and certification status.
 - **Revoked** — Clearance withdrawn due to new information.
 - **Under Review** — Status being reassessed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Applicant/Worker** benefits from verification.
+The Applicant/Worker benefits from verification.
 
 **Job Applications:** Workers in regulated industries (childcare, healthcare, finance, security) need verified clearances to prove eligibility.
 
@@ -98,7 +105,7 @@ The **Applicant/Worker** benefits from verification.
 
 **Volunteer Positions:** Youth organizations require verified clearances for volunteers.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers**
 **Hiring Compliance:** Employers in regulated industries must verify worker clearances. Verified declarations provide documentary proof for compliance audits.
@@ -115,14 +122,7 @@ The **Applicant/Worker** benefits from verification.
 **Insurance Companies**
 **Underwriting:** Verify clearances before issuing professional liability coverage.
 
-## Verification Architecture
-
-**The No Convictions Fraud Problem**
-
-- **Fabricated Certificates:** Entirely fake clearance documents.
-- **Scope Misrepresentation:** Narrow clearances presented as comprehensive.
-- **Expired Clearances:** Old certificates presented as current.
-- **Identity Fraud:** Someone else's clearance used with altered name.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

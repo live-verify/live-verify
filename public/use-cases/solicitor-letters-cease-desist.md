@@ -12,7 +12,7 @@ furtherDerivations: 1
 
 ## What is a Solicitor Letter?
 
-A **solicitor's letter** (UK) or **attorney demand letter** (US) is correspondence sent on a law firm's letterhead that asserts legal rights, demands action, or threatens consequences. Common types include:
+A solicitor's letter (UK) or attorney demand letter (US) is correspondence sent on a law firm's letterhead that asserts legal rights, demands action, or threatens consequences. Common types include:
 
 1. **Cease-and-desist letters** — demanding someone stop an activity (IP infringement, defamation, contract breach)
 2. **Demand letters** — requesting payment, return of property, or performance of an obligation
@@ -80,7 +80,17 @@ The damage goes beyond money. Fake legal letters cause genuine fear, disrupt bus
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Solicitor Letter Fraud
+
+The core vulnerability is that law firm letterhead is trivially forgeable. A convincing fake requires only:
+- The firm's name, address, and SRA number (all publicly available on the SRA website)
+- A partner's name (available on the firm's website or LinkedIn)
+- A plausible matter reference number
+- A word processor and a printer or PDF tool
+
+The recipient has no way to distinguish a genuine letter from a fake without calling the firm directly — and even then, they may reach a spoofed phone number if the scammer has set up a matching fake website.
+
+## What Is Checked
 
 Firm name, SRA/bar registration number, partner name, matter reference, client name, date of letter, summary of demand (cease use, payment amount, deadline), recipient identifier (redacted or hashed if privacy-sensitive).
 
@@ -93,7 +103,7 @@ Firm name, SRA/bar registration number, partner name, matter reference, client n
 
 **Note:** The verification line covers the letter's text — not any attachments, exhibits, or enclosures. Those would be separate verifiable claims if needed.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the law firm's domain and verification status.
 
@@ -108,9 +118,9 @@ Shows the law firm's domain and verification status.
 - `more_info` link to the firm's SRA-registered profile (for UK solicitors)
 - `more_info` link to the state bar profile (for US attorneys)
 
-## Second-Party Use
+## Who Holds It
 
-The second party is the **recipient** of the letter — the person or business being threatened or demanded upon.
+The second party is the recipient of the letter — the person or business being threatened or demanded upon.
 
 **Authenticity check before complying:** Recipient clips the letter text, verifies against the firm's domain. If 404, the letter is fake — ignore it. If verified, the demand is real and requires a proper response.
 
@@ -122,7 +132,7 @@ The second party is the **recipient** of the letter — the person or business b
 
 **Content creators under takedown pressure:** A YouTuber, blogger, or journalist receiving a cease-and-desist can instantly check whether it's a genuine legal demand or an intimidation attempt by someone who Googled a firm name and faked the letterhead.
 
-## Third-Party Use
+## Who Checks It
 
 **Legal Advisers / Opposing Counsel**
 
@@ -146,17 +156,7 @@ Solicitors receiving correspondence from the other side can verify it's genuinel
 
 **Pre-action compliance:** In jurisdictions requiring pre-action protocol letters, courts may need to confirm that the claimant actually sent the required correspondence before allowing proceedings to commence.
 
-## Verification Architecture
-
-**The Fake Solicitor Letter Fraud Problem**
-
-The core vulnerability is that **law firm letterhead is trivially forgeable**. A convincing fake requires only:
-- The firm's name, address, and SRA number (all publicly available on the SRA website)
-- A partner's name (available on the firm's website or LinkedIn)
-- A plausible matter reference number
-- A word processor and a printer or PDF tool
-
-The recipient has no way to distinguish a genuine letter from a fake without calling the firm directly — and even then, they may reach a spoofed phone number if the scammer has set up a matching fake website.
+## How Verification Works Here
 
 **Common fraud patterns:**
 - **Fabrication:** Entirely fake letters from non-existent or impersonated firms, demanding payment to a fraudster's account

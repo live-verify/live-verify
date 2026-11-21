@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Financial Promotions Sign-Off?
 
-In the regulated financial world, you cannot simply publish an ad for an investment. Under laws like **Section 21 (FSMA)** in the UK or **FINRA Rule 2210** in the US, every marketing piece (an email, a social media ad, or a brochure) must be formally **Approved** by a qualified compliance officer. This "Sign-Off" confirms the ad is "Fair, Clear, and Not Misleading."
+In the regulated financial world, you cannot simply publish an ad for an investment. Under laws like Section 21 (FSMA) in the UK or FINRA Rule 2210 in the US, every marketing piece (an email, a social media ad, or a brochure) must be formally Approved by a qualified compliance officer. This "Sign-Off" confirms the ad is "Fair, Clear, and Not Misleading."
 
-These documents are the "Legal Safe Harbor" for marketing. Fraud is high-stakes in the **Crypto** and **High-Yield Bond** sectors. Scammers often use a reputable bank's logo on their ads and then create a fake "Compliance Approval" PDF to trick platforms like Meta or Google into running the ad. Verified hashes bind the **Promotion ID, Campaign Name, and Approving Officer** to the authorized firm's domain (e.g., `meridian-funds.com`).
+These documents are the "Legal Safe Harbor" for marketing. Fraud is high-stakes in the Crypto and High-Yield Bond sectors. Scammers often use a reputable bank's logo on their ads and then create a fake "Compliance Approval" PDF to trick platforms like Meta or Google into running the ad. Verified hashes bind the Promotion ID, Campaign Name, and Approving Officer to the authorized firm's domain (e.g., `meridian-funds.com`).
 
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ff6600; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
   <div style="background: #ff6600; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -61,7 +61,13 @@ These documents are the "Legal Safe Harbor" for marketing. Fraud is high-stakes 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Phantom Approval Fraud
+
+- **Firm Mimicry:** Using a reputable bank's branding on a fake approval form to get a scam ad through a social media filter.
+- **Date Stretching:** Using an approval from 2023 for a 2026 campaign to hide that the product terms have changed.
+- **Copy Inflation:** Editing an approved ad to turn a "5% Return" into a "50% Return" while keeping the old verified hash reference.
+
+## What Is Checked
 
 Promotion ID, campaign name, approved media channels, date of approval, expiration date of sign-off, name of authorized firm (and FRN), name/ID of the approving individual, specific risk-warning text hash, target audience classification (e.g., Retail/Professional).
 
@@ -71,25 +77,25 @@ Promotion ID, campaign name, approved media channels, date of approval, expirati
 - **Principal Pre-Approval Form:** (FINRA) for US-based comms.
 - **Risk Disclosure Addendum:** (Linked hash) for high-risk products.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`meridian-funds.com`, `gs.com`, `fca.org.uk`) and the ad standing.
 
 **Status Indications:**
 - **Approved / Active** — The ad is current and authorized for publication.
-- **Withdrawn** — **CRITICAL:** The ad has been pulled from use (must be removed immediately).
-- **Expired** — **ALERT:** The 12-month approval window has passed.
-- **Under Investigation** — **ALERT:** The regulator has flagged this specific campaign for review.
+- **Withdrawn** — The ad has been pulled from use (must be removed immediately).
+- **Expired** — The 12-month approval window has passed.
+- **Under Investigation** — The regulator has flagged this specific campaign for review.
 
-## Second-Party Use
+## Who Holds It
 
-The **Marketing Team / Unauthorized Firm** benefits from verification.
+The Marketing Team / Unauthorized Firm benefits from verification.
 
-**Platform Acceptance Speed:** When a startup tries to run a crypto ad on Meta or Google, they must prove they have an s21 sign-off. By providing the verified hash, the platform's "Compliance Bot" can instantly see **"VERIFIED BY MERIDIAN"** on the official domain, removing the 5-day "Manual Ad-Vetting" delay and allowing the campaign to launch today.
+**Platform Acceptance Speed:** When a startup tries to run a crypto ad on Meta or Google, they must prove they have an s21 sign-off. By providing the verified hash, the platform's "Compliance Bot" can instantly see "VERIFIED BY MERIDIAN" on the official domain, removing the 5-day "Manual Ad-Vetting" delay and allowing the campaign to launch today.
 
 **Brand Protection:** A fund manager can provide verified hashes of their ads to their "Affiliate Partners." This ensures the affiliates are using the *correct, approved* versions of the ads and haven't "edited" them to make unauthorized claims.
 
-## Third-Party Use
+## Who Checks It
 
 **Advertising Platforms (Meta, Google, LinkedIn)**
 **Ad-Integrity Vetting:** Automatically scanning the hashes provided in every financial ad submission. Verified hashes eliminate the risk of "Regulatory Fines" for the platform by ensuring every financial ad is backed by a legitimate, authorized firm.
@@ -98,15 +104,9 @@ The **Marketing Team / Unauthorized Firm** benefits from verification.
 **Market Surveillance:** Instead of searching for ads manually, the regulator can use a crawler to scan hashes on live websites. Live Verify ensures the ads on the screen match the "Approved Copy" in the firm's compliance files, stopping "Bait and Switch" marketing.
 
 **Consumers / Retail Investors**
-**Scam Prevention:** A person sees an "Amazing Crypto Deal" on social media. They scan the verified hash on the ad. If it returns **"NOT FOUND"** or **"DOMAIN MISMATCH,"** they know the ad is a scam and can avoid a total loss of funds.
+**Scam Prevention:** A person sees an "Amazing Crypto Deal" on social media. They scan the verified hash on the ad. If it returns "NOT FOUND" or "DOMAIN MISMATCH," they know the ad is a scam and can avoid a total loss of funds.
 
-## Verification Architecture
-
-**The "Phantom Approval" Fraud Problem**
-
-- **Firm Mimicry:** Using a reputable bank's branding on a fake approval form to get a scam ad through a social media filter.
-- **Date Stretching:** Using an approval from 2023 for a 2026 campaign to hide that the product terms have changed.
-- **Copy Inflation:** Editing an approved ad to turn a "5% Return" into a "50% Return" while keeping the old verified hash reference.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

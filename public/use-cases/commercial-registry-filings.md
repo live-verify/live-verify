@@ -34,7 +34,7 @@ Commercial registry fraud is widespread: fake incorporation documents, forged go
 
 ## Director Appointments
 
-Directors are verified separately from the entity. Each director appointment gets its own verification URL. When a director resigns or is removed, their appointment is marked **SUPERSEDED**—the hash remains valid (proving they *were* a director) but verification returns the superseded status.
+Directors are verified separately from the entity. Each director appointment gets its own verification URL. When a director resigns or is removed, their appointment is marked SUPERSEDED—the hash remains valid (proving they *were* a director) but verification returns the superseded status.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
   <span verifiable-text="start" data-for="dir1"></span>DIRECTOR APPOINTMENT<br>
@@ -376,7 +376,15 @@ Jurisdictions could legislate that offshore beneficial owners must also provide 
 
 This creates regulatory pressure: if Cayman entities want to own UK companies, the Cayman registry must participate in cross-border verification. The alternative is UK companies being marked with "unverifiable offshore ownership" warnings.
 
-## Data Verified
+## The Problem: Commercial Registry Fraud
+
+- **Fake Incorporations:** Forged certificates for entities that don't exist.
+- **Stale Good Standing:** Presenting outdated certificates when entity is now dissolved.
+- **Fraudulent UCC Filings:** "Sovereign citizen" and similar fraudulent lien filings.
+- **Shell Company Fraud:** Real entities used to obscure beneficial ownership.
+- **Impersonation:** Using real company names with slightly altered details.
+
+## What Is Checked
 
 Registry authority, entity name, file/registration number, entity type, formation/registration date, current status, registered agent, key dates (renewal, expiration). For directors: name, appointment date, role, resignation date (if applicable), current/superseded status. For beneficial owners: name or entity, jurisdiction, ownership percentage, notification date.
 
@@ -393,7 +401,7 @@ Registry authority, entity name, file/registration number, entity type, formatio
 - **Society/Association Registration:** Incorporated societies, clubs, associations.
 - **Cooperative Registration:** Member-owned cooperative entities.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`corp.delaware.gov`, `companieshouse.gov.uk`) and entity status.
 
@@ -410,9 +418,9 @@ Shows the issuer domain (`corp.delaware.gov`, `companieshouse.gov.uk`) and entit
 - **Superseded** — Director has resigned or been removed; appointment record remains valid as historical proof.
 - **Disqualified** — Director barred from serving (e.g., court order, regulatory action).
 
-## Second-Party Use
+## Who Holds It
 
-The **Entity / Business Owner** benefits from verification.
+The Entity / Business Owner benefits from verification.
 
 **Business Deals:** Companies can prove their good standing to potential partners, customers, or investors.
 
@@ -422,7 +430,7 @@ The **Entity / Business Owner** benefits from verification.
 
 **Loan Applications:** Lenders verify entity status before extending credit.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks / Lenders**
 **Due Diligence:** Verify entity formation and current status before loans, accounts, or transactions.
@@ -442,15 +450,7 @@ The **Entity / Business Owner** benefits from verification.
 **Government Agencies**
 **Licensing:** Verify entity formation before issuing professional or business licenses.
 
-## Verification Architecture
-
-**The Commercial Registry Fraud Problem**
-
-- **Fake Incorporations:** Forged certificates for entities that don't exist.
-- **Stale Good Standing:** Presenting outdated certificates when entity is now dissolved.
-- **Fraudulent UCC Filings:** "Sovereign citizen" and similar fraudulent lien filings.
-- **Shell Company Fraud:** Real entities used to obscure beneficial ownership.
-- **Impersonation:** Using real company names with slightly altered details.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

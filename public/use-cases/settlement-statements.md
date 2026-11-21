@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Settlement Statement?
 
-A **Settlement Statement** (typically the **ALTA** or **HUD-1**) is the "Final Scorecard" of a real estate transaction. It lists every penny that changed hands: the purchase price, loan amounts, taxes, realtor commissions, and "Prorations" for utilities. It shows exactly how much the buyer must pay and how much the seller will receive.
+A Settlement Statement (typically the ALTA or HUD-1) is the "Final Scorecard" of a real estate transaction. It lists every penny that changed hands: the purchase price, loan amounts, taxes, realtor commissions, and "Prorations" for utilities. It shows exactly how much the buyer must pay and how much the seller will receive.
 
-Because this document governs the distribution of hundreds of thousands of dollars, it is a primary target for **Mortgage and Wire Fraud**. Criminals use fake settlement statements to trick banks into releasing loan funds to "Phantom Payees," or they "edit" a statement to hide illegal "Kickbacks" to unlicensed parties. Verified hashes bind the **Net Payouts, Loan Amounts, and Settlement Agent ID** to the title company's or the lender's domain (e.g., `firstam.com` or `stewart.com`).
+Because this document governs the distribution of hundreds of thousands of dollars, it is a primary target for Mortgage and Wire Fraud. Criminals use fake settlement statements to trick banks into releasing loan funds to "Phantom Payees," or they "edit" a statement to hide illegal "Kickbacks" to unlicensed parties. Verified hashes bind the Net Payouts, Loan Amounts, and Settlement Agent ID to the title company's or the lender's domain (e.g., `firstam.com` or `stewart.com`).
 
 **Why verification matters here:**
 
@@ -44,7 +44,13 @@ Any unauthorized payoff or fee alteration renders this statement void.
 <span data-verify-line="settle">verify:springfield-title.com/v</span> <span verifiable-text="end" data-for="settle"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Phantom Payoff Fraud
+
+- **Fee Padding:** Adding a "$500 Courier Fee" to a PDF that the buyer never actually agreed to pay.
+- **Kickback Hiding:** Editing a statement to hide a payment to an unlicensed "consultant" or "referral partner."
+- **Sale Price Inflation:** Changing a $400,000 sale to $500,000 on a PDF to trick a lender into providing a 100% LTV loan.
+
+## What Is Checked
 
 Escrow/File number, property address, buyer name, seller name, lender name, sale price, loan amount, individual fee amounts (title, escrow, recording), tax prorations, net cash to buyer/seller, settlement agent ID, closing date.
 
@@ -54,25 +60,25 @@ Escrow/File number, property address, buyer name, seller name, lender name, sale
 - **Closing Disclosure (CD):** (Linked hash) the lender's final truth-in-lending form.
 - **Disbursement Authorization:** Proof of the actual wire triggers.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`firstam.com`, `fidelity.com`, `title-portal.org`) and the closing standing.
 
 **Status Indications:**
 - **Closed / Funded** — Funds have been disbursed and the deed is recorded.
 - **Pending Closing** — Statement is valid; awaiting final wire.
-- **Amended** — **ALERT:** A post-closing correction was issued; this version is void.
-- **Rescinded** — **CRITICAL:** The transaction was cancelled due to fraud or failure.
+- **Amended** — A post-closing correction was issued; this version is void.
+- **Rescinded** — The transaction was cancelled due to fraud or failure.
 
-## Second-Party Use
+## Who Holds It
 
-The **Buyer / Seller** benefits from verification.
+The Buyer / Seller benefits from verification.
 
 **Tax Deduction Proof:** A homeowner can provide the verified hash of their "Settlement Statement" to the IRS to prove "Deductible Closing Costs" (like mortgage points or property tax prorations) with cryptographic certainty, avoiding the rejection of deductions due to un-readable scans.
 
 **Wire Fraud Defense:** Before sending a $100,000 wire, the buyer scans the verified hash provided by the title company. "Verified by Springfield Title" ensures the wire instructions and amounts are authentic, stopping "Business Email Compromise" (BEC) scams at the source.
 
-## Third-Party Use
+## Who Checks It
 
 **Mortgage Lenders / Underwriters**
 **Post-Closing Audit:** Instantly verifying thousands of loan files. Live Verify ensures the "Sale Price" and "Down Payment" in the bank's file match the digital truth at the title company, stopping "Equity Skimming" or "Hidden Second Mortgage" fraud.
@@ -83,13 +89,7 @@ The **Buyer / Seller** benefits from verification.
 **State Real Estate Commissions**
 **Compliance Audit:** Verifying that realtor commissions paid on the settlement statement match the verified hashes of the original listing agreements, stopping "Off-Book" illegal payments.
 
-## Verification Architecture
-
-**The "Phantom Payoff" Fraud Problem**
-
-- **Fee Padding:** Adding a "$500 Courier Fee" to a PDF that the buyer never actually agreed to pay.
-- **Kickback Hiding:** Editing a statement to hide a payment to an unlicensed "consultant" or "referral partner."
-- **Sale Price Inflation:** Changing a $400,000 sale to $500,000 on a PDF to trick a lender into providing a 100% LTV loan.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

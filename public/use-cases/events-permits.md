@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What are Events Permits?
 
-Events permits are the "Permission to Gather" issued by a city for activities that impact the public—such as **Music Festivals**, **Parades**, or **Street Closures**. These documents prove that the organizer has coordinated with police, fire, and EMS, and has the mandatory insurance to cover a crowd.
+Events permits are the "Permission to Gather" issued by a city for activities that impact the public—such as Music Festivals, Parades, or Street Closures. These documents prove that the organizer has coordinated with police, fire, and EMS, and has the mandatory insurance to cover a crowd.
 
 The problem is that these permits are often temporary pieces of paper taped to a barricade. Shady organizers might "edit" an old permit to change the date or to expand a 1-block closure into 3 blocks illegally. Similarly, they might hide a "Noise Curfew" to keep the music playing past midnight. Live Verify allows a neighbor or police officer to scan the permit from the sidewalk to verify: **"Is this event actually authorized for today, and what are the exact legal boundaries and hours?"**
 
@@ -52,7 +52,13 @@ The problem is that these permits are often temporary pieces of paper taped to a
   </div>
 </div>
 
-## Data Verified
+## The Problem: Barricade Scam Fraud
+
+- **Date Tampering:** Changing a Saturday permit to work for a Sunday to avoid paying for two days.
+- **Scope Creep:** Describing a "Quiet Fundraiser" on the application but hosting a "Heavy Metal Concert" on the street.
+- **Fake Barricade Signs:** Residents using fake city "Emergency No Parking" signs to keep their own street spots clear.
+
+## What Is Checked
 
 Permit number, event name, organizer name, authorized dates/times, specific street boundaries, authorized activities (e.g., Amplified Sound, Alcohol), security requirements, max occupancy, city department ID, insurance expiration date.
 
@@ -62,42 +68,36 @@ Permit number, event name, organizer name, authorized dates/times, specific stre
 - **Street Closure Order:** Authorization for police to tow/block.
 - **Temporary Food Permit:** (Linked hash) for vendor safety.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`springfield.gov`, `nyc.gov`, `london.gov.uk`) and the event standing.
 
 **Status Indications:**
 - **Active / Authorized** — The event is valid and currently within its time window.
-- **Hours Expired** — **ALERT:** The event curfew (e.g., 10 PM) has passed.
-- **Suspended** — **CRITICAL:** City has revoked authority (e.g., due to weather or safety breach).
-- **Fraud Alert** — **CRITICAL:** This permit is a fabrication or belongs to a different date.
+- **Hours Expired** — The event curfew (e.g., 10 PM) has passed.
+- **Suspended** — City has revoked authority (e.g., due to weather or safety breach).
+- **Fraud Alert** — This permit is a fabrication or belongs to a different date.
 
-## Second-Party Use
+## Who Holds It
 
-The **Event Organizer** benefits from verification.
+The Event Organizer benefits from verification.
 
 **Police Cooperation:** When a patrol officer arrives to complain about crowd size, the organizer can show the verified hash. "Verified by Springfield DPW" ensures the officer that the 2,500-person limit is authorized, preventing a premature shutdown of the event.
 
 **Vendor Vetting:** The organizer can scan the "Temporary Permits" of their food vendors. Verification ensures that every truck on the street has a verified health inspection, protecting the organizer from liability for food-borne illness.
 
-## Third-Party Use
+## Who Checks It
 
 **Neighbors / Community**
-**Nuisance Enforcement:** A neighbor bothered by loud bass at 11 PM scans the placard on the barricade. If it returns **"CURFEW: 10:00 PM,"** they have the verified evidence needed to demand police action.
+**Nuisance Enforcement:** A neighbor bothered by loud bass at 11 PM scans the placard on the barricade. If it returns "CURFEW: 10:00 PM," they have the verified evidence needed to demand police action.
 
 **Event-Goers / Public**
 **Safety Awareness:** A parent bringing a child to a festival can scan the permit. Verification ensures the event is actually insured and that the "Security Plan" (e.g., EMS presence) is a verified commitment by the organizer.
 
 **Insurance Claims Adjusters**
-**Incident Investigation:** After a slip-and-fall at a festival, the insurer verifies the permit. If the hash returns **"SUSPENDED"** at the time of the accident, the insurer may deny coverage for the unauthorized event.
+**Incident Investigation:** After a slip-and-fall at a festival, the insurer verifies the permit. If the hash returns "SUSPENDED" at the time of the accident, the insurer may deny coverage for the unauthorized event.
 
-## Verification Architecture
-
-**The "Barricade Scam" Fraud Problem**
-
-- **Date Tampering:** Changing a Saturday permit to work for a Sunday to avoid paying for two days.
-- **Scope Creep:** Describing a "Quiet Fundraiser" on the application but hosting a "Heavy Metal Concert" on the street.
-- **Fake Barricade Signs:** Residents using fake city "Emergency No Parking" signs to keep their own street spots clear.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

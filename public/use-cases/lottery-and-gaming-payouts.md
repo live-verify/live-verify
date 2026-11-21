@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is a Lottery Win Receipt?
 
-When a lottery player scans a ticket at a terminal or via an app and is informed of a major win, they receive a **Win Receipt** or a digital notification. This is the moment of peak value: a piece of paper or a screen showing "WINNER $500,000,000".
+When a lottery player scans a ticket at a terminal or via an app and is informed of a major win, they receive a Win Receipt or a digital notification. This is the moment of peak value: a piece of paper or a screen showing "WINNER $500,000,000".
 
 The **Conflict of Interest**: In most jurisdictions, the entity that issues the ticket and verifies the win (the Lottery Commission) is also the one that has to pay out the prize. If a system glitch or a dishonest official attempts to "delete" the win record before it is publicly announced, the player may have no way to prove they were ever informed of the win.
 
-Live Verify with **Independent Witnessing** solves this. The moment the player sees the "WINNER" screen, they scan it. The hash is sent to an independent third-party witness (e.g., an audit firm or a public ledger). The Lottery Commission can no longer claim "no one won the draw" because a neutral record of the win notification exists.
+Live Verify with Independent Witnessing solves this. The moment the player sees the "WINNER" screen, they scan it. The hash is sent to an independent third-party witness (e.g., an audit firm or a public ledger). The Lottery Commission can no longer claim "no one won the draw" because a neutral record of the win notification exists.
 
 ## Fun Fact: The Essential Difference (Gambling vs. Insurance)
 
@@ -50,7 +50,13 @@ Witnessed hashes provide the immutable, third-party proof required to turn a "de
   </div>
 </div>
 
-## Data Verified
+## The Problem: Vanishing Win Fraud
+
+- **Database Deletion:** A corrupt IT administrator deleting a winning record to "reset" the jackpot for another draw (or to help a friend "find" the ticket later).
+- **Technical Glitch:** A system crash between the moment the win is shown on screen and the moment it is committed to the central database.
+- **Insider Swapping:** A clerk at a retail store telling a player "you didn't win," keeping the ticket, and then claiming the prize themselves later.
+
+## What Is Checked
 
 Win amount, draw name, draw date, ticket serial number, terminal ID, timestamp of verification, player ID (if registered).
 
@@ -59,25 +65,25 @@ Win amount, draw name, draw date, ticket serial number, terminal ID, timestamp o
 - **In-App Win Notification:** Digital screen shown to the player.
 - **Claim Submission Form:** The first document filed to start the payout.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`statelottery.gov`) and the win standing.
 
 **Status Indications:**
 - **Valid / Unclaimed** — Win is verified and awaiting payout.
-- **Claimed** — **ALERT:** Prize has already been paid out to this or another person.
+- **Claimed** — Prize has already been paid out to this or another person.
 - **Pending Audit** — Under routine fraud review.
-- **Invalid** — **CRITICAL:** Ticket reported stolen or draw voided.
+- **Invalid** — Ticket reported stolen or draw voided.
 
-## Second-Party Use
+## Who Holds It
 
-The **Lottery Player (Winner)** benefits from verification.
+The Lottery Player (Winner) benefits from verification.
 
 **Protection Against Denial:** If the Lottery Commission's database "loses" the record of the win (either via technical error or insider fraud), the player has a cryptographically witnessed proof that the terminal *did* inform them of a win at a specific second.
 
 **Legal Leverage:** Proving to legal counsel that a win occurred, enabling the player to secure financing or representation before the physical cash is in hand.
 
-## Third-Party Use
+## Who Checks It
 
 **Independent Auditors (EY, Deloitte)**
 **Draw Integrity:** Auditors can cross-reference all witnessed hashes with the Lottery Commission's internal payout logs. Any witnessed win that doesn't have a corresponding payout record is a red flag for fraud.
@@ -85,13 +91,7 @@ The **Lottery Player (Winner)** benefits from verification.
 **Banks / Wealth Managers**
 **Early Financing:** A winner can show a witnessed hash to a bank to secure a bridge loan while waiting for the 30-60 day payout period to conclude.
 
-## Verification Architecture
-
-**The "Vanishing Win" Fraud Problem**
-
-- **Database Deletion:** A corrupt IT administrator deleting a winning record to "reset" the jackpot for another draw (or to help a friend "find" the ticket later).
-- **Technical Glitch:** A system crash between the moment the win is shown on screen and the moment it is committed to the central database.
-- **Insider Swapping:** A clerk at a retail store telling a player "you didn't win," keeping the ticket, and then claiming the prize themselves later.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Source of Funds Declaration?
 
-When opening a high-value account or making a significant investment, financial institutions must understand where your money comes from. The **source of funds declaration** documents:
+When opening a high-value account or making a significant investment, financial institutions must understand where your money comes from. The source of funds declaration documents:
 
 - **Source of Funds:** Where did this specific transaction money come from? (e.g., sale of property, salary, inheritance)
 - **Source of Wealth:** How did you accumulate your overall wealth? (e.g., business ownership, investments, inheritance)
@@ -46,11 +46,22 @@ This is core AML (anti-money laundering) compliance. If you can't explain where 
   </div>
 </div>
 
-## Data Verified
+## The Problem
 
-**Client name**, **transaction/account reference**, **declaration date**, **source description**, **amount**, **supporting document references**, **signatory confirmation**.
+- Clients provide forged supporting documents (fake solicitor letters, altered bank statements)
+- Declarations are altered after acceptance to change the story
+- Firms claim they obtained declarations that don't exist
+- Clients deny making declarations that they did make
 
-## Data Visible After Verification
+**The Fix:** Declaration hashed at signing, with references to supporting documents (which may have their own hashes). If story changes later, original declaration is verifiable. Supporting documents from third parties (solicitors, employers) can also be verified against their domains.
+
+**The chain:** Client declares source → Supporting doc from third party (e.g., employer's salary confirmation) verified against employer's domain → Firm's acceptance of declaration verified against firm's domain. Multiple verification points make fabrication much harder.
+
+## What Is Checked
+
+**Client name**, transaction/account reference, declaration date, source description, amount, supporting document references, signatory confirmation.
+
+## What the Checker Sees
 
 **Status Indications:**
 - **Accepted** — Declaration reviewed and accepted by firm
@@ -134,26 +145,13 @@ Unexplained wealth orders, civil forfeiture, and non-conviction-based confiscati
 - **Ireland:** Criminal Assets Bureau (CAB) — pioneered non-conviction-based confiscation under Proceeds of Crime Act 1996; model adopted by several other jurisdictions
 - **International:** StAR (Stolen Asset Recovery Initiative — World Bank/UNODC); UNCAC (UN Convention Against Corruption) Art. 51-59 on asset recovery; Camden Asset Recovery Inter-Agency Network (CARIN)
 
-## Third-Party Use
+## Who Checks It
 
 **Banks/investment firms** — Onboarding decisions, ongoing monitoring
 **Compliance officers** — Risk assessment, EDD file building
 **Auditors** — Testing AML program effectiveness
 **Regulators** — Thematic reviews, enforcement investigations
 **Law enforcement** — SAR follow-up, criminal investigations
-
-## Verification Architecture
-
-**The Problem:**
-- Clients provide forged supporting documents (fake solicitor letters, altered bank statements)
-- Declarations are altered after acceptance to change the story
-- Firms claim they obtained declarations that don't exist
-- Clients deny making declarations that they did make
-
-**The Fix:** Declaration hashed at signing, with references to supporting documents (which may have their own hashes). If story changes later, original declaration is verifiable. Supporting documents from third parties (solicitors, employers) can also be verified against their domains.
-
-**The chain:** Client declares source → Supporting doc from third party (e.g., employer's salary confirmation) verified against employer's domain → Firm's acceptance of declaration verified against firm's domain. Multiple verification points make fabrication much harder.
-
 
 ## Authority Chain
 

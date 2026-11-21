@@ -15,7 +15,7 @@ Meeting minutes are the official record of what was discussed, decided, and vote
 
 Meeting minutes fraud includes fabricating votes that never occurred, altering attendance records, and backdating resolutions. Multi-page minutes require per-page verification to prevent page substitution attacks.
 
-**Note:** Due to multi-page complexity and formatting, meeting minutes verification is typically **browser-extension only** rather than camera-based OCR.
+**Note:** Due to multi-page complexity and formatting, meeting minutes verification is typically browser-extension only rather than camera-based OCR.
 
 ## Per-Page Verification
 
@@ -78,7 +78,15 @@ Each page carries its own verification line, with the final page containing a ro
   <span data-verify-line="min3">verify:acme-corp.com/governance</span> <span verifiable-text="end" data-for="min3"></span>
 </div>
 
-## Data Verified
+## The Problem: Meeting Minutes Fraud
+
+- **Fabricated Resolutions:** Creating minutes for meetings that never occurred.
+- **Vote Manipulation:** Altering vote counts or adding non-existent approvals.
+- **Backdating:** Creating minutes after the fact to justify prior actions.
+- **Page Substitution:** Replacing pages to change what was "decided."
+- **Attendance Fraud:** Adding or removing attendees to affect quorum.
+
+## What Is Checked
 
 Meeting date/time/location, attendees (present/absent), quorum status, agenda items, motions and seconds, resolutions passed, vote counts, signatures, page sequence integrity.
 
@@ -89,7 +97,7 @@ Meeting date/time/location, attendees (present/absent), quorum status, agenda it
 - **Written Consent:** Action by written consent in lieu of meeting.
 - **AGM Minutes:** Annual general meeting records.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`acme-corp.com`, `companysec.com`) and document status.
 
@@ -99,9 +107,9 @@ Shows the issuer domain (`acme-corp.com`, `companysec.com`) and document status.
 - **Amended** — Corrections made and approved.
 - **Superseded** — Replaced by corrected version.
 
-## Second-Party Use
+## Who Holds It
 
-The **Corporation / Directors** benefit from verification.
+The Corporation / Directors benefit from verification.
 
 **Regulatory Filings:** Proving board authorization for SEC filings, loan agreements, or major transactions.
 
@@ -109,7 +117,7 @@ The **Corporation / Directors** benefit from verification.
 
 **Due Diligence:** M&A buyers verify that target company followed proper governance.
 
-## Third-Party Use
+## Who Checks It
 
 **Regulators**
 **Compliance Verification:** SEC, banking regulators verify that required approvals were properly obtained.
@@ -126,15 +134,7 @@ The **Corporation / Directors** benefit from verification.
 **M&A Advisors**
 **Due Diligence:** Verify governance history of acquisition targets.
 
-## Verification Architecture
-
-**The Meeting Minutes Fraud Problem**
-
-- **Fabricated Resolutions:** Creating minutes for meetings that never occurred.
-- **Vote Manipulation:** Altering vote counts or adding non-existent approvals.
-- **Backdating:** Creating minutes after the fact to justify prior actions.
-- **Page Substitution:** Replacing pages to change what was "decided."
-- **Attendance Fraud:** Adding or removing attendees to affect quorum.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

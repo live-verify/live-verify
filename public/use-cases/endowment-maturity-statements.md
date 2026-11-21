@@ -42,7 +42,7 @@ Terminal Bonus:     GBP 4,100.00 (included in actual value)
 <span data-verify-line="endow-mat">verify:northbridgelife.co.uk/endowments/v</span> <span verifiable-text="end" data-for="endow-mat"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Policy number, provider name, maturity date, original target amount, actual maturity value, shortfall amount, with-profits bonus allocation, terminal bonus allocation.
 
@@ -51,7 +51,7 @@ Policy number, provider name, maturity date, original target amount, actual matu
 - **Re-Projection Letter:** Periodic updates estimating the likely maturity value (pre-maturity).
 - **Annual Bonus Statement:** Yearly confirmation of reversionary bonuses added to the policy.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`northbridgelife.co.uk`, `aviva.co.uk`, `legalandgeneral.com`) and current document standing.
 
@@ -63,9 +63,9 @@ Shows the issuer domain (`northbridgelife.co.uk`, `aviva.co.uk`, `legalandgenera
 
 Note: compensation or mis-selling complaint status (e.g., whether a claim has been made to the Financial Ombudsman Service) is a downstream redress workflow state, not a property of the carrier-issued maturity statement itself. Complaint and redress status belongs with the ombudsman or compensation scheme, not here.
 
-## Second-Party Use
+## Who Holds It
 
-The **policyholder** benefits from verification.
+The policyholder benefits from verification.
 
 **Mortgage Repayment Planning:** A policyholder whose endowment matures with a GBP 22,700 shortfall needs to arrange alternative funds — remortgaging, savings, or a repayment plan. A verified maturity statement gives their mortgage lender an authoritative figure to work from, without waiting for postal correspondence between insurer and lender.
 
@@ -73,7 +73,7 @@ The **policyholder** benefits from verification.
 
 **Financial Advice:** A policyholder consulting an IFA about shortfall options (extend mortgage term, make lump-sum payment, take a personal loan) provides a verified statement so the adviser is working from confirmed figures rather than a forwarded PDF.
 
-## Third-Party Use
+## Who Checks It
 
 **Mortgage Lenders**
 A lender holding an interest-only mortgage that was due to be repaid by the endowment needs to know the shortfall amount to assess the borrower's repayment options. A verified maturity statement confirms the exact figure without requiring a slow insurer-to-lender confirmation process.
@@ -87,7 +87,7 @@ IFAs advising on shortfall strategies (extending the mortgage, equity release, i
 **Solicitors Handling Estate Administration**
 Where a policyholder dies near the maturity date, the executor needs to confirm the endowment value for the estate. Verification provides this without requiring the executor to navigate the life company's bereavement process before obtaining reliable figures.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Endowment Statement Fraud Problem**
 
@@ -118,7 +118,7 @@ Life companies issuing endowment maturity statements are authorised and regulate
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Insurer Portal
+## Compared With Insurer Portal
 
 | Feature | Live Verify | Insurer Customer Portal | Scanned PDF |
 | :--- | :--- | :--- | :--- |

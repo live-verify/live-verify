@@ -14,7 +14,7 @@ furtherDerivations: 4
 
 An intermediary says: "I submitted your application", "the supplier accepted your order", "your hours reached payroll", or "I introduced that customer". The person relying on this statement often has only a forwarded email, a screenshot or a document on the intermediary's letterhead.
 
-The missing evidence is usually **what the intermediary did, for whom, with whose authority, and what the next party acknowledged**. The commission amount need not appear in that evidence. An honest intermediary can benefit as much as the customer: receipts demonstrate work, defend against blame for another party's delay, and support an agreed commission claim.
+The missing evidence is usually what the intermediary did, for whom, with whose authority, and what the next party acknowledged. The commission amount need not appear in that evidence. An honest intermediary can benefit as much as the customer: receipts demonstrate work, defend against blame for another party's delay, and support an agreed commission claim.
 
 This is a global pattern across domestic and cross-border commerce, business services and employment. The cases below are proposed applications of Live Verify, not claims that the named sectors already issue these proofs. Local rules determine licensing, fee disclosure, worker protections and the legal effect of each document.
 
@@ -50,7 +50,7 @@ Each row identifies a particular action worth documenting. The last column descr
 
 ## Recruitment: What a Jobseeker Wants to Know
 
-"We are on the client's preferred supplier list" and "we sent your details to the client" require **two different client-issued claims**. Membership of a recruitment trade body is neither of these. Preferred-supplier status also does not necessarily mean the agency is instructed on this vacancy.
+"We are on the client's preferred supplier list" and "we sent your details to the client" require two different client-issued claims. Membership of a recruitment trade body is neither of these. Preferred-supplier status also does not necessarily mean the agency is instructed on this vacancy.
 
 The actors are the candidate, named recruiter, agency legal entity, hiring client and, sometimes, a managed-service provider or master vendor operating the client's recruitment intake. Where that service issues the claim, identify its delegated role: receipt by the service is not necessarily receipt by the hiring manager.
 
@@ -141,7 +141,7 @@ The buyer can compare the acknowledged price and conditions with what they asked
 - [Tenancy Deposit Protection Status](view.html?doc=tenancy-deposit-protection-status) models scheme-issued status using UK examples; it is not a worldwide deposit regime.
 - [Deposits Held by Third Parties](view.html?doc=deposits-held-by-third-parties) covers the broader deposit-holder pattern, including rental security deposits.
 
-For this rollup, the derivation is the **handoff between agent and actual destination**. "The agent received the money", "the landlord received it", "a scheme registered protection" and "a custodian holds it" are distinct. In an insured protection arrangement, protection can exist while the landlord or agent retains funds; [TDS explains the distinction between its insured and custodial arrangements](https://custodial.tenancydepositscheme.com/tools-and-guides/faqs/tenants/how-does-tds-protect-my-deposit/). An agent-issued receipt does not independently establish a custodial bank balance. An independently issued holder statement is still that holder's attestation, not a guarantee of solvency or recoverability.
+For this rollup, the derivation is the handoff between agent and actual destination. "The agent received the money", "the landlord received it", "a scheme registered protection" and "a custodian holds it" are distinct. In an insured protection arrangement, protection can exist while the landlord or agent retains funds; [TDS explains the distinction between its insured and custodial arrangements](https://custodial.tenancydepositscheme.com/tools-and-guides/faqs/tenants/how-does-tds-protect-my-deposit/). An agent-issued receipt does not independently establish a custodial bank balance. An independently issued holder statement is still that holder's attestation, not a guarantee of solvency or recoverability.
 
 ## Other Intermediary Derivations
 
@@ -235,11 +235,11 @@ Receipt ID: 24ab83f16cd74b2893e0a785b6c92d14<br>
 
 The worker also needs the hirer's separately verifiable approval to compare the two. An hours-only receipt cannot establish the pay rate, lawful deductions, payroll calculation or bank settlement. Those require their own records.
 
-## Data Verified
+## What Is Checked
 
 Issuer, principal or subject reference, intermediary identity, receiving party, specific action, transaction or assignment reference, document version, scope, event date and time, qualifications, and a random receipt ID.
 
-Use precise verbs: **received**, **approved**, **accepted**, **issued**, **released**, or **paid**, with the object of the action. Avoid an unexplained "completed" spanning several organisations. Include quantities, amounts or deadlines whenever they are necessary to establish the particular action. A reference to a separate document is not itself verification of that document's contents.
+Use precise verbs: received, approved, accepted, issued, released, or paid, with the object of the action. Avoid an unexplained "completed" spanning several organisations. Include quantities, amounts or deadlines whenever they are necessary to establish the particular action. A reference to a separate document is not itself verification of that document's contents.
 
 ## Fees and Commercial Privacy
 
@@ -249,17 +249,17 @@ The intermediary can carry a supplier-issued receipt without showing its commiss
 
 Confidential commercial margin is different from hiding charges owed by a customer or deductions from a worker. A fee-free action receipt must not be presented as a complete financial account. Where a worker, customer, auditor or regulator is entitled to the amounts, they need the appropriate financial record.
 
-## Second-Party Use
+## Who Holds It
 
 The second party depends on the document: an appointed agent receives the principal's authority claim; a submitting agent receives the counterparty's receipt; a worker receives an assignment or payroll acknowledgment. State the recipient for each claim rather than treating the intermediary as issuer by default.
 
-**Intermediaries** carry acknowledgments to show the work they performed, defend against downstream-delay allegations, and support agreed milestone billing. **Workers, candidates and customers** keep the receipts concerning them so checking progress does not depend entirely on the intermediary's cooperation.
+**Intermediaries** carry acknowledgments to show the work they performed, defend against downstream-delay allegations, and support agreed milestone billing. Workers, candidates and customers keep the receipts concerning them so checking progress does not depend entirely on the intermediary's cooperation.
 
-## Third-Party Use
+## Who Checks It
 
-**Accounts and procurement teams** compare accepted orders, approved hours and settlement records before acting. **Other agents in a chain** check the specific upstream authority or downstream handoff they rely on. **Auditors, worker representatives and dispute handlers** examine the available records with the holder's permission. They still need the relevant contract and underlying evidence to decide liability or commission entitlement.
+**Accounts and procurement teams** compare accepted orders, approved hours and settlement records before acting. Other agents in a chain check the specific upstream authority or downstream handoff they rely on. Auditors, worker representatives and dispute handlers examine the available records with the holder's permission. They still need the relevant contract and underlying evidence to decide liability or commission entitlement.
 
-## Verification Architecture
+## How Verification Works Here
 
 The principal issues authority; the intermediary may issue its action statement; the recipient issues its receipt or decision. Each uses its own domain and retains responsibility for its statement. An intermediary-hosted lookup is not independent counterparty confirmation merely because it names the counterparty.
 
@@ -308,7 +308,7 @@ In the United States, [CBP's importer guidance](https://www.help.cbp.gov/s/artic
 
 ## Existing Coverage and Further Derivations
 
-Existing documents cover many adjacent objects. The addition here is proof of a **particular middle action**, preferably acknowledged by its recipient:
+Existing documents cover many adjacent objects. The addition here is proof of a particular middle action, preferably acknowledged by its recipient:
 
 - [Recruitment agency verification](view.html?doc=recruitment-agency-verification) establishes membership; [employment authority](view.html?doc=employment-authority-confirmations) establishes who may make offers. Neither alone proves a candidate submission reached an employer.
 - [Pay stubs and payslips](view.html?doc=pay-stubs-payslips) cover payroll output. Approved-hours and payroll-input receipts explain earlier handoffs.

@@ -11,17 +11,17 @@ furtherDerivations: 1
 
 ## What is a Beneficiary Designation?
 
-When you open a retirement account, a life insurance policy, an annuity, or many bank and brokerage accounts, you name a **beneficiary** — the person (or trust, or charity) who receives the asset when you die. This designation is a standing record held by the account provider. In many systems it **overrides your will**: a US 401(k) or a life policy pays the named beneficiary regardless of what the will says, which is exactly why getting the designation right — and provable — matters.
+When you open a retirement account, a life insurance policy, an annuity, or many bank and brokerage accounts, you name a beneficiary — the person (or trust, or charity) who receives the asset when you die. This designation is a standing record held by the account provider. In many systems it **overrides your will**: a US 401(k) or a life policy pays the named beneficiary regardless of what the will says, which is exactly why getting the designation right — and provable — matters.
 
-The vehicle is named differently in every country — a US **401(k)/IRA**, a UK **SIPP or workplace pension**, a Canadian **RRSP/RRIF/TFSA**, an Australian **superannuation** account, a French **assurance-vie**, an Indian **EPF/NPS** nominee record — but the primitive is the same everywhere: *the asset holder records, with a provider, who receives the asset on death.* The examples below use US instruments as the primary illustration; the [Jurisdictions](#jurisdictions) note covers the equivalents and one important difference in how binding the designation is.
+The vehicle is named differently in every country — a US 401(k)/IRA, a UK SIPP or workplace pension, a Canadian RRSP/RRIF/TFSA, an Australian superannuation account, a French assurance-vie, an Indian EPF/NPS nominee record — but the primitive is the same everywhere: *the asset holder records, with a provider, who receives the asset on death.* The examples below use US instruments as the primary illustration; the [Jurisdictions](#jurisdictions) note covers the equivalents and one important difference in how binding the designation is.
 
-**Binding vs. non-binding matters.** In some systems the designation is **binding** and pays the named person automatically (US retirement accounts, US POD/TOD, Australian *binding* death-benefit nominations). In others it is a **non-binding "expression of wish"** that the scheme trustee may consider but can override (UK occupational pensions, Australian *non-binding* nominations). A verifiable record proves *what the holder recorded*; whether that record binds the provider depends on the jurisdiction and product — the verification response makes this explicit (see Status Indications).
+**Binding vs. non-binding matters.** In some systems the designation is binding and pays the named person automatically (US retirement accounts, US POD/TOD, Australian *binding* death-benefit nominations). In others it is a non-binding "expression of wish" that the scheme trustee may consider but can override (UK occupational pensions, Australian *non-binding* nominations). A verifiable record proves *what the holder recorded*; whether that record binds the provider depends on the jurisdiction and product — the verification response makes this explicit (see Status Indications).
 
 This is a distinct document from two things already in the catalogue:
-- It is not the [Beneficiary Change Confirmation](view.html?doc=beneficiary-change-confirmation) — that is the *receipt for a change*. This is the **standing designation record** itself: "as of today, here is who is named."
+- It is not the [Beneficiary Change Confirmation](view.html?doc=beneficiary-change-confirmation) — that is the *receipt for a change*. This is the standing designation record itself: "as of today, here is who is named."
 - It is not the [Life Insurance Claim / Death Benefit](view.html?doc=life-insurance-claims) — that is the *payout after death*. This is the designation that determines who may claim, verified *while the account holder is alive* (for estate-planning assurance) and *at claim time* (for the beneficiary and administrator).
 
-A verifiable designation lets the **account holder** confirm their intended recipient is correctly recorded and unaltered, and lets the **named beneficiary, executor, or administrator** confirm, at the moment it matters, who the provider actually has on file.
+A verifiable designation lets the account holder confirm their intended recipient is correctly recorded and unaltered, and lets the named beneficiary, executor, or administrator confirm, at the moment it matters, who the provider actually has on file.
 
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #1b5e7a; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #1b5e7a; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -69,7 +69,16 @@ The same designation primitive recurs across the assets that pass *outside* the 
 
 All share the structure: *the asset holder names an on-death recipient with a provider, and that record governs (or guides) who inherits.*
 
-## Data Verified
+## The Problem: Stale or Ghost Designation
+
+- **Stale designation** — A divorce, remarriage, or birth happens, but the 401(k)/life policy still names an ex-spouse or omits a child. The asset pays the wrong person, against the holder's true intent, and the will cannot fix it.
+- **Ghost redirection** — A hacker or corrupt insider silently changes the on-file beneficiary; the holder never finds out because they never re-checked.
+- **Allocation tampering** — A genuine designation's split (e.g., 50/50 between children) is altered. Binding the per-beneficiary shares into the hash makes tampering detectable.
+- **Forged claim entitlement** — At claim time, someone presents a fabricated "designation" naming themselves. With no verifiable record, administrators have historically relied on paper.
+
+**The Fix:** The provider publishes a verifiable designation record at its domain. The holder verifies it during life; the beneficiary, executor, and court verify it at claim time. Status changes (superseded, disputed) surface immediately.
+
+## What Is Checked
 
 Provider name, account/policy type and number, account holder name, primary beneficiary (name, relationship, share %), contingent beneficiary, the date the designation was recorded, and a reference number. Per-beneficiary allocations are bound so the split cannot be silently altered.
 
@@ -78,7 +87,7 @@ Provider name, account/policy type and number, account holder name, primary bene
 - **Annual Beneficiary Audit Statement:** A yearly confirmation for the account holder to check.
 - **Claim-Time Designation Extract:** The record an administrator releases to confirm entitlement after death.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `fidelity.com`, `prudential.com`) and the designation status.
 
@@ -93,8 +102,8 @@ Shows the issuer domain (e.g., `fidelity.com`, `prudential.com`) and the designa
 
 **Status Indications:**
 - **Current / Active** — The record matches the provider's latest beneficiary file.
-- **Superseded** — **ALERT:** A newer designation has replaced this one; obtain the current record.
-- **In-Dispute** — **ALERT:** A contest to the designation is under review.
+- **Superseded** — A newer designation has replaced this one; obtain the current record.
+- **In-Dispute** — A contest to the designation is under review.
 - **Pending Signature** — A designation is authorized but awaiting final paperwork (not yet effective).
 - **Lapsed / No Designation** — No valid beneficiary on file; the asset may default to the estate.
 - **Non-binding (expression of wish)** — The record reflects the holder's wishes but the scheme trustee retains discretion (common for UK occupational pensions and non-binding nominations elsewhere). Verification proves what was recorded, not that it binds.
@@ -102,17 +111,17 @@ Shows the issuer domain (e.g., `fidelity.com`, `prudential.com`) and the designa
 
 ## Privacy Salt
 
-Highly critical. Beneficiary identities and allocations are extremely sensitive — they reveal family structure, intent, and asset distribution. The hash must be **salted** so an interceptor cannot guess or enumerate beneficiary names, and providers should minimize plaintext in any widely shared extract. For account holders who want the record verifiable only on demand, the [owner-issued expiring links](../../docs/Technical_Concepts.md#owner-issued-expiring-links) pattern keeps the designation private until the holder chooses to expose it.
+Highly critical. Beneficiary identities and allocations are extremely sensitive — they reveal family structure, intent, and asset distribution. The hash must be salted so an interceptor cannot guess or enumerate beneficiary names, and providers should minimize plaintext in any widely shared extract. For account holders who want the record verifiable only on demand, the [owner-issued expiring links](../../docs/Technical_Concepts.md#owner-issued-expiring-links) pattern keeps the designation private until the holder chooses to expose it.
 
-## Second-Party Use
+## Who Holds It
 
-The **account holder** benefits.
+The account holder benefits.
 
 **Intent assurance while alive:** The holder periodically verifies that the recipient they intend is the recipient on file — catching a stale ex-spouse designation, a clerical error in the split, or a "ghost" change before it becomes an irreversible problem at death. Because these designations override the will, this is often the single highest-leverage estate-planning check a person can make.
 
 **Coordinated estate plan:** The holder can hand executors and family a verified designation so the intended distribution path is documented and trusted, reducing the chance of a post-death dispute.
 
-## Third-Party Use
+## Who Checks It
 
 **Named Beneficiaries**
 
@@ -130,22 +139,13 @@ The **account holder** benefits.
 
 **Will-contest resolution:** Courts resolve "who was the last named beneficiary" by checking the verified provider record, rather than relying on contested paper copies.
 
-## Verification Architecture
-
-**The "Stale or Ghost Designation" Problem**
-
-- **Stale designation** — A divorce, remarriage, or birth happens, but the 401(k)/life policy still names an ex-spouse or omits a child. The asset pays the wrong person, against the holder's true intent, and the will cannot fix it.
-- **Ghost redirection** — A hacker or corrupt insider silently changes the on-file beneficiary; the holder never finds out because they never re-checked.
-- **Allocation tampering** — A genuine designation's split (e.g., 50/50 between children) is altered. Binding the per-beneficiary shares into the hash makes tampering detectable.
-- **Forged claim entitlement** — At claim time, someone presents a fabricated "designation" naming themselves. With no verifiable record, administrators have historically relied on paper.
-
-**The Fix:** The provider publishes a verifiable designation record at its domain. The holder verifies it during life; the beneficiary, executor, and court verify it at claim time. Status changes (superseded, disputed) surface immediately.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
 - **Retirement plan administrators** (401(k)/403(b)/IRA; UK SIPP/workplace pension)
 - **Life insurance companies and annuity providers**
-- **Banks** (POD accounts) and **brokerages** (TOD accounts)
+- **Banks** (POD accounts) and brokerages (TOD accounts)
 - **Pension schemes** (survivor nominations)
 
 ## Authority Chain
@@ -166,7 +166,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 ## Jurisdictions
 
-The designation primitive is universal; the vehicle name, the regulator, and crucially whether the designation **binds** the provider vary by country.
+The designation primitive is universal; the vehicle name, the regulator, and crucially whether the designation binds the provider vary by country.
 
 <details>
 <summary>Retirement / pension vehicles and how binding the nomination is</summary>
@@ -176,7 +176,7 @@ The designation primitive is universal; the vehicle name, the regulator, and cru
 | **US** | 401(k), 403(b), IRA; POD/TOD accounts | **Binding** — pays named beneficiary, overrides will | DOL (ERISA), SEC |
 | **UK** | Workplace pension, SIPP, personal pension | **Non-binding** "expression of wish" for occupational schemes (trustee discretion) | FCA / TPR |
 | **Canada** | RRSP, RRIF, TFSA | **Binding** named beneficiary or "successor holder" (varies by province; Quebec differs) | provincial regulators |
-| **Australia** | Superannuation | **Binding** *or* **non-binding** death-benefit nomination — the holder chooses; binding ones expire and must be renewed | APRA / ATO |
+| **Australia** | Superannuation | **Binding** *or* non-binding death-benefit nomination — the holder chooses; binding ones expire and must be renewed | APRA / ATO |
 | **Ireland** | PRSA, occupational pension | Mix of nomination and trustee discretion | Pensions Authority |
 | **France** | Assurance-vie, PER | Beneficiary clause governs; assurance-vie passes largely outside the estate | ACPR |
 | **Germany** | Riester, Rürup, life insurance | Beneficiary designation (*Bezugsrecht*) governs | BaFin |

@@ -43,9 +43,16 @@ furtherDerivations: 2
   </div>
 </div>
 
-## Data Verified
+## The Problem: Painted Rocks Fraud
 
-**Warehouse Operator** (Issuer), **Depositor** (Current Owner), **Commodity Details** (Grade, Brand, Crop Year), **Weights** (Gross/Net), **Storage Location** (Specific Shed/Bay), **Warrant Number**, **Rent/Storage Paid To Date**.
+Recent high-profile frauds (e.g., the Trafigura nickel case) involved receipts for containers that held painted stones instead of nickel.
+*   **Limitations:** Live Verify verifies the *document* is authentic to the warehouse. It does not verify the *warehouse* isn't lying or incompetent.
+*   **The Fix:** However, it *does* prevent Documentary Fraud (altering a genuine receipt to show higher weights) and Impersonation (creating a receipt from a fake warehouse).
+*   **Domain Binding:** The `verify:` URL binds the receipt to `metro-logistics.com`. A fraudster cannot generate a valid hash for that domain without hacking the warehouse's database.
+
+## What Is Checked
+
+**Warehouse Operator** (Issuer), Depositor (Current Owner), Commodity Details (Grade, Brand, Crop Year), Weights (Gross/Net), Storage Location (Specific Shed/Bay), Warrant Number, Rent/Storage Paid To Date.
 
 **Document Types:**
 - **Electronic Warehouse Receipt (EWR):** The legal title document.
@@ -55,7 +62,7 @@ furtherDerivations: 2
 
 **Physical vs. Digital:** While commodities markets are moving toward blockchain, paper/PDF receipts are still widely used in emerging markets and mid-tier trade. This use case bridges the gap, allowing a paper receipt to be cryptographically verified against the warehouse's digital ledger.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (The Warehouse Operator) and the responder text.
 
@@ -66,19 +73,19 @@ Shows the issuer domain (The Warehouse Operator) and the responder text.
 - **Cancelled** - Receipt voided (e.g., converted to different format).
 - **Warrant Blocked** - Under legal dispute or customs hold.
 
-## Second-Party Use (The Trader/Owner)
+## Who Holds It (The Trader/Owner)
 
 Commodity traders benefit from instant credibility.
 
 **Proof of Ownership:** A trader selling 500 tonnes of copper can email the PDF receipt to a buyer. The buyer scans it and sees "Verified by [Warehouse]" immediately, proving the trader actually owns the metal.
 **Insurance auditing:** Traders must insure goods in storage. Verified receipts provide indisputable proof of asset location and value to underwriters.
 
-## Third-Party Use
+## Who Checks It
 
 **Trade Finance Banks**
 *The $100 Million Risk*
 Banks lend massive sums against commodities inventory.
-*   **Preventing Double Financing:** A fraudster might take one receipt for 100 tonnes of coffee and show it to Bank A and Bank B to get two loans. With Live Verify, if Bank A registers a "Pledge" on the hash, Bank B scans the document and sees **"Status: PLEDGED to [Bank A]"**.
+*   **Preventing Double Financing:** A fraudster might take one receipt for 100 tonnes of coffee and show it to Bank A and Bank B to get two loans. With Live Verify, if Bank A registers a "Pledge" on the hash, Bank B scans the document and sees "Status: PLEDGED to [Bank A]".
 *   **The "Fresh Air" Scam:** Fraudsters create PDF receipts for metal that doesn't exist. Verification checks the hash against the *Warehouse's* database. If the warehouse didn't issue it, the hash returns 404.
 
 **Warehouse Operators**
@@ -91,15 +98,9 @@ Banks lend massive sums against commodities inventory.
 
 **Customs Authorities**
 *Bonded Warehouses*
-*   Customs officers verify that goods in bonded warehouses (duty unpaid) haven't been illicitly moved. The status **"Bonded: Yes"** confirms the tax liability status.
+*   Customs officers verify that goods in bonded warehouses (duty unpaid) haven't been illicitly moved. The status "Bonded: Yes" confirms the tax liability status.
 
-## Verification Architecture
-
-**The "Painted Rocks" Fraud Problem**
-Recent high-profile frauds (e.g., the Trafigura nickel case) involved receipts for containers that held painted stones instead of nickel.
-*   **Limitations:** Live Verify verifies the *document* is authentic to the warehouse. It does not verify the *warehouse* isn't lying or incompetent.
-*   **The Fix:** However, it *does* prevent **Documentary Fraud** (altering a genuine receipt to show higher weights) and **Impersonation** (creating a receipt from a fake warehouse).
-*   **Domain Binding:** The `verify:` URL binds the receipt to `metro-logistics.com`. A fraudster cannot generate a valid hash for that domain without hacking the warehouse's database.
+## How Verification Works Here
 
 **Lien Registry Integration**
 This is the "killer app" for this use case.
@@ -111,7 +112,7 @@ This is the "killer app" for this use case.
 **Dynamic Fields vs. Static Hash**
 Commodities change (shrinkage, humidity loss).
 *   The paper document represents the state *at issuance*.
-*   The verification response can include **"Current Status"** metadata.
+*   The verification response can include "Current Status" metadata.
     *   *Paper says:* "Weight: 1000kg"
     *   *Verification says:* "Valid. Current Weight: 998kg (evaporation loss recorded 12-Nov)."
 
@@ -125,9 +126,9 @@ _[Content merged from: warehouse-receipts-storage]_
 
 ## What are Warehouse Storage Receipts?
 
-In the logistics and retail industries, a **Warehouse Receipt** is the proof that goods (e.g., 500 pallets of electronics or 10,000 lbs of grain) are physically present in a specific facility. These documents are often used as **Collateral** for bank loans (Inventory Financing).
+In the logistics and retail industries, a Warehouse Receipt is the proof that goods (e.g., 500 pallets of electronics or 10,000 lbs of grain) are physically present in a specific facility. These documents are often used as Collateral for bank loans (Inventory Financing).
 
-Because they represent high-value physical assets, these receipts are a primary target for "Phantom Inventory" fraud. A dishonest business owner might "edit" a receipt to show they have 1,000 units instead of 100 to get a bigger loan. Similarly, they might use a fake receipt from a non-existent warehouse to create "paper wealth." Verified hashes bind the **SKU Quantities, Storage Location, and Total Value** to the warehouse operator's domain (e.g., `prologis.com` or `ironmountain.com`).
+Because they represent high-value physical assets, these receipts are a primary target for "Phantom Inventory" fraud. A dishonest business owner might "edit" a receipt to show they have 1,000 units instead of 100 to get a bigger loan. Similarly, they might use a fake receipt from a non-existent warehouse to create "paper wealth." Verified hashes bind the SKU Quantities, Storage Location, and Total Value to the warehouse operator's domain (e.g., `prologis.com` or `ironmountain.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="warehouse"></span>METRO STORAGE & LOGISTICS
@@ -152,7 +153,7 @@ Negotiable only if endorsed. Lien active for unpaid storage fees.
 <span data-verify-line="warehouse">verify:metro-logistics.com/v</span> <span verifiable-text="end" data-for="warehouse"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Receipt number, warehouse operator name, facility ID, depositor name, account number, itemized SKUs and quantities, total weight/volume, storage location (Aisle/Bin), estimated value, date of entry, lien status.
 
@@ -162,28 +163,28 @@ Receipt number, warehouse operator name, facility ID, depositor name, account nu
 - **Inventory Audit Report:** Periodic verification of stock levels.
 - **Release Order:** (Linked hash) authorizing the removal of goods.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`prologis.com`, `fedex.com`, `linfox.com`) and the asset standing.
 
 **Status Indications:**
 - **Verified / In-Storage** — Goods are physically present and confirmed.
-- **Pledged to Bank** — **ALERT:** The assets are collateral for a loan; cannot be moved.
-- **Released** — **ALERT:** The goods have left the facility; paper is now historic.
-- **Audit Flag** — **ALERT:** A discrepancy was found during the last physical count.
+- **Pledged to Bank** — The assets are collateral for a loan; cannot be moved.
+- **Released** — The goods have left the facility; paper is now historic.
+- **Audit Flag** — A discrepancy was found during the last physical count.
 
-## Second-Party Use
+## Who Holds It
 
-The **Inventory Owner (Depositor)** benefits from verification.
+The Inventory Owner (Depositor) benefits from verification.
 
-**Collateral Monetization:** A startup with $1M in verified inventory can provide the hash to a bank. The bank scans it and sees **"VERIFIED - IN STORAGE"** from a reputable warehouse operator, allowing them to issue a "Working Capital Loan" in hours instead of weeks.
+**Collateral Monetization:** A startup with $1M in verified inventory can provide the hash to a bank. The bank scans it and sees "VERIFIED - IN STORAGE" from a reputable warehouse operator, allowing them to issue a "Working Capital Loan" in hours instead of weeks.
 
 **Insurance Proof:** If a warehouse fire occurs, the owner can provide verified receipts to the insurer to prove exactly what was in the building at the time of the loss, ensuring a full and fair payout.
 
-## Third-Party Use
+## Who Checks It
 
 **Trade Finance Banks**
-**Double-Financing Prevention:** Before lending against a warehouse receipt, the bank scans the hash. If it returns **"PLEDGED TO JPMORGAN,"** the second bank knows the asset is already used as collateral and can deny the fraudulent loan application.
+**Double-Financing Prevention:** Before lending against a warehouse receipt, the bank scans the hash. If it returns "PLEDGED TO JPMORGAN," the second bank knows the asset is already used as collateral and can deny the fraudulent loan application.
 
 **External Audit Firms**
 **Physical Verification:** During a year-end audit, the accountant scans a random sample of warehouse receipts. Live Verify ensures the company isn't "Padding" its balance sheet with phantom inventory that doesn't exist in the warehouse's digital system.
@@ -191,7 +192,7 @@ The **Inventory Owner (Depositor)** benefits from verification.
 **Customs and Tax Authorities**
 **Bonded Inventory Audit:** Verifying that "Duty-Unpaid" goods in a bonded warehouse haven't been illegally moved into the local market.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Empty Box" Fraud Problem**
 

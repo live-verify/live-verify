@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 Victims of identity theft often find themselves "blacklisted" by banking and financial systems. Fraudulent accounts created in their name trigger "Fraud Alerts" that lead to automated rejections when they try to open legitimate accounts or restore their own services.
 
-A **Identity Theft Protective Certificate** is a "Safe Harbor" document issued by a police department or a regulatory body (e.g., the FTC in the US). It serves as a verified, timestamped proof that the individual has reported the theft and is in a "Recovery State."
+A Identity Theft Protective Certificate is a "Safe Harbor" document issued by a police department or a regulatory body (e.g., the FTC in the US). It serves as a verified, timestamped proof that the individual has reported the theft and is in a "Recovery State."
 
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #1a237e; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #1a237e; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -46,7 +46,13 @@ A **Identity Theft Protective Certificate** is a "Safe Harbor" document issued b
   </div>
 </div>
 
-## Data Verified
+## The Problem: Secondary Fraud
+
+- **Fake Recovery Letters:** Scammers creating realistic-looking "Victim Certificates" to hide their own real criminal history.
+- **Stolen Identities:** Scammers reporting a "theft" to the FTC in the *victim's* name to try and hijack the victim's legitimate recovery process.
+- **Forgery:** Editing an old recovery letter to extend the "Protective Status" indefinitely.
+
+## What Is Checked
 
 Issuing agency name, victim name, date of report, case reference number, protective status duration, recommended action for financial institutions.
 
@@ -55,25 +61,25 @@ Issuing agency name, victim name, date of report, case reference number, protect
 - **Police Fraud Report Extract:** Verification of a criminal investigation.
 - **State Identity Theft Passport:** Official card for proving victim status.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`identitytheft.gov`, `ftc.gov`) and the case status.
 
 **Status Indications:**
 - **Active / Recovery** — Record matches the agency's current recovery log.
 - **Closed / Resolved** — Recovery completed; standard monitoring applies.
-- **Under Review** — **ALERT:** Case being updated.
-- **Withdrawn** — **ALERT:** Report has been rescinded by the victim.
+- **Under Review** — Case being updated.
+- **Withdrawn** — Report has been rescinded by the victim.
 
-## Second-Party Use
+## Who Holds It
 
-The **Victim of Identity Theft** benefits from verification.
+The Victim of Identity Theft benefits from verification.
 
-**Restoring Service:** By showing a verified record to their bank or cell phone provider, the victim proves that past "fraud flags" were due to theft, not their own behavior. This triggers **Enhanced Due Diligence (EDD)** rather than an automated rejection.
+**Restoring Service:** By showing a verified record to their bank or cell phone provider, the victim proves that past "fraud flags" were due to theft, not their own behavior. This triggers Enhanced Due Diligence (EDD) rather than an automated rejection.
 
 **Employment Verification:** If a background check reveals a criminal record created by the thief, the victim can use the verified certificate to explain the discrepancy.
 
-## Third-Party Use
+## Who Checks It
 
 **Bank Compliance & KYC Teams**
 **Manual Review Override:** Verification allows the bank to trust the victim's claim, as it links directly to an official agency domain. They can move to manual onboarding with confidence.
@@ -84,13 +90,7 @@ The **Victim of Identity Theft** benefits from verification.
 **Landlords & Leasing Agents**
 **Tenant Screening:** Understanding why a credit report has "Identity Fraud" alerts during the application process.
 
-## Verification Architecture
-
-**The "Secondary Fraud" Problem**
-
-- **Fake Recovery Letters:** Scammers creating realistic-looking "Victim Certificates" to hide their own real criminal history.
-- **Stolen Identities:** Scammers reporting a "theft" to the FTC in the *victim's* name to try and hijack the victim's legitimate recovery process.
-- **Forgery:** Editing an old recovery letter to extend the "Protective Status" indefinitely.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

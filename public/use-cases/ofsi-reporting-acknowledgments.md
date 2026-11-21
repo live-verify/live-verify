@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is an OFSI Reporting Acknowledgment?
 
-Under Section 64 of the Sanctions and Anti-Money Laundering Act 2018 (SAMLA), any person who knows or has reasonable cause to suspect that they hold funds or economic resources belonging to a **designated person** must report this to OFSI as soon as practicable. Failure to report is a criminal offence.
+Under Section 64 of the Sanctions and Anti-Money Laundering Act 2018 (SAMLA), any person who knows or has reasonable cause to suspect that they hold funds or economic resources belonging to a designated person must report this to OFSI as soon as practicable. Failure to report is a criminal offence.
 
-When a firm files this report, OFSI sends an **acknowledgment** confirming receipt. This acknowledgment is the firm's proof that they complied with their reporting obligation. During an FCA audit, the fund manager must demonstrate: "We discovered we held these sanctioned assets, and we reported it to OFSI on date X."
+When a firm files this report, OFSI sends an acknowledgment confirming receipt. This acknowledgment is the firm's proof that they complied with their reporting obligation. During an FCA audit, the fund manager must demonstrate: "We discovered we held these sanctioned assets, and we reported it to OFSI on date X."
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #1a237e; background: #fff; padding: 0;">
   <div style="background: #1a237e; color: #fff; padding: 15px;">
@@ -39,13 +39,22 @@ When a firm files this report, OFSI sends an **acknowledgment** confirming recei
   </div>
 </div>
 
-## Data Verified
+## The Problem
+
+- Firms failing to report frozen funds and hiding the omission
+- Backdating reports to appear compliant after the fact
+- Fabricating OFSI acknowledgments during regulatory examinations
+- Delaying reports to buy time for fund restructuring
+
+**The Fix:** OFSI hashes each acknowledgment at time of issue with a timestamp. The hash cannot be backdated. FCA auditors can instantly confirm the report was genuinely received by OFSI on the claimed date.
+
+## What Is Checked
 
 Report reference number, date received by OFSI, reporting entity name, FCA firm reference number, regulation under which the report was made, acknowledgment date.
 
 **Note:** The acknowledgment does NOT contain the designated person's identity or the amount of frozen funds — that information remains in the confidential report itself. Only the fact and timing of the report are verifiable.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 **Status Indications:**
 - **Received** — OFSI has received and logged the report
@@ -61,29 +70,19 @@ The reporting obligation under SAMLA s.64 carries criminal penalties for non-com
 2. **Did the firm report promptly?** — "As soon as practicable" means days, not months. A verified timestamp proves the report date.
 3. **Is the acknowledgment genuine?** — A firm could fabricate an OFSI acknowledgment to cover up a late or missing report.
 
-## Second-Party Use
+## Who Holds It
 
 **Fund managers** — Proving to FCA that they fulfilled their SAMLA s.64 obligation promptly.
 
 **Compliance officers** — Personal liability protection. If the firm is prosecuted for late reporting, the compliance officer's verified acknowledgment proves they personally ensured the report was filed.
 
-## Third-Party Use
+## Who Checks It
 
 **FCA supervisors** — Cross-referencing OFSI acknowledgments against the firm's internal sanctions hit logs. If the firm's system flagged a designated person in January but the OFSI acknowledgment is dated March, that's a compliance failure.
 
 **External auditors** — Verifying the completeness of a firm's sanctions reporting during annual AML audits.
 
 **Legal counsel** — Defence evidence if the firm is prosecuted for sanctions breaches. "We reported immediately — here's the verified acknowledgment."
-
-## Verification Architecture
-
-**The Problem:**
-- Firms failing to report frozen funds and hiding the omission
-- Backdating reports to appear compliant after the fact
-- Fabricating OFSI acknowledgments during regulatory examinations
-- Delaying reports to buy time for fund restructuring
-
-**The Fix:** OFSI hashes each acknowledgment at time of issue with a timestamp. The hash cannot be backdated. FCA auditors can instantly confirm the report was genuinely received by OFSI on the claimed date.
 
 ## Authority Chain
 

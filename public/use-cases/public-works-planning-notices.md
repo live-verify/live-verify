@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What are Public Works Notices?
 
-Public works and planning notices are the "Community Alert System" for changes to the physical environment. From a **Planning Permission Notice** on a lamp post to a **Zoning Variance Placard** in a window, these documents inform neighbors of their legal right to object to a new development or a street closure.
+Public works and planning notices are the "Community Alert System" for changes to the physical environment. From a Planning Permission Notice on a lamp post to a Zoning Variance Placard in a window, these documents inform neighbors of their legal right to object to a new development or a street closure.
 
 The problem is that these notices are the most "Hackable" part of city government. A developer might "backdate" a notice to shorten the legal window for neighbors to file an appeal (a massive issue in jurisdictions like France). Similarly, people often use fake "No Parking - Utility Work" signs to illegally clear a street for personal use.
 
@@ -45,7 +45,13 @@ Live Verify allows a citizen or neighbor to scan the notice from the sidewalk to
   </div>
 </div>
 
-## Data Verified
+## The Problem: Sidewalk Scam Fraud
+
+- **Deadline Tampering:** Changing "APRIL 15" to "MARCH 15" on a PDF to trick neighbors into thinking they missed the objection window.
+- **Project Masking:** Describing a "Luxury Hotel" as a "Small Addition" on the paper notice to avoid community pushback.
+- **Fake 'No Parking' Signs:** Residents using realistic city templates to keep people from parking in front of their homes illegally.
+
+## What Is Checked
 
 Application number, property address, owner/developer name, proposed action description, zoning class, consultation end date (appeal deadline), hearing date/time, municipal department ID, notice issue date.
 
@@ -55,25 +61,25 @@ Application number, property address, owner/developer name, proposed action desc
 - **Temporary No-Parking Notice:** For utility work or street events.
 - **Tree Removal Permit:** Posted on protected vegetation.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`springfield.gov`, `london.gov.uk`, `paris.fr`) and the notice standing.
 
 **Status Indications:**
 - **Active Consultation** — The appeal window is currently open.
-- **Consultation Closed** — **ALERT:** Legal window for objections has passed.
+- **Consultation Closed** — Legal window for objections has passed.
 - **Withdrawn** — The developer has cancelled the application.
-- **Fraud Alert** — **CRITICAL:** (For No-Parking) This sign is not authorized; report to 311.
+- **Fraud Alert** — (For No-Parking) This sign is not authorized; report to 311.
 
-## Second-Party Use
+## Who Holds It
 
-The **Developer / Applicant** benefits from verification.
+The Developer / Applicant benefits from verification.
 
 **Appeal Shield:** In many countries (like France), the legal "Appeal Clock" only starts ticking once the notice is verified as being visible from the road. The developer can take a verified, timestamped photo of the notice to prove they followed all "Public Posting" laws, preventing a neighbor from suing 2 years later because "The sign was never there."
 
 **Compliance Proof:** A contractor can show a verified "No Parking" hash to a resident who is complaining, proving the work is authorized and that the car towing was legal.
 
-## Third-Party Use
+## Who Checks It
 
 **Neighbors / Residents**
 **Rights Enforcement:** A neighbor can scan the notice to ensure the "End Date" on the paper hasn't been "scrubbed" to hide a hearing. Verification ensures they have the full legal time to organize their community and hire a lawyer.
@@ -84,13 +90,7 @@ The **Developer / Applicant** benefits from verification.
 **Real Estate Agents**
 **Disclosure Intelligence:** A buyer's agent can scan the notices in a neighborhood they are showing to identify upcoming construction projects that might impact the views or noise levels of a target property.
 
-## Verification Architecture
-
-**The "Sidewalk Scam" Fraud Problem**
-
-- **Deadline Tampering:** Changing "APRIL 15" to "MARCH 15" on a PDF to trick neighbors into thinking they missed the objection window.
-- **Project Masking:** Describing a "Luxury Hotel" as a "Small Addition" on the paper notice to avoid community pushback.
-- **Fake 'No Parking' Signs:** Residents using realistic city templates to keep people from parking in front of their homes illegally.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

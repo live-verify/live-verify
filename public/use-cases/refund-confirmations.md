@@ -53,7 +53,14 @@ Refund fraud is widespread: fake refund confirmations are used for double-dippin
   <span data-verify-line="tax">verify:irs.gov/refunds</span> <span verifiable-text="end" data-for="tax"></span>
 </div>
 
-## Data Verified
+## The Problem: Refund Fraud
+
+- **Double-Dipping:** Claiming refund wasn't received after it was deposited.
+- **Fake Refund Claims:** Forged refund confirmations for items never returned.
+- **Tax Refund Fraud:** Fake IRS refund notices in phishing schemes.
+- **Warranty Abuse:** Fake reimbursement claims to defraud manufacturers.
+
+## What Is Checked
 
 Issuer name, transaction/claim number, recipient name, original purchase or claim details, refund amount, refund method, processing date, receiving account (masked).
 
@@ -64,7 +71,7 @@ Issuer name, transaction/claim number, recipient name, original purchase or clai
 - **Tax Refund:** Government tax refund issued.
 - **Chargeback Resolution:** Disputed charge resolved in customer's favor.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`bestbuy.com`, `irs.gov`) and refund status.
 
@@ -75,9 +82,9 @@ Shows the issuer domain (`bestbuy.com`, `irs.gov`) and refund status.
 - **Recalled** — Refund reversed due to fraud or error.
 - **Partial** — Partial refund issued, remainder denied.
 
-## Second-Party Use
+## Who Holds It
 
-The **Customer/Recipient** benefits from verification.
+The Customer/Recipient benefits from verification.
 
 **Dispute Resolution:** When customers claim refunds weren't received, verified confirmation proves the refund was issued (shifting burden to their bank).
 
@@ -85,7 +92,7 @@ The **Customer/Recipient** benefits from verification.
 
 **Credit Card Disputes:** If a chargeback is filed after a refund was already issued, verified confirmation prevents double recovery.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks / Card Networks**
 **Chargeback Defense:** Merchants defend chargebacks with refund evidence. Verified confirmations are more compelling than screenshots.
@@ -99,14 +106,7 @@ The **Customer/Recipient** benefits from verification.
 **Accountants / Bookkeepers**
 **Reconciliation:** Verified refunds help reconcile accounts receivable and track warranty obligations.
 
-## Verification Architecture
-
-**The Refund Fraud Problem**
-
-- **Double-Dipping:** Claiming refund wasn't received after it was deposited.
-- **Fake Refund Claims:** Forged refund confirmations for items never returned.
-- **Tax Refund Fraud:** Fake IRS refund notices in phishing schemes.
-- **Warranty Abuse:** Fake reimbursement claims to defraud manufacturers.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

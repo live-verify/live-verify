@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What are Building Safety Postings?
 
-In every modern building, safety is governed by a layer of "Compliance Paper." From the **Elevator Inspection Certificate** in the cab to the **Fire Extinguisher Tags** (mandated by OSHA 29 CFR 1910.157 and NFPA 10) in the hallway, these documents are the only way for the public to know if the equipment they are using is safe and maintained.
+In every modern building, safety is governed by a layer of "Compliance Paper." From the Elevator Inspection Certificate in the cab to the Fire Extinguisher Tags (mandated by OSHA 29 CFR 1910.157 and NFPA 10) in the hallway, these documents are the only way for the public to know if the equipment they are using is safe and maintained.
 
 The problem is that these papers are easy to fake, "Pencil Whip" (signing without inspecting), or simply leave expired for years. A landlord might keep a 2023 certificate on the wall to hide the fact that the elevator failed its 2025 brake test.
 
@@ -40,7 +40,13 @@ Live Verify allows a tenant, visitor, or fire marshal to scan the posting to ver
   </div>
 </div>
 
-## Data Verified
+## The Problem: Ghost Certificate Fraud
+
+- **Expired Stays:** Keeping an old certificate in the elevator frame but using a PDF editor to change "2024" to "2026."
+- **Pencil Whipping:** An inspector signing a fire tag today but dating it "Yesterday" to meet a quota, or signing without visiting the site.
+- **Serial Swapping:** Using one "Pass" certificate for multiple identical machines across different floors.
+
+## What Is Checked
 
 Equipment ID (Serial Number), building address, capacity/rating, inspector name/license, date of inspection, expiration date, safety code version (e.g., ASME A17.1), maintenance company name.
 
@@ -88,18 +94,18 @@ For informed decisions, patterns matter as much as current status.
 - **Office restrooms/facilities** — Intranet URL for employees/tenants (not publicly accessible)
 - **Private equipment** (boilers, pressure vessels) — May not have public history; status code only
 
-## Second-Party Use
+## Who Holds It
 
-The **Building Owner / Property Manager** benefits from verification.
+The Building Owner / Property Manager benefits from verification.
 
 **Liability Protection:** By maintaining a verified "Chain of Safety," the owner can prove to insurers and courts that they met all mandatory safety standards, defending against "Negligence" lawsuits if an accident occurs.
 
 **Maintenance Audit:** The owner can scan the tags left by their sub-contractors (e.g., the elevator repair firm) to ensure the tech actually updated the city's database and didn't just scribble on a piece of paper.
 
-## Third-Party Use
+## Who Checks It
 
 **Building Occupants / Tenants**
-**Personal Safety:** A parent entering an elevator with their child can scan the certificate. If it returns **"RED TAGGED - FAILED BRAKE TEST,"** they can choose to exit the car immediately and report the landlord.
+**Personal Safety:** A parent entering an elevator with their child can scan the certificate. If it returns "RED TAGGED - FAILED BRAKE TEST," they can choose to exit the car immediately and report the landlord.
 
 **Fire Marshals / Inspectors**
 **Rapid Compliance Check:** During a surprise walkthrough, an inspector can scan 50 fire extinguishers in minutes. Live Verify prevents "Tag Swapping" (moving a good tag from a new unit to an old one).
@@ -117,13 +123,7 @@ This is a limitation, not a flaw — the system is explicit about proving *issue
 
 **Who benefits most:** This use case works best when the building department (first party) has its own integrity controls. If the inspection system is corrupt, verification infrastructure just adds trust theater on top of garbage data.
 
-## Verification Architecture
-
-**The "Ghost Certificate" Fraud Problem**
-
-- **Expired Stays:** Keeping an old certificate in the elevator frame but using a PDF editor to change "2024" to "2026."
-- **Pencil Whipping:** An inspector signing a fire tag today but dating it "Yesterday" to meet a quota, or signing without visiting the site.
-- **Serial Swapping:** Using one "Pass" certificate for multiple identical machines across different floors.
+## How Verification Works Here
 
 **Inspector Authentication (Separate Problem)**
 

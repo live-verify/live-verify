@@ -64,7 +64,14 @@ Municipal fraud includes fake business licenses to appear legitimate, forged reg
   <span data-verify-line="pet">verify:seattle.gov/animallicenses</span> <span verifiable-text="end" data-for="pet"></span>
 </div>
 
-## Data Verified
+## The Problem: Municipal Registration Fraud
+
+- **Fake Business Licenses:** Operating without proper licensing using forged documents.
+- **Expired Registrations:** Presenting expired documents as current.
+- **Jurisdiction Fraud:** Using registration from one city while operating in another.
+- **Fee Evasion:** Forged renewal receipts to avoid registration fees.
+
+## What Is Checked
 
 Issuing municipality, registration type, registrant name, registration number, validity period, any conditions or restrictions, fees paid.
 
@@ -76,7 +83,7 @@ Issuing municipality, registration type, registrant name, registration number, v
 - **Alarm Permit:** Security alarm system registration.
 - **Rental Registration:** Landlord/property registration.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`sf.gov`, `dmv.ca.gov`, `seattle.gov`) and registration status.
 
@@ -87,9 +94,9 @@ Shows the issuer domain (`sf.gov`, `dmv.ca.gov`, `seattle.gov`) and registration
 - **Revoked** — Registration cancelled.
 - **Pending Renewal** — Renewal application in process.
 
-## Second-Party Use
+## Who Holds It
 
-The **Registrant** benefits from verification.
+The Registrant benefits from verification.
 
 **Legitimacy Proof:** Businesses can prove they're properly licensed to operate, building customer trust.
 
@@ -99,7 +106,7 @@ The **Registrant** benefits from verification.
 
 **Pet Disputes:** Pet owners can prove current licensing and vaccination status.
 
-## Third-Party Use
+## Who Checks It
 
 **Customers / Clients**
 **Business Verification:** Before hiring contractors or engaging businesses, verify they hold required local licenses.
@@ -116,14 +123,7 @@ The **Registrant** benefits from verification.
 **Election Officials**
 **Voter Roll Maintenance:** Cross-reference voter registrations across jurisdictions.
 
-## Verification Architecture
-
-**The Municipal Registration Fraud Problem**
-
-- **Fake Business Licenses:** Operating without proper licensing using forged documents.
-- **Expired Registrations:** Presenting expired documents as current.
-- **Jurisdiction Fraud:** Using registration from one city while operating in another.
-- **Fee Evasion:** Forged renewal receipts to avoid registration fees.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

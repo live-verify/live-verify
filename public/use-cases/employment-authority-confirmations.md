@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is Employment Authority?
 
-Making a job offer commits the company to a legally binding employment contract. Not everyone can make that commitment. **Employment authority** defines who can extend offers, at what levels, and with what terms.
+Making a job offer commits the company to a legally binding employment contract. Not everyone can make that commitment. Employment authority defines who can extend offers, at what levels, and with what terms.
 
 This matters from both sides: candidates want to know the offer is real, and companies need to prevent unauthorized commitments.
 
@@ -133,11 +133,20 @@ This matters from both sides: candidates want to know the offer is real, and com
 - Settlement agreements need proper authority to be binding
 - Employment tribunal evidence
 
-## Data Verified
+## The Problem
 
-**Authorized person**, **company**, **authority type** (hiring/termination/compensation), **scope** (departments, grades, salary bands), **limits** (monetary, seniority), **exclusions**, **escalation requirements**, **delegating officer**, **validity period**.
+- Job offer scams are increasing (fake companies, advance fee fraud)
+- Candidates can't verify if offer is genuine without awkward calls to HR
+- Unauthorized offers create legal liability
+- Rescinded offer disputes are he-said-she-said
 
-## Data Visible After Verification
+**The Fix:** Hiring authority confirmations for managers. Offer letters with verification URLs. Candidate scans → confirms: this offer was genuinely made by an authorized person at this company.
+
+## What Is Checked
+
+**Authorized person**, company, authority type (hiring/termination/compensation), scope (departments, grades, salary bands), limits (monetary, seniority), exclusions, escalation requirements, delegating officer, validity period.
+
+## What the Checker Sees
 
 **Status Indications:**
 - **Active** — Authority currently valid
@@ -146,7 +155,7 @@ This matters from both sides: candidates want to know the offer is real, and com
 - **Suspended** — Temporarily inactive (e.g., during investigation)
 - **Limited** — Partial restrictions applied
 
-## Third-Party Use
+## Who Checks It
 
 **Candidates** — Verify job offers are genuine before resigning current role
 **Recruiters** — Confirm hiring managers have authority for roles they're filling
@@ -163,15 +172,7 @@ This matters from both sides: candidates want to know the offer is real, and com
 | **EU** | National labor law, Works Councils | Some countries require works council approval for hires |
 | **Middle East** | Labor codes, visa sponsorship | Employment tied to sponsorship; authority to sponsor matters |
 
-## Verification Architecture
-
-**The Problem:**
-- Job offer scams are increasing (fake companies, advance fee fraud)
-- Candidates can't verify if offer is genuine without awkward calls to HR
-- Unauthorized offers create legal liability
-- Rescinded offer disputes are he-said-she-said
-
-**The Fix:** Hiring authority confirmations for managers. Offer letters with verification URLs. Candidate scans → confirms: this offer was genuinely made by an authorized person at this company.
+## How Verification Works Here
 
 **The candidate protection flow:**
 1. Candidate receives offer letter with verification URL

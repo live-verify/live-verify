@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is an OFSI Monetary Penalty Notice?
 
-When a firm breaches financial sanctions — even inadvertently — OFSI can impose a **civil monetary penalty** without criminal prosecution. Since 2017, OFSI has operated a strict liability regime: you don't need to know you were dealing with a sanctioned person to be penalised. Penalties can run into millions of pounds.
+When a firm breaches financial sanctions — even inadvertently — OFSI can impose a civil monetary penalty without criminal prosecution. Since 2017, OFSI has operated a strict liability regime: you don't need to know you were dealing with a sanctioned person to be penalised. Penalties can run into millions of pounds.
 
 OFSI publishes penalty notices on its website, but they're static PDFs. A verified penalty notice would allow counterparties, correspondents, and investors to instantly confirm whether a firm has been penalised for sanctions breaches — critical information for due diligence on business partners.
 
@@ -40,11 +40,20 @@ OFSI publishes penalty notices on its website, but they're static PDFs. A verifi
   </div>
 </div>
 
-## Data Verified
+## The Problem
+
+- Outdated penalty notices circulating after appeals succeed
+- Firms concealing penalty history from counterparties and investors
+- Fabricated penalty notices used for market manipulation or competitive sabotage
+- Confusion about whether a penalty is final or still under appeal
+
+**The Fix:** OFSI hashes each penalty notice with a status field that reflects the current state (imposed, appealed, upheld, overturned, paid). The status updates as the case progresses. Anyone can verify the current state of any penalty instantly.
+
+## What Is Checked
 
 Case reference, date of notice, person/entity penalised, company registration number, penalty amount, regulation breached, nature of breach summary, appeal status.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 **Status Indications:**
 - **Penalty Imposed** — Final penalty, no appeal pending
@@ -63,11 +72,11 @@ Case reference, date of notice, person/entity penalised, company registration nu
 - A competitor could fabricate a penalty notice to damage a rival's reputation
 - A penalty that was overturned on appeal could still circulate as if it were current
 
-## Second-Party Use
+## Who Holds It
 
 **Penalised firms** — Ironically, the penalised firm benefits too. If the penalty was overturned on appeal or the amount reduced, a verified status showing "Overturned" or "Reduced" prevents reputational damage from outdated information.
 
-## Third-Party Use
+## Who Checks It
 
 **Correspondent banks** — Checking whether a potential partner has sanctions compliance problems before establishing a relationship.
 
@@ -76,16 +85,6 @@ Case reference, date of notice, person/entity penalised, company registration nu
 **Insurance underwriters** — Pricing sanctions liability insurance. Verified penalty history feeds directly into risk models.
 
 **Regulators in other jurisdictions** — SEC, FinCEN, BaFin, and other regulators checking UK enforcement actions against firms operating in their jurisdictions.
-
-## Verification Architecture
-
-**The Problem:**
-- Outdated penalty notices circulating after appeals succeed
-- Firms concealing penalty history from counterparties and investors
-- Fabricated penalty notices used for market manipulation or competitive sabotage
-- Confusion about whether a penalty is final or still under appeal
-
-**The Fix:** OFSI hashes each penalty notice with a status field that reflects the current state (imposed, appealed, upheld, overturned, paid). The status updates as the case progresses. Anyone can verify the current state of any penalty instantly.
 
 ## Authority Chain
 

@@ -54,11 +54,11 @@ SORN:          YES (since 15 Jan 2026)
 <span data-verify-line="ved-sorn">verify:gov.uk/vehicle-tax/v</span> <span verifiable-text="end" data-for="ved-sorn"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Vehicle registration, road-tax or registration status (current, expired, or declared off-road), expiry/renewal date, and tax class where applicable. Vehicle condition, mileage, inspection history, finance status, and ownership chain are excluded — this is strictly about whether the vehicle is taxed or registered for road use.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g. `gov.uk` for UK) and confirms whether the road-tax or registration status claim is current.
 
@@ -68,13 +68,13 @@ Shows the issuer domain (e.g. `gov.uk` for UK) and confirms whether the road-tax
 
 Other jurisdictions have equivalent statuses: registered/unregistered, current/expired, etc.
 
-## Second-Party Use
+## Who Holds It
 
-The **Seller** clips the vehicle tax or registration status from the relevant government portal and includes it in a vehicle listing. This is particularly useful on platforms where buyers filter for road-legal vehicles. A verified current-status saves the buyer a separate lookup and confirms the seller is not misrepresenting a lapsed or off-road vehicle as road-ready.
+The Seller clips the vehicle tax or registration status from the relevant government portal and includes it in a vehicle listing. This is particularly useful on platforms where buyers filter for road-legal vehicles. A verified current-status saves the buyer a separate lookup and confirms the seller is not misrepresenting a lapsed or off-road vehicle as road-ready.
 
 **Note on `allowedDomains`:** Vehicle tax/registration status is a government-public fact already accessible by registration number. Restricting which domains can display it adds little trust value — the fact is the same wherever it appears. For public-state artifacts, freshness and source binding matter more than publisher authorization. The `allowedDomains` field is omitted here.
 
-## Third-Party Use
+## Who Checks It
 
 **Private Buyers**
 A buyer considering a vehicle listed for private sale can confirm tax/registration status before arranging a viewing. An unregistered or off-road-declared vehicle may require trailering or temporary registration before it can be driven — knowing this upfront avoids wasted journeys.
@@ -88,11 +88,11 @@ Where an employer provides a vehicle as a benefit, the employer may need to conf
 **Insurers**
 A vehicle declared off-road or with lapsed registration being driven on public roads is a red flag. Insurers settling claims may use tax/registration status as one signal in fraud detection.
 
-## Verification Architecture
+## How Verification Works Here
 
 **Issuer Type** (First Party)
 
-Each jurisdiction's vehicle registration or taxation authority is the sole issuer for its vehicles. In the UK, **DVLA** publishes VED status via GOV.UK; the addition is publishing a verifiable hash alongside the existing lookup. Other authorities (state DMVs, Zulassungsstellen, prefectural offices, etc.) would follow the same pattern for their own registrations.
+Each jurisdiction's vehicle registration or taxation authority is the sole issuer for its vehicles. In the UK, DVLA publishes VED status via GOV.UK; the addition is publishing a verifiable hash alongside the existing lookup. Other authorities (state DMVs, Zulassungsstellen, prefectural offices, etc.) would follow the same pattern for their own registrations.
 
 **Privacy Salt:** Required. Registration numbers are semi-public (visible on the vehicle), but linking them to tax status in a bulk-enumerable way would enable nuisance queries. The hash must be salted so that an adversary cannot enumerate registrations to build a database of lapsed or off-road vehicles.
 
@@ -112,7 +112,7 @@ Other jurisdictions would follow an equivalent chain rooted in their own governm
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Government Portal Lookup
+## Compared With Government Portal Lookup
 
 | Feature | Live Verify | Government Portal Lookup | Seller's Word |
 | :--- | :--- | :--- | :--- |

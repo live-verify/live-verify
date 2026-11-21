@@ -43,11 +43,21 @@ Under regimes like SM&CR (UK) or FINRA (US), firms must annually attest that sta
   </div>
 </div>
 
-## Data Verified
+## The Problem
 
-**Employee name**, **role/function**, **firm name**, **assessment date**, **certification period**, **competencies confirmed**, **certifying officers**, **next renewal date**.
+- Former employers may refuse to confirm certification status
+- Candidates may claim certifications they never held
+- Firms may backdate revocations after misconduct emerges
 
-## Data Visible After Verification
+**The Fix:** Annual attestation hashed at issuance. Employee receives copy. When moving jobs, candidate can prove: "I was certified for CF30 at Firm X from 2020-2026" — with cryptographic proof the attestation is authentic.
+
+**Revocation visibility:** If certification is revoked mid-year, verification status changes. New employer querying an old attestation sees "Revoked" status — critical for preventing bad actors from moving between firms.
+
+## What Is Checked
+
+**Employee name**, role/function, firm name, assessment date, certification period, competencies confirmed, certifying officers, next renewal date.
+
+## What the Checker Sees
 
 **Status Indications:**
 - **Certified** — Current attestation valid
@@ -58,7 +68,7 @@ Under regimes like SM&CR (UK) or FINRA (US), firms must annually attest that sta
 
 ## Why No Public Registry?
 
-The FCA Register shows Senior Managers (SMF) who require individual FCA approval. But **Certification Function** staff (the much larger population) are certified by firms, not the FCA. There's no public registry of certified staff — only the firm knows who they've certified.
+The FCA Register shows Senior Managers (SMF) who require individual FCA approval. But Certification Function staff (the much larger population) are certified by firms, not the FCA. There's no public registry of certified staff — only the firm knows who they've certified.
 
 When hiring, a new employer must conduct their own fit and proper assessment. Verification of prior attestations helps — but there's currently no standard way to prove someone was certified at their previous firm.
 
@@ -72,24 +82,12 @@ When hiring, a new employer must conduct their own fit and proper assessment. Ve
 
 UK SM&CR is the most developed regime; US has fragmented oversight across FINRA/SEC/state; EU varies by country.
 
-## Third-Party Use
+## Who Checks It
 
 **Recruiting firms** — Verify candidate was certified at prior employer
 **Regulators** — Thematic reviews of certification practices
 **Employment lawyers** — Evidence in wrongful dismissal cases ("you revoked certification without basis")
 **Background check services** — Employment verification with certification status
-
-## Verification Architecture
-
-**The Problem:**
-- Former employers may refuse to confirm certification status
-- Candidates may claim certifications they never held
-- Firms may backdate revocations after misconduct emerges
-
-**The Fix:** Annual attestation hashed at issuance. Employee receives copy. When moving jobs, candidate can prove: "I was certified for CF30 at Firm X from 2020-2026" — with cryptographic proof the attestation is authentic.
-
-**Revocation visibility:** If certification is revoked mid-year, verification status changes. New employer querying an old attestation sees "Revoked" status — critical for preventing bad actors from moving between firms.
-
 
 ## Authority Chain
 

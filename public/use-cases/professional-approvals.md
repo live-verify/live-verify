@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Professional Approval?
 
-Some approvals can only be given by a qualified professional who attaches their name, their credential, and their personal liability to a specific work product. A structural engineer **stamps** a design as fit to build. An architect **approves** drawings for construction. A pharmacist or Qualified Person (QP) **releases** a drug batch for sale. An auditor **signs** a set of accounts. A surveyor **certifies** a building as complete. A radiologist **signs off** a scan report.
+Some approvals can only be given by a qualified professional who attaches their name, their credential, and their personal liability to a specific work product. A structural engineer stamps a design as fit to build. An architect approves drawings for construction. A pharmacist or Qualified Person (QP) releases a drug batch for sale. An auditor signs a set of accounts. A surveyor certifies a building as complete. A radiologist signs off a scan report.
 
 This is distinct from verifying that the person *holds* the credential — that is the [Appraiser](view.html?doc=appraiser-registration-status)/[Doctor](view.html?doc=gmc-doctor-registration-status)-style registration check. A professional approval is the **event**: a named, qualified professional took responsibility for *this deliverable*, on this date, within this scope. The fraud surface is the gap between a real professional's credential and the specific thing being claimed as approved.
 
@@ -64,11 +64,20 @@ In each, a named professional binds their credential and liability to a *specifi
 
 A verifiable approval ties the named professional's approval to the exact deliverable and revision, hosted at the professional's or firm's domain, with a live status that reflects withdrawal immediately.
 
-## Data Verified
+## The Problem
+
+- A professional's stamp/signature carries liability-backed trust, which makes it worth forging
+- Approval is given for a specific revision, but the deliverable can be altered afterwards
+- Recipients cannot tell a current approval from a superseded or withdrawn one
+- A genuine credential can be borrowed for work the professional never approved
+
+**The Fix:** The professional or firm issues a verifiable approval record at its domain, binding the named professional, the deliverable, and its exact revision. Recipients clip and verify before relying on or building from the approval.
+
+## What Is Checked
 
 Professional's name and credential/licence, firm, the specific deliverable and its revision/identifier, the scope of what is approved (and excluded), the applicable code or standard, the date, any superseded revision, and a statement of the professional's certification.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `vasquez-eng.com`) and the current status of the approval.
 
@@ -88,15 +97,15 @@ Shows the issuer domain (e.g., `vasquez-eng.com`) and the current status of the 
 - **Conditional** — Approved subject to stated conditions; the response includes a summary.
 - **404** — No such approval exists (never issued, stamp lifted onto unapproved work, or OCR error).
 
-## Second-Party Use
+## Who Holds It
 
-The **professional or firm** benefits.
+The professional or firm benefits.
 
 **Liability protection:** A verifiable approval that binds the exact revision proves precisely what the professional did and did not approve. When a stamp is lifted onto an altered drawing, the verification fails — protecting the professional from liability for work they never sanctioned. This mirrors the appraiser's defence: a verified record of *what they actually certified* is the strongest answer to "you approved this."
 
 **Reputation:** A professional whose approvals are independently verifiable signals that their sign-offs cannot be quietly altered after the fact.
 
-## Third-Party Use
+## Who Checks It
 
 **Building Officials and Regulators**
 
@@ -114,15 +123,7 @@ The **professional or firm** benefits.
 
 **Reliance on opinions:** A lender relying on signed accounts, or an insurer underwriting a completed building, verifies the professional sign-off is genuine, current, and not withdrawn.
 
-## Verification Architecture
-
-**The Problem:**
-- A professional's stamp/signature carries liability-backed trust, which makes it worth forging
-- Approval is given for a specific revision, but the deliverable can be altered afterwards
-- Recipients cannot tell a current approval from a superseded or withdrawn one
-- A genuine credential can be borrowed for work the professional never approved
-
-**The Fix:** The professional or firm issues a verifiable approval record at its domain, binding the named professional, the deliverable, and its exact revision. Recipients clip and verify before relying on or building from the approval.
+## How Verification Works Here
 
 **The reliance flow:**
 1. The professional approves a specific deliverable at a specific revision

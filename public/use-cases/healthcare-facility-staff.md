@@ -15,7 +15,7 @@ furtherDerivations: 3
 
 In a hospital or clinic, staff members at all levels—from nurse aides and dietary workers to registered nurses and physicians—must prove their authorization and current credentials.
 
-The **Healthcare Staff ID Badge** serves two purposes:
+The Healthcare Staff ID Badge serves two purposes:
 
 1. **Personal Verification** (for patient-facing support staff): A nurse aide, dietary staff member, or housekeeping worker might enter your room to provide service. As a patient—especially one who is medicated, recovering, or alone—you are uniquely vulnerable. E-Ink badges allow you to verify the person is an active, authorized employee before allowing entry to a private room.
 
@@ -79,7 +79,22 @@ The **Healthcare Staff ID Badge** serves two purposes:
 
 *The server rotates the salt — after each successful scan (burn-on-verify) or on TTL expiry of an unscanned salt — and the badge re-renders to match. The screen is always in lockstep with the salt the server will honour, so a photograph is worthless unless verified in the moment. See [E-Ink ID Cards](../e-ink-id-cards.md) for how this prevents cloning, tracking, and protects staff from hostile patients.*
 
-## Data Verified
+## The Problem: Imposter in Scrubs Fraud
+
+*Support Staff Level:*
+- **Theft of Controlled Substances:** Impostors in healthcare apparel access medication rooms or patient medications, particularly in overnight shifts when supervision is lower
+- **Patient Assault & Exploitation:** Impostors gain private access to vulnerable, isolated, or medicated patients
+- **Data Theft:** Impostors access medical records, steal social security numbers, or trigger medical identity theft
+- **Credential Spoofing:** Terminated employees retain physical badges; contractors posing as agency staff; fake credentials from online vendors
+
+*Clinical/Doctor Level:*
+- **Unlicensed Practice:** Someone posing as a physician or PA treating patients without a license or with an expired/suspended license
+- **Medication Ordering Fraud:** An impostor with hospital system access orders medications for patients they're not assigned to, enabling theft or harm
+- **Privilege Escalation:** A visiting physician or limited-privilege provider accessing restricted areas or patient populations they're not credentialed for
+- **Credential Fraud:** Fake degrees, forged licenses, or misrepresented specialties (e.g., claiming to be a cardiologist when licensed only in internal medicine)
+- **Locum Impersonation:** Fake locum physicians temporarily assuming identities of visiting providers
+
+## What Is Checked
 
 **For all staff:**
 Staff name, photo (hash), employee ID, job role (e.g., RN, LPN, Nurse Aide, Dietary Technician, Housekeeping, MD, DO), department/unit affiliation, shift status (On-Duty/Off-Duty), credentials clearance (background check date hash), infection control clearance, and access level (units they're authorized to work in).
@@ -94,7 +109,7 @@ Additionally: License type, license number, license issue date, license expirati
 - **Physician/Provider Credential Card:** MD, DO, NP, PA badges with embedded license verification.
 - **State License Verification:** RN, LPN, or specialty licenses (cardiac care, OR certification, etc.) verified against state licensing boards.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuing facility domain (e.g., `mayo-clinic.org`, `uchealth.org`) and current status.
 
@@ -103,12 +118,12 @@ Shows the issuing facility domain (e.g., `mayo-clinic.org`, `uchealth.org`) and 
 *Employment status:*
 - **On-Duty** — Staff member is currently working and authorized to access patient care areas.
 - **Off-Duty** — Shift ended; staff should not be in patient corridors.
-- **Terminated** — **ALERT:** Employee no longer works here; badge access revoked.
+- **Terminated** — Employee no longer works here; badge access revoked.
 
 *Clinical/License status:*
 - **License Active** — Physician/provider holds current, unencumbered license; eligible to practice.
-- **License Suspended** — **ALERT:** License holder suspended due to malpractice, disciplinary action, or investigation.
-- **License Expired** — **ALERT:** License has lapsed; provider cannot legally practice without renewal.
+- **License Suspended** — License holder suspended due to malpractice, disciplinary action, or investigation.
+- **License Expired** — License has lapsed; provider cannot legally practice without renewal.
 - **Credentialed** — Provider credentialed by hospital; eligible to admit patients, order medications, access restricted systems.
 - **Not Credentialed** — Provider lacks hospital credentialing; cannot have independent patient access (e.g., visiting consultant, visiting physician).
 
@@ -116,9 +131,9 @@ Shows the issuing facility domain (e.g., `mayo-clinic.org`, `uchealth.org`) and 
 - **Authorized Today** — Access approved for this role and area on this date.
 - **Access Suspended** — Access revoked due to safety investigation, behavior concern, or disciplinary action.
 
-## Second-Party Use
+## Who Holds It
 
-The **Healthcare Staff Member** benefits from verification.
+The Healthcare Staff Member benefits from verification.
 
 **Patient Trust & Safety:** Verification reduces tension when entering patient rooms, particularly for male staff members or those of different backgrounds entering vulnerable patients' rooms. Real-time verification prevents "panic alarms" and aggressive confrontations.
 
@@ -126,7 +141,7 @@ The **Healthcare Staff Member** benefits from verification.
 
 **Professional Credibility:** In settings where staffing may be unfamiliar (temporary assignments, agency placements), verification demonstrates legitimacy.
 
-## Third-Party Use
+## Who Checks It
 
 **Patients & Family Members**
 
@@ -176,22 +191,7 @@ The **Healthcare Staff Member** benefits from verification.
 
 **Infection Control:** Confirming that staff in contact with high-risk patients (immunocompromised, isolation protocols) are cleared for that role and their vaccinations are current (if embedded in badge).
 
-## Verification Architecture
-
-**The "Imposter in Scrubs" Fraud Problem**
-
-*Support Staff Level:*
-- **Theft of Controlled Substances:** Impostors in healthcare apparel access medication rooms or patient medications, particularly in overnight shifts when supervision is lower
-- **Patient Assault & Exploitation:** Impostors gain private access to vulnerable, isolated, or medicated patients
-- **Data Theft:** Impostors access medical records, steal social security numbers, or trigger medical identity theft
-- **Credential Spoofing:** Terminated employees retain physical badges; contractors posing as agency staff; fake credentials from online vendors
-
-*Clinical/Doctor Level:*
-- **Unlicensed Practice:** Someone posing as a physician or PA treating patients without a license or with an expired/suspended license
-- **Medication Ordering Fraud:** An impostor with hospital system access orders medications for patients they're not assigned to, enabling theft or harm
-- **Privilege Escalation:** A visiting physician or limited-privilege provider accessing restricted areas or patient populations they're not credentialed for
-- **Credential Fraud:** Fake degrees, forged licenses, or misrepresented specialties (e.g., claiming to be a cardiologist when licensed only in internal medicine)
-- **Locum Impersonation:** Fake locum physicians temporarily assuming identities of visiting providers
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -222,7 +222,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the facility's or state board's hashes and status changes plus structured metadata (staff names, employee IDs, roles, department affiliations, shift status, clearance dates, license types, license numbers, license expiration dates, license statuses) — never patient names or medical unit assignments — providing non-repudiation of the credential and an audit trail CQC and state medical boards can inspect.
 
-## Competition vs. Uniforms / Caller Systems
+## Compared With Uniforms / Caller Systems
 
 | Feature | Live Verify | Uniform & Badge | Calling Nurse Station | Patient Recognition | Manual License Lookup |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -233,7 +233,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Verifies License Status** | **Yes.** Shows if active, suspended, or expired. | **No.** Badge is silent on license status. | **Maybe.** Staff may confirm verbally but unverified. | **No.** Patient can't see license status. | **Yes but manual.** Patient can lookup but time-consuming. |
 | **Works When Patient is Alone** | **Yes.** Patient can verify without involving others. | **No.** Patient must judge visually. | **No.** Patient must call or use button; risky during medical procedures. | **No.** Patient must recognize person. | **No.** Requires internet access, privacy to lookup. |
 
-**Why this remains strong:** Healthcare has **two critical complementary workflows** where the badge or displayed credential is the surface the patient encounters, even though facility systems and state license registries remain primary in the background:
+**Why this remains strong:** Healthcare has two critical complementary workflows where the badge or displayed credential is the surface the patient encounters, even though facility systems and state license registries remain primary in the background:
 
 1. **"Private Room Workflow"** (support staff): A patient cannot easily reach a phone, call a nurse station, or safely leave their room to verify a stranger's identity. Live Verify gives patients a non-invasive way to verify support staff at the moment of entry—from bed, through a doorway camera, or by viewing the badge through a partially open door.
 
@@ -346,7 +346,7 @@ Badge ID: [anonymized sequence]
 - Credential verification doesn't enable doxing via license number lookup
 - Protection against hostile patients weaponizing badge information
 
-This approach separates **verification** (role/credential/status) from **identification** (who the person is), allowing both functions without creating privacy/safety risks for healthcare workers.
+This approach separates verification (role/credential/status) from identification (who the person is), allowing both functions without creating privacy/safety risks for healthcare workers.
 
 ---
 
@@ -366,7 +366,7 @@ This approach separates **verification** (role/credential/status) from **identif
 
 ## Further Derivations
 
-This use case is part of the **Mobile Service Staff in Ungated Facilities** pattern. Related scenarios include:
+This use case is part of the Mobile Service Staff in Ungated Facilities pattern. Related scenarios include:
 
 - [Police Officer Verification](view.html?doc=police-officer-verification) — Citizens verify authority during encounters.
 - [Mobile Service Staff (Hotels)](view.html?doc=hotel-staff-verification) — Guests verify staff at their door.

@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is Trainer Verification?
 
-When you hire a **Personal Trainer** or **Yoga Instructor**, you are often alone with them in a private gym, a park, or your own home. You are trusting them with your physical safety and, in some cases, your personal security.
+When you hire a Personal Trainer or Yoga Instructor, you are often alone with them in a private gym, a park, or your own home. You are trusting them with your physical safety and, in some cases, your personal security.
 
 The problem is that "Fitness Certification" is an unregulated industry in many regions. Anyone can print a realistic-looking "Certified Trainer" certificate at home. Even legitimate trainers may have had their certifications revoked for safety violations or failed their background checks.
 
@@ -43,7 +43,13 @@ Live Verify allows a client to scan the trainer's digital badge or physical ID t
   </div>
 </div>
 
-## Data Verified
+## The Problem: Weekend Workshop Fraud
+
+- **Certificate Forgery:** People buying fake "NASM Certificates" online to bypass hiring requirements.
+- **Status Masking:** Continuing to use a "Certified" label after a license was revoked for unprofessional conduct.
+- **Insurance Ghosting:** Presenting a 2-year-old COI as if it were currently active.
+
+## What Is Checked
 
 Trainer name, certification ID number, credential type (CPT, Nutrition, etc.), expiration date, issuing body (NASM, ACE, ISSA), liability insurance status, background check timestamp, CPR/AED certification status.
 
@@ -53,25 +59,25 @@ Trainer name, certification ID number, credential type (CPT, Nutrition, etc.), e
 - **Certificate of Insurance (COI):** (Linked hash) proving coverage for injury claims.
 - **Background Check Result:** Proof of vetting for home visits.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`nasm.org`, `acefitness.org`, `equinox.com`) and the professional status.
 
 **Status Indications:**
 - **Active / Certified** — Trainer is in good standing and meet all requirements.
-- **Suspended** — **ALERT:** Credentials temporarily revoked (e.g., due to reported injury incident).
+- **Suspended** — Credentials temporarily revoked (e.g., due to reported injury incident).
 - **Expired** — Mandatory re-certification or insurance renewal is overdue.
-- **Background Flag** — **CRITICAL:** Background check has expired or a new issue was reported.
+- **Background Flag** — Background check has expired or a new issue was reported.
 
-## Second-Party Use
+## Who Holds It
 
-The **Client / Gym Member** benefits from verification.
+The Client / Gym Member benefits from verification.
 
-**One-on-One Safety:** Before allowing a new trainer into their home, a client scans the digital badge. If it returns **"ACTIVE - BACKGROUND CHECK CLEAR,"** they can proceed with the session. If it returns **"EXPIRED,"** they avoid the risk of hiring an un-vetted stranger.
+**One-on-One Safety:** Before allowing a new trainer into their home, a client scans the digital badge. If it returns "ACTIVE - BACKGROUND CHECK CLEAR," they can proceed with the session. If it returns "EXPIRED," they avoid the risk of hiring an un-vetted stranger.
 
 **Insurance Claims:** If a client is injured during a session, they can use the verified hash of the trainer's "Verified Status" to prove they did their due diligence in hiring a certified professional when filing a claim with their own insurer.
 
-## Third-Party Use
+## Who Checks It
 
 **Luxury Gyms / Health Clubs**
 **Sub-contractor Vetting:** High-end gyms (e.g., Equinox) allow independent trainers to bring clients to their facilities. Live Verify allows the gym's front desk to instantly verify that every guest trainer is currently certified and insured, protecting the gym from liability.
@@ -82,13 +88,7 @@ The **Client / Gym Member** benefits from verification.
 **Insurance Underwriters**
 **Risk Pricing:** Insurers providing professional liability to trainers can offer lower rates to those who maintain a 100% "Verified Active" status on their profiles.
 
-## Verification Architecture
-
-**The "Weekend Workshop" Fraud Problem**
-
-- **Certificate Forgery:** People buying fake "NASM Certificates" online to bypass hiring requirements.
-- **Status Masking:** Continuing to use a "Certified" label after a license was revoked for unprofessional conduct.
-- **Insurance Ghosting:** Presenting a 2-year-old COI as if it were currently active.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

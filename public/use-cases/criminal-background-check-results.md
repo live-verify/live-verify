@@ -15,7 +15,7 @@ A criminal background check result is an official report from a law enforcement 
 
 Background check fraud is extensive: fake "no record found" letters, altered results hiding convictions, and fraudulent clearance documents from non-existent agencies.
 
-In the UK, the **Disclosure and Barring Service (DBS)** operates a tiered system — Basic, Standard, and Enhanced — each revealing progressively more information. An Enhanced DBS with barred list checks is mandatory for anyone working with children or vulnerable adults. DBS certificates are paper documents posted to the applicant. The **DBS Update Service** (£13/year) lets employers do a status check online, but subscription is voluntary and uptake is patchy. Most DBS certificates are point-in-time paper snapshots that could be months or years old by the time they're presented to a new employer. The verification gap: a school receives a DBS certificate from a teaching candidate — is it genuine, is it current, has the person been convicted of something since it was issued?
+In the UK, the Disclosure and Barring Service (DBS) operates a tiered system — Basic, Standard, and Enhanced — each revealing progressively more information. An Enhanced DBS with barred list checks is mandatory for anyone working with children or vulnerable adults. DBS certificates are paper documents posted to the applicant. The DBS Update Service (£13/year) lets employers do a status check online, but subscription is voluntary and uptake is patchy. Most DBS certificates are point-in-time paper snapshots that could be months or years old by the time they're presented to a new employer. The verification gap: a school receives a DBS certificate from a teaching candidate — is it genuine, is it current, has the person been convicted of something since it was issued?
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
   <span verifiable-text="start" data-for="fbi"></span>FBI IDENTITY HISTORY SUMMARY<br>
@@ -103,7 +103,17 @@ In the UK, the **Disclosure and Barring Service (DBS)** operates a tiered system
   <span data-verify-line="dbs-basic">verify:gov.uk/dbs/v</span> <span verifiable-text="end" data-for="dbs-basic"></span>
 </div>
 
-## Data Verified
+## The Problem: Background Check Fraud
+
+- **Fake Clearances:** Entirely fabricated "no record" letters from real or fake agencies.
+- **Altered Results:** Genuine results modified to hide convictions.
+- **Expired Results:** Old clearances presented as current.
+- **Jurisdiction Gaps:** Results from limited searches presented as comprehensive.
+- **DBS Certificate Forgery (UK):** DBS certificates have no security features beyond a crown watermark and a unique certificate number. Templates circulate online. A forged Enhanced DBS certificate showing "NOT BARRED" could allow a barred person to work with children — the most dangerous background check fraud scenario.
+- **Stale DBS Certificates (UK):** A DBS certificate is a point-in-time snapshot. A person convicted of a safeguarding offence six months after their last DBS check still holds a "clean" certificate. Without the Update Service (which most people don't subscribe to), there's no mechanism to flag that the certificate is out of date. Employers are supposed to recheck periodically but many don't — especially in sectors with high turnover like care homes and agency staff.
+- **Certificate Number Borrowing (UK):** A barred individual obtains a clean person's DBS certificate number and forges a certificate with their own name but the clean person's certificate number. If the employer checks the Update Service with that number, they get "no change" — because the *clean person's* certificate hasn't changed. The Update Service can't detect that the certificate was issued to a different person. Verification against the issuer's domain, which binds the hash to the *content* (including the name), would catch this.
+
+## What Is Checked
 
 Issuing agency, request/reference number, subject name, date of birth (or other identifiers), search scope, result (no record/records found), search date, validity period. For UK DBS: certificate number, disclosure level (Basic/Standard/Enhanced), barred list check results (if Enhanced), position applied for, registered body (employer/organisation that requested the check), DBS Update Service registration status.
 
@@ -117,7 +127,7 @@ Issuing agency, request/reference number, subject name, date of birth (or other 
 - **DBS Standard Certificate (UK):** Shows spent and unspent convictions, cautions, reprimands, and warnings. Required for certain regulated roles (e.g., legal, accountancy).
 - **DBS Enhanced Certificate (UK):** Standard plus police intelligence deemed relevant. May include barred list checks (Children, Adults, or both). Mandatory for anyone working with children or vulnerable adults. The safeguarding certificate.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`fbi.gov`, `dps.texas.gov`, `acro.police.uk`) and check status.
 
@@ -127,12 +137,12 @@ Shows the issuer domain (`fbi.gov`, `dps.texas.gov`, `acro.police.uk`) and check
 - **Pending** — Search in progress or awaiting fingerprint processing.
 - **Expired** — Validity period has passed, new check required.
 - **Superseded** — Newer check has been issued.
-- **Changed (DBS Update Service)** — **ALERT:** New information has been added since the certificate was issued. The employer must request a new DBS check.
+- **Changed (DBS Update Service)** — New information has been added since the certificate was issued. The employer must request a new DBS check.
 - **Barred** — **CRITICAL (DBS Enhanced only):** Individual has been added to a barred list since the certificate was issued.
 
-## Second-Party Use
+## Who Holds It
 
-The **Subject** benefits from verification.
+The Subject benefits from verification.
 
 **Employment Applications:** Job applicants provide background checks to employers. Verified results prove authenticity and prevent employers from questioning document legitimacy.
 
@@ -144,7 +154,7 @@ The **Subject** benefits from verification.
 
 **DBS Portability (UK):** A teaching assistant moves from one school to another. Currently, the new school must request a fresh DBS check — costing £38-44 and taking 2-8 weeks — because they can't verify the existing certificate is genuine and current. With the DBS Update Service *and* a verified certificate, the new school scans the certificate, confirms it's authentic, checks the Update Service status ("no change since issue"), and the candidate starts work immediately. Without verification, even Update Service subscribers face the problem of a paper certificate that could be forged — the Update Service confirms the *certificate number* is unchanged, but a forged certificate with a real person's certificate number would pass that check.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers / HR Departments**
 **Hiring Decisions:** Employers receiving background check results from applicants can verify authenticity before extending offers.
@@ -167,17 +177,7 @@ The **Subject** benefits from verification.
 **Ofsted / CQC (UK Regulators)**
 **Inspection Compliance:** During Ofsted inspections of schools and nurseries, or CQC inspections of care homes, inspectors check that every member of staff has a current DBS certificate. Verified certificates with a live status check against `gov.uk/dbs` would let inspectors confirm compliance in minutes rather than manually reviewing paper certificates in a filing cabinet.
 
-## Verification Architecture
-
-**The Background Check Fraud Problem**
-
-- **Fake Clearances:** Entirely fabricated "no record" letters from real or fake agencies.
-- **Altered Results:** Genuine results modified to hide convictions.
-- **Expired Results:** Old clearances presented as current.
-- **Jurisdiction Gaps:** Results from limited searches presented as comprehensive.
-- **DBS Certificate Forgery (UK):** DBS certificates have no security features beyond a crown watermark and a unique certificate number. Templates circulate online. A forged Enhanced DBS certificate showing "NOT BARRED" could allow a barred person to work with children — the most dangerous background check fraud scenario.
-- **Stale DBS Certificates (UK):** A DBS certificate is a point-in-time snapshot. A person convicted of a safeguarding offence six months after their last DBS check still holds a "clean" certificate. Without the Update Service (which most people don't subscribe to), there's no mechanism to flag that the certificate is out of date. Employers are supposed to recheck periodically but many don't — especially in sectors with high turnover like care homes and agency staff.
-- **Certificate Number Borrowing (UK):** A barred individual obtains a clean person's DBS certificate number and forges a certificate with their own name but the clean person's certificate number. If the employer checks the Update Service with that number, they get "no change" — because the *clean person's* certificate hasn't changed. The Update Service can't detect that the certificate was issued to a different person. Verification against the issuer's domain, which binds the hash to the *content* (including the name), would catch this.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

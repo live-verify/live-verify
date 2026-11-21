@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are UST Compliance Certificates?
 
-An **Underground Storage Tank (UST)** certificate is the "Environmental Passport" for a gas station or industrial site. These tanks hold thousands of gallons of toxic fuel or chemicals. If they leak, they can contaminate local groundwater and cost millions in cleanup fees. State and federal law (EPA 40 CFR 280) requires regular, certified inspections of leak detection systems and corrosion protection.
+An Underground Storage Tank (UST) certificate is the "Environmental Passport" for a gas station or industrial site. These tanks hold thousands of gallons of toxic fuel or chemicals. If they leak, they can contaminate local groundwater and cost millions in cleanup fees. State and federal law (EPA 40 CFR 280) requires regular, certified inspections of leak detection systems and corrosion protection.
 
-These documents are high-stakes environmental proofs. Fraud is common: owners often "edit" a failed leak test into a "PASS" to avoid the $50,000 cost of a tank replacement. Similarly, shady inspectors might "pencil whip" a report for a site they never visited. Verified hashes bind the **Facility ID, Tank Serial Numbers, and Leak Test Results** to the state's or the inspector's domain (e.g., `epa.gov` or `state-environment.gov`).
+These documents are high-stakes environmental proofs. Fraud is common: owners often "edit" a failed leak test into a "PASS" to avoid the $50,000 cost of a tank replacement. Similarly, shady inspectors might "pencil whip" a report for a site they never visited. Verified hashes bind the Facility ID, Tank Serial Numbers, and Leak Test Results to the state's or the inspector's domain (e.g., `epa.gov` or `state-environment.gov`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ust"></span>ENVIRONMENTAL PROTECTION AGENCY
@@ -41,7 +41,13 @@ Cathodic Protection:                               ACTIVE / TESTED
 <span data-verify-line="ust">verify:epa.gov/ust/v</span> <span verifiable-text="end" data-for="ust"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Phantom Pass Fraud
+
+- **Leak Masking:** Editing an "Inconclusive" or "Fail" test result to read "PASS" on a PDF report.
+- **Date Stretching:** Using an expired 2024 certificate for a 2026 inspection cycle.
+- **Inspector Impersonation:** Creating fake reports from an inspector who was never at the site.
+
+## What Is Checked
 
 EPA Facility ID, owner/operator name, facility address, tank counts and IDs, tank capacity/contents, leak detection method (e.g., SIR, ATG), test results (pass/fail/inconclusive), cathodic protection status, inspector name/license, expiration date.
 
@@ -51,42 +57,36 @@ EPA Facility ID, owner/operator name, facility address, tank counts and IDs, tan
 - **Release Response Plan:** (Linked hash) proving spill preparedness.
 - **Closure Certificate:** Proof a tank was safely decommissioned.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`epa.gov`, `state-ust-registry.org`, `ecy.wa.gov`) and the tank standing.
 
 **Status Indications:**
 - **Compliant / Pass** — Facility is in full environmental compliance.
-- **Failure Detected** — **CRITICAL:** A leak or system failure has been recorded.
+- **Failure Detected** — A leak or system failure has been recorded.
 - **Expired** — Mandatory inspection window has passed; facility is illegal.
-- **Quarantined** — **ALERT:** Active investigation into potential groundwater contamination.
+- **Quarantined** — Active investigation into potential groundwater contamination.
 
-## Second-Party Use
+## Who Holds It
 
-The **Gas Station Owner / Operator** benefits from verification.
+The Gas Station Owner / Operator benefits from verification.
 
 **Lease Renewal:** Proving to a property owner or a master-franchisor (e.g., Shell, BP) that the site is environmentally safe. A verified hash removes the risk of "Environmental Default" on the lease, protecting the operator's business.
 
 **Mortgage Refinancing:** When refinancing a gas station property, the bank's underwriter scans the verified UST certificate. "Verified by EPA" ensures the bank that they aren't lending against a "Superfund Site" liability.
 
-## Third-Party Use
+## Who Checks It
 
 **Environmental Inspectors / Field Agents**
 **Surprise Audit:** Instead of digging through a binder of un-ordered papers, the agent scans the placard in the office. Live Verify ensures the papers in the file match the digital record, stopping "Log Doctoring" where owners hide failed test results.
 
 **Environmental Insurers**
-**Claims Adjudication:** If a leak is discovered, the insurer verifies the history of verified certificates. If the hash returns **"EXPIRED"** or **"NOT FOUND"** for the last 3 cycles, the insurer may deny the claim for failure to maintain safety equipment.
+**Claims Adjudication:** If a leak is discovered, the insurer verifies the history of verified certificates. If the hash returns "EXPIRED" or "NOT FOUND" for the last 3 cycles, the insurer may deny the claim for failure to maintain safety equipment.
 
 **Prospective Buyers**
 **Due Diligence:** A buyer can scan the verified compliance history of a gas station before signing a contract, protecting them from a multi-million dollar "Legacy Leak" cleanup.
 
-## Verification Architecture
-
-**The "Phantom Pass" Fraud Problem**
-
-- **Leak Masking:** Editing an "Inconclusive" or "Fail" test result to read "PASS" on a PDF report.
-- **Date Stretching:** Using an expired 2024 certificate for a 2026 inspection cycle.
-- **Inspector Impersonation:** Creating fake reports from an inspector who was never at the site.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

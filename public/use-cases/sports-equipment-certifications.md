@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Equipment Safety Certifications?
 
-In high-impact sports (Football, Hockey, Motorsports), safety equipment—specifically **Helmets**—is the primary defense against traumatic brain injury. Every helmet must meet rigorous safety standards (e.g., **NOCSAE** or **HECC**) and carry an official certification label.
+In high-impact sports (Football, Hockey, Motorsports), safety equipment—specifically Helmets—is the primary defense against traumatic brain injury. Every helmet must meet rigorous safety standards (e.g., NOCSAE or HECC) and carry an official certification label.
 
-These labels are the "Seal of Survival." Fraud is common in the "Budget Market": manufacturers in unregulated countries create fake "NOCSAE Approved" stickers for low-quality helmets that fail under real-world impact. Similarly, reconditioning firms might "pencil whip" a safety check on a 10-year-old helmet to avoid the cost of disposal. Verified hashes bind the **Manufacturer, Serial Number, and Safety Test Date** to the standards body's or the manufacturer's domain (e.g., `nocsae.org` or `riddell.com`).
+These labels are the "Seal of Survival." Fraud is common in the "Budget Market": manufacturers in unregulated countries create fake "NOCSAE Approved" stickers for low-quality helmets that fail under real-world impact. Similarly, reconditioning firms might "pencil whip" a safety check on a 10-year-old helmet to avoid the cost of disposal. Verified hashes bind the Manufacturer, Serial Number, and Safety Test Date to the standards body's or the manufacturer's domain (e.g., `nocsae.org` or `riddell.com`).
 
 <div style="max-width: 450px; margin: 24px auto; font-family: 'Helvetica Neue', Arial, sans-serif; border: 2px solid #333; border-radius: 8px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #000; color: #fff; padding: 15px; text-align: center; border-bottom: 2px solid #d32f2f;">
@@ -47,7 +47,13 @@ These labels are the "Seal of Survival." Fraud is common in the "Budget Market":
   </div>
 </div>
 
-## Data Verified
+## The Problem: Ghost Shield Fraud
+
+- **Logo Piracy:** Counterfeit manufacturers printing realistic "NOCSAE" logos on non-tested helmets.
+- **Date Inflation:** Editing a 2020 reconditioning date to "2026" to keep a worn-out helmet in the game.
+- **Serial Masking:** Using one valid serial number from a "Good" helmet to create 1,000 "Verified" labels for 1,000 bad helmets (verification reveals the "Duplicate Registration" alert).
+
+## What Is Checked
 
 Manufacturer name, model number, unique serial number (shell ID), safety standard ID, certification body (SEI/NOCSAE), test date, expiration of certification, reconditioning history (linked hash), impact-test result hash.
 
@@ -57,42 +63,36 @@ Manufacturer name, model number, unique serial number (shell ID), safety standar
 - **Reconditioning Report:** Proof the helmet was tested after a season.
 - **Recall Notice:** (Linked hash) marking a specific serial range as unsafe.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`nocsae.org`, `riddell.com`, `bauer.com`) and the safety standing.
 
 **Status Indications:**
 - **Certified / Safe** — Product meets current safety standards.
-- **Recalled** — **CRITICAL:** The product has a known safety defect; do not use.
-- **Retired** — **ALERT:** Helmet has reached the end of its legal life (usually 10 years).
+- **Recalled** — The product has a known safety defect; do not use.
+- **Retired** — Helmet has reached the end of its legal life (usually 10 years).
 - **Unknown** — Hash not found; high risk of "Counterfeit Safety" fraud.
 
-## Second-Party Use
+## Who Holds It
 
-The **Athlete / Parent** benefits from verification.
+The Athlete / Parent benefits from verification.
 
-**Peace of Mind:** A parent buying a used helmet for their child can scan the internal label. If it returns **"RECALLED - SHELL CRACK RISK,"** they can destroy the helmet and prevent a potential injury.
+**Peace of Mind:** A parent buying a used helmet for their child can scan the internal label. If it returns "RECALLED - SHELL CRACK RISK," they can destroy the helmet and prevent a potential injury.
 
 **League Registration:** Before the first practice, a player can scan their gear. "Verified by NOCSAE" ensures the coach that the player's equipment is legally compliant, protecting the athlete from being "Benched" during a safety audit.
 
-## Third-Party Use
+## Who Checks It
 
 **League Officials / Referees**
 **Pre-Game Audit:** Instead of manually checking 100 helmets for tiny date-codes, an official can scan the hashes of a team's roster. Verified hashes eliminate the risk of "Illegal Gear" on the field, which is a major liability for the league.
 
 **Insurance Companies**
-**Liability Defense:** If a player is injured, the league's insurer verifies the equipment hashes. If the hash returns **"EXPIRED"** or **"NOT FOUND,"** the league may be held liable for allowing un-certified gear on the field.
+**Liability Defense:** If a player is injured, the league's insurer verifies the equipment hashes. If the hash returns "EXPIRED" or "NOT FOUND," the league may be held liable for allowing un-certified gear on the field.
 
 **Reconditioning Facilities**
 **Chain of Custody:** Verifying that a helmet arriving for repair is actually the "Genuine Original" and not a generic shell with a high-end manufacturer's logo.
 
-## Verification Architecture
-
-**The "Ghost Shield" Fraud Problem**
-
-- **Logo Piracy:** Counterfeit manufacturers printing realistic "NOCSAE" logos on non-tested helmets.
-- **Date Inflation:** Editing a 2020 reconditioning date to "2026" to keep a worn-out helmet in the game.
-- **Serial Masking:** Using one valid serial number from a "Good" helmet to create 1,000 "Verified" labels for 1,000 bad helmets (verification reveals the "Duplicate Registration" alert).
+## Who Issues It
 
 **Issuer Types** (First Party)
 

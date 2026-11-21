@@ -42,7 +42,14 @@ Insurance:       STATE FARM — Policy #SF-229-884-771
 
 Several US states (Utah, Louisiana, Colorado) already issue digital vehicle registration accessible via mobile apps. A QR code on the digital card — or printed on the windshield sticker — is a natural fit for Live Verify's camera mode: point, scan, confirmed.
 
-## Data Verified
+## The Problem: Registration Fraud
+
+- **Plate Cloning:** Copying a legitimate plate number onto a stolen or unregistered vehicle. The clone passes visual inspection (correct state, current sticker) but the VIN doesn't match the plate's registered vehicle. Live Verify returns the registered VIN — if it doesn't match the vehicle in front of you, the plates are cloned.
+- **Sticker Theft / Forgery:** Peeling the registration sticker off a legitimately registered vehicle and putting it on an unregistered one. Or printing fake stickers. Common in states that use year/month sticker systems.
+- **Insurance Lapse Concealment:** Registering a vehicle with valid insurance, then immediately cancelling the policy. The registration card still shows "insured" but the DMV record (with insurance company reporting) shows the lapse. Live Verify returns real-time insurance status.
+- **Temp Tag Abuse:** Temporary paper plates (issued at dealers for newly purchased vehicles) are massively abused. Some states have reported hundreds of vehicles driving on the same temp tag number. Paper temps are trivially forged. A verifiable temp registration bound to the dealer's domain eliminates this.
+
+## What Is Checked
 
 Plate number, VIN, year/make/model, colour, registered owner name and address, registration expiration date, insurance status (insured/lapsed/uninsured), registration status (active/suspended/revoked), any holds or flags (stolen, impounded, emissions non-compliance).
 
@@ -57,14 +64,14 @@ Plate number, VIN, year/make/model, colour, registered owner name and address, r
 - **ACTIVE** — Registration is current, insurance verified, vehicle is legal to operate.
 - **EXPIRED** — Registration has lapsed. Vehicle cannot legally be driven on public roads.
 - **SUSPENDED** — Registration suspended (common reasons: lapsed insurance, unpaid tolls/tickets, failed emissions).
-- **STOLEN** — Vehicle or plates reported stolen. **Critical safety response.**
+- **STOLEN** — Vehicle or plates reported stolen. Critical safety response.
 - **IMPOUNDED** — Vehicle is currently impounded by law enforcement.
 - **EMISSIONS_FAIL** — Vehicle failed emissions inspection; registration renewal blocked until resolved.
 - **404** — No matching record. Possible forgery, wrong state, or OCR error.
 
-## Second-Party Use
+## Who Holds It
 
-The **Vehicle Owner** (second party) benefits from verification:
+The Vehicle Owner (second party) benefits from verification:
 
 **Traffic Stops:** Instead of the officer walking back to the cruiser for five minutes, they scan the QR code and get immediate confirmation. Faster for the officer, less anxiety for the driver. In states with digital registration, the phone screen *is* the registration — no fumbling through the glove box.
 
@@ -74,7 +81,7 @@ The **Vehicle Owner** (second party) benefits from verification:
 
 **Private Vehicle Sales:** Showing a buyer that the vehicle is currently registered, insured, and has no holds — before they commit to the purchase.
 
-## Third-Party Use
+## Who Checks It
 
 **Police Officers (Roadside)**
 Official law-enforcement systems should remain primary. Live Verify is more credible as a fallback for lower-capability contexts where the officer or verifier is working from the visible registration artifact and cannot easily reach the usual system.
@@ -94,14 +101,7 @@ Before buying a car, confirming the registration is current, the seller is the r
 **Fleet Managers**
 Monitoring registration status across hundreds of vehicles. A single expired registration in a commercial fleet can result in an out-of-service order for the vehicle and fines for the company. Automated verification of QR codes on fleet registration cards catches lapses before enforcement does.
 
-## Verification Architecture
-
-**The Registration Fraud Problem**
-
-- **Plate Cloning:** Copying a legitimate plate number onto a stolen or unregistered vehicle. The clone passes visual inspection (correct state, current sticker) but the VIN doesn't match the plate's registered vehicle. Live Verify returns the registered VIN — if it doesn't match the vehicle in front of you, the plates are cloned.
-- **Sticker Theft / Forgery:** Peeling the registration sticker off a legitimately registered vehicle and putting it on an unregistered one. Or printing fake stickers. Common in states that use year/month sticker systems.
-- **Insurance Lapse Concealment:** Registering a vehicle with valid insurance, then immediately cancelling the policy. The registration card still shows "insured" but the DMV record (with insurance company reporting) shows the lapse. Live Verify returns real-time insurance status.
-- **Temp Tag Abuse:** Temporary paper plates (issued at dealers for newly purchased vehicles) are massively abused. Some states have reported hundreds of vehicles driving on the same temp tag number. Paper temps are trivially forged. A verifiable temp registration bound to the dealer's domain eliminates this.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

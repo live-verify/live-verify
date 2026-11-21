@@ -115,7 +115,23 @@ verify:nmc.org.uk/registration/v
 
 A nurse struck off the register following a Fitness to Practise hearing may continue to seek work through agencies. If the agency has not updated its records, the nurse may be booked onto shifts. The verification endpoint returns the current status — not the status when the claim was first issued. A ward manager clipping the claim before or during a shift receives an immediate answer.
 
-## Data Verified
+## The Problem: Agency Fraud
+
+Nursing agency fraud involving unregistered or struck-off staff is a documented patient safety risk:
+
+- **Lapsed registration** — A nurse fails to renew their annual registration (missed payment, incomplete revalidation) but continues to work through an agency that has not re-checked.
+- **Struck-off staff** — A nurse removed from the register after a Fitness to Practise hearing registers with a new agency that does not check, or the original agency fails to update its records.
+- **Conditions of practice** — A nurse is subject to conditions (e.g., must be supervised, must not administer certain medications) but the receiving ward is not informed because the agency booking does not mention the conditions.
+- **Identity fraud** — A person uses another nurse's NMC PIN to gain agency work. The PIN checks out on the register, but the person is not the registered nurse.
+
+The verifiable claim addresses these because:
+
+1. The NMC issues the claim — it is not self-asserted by the nurse or the agency
+2. The endpoint returns the current status, including suspension, striking off, and conditions
+3. For web claims, `allowedDomains` ties the claim to the specific agency website
+4. Status changes are reflected immediately — the endpoint does not cache a historical "good" status
+
+## What Is Checked
 
 Nurse or midwife name, registration number (NMC PIN in the UK, licence number elsewhere), field of practice, and current registration status.
 
@@ -124,7 +140,7 @@ Nurse or midwife name, registration number (NMC PIN in the UK, licence number el
 
 **Privacy Salt:** May be appropriate. While the NMC register is publicly searchable, a nurse's registration status combined with their name and workplace is personal professional data. A privacy salt would allow the nurse to control who can verify their claim by sharing the salt selectively. The NMC would decide whether to apply this.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`nmc.org.uk`) and the nurse's current registration status.
 
@@ -146,15 +162,15 @@ Shows the issuer domain (`nmc.org.uk`) and the nurse's current registration stat
 - **Lapsed** — Registration not renewed. The nurse is not currently authorised to practise.
 - **404** — No such PIN exists on the NMC register.
 
-## Second-Party Use
+## Who Holds It
 
-The **nurse or midwife** benefits by proving their registration status without relying on their employer's word or their own assertion.
+The nurse or midwife benefits by proving their registration status without relying on their employer's word or their own assertion.
 
 **Agency worker credibility:** A nurse working through agencies has no permanent employer to vouch for them. The verifiable claim, issued by the NMC, provides direct proof of registration that the nurse can point to on the agency's site or on their own badge.
 
 **Career mobility:** Nurses moving between trusts, agencies, or care settings can present a verifiable claim rather than waiting for manual register checks during onboarding.
 
-## Third-Party Use
+## Who Checks It
 
 **Hospitals and NHS Trusts**
 
@@ -176,25 +192,7 @@ The **nurse or midwife** benefits by proving their registration status without r
 
 **Inspection evidence:** During inspections, CQC inspectors can verify nursing registration claims displayed on badges or agency documentation. A care home or agency displaying verifiable claims demonstrates active compliance with registration checking requirements.
 
-## Verification Architecture
-
-**The Agency Fraud Problem**
-
-Nursing agency fraud involving unregistered or struck-off staff is a documented patient safety risk:
-
-- **Lapsed registration** — A nurse fails to renew their annual registration (missed payment, incomplete revalidation) but continues to work through an agency that has not re-checked.
-- **Struck-off staff** — A nurse removed from the register after a Fitness to Practise hearing registers with a new agency that does not check, or the original agency fails to update its records.
-- **Conditions of practice** — A nurse is subject to conditions (e.g., must be supervised, must not administer certain medications) but the receiving ward is not informed because the agency booking does not mention the conditions.
-- **Identity fraud** — A person uses another nurse's NMC PIN to gain agency work. The PIN checks out on the register, but the person is not the registered nurse.
-
-The verifiable claim addresses these because:
-
-1. The NMC issues the claim — it is not self-asserted by the nurse or the agency
-2. The endpoint returns the current status, including suspension, striking off, and conditions
-3. For web claims, `allowedDomains` ties the claim to the specific agency website
-4. Status changes are reflected immediately — the endpoint does not cache a historical "good" status
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | NMC Register Lookup | Employer Confirmation | Agency Booking Sheet |
 | :--- | :--- | :--- | :--- | :--- |

@@ -65,7 +65,14 @@ Filing receipt fraud includes fake receipts to claim timely submission when dead
   <span data-verify-line="permit">verify:austin.gov/permits</span> <span verifiable-text="end" data-for="permit"></span>
 </div>
 
-## Data Verified
+## The Problem: Filing Receipt Fraud
+
+- **Fake Receipts:** Forged receipts claiming filings that were never made.
+- **Date Alteration:** Changing filing dates to appear compliant when deadlines were missed.
+- **Confirmation Number Invention:** Made-up confirmation numbers for non-existent filings.
+- **Status Misrepresentation:** Claiming "Accepted" when filing was actually rejected.
+
+## What Is Checked
 
 Receiving authority, filing type, filer name/entity, filing date and time, confirmation number, acceptance status, any fees paid.
 
@@ -76,7 +83,7 @@ Receiving authority, filing type, filer name/entity, filing date and time, confi
 - **Permit Application:** Building, zoning, environmental permits.
 - **Regulatory Report:** Industry-specific compliance filings.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`irs.gov`, `sec.gov`, `corp.delaware.gov`) and filing status.
 
@@ -87,9 +94,9 @@ Shows the issuer domain (`irs.gov`, `sec.gov`, `corp.delaware.gov`) and filing s
 - **Amended** — Original filing superseded by amendment.
 - **Late** — Filed after deadline (penalties may apply).
 
-## Second-Party Use
+## Who Holds It
 
-The **Filer** benefits from verification.
+The Filer benefits from verification.
 
 **Deadline Proof:** When penalties are assessed for alleged late filing, verified receipts prove timely submission.
 
@@ -99,7 +106,7 @@ The **Filer** benefits from verification.
 
 **Contractual Compliance:** Business contracts often require proof of regulatory filings. Verified receipts provide that proof.
 
-## Third-Party Use
+## Who Checks It
 
 **Auditors / Accountants**
 **Compliance Verification:** Auditors verify that required filings were made on time as part of financial statement audits.
@@ -116,14 +123,7 @@ The **Filer** benefits from verification.
 **Insurance Companies**
 **Coverage Conditions:** D&O insurance may require verified proof of regulatory filings for claims.
 
-## Verification Architecture
-
-**The Filing Receipt Fraud Problem**
-
-- **Fake Receipts:** Forged receipts claiming filings that were never made.
-- **Date Alteration:** Changing filing dates to appear compliant when deadlines were missed.
-- **Confirmation Number Invention:** Made-up confirmation numbers for non-existent filings.
-- **Status Misrepresentation:** Claiming "Accepted" when filing was actually rejected.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

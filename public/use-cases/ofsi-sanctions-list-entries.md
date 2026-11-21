@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is an OFSI Sanctions List Entry?
 
-OFSI maintains the **UK Sanctions List** — the authoritative register of designated persons (individuals and entities) subject to financial sanctions. Fund managers, banks, and payment processors must screen all clients and counterparties against this list. The list is published as a downloadable dataset (CSV/XML) and as individual entries on the OFSI website.
+OFSI maintains the UK Sanctions List — the authoritative register of designated persons (individuals and entities) subject to financial sanctions. Fund managers, banks, and payment processors must screen all clients and counterparties against this list. The list is published as a downloadable dataset (CSV/XML) and as individual entries on the OFSI website.
 
 Currently, screening tools download the list in bulk and run matches locally. But the list entries themselves have no individual verification mechanism. A screening provider could use a stale or modified version of the list. A corrupt compliance officer could delete entries from the local copy before running a screen. Individual verifiable list entries would allow anyone to confirm that a specific designation is current and authentic.
 
@@ -42,11 +42,22 @@ Currently, screening tools download the list in bulk and run matches locally. Bu
   </div>
 </div>
 
-## Data Verified
+## The Problem
+
+- Stale local copies of the sanctions list missing recent designations
+- Tampered lists with entries removed to enable compliance fraud
+- Disputes about whether a person was designated at the time of a transaction
+- Screening providers with inconsistent or incomplete list coverage
+
+**The Fix:** Each list entry is individually hashable with a version timestamp. Screening tools can verify entries in real-time or in batch. The timestamp in the verification response proves the entry was current at a specific moment.
+
+**Batch verification:** A screening provider could verify their entire local list nightly by hashing each entry and checking against OFSI's endpoint. Any mismatches indicate stale or tampered data.
+
+## What Is Checked
 
 List entry ID, designated person name and aliases, date of birth, nationality, designation regime, designation date, last update date, statement of reasons summary, sanctions measures in effect (asset freeze, travel ban, arms embargo, etc.).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 **Status Indications:**
 - **Designated** — Person/entity is currently subject to sanctions
@@ -65,13 +76,13 @@ List entry ID, designated person name and aliases, date of birth, nationality, d
 
 Individual verifiable list entries solve all three: the screening tool can confirm each entry against OFSI's live endpoint, with a timestamp proving the designation was active at the time of screening.
 
-## Second-Party Use
+## Who Holds It
 
 **Screening providers** (World-Check, Dow Jones, ComplyAdvantage) — Proving their list mirrors OFSI's authoritative data. Each entry hash in their local copy can be verified against OFSI's endpoint.
 
 **Fund managers** — Supplementing batch screening with spot-checks. If a client's name is close to a designated person, the fund manager can verify the specific list entry directly.
 
-## Third-Party Use
+## Who Checks It
 
 **FCA supervisors** — During thematic reviews, verifying that the screening tools firms use contain the complete, current list.
 
@@ -80,18 +91,6 @@ Individual verifiable list entries solve all three: the screening tool can confi
 **Legal counsel** — In sanctions breach litigation, proving the designation was (or was not) in effect at a specific point in time.
 
 **Designated persons themselves** — Challenging their designation with evidence of delisting or variation.
-
-## Verification Architecture
-
-**The Problem:**
-- Stale local copies of the sanctions list missing recent designations
-- Tampered lists with entries removed to enable compliance fraud
-- Disputes about whether a person was designated at the time of a transaction
-- Screening providers with inconsistent or incomplete list coverage
-
-**The Fix:** Each list entry is individually hashable with a version timestamp. Screening tools can verify entries in real-time or in batch. The timestamp in the verification response proves the entry was current at a specific moment.
-
-**Batch verification:** A screening provider could verify their entire local list nightly by hashing each entry and checking against OFSI's endpoint. Any mismatches indicate stale or tampered data.
 
 ## Authority Chain
 

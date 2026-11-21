@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Tachograph and ELD Records?
 
-In the commercial trucking industry, **Hours of Service (HOS)** regulations limit how many hours a driver can be behind the wheel without a break. These are recorded via an **Electronic Logging Device (ELD)** in the US or a **Tachograph** in Europe. The records prove that the driver isn't dangerously fatigued.
+In the commercial trucking industry, Hours of Service (HOS) regulations limit how many hours a driver can be behind the wheel without a break. These are recorded via an Electronic Logging Device (ELD) in the US or a Tachograph in Europe. The records prove that the driver isn't dangerously fatigued.
 
-Fraud is common and lethal: drivers or carrier managers often "edit" logbooks to hide the fact that a driver has been working for 20 hours straight to meet a deadline. This practice, known as "Ghost Logs," is a primary cause of highway fatalities. Verified hashes bind the **Driver ID, Duty Status Timestamps, and GPS Milestones** to the ELD provider's or the carrier's domain (e.g., `samsara.com` or `keep-truckin.com`).
+Fraud is common and lethal: drivers or carrier managers often "edit" logbooks to hide the fact that a driver has been working for 20 hours straight to meet a deadline. This practice, known as "Ghost Logs," is a primary cause of highway fatalities. Verified hashes bind the Driver ID, Duty Status Timestamps, and GPS Milestones to the ELD provider's or the carrier's domain (e.g., `samsara.com` or `keep-truckin.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="tacho"></span>DRIVER'S DAILY LOG
@@ -41,7 +41,13 @@ I certify that these entries are true and correct.
 <span data-verify-line="tacho">verify:samsara.com/logs/v</span> <span verifiable-text="end" data-for="tacho"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Ghost Log Fraud
+
+- **Status Tampering:** Editing "Driving" time to "Off-Duty" in a PDF to hide a violation.
+- **Multiple Accounts:** A driver having two separate ELD accounts to double their legal driving time.
+- **Sensor Disconnect:** Turning off the ELD/GPS during long hauls and then "hand-writing" a fake log for that period.
+
+## What Is Checked
 
 Driver name, driver ID, carrier name, USDOT number, vehicle ID, trailer numbers, date, 24-hour duty status log (Off-Duty, Sleeper, Driving, On-Duty), total miles, GPS coordinates of status changes, ELD provider ID, electronic signature hash.
 
@@ -51,25 +57,25 @@ Driver name, driver ID, carrier name, USDOT number, vehicle ID, trailer numbers,
 - **Tachograph Chart (Circular):** (EU) The analog disk recording.
 - **Log Audit Report:** (Linked hash) internal carrier compliance check.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`samsara.com`, `motive.com`, `verizonconnect.com`) and the HOS standing.
 
 **Status Indications:**
 - **Verified / Compliant** — Log entries match the ELD's original sensor data.
-- **HOS Violation** — **CRITICAL:** Driver has exceeded legal driving limits.
-- **Log Missing** — **ALERT:** Significant gaps found in the duty status record.
-- **Unidentified Driving** — **ALERT:** Vehicle moved without a driver logged in.
+- **HOS Violation** — Driver has exceeded legal driving limits.
+- **Log Missing** — Significant gaps found in the duty status record.
+- **Unidentified Driving** — Vehicle moved without a driver logged in.
 
-## Second-Party Use
+## Who Holds It
 
-The **Driver / Fleet Manager** benefits from verification.
+The Driver / Fleet Manager benefits from verification.
 
-**Roadside Defense:** During a DOT inspection, the driver shows the verified hash of their daily log. The inspector can instantly see **"VERIFIED COMPLIANT"** from the ELD provider, removing the suspicion of "Log Doctoring" and getting the driver back on the road in minutes.
+**Roadside Defense:** During a DOT inspection, the driver shows the verified hash of their daily log. The inspector can instantly see "VERIFIED COMPLIANT" from the ELD provider, removing the suspicion of "Log Doctoring" and getting the driver back on the road in minutes.
 
 **Pay Accuracy:** Drivers can use verified logs to prove their "On-Duty" time to the carrier's payroll department, ensuring they are paid correctly for detention time or breakdowns.
 
-## Third-Party Use
+## Who Checks It
 
 **DOT Inspectors / State Troopers**
 **Rapid Audit:** Instead of manually scrolling through 7 days of logs on a tiny ELD screen, the officer scans the daily summary hash. Verified hashes eliminate the risk of "Bluetooth Sabotage" where a driver tries to hide logs from an inspector's tablet.
@@ -80,13 +86,7 @@ The **Driver / Fleet Manager** benefits from verification.
 **Shippers (e.g., FedEx, DHL)**
 **Carrier Vetting:** Ensuring that the sub-contracted carriers they use are not forcing their drivers to "Run Hot" (exceed HOS) to meet delivery windows.
 
-## Verification Architecture
-
-**The "Ghost Log" Fraud Problem**
-
-- **Status Tampering:** Editing "Driving" time to "Off-Duty" in a PDF to hide a violation.
-- **Multiple Accounts:** A driver having two separate ELD accounts to double their legal driving time.
-- **Sensor Disconnect:** Turning off the ELD/GPS during long hauls and then "hand-writing" a fake log for that period.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

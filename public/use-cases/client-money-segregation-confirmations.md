@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Client Money Segregation Confirmation?
 
-In the investment and brokerage industry, **Client Money Segregation** (e.g., CASS in the UK) is the legal requirement that a firm must keep its customers' cash in separate bank accounts from the firm's own operating funds. This ensures that if the firm goes bankrupt (like Lehman Brothers or MF Global), the clients' money is "Ring-Fenced" and cannot be seized by the firm's creditors.
+In the investment and brokerage industry, Client Money Segregation (e.g., CASS in the UK) is the legal requirement that a firm must keep its customers' cash in separate bank accounts from the firm's own operating funds. This ensures that if the firm goes bankrupt (like Lehman Brothers or MF Global), the clients' money is "Ring-Fenced" and cannot be seized by the firm's creditors.
 
-These documents are the "Safety Certificates" for an investor's cash. Fraud is high-stakes: a struggling firm might "edit" a segregation report to hide a shortfall or to cover up the illegal "commingling" of funds to pay for firm expenses. Verified hashes bind the **Audit Date, Shortfall Status, and Auditor's Name** to the firm's or the auditor's domain (e.g., `hl.co.uk` or `pwc.com`).
+These documents are the "Safety Certificates" for an investor's cash. Fraud is high-stakes: a struggling firm might "edit" a segregation report to hide a shortfall or to cover up the illegal "commingling" of funds to pay for firm expenses. Verified hashes bind the Audit Date, Shortfall Status, and Auditor's Name to the firm's or the auditor's domain (e.g., `hl.co.uk` or `pwc.com`).
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #1a5f2a; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="background: #1a5f2a; color: #fff; padding: 20px; text-align: center;">
@@ -52,7 +52,13 @@ These documents are the "Safety Certificates" for an investor's cash. Fraud is h
   </div>
 </div>
 
-## Data Verified
+## The Problem: Commingling Fraud
+
+- **Shortfall Hiding:** Manually editing a "$10M shortfall" into "Zero" on a PDF report before sending it to a large client.
+- **Account Mis-labeling:** Presenting a standard corporate account as a "Designated Client Account" to bypass audit controls.
+- **Date Back-dating:** Creating a "Clean" report for a day when the firm actually illegally used client cash to cover a margin call.
+
+## What Is Checked
 
 Firm name, regulatory ID (FRN), confirmation date, segregation status (Pass/Fail), account designation type, reconciliation frequency, shortfall amount (if any), CASS oversight officer name, external auditor name/ID, date of last CASS audit report.
 
@@ -62,42 +68,36 @@ Firm name, regulatory ID (FRN), confirmation date, segregation status (Pass/Fail
 - **Acknowledgement Letter:** (Linked hash) from the bank holding the client funds.
 - **Breach Notification:** Proof that a previous shortfall was corrected.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`hl.co.uk`, `fidelity.com`, `barclays.co.uk`) and the safety standing.
 
 **Status Indications:**
 - **Verified / Compliant** — The firm is currently meeting all segregation rules.
-- **Shortfall Alert** — **CRITICAL:** The firm has reported a deficiency in client funds.
-- **Audit Overdue** — **ALERT:** The mandatory annual CASS audit has not been completed.
+- **Shortfall Alert** — The firm has reported a deficiency in client funds.
+- **Audit Overdue** — The mandatory annual CASS audit has not been completed.
 - **Superseded** — A newer quarterly attestation is available.
 
-## Second-Party Use
+## Who Holds It
 
-The **Retail / Institutional Client** benefits from verification.
+The Retail / Institutional Client benefits from verification.
 
 **Investor Confidence:** Before depositing $1M into a new brokerage account, an institutional investor scans the firm's verified "Segregation Hash." "Verified by Sterling" ensures the investor that their cash is legally ring-fenced, removing the "Lehman Risk" and allowing the account opening to proceed.
 
 **Annual Portfolio Review:** An individual investor can maintain a verified digital library of their firm's monthly attestations. During a personal financial audit, they can prove that their cash assets were held in a compliant, low-risk environment.
 
-## Third-Party Use
+## Who Checks It
 
 **Insolvency Practitioners (Liquidators)**
 **Asset Reconciliation:** In the event of a firm failure, the liquidator scans the verified hashes of the last 12 months of segregation reports. This provides the "Digital Map" needed to quickly return cash to clients, potentially saving years of legal gridlock.
 
 **National Regulators (FCA / SEC)**
-**Prudential Oversight:** Instead of manually reviewing 500 firms, the regulator can use an API to bulk-scan verified hashes. Any firm whose hash returns **"SHORTFALL ALERT"** is instantly flagged for an immediate on-site inspection.
+**Prudential Oversight:** Instead of manually reviewing 500 firms, the regulator can use an API to bulk-scan verified hashes. Any firm whose hash returns "SHORTFALL ALERT" is instantly flagged for an immediate on-site inspection.
 
 **Trustees and Fiduciaries**
 **Fiduciary Duty Proof:** Verifying that the investment platforms they use for their clients are maintaining the highest standards of fund segregation.
 
-## Verification Architecture
-
-**The "Commingling" Fraud Problem**
-
-- **Shortfall Hiding:** Manually editing a "$10M shortfall" into "Zero" on a PDF report before sending it to a large client.
-- **Account Mis-labeling:** Presenting a standard corporate account as a "Designated Client Account" to bypass audit controls.
-- **Date Back-dating:** Creating a "Clean" report for a day when the firm actually illegally used client cash to cover a margin call.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

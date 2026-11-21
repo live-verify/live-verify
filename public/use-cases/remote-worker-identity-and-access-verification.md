@@ -39,7 +39,19 @@ Status As At:     20 Mar 2026 09:22 UTC
   <span verifiable-text="end" data-for="remoteworker"></span>
 </div>
 
-## Data Verified
+## The Problem: Remote Worker Substitution Fraud
+
+- **Interview substitution:** One person appears in screening and interviews; a different person performs the work after hire.
+- **Hidden operator model:** The named worker shares credentials or work product with an undisclosed third party.
+- **Vendor fiction:** A staffing intermediary claims a worker is dedicated to a client assignment that the end-client never approved.
+- **Shell employer layering:** The legal employer, recruiting brand, payroll entity, and actual operator group are deliberately obscured to frustrate due diligence.
+- **Ghost worker payroll:** HR or a supplier bills for a worker who is not truly active, not truly dedicated, or not the person represented.
+- **Undisclosed dual employment:** A worker holds simultaneous incompatible roles or delegated work arrangements that create conflicts, performance collapse, or access leakage.
+- **Managed-device evasion:** Corporate access is granted, but the work is performed from unapproved devices, jump hosts, or remote handoff arrangements.
+
+These are ordinary domestic control failures. They do not require an international organized-crime framing. A weak staffing chain, poor onboarding discipline, fragmented HR systems, and remote-first trust assumptions are enough.
+
+## What Is Checked
 
 Worker name or privacy-preserving badge form, worker ID, legal employer, client organization, role title, assignment start/end dates, approved working region, approved managed device ID (or device cohort), access scope, manager or engagement reference, status-as-at timestamp.
 
@@ -51,7 +63,7 @@ Worker name or privacy-preserving badge form, worker ID, legal employer, client 
 
 **Privacy Salt:** Required. Names, roles, regions, and standard worker IDs are guessable. Salt should be issuer-generated and time-limited to prevent enumeration of a company's contractor population or active project staffing.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`workforce.example.com`, `hr.example.com`, `idm.example.com`, `vendor.examplebank.com`) and the current status.
 
@@ -65,9 +77,9 @@ Shows the issuer domain (`workforce.example.com`, `hr.example.com`, `idm.example
 - **Subcontracting Not Authorized** — Supplier relationship exists, but reassignment or substitution is not approved.
 - **404** — No matching record; forged or superseded document, or OCR error.
 
-## Second-Party Use
+## Who Holds It
 
-The **worker** benefits when they are the legitimate named person doing the work.
+The worker benefits when they are the legitimate named person doing the work.
 
 **Clearing suspicion:** Honest contractors can prove they are the approved worker rather than a substitute, reducing friction during onboarding or client audits.
 
@@ -77,7 +89,7 @@ The **worker** benefits when they are the legitimate named person doing the work
 
 **Dual-employment disclosure:** In regulated or conflict-sensitive roles, the worker can provide a verifiable secondary-employment or assignment record instead of relying on self-attestation.
 
-## Third-Party Use
+## Who Checks It
 
 **Hiring Managers and Team Leads**
 
@@ -103,19 +115,7 @@ The **worker** benefits when they are the legitimate named person doing the work
 
 **Timeline reconstruction:** After an incident, the verifier can prove who was supposed to have access, through which legal employer, on which dates, and under which manager reference.
 
-## Verification Architecture
-
-**The "Remote Worker Substitution" Fraud Problem**
-
-- **Interview substitution:** One person appears in screening and interviews; a different person performs the work after hire.
-- **Hidden operator model:** The named worker shares credentials or work product with an undisclosed third party.
-- **Vendor fiction:** A staffing intermediary claims a worker is dedicated to a client assignment that the end-client never approved.
-- **Shell employer layering:** The legal employer, recruiting brand, payroll entity, and actual operator group are deliberately obscured to frustrate due diligence.
-- **Ghost worker payroll:** HR or a supplier bills for a worker who is not truly active, not truly dedicated, or not the person represented.
-- **Undisclosed dual employment:** A worker holds simultaneous incompatible roles or delegated work arrangements that create conflicts, performance collapse, or access leakage.
-- **Managed-device evasion:** Corporate access is granted, but the work is performed from unapproved devices, jump hosts, or remote handoff arrangements.
-
-These are ordinary domestic control failures. They do not require an international organized-crime framing. A weak staffing chain, poor onboarding discipline, fragmented HR systems, and remote-first trust assumptions are enough.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -143,7 +143,7 @@ This use case is complementary to:
 
 The difference is that this document binds those layers to the operational question that matters in remote work: **who is actually authorized to do this work, for this client, now?**
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Email Thread / PDF | HRIS + IAM + Vendor Portal | Video Call Eye-Test |
 | :--- | :--- | :--- | :--- | :--- |

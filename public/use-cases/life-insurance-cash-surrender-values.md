@@ -29,23 +29,23 @@ As At:              21 Mar 2026
 <span data-verify-line="cashsurrender">verify:newyorklife.com/cash-value/v</span> <span verifiable-text="end" data-for="cashsurrender"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Policy number, policy type (Whole Life, Universal Life, Endowment), guaranteed cash value, non-guaranteed cash value, total cash value, applicable surrender charges, net surrender value, outstanding policy loans, and the as-at date of the valuation.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`newyorklife.com`, `prudential.com`, `northwesternmutual.com`) and current statement status.
 
 **Status Indications:**
 - **Current** — Values reflect the most recent calculation date.
 - **Superseded** — A newer statement has been issued.
-- **Policy Lapsed** — **ALERT:** Policy has lapsed; cash value may have been applied to keep coverage in force or forfeited.
+- **Policy Lapsed** — Policy has lapsed; cash value may have been applied to keep coverage in force or forfeited.
 - **Loan Outstanding** — A policy loan exists that reduces the net surrender value.
 
-## Second-Party Use
+## Who Holds It
 
-The **Policyholder** benefits from verifiable cash surrender value statements in several contexts.
+The Policyholder benefits from verifiable cash surrender value statements in several contexts.
 
 **Retirement Planning:** Demonstrating to a financial planner that the policy has a verified $142,500 accessible value, allowing accurate inclusion in a retirement income strategy without waiting for a manual letter from the insurer.
 
@@ -53,7 +53,7 @@ The **Policyholder** benefits from verifiable cash surrender value statements in
 
 **Borrowing Against the Policy:** Presenting a verified cash value to a lender when using the policy as collateral, accelerating underwriting.
 
-## Third-Party Use
+## Who Checks It
 
 **Divorce / Family Law Attorneys**
 **Asset Valuation:** In marital dissolution, life insurance cash values are marital assets subject to division. A verified statement eliminates disputes over whether the stated value is current and unaltered. The opposing party's attorney can confirm the figure independently.
@@ -67,7 +67,7 @@ The **Policyholder** benefits from verifiable cash surrender value statements in
 **Estate Executors / Probate Courts**
 **Inventory Accuracy:** When settling an estate, executors must account for all assets. A verified cash surrender value statement confirms the policy's worth at a specific date, satisfying probate requirements.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Fabrication Problem**
 
@@ -98,7 +98,7 @@ New York Life, a regulated life insurance carrier, is authorized by state insura
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Manual Verification
+## Compared With Manual Verification
 
 | Feature | Live Verify | Direct Insurer Contact | Scanned PDF / Paper |
 | :--- | :--- | :--- | :--- |

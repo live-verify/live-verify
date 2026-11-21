@@ -62,7 +62,14 @@ Compliance attestation fraud is serious: fake inspection certificates can enable
   <span data-verify-line="gdpr">verify:european-privacy-seal.eu/cert</span> <span verifiable-text="end" data-for="gdpr"></span>
 </div>
 
-## Data Verified
+## The Problem: Compliance Attestation Fraud
+
+- **Fake Certifications:** Forged compliance certificates from real or invented bodies.
+- **Expired Certificates:** Presenting outdated compliance as current.
+- **Scope Misrepresentation:** Claiming broader compliance than was actually certified.
+- **Self-Certification Fraud:** False self-attestations on required compliance forms.
+
+## What Is Checked
 
 Regulatory authority, entity name, site/facility identifier, inspection/audit date, result (pass/fail/conditional), scope of compliance, validity period, inspector/auditor identification.
 
@@ -73,7 +80,7 @@ Regulatory authority, entity name, site/facility identifier, inspection/audit da
 - **Compliance Certification:** Third-party compliance verification.
 - **License Good Standing:** Regulatory license in good standing.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`osha.gov`, `fda.gov`, industry certification body) and compliance status.
 
@@ -84,9 +91,9 @@ Shows the issuer domain (`osha.gov`, `fda.gov`, industry certification body) and
 - **Suspended** — Compliance suspended pending investigation.
 - **Revoked** — Compliance certification withdrawn.
 
-## Second-Party Use
+## Who Holds It
 
-The **Regulated Entity** benefits from verification.
+The Regulated Entity benefits from verification.
 
 **Customer Assurance:** Companies can prove regulatory compliance to customers concerned about safety, security, or environmental standards.
 
@@ -96,7 +103,7 @@ The **Regulated Entity** benefits from verification.
 
 **M&A Due Diligence:** When selling a business, verified compliance history supports valuation.
 
-## Third-Party Use
+## Who Checks It
 
 **Customers / Clients**
 **Vendor Qualification:** Before engaging vendors, companies verify regulatory compliance status.
@@ -113,14 +120,7 @@ The **Regulated Entity** benefits from verification.
 **Government Contractors**
 **Subcontractor Verification:** Prime contractors verify subcontractor compliance with federal regulations.
 
-## Verification Architecture
-
-**The Compliance Attestation Fraud Problem**
-
-- **Fake Certifications:** Forged compliance certificates from real or invented bodies.
-- **Expired Certificates:** Presenting outdated compliance as current.
-- **Scope Misrepresentation:** Claiming broader compliance than was actually certified.
-- **Self-Certification Fraud:** False self-attestations on required compliance forms.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

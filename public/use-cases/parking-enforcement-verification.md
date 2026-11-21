@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is Parking Enforcement Verification?
 
-In many cities, **Parking Enforcement Officers (PEOs)** have the power to issue significant fines, order vehicle impoundment (towing), and in some jurisdictions, even collect immediate payments for "boot" removal.
+In many cities, Parking Enforcement Officers (PEOs) have the power to issue significant fines, order vehicle impoundment (towing), and in some jurisdictions, even collect immediate payments for "boot" removal.
 
-This authority is a magnet for fraudsters. Scammers pose as officers to extort "instant cash fines" from tourists, or they place **Fake Parking Tickets** on windshields that lead to phishing websites or fraudulent payment portals.
+This authority is a magnet for fraudsters. Scammers pose as officers to extort "instant cash fines" from tourists, or they place Fake Parking Tickets on windshields that lead to phishing websites or fraudulent payment portals.
 
 Live Verify allows a driver to scan an officer's ID badge or the verification line on a physical ticket to confirm: **"Is this a legitimate municipal official, and is this ticket recorded in the city's official ledger?"**
 
@@ -44,7 +44,13 @@ Live Verify allows a driver to scan an officer's ID badge or the verification li
   </div>
 </div>
 
-## Data Verified
+## The Problem: Yellow Paper Fraud
+
+- **Phishing Tickets:** Realistic-looking tickets that direct users to `city-fines-pay.com` instead of the real `.gov` site.
+- **Impersonation:** Scammers wearing high-viz vests and buying generic "Security" badges to look official.
+- **Outdated Authority:** Former employees using an un-returned ID to "work" for themselves by collecting fake fines.
+
+## What Is Checked
 
 Officer name, badge ID, department/agency, photograph (via hash), current duty status, jurisdiction boundaries, citation authority level.
 
@@ -104,17 +110,17 @@ If an officer demands cash or behaves inappropriately, the driver has:
 - Pre-filled complaint form
 - Context preserved for the complaint
 
-## Second-Party Use
+## Who Holds It
 
-The **Driver / Vehicle Owner** benefits from verification.
+The Driver / Vehicle Owner benefits from verification.
 
 **Anti-Extortion:** A "Parking Officer" approaches a tourist and demands $50 in cash to "forget the ticket." The tourist scans the badge and sees **"ACTIVE DUTY - NO CASH PAYMENTS AUTHORIZED."** This provides the user with the proof needed to refuse the scam and call the real police.
 
-**Ticket Authenticity:** A driver finds a ticket on their windshield with a QR code or URL to pay. Before entering credit card info, they scan the verification hash. If it returns **"UNKNOWN"** or **"DOMAIN MISMATCH,"** they know the ticket is a phishing attempt.
+**Ticket Authenticity:** A driver finds a ticket on their windshield with a QR code or URL to pay. Before entering credit card info, they scan the verification hash. If it returns "UNKNOWN" or "DOMAIN MISMATCH," they know the ticket is a phishing attempt.
 
 **Towing Disputes:** If a car is being hooked to a tow truck, the owner can verify the authorization form presented by the agent to ensure it's a legal municipal order and not a "Predatory Towing" theft.
 
-## Third-Party Use
+## Who Checks It
 
 **Municipal Courts**
 **Evidence Admissibility:** Verifying that the officer who issued a contested ticket was actually assigned to that specific beat/zone at the timestamp of the citation.
@@ -122,13 +128,7 @@ The **Driver / Vehicle Owner** benefits from verification.
 **Rental Car Agencies**
 **Fine Allocation:** Automatically verifying parking tickets returned with rental cars to ensure they are authentic municipal debts before charging the customer's card.
 
-## Verification Architecture
-
-**The "Yellow Paper" Fraud Problem**
-
-- **Phishing Tickets:** Realistic-looking tickets that direct users to `city-fines-pay.com` instead of the real `.gov` site.
-- **Impersonation:** Scammers wearing high-viz vests and buying generic "Security" badges to look official.
-- **Outdated Authority:** Former employees using an un-returned ID to "work" for themselves by collecting fake fines.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

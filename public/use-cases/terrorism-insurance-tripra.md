@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is Terrorism (TRIPRA) Insurance?
 
-In the commercial real estate and infrastructure sectors, **Terrorism Insurance** is a mandatory requirement for large loans and high-profile leases. Under the US **Terrorism Risk Insurance Program Reauthorization Act (TRIPRA)**, the federal government acts as a backstop for insurers after a "Certified Act of Terrorism."
+In the commercial real estate and infrastructure sectors, Terrorism Insurance is a mandatory requirement for large loans and high-profile leases. Under the US Terrorism Risk Insurance Program Reauthorization Act (TRIPRA), the federal government acts as a backstop for insurers after a "Certified Act of Terrorism."
 
-These documents are the "Proof of Backstop." Fraud is common in "High-Risk Urban Zones": a developer might create a fake insurance binder showing $100M in terrorism coverage to satisfy a lender's requirement for a skyscraper, when they actually only have standard property coverage. Similarly, they might "edit" a policy to remove a "Non-Certified Act" exclusion. Verified hashes bind the **Coverage Limits, Tripra Premium, and Property Location** to the carrier's domain (e.g., `zurich.com` or `lloyds.com`).
+These documents are the "Proof of Backstop." Fraud is common in "High-Risk Urban Zones": a developer might create a fake insurance binder showing $100M in terrorism coverage to satisfy a lender's requirement for a skyscraper, when they actually only have standard property coverage. Similarly, they might "edit" a policy to remove a "Non-Certified Act" exclusion. Verified hashes bind the Coverage Limits, Tripra Premium, and Property Location to the carrier's domain (e.g., `zurich.com` or `lloyds.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="tripra"></span>
@@ -43,7 +43,13 @@ certified acts of terrorism is $42,500.00."
 <span data-verify-line="tripra">verify:zurich.com/v</span> <span verifiable-text="end" data-for="tripra"></span>
 </div>
 
-## Data Verified
+## The Problem: High-Rise Binder Fraud
+
+- **Certified Act Inflation:** Editing a $10M non-certified limit to look like a $100M federal-backed certified limit on a PDF.
+- **Exclusion Removal:** Manually deleting a "Nuclear/Biological/Chemical" (NBC) exclusion from a disclosure form.
+- **Binder Mimicry:** Using a reputable carrier's letterhead to issue a fake "Terrorism Binder" for an un-insured asset.
+
+## What Is Checked
 
 Policy number, insurer name, insured entity name, property address, TRIPRA certified act limit, non-certified act limit (if any), premium attributable to terrorism, policy effective/expiration dates, deductible structure, exclusions (e.g., Cyber-Terrorism), broker ID.
 
@@ -53,19 +59,19 @@ Policy number, insurer name, insured entity name, property address, TRIPRA certi
 - **Evidence of Property Insurance:** Provided to mortgage lenders.
 - **Terrorism Risk Assessment:** (Linked hash) the underwriting analysis.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`zurich.com`, `chubb.com`, `lloyds.com`) and the coverage standing.
 
 **Status Indications:**
 - **Active / Bound** — Policy is current and the property is protected.
-- **Lapsed** — **CRITICAL:** Terrorism premium was not paid; coverage is void.
-- **Certified Act Active** — **ALERT:** The US Treasury has declared an act of terrorism; claims window open.
-- **Revoked** — **ALERT:** Policy cancelled (e.g., due to discovery of un-insured high-risk occupancy).
+- **Lapsed** — Terrorism premium was not paid; coverage is void.
+- **Certified Act Active** — The US Treasury has declared an act of terrorism; claims window open.
+- **Revoked** — Policy cancelled (e.g., due to discovery of un-insured high-risk occupancy).
 
-## Second-Party Use
+## Who Holds It
 
-The **Property Owner** (second party) receives the TRIPRA disclosure from the insurance carrier (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Property Owner (second party) receives the TRIPRA disclosure from the insurance carrier (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** The property owner has their own verified copy of the terrorism coverage terms. Most of the time, the document sits in their insurance files—the verification value is latent, there *if needed*.
 
@@ -73,7 +79,7 @@ The **Property Owner** (second party) receives the TRIPRA disclosure from the in
 
 **Future Optionality:** If a dispute arises—whether about coverage limits, premium disputes, or claims—the property owner has cryptographic proof ready without needing to contact the carrier.
 
-## Third-Party Use
+## Who Checks It
 
 The property owner (second party) may hand the verified document to various third parties:
 
@@ -84,18 +90,12 @@ Before releasing a construction draw for a high-profile skyscraper, the lender r
 A Fortune 500 company leasing 10 floors of a building receives the landlord's verified hash to ensure the building meets the "Terrorism Resilience" standards required by their internal risk policy.
 
 **CMBS Investors (Portfolio Audit)**
-Commercial Mortgage-Backed Security investors automatically monitor the terrorism coverage of 1,000 properties. If a building's hash returns **"LAPSED,"** the system instantly flags the bond for "Increased Risk."
+Commercial Mortgage-Backed Security investors automatically monitor the terrorism coverage of 1,000 properties. If a building's hash returns "LAPSED," the system instantly flags the bond for "Increased Risk."
 
 **Re-Insurance Markets (Accumulation Control)**
 Large insurers "selling off" terrorism risk to re-insurers provide verified hashes to ensure that the "Property Location" used for risk accumulation modeling is the exact same location recorded in the primary policy.
 
-## Verification Architecture
-
-**The "High-Rise Binder" Fraud Problem**
-
-- **Certified Act Inflation:** Editing a $10M non-certified limit to look like a $100M federal-backed certified limit on a PDF.
-- **Exclusion Removal:** Manually deleting a "Nuclear/Biological/Chemical" (NBC) exclusion from a disclosure form.
-- **Binder Mimicry:** Using a reputable carrier's letterhead to issue a fake "Terrorism Binder" for an un-insured asset.
+## Who Issues It
 
 **Issuer Types (First Party)**
 

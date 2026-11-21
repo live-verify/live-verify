@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 ## What is a Work Permit (EAD)?
 
-An **Employment Authorization Document (EAD)** is the ID card issued by the US government giving a non-citizen the legal right to work.
+An Employment Authorization Document (EAD) is the ID card issued by the US government giving a non-citizen the legal right to work.
 
 For a business owner, this card is high-stakes. If they hire someone with a fake card, they can be fined thousands of dollars. The problem? High-quality fakes are everywhere.
 
@@ -50,7 +50,13 @@ The strongest production answer is still the official employer-verification work
   </div>
 </div>
 
-## Data Verified
+## The Problem: High-End Forgery Fraud
+
+- **Ghost Documents:** Fraudsters using high-end printers to create EAD cards for people who never applied for status.
+- **Revocation Hiding:** A worker whose asylum claim was denied (revoking their EAD) keeping the physical card to trick a new employer.
+- **Category Tampering:** Changing a "Student" (Restricted) category to an "Asylum" (Unrestricted) category.
+
+## What Is Checked
 
 Full name, USCIS number (A-Number), Category code (e.g., C03, C08, C09), Card serial number, effective date, expiration date, photograph (via hash), fingerprint status (hash), issuing office.
 
@@ -83,15 +89,15 @@ None typically. The verification confirms work authorization status; that's the 
 
 The status code is the value. If it's OK or PENDING_RENEWAL, proceed. If it's REVOKED, EXPIRED, or 404, don't. No POST form needed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Employee (Authorized Worker)** benefits from verification.
+The Employee (Authorized Worker) benefits from verification.
 
 **Hiring Efficiency:** Proving to an HR manager that their "Category C08" card is legitimate and hasn't been "Revoked" by the government. A verified card removes the employer's fear of "I-9 Audit" fines, making the worker much more hireable.
 
 **Bank Account Opening:** Proving legal status to a bank to comply with "Know Your Customer" (KYC) rules for individuals without a Green Card or Social Security Number.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers (HR Managers)**
 **I-9 Compliance:** The strongest answer is still the official employer-verification workflow. Live Verify is more defensible when the employer is stuck working from the card itself and needs a lightweight bridge to current government status.
@@ -102,13 +108,7 @@ The **Employee (Authorized Worker)** benefits from verification.
 **State DMVs**
 **Driver's Licensing:** Verifying legal presence for non-immigrant driver's licenses (Real ID).
 
-## Verification Architecture
-
-**The "High-End Forgery" Fraud Problem**
-
-- **Ghost Documents:** Fraudsters using high-end printers to create EAD cards for people who never applied for status.
-- **Revocation Hiding:** A worker whose asylum claim was denied (revoking their EAD) keeping the physical card to trick a new employer.
-- **Category Tampering:** Changing a "Student" (Restricted) category to an "Asylum" (Unrestricted) category.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -135,7 +135,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive USCIS's hashes and status changes plus structured metadata (USCIS number, card number, employment authorization category, expiration date, card issue date) — never plaintext personal identification — providing non-repudiation of the employment authorization document.
 
 
-## Competition vs. E-Verify / SAVE
+## Compared With E-Verify / SAVE
 
 | Feature | Live Verify | E-Verify (Employer System) | Physical EAD Card |
 | :--- | :--- | :--- | :--- |

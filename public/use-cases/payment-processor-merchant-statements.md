@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Merchant Statement?
 
-For any business that accepts credit cards (via **Stripe**, **PayPal**, or **Square**), the **Merchant Statement** is the "Final Proof" of revenue. It records the total sales volume, the processing fees deducted, and—critically—the **Chargeback Rate** (the percentage of customers who disputed their payments).
+For any business that accepts credit cards (via Stripe, PayPal, or Square), the Merchant Statement is the "Final Proof" of revenue. It records the total sales volume, the processing fees deducted, and—critically—the Chargeback Rate (the percentage of customers who disputed their payments).
 
-These statements are the "Income Proof" for the digital economy. Lenders use them to approve business loans, and buyers use them to judge the health of a company during an acquisition. Fraud is rampant: owners often "edit" a statement to turn a $10,000 month into a $100,000 month, or to delete a high chargeback rate that would indicate a failing or fraudulent business. Verified hashes bind the **Net Payout, Chargeback Volume, and Merchant ID** to the processor's domain (e.g., `stripe.com` or `paypal.com`).
+These statements are the "Income Proof" for the digital economy. Lenders use them to approve business loans, and buyers use them to judge the health of a company during an acquisition. Fraud is rampant: owners often "edit" a statement to turn a $10,000 month into a $100,000 month, or to delete a high chargeback rate that would indicate a failing or fraudulent business. Verified hashes bind the Net Payout, Chargeback Volume, and Merchant ID to the processor's domain (e.g., `stripe.com` or `paypal.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="stripe"></span>stripe
@@ -34,7 +34,13 @@ TOTAL NET PAYOUT:                                       $ 42,250.00
 <span data-verify-line="stripe">verify:stripe.com/v</span> <span verifiable-text="end" data-for="stripe"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Paper Profit Fraud
+
+- **Revenue Inflation:** Editing a "$4,000" month into a "$40,000" month on a PDF to get a bigger loan.
+- **Chargeback Scrubbing:** Deleting the "Disputes" section of a statement to hide a failing product or service.
+- **Payout Masking:** Changing the "Bank Account" listed on a statement to hide that the funds are actually being frozen for fraud.
+
+## What Is Checked
 
 Merchant ID, business legal name, statement ID, period date range, total gross sales, total net payouts, processing fee totals, chargeback/dispute count and dollar amount, refund volume, issuing bank ID, settlement date.
 
@@ -44,25 +50,25 @@ Merchant ID, business legal name, statement ID, period date range, total gross s
 - **Chargeback Notification:** Proof of a specific disputed transaction.
 - **1099-K Tax Form:** (Linked hash) for IRS revenue compliance.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`stripe.com`, `paypal.com`, `square.com`) and the account standing.
 
 **Status Indications:**
 - **Verified / Good Standing** — Statement matches the processor's original digital ledger.
-- **High Risk Alert** — **CRITICAL:** The chargeback rate has recently spiked above 1.0%.
-- **Amended Statement** — **ALERT:** A correction was issued for this period.
-- **Account Restricted** — **CRITICAL:** The merchant has been banned from the platform for fraud.
+- **High Risk Alert** — The chargeback rate has recently spiked above 1.0%.
+- **Amended Statement** — A correction was issued for this period.
+- **Account Restricted** — The merchant has been banned from the platform for fraud.
 
-## Second-Party Use
+## Who Holds It
 
-The **Merchant / Store Owner** benefits from verification.
+The Merchant / Store Owner benefits from verification.
 
-**Business Loan Approval:** When applying for a "Merchant Cash Advance" or a bank loan, the owner provides the verified hash of their Stripe statement. The lender can instantly see **"VERIFIED NET: $42,250"** on their phone, removing the 3-day "Manual Bank Login" or "PDF Review" delay and getting the capital released today.
+**Business Loan Approval:** When applying for a "Merchant Cash Advance" or a bank loan, the owner provides the verified hash of their Stripe statement. The lender can instantly see "VERIFIED NET: $42,250" on their phone, removing the 3-day "Manual Bank Login" or "PDF Review" delay and getting the capital released today.
 
 **Trust-Based Sourcing:** A small shop can show verified revenue hashes to a high-end supplier (e.g., Apple or Sony) to prove they have the sales volume to qualify for an "Authorized Dealer" wholesale account.
 
-## Third-Party Use
+## Who Checks It
 
 **Business Brokers / Buyers**
 **Due Diligence:** Before buying an e-commerce store for $500,000, the buyer scans the verified hashes of the last 12 months of statements. This ensure the "Revenue" isn't a fabrication, protecting the buyer from "Profit Padding" scams.
@@ -73,13 +79,7 @@ The **Merchant / Store Owner** benefits from verification.
 **Commercial Landlords**
 **Tenant Vetting:** Verifying the "Gross Receipts" of a restaurant or retail tenant to calculate percentage-rent payments required by the lease.
 
-## Verification Architecture
-
-**The "Paper Profit" Fraud Problem**
-
-- **Revenue Inflation:** Editing a "$4,000" month into a "$40,000" month on a PDF to get a bigger loan.
-- **Chargeback Scrubbing:** Deleting the "Disputes" section of a statement to hide a failing product or service.
-- **Payout Masking:** Changing the "Bank Account" listed on a statement to hide that the funds are actually being frozen for fraud.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

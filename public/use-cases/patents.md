@@ -41,7 +41,26 @@ The certificate includes a SHA256 hash of the complete patent PDF (specification
 
 # Patent Registrations
 
-## Data Verified
+## The Problem: Patent Fraud
+
+- Fake patent certificates claiming inventions never granted
+- Altered assignee names to claim false ownership
+- Expired patents presented as in-force
+- Fabricated continuation chains
+- Maintenance fee lapses hidden
+- Claim scope disputes (which version of claims was granted?)
+
+**Honest assessment:** Many of these can already be checked via public databases. Google Patents, USPTO's PatFT/AppFT, Espacenet, and WIPO's PatentScope allow searching by patent number, assignee, and status. A diligent party can manually verify most claims.
+
+OCR verification adds value for:
+- **Instant verification** without manual database lookup
+- **Physical document authentication** (the paper you're holding matches official records)
+- **Non-expert verification** (parties who don't know which databases to check)
+- **Jurisdictions with less accessible databases** (not all patent offices have Google-quality search)
+- **Historical records** where databases may be incomplete
+- **Timestamp anchoring** (blockchain proofs that databases can't provide)
+
+## What Is Checked
 
 Patent number, title of invention, inventor name(s), assignee/owner (may differ from inventor), application date, issue date, patent type (utility, design, plant), jurisdiction, expiration date, maintenance fee status.
 
@@ -54,7 +73,7 @@ Patent number, title of invention, inventor name(s), assignee/owner (may differ 
 - **International Patents** — PCT applications, national phase entries
 - **Continuation/Divisional** — Related patent family documents
 
-## Data Visible After Verification
+## What the Checker Sees
 
 **Status Lifecycle for a Filing Hash**
 
@@ -101,7 +120,7 @@ Two separate publication events:
 
 During the secret period (before 18-month publication), verification can only confirm "a hash exists with this timestamp" (via blockchain anchoring)—not the content.
 
-## Second-Party Use
+## Who Holds It
 
 The patent holder or applicant benefits from verification.
 
@@ -135,7 +154,7 @@ With verification:
 
 This shifts the trust model from "believe your agent" to "verify your agent"—particularly valuable for independent inventors without in-house IP counsel.
 
-## Third-Party Use
+## Who Checks It
 
 **Licensing negotiations**
 
@@ -180,26 +199,7 @@ Studying patent systems and innovation:
 - Analyze amendment patterns across jurisdictions
 - Compare filing date claims across adversarial patent offices
 
-## Verification Architecture
-
-**The Patent Fraud Problem**
-
-- Fake patent certificates claiming inventions never granted
-- Altered assignee names to claim false ownership
-- Expired patents presented as in-force
-- Fabricated continuation chains
-- Maintenance fee lapses hidden
-- Claim scope disputes (which version of claims was granted?)
-
-**Honest assessment:** Many of these can already be checked via public databases. Google Patents, USPTO's PatFT/AppFT, Espacenet, and WIPO's PatentScope allow searching by patent number, assignee, and status. A diligent party can manually verify most claims.
-
-OCR verification adds value for:
-- **Instant verification** without manual database lookup
-- **Physical document authentication** (the paper you're holding matches official records)
-- **Non-expert verification** (parties who don't know which databases to check)
-- **Jurisdictions with less accessible databases** (not all patent offices have Google-quality search)
-- **Historical records** where databases may be incomplete
-- **Timestamp anchoring** (blockchain proofs that databases can't provide)
+## How Verification Works Here
 
 **Patent Document Binding**
 

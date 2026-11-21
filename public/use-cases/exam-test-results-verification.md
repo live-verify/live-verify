@@ -11,7 +11,7 @@ furtherDerivations: 2
 
 ## What is Exam Results Verification?
 
-An **exam result** is a point-in-time score report issued by an examining body after a specific sitting. SAT scores from the College Board, A-level results from an exam board, bar exam outcomes from a law society, USMLE scores from the NBME, CPA exam results from NASBA, or certification pass/fail from Cisco, AWS, or PMI.
+An exam result is a point-in-time score report issued by an examining body after a specific sitting. SAT scores from the College Board, A-level results from an exam board, bar exam outcomes from a law society, USMLE scores from the NBME, CPA exam results from NASBA, or certification pass/fail from Cisco, AWS, or PMI.
 
 These results currently arrive as paper certificates, PDF score reports, or screenshots from candidate portals. All are forgeable. A PDF editor can change a SAT score from 1200 to 1480 in seconds. AI tools can generate convincing fake certificates for professional exams. The examining body has the authoritative record, but the artifact in circulation — the one the candidate hands to a university admissions office, an employer, or an immigration authority — is typically unverifiable.
 
@@ -22,7 +22,7 @@ This is distinct from:
 - **[Language Proficiency Certificates](view.html?doc=language-proficiency-certificates)** — IELTS/TOEFL score reports (there is overlap; language proficiency tests are a subset of the broader exam results category, with their own dedicated page covering that specific testing ecosystem)
 - **[Candidate Work-Sample & Assignment Provenance](view.html?doc=candidate-work-sample-provenance)** — the *work artifact* a candidate submits in hiring (a take-home, a code sample, a portfolio piece), as opposed to a graded score from an examining body
 
-This page covers the **score report from the examining body after a specific sitting** — the artifact that proves the candidate achieved a particular result on a particular date.
+This page covers the score report from the examining body after a specific sitting — the artifact that proves the candidate achieved a particular result on a particular date.
 
 ## Example: Standardised Test Result
 
@@ -66,7 +66,14 @@ This page covers the **score report from the examining body after a specific sit
 
 **Identity substitution.** Someone else sat the exam. Verification does not solve this — it is a test-centre security problem. But a verified result does prove that the examining body issued a result for the claimed reference number, which narrows the fraud surface to the identity question alone.
 
-## Data Verified
+## The Problem: Score Report Trust
+
+- **PDF editing:** Score reports are designed for print. The PDF is the artifact in circulation, and PDFs are trivially editable.
+- **Portal screenshots:** Candidates screenshot their results from an online portal. Screenshots are even easier to alter than PDFs.
+- **Certificate forgery:** Professional certification bodies (Cisco, AWS, PMI, Microsoft) issue certificates that are just formatted documents — reproducible with the right template.
+- **No universal registry:** Unlike university degrees (where clearinghouses exist in some countries), there is no central registry of exam results across examining bodies. Each body maintains its own records.
+
+## What Is Checked
 
 Examining body name, exam name, candidate reference number, test date or sitting period, score or pass/fail result, and current status.
 
@@ -91,9 +98,9 @@ Examining body name, exam name, candidate reference number, test date or sitting
 - **Superseded** — Candidate has re-sat the exam; a newer result exists.
 - **404** — No such result was issued by the examining body for this reference.
 
-## Second-Party Use
+## Who Holds It
 
-The **candidate** (second party) receives the score report from the examining body (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The candidate (second party) receives the score report from the examining body (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **University applications.** Proving SAT/ACT/GRE/GMAT scores to admissions offices. Currently requires paying the examining body to send official score reports to each institution — $12 per recipient for SAT scores, $27 per recipient for GRE scores. A verified result that the candidate can share directly reduces this cost.
 
@@ -103,7 +110,7 @@ The **candidate** (second party) receives the score report from the examining bo
 
 **Immigration.** Proving qualifications for points-based visa systems. A verified result from the examining body's domain is stronger than a PDF attachment.
 
-## Third-Party Use
+## Who Checks It
 
 **University Admissions Offices**
 
@@ -125,14 +132,7 @@ The **candidate** (second party) receives the score report from the examining bo
 
 **Merit assessment.** Scholarship providers awarding funding based on test scores need to confirm those scores are genuine. The higher the financial value, the greater the incentive to fabricate.
 
-## Verification Architecture
-
-**The "Score Report" Trust Problem**
-
-- **PDF editing:** Score reports are designed for print. The PDF is the artifact in circulation, and PDFs are trivially editable.
-- **Portal screenshots:** Candidates screenshot their results from an online portal. Screenshots are even easier to alter than PDFs.
-- **Certificate forgery:** Professional certification bodies (Cisco, AWS, PMI, Microsoft) issue certificates that are just formatted documents — reproducible with the right template.
-- **No universal registry:** Unlike university degrees (where clearinghouses exist in some countries), there is no central registry of exam results across examining bodies. Each body maintains its own records.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -172,7 +172,7 @@ For school-leaving examinations:
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Current Verification Methods
+## Compared With Current Verification Methods
 
 | Feature | Live Verify | Official Score Send | Candidate Portal / Screenshot | Paper Certificate |
 | :--- | :--- | :--- | :--- | :--- |

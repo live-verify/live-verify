@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Geotechnical Report?
 
-In the construction industry, the **Geotechnical (Soil) Report** is the "Structural DNA" of a project. It is a technical audit of the earth beneath a building. It defines critical engineering limits—such as **Bearing Capacity** (how much weight the soil can hold), **Liquefaction Risk** (will the ground turn to liquid in an earthquake?), and **Moisture Content**.
+In the construction industry, the Geotechnical (Soil) Report is the "Structural DNA" of a project. It is a technical audit of the earth beneath a building. It defines critical engineering limits—such as Bearing Capacity (how much weight the soil can hold), Liquefaction Risk (will the ground turn to liquid in an earthquake?), and Moisture Content.
 
-These reports are the foundation of all structural engineering. Fraud is high-stakes: a developer might "edit" a report to hide a landslide risk or to inflate the soil's bearing capacity to avoid the multi-million dollar cost of deep-foundation pylons. Verified hashes bind the **Borehole Data, Bearing Capacity, and Engineer's License** to the engineering firm's or the state's domain (e.g., `aecom.com` or `pe-registry.gov`).
+These reports are the foundation of all structural engineering. Fraud is high-stakes: a developer might "edit" a report to hide a landslide risk or to inflate the soil's bearing capacity to avoid the multi-million dollar cost of deep-foundation pylons. Verified hashes bind the Borehole Data, Bearing Capacity, and Engineer's License to the engineering firm's or the state's domain (e.g., `aecom.com` or `pe-registry.gov`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="geo"></span>SUMMIT GEOTECHNICAL LTD.
@@ -42,7 +42,13 @@ Groundwater Table:                                 -32 FT (Observed)
 <span data-verify-line="geo">verify:summit-geo.com/v</span> <span verifiable-text="end" data-for="geo"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Sinkhole Hiding Fraud
+
+- **Bearing Inflation:** Changing a "2,000 PSF" (Soft) rating to "4,000 PSF" (Hard) to use a cheaper, shallower foundation.
+- **Risk Omission:** Manually removing a page from a PDF that warns of "High Liquefaction Potential."
+- **Data Recycling:** Using a 20-year-old report for a different, nearby site to avoid the $15,000 cost of new drilling.
+
+## What Is Checked
 
 Project number, site address, parcel ID (APN), client name, engineering firm name, borehole count/depth, allowable soil bearing pressure (PSF), seismic site classification (A-F), liquefaction risk status, groundwater table depth, moisture content, licensed engineer name/license #, report date.
 
@@ -52,25 +58,25 @@ Project number, site address, parcel ID (APN), client name, engineering firm nam
 - **Seismic Hazard Analysis:** Specialized risk report for earthquake zones.
 - **Site Grading Plan:** (Linked hash) proving earthwork matches the report.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`aecom.com`, `jacobs.com`, `state-engineers-board.gov`) and the report standing.
 
 **Status Indications:**
 - **Verified / Bound** — The report matches the original engineering audit.
-- **Superseded** — **ALERT:** A newer, more detailed report exists for this site.
-- **Revoked** — **CRITICAL:** The engineer has withdrawn the report (e.g., due to found errors).
-- **Outdated** — **ALERT:** Report is more than 5 years old; soil conditions may have shifted.
+- **Superseded** — A newer, more detailed report exists for this site.
+- **Revoked** — The engineer has withdrawn the report (e.g., due to found errors).
+- **Outdated** — Report is more than 5 years old; soil conditions may have shifted.
 
-## Second-Party Use
+## Who Holds It
 
-The **Property Developer / Owner** benefits from verification.
+The Property Developer / Owner benefits from verification.
 
 **Bank Loan Draw:** Before releasing a $10M construction loan, the bank's structural auditor scans the geotechnical report. "Verified by Summit Geo" ensures the foundation design is safe and based on real data, protecting the developer from a future "Structural Default."
 
-**Permit Approval Speed:** When submitting plans to the City Building Department, the developer provides the verified hash. The city's plan checker can instantly see **"VERIFIED BEARING: 3,500 PSF,"** bypassing the 2-week manual review of raw lab results and getting the "Shovel in the Ground" faster.
+**Permit Approval Speed:** When submitting plans to the City Building Department, the developer provides the verified hash. The city's plan checker can instantly see "VERIFIED BEARING: 3,500 PSF," bypassing the 2-week manual review of raw lab results and getting the "Shovel in the Ground" faster.
 
-## Third-Party Use
+## Who Checks It
 
 **Structural Engineers**
 **Design Integrity:** The engineer designing the building's steel skeleton scans the soil report hash. Verification ensures they aren't basing their life-safety calculations on a "Doctor'ed" report that hides soft clay or a high water table.
@@ -81,13 +87,7 @@ The **Property Developer / Owner** benefits from verification.
 **Prospective Land Buyers**
 **Due Diligence:** A buyer looking at a vacant hillside lot scans the verified reports from the past 10 years. This ensures they aren't buying a "Landslide Risk" that the seller is trying to hide with a clean-looking PDF.
 
-## Verification Architecture
-
-**The "Sinkhole Hiding" Fraud Problem**
-
-- **Bearing Inflation:** Changing a "2,000 PSF" (Soft) rating to "4,000 PSF" (Hard) to use a cheaper, shallower foundation.
-- **Risk Omission:** Manually removing a page from a PDF that warns of "High Liquefaction Potential."
-- **Data Recycling:** Using a 20-year-old report for a different, nearby site to avoid the $15,000 cost of new drilling.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

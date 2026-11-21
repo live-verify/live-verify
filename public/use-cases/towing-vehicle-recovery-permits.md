@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What are Towing Permits?
 
-In the urban environment, **Towing Permits** are the "Authorization to Seize" private property. From the **Tow Truck Operator Badge** to the **Municipal Rotation Card**, these documents prove that a driver is legally licensed, insured, and background-checked to tow vehicles on behalf of the city or a private property owner.
+In the urban environment, Towing Permits are the "Authorization to Seize" private property. From the Tow Truck Operator Badge to the Municipal Rotation Card, these documents prove that a driver is legally licensed, insured, and background-checked to tow vehicles on behalf of the city or a private property owner.
 
 This industry is a primary target for "Bandit Towers"—unlicensed operators who roam streets to illegally tow cars and then demand hundreds of dollars in "Cash-Only" recovery fees. Fraud is high-stakes: criminals often use fake city badges to trick drivers into thinking their car was legally "impounded" for a violation. Live Verify allows a vehicle owner or police officer to scan the operator's ID or the truck's permit to verify: **"Is this company currently authorized to tow in this city, and are they on the official police rotation list?"**
 
@@ -48,7 +48,13 @@ This industry is a primary target for "Bandit Towers"—unlicensed operators who
   </div>
 </div>
 
-## Data Verified
+## The Problem: Bandit Tower Fraud
+
+- **Badge Mimicry:** Printing realistic city "Rotation Permits" using a home printer to pose as a police-authorized vendor.
+- **ID Duplication:** Using one valid card for a fleet of 10 generic, un-insured trucks.
+- **Status Hiding:** Continuing to tow using a physical "Valid" card after the city revoked the license for violence or illegal charging.
+
+## What Is Checked
 
 License number, operator name, company name, truck unit number, vehicle license plate (linked), photograph (via hash), expiration date, background check status, insurance policy ID, police rotation zone assignment, authorized fee schedule ID.
 
@@ -58,25 +64,25 @@ License number, operator name, company name, truck unit number, vehicle license 
 - **Impound Authorization:** (Linked hash) signed by a police officer or landlord.
 - **Annual Safety Inspection:** Decal on the truck window.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`springfieldpd.gov`, `dmv.state.gov`, `city.gov`) and the operator's standing.
 
 **Status Indications:**
 - **Active / Authorized** — Operator is currently licensed and on the city rotation.
-- **Suspended** — **CRITICAL:** Authority is revoked (e.g., due to predatory pricing or illegal towing).
-- **Insurance Lapsed** — **CRITICAL:** The truck is not currently insured; towing is illegal.
-- **Wrong Zone** — **ALERT:** Operator is authorized, but assigned to a DIFFERENT part of the city.
+- **Suspended** — Authority is revoked (e.g., due to predatory pricing or illegal towing).
+- **Insurance Lapsed** — The truck is not currently insured; towing is illegal.
+- **Wrong Zone** — Operator is authorized, but assigned to a DIFFERENT part of the city.
 
-## Second-Party Use
+## Who Holds It
 
-The **Vehicle Owner / Driver** benefits from verification.
+The Vehicle Owner / Driver benefits from verification.
 
-**Anti-Theft Defense:** A driver walks out to find their car being hooked by a tow truck. The operator claims they are "on rotation" for the police. The driver scans the operator's badge. If it returns **"ACTIVE - ZONE 4,"** they know the tow is legitimate. If it returns **"UNKNOWN"** or **"SUSPENDED,"** they can call 911 to report a vehicle theft in progress.
+**Anti-Theft Defense:** A driver walks out to find their car being hooked by a tow truck. The operator claims they are "on rotation" for the police. The driver scans the operator's badge. If it returns "ACTIVE - ZONE 4," they know the tow is legitimate. If it returns "UNKNOWN" or "SUSPENDED," they can call 911 to report a vehicle theft in progress.
 
-**Fee Protection:** A driver at an impound lot is told the fee is $500. They scan the verified hash on their receipt. If the hash returns **"MAX LEGAL FEE: $250,"** they have the cryptographic proof needed to refuse the over-charge and report the operator to the city.
+**Fee Protection:** A driver at an impound lot is told the fee is $500. They scan the verified hash on their receipt. If the hash returns "MAX LEGAL FEE: $250," they have the cryptographic proof needed to refuse the over-charge and report the operator to the city.
 
-## Third-Party Use
+## Who Checks It
 
 **Police / Traffic Patrol**
 **Rotation Audit:** During a busy shift, an officer can scan the badges of operators arriving at accident scenes. Verified hashes ensure that "Bandit Towers" aren't jumping the queue and stealing business from authorized, insured vendors.
@@ -87,13 +93,7 @@ The **Vehicle Owner / Driver** benefits from verification.
 **Commercial Insurers**
 **Risk Management:** Verifying that a fleet of 50 tow trucks is maintaining 100% verified, active operator permits to ensure the carrier's liability coverage remains valid.
 
-## Verification Architecture
-
-**The "Bandit Tower" Fraud Problem**
-
-- **Badge Mimicry:** Printing realistic city "Rotation Permits" using a home printer to pose as a police-authorized vendor.
-- **ID Duplication:** Using one valid card for a fleet of 10 generic, un-insured trucks.
-- **Status Hiding:** Continuing to tow using a physical "Valid" card after the city revoked the license for violence or illegal charging.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

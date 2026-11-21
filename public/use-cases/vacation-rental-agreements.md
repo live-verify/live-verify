@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Vacation Rental Agreements?
 
-In the short-term rental market (Airbnb, VRBO), the **Rental Agreement** or Booking Summary is the legal contract between the host and the guest. It defines the rules of the stay: the nightly rate, the cleaning fee, the cancellation policy, and the "House Rules" (e.g., "No Parties").
+In the short-term rental market (Airbnb, VRBO), the Rental Agreement or Booking Summary is the legal contract between the host and the guest. It defines the rules of the stay: the nightly rate, the cleaning fee, the cancellation policy, and the "House Rules" (e.g., "No Parties").
 
-Fraud is rampant in the "Direct Booking" market. Scammers create "Phantom Listings" using photos of real homes and issue fake PDF agreements to steal security deposits. Similarly, guests might "edit" an agreement to remove a "No Pets" rule before showing it to a building manager. Verified hashes bind the **Property Address, Stay Dates, and Total Price** to the platform's or the property manager's domain (e.g., `airbnb.com` or `vacasa.com`).
+Fraud is rampant in the "Direct Booking" market. Scammers create "Phantom Listings" using photos of real homes and issue fake PDF agreements to steal security deposits. Similarly, guests might "edit" an agreement to remove a "No Pets" rule before showing it to a building manager. Verified hashes bind the Property Address, Stay Dates, and Total Price to the platform's or the property manager's domain (e.g., `airbnb.com` or `vacasa.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="rental"></span>airbnb
@@ -35,7 +35,13 @@ House Rules: Maximum 4 guests. No smoking. No unauthorized pets.
 <span data-verify-line="rental">verify:airbnb.com/v</span> <span verifiable-text="end" data-for="rental"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Malibu Ghost Fraud
+
+- **Price Baiting:** Showing a low price on a PDF to get a guest to sign, then demanding "Hidden Fees" at the door.
+- **Listing Duplication:** Using photos of a real $5M mansion to sell fake $200/night rentals.
+- **Rule Tampering:** Editing a "No Smoking" rule into a "Smoking Allowed" rule to avoid a fine.
+
+## What Is Checked
 
 Reservation reference number, property address, host name, guest name, stay dates, itemized fees (nightly, cleaning, taxes), total price paid, house rules hash, cancellation policy tier, local occupancy tax ID.
 
@@ -45,25 +51,25 @@ Reservation reference number, property address, host name, guest name, stay date
 - **Check-in Instructions:** (Linked hash) containing door codes.
 - **Security Deposit Receipt:** Proof of funds held.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`airbnb.com`, `vrbo.com`, `vacasa.com`) and the booking standing.
 
 **Status Indications:**
 - **Confirmed / Paid** — Booking is valid and current.
 - **Checked In** — Guest is currently on property.
-- **Cancelled** — **ALERT:** The booking was voided; access is unauthorized.
-- **Disputed** — **ALERT:** An active damage or cleanliness claim is open.
+- **Cancelled** — The booking was voided; access is unauthorized.
+- **Disputed** — An active damage or cleanliness claim is open.
 
-## Second-Party Use
+## Who Holds It
 
-The **Vacationer (Guest)** benefits from verification.
+The Vacationer (Guest) benefits from verification.
 
-**Anti-Scam Protection:** Before wiring a $1,000 security deposit to a "Direct Host" found on social media, the guest scans the provided agreement hash. If it returns **"VERIFIED - AIRBNB,"** they know the listing is real. If it returns **"UNKNOWN,"** they avoid a "Phantom Rental" scam.
+**Anti-Scam Protection:** Before wiring a $1,000 security deposit to a "Direct Host" found on social media, the guest scans the provided agreement hash. If it returns "VERIFIED - AIRBNB," they know the listing is real. If it returns "UNKNOWN," they avoid a "Phantom Rental" scam.
 
 **Building Access:** A guest arriving at a high-end condo building can show the verified hash to the front-desk security. "Verified by Airbnb" ensures the guard that the guest is an authorized short-term tenant and not an interloper, preventing a refusal of entry.
 
-## Third-Party Use
+## Who Checks It
 
 **Building Managers / HOAs**
 **Compliance Monitoring:** Verifying that the person staying in Unit 4B actually matches the guest name on the verified Airbnb agreement, ensuring that "Sub-Leasing Scams" aren't occurring in the building.
@@ -72,15 +78,9 @@ The **Vacationer (Guest)** benefits from verification.
 **Occupancy Tax Audit:** Verifying that the "Total Rental Income" reported by a host matches the verified hashes from the platforms, ensuring the city collects the correct "Bed Tax."
 
 **Neighbors / Community**
-**Nuisance Enforcement:** A neighbor bothered by a large party can scan the "Guest Posting" (if available). If it returns **"MAX OCCUPANCY: 2,"** they have the cryptographic proof needed to report a house rule violation to the platform.
+**Nuisance Enforcement:** A neighbor bothered by a large party can scan the "Guest Posting" (if available). If it returns "MAX OCCUPANCY: 2," they have the cryptographic proof needed to report a house rule violation to the platform.
 
-## Verification Architecture
-
-**The "Malibu Ghost" Fraud Problem**
-
-- **Price Baiting:** Showing a low price on a PDF to get a guest to sign, then demanding "Hidden Fees" at the door.
-- **Listing Duplication:** Using photos of a real $5M mansion to sell fake $200/night rentals.
-- **Rule Tampering:** Editing a "No Smoking" rule into a "Smoking Allowed" rule to avoid a fine.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

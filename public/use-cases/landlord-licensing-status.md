@@ -118,13 +118,13 @@ A property is let to multiple tenants as a shared house. The landlord holds a se
 
 Whether mandatory HMO licensing is also required depends on the actual occupancy — number of tenants, number of households, number of storeys — which are facts about the property's current use, not facts the council's licensing endpoint necessarily knows in real time. The artifact can confirm the licence held; it cannot by itself confirm the actual occupancy state that determines whether a different licence type was required. A tenant or enforcement officer who sees "Selective Licence" for a property they believe is an HMO has a prompt for further enquiry with the council, not a conclusion.
 
-## Data Verified
+## What Is Checked
 
 Landlord name, property address, licence type (selective, additional HMO, mandatory HMO), licence number, issuing council, and current licence status.
 
 **Privacy Salt:** Required. Property addresses and landlord names are semi-public, but the combination of address, landlord identity, and licence status could be enumerated. The hash must be salted to prevent an adversary from constructing lookups against known addresses.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `york.gov.uk`) and confirms whether the landlord licensing claim is current.
 
@@ -145,15 +145,15 @@ Shows the issuer domain (e.g., `york.gov.uk`) and confirms whether the landlord 
 - **Application Pending** — A licence application has been submitted but not yet determined. In some schemes, a landlord may lawfully let while a properly made application is pending.
 - **404** — No such licence exists at the claimed council.
 
-## Second-Party Use
+## Who Holds It
 
-The **landlord** benefits directly by demonstrating compliance. Landlord licensing carries obligations — fire safety standards, gas and electrical safety certificates, property condition requirements — and a verified licence confirms to tenants and agents that the landlord has met the council's threshold for issuing a licence.
+The landlord benefits directly by demonstrating compliance. Landlord licensing carries obligations — fire safety standards, gas and electrical safety certificates, property condition requirements — and a verified licence confirms to tenants and agents that the landlord has met the council's threshold for issuing a licence.
 
 **When advertising a property:** The landlord or letting agent embeds the council-issued claim on the listing. A prospective tenant clips the text and verifies before signing a tenancy agreement. The tenant confirms the property is licensed without navigating the council's register.
 
 **When challenged by a tenant:** If a tenant questions licensing status (for example, after learning about rent repayment order rights), the landlord points to the verifiable claim displayed in the property. The tenant photographs it, clips the text, and gets a current answer from the council's domain.
 
-## Third-Party Use
+## Who Checks It
 
 **Tenants**
 
@@ -171,7 +171,7 @@ Enforcement officers investigating unlicensed letting can use verification statu
 
 Some buy-to-let mortgage conditions require the landlord to comply with all applicable licensing requirements. A verified licensing claim provides direct evidence from the council that the condition is met, without requiring the lender to search the council's register manually.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Unlicensed Letting Problem**
 
@@ -191,7 +191,7 @@ The verifiable claim addresses these because:
 4. The browser extension detects domain mismatches when claims are copied to other listings
 5. The licence type is part of the verified response, allowing tenants to check it matches the occupancy
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Council Online Register | Phone Call to Council |
 | :--- | :--- | :--- | :--- |

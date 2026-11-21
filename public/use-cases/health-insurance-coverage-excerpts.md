@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Coverage Excerpt?
 
-A **coverage excerpt** is a human-readable, portable summary of a patient's current health-insurance position for a specific planning workflow. Unlike the wallet card, which mainly says "this person has cover," the excerpt answers the operational questions that arise before planned treatment:
+A coverage excerpt is a human-readable, portable summary of a patient's current health-insurance position for a specific planning workflow. Unlike the wallet card, which mainly says "this person has cover," the excerpt answers the operational questions that arise before planned treatment:
 
 - is cover active now?
 - what kind of cover is it?
@@ -48,7 +48,22 @@ It does not replace live pre-auth or final claim adjudication.
 <span data-verify-line="coverage">verify:bcbsil.com/coverage/v</span> <span verifiable-text="end" data-for="coverage"></span>
 </div>
 
-## Data Verified
+## The Problem: portability
+
+- the payer's eligibility state is live and changing
+- the planning workflow is human and distributed
+- the artifact gets emailed, printed, and re-opened later
+
+That makes the design requirement different from the wallet card. The excerpt needs:
+
+- a clear valid as of moment
+- a recheck after boundary
+- a coverage period end where relevant
+- a way to indicate changed / superseded rather than merely "not found"
+
+The point is not to freeze the payer system into a document forever. The point is to let a human-readable planning artifact travel safely enough between checks.
+
+## What Is Checked
 
 Member name, partial member ID, plan family, active/inactive state, coverage period, recheck-after date, service class or benefit bucket, relevant network context, and insurer identity.
 
@@ -71,9 +86,9 @@ The endpoint returns narrow, current states:
 
 The issuer domain is visible from the `verify:` line itself.
 
-## Second-Party Use
+## Who Holds It
 
-The **patient** benefits from having a portable, human-readable coverage artifact that can travel outside the payer system.
+The patient benefits from having a portable, human-readable coverage artifact that can travel outside the payer system.
 
 **Elective care planning:** Before seeing a specialist, the patient emails the excerpt to the office so scheduling and cost conversations can begin without waiting on a full clearinghouse workflow.
 
@@ -81,7 +96,7 @@ The **patient** benefits from having a portable, human-readable coverage artifac
 
 **Family and custody situations:** A parent can send a current excerpt to the other parent's provider to show that detailed cover exists through a stated date unless renewed.
 
-## Third-Party Use
+## Who Checks It
 
 **Specialist Practices and Hospitals**
 The strongest verifier. Scheduling and revenue-cycle teams can review a portable excerpt before committing operating-theatre time, device orders, or pre-op appointments.
@@ -92,24 +107,7 @@ These providers often operate outside the patient's primary insurer workflow. A 
 **Case Managers and Care Coordinators**
 Care coordinators can move a verified summary between patient, payer, and provider without forcing every participant into the same portal.
 
-## Verification Architecture
-
-**The portability problem**
-
-- the payer's eligibility state is live and changing
-- the planning workflow is human and distributed
-- the artifact gets emailed, printed, and re-opened later
-
-That makes the design requirement different from the wallet card. The excerpt needs:
-
-- a clear **valid as of** moment
-- a **recheck after** boundary
-- a **coverage period end** where relevant
-- a way to indicate **changed / superseded** rather than merely "not found"
-
-The point is not to freeze the payer system into a document forever. The point is to let a human-readable planning artifact travel safely enough between checks.
-
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify Coverage Excerpt | EDI 270/271 / Portal | Wallet Card |
 | :--- | :--- | :--- | :--- |

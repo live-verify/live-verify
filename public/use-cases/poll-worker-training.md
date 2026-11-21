@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is Poll Worker Verification?
 
-On Election Day, the integrity of the vote depends on thousands of temporary workers. A **Poll Worker Appointment Card** is the document that authorizes a citizen to handle ballots, verify voter IDs, and manage the voting machines. In many jurisdictions, workers must also complete mandatory **Election Law Training** before they are allowed on-site.
+On Election Day, the integrity of the vote depends on thousands of temporary workers. A Poll Worker Appointment Card is the document that authorizes a citizen to handle ballots, verify voter IDs, and manage the voting machines. In many jurisdictions, workers must also complete mandatory Election Law Training before they are allowed on-site.
 
 This is a critical security frontier. Fraudsters or partisan actors might attempt to "impersonate" a poll worker to gain access to voting machines or to intimidate voters. Similarly, a person who failed their training might try to "edit" their certificate to get assigned to a high-stakes precinct. Live Verify allows an election supervisor or observer to scan the worker's badge to verify: **"Is this person a vetted, trained, and authorized official for this specific precinct today?"**
 
@@ -51,7 +51,13 @@ This is a critical security frontier. Fraudsters or partisan actors might attemp
   </div>
 </div>
 
-## Data Verified
+## The Problem: Precinct Crasher Fraud
+
+- **Identity Impersonation:** A person using a stolen uniform and a fake "Appointment Letter" to gain access to a voting machine.
+- **Training Spoofing:** Creating a fake certificate to bypass the requirement to learn new election integrity laws.
+- **Assignment Tampering:** Editing a letter to move oneself from a "Safe" precinct to a "Battleground" precinct to influence the process.
+
+## What Is Checked
 
 Worker name, employee/volunteer ID, election jurisdiction (County/City), precinct/ward assignment, specific role (Judge, Clerk, Inspector), training completion date, background check status, photograph (via hash), date of oath.
 
@@ -61,25 +67,25 @@ Worker name, employee/volunteer ID, election jurisdiction (County/City), precinc
 - **Assignment Letter:** Instructions for the specific polling place.
 - **Oath of Office:** (Linked hash) the legally required sworn statement.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`elections.state.gov`, `vote.county.org`) and the worker's status.
 
 **Status Indications:**
 - **Active / Authorized** — Person is a vetted worker assigned to this precinct today.
-- **Training Expired** — **ALERT:** The worker did not complete the required pre-election course.
-- **Revoked** — **CRITICAL:** Appointment terminated (e.g., due to reported partisan bias).
-- **Wrong Location** — **ALERT:** Worker is authorized, but assigned to a DIFFERENT precinct.
+- **Training Expired** — The worker did not complete the required pre-election course.
+- **Revoked** — Appointment terminated (e.g., due to reported partisan bias).
+- **Wrong Location** — Worker is authorized, but assigned to a DIFFERENT precinct.
 
-## Second-Party Use
+## Who Holds It
 
-The **Poll Worker (Citizen)** benefits from verification.
+The Poll Worker (Citizen) benefits from verification.
 
 **Credibility at the Polls:** Upon arriving at 5 AM, the worker scans their own badge for the Chief Judge. "Verified by Springfield Elections" ensures they are immediately admitted to the secure area and given their ballot-handling duties without delay or manual roster checks.
 
 **Employer Leave:** Many citizens get paid time off to work the polls. The verified "Service Hash" provides their employer with cryptographic proof that they actually served at the precinct, preventing "Civic Duty" fraud.
 
-## Third-Party Use
+## Who Checks It
 
 **Election Supervisors / Chief Judges**
 **Security Control:** Preventing "interlopers" from entering the secure machine area. Scanning every badge at the door ensures that the "Chain of Custody" for ballots is only handled by authorized, trained officials.
@@ -90,13 +96,7 @@ The **Poll Worker (Citizen)** benefits from verification.
 **Election Commissions**
 **Post-Election Audit:** Verifying the "Roster of Service" during a recount or audit to ensure that every ballot was processed by a verified official who had completed their training.
 
-## Verification Architecture
-
-**The "Precinct Crasher" Fraud Problem**
-
-- **Identity Impersonation:** A person using a stolen uniform and a fake "Appointment Letter" to gain access to a voting machine.
-- **Training Spoofing:** Creating a fake certificate to bypass the requirement to learn new election integrity laws.
-- **Assignment Tampering:** Editing a letter to move oneself from a "Safe" precinct to a "Battleground" precinct to influence the process.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

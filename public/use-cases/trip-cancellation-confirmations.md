@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Trip Cancellation Confirmation?
 
-In the travel industry, a **Trip Cancellation Confirmation** is the formal proof that a booking was voided. It is the "Death Certificate" for a trip. It lists which parts of the trip were refunded to the original payment method and which parts were issued as "Future Travel Credits."
+In the travel industry, a Trip Cancellation Confirmation is the formal proof that a booking was voided. It is the "Death Certificate" for a trip. It lists which parts of the trip were refunded to the original payment method and which parts were issued as "Future Travel Credits."
 
-These documents are the primary evidence used for **Travel Insurance Claims**. A traveler claiming $5,000 for a missed vacation must prove the trip was actually cancelled and show exactly how much the airline *didn't* refund. Fraud is rampant: people "Photoshop" a standard cancellation email to hide a partial refund they already received, or they create fake "Cancellation Notices" for trips they never booked to scam their insurer. Verified hashes bind the **Refund Amounts, Cancellation Reason, and Booking Reference** to the provider's domain (e.g., `britishairways.com` or `booking.com`).
+These documents are the primary evidence used for Travel Insurance Claims. A traveler claiming $5,000 for a missed vacation must prove the trip was actually cancelled and show exactly how much the airline *didn't* refund. Fraud is rampant: people "Photoshop" a standard cancellation email to hide a partial refund they already received, or they create fake "Cancellation Notices" for trips they never booked to scam their insurer. Verified hashes bind the Refund Amounts, Cancellation Reason, and Booking Reference to the provider's domain (e.g., `britishairways.com` or `booking.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="cancel"></span>
@@ -42,7 +42,13 @@ TOTAL NON-REFUNDABLE LOSS:                               $ 1,200.00
 <span data-verify-line="cancel">verify:ba.com/cancel/v</span> <span verifiable-text="end" data-for="cancel"></span>
 </div>
 
-## Data Verified
+## The Problem: Phantom Refund Fraud
+
+- **Loss Inflation:** Editing a "Partial Refund" notice to look like a "Total Loss" to get a higher insurance payout.
+- **Ghost Cancellations:** Creating fake cancellation emails for a flight that the passenger actually flew on.
+- **Date Tampering:** Changing the cancellation date to fall within the "Insurance Coverage Window."
+
+## What Is Checked
 
 Booking reference (PNR), passenger name, flight/itinerary details, cancellation timestamp, reason for cancellation (e.g., Illness, Weather), itemized refund amounts (taxes vs. fare), future travel credit value, airline ID.
 
@@ -52,19 +58,19 @@ Booking reference (PNR), passenger name, flight/itinerary details, cancellation 
 - **No-Show Certificate:** Proving the passenger didn't board (required for some claims).
 - **Insurance Claim Form Supplement:** (Linked hash) provided by the airline.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`ba.com`, `expedia.com`, `marriott.com`) and the booking standing.
 
 **Status Indications:**
 - **Cancelled / Refunded** — Booking is void; funds returned as stated.
 - **Cancelled / Credit Issued** — Booking void; funds held as Future Travel Credit.
-- **Active / Boarded** — **ALERT:** The trip was NOT cancelled (indicates insurance fraud).
+- **Active / Boarded** — The trip was NOT cancelled (indicates insurance fraud).
 - **Modification Pending** — A change request is active but not finalized.
 
-## Second-Party Use
+## Who Holds It
 
-The **Traveler** (second party) receives the cancellation confirmation from the airline or travel provider (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Traveler (second party) receives the cancellation confirmation from the airline or travel provider (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** The traveler has their own verified copy of the cancellation details and refund breakdown. Most of the time, the document sits in their email or travel folder—the verification value is latent, there *if needed*.
 
@@ -72,15 +78,15 @@ The **Traveler** (second party) receives the cancellation confirmation from the 
 
 **Future Optionality:** If a dispute arises—whether about insurance claims, employer reimbursements, or tax deductions—the traveler has cryptographic proof ready without needing to contact the airline.
 
-## Third-Party Use
+## Who Checks It
 
 The traveler (second party) may hand the verified document to various third parties:
 
 **Travel Insurance Underwriters (Claims Processing)**
-When filing a $1,200 "Trip Interruption" claim, the traveler provides the verified hash of their BA cancellation notice. The insurer can instantly see **"VERIFIED LOSS - $1,200"** directly from the airline domain, bypassing the 3-week "Manual Verification" wait and getting the traveler paid in days.
+When filing a $1,200 "Trip Interruption" claim, the traveler provides the verified hash of their BA cancellation notice. The insurer can instantly see "VERIFIED LOSS - $1,200" directly from the airline domain, bypassing the 3-week "Manual Verification" wait and getting the traveler paid in days.
 
 **Travel Insurance Fraud Detection**
-Insurers cross-reference "Loss Claims" with verified airline hashes. If a claimant submits a PDF showing a "$2,000 Non-Refundable Loss," but the verified hash returns **"FULLY REFUNDED TO VISA,"** the insurer can deny the claim and flag the user for fraud.
+Insurers cross-reference "Loss Claims" with verified airline hashes. If a claimant submits a PDF showing a "$2,000 Non-Refundable Loss," but the verified hash returns "FULLY REFUNDED TO VISA," the insurer can deny the claim and flag the user for fraud.
 
 **Employers (Business Travel Reconciliation)**
 An employee provides verified cancellation confirmations to prove that a cancelled business trip resulted in a "Future Travel Credit" (which belongs to the company) and not a "Cash Refund" (which the employee might try to pocket).
@@ -91,13 +97,7 @@ TMCs automatically track all verified "Future Travel Credits" across an entire w
 **Tax Authorities (Business Loss Audit)**
 Auditors verify that "Cancelled Travel" deductions on a corporate tax return are backed by legitimate, verified non-refundable losses.
 
-## Verification Architecture
-
-**The "Phantom Refund" Fraud Problem**
-
-- **Loss Inflation:** Editing a "Partial Refund" notice to look like a "Total Loss" to get a higher insurance payout.
-- **Ghost Cancellations:** Creating fake cancellation emails for a flight that the passenger actually flew on.
-- **Date Tampering:** Changing the cancellation date to fall within the "Insurance Coverage Window."
+## Who Issues It
 
 **Issuer Types (First Party)**
 

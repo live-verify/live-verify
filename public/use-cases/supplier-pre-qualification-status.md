@@ -92,7 +92,7 @@ verify:networkrail.co.uk/suppliers/v
 
 The claim snippet remains on the supplier's website, but verification now returns REVOKED. A procurement team checking before shortlisting sees the failure immediately.
 
-## Data Verified
+## What Is Checked
 
 Buyer name, supplier name, supplier domain, work category, contract value limit, health and safety assessment status, insurance confirmation, and validity period.
 
@@ -102,7 +102,7 @@ Buyer name, supplier name, supplier domain, work category, contract value limit,
 
 **Privacy Salt:** Generally not required. Pre-qualification status is commercial information the supplier wants to be public — it is a competitive advantage. The buyer may salt if the specific value tier or category details are commercially sensitive in a particular procurement context.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `networkrail.co.uk`, `constructionline.co.uk`, `achilles.com`) and current qualification status.
 
@@ -125,9 +125,9 @@ The `allowedDomains` field enables browser extensions to detect domain mismatche
 - **Tier Changed** — Qualification is active but the value limit or category has changed; a new claim has been issued.
 - **404** — No such pre-qualification claim was issued by the claimed buyer.
 
-## Second-Party Use
+## Who Holds It
 
-The **supplier** benefits from portability and credibility.
+The supplier benefits from portability and credibility.
 
 **Bid documentation:** Instead of attaching a PDF letter to every tender submission, the supplier references a live verifiable claim. The procurement team checks it against the buyer's domain — seconds instead of phone calls or email chains to confirm the letter is genuine and current.
 
@@ -135,7 +135,7 @@ The **supplier** benefits from portability and credibility.
 
 **Value-limit transparency:** The supplier cannot be accused of misrepresenting their tier. The claim states the limit explicitly. This protects the supplier from disputes where a procuring organization later claims the supplier overstated their qualification level.
 
-## Third-Party Use
+## Who Checks It
 
 **Procurement Teams at Other Organizations**
 
@@ -153,7 +153,7 @@ The **supplier** benefits from portability and credibility.
 
 **Compliance verification:** Internal and external auditors reviewing procurement decisions can verify that suppliers on the approved list were genuinely pre-qualified at the time contracts were awarded.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Reusable Attestation Pattern**
 
@@ -221,7 +221,7 @@ The pre-qualifying organization is the trust anchor. The regulatory or oversight
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Verifiable Claim | PDF Letter / Certificate | Phone / Email Confirmation | Scheme Portal Login |
 | :--- | :--- | :--- | :--- | :--- |

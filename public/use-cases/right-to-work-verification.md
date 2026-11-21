@@ -17,7 +17,7 @@ The underlying immigration status — visa grant, settlement, citizenship — is
 
 **does this person have the right to work as of now?**
 
-A **Right to Work Confirmation** is a short-lived, salted derivative proof issued from the Home Office immigration record. It answers that narrow question for a specific checking occasion and then expires.
+A Right to Work Confirmation is a short-lived, salted derivative proof issued from the Home Office immigration record. It answers that narrow question for a specific checking occasion and then expires.
 
 ## Gated Workplace Check
 
@@ -142,7 +142,21 @@ verify:gov.uk/right-to-work/v
 </pre>
 </div>
 
-## Data Verified
+## The Problem: Too Many Photocopies
+
+- Employers photocopy passports and BRP cards as evidence of the check.
+- These copies sit in filing cabinets and HR systems indefinitely.
+- Stale photocopies cannot reflect changes in immigration status.
+- The copies themselves become a data protection liability.
+- The Home Office online checking service is an improvement but produces screenshots, not verifiable claims.
+
+This use case provides a narrower object than a passport photocopy or a full immigration status record:
+
+- not identity verification
+- not immigration history
+- but short-lived proof of current right to work
+
+## What Is Checked
 
 Subject reference, right to work status, work type (citizen, unrestricted, restricted, or sponsored), confirmation timestamp, expiry timestamp, and salt. For sponsored or restricted work, the proof may also include the minimum necessary condition fields: sponsor reference, permitted employer, permitted role, occupation code, worksite, hours, or prohibited work types.
 
@@ -162,11 +176,11 @@ Subject reference, right to work status, work type (citizen, unrestricted, restr
 
 The person's name is not in the verifiable text. Only a reference and the status appear, plus condition fields when those fields are necessary for a restricted or sponsored compliance check. The employer or official sees identity documents separately. The verifiable claim confirms the status, not the identity. This mirrors the hashed-party-references pattern used in property deed verification.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain and the current right-to-work result.
 
-**Important:** this confirmation answers the narrow question of **current right to work only**. It does not carry identity, immigration history, or visa details — those belong to the underlying Home Office record.
+**Important:** this confirmation answers the narrow question of current right to work only. It does not carry identity, immigration history, or visa details — those belong to the underlying Home Office record.
 
 **Status Indications:**
 - **Right to Work Confirmed (Citizen)** — Current right to work confirmed through the citizen route
@@ -177,9 +191,9 @@ Shows the issuer domain and the current right-to-work result.
 - **Not Confirmed** — Current Home Office records do not support the claim
 - **404** — No matching short-lived confirmation exists
 
-## Second-Party Use
+## Who Holds It
 
-The **worker** benefits directly.
+The worker benefits directly.
 
 **Privacy-preserving proof:** The worker can demonstrate right to work without handing over passport photocopies or revealing immigration history.
 
@@ -187,7 +201,7 @@ The **worker** benefits directly.
 
 **Reduced document spread:** Instead of passport photocopies and BRP scans circulating through HR departments and recruitment agencies, the shared proof naturally expires.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers**
 
@@ -205,27 +219,11 @@ The **worker** benefits directly.
 
 **Workplace enforcement:** Using the gated challenge to route the check without assuming immigration status. For unrestricted workers, the official records that right to work is confirmed and stops there unless another issue exists. For sponsored workers, the official compares sponsor, role, worksite, and restrictions with what is observed and with employer records. The officer must treat a mismatch as a compliance lead, not as automatic proof of worker wrongdoing.
 
-## Verification Architecture
-
-**The "Too Many Photocopies" Problem**
-
-- Employers photocopy passports and BRP cards as evidence of the check.
-- These copies sit in filing cabinets and HR systems indefinitely.
-- Stale photocopies cannot reflect changes in immigration status.
-- The copies themselves become a data protection liability.
-- The Home Office online checking service is an improvement but produces screenshots, not verifiable claims.
-
-This use case provides a narrower object than a passport photocopy or a full immigration status record:
-
-- not identity verification
-- not immigration history
-- but short-lived proof of **current right to work**
-
 ## Privacy Salt
 
 Required. Immigration status is highly sensitive. The salt ensures each confirmation instance produces a unique hash, preventing cross-correlation between different checking occasions for the same individual.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Short-Lived RTW Confirmation | Passport Photocopy | Home Office Online Check | Employer Checking Service |
 | :--- | :--- | :--- | :--- | :--- |

@@ -111,68 +111,7 @@ verify:charitycommission.gov.uk/charities/v
 
 A charity that has been removed from the register — whether voluntarily or by the Commission — may continue displaying "Registered Charity" on its website and fundraising materials for months or years. The verification endpoint returns the current status, not the status when the claim was first issued.
 
-## Data Verified
-
-Charity name, registration number, registration body, registered website domain, and current registration status.
-
-**Document Types:**
-- **Registration Confirmation** — The charity is registered with the Charity Commission for England and Wales. The registration number, charity name, and registered purposes are part of the verified claim.
-- **CIO Registration** — Charitable Incorporated Organisation registration. Same verification pattern but the charity has a specific legal form with limited liability for trustees.
-- **Excepted/Exempt Charity Registration** — Some charities (e.g., certain religious charities, armed forces charities) are excepted or exempt from registration but may still appear on the register voluntarily.
-
-**Privacy Salt:** Not required. Charity registration is a matter of public record. The register is fully public by design — the Charities Act requires it.
-
-## Data Visible After Verification
-
-Shows the issuer domain (`charitycommission.gov.uk`) and the charity's current registration status.
-
-**Verification Response Format:**
-
-```json
-{
-  "status": "verified",
-  "allowedDomains": ["hopehomes.org.uk", "*.hopehomes.org.uk"]
-}
-```
-
-**Status Indications:**
-- **Registered** — Charity is currently on the register and in good standing.
-- **Removed** — Charity has been removed from the register. May have been voluntary (charity wound up) or compulsory (Commission action).
-- **Under Investigation** — The Commission has opened a statutory inquiry. The charity is still registered but the inquiry is a matter of public record.
-- **Registration Suspended** — The Commission has frozen the charity's bank accounts or suspended trustees. Still technically registered but unable to operate normally.
-- **404** — No charity with this registration number exists on the register.
-
-## Second-Party Use
-
-The **donor** benefits directly.
-
-**When donating online:** The donor visits a charity's website and sees "Registered Charity No. 1188442." They clip the registration claim on the page. The response confirms the charity is currently registered and the domain matches. The donor gives with confidence that the organisation is genuinely regulated.
-
-**When encountering a street collector:** A collector shakes a tin displaying the charity name and registration number. The donor photographs the tin, clips the text, and verifies. This confirms the collection is for a real charity — not a person with a printed label and a bucket.
-
-**When receiving a mail appeal:** A letter arrives asking for donations to a charity the recipient has not heard of. The letter includes the registration claim. The recipient clips the text from a photo of the letter before deciding whether to respond.
-
-## Third-Party Use
-
-**Crowdfunding and Donation Platforms**
-
-**Onboarding verification:** Platforms like JustGiving, GoFundMe, and Virgin Money Giving require charities to prove registration before listing them. A verified registration claim provides automated, real-time confirmation directly from the Commission rather than relying on uploaded PDFs of registration letters.
-
-**Grant-Making Bodies**
-
-**Application screening:** Foundations and lottery distributors (e.g., National Lottery Community Fund) verify that grant applicants are registered charities. A verified claim embedded in the application provides instant confirmation without manual lookup.
-
-**HMRC**
-
-**Gift Aid compliance:** Gift Aid tax relief is available only to registered charities. HMRC can verify registration status programmatically when processing Gift Aid claims, ensuring that tax relief is not paid on donations to organisations that have been removed from the register.
-
-**Corporate Partners**
-
-**Charity of the Year selection:** Companies choosing a charity partner for employee fundraising verify that the charity is registered and not under investigation. The verification response surfaces the current status, including any open statutory inquiry.
-
-## Verification Architecture
-
-**The Fake Charity Problem**
+## The Problem: Fake Charity
 
 Charity fraud takes several forms, all of which exploit the gap between the claim and its verification:
 
@@ -192,6 +131,67 @@ The verifiable claim addresses these because:
 
 <details>
 <summary>Other Jurisdictions</summary>
+
+## What Is Checked
+
+Charity name, registration number, registration body, registered website domain, and current registration status.
+
+**Document Types:**
+- **Registration Confirmation** — The charity is registered with the Charity Commission for England and Wales. The registration number, charity name, and registered purposes are part of the verified claim.
+- **CIO Registration** — Charitable Incorporated Organisation registration. Same verification pattern but the charity has a specific legal form with limited liability for trustees.
+- **Excepted/Exempt Charity Registration** — Some charities (e.g., certain religious charities, armed forces charities) are excepted or exempt from registration but may still appear on the register voluntarily.
+
+**Privacy Salt:** Not required. Charity registration is a matter of public record. The register is fully public by design — the Charities Act requires it.
+
+## What the Checker Sees
+
+Shows the issuer domain (`charitycommission.gov.uk`) and the charity's current registration status.
+
+**Verification Response Format:**
+
+```json
+{
+  "status": "verified",
+  "allowedDomains": ["hopehomes.org.uk", "*.hopehomes.org.uk"]
+}
+```
+
+**Status Indications:**
+- **Registered** — Charity is currently on the register and in good standing.
+- **Removed** — Charity has been removed from the register. May have been voluntary (charity wound up) or compulsory (Commission action).
+- **Under Investigation** — The Commission has opened a statutory inquiry. The charity is still registered but the inquiry is a matter of public record.
+- **Registration Suspended** — The Commission has frozen the charity's bank accounts or suspended trustees. Still technically registered but unable to operate normally.
+- **404** — No charity with this registration number exists on the register.
+
+## Who Holds It
+
+The donor benefits directly.
+
+**When donating online:** The donor visits a charity's website and sees "Registered Charity No. 1188442." They clip the registration claim on the page. The response confirms the charity is currently registered and the domain matches. The donor gives with confidence that the organisation is genuinely regulated.
+
+**When encountering a street collector:** A collector shakes a tin displaying the charity name and registration number. The donor photographs the tin, clips the text, and verifies. This confirms the collection is for a real charity — not a person with a printed label and a bucket.
+
+**When receiving a mail appeal:** A letter arrives asking for donations to a charity the recipient has not heard of. The letter includes the registration claim. The recipient clips the text from a photo of the letter before deciding whether to respond.
+
+## Who Checks It
+
+**Crowdfunding and Donation Platforms**
+
+**Onboarding verification:** Platforms like JustGiving, GoFundMe, and Virgin Money Giving require charities to prove registration before listing them. A verified registration claim provides automated, real-time confirmation directly from the Commission rather than relying on uploaded PDFs of registration letters.
+
+**Grant-Making Bodies**
+
+**Application screening:** Foundations and lottery distributors (e.g., National Lottery Community Fund) verify that grant applicants are registered charities. A verified claim embedded in the application provides instant confirmation without manual lookup.
+
+**HMRC**
+
+**Gift Aid compliance:** Gift Aid tax relief is available only to registered charities. HMRC can verify registration status programmatically when processing Gift Aid claims, ensuring that tax relief is not paid on donations to organisations that have been removed from the register.
+
+**Corporate Partners**
+
+**Charity of the Year selection:** Companies choosing a charity partner for employee fundraising verify that the charity is registered and not under investigation. The verification response surfaces the current status, including any open statutory inquiry.
+
+## How Verification Works Here
 
 **United States — IRS 501(c)(3) Status**
 
@@ -215,7 +215,7 @@ The ACNC maintains the national charity register. Registration is required for c
 
 </details>
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Charity Commission Search | Registration Number on Website | Phone Call to Commission |
 | :--- | :--- | :--- | :--- | :--- |

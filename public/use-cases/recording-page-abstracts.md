@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Recording Page Abstract?
 
-A **Recording Page Abstract** (often the "First Page" or "Stamp Page") is the formal proof that a legal document—like a **Deed**, **Mortgage**, or **Lien**—has been officially filed in the public land records. It contains the "Instrument Number" and the "Book & Page" reference that makes the document a matter of public notice.
+A Recording Page Abstract (often the "First Page" or "Stamp Page") is the formal proof that a legal document—like a Deed, Mortgage, or Lien—has been officially filed in the public land records. It contains the "Instrument Number" and the "Book & Page" reference that makes the document a matter of public notice.
 
-These pages are the "Lifeblood of Title." Fraud is high-stakes: criminals create "Phantom Deeds" by using high-end printers to place a fake county recording stamp on a forged property transfer. They then use these "verified" papers to steal a home's equity or to sell a house they don't own. Verified hashes bind the **Instrument Number, Grantor/Grantee Names, and Timestamp** to the county recorder's domain (e.g., `cookcountyclerk.com` or `maricopa.gov`).
+These pages are the "Lifeblood of Title." Fraud is high-stakes: criminals create "Phantom Deeds" by using high-end printers to place a fake county recording stamp on a forged property transfer. They then use these "verified" papers to steal a home's equity or to sell a house they don't own. Verified hashes bind the Instrument Number, Grantor/Grantee Names, and Timestamp to the county recorder's domain (e.g., `cookcountyclerk.com` or `maricopa.gov`).
 
 <div style="max-width: 650px; margin: 24px auto; font-family: 'Times New Roman', Times, serif; border: 1px solid #000; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="padding: 20px; border-bottom: 2px solid #000; display: flex; justify-content: space-between; align-items: flex-start; background: #fdfdfd;">
@@ -46,7 +46,13 @@ These pages are the "Lifeblood of Title." Fraud is high-stakes: criminals create
   </div>
 </div>
 
-## Data Verified
+## The Problem: Paper Deed Fraud
+
+- **Stamp Forgery:** Using a realistic-looking "County Recorded" rubber stamp on a fake deed.
+- **Indexing Hiding:** Hiding a "Notice of Default" by placing it deep within a multi-page PDF that has a "Clean" abstract page.
+- **Serial Swapping:** Using one legitimate instrument number to cover for a fake document.
+
+## What Is Checked
 
 Instrument number, book/page reference, recording date and precise time, document type (e.g., Quitclaim Deed, Release of Mortgage), grantor name, grantee name, parcel ID (PIN), legal description snippet, county clerk ID, recording fee paid.
 
@@ -56,25 +62,25 @@ Instrument number, book/page reference, recording date and precise time, documen
 - **Satisfaction of Mortgage:** Proof that a lien is cleared.
 - **Notice of Lis Pendens:** (Linked hash) warning of active litigation.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`cookcountyclerk.com`, `maricopa.gov`, `clerk.org`) and the record standing.
 
 **Status Indications:**
 - **Verified / Recorded** — Document is an authentic part of the public land record.
-- **Rescinded** — **ALERT:** A subsequent document has legally voided this record.
+- **Rescinded** — A subsequent document has legally voided this record.
 - **Pending Indexing** — Recorded but not yet fully categorized in the search system.
-- **Fraud Flag** — **CRITICAL:** This instrument number has been flagged for investigation by the Sheriff.
+- **Fraud Flag** — This instrument number has been flagged for investigation by the Sheriff.
 
-## Second-Party Use
+## Who Holds It
 
-The **Property Owner (Grantee)** benefits from verification.
+The Property Owner (Grantee) benefits from verification.
 
-**Equity Theft Protection:** An owner can periodically scan the "Last Recorded Deed" hash for their home. If the hash returns **"SUPERSEDED"** or shows a **"NEW LIEN"** they didn't authorize, they have early warning of deed fraud and can contact the authorities before the property is sold or mortgaged by a criminal.
+**Equity Theft Protection:** An owner can periodically scan the "Last Recorded Deed" hash for their home. If the hash returns "SUPERSEDED" or shows a "NEW LIEN" they didn't authorize, they have early warning of deed fraud and can contact the authorities before the property is sold or mortgaged by a criminal.
 
 **Loan Refinancing:** Proving to a new lender that a "Mortgage Release" from a previous bank was actually recorded. Verified hashes bypass the 2-week "Title Search" delay, potentially closing the new loan faster.
 
-## Third-Party Use
+## Who Checks It
 
 **Title Examiners / Abstractors**
 **Rapid Due Diligence:** Instead of waiting for a manual update from the county's legacy database, an examiner can scan the verified hash on a "Release of Lien" provided by the seller. "Verified by Cook County" provides the proof needed to clear a title requirement instantly.
@@ -85,13 +91,7 @@ The **Property Owner (Grantee)** benefits from verification.
 **Lenders and Underwriters**
 **Closing Audit:** Verifying that the deed they just funded was actually recorded and hasn't been "intercepted" or altered before reaching the county vault.
 
-## Verification Architecture
-
-**The "Paper Deed" Fraud Problem**
-
-- **Stamp Forgery:** Using a realistic-looking "County Recorded" rubber stamp on a fake deed.
-- **Indexing Hiding:** Hiding a "Notice of Default" by placing it deep within a multi-page PDF that has a "Clean" abstract page.
-- **Serial Swapping:** Using one legitimate instrument number to cover for a fake document.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

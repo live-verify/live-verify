@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Travel Vouchers?
 
-In the travel industry, **Future Travel Credits (FTC)** or vouchers are the "Liquid Debt" of airlines and hotels. They are issued in lieu of cash refunds for cancelled flights, overbooked hotels, or as "Service Recovery" after a bad experience. A single voucher can be worth $1,000 or more and is often transferable.
+In the travel industry, Future Travel Credits (FTC) or vouchers are the "Liquid Debt" of airlines and hotels. They are issued in lieu of cash refunds for cancelled flights, overbooked hotels, or as "Service Recovery" after a bad experience. A single voucher can be worth $1,000 or more and is often transferable.
 
-Because vouchers are essentially "Digital Cash," they are a primary target for **Resale Scams**. Fraudsters sell "Discounted Vouchers" on eBay or Craigslist that have already been used or have a zero balance. Similarly, travelers might "edit" a $50 voucher to look like a $500 one before presenting it to an agent. Verified hashes bind the **Voucher Code, Balance, and Expiration Date** to the issuer's domain (e.g., `delta.com`, `marriott.com`, or `amtrak.com`).
+Because vouchers are essentially "Digital Cash," they are a primary target for Resale Scams. Fraudsters sell "Discounted Vouchers" on eBay or Craigslist that have already been used or have a zero balance. Similarly, travelers might "edit" a $50 voucher to look like a $500 one before presenting it to an agent. Verified hashes bind the Voucher Code, Balance, and Expiration Date to the issuer's domain (e.g., `delta.com`, `marriott.com`, or `amtrak.com`).
 
 <div style="max-width: 450px; margin: 24px auto; font-family: sans-serif; border: 2px solid #ccc; border-radius: 8px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #333; color: #fff; padding: 15px; text-align: center;">
@@ -48,7 +48,13 @@ Because vouchers are essentially "Digital Cash," they are a primary target for *
   </div>
 </div>
 
-## Data Verified
+## The Problem: Double-Spend Fraud
+
+- **Balance Inflation:** Changing a "$50" voucher to read "$500" on a printed PDF to trick an agent or a buyer.
+- **Zombie Redemptions:** Selling a voucher today that was actually redeemed yesterday.
+- **Logo Mimicry:** Creating fake "Delta" vouchers to steal PII during a fake "Claim Your Credit" scam.
+
+## What Is Checked
 
 Voucher code, issuer name, original passenger name, current remaining balance, expiration date, issuing reason (e.g., Refund), transferability flag (Yes/No), date of issuance.
 
@@ -58,29 +64,29 @@ Voucher code, issuer name, original passenger name, current remaining balance, e
 - **Compensation Letter:** (Linked hash) proving why the credit was issued.
 - **Residual Value Receipt:** Issued when a voucher is partially used.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`delta.com`, `expedia.com`, `amtrak.com`) and the credit standing.
 
 **Status Indications:**
 - **Active / Unused** — Full balance is available for redemption.
 - **Partially Used** — Some value remains (shows current balance).
-- **Redeemed** — **ALERT:** Voucher has been fully spent; paper is now worthless.
-- **Expired** — **ALERT:** The credit period has lapsed.
-- **Voided** — **ALERT:** Voucher was cancelled (e.g., after a chargeback).
+- **Redeemed** — Voucher has been fully spent; paper is now worthless.
+- **Expired** — The credit period has lapsed.
+- **Voided** — Voucher was cancelled (e.g., after a chargeback).
 
-## Second-Party Use
+## Who Holds It
 
-The **Voucher Holder (Traveler)** benefits from verification.
+The Voucher Holder (Traveler) benefits from verification.
 
-**Secure Resale:** If a traveler wants to sell their $500 voucher to a friend, they can show the "Verified" hash. The buyer scans it and sees **"ACTIVE BALANCE: $500"** from the official airline domain, allowing the transaction to happen without the fear of a scam.
+**Secure Resale:** If a traveler wants to sell their $500 voucher to a friend, they can show the "Verified" hash. The buyer scans it and sees "ACTIVE BALANCE: $500" from the official airline domain, allowing the transaction to happen without the fear of a scam.
 
 **Redemption Speed:** At a busy ticket counter, the traveler scans their own voucher. "Verified by Amtrak" ensures the agent that the credit is real and hasn't been used on another booking, bypassing the need for a manual "Voucher Lookup" in the legacy mainframe.
 
-## Third-Party Use
+## Who Checks It
 
 **Secondary Marketplaces (e.g., SpareFellow, Raise)**
-**Merchant Vetting:** Marketplaces can require sellers to provide a verified hash. This allows the platform to automatically delist vouchers that reach **"REDEEMED"** status, protecting buyers from "Double-Spend" fraud.
+**Merchant Vetting:** Marketplaces can require sellers to provide a verified hash. This allows the platform to automatically delist vouchers that reach "REDEEMED" status, protecting buyers from "Double-Spend" fraud.
 
 **Corporate Travel Desks**
 **Asset Recovery:** Large companies often have thousands of "Unused Credits" from cancelled employee trips. Live Verify allows them to bulk-verify the value of their "Voucher Portfolio" for tax and accounting purposes.
@@ -88,13 +94,7 @@ The **Voucher Holder (Traveler)** benefits from verification.
 **Consular Officers**
 **Financial Means Proof:** Travelers applying for a visa can use verified "Future Credits" as part of their proof of financial ability to travel.
 
-## Verification Architecture
-
-**The "Double-Spend" Fraud Problem**
-
-- **Balance Inflation:** Changing a "$50" voucher to read "$500" on a printed PDF to trick an agent or a buyer.
-- **Zombie Redemptions:** Selling a voucher today that was actually redeemed yesterday.
-- **Logo Mimicry:** Creating fake "Delta" vouchers to steal PII during a fake "Claim Your Credit" scam.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

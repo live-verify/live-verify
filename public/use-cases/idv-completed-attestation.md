@@ -16,7 +16,7 @@ liveness selfie, a document scan, a face-match — run by an IDV vendor (Onfido,
 or an in-house equivalent). The check produces a result. But that result lives inside the vendor's or
 the first relying party's system, and everyone downstream just gets *told* it happened.
 
-An **IDV-completed attestation** is a short, portable statement — bound by a `verify:` line to the
+An IDV-completed attestation is a short, portable statement — bound by a `verify:` line to the
 vendor's (or relying party's) domain — that says: *an identity-verification check of a stated type was
 performed against this reference, on this date, and passed, and is valid until this date.* A staffing
 agency can hand it to an end client; an employer can hand it to a partner; the subject can carry it
@@ -25,7 +25,7 @@ between processes without re-doing the check from scratch.
 The [Huntress "AI arms race in recruiting"](https://www.huntress.com/blog) article describes deepfake
 candidates passing interviews and joining organisations as insider threats, and recommends "sophisticated
 identity verification tools throughout the entirety of the hiring process." The gap this fills is not
-*running* the check — vendors already do that — but making its **result verifiable by a third party**
+*running* the check — vendors already do that — but making its result verifiable by a third party
 without a portal integration or a forwarded PDF that could be fabricated.
 
 ## The honest limit — read this first
@@ -35,7 +35,7 @@ This use case is deliberately scoped, because the tempting version of it is a li
 **Live Verify does not detect deepfakes and cannot perform liveness.** A hash-lookup protocol has no
 camera, no session, no biometric. Real-time liveness detection — the "hold up three fingers" test from
 the Huntress article, or an IDV vendor's presentation-attack detection — is an **in-session,
-statistical / behavioural** problem, and is **out of scope** here in exactly the way content-level bot
+statistical / behavioural problem, and is out of scope** here in exactly the way content-level bot
 detection is out of scope for [ad-placement provenance](view.html?doc=ad-placement-provenance).
 
 What this attestation carries is one narrow, honest fact: **that a named vendor ran a check of a stated
@@ -69,7 +69,16 @@ face, not a document image, not a template. The subject is resolved to a person 
 privacy pattern as [Right to Work Verification](view.html?doc=right-to-work-verification) and
 [Biometric Likeness Claims](view.html?doc=biometric-likeness-claims).
 
-## Data Verified
+## The Problem
+
+- **Forwarded-result forgery** — "we ran IDV and they passed" arrives as an editable PDF or an email
+  line. The attestation replaces it with a domain-anchored, tamper-evident claim.
+- **Stale reliance** — a check from a year ago is presented as if current. The `Valid Until` field and
+  `Expired` status make ageing visible instead of silent.
+- **Assurance-level laundering** — a weak document-only check is described downstream as "full identity
+  verification." Pinning the *check type* at source stops the upgrade-in-retelling.
+
+## What Is Checked
 
 - **Verifier** — the IDV vendor or relying party that ran the check and operates the endpoint
 - **Subject reference** — pseudonymous; resolved to a person separately
@@ -80,7 +89,7 @@ privacy pattern as [Right to Work Verification](view.html?doc=right-to-work-veri
   [point-in-time vs current](../docs/point-in-time-vs-current.md))
 - **Result** — Pass, and the statuses below
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the verifier domain and the responder status. No biometric or document content is echoed.
 
@@ -95,7 +104,7 @@ Shows the verifier domain and the responder status. No biometric or document con
 depends on the subject being *currently* who they claim, the shorter the validity window should be. A
 stale "PASS" is not evidence of present identity — it is evidence a check happened once.
 
-## Second-Party Use
+## Who Holds It
 
 The subject benefits from carrying a check they have already passed:
 
@@ -104,7 +113,7 @@ The subject benefits from carrying a check they have already passed:
 - **Prove the check to a sceptical counterparty** without the counterparty needing a portal login into
   the vendor.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers / end clients**
 - **Confirm a staffing agency's IDV claim:** when an agency says "we verified this contractor," the end
@@ -120,16 +129,7 @@ The subject benefits from carrying a check they have already passed:
 **Auditors / regulators**
 - **Confirm a check of the required assurance level occurred** at onboarding, as an audit artifact.
 
-## Verification Architecture
-
-**The problem this addresses**
-
-- **Forwarded-result forgery** — "we ran IDV and they passed" arrives as an editable PDF or an email
-  line. The attestation replaces it with a domain-anchored, tamper-evident claim.
-- **Stale reliance** — a check from a year ago is presented as if current. The `Valid Until` field and
-  `Expired` status make ageing visible instead of silent.
-- **Assurance-level laundering** — a weak document-only check is described downstream as "full identity
-  verification." Pinning the *check type* at source stops the upgrade-in-retelling.
+## How Verification Works Here
 
 **What it explicitly does not address**
 

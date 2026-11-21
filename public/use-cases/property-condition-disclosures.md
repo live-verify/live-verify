@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Property Condition Disclosure?
 
-When selling a home, the **Seller's Disclosure Statement** is the legally mandatory document where the owner must list all known material defects—such as a leaky roof, a cracked foundation, or past flooding. It is the "Buyer's Shield" in the "Caveat Emptor" (Buyer Beware) world of real estate.
+When selling a home, the Seller's Disclosure Statement is the legally mandatory document where the owner must list all known material defects—such as a leaky roof, a cracked foundation, or past flooding. It is the "Buyer's Shield" in the "Caveat Emptor" (Buyer Beware) world of real estate.
 
-These documents are the primary evidence in post-sale lawsuits. Fraud is high-frequency: sellers often "scrub" a disclosure form to remove mention of a $20,000 foundation issue before showing it to a potential buyer. Similarly, they might "edit" an old inspection report to look like a "Clean" disclosure. Verified hashes bind the **Defect Checklist, Property Address, and Seller Signature** to the real estate portal's or the title company's domain (e.g., `zillow.com` or `firstam.com`).
+These documents are the primary evidence in post-sale lawsuits. Fraud is high-frequency: sellers often "scrub" a disclosure form to remove mention of a $20,000 foundation issue before showing it to a potential buyer. Similarly, they might "edit" an old inspection report to look like a "Clean" disclosure. Verified hashes bind the Defect Checklist, Property Address, and Seller Signature to the real estate portal's or the title company's domain (e.g., `zillow.com` or `firstam.com`).
 
 **Why verification matters here:**
 
@@ -44,7 +44,13 @@ best of Seller's knowledge as of the date signed.
 <span data-verify-line="disclose">verify:springfield-realtors.org/v</span> <span verifiable-text="end" data-for="disclose"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Defect Scrubbing Fraud
+
+- **Answer Swapping:** Changing a "YES" (Has Leaks) to a "NO" on a PDF before sending it to a buyer.
+- **Comment Deletion:** Removing an explanatory note about "Past Mold Remediation" to hide a recurring issue.
+- **Page Substitution:** Swapping Page 2 of a disclosure with a page from a different, "cleaner" house.
+
+## What Is Checked
 
 Property address, seller name(s), disclosure date, itemized defect list (Roof, Basement, HVAC, etc.), specific "YES/NO" answers for 20+ safety categories, seller signature timestamp, realtor ID, platform ID.
 
@@ -54,25 +60,25 @@ Property address, seller name(s), disclosure date, itemized defect list (Roof, B
 - **Mold/Radon Remediation Proof:** (Linked hash) showing past work.
 - **HOA Disclosure Summary:** Rules and pending assessments.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`zillow.com`, `redfin.com`, `mls-portal.org`) and the disclosure standing.
 
 **Status Indications:**
 - **Verified / Original** — Disclosure matches the version initially signed and uploaded.
-- **Amended** — **ALERT:** The seller has updated the disclosure (e.g., a new leak was found).
-- **Incomplete** — **ALERT:** Mandatory sections of the disclosure were left blank.
+- **Amended** — The seller has updated the disclosure (e.g., a new leak was found).
+- **Incomplete** — Mandatory sections of the disclosure were left blank.
 - **Voided** — Disclosure withdrawn by the seller.
 
-## Second-Party Use
+## Who Holds It
 
-The **Buyer (Purchaser)** benefits from verification.
+The Buyer (Purchaser) benefits from verification.
 
 **Pre-Offer Due Diligence:** Before spending $500 on a home inspection, the buyer scans the seller's disclosure hash. "Verified by Springfield Realtors" ensures the buyer that the "Clean" PDF they received from their agent hasn't been "Defect-Scrubbed" by a dishonest seller, protecting them from a "Money Pit" purchase.
 
 **Legal Leverage:** If a buyer discovers a hidden foundation crack after moving in, they can use the verified hash of the original disclosure to prove the seller committed "Material Misrepresentation" in court, making it much easier to win a damages claim.
 
-## Third-Party Use
+## Who Checks It
 
 **Home Inspectors**
 **Focus Audit:** An inspector can scan the verified disclosure before arriving at the house. This allows them to focus their attention on "Verified Issues" (like past roof leaks) to ensure they were actually repaired, rather than just hidden with fresh paint.
@@ -83,13 +89,7 @@ The **Buyer (Purchaser)** benefits from verification.
 **Real Estate Attorneys**
 **Evidence Authentication:** In a dispute over "Non-Disclosure," the attorney verifies the hash to show the exact state of the seller's knowledge at the timestamp of the contract.
 
-## Verification Architecture
-
-**The "Defect Scrubbing" Fraud Problem**
-
-- **Answer Swapping:** Changing a "YES" (Has Leaks) to a "NO" on a PDF before sending it to a buyer.
-- **Comment Deletion:** Removing an explanatory note about "Past Mold Remediation" to hide a recurring issue.
-- **Page Substitution:** Swapping Page 2 of a disclosure with a page from a different, "cleaner" house.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

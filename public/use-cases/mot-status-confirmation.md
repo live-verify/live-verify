@@ -57,11 +57,17 @@ Advisory Items: 4
 <span data-verify-line="mot-expired">verify:gov.uk/mot-status/v</span> <span verifiable-text="end" data-for="mot-expired"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Expired MOT
+
+- **Misrepresented Expiry:** A seller lists a vehicle as "MOT until September 2026" when it actually expired in September 2025. The buyer only discovers this after purchase, and the vehicle cannot legally be driven on public roads.
+- **Stale Listings:** A vehicle is listed for sale with a valid MOT. Weeks pass. The MOT expires while the listing is still live. Without a time-bound verifiable claim, the listing continues to imply a valid MOT.
+- **Hidden Advisories:** A vehicle passes its MOT but with five advisory items, some of which suggest imminent failure points (e.g., "brake disc worn close to legal limit"). The seller omits this from the listing. The advisory count in the verifiable snippet signals that further investigation is warranted.
+
+## What Is Checked
 
 Vehicle registration, MOT status (valid or expired), expiry or expiration date, date of last test, recorded mileage at the time of the last test, and the number of advisory items. The specific advisory item descriptions are not included in the verifiable snippet — they are available via the full gov.uk lookup. Vehicle ownership, finance status, insurance, and tax status are deliberately excluded.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`gov.uk/mot-status`) and confirms whether the MOT status claim is current.
 
@@ -80,13 +86,13 @@ Shows the issuer domain (`gov.uk/mot-status`) and confirms whether the MOT statu
 - **Expired** — The MOT has expired since this claim was issued, or the claim itself has passed its expiry date.
 - **Superseded** — A new MOT test has been recorded since this claim was issued. The seller should fetch a fresh snippet.
 
-## Second-Party Use
+## Who Holds It
 
-The **Seller** generates a verifiable MOT status snippet from gov.uk and includes it in their vehicle listing. On AutoTrader, eBay Motors, Facebook Marketplace, or any other listing platform, the snippet sits alongside the vehicle description. The buyer's browser extension verifies the hash against the DVSA domain without the buyer needing to navigate away from the listing.
+The Seller generates a verifiable MOT status snippet from gov.uk and includes it in their vehicle listing. On AutoTrader, eBay Motors, Facebook Marketplace, or any other listing platform, the snippet sits alongside the vehicle description. The buyer's browser extension verifies the hash against the DVSA domain without the buyer needing to navigate away from the listing.
 
 For private sellers, this removes the "trust me, it has a long MOT" problem. For dealers listing large numbers of vehicles, the snippets can be generated in bulk and embedded programmatically.
 
-## Third-Party Use
+## Who Checks It
 
 **Private Buyers**
 The primary beneficiary. A buyer scanning used car listings can verify MOT status inline, at no cost, in seconds. The advisory item count provides a signal about the vehicle's condition — a high count may warrant requesting the full advisory detail before arranging a viewing.
@@ -100,13 +106,7 @@ Some motor insurance policies require the vehicle to hold a valid MOT. A verifia
 **Fleet Operators**
 Companies managing vehicle fleets need to track MOT status across hundreds or thousands of vehicles. Verifiable claims provide a machine-readable, trustworthy signal that integrates into fleet management systems.
 
-## Verification Architecture
-
-**The "Expired MOT" Problem**
-
-- **Misrepresented Expiry:** A seller lists a vehicle as "MOT until September 2026" when it actually expired in September 2025. The buyer only discovers this after purchase, and the vehicle cannot legally be driven on public roads.
-- **Stale Listings:** A vehicle is listed for sale with a valid MOT. Weeks pass. The MOT expires while the listing is still live. Without a time-bound verifiable claim, the listing continues to imply a valid MOT.
-- **Hidden Advisories:** A vehicle passes its MOT but with five advisory items, some of which suggest imminent failure points (e.g., "brake disc worn close to legal limit"). The seller omits this from the listing. The advisory count in the verifiable snippet signals that further investigation is warranted.
+## How Verification Works Here
 
 **Issuer** (First Party)
 
@@ -147,7 +147,7 @@ Japan:
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Government Lookup
+## Compared With Government Lookup
 
 | Feature | Live Verify | Government portal (gov.uk, KBA, etc.) | Seller's Word |
 | :--- | :--- | :--- | :--- |

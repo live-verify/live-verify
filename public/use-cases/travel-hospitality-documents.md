@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Travel and Hospitality Documents?
 
-The travel industry is a "Chain of Trust" involving airlines, hotels, tour operators, and online travel agencies (OTAs). A **Travel Itinerary** or **Booking Confirmation** is the bundle of documents that prove a traveler has paid for and is authorized to receive services.
+The travel industry is a "Chain of Trust" involving airlines, hotels, tour operators, and online travel agencies (OTAs). A Travel Itinerary or Booking Confirmation is the bundle of documents that prove a traveler has paid for and is authorized to receive services.
 
-This sector faces massive high-volume fraud. From **Expense Reimbursement Fraud** (employees editing hotel bills to add fake meals) to **Visa Fraud** (applicants creating fake "Ghost Itineraries" to trick embassies), the lack of a verifiable link between the physical paper and the supplier's database costs billions annually. Verified hashes bind the **Itinerary Details, Pricing, and Dates** to the supplier's or the platform's domain (e.g., `concur.com`, `expedia.com`, or `hilton.com`).
+This sector faces massive high-volume fraud. From Expense Reimbursement Fraud (employees editing hotel bills to add fake meals) to Visa Fraud (applicants creating fake "Ghost Itineraries" to trick embassies), the lack of a verifiable link between the physical paper and the supplier's database costs billions annually. Verified hashes bind the Itinerary Details, Pricing, and Dates to the supplier's or the platform's domain (e.g., `concur.com`, `expedia.com`, or `hilton.com`).
 
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="background: #002d62; color: #fff; padding: 25px; display: flex; justify-content: space-between; align-items: center;">
@@ -57,7 +57,13 @@ This sector faces massive high-volume fraud. From **Expense Reimbursement Fraud*
   </div>
 </div>
 
-## Data Verified
+## The Problem: PDF Pivot Fraud
+
+- **Class Padding:** Editing an "Economy" ticket into a "Business" ticket on a PDF to claim a higher reimbursement.
+- **Incidentals Hiding:** Removing a "Mini-Bar" or "Spa" charge from a hotel folio so the entire bill appears to be a "Valid Business Room Rate."
+- **Ghost Bookings:** Creating a fake confirmation for a trip that was never taken to steal corporate funds.
+
+## What Is Checked
 
 Booking reference number (PNR), traveler name, company name, trip dates, flight numbers/classes, hotel names/room types, itemized costs, total trip price, booking source (e.g., Concur vs. Personal), cancellation policy tier, date of issuance.
 
@@ -67,25 +73,25 @@ Booking reference number (PNR), traveler name, company name, trip dates, flight 
 - **E-Ticket Receipt:** Proving payment for air travel.
 - **Expense Summary:** (Linked hash) for internal corporate approval.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`concur.com`, `expedia.com`, `hilton.com`, `united.com`) and the status.
 
 **Status Indications:**
 - **Confirmed / Paid** — Trip is valid and services are authorized.
-- **Cancelled** — **ALERT:** The booking was voided; this document is no longer a valid expense.
+- **Cancelled** — The booking was voided; this document is no longer a valid expense.
 - **Modificaton Active** — A newer version of the trip exists.
-- **No-Show Reported** — **ALERT:** The traveler did not use the services (indicates expense fraud).
+- **No-Show Reported** — The traveler did not use the services (indicates expense fraud).
 
-## Second-Party Use
+## Who Holds It
 
-The **Business Traveler** benefits from verification.
+The Business Traveler benefits from verification.
 
-**Expense Approval Speed:** Instead of waiting 2 weeks for a human auditor to review a PDF, the traveler provides the verified hash. The finance system can instantly see **"VERIFIED BY CONCUR"** and match it against the corporate credit card feed, getting the employee reimbursed in 24 hours.
+**Expense Approval Speed:** Instead of waiting 2 weeks for a human auditor to review a PDF, the traveler provides the verified hash. The finance system can instantly see "VERIFIED BY CONCUR" and match it against the corporate credit card feed, getting the employee reimbursed in 24 hours.
 
-**Visa Approval:** A traveler applying for a business visa can show the verified hash of their "Company Itinerary." Consular officers can see **"CONFIRMED - GLOBAL LOGISTICS CORP"** on the official Concur domain, removing the common "fake booking" suspicion that leads to visa delays.
+**Visa Approval:** A traveler applying for a business visa can show the verified hash of their "Company Itinerary." Consular officers can see "CONFIRMED - GLOBAL LOGISTICS CORP" on the official Concur domain, removing the common "fake booking" suspicion that leads to visa delays.
 
-## Third-Party Use
+## Who Checks It
 
 **Corporate Finance / Auditors**
 **Zero-Trust Auditing:** Thousands of "Edited" hotel folios are submitted every month. Live Verify connects the auditor directly to the source (e.g., Hilton's record), stopping "Meal Inflation" or "Ghost Stay" fraud at the source.
@@ -96,13 +102,7 @@ The **Business Traveler** benefits from verification.
 **Government Regulators**
 **Tax Compliance Audit:** Verifying that "Travel Deductions" reported by a company match the verified hashes from legitimate travel providers, reducing the need for manual receipt-scanning audits.
 
-## Verification Architecture
-
-**The "PDF Pivot" Fraud Problem**
-
-- **Class Padding:** Editing an "Economy" ticket into a "Business" ticket on a PDF to claim a higher reimbursement.
-- **Incidentals Hiding:** Removing a "Mini-Bar" or "Spa" charge from a hotel folio so the entire bill appears to be a "Valid Business Room Rate."
-- **Ghost Bookings:** Creating a fake confirmation for a trip that was never taken to steal corporate funds.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

@@ -50,7 +50,18 @@ Extra Fee Due:    NONE
   <span verifiable-text="end" data-for="relscam"></span>
 </div>
 
-## Data Verified
+## The Problem: Fake Profit Dashboard Fraud
+
+- **Fabricated account growth:** Scammers show a dashboard or PDF statement claiming the victim's balance has doubled.
+- **Withdrawal theater:** The victim is shown a fake withdrawal confirmation or "processing" screen to maintain belief in the platform.
+- **Release-fee extortion:** The platform demands a tax payment, wallet activation fee, anti-money-laundering deposit, or security bond before funds can be released.
+- **Clone-brand impersonation:** A fake site borrows the name, colors, and logos of a legitimate broker or exchange.
+- **Chat-agent fabrication:** "Customer service" sends ad hoc PDFs and screenshots that never existed in the real system.
+- **Destination swapping:** The victim is told to send the next payment to a different wallet, OTC agent, or personal account under a pretext of urgency.
+
+This pattern does not require an international organized-crime framing. It fits perfectly inside ordinary domestic fraud markets: online dating apps, Telegram groups, SMS lures, fake broker ads, cloned websites, and ordinary bank rails.
+
+## What Is Checked
 
 Platform name, regulated entity or operator name, client ID, account holder name or privacy-preserving form, product/account type, portfolio balance summary or withdrawal amount, request/reference number, destination bank or wallet identifier (masked), timestamp, current status, hold reason if any, and whether any additional fee is legitimately due.
 
@@ -63,7 +74,7 @@ Platform name, regulated entity or operator name, client ID, account holder name
 
 **Privacy Salt:** Required. Account identifiers, balances, and timestamps are sensitive and partially enumerable. Salt should be issuer-generated and time-limited to prevent population scraping of retail clients.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`broker.example.com`, `exchange.example.com`, `wealth.example.co.uk`) and the current status.
 
@@ -78,9 +89,9 @@ Shows the issuer domain (`broker.example.com`, `exchange.example.com`, `wealth.e
 - **Superseded** — A later statement or withdrawal update replaced this one.
 - **404** — The document was never issued by the claimed platform.
 
-## Second-Party Use
+## Who Holds It
 
-The **customer or victim** benefits first.
+The customer or victim benefits first.
 
 **Reality check before sending more money:** A victim can verify whether the "withdrawal blocked pending tax" notice was ever issued by the actual platform, rather than by a scammer's PDF generator or chat agent.
 
@@ -90,7 +101,7 @@ The **customer or victim** benefits first.
 
 **Platform dispute clarity:** Honest customers of legitimate firms benefit too. They can prove whether a hold notice or fee notice is real instead of acting on an impersonation email or WhatsApp message.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks and Payment-Fraud Teams**
 
@@ -110,18 +121,7 @@ The **customer or victim** benefits first.
 
 **Narrative reconstruction:** Verification shows when the victim moved from genuine investing into a fabricated environment built to extract repeated payments.
 
-## Verification Architecture
-
-**The "Fake Profit Dashboard" Fraud Problem**
-
-- **Fabricated account growth:** Scammers show a dashboard or PDF statement claiming the victim's balance has doubled.
-- **Withdrawal theater:** The victim is shown a fake withdrawal confirmation or "processing" screen to maintain belief in the platform.
-- **Release-fee extortion:** The platform demands a tax payment, wallet activation fee, anti-money-laundering deposit, or security bond before funds can be released.
-- **Clone-brand impersonation:** A fake site borrows the name, colors, and logos of a legitimate broker or exchange.
-- **Chat-agent fabrication:** "Customer service" sends ad hoc PDFs and screenshots that never existed in the real system.
-- **Destination swapping:** The victim is told to send the next payment to a different wallet, OTC agent, or personal account under a pretext of urgency.
-
-This pattern does not require an international organized-crime framing. It fits perfectly inside ordinary domestic fraud markets: online dating apps, Telegram groups, SMS lures, fake broker ads, cloned websites, and ordinary bank rails.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -149,7 +149,7 @@ This use case is complementary to:
 
 The difference is that this use case targets the social-engineering fraud layer built around fake investing, fake profits, and fake withdrawals.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Screenshot / PDF | App Store Presence | Phone Call to "Customer Service" |
 | :--- | :--- | :--- | :--- | :--- |
@@ -192,4 +192,4 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 The scam succeeds because victims stop asking "is the platform real?" and start asking "how do I get my money out?"
 
-That makes the **withdrawal confirmation**, **hold notice**, and **fee-demand letter** the most decision-relevant documents in the scam chain. If those documents had a clear verification path, many repeat-loss events could be interrupted before the final and largest transfers.
+That makes the withdrawal confirmation, hold notice, and fee-demand letter the most decision-relevant documents in the scam chain. If those documents had a clear verification path, many repeat-loss events could be interrupted before the final and largest transfers.

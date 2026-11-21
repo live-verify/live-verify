@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a CCW Permit?
 
-A **Concealed Carry Weapon (CCW)** permit is a license issued by a local Sheriff or State Police allowing a citizen to carry a hidden firearm in public.
+A Concealed Carry Weapon (CCW) permit is a license issued by a local Sheriff or State Police allowing a citizen to carry a hidden firearm in public.
 
 It proves the person has:
 1.  **Passed a Background Check:** No felony convictions or domestic violence history.
@@ -52,7 +52,13 @@ Police officers at a traffic stop need to verify these permits in seconds. If a 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Permit Fraud
+
+- **Identity Swapping:** A person with a criminal record using a "Clean" person's ID and editing the photo.
+- **Revocation Hiding:** A permit holder who has had their rights revoked (e.g., after a domestic violence incident) keeping their physical card to show police.
+- **Fabricated Permits:** Criminals creating fake "Permits" to carry illegal weapons in public without being arrested if stopped.
+
+## What Is Checked
 
 Permit holder name, photo (hash), date of birth, physical descriptors (height/weight), permit number, issuing county/agency, expiration date, restrictions (e.g., "Handgun only"), training completion status.
 
@@ -61,7 +67,7 @@ Permit holder name, photo (hash), date of birth, physical descriptors (height/we
 - **Interim Permit:** Temporary 30-day paper proof while card is mailed.
 - **Training Certificate:** Proof of passing the mandatory safety class.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`washoesheriff.com`, `lasvegasnevada.gov`) and current permit status.
 
@@ -71,15 +77,15 @@ Shows the issuer domain (`washoesheriff.com`, `lasvegasnevada.gov`) and current 
 - **Revoked** — Permanently barred from concealed carry (e.g., after felony conviction).
 - **Expired** — Renewal required.
 
-## Second-Party Use
+## Who Holds It
 
-The **Permit Holder** benefits from verification.
+The Permit Holder benefits from verification.
 
 **Interstate Reciprocity:** When carrying in a "Reciprocal" state (e.g., a Nevada resident in Idaho), the holder can scan their own badge to show local Idaho police that their home-state permit is "Verified Active" on the Nevada Sheriff's domain.
 
 **Firearms Purchase:** Speeding up the background check (NICS) process in states where a verified CCW permit acts as an exemption for the waiting period.
 
-## Third-Party Use
+## Who Checks It
 
 **Law Enforcement (Roadside)**
 **Officer Safety:** During a traffic stop, if a driver declares they have a weapon, the officer can scan the CCW card. Instant verification against the Sheriff's domain confirms the driver is a "Verified Safe" law-abiding citizen and not an impostor with a fake ID.
@@ -90,13 +96,7 @@ The **Permit Holder** benefits from verification.
 **Gun Range Safety Officers**
 **Insurance Compliance:** Ensuring all shooters on the line with concealed holsters have verified, current safety training and permits.
 
-## Verification Architecture
-
-**The "Fake Permit" Fraud Problem**
-
-- **Identity Swapping:** A person with a criminal record using a "Clean" person's ID and editing the photo.
-- **Revocation Hiding:** A permit holder who has had their rights revoked (e.g., after a domestic violence incident) keeping their physical card to show police.
-- **Fabricated Permits:** Criminals creating fake "Permits" to carry illegal weapons in public without being arrested if stopped.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -122,7 +122,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 ## Jurisdictional Witnessing (Optional)
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuing authority's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the permit.
-## Competition vs. Police Database (NCIC)
+## Compared With Police Database (NCIC)
 
 | Feature | Live Verify | NCIC / NLETS (Police DB) | Physical Card |
 | :--- | :--- | :--- | :--- |

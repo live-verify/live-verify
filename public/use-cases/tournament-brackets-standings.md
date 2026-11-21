@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Tournament Brackets?
 
-In competitive sports and eSports, the **Tournament Bracket** is the official map of victory and defeat. It determines who advanced to the finals and who was eliminated in the first round. **Official Standings** are the season-long records that determine "Ranking" and "Seeding" for the next championship.
+In competitive sports and eSports, the Tournament Bracket is the official map of victory and defeat. It determines who advanced to the finals and who was eliminated in the first round. Official Standings are the season-long records that determine "Ranking" and "Seeding" for the next championship.
 
-These documents are the "Career Proof" for athletes and teams. They are used to secure **Sponsorships**, **College Recruitment**, and **Pro Draft** slots. Fraud is common in junior and amateur levels: players or coaches often "edit" a bracket to show they finished in the "Top 4" instead of the "Top 32," or to hide a loss against a weak opponent. Verified hashes bind the **Match Results, Player/Team Names, and Final Rankings** to the league's domain (e.g., `ncaa.com`, `fifa.com`, or `challengermode.com`).
+These documents are the "Career Proof" for athletes and teams. They are used to secure Sponsorships, College Recruitment, and Pro Draft slots. Fraud is common in junior and amateur levels: players or coaches often "edit" a bracket to show they finished in the "Top 4" instead of the "Top 32," or to hide a loss against a weak opponent. Verified hashes bind the Match Results, Player/Team Names, and Final Rankings to the league's domain (e.g., `ncaa.com`, `fifa.com`, or `challengermode.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="bracket"></span>ELITE CHAMPIONSHIP SERIES
@@ -43,7 +43,13 @@ Sarah Jenkins. No protests pending.
 <span data-verify-line="bracket">verify:elite-champs.com/v</span> <span verifiable-text="end" data-for="bracket"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Photoshopped Trophy Fraud
+
+- **Placement Inflation:** Changing a "Quarter-Finalist" label to "Winner" on a certificate.
+- **Score Padding:** Editing a close 1-0 loss into a 2-1 win to improve a team's goal-differential ranking.
+- **Name Swapping:** Putting a different player's name on a real championship bracket.
+
+## What Is Checked
 
 Tournament name, division/tier, season/date, participant/team names, seeds/rankings, individual match scores, final placement (Champion/Runner-up), head official name, protest status.
 
@@ -53,25 +59,25 @@ Tournament name, division/tier, season/date, participant/team names, seeds/ranki
 - **Participation Certificate:** Proving an athlete was part of the event.
 - **Match Scorecard:** Detailed data for a single specific game.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`ncaa.org`, `espn.com`, `start.gg`) and the result standing.
 
 **Status Indications:**
 - **Official / Final** — Results are verified and the appeal period has closed.
 - **Provisional** — Results are recorded but subject to final audit or drug test.
-- **Vacated** — **ALERT:** Results have been overturned (e.g., due to cheating or eligibility fraud).
-- **In Dispute** — **ALERT:** A formal protest is active for this match/bracket.
+- **Vacated** — Results have been overturned (e.g., due to cheating or eligibility fraud).
+- **In Dispute** — A formal protest is active for this match/bracket.
 
-## Second-Party Use
+## Who Holds It
 
-The **Athlete / Team Captain** benefits from verification.
+The Athlete / Team Captain benefits from verification.
 
-**Sponsorship Scouting:** A semi-pro team can include a verified "Season Standings Hash" in their pitch to a brand (e.g., Red Bull). The brand can instantly see **"VERIFIED #1 SEED - ELITE SERIES"** on their phone, removing the doubt that the team is "Exaggerating" their popularity or skill.
+**Sponsorship Scouting:** A semi-pro team can include a verified "Season Standings Hash" in their pitch to a brand (e.g., Red Bull). The brand can instantly see "VERIFIED #1 SEED - ELITE SERIES" on their phone, removing the doubt that the team is "Exaggerating" their popularity or skill.
 
 **Scholarship Applications:** A student-athlete can include a verified bracket in their NCAA recruitment portal. "Verified by Elite Champs" ensures the college coach that the player actually won the state finals and isn't just taking credit for a teammate's performance.
 
-## Third-Party Use
+## Who Checks It
 
 **Sports Media / Journalists**
 **Record Accuracy:** When writing a "Where are they now?" story, a journalist can scan a 10-year-old verified bracket to ensure they are accurately reporting the career history of a retired athlete.
@@ -82,13 +88,7 @@ The **Athlete / Team Captain** benefits from verification.
 **Betting & Integrity Units**
 **Fraud Investigation:** Verifying that the "Official Score" on the paper matches the digital result to prevent "Result Tampering" in leagues with heavy betting volume.
 
-## Verification Architecture
-
-**The "Photoshopped Trophy" Fraud Problem**
-
-- **Placement Inflation:** Changing a "Quarter-Finalist" label to "Winner" on a certificate.
-- **Score Padding:** Editing a close 1-0 loss into a 2-1 win to improve a team's goal-differential ranking.
-- **Name Swapping:** Putting a different player's name on a real championship bracket.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

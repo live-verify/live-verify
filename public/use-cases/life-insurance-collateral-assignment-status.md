@@ -48,11 +48,11 @@ As At:              21 Mar 2026
 
 For this use case to be fully operational, the verification response should support an **authorized-expanded view**: a prospective lender who can demonstrate legitimate interest (e.g., by presenting a loan application from the policyholder) could receive an expanded response from the insurer that includes the assignee identity. This is analogous to how credit reference agencies provide tiered access — a basic public layer and a detailed layer for authorized parties. The protocol for authorized-expanded responses is an open design question.
 
-## Data Verified
+## What Is Checked
 
 Policy number, assignment status (unassigned or assigned), assignee type (commercial bank, credit union, etc.), assignment date (if applicable), assigned amount, remaining unencumbered death benefit, current cash value, and the as-at date of the snapshot.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`newyorklife.com`, `prudential.com`, `northwesternmutual.com`) and confirms whether the collateral assignment status claim is current.
 
@@ -60,11 +60,11 @@ Shows the issuer domain (`newyorklife.com`, `prudential.com`, `northwesternmutua
 - **NO CURRENT ASSIGNMENT** — The policy's full death benefit and cash value are unencumbered.
 - **ASSIGNED** — A collateral assignment is on file. The assigned amount and remaining benefit are shown.
 
-## Second-Party Use
+## Who Holds It
 
-The **Policyholder** uses this to prove their policy is unencumbered. When offering a whole life policy as collateral for a new loan, the policyholder clips the "NO CURRENT ASSIGNMENT" status and shares it with the prospective lender. The lender verifies the hash against the insurer's domain within seconds, confirming that no prior lender has a claim on the policy.
+The Policyholder uses this to prove their policy is unencumbered. When offering a whole life policy as collateral for a new loan, the policyholder clips the "NO CURRENT ASSIGNMENT" status and shares it with the prospective lender. The lender verifies the hash against the insurer's domain within seconds, confirming that no prior lender has a claim on the policy.
 
-## Third-Party Use
+## Who Checks It
 
 **Lenders Evaluating Collateral**
 A bank considering a life insurance policy as loan security needs to know whether another lender already has a claim on it. The verified assignment status confirms the exact unencumbered value available, preventing double-pledging. If the policy is already assigned, the remaining benefit figure tells the second lender exactly how much residual value — if any — could secure their loan.
@@ -78,7 +78,7 @@ During marital asset division, one spouse may present a $1,000,000 life insuranc
 **Life Settlement Buyers**
 Firms purchasing existing life insurance policies on the secondary market need to know whether the policy carries any existing assignments. A policy with $200,000 assigned to a bank is a materially different asset than an unencumbered one, and the assignment must be released before the settlement can close.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Double Assignment" Problem**
 
@@ -108,7 +108,7 @@ New York Life, a regulated life insurance provider, is authorized by state insur
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Manual Verification
+## Compared With Manual Verification
 
 | Feature | Live Verify | Phone/Letter Verification | Scanned PDF |
 | :--- | :--- | :--- | :--- |

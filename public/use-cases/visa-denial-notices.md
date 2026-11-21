@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Visa Denial Notice?
 
-When a person is refused a visa to enter a country (e.g., the US or UK), they receive an official **Denial Notice** (often called a 214(b) or 221(g) letter). This document explains the legal reason for the refusal—typically a "Lack of Ties" to their home country or "Ineligibility" due to a criminal record or past fraud.
+When a person is refused a visa to enter a country (e.g., the US or UK), they receive an official Denial Notice (often called a 214(b) or 221(g) letter). This document explains the legal reason for the refusal—typically a "Lack of Ties" to their home country or "Ineligibility" due to a criminal record or past fraud.
 
-These notices are critical for future travel. Fraud is high-stakes: applicants often "edit" a denial notice to hide a serious permanent ban (e.g., for smuggling) and make it look like a simple "Lack of Funds" refusal before applying at a different consulate. Verified hashes bind the **Denial Section, Case Number, and Applicant Identity** to the embassy's domain (e.g., `state.gov` or `gov.uk`).
+These notices are critical for future travel. Fraud is high-stakes: applicants often "edit" a denial notice to hide a serious permanent ban (e.g., for smuggling) and make it look like a simple "Lack of Funds" refusal before applying at a different consulate. Verified hashes bind the Denial Section, Case Number, and Applicant Identity to the embassy's domain (e.g., `state.gov` or `gov.uk`).
 
 <div style="max-width: 500px; margin: 24px auto; font-family: 'Times New Roman', Times, serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 15px; margin-bottom: 30px;">
@@ -42,7 +42,13 @@ These notices are critical for future travel. Fraud is high-stakes: applicants o
   </div>
 </div>
 
-## Data Verified
+## The Problem: Denial Masking Fraud
+
+- **Section Swapping:** Changing a "212(a)(6)(C)" (Fraud Ban) to a "214(b)" (Standard Denial) on a PDF.
+- **Ghost Waivers:** Creating fake "Consular Approval" letters to trick a second embassy into thinking a prior ban was lifted.
+- **Date Stretching:** Altering a denial from 2 months ago to 2 years ago to make a re-application look more credible.
+
+## What Is Checked
 
 Case number, applicant full name, date of birth, nationality, denial section code (e.g., 214b, 212a6C), denial date, consular post location, issuing officer ID, waiver eligibility status.
 
@@ -52,25 +58,25 @@ Case number, applicant full name, date of birth, nationality, denial section cod
 - **Waiver Approval:** (Linked hash) proving a denial was overturned.
 - **Permanent Ineligibility Notice:** Warning of a lifetime ban.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`state.gov`, `gov.uk`, `dfat.gov.au`) and the case standing.
 
 **Status Indications:**
 - **Refused / Final** — The denial is recorded and reapplication is permitted.
-- **Administrative Processing** — **ALERT:** The case is not yet final; more data needed.
-- **Permanent Ban Active** — **CRITICAL:** Subject is ineligible for any future visa (e.g., due to fraud).
-- **Overturned** — **ALERT:** A subsequent review has cleared the applicant for travel.
+- **Administrative Processing** — The case is not yet final; more data needed.
+- **Permanent Ban Active** — Subject is ineligible for any future visa (e.g., due to fraud).
+- **Overturned** — A subsequent review has cleared the applicant for travel.
 
-## Second-Party Use
+## Who Holds It
 
-The **Visa Applicant** benefits from verification.
+The Visa Applicant benefits from verification.
 
-**Attorney Consultation:** A person whose visa was denied can show the verified hash to an immigration lawyer. The lawyer can instantly see **"VERIFIED 214(b) - NO FRAUD"** on their phone, allowing them to give accurate advice on a re-application without fearing the client is hiding a more serious ban.
+**Attorney Consultation:** A person whose visa was denied can show the verified hash to an immigration lawyer. The lawyer can instantly see "VERIFIED 214(b) - NO FRAUD" on their phone, allowing them to give accurate advice on a re-application without fearing the client is hiding a more serious ban.
 
 **Employer Disclosure:** If a business trip is cancelled due to a visa denial, the employee can provide the verified hash to their HR department. This proves the denial was a "Standard Ties" issue and not a "Moral Turpitude" issue, protecting the employee's career reputation.
 
-## Third-Party Use
+## Who Checks It
 
 **Consular Officers (Second Country)**
 **Cross-Check:** When an applicant applies for a UK visa after being denied by the US, they must disclose the prior refusal. The UK officer scans the hash. Verification ensures the applicant's "Summary of Past Refusal" matches the digital truth of the US record, stopping "Consulate Shopping" fraud.
@@ -81,13 +87,7 @@ The **Visa Applicant** benefits from verification.
 **Employment Background Checkers**
 **Vetting Integrity:** Verifying that a candidate's "Travel Gap" wasn't caused by a deportation or a permanent visa ban for misconduct.
 
-## Verification Architecture
-
-**The "Denial Masking" Fraud Problem**
-
-- **Section Swapping:** Changing a "212(a)(6)(C)" (Fraud Ban) to a "214(b)" (Standard Denial) on a PDF.
-- **Ghost Waivers:** Creating fake "Consular Approval" letters to trick a second embassy into thinking a prior ban was lifted.
-- **Date Stretching:** Altering a denial from 2 months ago to 2 years ago to make a re-application look more credible.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

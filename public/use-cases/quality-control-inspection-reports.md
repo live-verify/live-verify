@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Quality Control (QC) Report?
 
-In manufacturing, the **Quality Control (QC) Report** (or Certificate of Conformance) is the proof that a specific batch of products was tested and met the required safety and engineering tolerances.
+In manufacturing, the Quality Control (QC) Report (or Certificate of Conformance) is the proof that a specific batch of products was tested and met the required safety and engineering tolerances.
 
-For critical components (e.g., bolts for an airplane wing, medical implants, or structural steel), a fake QC report can lead to catastrophic failure and loss of life. Shady suppliers often "edit" a failed test result into a "PASS," or use a real report from a high-quality batch to cover for a cheaper, low-quality one. Verified hashes bind the **Batch Number, Test Results, and Inspector's Name** to the manufacturer's or the lab's domain (e.g., `boeing.com` or `sgs.com`).
+For critical components (e.g., bolts for an airplane wing, medical implants, or structural steel), a fake QC report can lead to catastrophic failure and loss of life. Shady suppliers often "edit" a failed test result into a "PASS," or use a real report from a high-quality batch to cover for a cheaper, low-quality one. Verified hashes bind the Batch Number, Test Results, and Inspector's Name to the manufacturer's or the lab's domain (e.g., `boeing.com` or `sgs.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="qc"></span>PRECISION ALLOYS, INC.
@@ -38,7 +38,13 @@ Digital Signature ID: RM-992288
 <span data-verify-line="qc">verify:precision-alloys.com/v</span> <span verifiable-text="end" data-for="qc"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Test-Result Tweak Fraud
+
+- **Tolerance Inflation:** Changing a "FAIL" result (e.g., 149,000 PSI) to a "PASS" (150,000 PSI) in a PDF editor.
+- **Batch Swapping:** Using one "PASS" report for multiple different batches, some of which were never tested.
+- **Credential Forgery:** Using a senior inspector's name on a report created by an untrained junior employee.
+
+## What Is Checked
 
 Batch/Lot number, product description, inspection date, inspector name/ID, test parameters (tensile, tolerance, chemical composition), pass/fail status, quantity inspected, customer name, facility ID.
 
@@ -48,19 +54,19 @@ Batch/Lot number, product description, inspection date, inspector name/ID, test 
 - **Dimensional Inspection Report:** Specific measurement data.
 - **Destructive Testing Report:** Results from breaking sample units.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`precision-alloys.com`, `sgs.com`, `intertek.com`) and the report standing.
 
 **Status Indications:**
 - **Verified / PASS** — Report matches the lab's original testing snapshot.
-- **Recalled** — **CRITICAL:** The batch has been recalled due to post-inspection discovery of defects.
-- **Quarantined** — **ALERT:** Batch is under investigation; do not use in production.
+- **Recalled** — The batch has been recalled due to post-inspection discovery of defects.
+- **Quarantined** — Batch is under investigation; do not use in production.
 - **Superseded** — A newer, corrected report exists.
 
 ### Scope enrichment: which batch, and how much of it
 
-A QC report has no personal data, so on verification the issuer can safely **echo the batch scope** —
+A QC report has no personal data, so on verification the issuer can safely echo the batch scope —
 the accountability facts that stop a genuine report being applied beyond what it covers. The classic
 fraud here is using a real report from a good batch to cover a cheaper one; echoing
 `batch_covered`, `quantity_certified`, and `tested_on`/`retest_due` makes the covered batch and
@@ -71,18 +77,18 @@ reveals scope the terse claim withheld (see
 [verification-enrichment-hazards.md](../../docs/verification-enrichment-hazards.md) for when enrichment
 is legitimate).
 
-## Second-Party Use
+## Who Holds It
 
-The **Manufacturer (The Shop)** benefits from verification.
+The Manufacturer (The Shop) benefits from verification.
 
 **Liability Shield:** If a customer claims a part failed, the shop can prove they performed the mandatory tests and had them verified at the time of shipping, defending against "Negligence" claims.
 
 **Supply Chain Speed:** Attaching a verified hash to the shipping docs allows the buyer to skip their own "Incoming Inspection," reducing the time from the delivery dock to the assembly line by several days.
 
-## Third-Party Use
+## Who Checks It
 
 **End-Users (e.g., Aircraft Maintenance)**
-**Safety Audit:** A mechanic installing a part can scan the QC report. If the hash returns **"RECALLED - EMBRITTLEMENT RISK,"** they can stop the installation immediately, potentially preventing a crash.
+**Safety Audit:** A mechanic installing a part can scan the QC report. If the hash returns "RECALLED - EMBRITTLEMENT RISK," they can stop the installation immediately, potentially preventing a crash.
 
 **Government Safety Agencies (FAA, FDA)**
 **Regulatory Oversight:** During a routine audit, the agency can scan random QC reports from the company's files. Live Verify ensures the company isn't "Fabricating" tests to hide production errors.
@@ -90,13 +96,7 @@ The **Manufacturer (The Shop)** benefits from verification.
 **Insurance Loss Adjusters**
 **Root Cause Analysis:** After an industrial accident, the insurer verifies the QC reports of all critical components to determine if the failure was due to a faulty part or improper maintenance.
 
-## Verification Architecture
-
-**The "Test-Result Tweak" Fraud Problem**
-
-- **Tolerance Inflation:** Changing a "FAIL" result (e.g., 149,000 PSI) to a "PASS" (150,000 PSI) in a PDF editor.
-- **Batch Swapping:** Using one "PASS" report for multiple different batches, some of which were never tested.
-- **Credential Forgery:** Using a senior inspector's name on a report created by an untrained junior employee.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Purchase Orders and Delivery Notes?
 
-In B2B commerce, the **Purchase Order (PO)** is the official offer to buy, and the **Delivery Note** (or Packing Slip) is the proof that the offer was fulfilled. Together with the invoice, they form the "Three-Way Match" required for corporate payments.
+In B2B commerce, the Purchase Order (PO) is the official offer to buy, and the Delivery Note (or Packing Slip) is the proof that the offer was fulfilled. Together with the invoice, they form the "Three-Way Match" required for corporate payments.
 
-These documents are high-value targets for **Invoice Factoring Fraud**. A dishonest supplier might create a fake PO from a reputable company (like Apple or Walmart) to get a multimillion-dollar "Advance" from a bank. Similarly, a buyer might "alter" a delivery note to claim they received fewer items than were actually shipped. Verified hashes bind the **Order IDs, Quantities, and Unit Prices** to the issuer's domain (e.g., `amazon.com` or `boeing.com`).
+These documents are high-value targets for Invoice Factoring Fraud. A dishonest supplier might create a fake PO from a reputable company (like Apple or Walmart) to get a multimillion-dollar "Advance" from a bank. Similarly, a buyer might "alter" a delivery note to claim they received fewer items than were actually shipped. Verified hashes bind the Order IDs, Quantities, and Unit Prices to the issuer's domain (e.g., `amazon.com` or `boeing.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="po"></span>ACME MANUFACTURING CORP.
@@ -39,7 +39,13 @@ This PO is a legally binding offer once accepted.
 <span data-verify-line="po">verify:acme-mfg.com/procure/v</span> <span verifiable-text="end" data-for="po"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Paper Profit Fraud
+
+- **Quantity Inflation:** Changing "10 units" to "100 units" on a packing slip to get paid for goods never shipped.
+- **Price Padding:** Editing a PO to show a higher price than what was agreed.
+- **Ghost Orders:** Creating a fake PO from a real company to use as collateral for a bank loan.
+
+## What Is Checked
 
 PO/Order number, buyer name, vendor name, item descriptions (SKUs), quantities, unit prices, total order value, ship-to address, delivery date, authorization signature ID.
 
@@ -49,7 +55,7 @@ PO/Order number, buyer name, vendor name, item descriptions (SKUs), quantities, 
 - **Goods Received Note (GRN):** Signed by the buyer upon receipt.
 - **Pro-Forma Invoice:** A preliminary bill used for customs/financing.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`acme-mfg.com`, `apple.com`, `ge.com`) and the order standing.
 
@@ -57,20 +63,20 @@ Shows the issuer domain (`acme-mfg.com`, `apple.com`, `ge.com`) and the order st
 - **Open / Authorized** — Order is valid and awaiting fulfillment.
 - **Partially Received** — Some items have been delivered and verified.
 - **Closed / Fulfilled** — Order is completed; no further deliveries allowed.
-- **Cancelled** — **ALERT:** The buyer has revoked this order.
+- **Cancelled** — The buyer has revoked this order.
 
-## Second-Party Use
+## Who Holds It
 
-The **Vendor (Seller)** benefits from verification.
+The Vendor (Seller) benefits from verification.
 
 **Production Confidence:** Before ordering $50,000 in raw materials to fulfill a big order, the vendor scans the buyer's PO. "Verified by Acme Corp" ensures they aren't working on a "Phantom Order" created by a rogue employee or a scammer.
 
 **Speed of Payment:** By attaching a verified "Delivery Note" hash to their invoice, the vendor allows the buyer's system to perform an instant "Three-Way Match," reducing the payment cycle from 60 days to 5 days.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks and Factoring Firms**
-**Financing Security:** A vendor asks for a loan against a $1M Purchase Order. The bank scans the PO. If the hash returns **"OPEN - ISSUED BY FORTUNE 500 CO,"** they can release the funds immediately. This eliminates "Fake Invoice" fraud, which costs the industry billions.
+**Financing Security:** A vendor asks for a loan against a $1M Purchase Order. The bank scans the PO. If the hash returns "OPEN - ISSUED BY FORTUNE 500 CO," they can release the funds immediately. This eliminates "Fake Invoice" fraud, which costs the industry billions.
 
 **External Auditors**
 **Inventory Audit:** During a year-end audit, the accountant scans a random sample of "Goods Received Notes." Live Verify ensures the company isn't "Padding" its inventory with fake delivery paperwork.
@@ -78,13 +84,7 @@ The **Vendor (Seller)** benefits from verification.
 **Customs and Tax Authorities (VAT/GST)**
 **Trade Integrity:** Verifying that the value stated on the "Delivery Note" matches the price authorized on the "Purchase Order," preventing "Under-Invoicing" to evade import duties.
 
-## Verification Architecture
-
-**The "Paper Profit" Fraud Problem**
-
-- **Quantity Inflation:** Changing "10 units" to "100 units" on a packing slip to get paid for goods never shipped.
-- **Price Padding:** Editing a PO to show a higher price than what was agreed.
-- **Ghost Orders:** Creating a fake PO from a real company to use as collateral for a bank loan.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

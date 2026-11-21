@@ -11,14 +11,14 @@ furtherDerivations: 1
 
 ## What is a Rental Agreement?
 
-A **Rental Agreement** (or Lease) is the foundational contract between a Landlord and a Tenant. It defines the "Rules of the Home"—the rent amount, the duration of the stay, and the safety deposits held in trust.
+A Rental Agreement (or Lease) is the foundational contract between a Landlord and a Tenant. It defines the "Rules of the Home"—the rent amount, the duration of the stay, and the safety deposits held in trust.
 
 Beyond the relationship between the two parties, a lease is used by third parties as **Proof of Residence**:
 1.  **School Enrollment:** Proving a child lives in a specific district.
 2.  **DMV / Voter Registration:** Establishing legal residency in a state.
 3.  **Lending:** A landlord using the lease to prove "Rental Income" to a bank when applying for a mortgage.
 
-**"Lease Padding"** is a common financial fraud where a landlord "edits" a lease to show a higher rent (e.g., changing $1,500 to $2,500) to trick a bank into lending them more money. **"Fake Leases"** are also used by scammers to illegally occupy vacant homes or commit identity theft. Live Verify binds the **Tenant names, Rent amount, and Term dates** to the property management firm's or the landlord's domain.
+**"Lease Padding"** is a common financial fraud where a landlord "edits" a lease to show a higher rent (e.g., changing $1,500 to $2,500) to trick a bank into lending them more money. "Fake Leases" are also used by scammers to illegally occupy vacant homes or commit identity theft. Live Verify binds the Tenant names, Rent amount, and Term dates to the property management firm's or the landlord's domain.
 
 **Why verification matters here:**
 
@@ -58,7 +58,13 @@ Property Manager Signature             Tenant Signature
 <span data-verify-line="lease">verify:skyline-mgmt.com/v</span> <span verifiable-text="end" data-for="lease"></span>
 </div>
 
-## Data Verified
+## The Problem: Lease padding Fraud
+
+- **Rent Inflation:** A landlord changing a $1,200 lease to $2,200 on a PDF to qualify for a multi-million dollar building refinance.
+- **Term Stretching:** Hiding that a lease is "Month-to-Month" and making it look like a "Fixed 2-Year" term to show income stability.
+- **Occupancy Faking:** Creating a "Ghost Lease" for a vacant unit to make a building look 100% occupied to a buyer.
+
+## What Is Checked
 
 Landlord/Entity name, Tenant name(s), Premises Address (including Unit #), Monthly Rent amount, Security Deposit amount, Lease Start/End dates, Utility responsibility (e.g., "Water Included"), Signatory IDs.
 
@@ -68,19 +74,19 @@ Landlord/Entity name, Tenant name(s), Premises Address (including Unit #), Month
 - **Notice of Renewal:** Extending the term of an existing lease.
 - **Tenant Estoppel Certificate:** Proving lease terms to a building buyer.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Property Manager or Landlord) and the lease status.
 
 **Status Indications:**
 - **Active** — Lease is currently in effect; tenant is in good standing.
 - **Terminated** — Lease has ended naturally or by mutual agreement.
-- **Eviction Filing** — **ALERT:** Legal action is pending; lease may be void.
+- **Eviction Filing** — Legal action is pending; lease may be void.
 - **Renewed** — Superseded by a newer agreement (linked hash).
 
-## Second-Party Use
+## Who Holds It
 
-The **Tenant** (second party) receives the lease agreement from the landlord or property manager (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Tenant (second party) receives the lease agreement from the landlord or property manager (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the rental terms and their legal residence. Most of the time, the document sits in their files—the verification value is latent, there *if needed*.
 
@@ -88,7 +94,7 @@ The **Tenant** (second party) receives the lease agreement from the landlord or 
 
 **Future Optionality:** If they need to prove residency for school enrollment, DMV registration, or dispute resolution, they have cryptographic proof ready without needing to contact the property manager.
 
-## Third-Party Use
+## Who Checks It
 
 The tenant (second party) may hand the verified document to various third parties:
 
@@ -101,13 +107,7 @@ The tenant (second party) may hand the verified document to various third partie
 **Government Agencies (DMV / SSA)**
 **Residency Proof:** Using the verified hash to instantly validate a "Proof of Address" claim, reducing the risk of identity theft via forged residency documents.
 
-## Verification Architecture
-
-**The "Lease padding" Fraud Problem**
-
-- **Rent Inflation:** A landlord changing a $1,200 lease to $2,200 on a PDF to qualify for a multi-million dollar building refinance.
-- **Term Stretching:** Hiding that a lease is "Month-to-Month" and making it look like a "Fixed 2-Year" term to show income stability.
-- **Occupancy Faking:** Creating a "Ghost Lease" for a vacant unit to make a building look 100% occupied to a buyer.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -135,7 +135,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the property manager's hashes and status changes plus structured metadata (agreement ID, rent amount, lease start date, lease end date, property address, status) — never plaintext or tenant details like names or SSNs — providing non-repudiation of the lease terms.
 
-## Competition vs. Scanned PDFs
+## Compared With Scanned PDFs
 
 | Feature | Live Verify | Scanned PDF / Paper | Digital Ledger (App) |
 | :--- | :--- | :--- | :--- |

@@ -15,7 +15,7 @@ Contracts are legally binding agreements between parties. Multi-page contracts i
 
 Contract fraud includes altering terms after signing, substituting pages, forging signatures, and misrepresenting agreed terms. Per-page verification creates an immutable record of exactly what was signed.
 
-**Note:** Due to multi-page complexity, contract verification is typically **browser-extension only** rather than camera-based OCR.
+**Note:** Due to multi-page complexity, contract verification is typically browser-extension only rather than camera-based OCR.
 
 ## Per-Page Verification
 
@@ -102,7 +102,15 @@ Each page carries its own verification line. The signature page contains a rollu
   <span data-verify-line="con4">verify:acme-corp.com/contracts</span> <span verifiable-text="end" data-for="con4"></span>
 </div>
 
-## Data Verified
+## The Problem: Contract Fraud
+
+- **Page Substitution:** Swapping pages to change terms after signing.
+- **Term Alteration:** Editing amounts, dates, or obligations.
+- **Signature Forgery:** Adding unauthorized signatures.
+- **Version Confusion:** Presenting draft versions as final.
+- **Exhibit Fraud:** Substituting referenced exhibits.
+
+## What Is Checked
 
 Parties, effective date, key terms (compensation, term, obligations), signatures, page sequence integrity, exhibit references.
 
@@ -114,7 +122,7 @@ Parties, effective date, key terms (compensation, term, obligations), signatures
 - **Partnership/Operating Agreements:** Entity governance documents.
 - **Licensing Agreements:** IP licenses, software licenses.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`acme-corp.com`, law firm domain) and contract status.
 
@@ -126,9 +134,9 @@ Shows the issuer domain (`acme-corp.com`, law firm domain) and contract status.
 - **Expired** — Contract term completed.
 - **Disputed** — Terms or validity under dispute.
 
-## Second-Party Use
+## Who Holds It
 
-The **Contracting Parties** benefit from verification.
+The Contracting Parties benefit from verification.
 
 **Dispute Prevention:** Both parties can verify they have identical copies of what was signed.
 
@@ -136,7 +144,7 @@ The **Contracting Parties** benefit from verification.
 
 **Audits:** Proving contract terms to auditors, regulators, or tax authorities.
 
-## Third-Party Use
+## Who Checks It
 
 **Courts / Arbitrators**
 **Dispute Resolution:** Verified contracts establish what terms were actually agreed.
@@ -156,15 +164,7 @@ The **Contracting Parties** benefit from verification.
 **M&A Advisors**
 **Due Diligence:** Verify key contract terms of acquisition targets.
 
-## Verification Architecture
-
-**The Contract Fraud Problem**
-
-- **Page Substitution:** Swapping pages to change terms after signing.
-- **Term Alteration:** Editing amounts, dates, or obligations.
-- **Signature Forgery:** Adding unauthorized signatures.
-- **Version Confusion:** Presenting draft versions as final.
-- **Exhibit Fraud:** Substituting referenced exhibits.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

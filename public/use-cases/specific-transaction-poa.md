@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 A "Power of Attorney" (POA) is a dangerous document. In its broad form, it gives someone complete control over your life and finances. This is a primary vector for "Elder Financial Abuse," where a caretaker uses a broad POA to perform unauthorized personal gain.
 
-A **Specific Transaction Power of Attorney (ST-POA)** is a "Composable Primitive" (Criteria §11). It authorizes **one specific action only** (e.g., *"Authorize withdrawal of $1,000 for medical surgery on March 15"*). By making this document verifiable, a bank or hospital can instantly confirm that the person presenting the document only has authority for *that* specific transaction.
+A Specific Transaction Power of Attorney (ST-POA) is a "Composable Primitive" (Criteria §11). It authorizes one specific action only (e.g., *"Authorize withdrawal of $1,000 for medical surgery on March 15"*). By making this document verifiable, a bank or hospital can instantly confirm that the person presenting the document only has authority for *that* specific transaction.
 
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #311b92; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #311b92; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -47,7 +47,13 @@ A **Specific Transaction Power of Attorney (ST-POA)** is a "Composable Primitive
   </div>
 </div>
 
-## Data Verified
+## The Problem: Broad POA Fraud
+
+- **Identity Hijacking:** A caretaker uses a broad POA to change the principal's home ownership or beneficiary designations.
+- **Account Draining:** Withdrawing large sums of cash "for the principal's benefit" that are actually embezzled.
+- **Forgery:** Editing a limited POA to make it look broad, or changing the authorized dollar amount.
+
+## What Is Checked
 
 Principal name, agent name, specific transaction description, dollar amount (if applicable), valid date/time, purpose, issuing notary/lawyer ID, reference number.
 
@@ -56,25 +62,25 @@ Principal name, agent name, specific transaction description, dollar amount (if 
 - **Limited Medical Authorization:** Permission for one specific procedure.
 - **Temporary Real Estate Authority:** Permission to sign *one* specific deed.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`notary.gov`, `attorney-at-law.com`) and the authority status.
 
 **Status Indications:**
 - **Active / Valid** — Record matches the latest authorized claim.
-- **Consumed / Used** — **ALERT:** This authority was for a single use and has been processed.
-- **Revoked** — **ALERT:** The principal has withdrawn this specific authority.
-- **Expired** — **ALERT:** The valid date for this transaction has passed.
+- **Consumed / Used** — This authority was for a single use and has been processed.
+- **Revoked** — The principal has withdrawn this specific authority.
+- **Expired** — The valid date for this transaction has passed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Principal (Individual Granting Authority)** benefits from verification.
+The Principal (Individual Granting Authority) benefits from verification.
 
 **Abuse Prevention:** By only granting "Least Privilege" access, the principal ensures their caretaker cannot drain their entire bank account using a single piece of paper.
 
 **Independent Audit:** The principal can review a history of all specific transaction hashes issued in their name to catch unauthorized activity by the notary or the agent.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks / Tellers**
 **Transaction Verification:** Tellers can instantly verify that the POA presented only authorizes the specific dollar amount and purpose requested, preventing "Mission Creep" by the agent.
@@ -85,13 +91,7 @@ The **Principal (Individual Granting Authority)** benefits from verification.
 **Real Estate Closing Agents**
 **Signature Authority:** Confirming that an agent has the specific legal power to sign for the principal in a single property transaction.
 
-## Verification Architecture
-
-**The "Broad POA" Fraud Problem**
-
-- **Identity Hijacking:** A caretaker uses a broad POA to change the principal's home ownership or beneficiary designations.
-- **Account Draining:** Withdrawing large sums of cash "for the principal's benefit" that are actually embezzled.
-- **Forgery:** Editing a limited POA to make it look broad, or changing the authorized dollar amount.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

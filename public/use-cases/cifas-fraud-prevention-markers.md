@@ -19,7 +19,7 @@ There are two kinds of CIFAS marker, and they work in opposite directions:
 
 **Filed by you (Protective Registration):** You're a victim of identity fraud. You ask CIFAS to put a protective marker on your file so that lenders do extra checks before opening accounts in your name. This is similar to the US identity theft protective certificate — but in the UK it lives inside CIFAS rather than with a government agency.
 
-A **Verifiable CIFAS Status Certificate** is a document issued by CIFAS to an individual confirming their current marker status. By making it verifiable against `cifas.org.uk`, the individual can prove their status to anyone — a landlord, a new bank, a prospective employer — without the third party needing CIFAS membership or making the individual wait weeks for a SAR response.
+A Verifiable CIFAS Status Certificate is a document issued by CIFAS to an individual confirming their current marker status. By making it verifiable against `cifas.org.uk`, the individual can prove their status to anyone — a landlord, a new bank, a prospective employer — without the third party needing CIFAS membership or making the individual wait weeks for a SAR response.
 
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #003366; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #003366; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -118,7 +118,15 @@ A **Verifiable CIFAS Status Certificate** is a document issued by CIFAS to an in
   </div>
 </div>
 
-## Data Verified
+## The Problem: Invisible Blacklist
+
+CIFAS markers are uniquely destructive because of three properties:
+
+- **Opacity:** The individual often doesn't know a marker exists until they're refused a service. There's no notification obligation when a marker is filed. The first sign is a rejected bank account application, a mortgage refusal, or a phone company declining a contract. The individual may apply to several places, be refused by all, and still not know why.
+- **Industry-wide reach:** Unlike a single lender's internal blacklist, a CIFAS marker is visible to all 600+ members. A marker filed by one bank effectively locks the individual out of the entire UK financial system for 6 years.
+- **No portable proof:** There is no standard document the individual can obtain to show "I am clear" or "I had a marker and it was removed." The SAR process takes weeks. The £25 Protective Registration Check is faster but produces a letter that's no more verifiable than any other piece of paper.
+
+## What Is Checked
 
 Subject name, date of birth, certificate date, certificate reference number, marker status (none/protective/fraud), marker type (if present), filing date, expiry date, filing member (anonymised or named depending on CIFAS policy), appeal outcome (if applicable).
 
@@ -128,7 +136,7 @@ Subject name, date of birth, certificate date, certificate reference number, mar
 - **Status Certificate (Marker Recorded):** Confirms a fraud marker exists. Does not detail the underlying evidence — that's between the filing member and the subject.
 - **Appeal Outcome Certificate:** Confirms a marker was removed after successful appeal. Critical for rehabilitation — proves the individual was wrongly flagged and the record has been corrected.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`cifas.org.uk`) and the current marker status.
 
@@ -140,9 +148,9 @@ Shows the issuer domain (`cifas.org.uk`) and the current marker status.
 - **Marker Removed (Appeal)** — Marker was removed following successful appeal. Individual is clear.
 - **Marker Expired** — Marker has reached its 6-year expiry. Individual is clear.
 
-## Second-Party Use
+## Who Holds It
 
-The **Individual** benefits from verification.
+The Individual benefits from verification.
 
 **Proving a clean record:** When opening a bank account, applying for a mortgage, or renting a flat, the individual can proactively present a verified "Clear" certificate from CIFAS's domain. This is especially valuable for people who've been wrongly refused services and suspect a marker exists — or for those who've had a marker removed and need to prove it.
 
@@ -150,7 +158,7 @@ The **Individual** benefits from verification.
 
 **Proving rehabilitation after a wrongful marker:** The most important case. A person had a fraud marker filed against them — perhaps wrongly, perhaps for a minor issue that was resolved. They successfully appealed. But the reputational damage lingers: they were refused a mortgage, lost a job offer, couldn't get a phone contract. A verified "Marker Removed (Appeal Upheld)" certificate from `cifas.org.uk` is the fastest way to prove to a new lender or employer that the record is clean and the original marker was overturned.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks & Building Societies**
 **Account Opening:** When a prospective customer presents a verified CIFAS status certificate showing "Clear," the bank has a portable, domain-verified record that doesn't require them to run their own CIFAS check (which they'd do anyway — but the customer's verified certificate supports the "why was I refused?" conversation if the bank's own check returns unexpected results).
@@ -167,15 +175,7 @@ The **Individual** benefits from verification.
 **Debt Advisors & Citizens Advice**
 **Client Advocacy:** When helping clients who've been wrongly flagged by CIFAS, a verified certificate showing the marker was removed is evidence for complaints to the Financial Ombudsman Service.
 
-## Verification Architecture
-
-**The "Invisible Blacklist" Problem**
-
-CIFAS markers are uniquely destructive because of three properties:
-
-- **Opacity:** The individual often doesn't know a marker exists until they're refused a service. There's no notification obligation when a marker is filed. The first sign is a rejected bank account application, a mortgage refusal, or a phone company declining a contract. The individual may apply to several places, be refused by all, and still not know why.
-- **Industry-wide reach:** Unlike a single lender's internal blacklist, a CIFAS marker is visible to all 600+ members. A marker filed by one bank effectively locks the individual out of the entire UK financial system for 6 years.
-- **No portable proof:** There is no standard document the individual can obtain to show "I am clear" or "I had a marker and it was removed." The SAR process takes weeks. The £25 Protective Registration Check is faster but produces a letter that's no more verifiable than any other piece of paper.
+## How Verification Works Here
 
 **Fraud Patterns:**
 - **Wrongful markers:** A bank files a fraud marker after a disputed transaction that was actually legitimate. The customer loses access to banking for 6 years unless they successfully appeal — a process that can take months.

@@ -115,13 +115,29 @@ verify:rcvs.org.uk/practices/v
 
 A practice that fails re-inspection or withdraws from the scheme may continue displaying the accreditation claim on its website and premises. The verification endpoint returns the current status.
 
-## Data Verified
+## The Problem: Unaccredited Practice
+
+The fraud risk for veterinary practices is lower than for trades like gas or electrical work — there are fewer fake vet practices than fake plumbers. The primary risks are:
+
+- **Lapsed accreditation** — a practice fails re-inspection but continues displaying the PSS logo and claiming accreditation on its website.
+- **Accreditation level overreach** — a practice accredited for small animal general practice implies it offers veterinary hospital-level facilities (24-hour nursing, advanced diagnostic imaging) that it does not have.
+- **Online veterinary services** — telemedicine providers operating without physical premises that PSS was designed to inspect. As remote consultations grow, verifiable accreditation becomes more important because the pet owner cannot assess the premises themselves.
+- **Copied claims** — a practice without accreditation copies the accreditation snippet from an accredited practice's website.
+
+The verifiable claim addresses these because:
+
+1. The RCVS issues the claim — it is not self-asserted by the practice
+2. The claim names the specific website where it applies
+3. Expiry and revocation are immediate — the endpoint returns the current status
+4. The accreditation level is part of the verified text, not just a logo
+
+## What Is Checked
 
 Practice name, accreditation level (Emergency Service Clinic, General Practice, Veterinary Hospital), species scope (small animal, equine, farm), registered website domain, and current accreditation status.
 
 **Privacy Salt:** Not required. Practice accreditation is a public-facing commercial claim that the practice actively displays.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`rcvs.org.uk`) and the practice's current accreditation status.
 
@@ -142,15 +158,15 @@ Shows the issuer domain (`rcvs.org.uk`) and the practice's current accreditation
 - **Scope Changed** — Accredited, but the level or species scope has changed since the claim was issued.
 - **404** — No such accreditation exists at the RCVS.
 
-## Second-Party Use
+## Who Holds It
 
-The **pet owner** benefits directly.
+The pet owner benefits directly.
 
 **When choosing a vet online:** The pet owner finds a veterinary practice website claiming RCVS accreditation. They clip the registration claim on the page. The response confirms the practice is currently accredited and the domain matches. This is particularly relevant for online veterinary services and telemedicine providers, where the pet owner has no physical premises to assess.
 
 **Accreditation level check:** The practice website says "RCVS Accredited." The pet owner needs emergency out-of-hours care. Verification confirms the practice holds General Practice accreditation but not Emergency Service Clinic status. The accreditation is genuine — just not for out-of-hours emergency work.
 
-## Third-Party Use
+## Who Checks It
 
 **Pet Insurance Companies**
 
@@ -164,25 +180,7 @@ The **pet owner** benefits directly.
 
 **Evidence trail:** When investigating complaints against a practice, verified accreditation claims (or their absence) establish whether the practice was holding itself out as accredited at relevant times.
 
-## Verification Architecture
-
-**The Unaccredited Practice Problem**
-
-The fraud risk for veterinary practices is lower than for trades like gas or electrical work — there are fewer fake vet practices than fake plumbers. The primary risks are:
-
-- **Lapsed accreditation** — a practice fails re-inspection but continues displaying the PSS logo and claiming accreditation on its website.
-- **Accreditation level overreach** — a practice accredited for small animal general practice implies it offers veterinary hospital-level facilities (24-hour nursing, advanced diagnostic imaging) that it does not have.
-- **Online veterinary services** — telemedicine providers operating without physical premises that PSS was designed to inspect. As remote consultations grow, verifiable accreditation becomes more important because the pet owner cannot assess the premises themselves.
-- **Copied claims** — a practice without accreditation copies the accreditation snippet from an accredited practice's website.
-
-The verifiable claim addresses these because:
-
-1. The RCVS issues the claim — it is not self-asserted by the practice
-2. The claim names the specific website where it applies
-3. Expiry and revocation are immediate — the endpoint returns the current status
-4. The accreditation level is part of the verified text, not just a logo
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | RCVS Find a Vet Lookup | PSS Logo on Website | Phone Call to RCVS |
 | :--- | :--- | :--- | :--- | :--- |

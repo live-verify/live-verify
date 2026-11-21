@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Sanctions Attestation?
 
-In global finance and trade, every transaction must be checked against **Sanctions Lists** (e.g., OFAC SDN, UN Security Council, EU Consolidated List). A **Sanctions Screening Attestation** is the formal document where a bank, exporter, or payment processor proves they checked a specific person or company and found "No Matches."
+In global finance and trade, every transaction must be checked against Sanctions Lists (e.g., OFAC SDN, UN Security Council, EU Consolidated List). A Sanctions Screening Attestation is the formal document where a bank, exporter, or payment processor proves they checked a specific person or company and found "No Matches."
 
-These documents are the "Legal Safe Harbor" for high-value trade. Fraud is high-stakes: a company might "edit" a screening report to hide that their customer is actually a sanctioned oligarch or a prohibited defense entity. Similarly, a bank might use an outdated "Snapshot" from 2023 to hide a sanction designated in 2025. Verified hashes bind the **Subject Name, Lists Searched, and Dataset Timestamp** to the screening provider's domain (e.g., `dowjones.com` or `refinitiv.com`).
+These documents are the "Legal Safe Harbor" for high-value trade. Fraud is high-stakes: a company might "edit" a screening report to hide that their customer is actually a sanctioned oligarch or a prohibited defense entity. Similarly, a bank might use an outdated "Snapshot" from 2023 to hide a sanction designated in 2025. Verified hashes bind the Subject Name, Lists Searched, and Dataset Timestamp to the screening provider's domain (e.g., `dowjones.com` or `refinitiv.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="sanc"></span>DOW JONES RISK & COMPLIANCE
@@ -40,7 +40,13 @@ confirms report integrity at the timestamp of issuance.
 <span data-verify-line="sanc">verify:dowjones.com/v</span> <span verifiable-text="end" data-for="sanc"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: List Trimming Fraud
+
+- **List Omission:** Manually removing the "UK Sanctions" list from a PDF report because the subject *is* on that list but not on the US list.
+- **Dataset Manipulation:** Changing a 2024 timestamp to 2026 to hide that the screening is 2 years out of date.
+- **Name Spoofing:** Screening a "lookalike" name (e.g., removing a middle initial) to avoid a "True Match" trigger.
+
+## What Is Checked
 
 Screening ID, subject name (individual or entity), aliases checked, date of birth / registration #, datasets searched (e.g., OFAC, UN), match threshold (percentage), screening date/timestamp, dataset version ID, result status (No Match / True Match / False Positive), screening officer name.
 
@@ -50,25 +56,25 @@ Screening ID, subject name (individual or entity), aliases checked, date of birt
 - **KYC Compliance Packet:** (Linked hash) the full onboarding file.
 - **Exclusion Clearance:** Specifically for health/government programs.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`dowjones.com`, `refinitiv.com`, `lexisnexis.com`) and the compliance standing.
 
 **Status Indications:**
 - **Verified / Clear** — Report matches the original screening event; no matches found.
-- **True Match Detected** — **CRITICAL:** A subsequent list update has flagged this subject as sanctioned.
-- **Stale Data** — **ALERT:** The datasets used for this screening are more than 24 hours old.
-- **Amended Report** — **ALERT:** The result has been updated (e.g., from No-Match to False-Positive).
+- **True Match Detected** — A subsequent list update has flagged this subject as sanctioned.
+- **Stale Data** — The datasets used for this screening are more than 24 hours old.
+- **Amended Report** — The result has been updated (e.g., from No-Match to False-Positive).
 
-## Second-Party Use
+## Who Holds It
 
-The **Compliance Department / Exporter** benefits from verification.
+The Compliance Department / Exporter benefits from verification.
 
 **Bank Account Approval:** When a global company opens a new branch office, they provide verified "Sanctions Hashes" for their directors to the local bank. "Verified by Dow Jones" allows the bank to trust the Director's "Clean History" instantly, bypassing the 30-day "Onboarding Delay."
 
 **Export Clearance:** Before shipping high-end hardware, an exporter provides verified hashes of the buyer's screening to US Customs (BIS). Verification ensures that the buyer isn't a "Restricted Party," protecting the exporter from multi-million dollar fines and criminal charges.
 
-## Third-Party Use
+## Who Checks It
 
 **Intermediate Correspondent Banks**
 **Transaction Clearing:** When a $10M wire moves through a bank, they scan the verified sanctions hashes attached to the payment. Verification ensures that the "Director Check" was actually performed by a reputable provider and hasn't been "Faked" to hide a money-laundering source.
@@ -79,13 +85,7 @@ The **Compliance Department / Exporter** benefits from verification.
 **Venture Capital Investors**
 **Investment Vetting:** Verifying the "Sanctions Health" of a target startup's cap table before making a major equity investment.
 
-## Verification Architecture
-
-**The "List Trimming" Fraud Problem**
-
-- **List Omission:** Manually removing the "UK Sanctions" list from a PDF report because the subject *is* on that list but not on the US list.
-- **Dataset Manipulation:** Changing a 2024 timestamp to 2026 to hide that the screening is 2 years out of date.
-- **Name Spoofing:** Screening a "lookalike" name (e.g., removing a middle initial) to avoid a "True Match" trigger.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

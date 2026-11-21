@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is Prize Indemnity Insurance?
 
-In the world of marketing and sports, **Prize Indemnity Insurance** allows a company to offer a life-changing prize (e.g., "$1 Million for a Hole-in-One" or "Half-Court Shot") without actually having the money. The sponsor pays a small premium to an insurer, who agrees to pay the prize if someone actually wins.
+In the world of marketing and sports, Prize Indemnity Insurance allows a company to offer a life-changing prize (e.g., "$1 Million for a Hole-in-One" or "Half-Court Shot") without actually having the money. The sponsor pays a small premium to an insurer, who agrees to pay the prize if someone actually wins.
 
-These documents are the "Proof of Payout." Fraud is rampant in "Small-Town Contests." A dishonest sponsor might claim they have insurance to lure in participants, but they actually have a fake "Zurich" or "Lloyd's" policy. If someone wins, the sponsor disappears, and the winner is left with a worthless piece of paper. Verified hashes bind the **Prize Amount, Event Date, and Required Witnesses** to the specialist insurer's domain (e.g., `hiscox.com` or `beazley.com`).
+These documents are the "Proof of Payout." Fraud is rampant in "Small-Town Contests." A dishonest sponsor might claim they have insurance to lure in participants, but they actually have a fake "Zurich" or "Lloyd's" policy. If someone wins, the sponsor disappears, and the winner is left with a worthless piece of paper. Verified hashes bind the Prize Amount, Event Date, and Required Witnesses to the specialist insurer's domain (e.g., `hiscox.com` or `beazley.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="prize"></span>HISCOX SPECIALTY
@@ -37,7 +37,13 @@ Premium paid and coverage in force for the stated event.
 <span data-verify-line="prize">verify:hiscox.com/prize/v</span> <span verifiable-text="end" data-for="prize"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Miracle Denial Fraud
+
+- **Hidden Exclusions:** Editing a PDF to remove a "No Professionals" clause to help a friend win a prize.
+- **Prize Inflation:** Changing a $10,000 prize to $1,000,000 on a poster to attract more entries.
+- **Phantom Insurer:** Creating a fake policy from a non-existent company like "Global Prize Trust LLC."
+
+## What Is Checked
 
 Policy number, insurer name, sponsor name, event name/location, event date, prize amount, specific contest rules (e.g., yardage, target size), mandatory witness requirements, video surveillance requirements, premium payment status, broker ID.
 
@@ -47,25 +53,25 @@ Policy number, insurer name, sponsor name, event name/location, event date, priz
 - **Winner Claim Form:** (Linked hash) proving the win was reported.
 - **Witness Affidavit:** (Linked hash) verified statements from observers.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`hiscox.com`, `beazley.com`, `lloyds.com`) and the policy standing.
 
 **Status Indications:**
 - **Active / Funded** — Premium is paid; prize will be honored if won.
-- **Expired** — **ALERT:** The contest date has passed.
-- **Claim Filed** — **ALERT:** A winner has been reported for this prize.
-- **Invalid / Void** — **CRITICAL:** Policy was cancelled (e.g., due to sponsor non-payment).
+- **Expired** — The contest date has passed.
+- **Claim Filed** — A winner has been reported for this prize.
+- **Invalid / Void** — Policy was cancelled (e.g., due to sponsor non-payment).
 
-## Second-Party Use
+## Who Holds It
 
-The **Winner / Participant** benefits from verification.
+The Winner / Participant benefits from verification.
 
 **Winner Confidence:** If a regular person hits a $1M hole-in-one, the sponsor may try to "negotiate" them down to $10,000. The winner can scan the verified hash of the insurance certificate. "Verified by Hiscox" gives the winner the cryptographic proof that a $1M check is actually available, providing leverage to demand the full payout.
 
-**Participant Safety:** Before paying a $100 entry fee for a "Million Dollar Sweepstakes," a participant scans the verified hash. If it returns **"ACTIVE,"** they know the prize is real. If it returns **"UNKNOWN,"** they avoid a lottery scam.
+**Participant Safety:** Before paying a $100 entry fee for a "Million Dollar Sweepstakes," a participant scans the verified hash. If it returns "ACTIVE," they know the prize is real. If it returns "UNKNOWN," they avoid a lottery scam.
 
-## Third-Party Use
+## Who Checks It
 
 **Contest Adjudicators / Referees**
 **Integrity Audit:** Before the first ball is hit, the head official scans the certificate hash. Verification ensures that all "Mandatory Conditions" (like camera placement) match the insurer's requirements, preventing a "Technical Denial" of a legitimate win later.
@@ -76,13 +82,7 @@ The **Winner / Participant** benefits from verification.
 **News Media / Journalists**
 **Human Interest Vetting:** Before reporting on a "Miracle Million Dollar Win," a journalist can scan the verified hash to ensure the story isn't a publicity stunt by a sponsor who never intended to pay.
 
-## Verification Architecture
-
-**The "Miracle Denial" Fraud Problem**
-
-- **Hidden Exclusions:** Editing a PDF to remove a "No Professionals" clause to help a friend win a prize.
-- **Prize Inflation:** Changing a $10,000 prize to $1,000,000 on a poster to attract more entries.
-- **Phantom Insurer:** Creating a fake policy from a non-existent company like "Global Prize Trust LLC."
+## Who Issues It
 
 **Issuer Types** (First Party)
 

@@ -40,11 +40,11 @@ As At:          21 Mar 2026
 <span data-verify-line="redeem-stmt">verify:northbridgebs.co.uk/redemptions/v</span> <span verifiable-text="end" data-for="redeem-stmt"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Lender name, mortgage account number, property address, outstanding balance, daily interest rate, validity window, early repayment charge status, and the as-at date of the snapshot. The verified hash binds all of these fields together — altering any single value (e.g., reducing the outstanding balance) invalidates the hash.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`northbridgebs.co.uk`, `nationwide.co.uk`, `hsbc.co.uk`) and confirms whether the redemption figure is still within its validity window.
 
@@ -53,11 +53,11 @@ Shows the issuer domain (`northbridgebs.co.uk`, `nationwide.co.uk`, `hsbc.co.uk`
 - **Expired** — The validity window has passed; a fresh figure must be requested.
 - **Superseded** — A newer redemption statement has been issued for this account, replacing this one.
 
-## Second-Party Use
+## Who Holds It
 
-The **Seller (Borrower)** uses this to prove their mortgage balance during conveyancing. When instructing a solicitor to handle the sale, the seller clips the redemption statement and shares it. The solicitor verifies the hash against the lender's domain within seconds, confirming the exact payoff amount without waiting for a postal letter or trusting an unverifiable PDF.
+The Seller (Borrower) uses this to prove their mortgage balance during conveyancing. When instructing a solicitor to handle the sale, the seller clips the redemption statement and shares it. The solicitor verifies the hash against the lender's domain within seconds, confirming the exact payoff amount without waiting for a postal letter or trusting an unverifiable PDF.
 
-## Third-Party Use
+## Who Checks It
 
 **Seller's Solicitor / Conveyancer**
 The solicitor handling the sale needs the redemption figure to calculate the net proceeds payable to the seller after completion. A verified figure eliminates the risk of relying on an altered or outdated document.
@@ -71,7 +71,7 @@ When advising sellers on pricing or confirming that a sale is financially viable
 **Mortgage Brokers**
 When arranging a remortgage, the broker needs the exact redemption figure from the existing lender to structure the new loan. A verified statement removes ambiguity about the amount to be refinanced.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Stale Figure" and "Altered Statement" Problems**
 
@@ -101,7 +101,7 @@ Northbridge Building Society, a regulated mortgage lender, is authorized by the 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Manual Redemption Requests
+## Compared With Manual Redemption Requests
 
 | Feature | Live Verify | Postal / Portal Request | Scanned PDF |
 | :--- | :--- | :--- | :--- |

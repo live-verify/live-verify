@@ -86,7 +86,22 @@ verify:food.gov.uk/hygiene-ratings/v
 
 The platform still shows "5" because it has not updated its data. But the consumer who clips and verifies sees SUPERSEDED. The platform cannot claim ignorance — the verification endpoint is public.
 
-## Data Verified
+## The Problem: Stale Rating on Platforms
+
+- **Data lag:** Platforms update hygiene data on their own schedule, which may be months behind the FSA's records.
+- **No verification path:** A consumer seeing "Hygiene Rating: 5" on a Deliveroo listing has no way to check whether that number is current, correct, or even real.
+- **Incentive mismatch:** The platform has no commercial incentive to display a lower rating — it might reduce orders. The restaurant has no incentive to report a downgrade. Only the FSA and the consumer care about accuracy.
+- **Multi-platform fragmentation:** A restaurant may be listed on three or four platforms simultaneously, each with its own (potentially different) copy of the rating data.
+
+The verifiable claim addresses these because:
+
+1. The FSA issues the claim — it is not self-asserted by the restaurant or entered by the platform
+2. The claim names the restaurant's domain, providing a human-readable identity check
+3. The `allowedDomains` list explicitly authorizes which platforms may display the claim
+4. Supersession is immediate — the endpoint returns SUPERSEDED when a new inspection changes the rating
+5. The same claim text and hash work identically across all authorized sites
+
+## What Is Checked
 
 Restaurant name, registered business domain, hygiene rating (0–5), inspection date, local authority that conducted the inspection, and current status.
 
@@ -96,7 +111,7 @@ Restaurant name, registered business domain, hygiene rating (0–5), inspection 
 
 **Privacy Salt:** Not required. Food hygiene ratings are public record under the Food Hygiene Rating Act 2013 (mandatory display in Wales and Northern Ireland, voluntary but near-universal in England).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`food.gov.uk`) and the current official rating status.
 
@@ -118,15 +133,15 @@ The `allowedDomains` field enables browser extensions to detect domain mismatche
 - **Awaiting Inspection** — New business; not yet inspected.
 - **404** — No such rating was issued by the FSA for this establishment.
 
-## Second-Party Use
+## Who Holds It
 
-The **restaurant owner** benefits from verification.
+The restaurant owner benefits from verification.
 
 **Proving the rating on third-party platforms:** A restaurant with a genuine rating of 5 currently has no way to prove that on Deliveroo or Just Eat — the platform's data is just a number in a database. A verifiable claim lets the restaurant demonstrate its rating directly to consumers, regardless of which platform they are browsing.
 
 **Competitive differentiation:** Restaurants that maintain high standards can distinguish themselves from competitors whose displayed ratings may be stale or incorrect. The verified claim is evidence, not assertion.
 
-## Third-Party Use
+## Who Checks It
 
 **Consumers on Delivery Platforms**
 
@@ -142,24 +157,7 @@ The **restaurant owner** benefits from verification.
 
 **Enforcement monitoring:** Officers can check whether restaurants are displaying outdated or incorrect ratings on delivery platforms — a form of misleading advertising under existing food safety legislation. The verification endpoint provides the evidence.
 
-## Verification Architecture
-
-**The "Stale Rating on Platforms" Problem**
-
-- **Data lag:** Platforms update hygiene data on their own schedule, which may be months behind the FSA's records.
-- **No verification path:** A consumer seeing "Hygiene Rating: 5" on a Deliveroo listing has no way to check whether that number is current, correct, or even real.
-- **Incentive mismatch:** The platform has no commercial incentive to display a lower rating — it might reduce orders. The restaurant has no incentive to report a downgrade. Only the FSA and the consumer care about accuracy.
-- **Multi-platform fragmentation:** A restaurant may be listed on three or four platforms simultaneously, each with its own (potentially different) copy of the rating data.
-
-The verifiable claim addresses these because:
-
-1. The FSA issues the claim — it is not self-asserted by the restaurant or entered by the platform
-2. The claim names the restaurant's domain, providing a human-readable identity check
-3. The `allowedDomains` list explicitly authorizes which platforms may display the claim
-4. Supersession is immediate — the endpoint returns SUPERSEDED when a new inspection changes the rating
-5. The same claim text and hash work identically across all authorized sites
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Platform-Displayed Rating | FSA Website Lookup | Physical Window Sticker |
 | :--- | :--- | :--- | :--- | :--- |

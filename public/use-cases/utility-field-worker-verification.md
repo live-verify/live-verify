@@ -11,7 +11,7 @@ furtherDerivations: 2
 
 ## What is Utility Worker Verification?
 
-Criminals posing as **Utility Workers** (Gas, Electric, Water) is one of the most common methods for gaining entry to private homes for burglary, assault, or "Shakedown" scams. These fraudsters often target the elderly, claiming a "Gas Leak" or an "Urgent Meter Inspection" to bypass locks.
+Criminals posing as Utility Workers (Gas, Electric, Water) is one of the most common methods for gaining entry to private homes for burglary, assault, or "Shakedown" scams. These fraudsters often target the elderly, claiming a "Gas Leak" or an "Urgent Meter Inspection" to bypass locks.
 
 Legitimate utility workers often have badges that are easily forged with a home printer. Even if the badge is real, the resident has no way of knowing if the worker is actually on a scheduled shift or if their employment was terminated yesterday.
 
@@ -51,7 +51,13 @@ Live Verify allows a homeowner to scan the worker's ID badge to verify: **"Is th
   </div>
 </div>
 
-## Data Verified
+## The Problem: High-Viz Fraud
+
+- **Camouflage:** Scammers wearing generic "Safety Green" vests and hard hats to look professional.
+- **Fake Emergencies:** Claiming a "Gas Leak" to create panic and bypass resident caution.
+- **ID Clipping:** Using a generic "Contractor" badge from an office supply store to impersonate a utility employee.
+
+## What Is Checked
 
 Worker name, employee ID, company name, service specialization (Gas/Electric/Steam), photograph (via hash), expiration date, background check status, vehicle fleet number.
 
@@ -106,17 +112,17 @@ Fields:
 
 Workers should never tell homeowners "don't bother" or "that's not necessary." Every report is logged. The utility can triage later—but the homeowner is never made to feel their input isn't wanted.
 
-## Second-Party Use
+## Who Holds It
 
-The **Homeowner / Resident** benefits from verification.
+The Homeowner / Resident benefits from verification.
 
-**Vulnerable Population Protection:** An elderly person living alone receives a knock from a "Gas Inspector." Instead of opening the door, they ask the worker to hold their ID to the window. They scan it and see **"ACTIVE DUTY: David Chen"** on their phone, allowing them to safely grant access.
+**Vulnerable Population Protection:** An elderly person living alone receives a knock from a "Gas Inspector." Instead of opening the door, they ask the worker to hold their ID to the window. They scan it and see "ACTIVE DUTY: David Chen" on their phone, allowing them to safely grant access.
 
-**Anti-Scam:** A "Water Dept" worker demands $100 to "Fix a high-pressure valve" immediately. The resident scans the ID. If it returns **"OFF DUTY"** or **"UNKNOWN,"** they know it's a shakedown and call the police.
+**Anti-Scam:** A "Water Dept" worker demands $100 to "Fix a high-pressure valve" immediately. The resident scans the ID. If it returns "OFF DUTY" or "UNKNOWN," they know it's a shakedown and call the police.
 
 **Privacy:** Residents can verify the worker's authority without needing to call a busy call center or providing their own account details to the worker.
 
-## Third-Party Use
+## Who Checks It
 
 **Police Departments**
 **Scam Investigation:** When a "Utility Scam" is reported, police can use the verified hashes to determine if the ID used was a forged version of a real employee or a completely fabricated entity.
@@ -124,13 +130,7 @@ The **Homeowner / Resident** benefits from verification.
 **Apartment Building Security**
 **Access Logging:** Front-desk staff can scan every utility worker who enters the building, creating a cryptographically verified log of exactly who had access to the building's infrastructure (pipes, wiring) and when.
 
-## Verification Architecture
-
-**The "High-Viz" Fraud Problem**
-
-- **Camouflage:** Scammers wearing generic "Safety Green" vests and hard hats to look professional.
-- **Fake Emergencies:** Claiming a "Gas Leak" to create panic and bypass resident caution.
-- **ID Clipping:** Using a generic "Contractor" badge from an office supply store to impersonate a utility employee.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -179,7 +179,7 @@ _[Content merged from: meter-reader-surveyor-verification]_
   </div>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Worker name, photo (hash), employee ID, company name (Utility/Surveying firm), specialized role (e.g., Meter Reader, Gas Leak Repair, Boundary Surveyor), current duty status (Active/On-Duty), background check clearance date (hash), issuing jurisdiction.
 
@@ -201,15 +201,15 @@ The endpoint returns a simple status code:
 
 The issuer domain is visible from the `verify:` line on the badge itself (e.g., `field.coned.com`).
 
-## Second-Party Use
+## Who Holds It
 
-The **Field Worker (Technician/Surveyor)** benefits from verification.
+The Field Worker (Technician/Surveyor) benefits from verification.
 
 **Personal Safety:** Proving their identity to a defensive homeowner or a neighborhood watch group. Verification reduces the chance of a homeowner calling the police or confronting the worker with a weapon when they are in a backyard for authorized work.
 
 **Job Efficiency:** Speeding up access to commercial basements or utility rooms. Security guards can verify the badge hash in seconds, bypassing the need for a manual "Phone Confirmation" with the utility dispatch center.
 
-## Third-Party Use
+## Who Checks It
 
 **Homeowners (Vulnerable Residents)**
 **Burglary Prevention:** Before opening the gate or front door, a resident can ask to see the badge through a window or doorbell camera. Scanning the hash confirms the person is a "Verified On-Duty" worker, preventing the common "Fake Utility Worker" scam used by burglars to case interiors or commit home invasions.
@@ -220,7 +220,7 @@ The **Field Worker (Technician/Surveyor)** benefits from verification.
 **Real Estate Developers**
 **Contractor Audit:** Ensuring that only authorized and active personnel from the utility company are on a complex construction site.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Fake Tech" Fraud Problem**
 
@@ -271,7 +271,7 @@ For longer engagements (e.g., a surveyor spending hours on a property boundary d
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the utility's hashes and status changes plus structured metadata (worker ID, duty status, dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing field worker credentials.
 
 
-## Competition vs. Uniforms / Phone Calls
+## Compared With Uniforms / Phone Calls
 
 | Feature | Live Verify | Uniform & Clipboard | Calling Dispatch |
 | :--- | :--- | :--- | :--- |

@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is an HMRC Trust Registration Confirmation?
 
-Since 2022 (implementing the EU's 5th Money Laundering Directive, retained post-Brexit), most UK trusts must register with HMRC's **Trust Registration Service (TRS)**. The registration records the trust's beneficial ownership structure — the settlor, trustees, beneficiaries, and any protector or enforcer. HMRC issues a **Unique Taxpayer Reference (UTR)** for the trust and a registration confirmation.
+Since 2022 (implementing the EU's 5th Money Laundering Directive, retained post-Brexit), most UK trusts must register with HMRC's Trust Registration Service (TRS). The registration records the trust's beneficial ownership structure — the settlor, trustees, beneficiaries, and any protector or enforcer. HMRC issues a Unique Taxpayer Reference (UTR) for the trust and a registration confirmation.
 
 Fund managers encounter trust structures constantly: family trusts investing in funds, charitable trusts, employee benefit trusts, offshore trusts with UK-resident beneficiaries. Under the Money Laundering Regulations 2017 (as amended), the fund manager must verify the trust's beneficial ownership. The TRS registration confirmation is a key piece of that evidence.
 
@@ -42,13 +42,23 @@ Fund managers encounter trust structures constantly: family trusts investing in 
   </div>
 </div>
 
-## Data Verified
+## The Problem
+
+- Fabricated trust structures used to obscure beneficial ownership
+- Unregistered trusts operating in breach of MLR 2017
+- Outdated trust registrations with changed beneficial ownership
+- Forged HMRC confirmation letters presented during CDD
+- Nominee trustee arrangements hiding the real controllers
+
+**The Fix:** HMRC hashes each TRS confirmation at time of issue. The registration status is updated if the annual declaration lapses or the trust is wound up. Fund managers can verify the confirmation against `hmrc.gov.uk` instantly, rather than relying on paper letters or trustee self-declarations.
+
+## What Is Checked
 
 Trust name, UTR, date of registration, trust type (bare, discretionary, interest in possession, etc.), date of settlement, lead trustee name, number of beneficiaries disclosed, annual declaration status, registration status.
 
 **Privacy note:** Individual beneficiary names are NOT included in the verifiable text. The confirmation discloses the trust exists and is registered, the lead trustee, and the count of beneficiaries — but not their identities. Full beneficial ownership details remain in HMRC's confidential records, accessible only to those with a "legitimate interest" under the regulations.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 **Status Indications:**
 - **Up to Date** — Trust registered and annual declaration current
@@ -70,7 +80,7 @@ Currently, fund managers rely on the trustee's self-declaration or a solicitor's
 
 **The fabrication risk:** Sophisticated money launderers use layered trust structures. "The Ashworth Family Settlement" sounds legitimate, but does it actually exist on the TRS? A fabricated confirmation letter from "HMRC" is trivially easy to produce. Verification eliminates this.
 
-## Second-Party Use
+## Who Holds It
 
 **Fund managers** — CDD evidence that the investing trust is genuinely registered with HMRC. Presented during FCA audits to demonstrate adequate trust verification.
 
@@ -78,7 +88,7 @@ Currently, fund managers rely on the trustee's self-declaration or a solicitor's
 
 **Solicitors / accountants** — Professional advisers acting for the trust need to confirm the registration is current before signing off on transactions.
 
-## Third-Party Use
+## Who Checks It
 
 **FCA supervisors** — Checking that fund managers verify trust registration as part of their CDD. If a fund has trust investors but no TRS confirmations on file, that's a compliance gap.
 
@@ -87,17 +97,6 @@ Currently, fund managers rely on the trustee's self-declaration or a solicitor's
 **Other regulated firms** — When a trust is a counterparty in a transaction (e.g., buying property, entering a joint venture), the other party needs to verify the trust's legitimacy.
 
 **Beneficiaries** — In trust disputes, beneficiaries may need to verify the trust's registration status and the identity of the lead trustee.
-
-## Verification Architecture
-
-**The Problem:**
-- Fabricated trust structures used to obscure beneficial ownership
-- Unregistered trusts operating in breach of MLR 2017
-- Outdated trust registrations with changed beneficial ownership
-- Forged HMRC confirmation letters presented during CDD
-- Nominee trustee arrangements hiding the real controllers
-
-**The Fix:** HMRC hashes each TRS confirmation at time of issue. The registration status is updated if the annual declaration lapses or the trust is wound up. Fund managers can verify the confirmation against `hmrc.gov.uk` instantly, rather than relying on paper letters or trustee self-declarations.
 
 ## Authority Chain
 

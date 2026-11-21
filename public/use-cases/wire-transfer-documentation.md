@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Wire Transfer Confirmation?
 
-In the banking world, a **Wire Transfer Confirmation** (often called a "Debit Advice") is the proof that a bank has executed an order to move money via a network like **SWIFT** or **Fedwire**. It contains the unique tracking number—the **IMAD/OMAD** for US domestic wires or the **TRN** for international wires.
+In the banking world, a Wire Transfer Confirmation (often called a "Debit Advice") is the proof that a bank has executed an order to move money via a network like SWIFT or Fedwire. It contains the unique tracking number—the IMAD/OMAD for US domestic wires or the TRN for international wires.
 
-These documents are the "Trigger for Action" in high-value commerce. A title company releases a house deed, or a supplier ships a $1M load of electronics, only *after* they see this confirmation. Fraud is rampant: **Business Email Compromise (BEC)** scammers use Photoshop to create pixel-perfect fake "Sent" confirmations to trick victims into releasing goods before the fraud is discovered. Verified hashes bind the **Reference Number, Beneficiary Account, and Amount** to the sending bank's domain (e.g., `goliathbank.com`).
+These documents are the "Trigger for Action" in high-value commerce. A title company releases a house deed, or a supplier ships a $1M load of electronics, only *after* they see this confirmation. Fraud is rampant: Business Email Compromise (BEC) scammers use Photoshop to create pixel-perfect fake "Sent" confirmations to trick victims into releasing goods before the fraud is discovered. Verified hashes bind the Reference Number, Beneficiary Account, and Amount to the sending bank's domain (e.g., `goliathbank.com`).
 
 **Why verification matters here:**
 
@@ -59,7 +59,13 @@ These documents are the "Trigger for Action" in high-value commerce. A title com
   </div>
 </div>
 
-## Data Verified
+## The Problem: BEC Screenshot Fraud
+
+- **Reference Fabrication:** Using a real bank's template but writing a fake IMAD/TRN number.
+- **Amount Inflation:** Editing a $1,250 wire into a $1,250,000 wire on a PDF to trick a seller.
+- **Beneficiary Swapping:** Editing the "Account Number" on a real confirmation to hide that the money was actually sent to a scammer's account.
+
+## What Is Checked
 
 IMAD/OMAD number (Fedwire), TRN (SWIFT), UETR (Unique End-to-End Transaction Ref), originator name, beneficiary name, beneficiary bank (BIC/Swift Code), beneficiary account number (masked), transaction amount, currency, date/time of execution, status (Completed/Pending/Rejected).
 
@@ -69,25 +75,25 @@ IMAD/OMAD number (Fedwire), TRN (SWIFT), UETR (Unique End-to-End Transaction Ref
 - **Incoming Credit Advice:** Proof for the receiver that funds have landed.
 - **OFAC Clearance Notice:** (Linked hash) proving the wire passed sanctions screening.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`goliathbank.com`, `chase.com`, `swift.com`) and the transfer standing.
 
 **Status Indications:**
 - **Completed / Confirmed** — The bank has executed the wire and the funds have left the institution.
-- **Pending / In-Review** — **ALERT:** The wire is held (e.g., for AML/fraud review); do not release goods.
-- **Rejected / Cancelled** — **CRITICAL:** The transfer was stopped; the paper confirmation is a fabrication.
-- **Returned** — **ALERT:** The receiving bank rejected the funds; money is back with the sender.
+- **Pending / In-Review** — The wire is held (e.g., for AML/fraud review); do not release goods.
+- **Rejected / Cancelled** — The transfer was stopped; the paper confirmation is a fabrication.
+- **Returned** — The receiving bank rejected the funds; money is back with the sender.
 
-## Second-Party Use
+## Who Holds It
 
-The **Originator (Sender)** benefits from verification.
+The Originator (Sender) benefits from verification.
 
-**Deal Closure Speed:** When buying a $10M piece of machinery, the buyer sends the wire and provides the verified hash to the seller. The seller can instantly see **"VERIFIED COMPLETED"** from a reputable bank, allowing them to load the ship immediately without waiting 24 hours for the funds to actually "show up" in their own bank account.
+**Deal Closure Speed:** When buying a $10M piece of machinery, the buyer sends the wire and provides the verified hash to the seller. The seller can instantly see "VERIFIED COMPLETED" from a reputable bank, allowing them to load the ship immediately without waiting 24 hours for the funds to actually "show up" in their own bank account.
 
 **Audit Protection:** Proving to corporate auditors that a specific large payout was an authentic, bank-executed transaction and not an "Internal Transfer" to a shell company controlled by a rogue employee.
 
-## Third-Party Use
+## Who Checks It
 
 **Title Companies / Real Estate Closing Agents**
 **Wire Fraud Defense:** Before releasing the keys to a house, the agent scans the buyer's wire confirmation hash. Verification ensures the "IMAD Number" isn't a random string of digits on a fake PDF, stopping the multi-billion dollar "Escrow Diversion" fraud.
@@ -98,13 +104,7 @@ The **Originator (Sender)** benefits from verification.
 **Receiving Banks**
 **KYC / AML Vetting:** Verifying the "Purpose of Payment" and the "Originator Integrity" of a large incoming wire by scanning the sender's verified confirmation hash.
 
-## Verification Architecture
-
-**The "BEC Screenshot" Fraud Problem**
-
-- **Reference Fabrication:** Using a real bank's template but writing a fake IMAD/TRN number.
-- **Amount Inflation:** Editing a $1,250 wire into a $1,250,000 wire on a PDF to trick a seller.
-- **Beneficiary Swapping:** Editing the "Account Number" on a real confirmation to hide that the money was actually sent to a scammer's account.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

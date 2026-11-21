@@ -11,7 +11,7 @@ furtherDerivations: 3
 
 ## What are DOT Inspection Reports?
 
-In the commercial trucking industry, the **Annual Vehicle Inspection Report (AVIR)** is the "Health Certificate" for a 40-ton truck. US federal law (FMCSR 396.17) requires every commercial vehicle to pass an annual safety audit of its brakes, tires, lighting, and steering.
+In the commercial trucking industry, the Annual Vehicle Inspection Report (AVIR) is the "Health Certificate" for a 40-ton truck. US federal law (FMCSR 396.17) requires every commercial vehicle to pass an annual safety audit of its brakes, tires, lighting, and steering.
 
 These documents are critical for highway safety. Fraud is rampant: shady carriers often "edit" a failed inspection report into a "PASS" to keep a dangerous truck on the road, or they use a fake certificate from a non-existent "Mobile Inspector." The stronger architecture is still the transport authority or inspection-system lookup where one already exists. Live Verify is most useful when a relying party is staring at the report itself and needs a lightweight bridge back to issuer status.
 
@@ -38,7 +38,13 @@ Date: 15 MAR 2026
 <span data-verify-line="dot">verify:dot-inspect.com/v</span> <span verifiable-text="end" data-for="dot"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Pass-for-Cash Fraud
+
+- **Violation Hiding:** Editing an inspection to remove a "Failed Brake" finding to avoid a $2,000 repair bill.
+- **Ghost Inspections:** Creating fake safety stickers for trucks that were never visited by an inspector.
+- **VIN Clamping:** Using one good truck's VIN and paperwork for an entire fleet of "junk" trucks.
+
+## What Is Checked
 
 VIN (Vehicle Identification Number), USDOT number, carrier name, unit number, plate number, inspection date, inspector name/license, facility ID, pass/fail status for 13+ safety categories (Brakes, Steering, etc.), mileage at inspection.
 
@@ -76,15 +82,15 @@ If there's a problem (OUT_OF_SERVICE, EXPIRED), the action is clear: don't move 
 
 If a verifier suspects an inspection station is issuing fake passes, the complaint goes to FMCSA or the state DOT — not through a verification endpoint. These are regulatory enforcement matters.
 
-## Second-Party Use
+## Who Holds It
 
-The **Fleet Manager / Owner-Operator** benefits from verification.
+The Fleet Manager / Owner-Operator benefits from verification.
 
 **Roadside Enforcement Speed:** A lightweight bridge from the visible report can help lower-capability roadside checks, but formal roadside inspection systems and authority databases should remain primary where available.
 
 **Broker Onboarding:** Before a freight broker gives a high-value load to a carrier, they scan the carrier's verified inspection reports. "Verified by Penske" provides the broker with the proof needed to trust the carrier's safety posture without manual spreadsheet checks.
 
-## Third-Party Use
+## Who Checks It
 
 **State Troopers / Roadside Inspectors**
 **Rapid Vetting:** A bridge from the report can reduce VIN/keying errors when the document is what is in hand. Where transport-authority or fleet systems already expose direct lookup, those systems should remain primary.
@@ -95,13 +101,7 @@ The **Fleet Manager / Owner-Operator** benefits from verification.
 **Shippers (e.g., Amazon, Walmart)**
 **Supply Chain Safety:** Automatically rejecting carriers whose trucks have expired or unverified safety certificates, protecting the shipper's brand from "Bad Press" after an accident.
 
-## Verification Architecture
-
-**The "Pass-for-Cash" Fraud Problem**
-
-- **Violation Hiding:** Editing an inspection to remove a "Failed Brake" finding to avoid a $2,000 repair bill.
-- **Ghost Inspections:** Creating fake safety stickers for trucks that were never visited by an inspector.
-- **VIN Clamping:** Using one good truck's VIN and paperwork for an entire fleet of "junk" trucks.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -141,7 +141,7 @@ _[Content merged from: personal-vehicle-inspections]_
 
 ## UK MOT Certificates
 
-The **MOT test** (Ministry of Transport) is the UK's annual roadworthiness inspection for vehicles over 3 years old. It checks brakes, lights, emissions, tyres, and structural integrity.
+The MOT test (Ministry of Transport) is the UK's annual roadworthiness inspection for vehicles over 3 years old. It checks brakes, lights, emissions, tyres, and structural integrity.
 
 MOT fraud is a known problem: dodgy garages issue fake passes for vehicles that would fail, or backdate certificates to cover gaps in coverage.
 
@@ -168,7 +168,7 @@ Station ID:             MAN-9922
 
 **Note:** DVSA already provides a free MOT history lookup at `gov.uk`. That official lookup should remain primary. Live Verify is only complementary here when the paper certificate is what is being exchanged and the goal is to bridge neatly back to the official record.
 
-## Data Verified (MOT)
+## What Is Checked (MOT)
 
 Vehicle registration, VIN, make/model, test date, expiry date, pass/fail result, mileage at test, advisory items, test station ID.
 
@@ -179,13 +179,13 @@ Vehicle registration, VIN, make/model, test date, expiry date, pass/fail result,
 - **EXPIRED** — MOT has lapsed; vehicle cannot legally be driven on public roads (except to a pre-booked test)
 - **404** — Certificate not found (wrong reg, OCR error, or fraudulent certificate)
 
-## Second-Party Use (MOT)
+## Who Holds It (MOT)
 
 **Private Sellers:** Proving to a buyer that the MOT certificate in hand is genuine and matches DVSA records. Stops sellers presenting fake passes for cars that actually failed.
 
 **Used Car Dealers:** Verifying trade-in vehicles have valid MOT before accepting them onto the forecourt.
 
-## Third-Party Use (MOT)
+## Who Checks It (MOT)
 
 **Used Car Buyers:** Before handing over cash for a private sale, scanning the MOT certificate to confirm it's genuine. Protects against "clocked" cars where mileage on the cert doesn't match the odometer.
 
@@ -196,7 +196,7 @@ Vehicle registration, VIN, make/model, test date, expiry date, pass/fail result,
 
 ## German TÜV (Hauptuntersuchung)
 
-The **TÜV inspection** (Technischer Überwachungsverein) is Germany's biennial vehicle safety and emissions test. The famous TÜV sticker on the rear plate shows the expiry month/year.
+The TÜV inspection (Technischer Überwachungsverein) is Germany's biennial vehicle safety and emissions test. The famous TÜV sticker on the rear plate shows the expiry month/year.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="tuv"></span>HAUPTUNTERSUCHUNG (HU)

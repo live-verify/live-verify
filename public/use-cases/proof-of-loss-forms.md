@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Proof of Loss Form?
 
-In the insurance industry, the **Sworn Statement in Proof of Loss** is the formal document where a policyholder legally declares the details of a claim. It is an affidavit stating the value of the property destroyed, the cause of the loss (e.g., Fire, Theft), and the parties who have an interest in the property (e.g., a Mortgage Bank).
+In the insurance industry, the Sworn Statement in Proof of Loss is the formal document where a policyholder legally declares the details of a claim. It is an affidavit stating the value of the property destroyed, the cause of the loss (e.g., Fire, Theft), and the parties who have an interest in the property (e.g., a Mortgage Bank).
 
-This document is the "Trigger for Payout." Fraud is high-stakes: claimants often "edit" a Proof of Loss to inflate the value of their items (e.g., turning a $500 TV into a $5,000 home theater system) or to change the "Date of Loss" to bring it within the coverage period. Because these forms are often notarized, forgery of the notary seal is also common. Verified hashes bind the **Claimed Amount, Cause of Loss, and Notary ID** to the insurer's domain (e.g., `allstate.com` or `statefarm.com`).
+This document is the "Trigger for Payout." Fraud is high-stakes: claimants often "edit" a Proof of Loss to inflate the value of their items (e.g., turning a $500 TV into a $5,000 home theater system) or to change the "Date of Loss" to bring it within the coverage period. Because these forms are often notarized, forgery of the notary seal is also common. Verified hashes bind the Claimed Amount, Cause of Loss, and Notary ID to the insurer's domain (e.g., `allstate.com` or `statefarm.com`).
 
 <div style="max-width: 650px; margin: 24px auto; font-family: 'Times New Roman', Times, serif; border: 1px solid #333; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 30px;">
@@ -56,7 +56,13 @@ This document is the "Trigger for Payout." Fraud is high-stakes: claimants often
   </div>
 </div>
 
-## Data Verified
+## The Problem: Paper Padding Fraud
+
+- **Inventory Inflation:** Adding 5 non-existent high-end laptops to a fire claim on a PDF inventory list.
+- **Cause-of-Loss Tampering:** Changing "Flood" (not covered) to "Pipe Burst" (covered) on the sworn statement.
+- **Date Stretching:** Altering the fire date to 12 MAR (insured) when it actually happened on 10 MAR (policy expired).
+
+## What Is Checked
 
 Claim number, policy number, insured name, property address, date of loss, time of loss, cause of loss description, replacement cost value (RCV), actual cash value (ACV), deductible, net amount claimed, notary commission #, date of notarization.
 
@@ -66,25 +72,25 @@ Claim number, policy number, insured name, property address, date of loss, time 
 - **Adjuster's Damage Estimate:** (Linked hash) provided by the carrier.
 - **Certificate of Satisfaction:** Signed after repairs are completed.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`allstate.com`, `geico.com`, `lloyds.com`) and the claim standing.
 
 **Status Indications:**
 - **Filed / Received** — The form matches the original submission to the carrier.
-- **Approved for Payout** — **ALERT:** The carrier has verified the math and authorized funds.
-- **Amended** — **ALERT:** A corrected Proof of Loss has been filed (e.g., more damage found).
-- **Under Investigation** — **ALERT:** Claim flagged for potential SIU (Special Investigation Unit) review.
+- **Approved for Payout** — The carrier has verified the math and authorized funds.
+- **Amended** — A corrected Proof of Loss has been filed (e.g., more damage found).
+- **Under Investigation** — Claim flagged for potential SIU (Special Investigation Unit) review.
 
-## Second-Party Use
+## Who Holds It
 
-The **Policyholder (Insured)** benefits from verification.
+The Policyholder (Insured) benefits from verification.
 
-**Mortgage Compliance:** If a home is damaged, the mortgage bank (Lienholder) has a legal interest in the insurance money. The policyholder provides the verified hash of their "Proof of Loss" to the bank. The bank can instantly see **"VERIFIED CLAIM: $42,250"** on their phone, ensuring the funds are used for repairs and protecting the bank's collateral.
+**Mortgage Compliance:** If a home is damaged, the mortgage bank (Lienholder) has a legal interest in the insurance money. The policyholder provides the verified hash of their "Proof of Loss" to the bank. The bank can instantly see "VERIFIED CLAIM: $42,250" on their phone, ensuring the funds are used for repairs and protecting the bank's collateral.
 
 **Tax Deduction Proof:** If a loss is not fully covered by insurance (e.g., a high deductible or excluded items), the taxpayer can use the verified "Proof of Loss" to document a "Casualty Loss" deduction on their tax return.
 
-## Third-Party Use
+## Who Checks It
 
 **Insurance Adjusters / SIU Units**
 **Fraud Detection:** Cross-referencing "Loss Inventories" with past claims. If a claimant submits a Proof of Loss for a "Rolex Watch," but the verified hash of a claim from 2 years ago shows the *exact same* serial number was already paid for, the system flags the "Double-Dipping" fraud instantly.
@@ -95,13 +101,7 @@ The **Policyholder (Insured)** benefits from verification.
 **Courts and Legal Counsel**
 **Evidence Authentication:** In a dispute over "Bad Faith" denial, the court can verify the Proof of Loss hash to see exactly what the insured declared and when the carrier received it.
 
-## Verification Architecture
-
-**The "Paper Padding" Fraud Problem**
-
-- **Inventory Inflation:** Adding 5 non-existent high-end laptops to a fire claim on a PDF inventory list.
-- **Cause-of-Loss Tampering:** Changing "Flood" (not covered) to "Pipe Burst" (covered) on the sworn statement.
-- **Date Stretching:** Altering the fire date to 12 MAR (insured) when it actually happened on 10 MAR (policy expired).
+## Who Issues It
 
 **Issuer Types** (First Party)
 

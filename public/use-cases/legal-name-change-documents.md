@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Legal Name Change Document?
 
-A **Legal Name Change Document** is the official proof that a person has lawfully changed their name outside of marriage or divorce. This covers voluntary name changes for personal, cultural, religious, or professional reasons.
+A Legal Name Change Document is the official proof that a person has lawfully changed their name outside of marriage or divorce. This covers voluntary name changes for personal, cultural, religious, or professional reasons.
 
-These documents are the "Before and After" bridge for identity. Fraud is common: individuals create fake name change documents to evade debts, criminal records, or court orders. Verified hashes bind the **Previous Name, New Name, Date of Change, and Issuing Authority** to the official registry's domain.
+These documents are the "Before and After" bridge for identity. Fraud is common: individuals create fake name change documents to evade debts, criminal records, or court orders. Verified hashes bind the Previous Name, New Name, Date of Change, and Issuing Authority to the official registry's domain.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: Georgia, serif; border: 2px solid #1a365d; background: #fff; padding: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
   <div style="text-align: center; border-bottom: 2px solid #1a365d; padding-bottom: 15px; margin-bottom: 20px;">
@@ -88,7 +88,14 @@ In England and Wales, a distinction exists:
 
 The verification advantage of enrolled deeds is clear: a `verify:` line pointing to `gov.uk` provides cryptographic proof the name change is registered with the courts.
 
-## Data Verified
+## The Problem: Identity Discontinuity
+
+- **Debt Evasion:** Creating a fake name change to escape CCJs, bankruptcies, or outstanding loans
+- **Criminal Record Hiding:** Fabricating a name change to pass background checks
+- **Qualification Fraud:** Claiming someone else's credentials by "proving" a name change from their name to yours
+- **Multiple Identity Fraud:** Maintaining parallel identities for fraudulent purposes
+
+## What Is Checked
 
 Previous full name, new full name, date of name change, date of enrolment/registration, enrolment/certificate number, issuing authority, jurisdiction.
 
@@ -112,7 +119,7 @@ The issuer domain is visible from the `verify:` URL in the document itself (e.g.
 
 ## First-Party Use
 
-The **Issuing Authority** (courts, registries, civil offices) benefits from verification.
+The Issuing Authority (courts, registries, civil offices) benefits from verification.
 
 **Reduced Certificate Fraud:** Courts and registries regularly receive reports of forged name change documents. Verification endpoints allow any relying party to check authenticity instantly, reducing the burden on registry staff handling "is this real?" phone calls.
 
@@ -120,9 +127,9 @@ The **Issuing Authority** (courts, registries, civil offices) benefits from veri
 
 **Audit Trail:** The registry maintains a log of verification requests, providing insight into which documents are being actively used and potentially flagging suspicious patterns (e.g., the same document verified hundreds of times from different locations).
 
-## Second-Party Use
+## Who Holds It
 
-The **Individual Who Changed Their Name** benefits from verification.
+The Individual Who Changed Their Name benefits from verification.
 
 **Proving Continuity of Identity:** When applying for jobs, opening bank accounts, or signing contracts, the individual can provide their verified name change document. Employers and institutions can instantly confirm the name change is legitimate, not a forged document.
 
@@ -130,7 +137,7 @@ The **Individual Who Changed Their Name** benefits from verification.
 
 **International Recognition:** When emigrating or working abroad, foreign authorities may question whether a name change document is genuine. Verification against the issuing country's domain provides cross-border assurance.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks / Financial Institutions (KYC Compliance)**
 **Anti-Money Laundering:** Name changes are a known vector for identity fraud and money laundering. Verified name change documents ensure the customer's identity trail is legitimate and auditable.
@@ -147,14 +154,7 @@ The **Individual Who Changed Their Name** benefits from verification.
 **Educational Institutions**
 **Transcript Reissuance:** Alumni requesting transcripts under a new name must prove they are the same person. Verification ensures the institution updates records for the correct individual.
 
-## Verification Architecture
-
-**The "Identity Discontinuity" Problem**
-
-- **Debt Evasion:** Creating a fake name change to escape CCJs, bankruptcies, or outstanding loans
-- **Criminal Record Hiding:** Fabricating a name change to pass background checks
-- **Qualification Fraud:** Claiming someone else's credentials by "proving" a name change from their name to yours
-- **Multiple Identity Fraud:** Maintaining parallel identities for fraudulent purposes
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -185,4 +185,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 A passport or driver's license shows your *current* name. It doesn't prove you were ever called something else. When the question is "prove you used to be James Thompson," showing ID that says "James Wilson" doesn't help.
 
-The name change document is the **bridge document**—it connects the before and after. Verification ensures that bridge is genuine, not fabricated to create a false identity history.
+The name change document is the bridge document—it connects the before and after. Verification ensures that bridge is genuine, not fabricated to create a false identity history.

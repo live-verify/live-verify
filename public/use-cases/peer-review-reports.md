@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Peer Review Reports?
 
-In science and academia, the **Peer Review Report** is the "Filter of Truth." Before a research paper is published in a journal (like *Nature* or *The Lancet*), it is sent to anonymous experts who critique the methodology and data. The resulting report determines whether the paper is accepted, rejected, or needs revision.
+In science and academia, the Peer Review Report is the "Filter of Truth." Before a research paper is published in a journal (like *Nature* or *The Lancet*), it is sent to anonymous experts who critique the methodology and data. The resulting report determines whether the paper is accepted, rejected, or needs revision.
 
-These reports are the "Gold Standard" of credibility. Researchers use them to secure tenure, win grants, and prove the impact of their work. Fraud is a growing problem: people create "Fake Reviewer" accounts to approve their own low-quality papers, or they "edit" a rejected report into an "Accepted" one to pad their academic CV. Verified hashes bind the **Manuscript ID, Reviewer Verdict, and Date** to the journal's or the publisher's domain (e.g., `nature.com` or `elsevier.com`).
+These reports are the "Gold Standard" of credibility. Researchers use them to secure tenure, win grants, and prove the impact of their work. Fraud is a growing problem: people create "Fake Reviewer" accounts to approve their own low-quality papers, or they "edit" a rejected report into an "Accepted" one to pad their academic CV. Verified hashes bind the Manuscript ID, Reviewer Verdict, and Date to the journal's or the publisher's domain (e.g., `nature.com` or `elsevier.com`).
 
 <div style="max-width: 650px; margin: 24px auto; font-family: 'Times New Roman', Times, serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 20px; margin-bottom: 30px;">
@@ -44,7 +44,13 @@ These reports are the "Gold Standard" of credibility. Researchers use them to se
   </div>
 </div>
 
-## Data Verified
+## The Problem: Paper Mill Fraud
+
+- **Verdict Inflation:** Changing a "Rejected" letter to "Accepted" on a PDF to qualify for a PhD defense or a job.
+- **Reviewer Spoofing:** Creating a fake "Peer Review Report" from a famous expert using a fabricated email/domain.
+- **Journal Mimicry:** Using a prestigious journal's branding to vouch for a study published in a "Predatory Journal."
+
+## What Is Checked
 
 Manuscript ID number, journal name, article title, author name(s), reviewer verdict (Accept/Reject/Revise), date of decision, lead editor name, reviewer IDs (masked), summary of findings hash.
 
@@ -54,25 +60,25 @@ Manuscript ID number, journal name, article title, author name(s), reviewer verd
 - **Certificate of Reviewing:** Proof that a scientist performed the work.
 - **Author Response Letter:** (Linked hash) proving changes were made.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`nature.com`, `plos.org`, `science.org`) and the research standing.
 
 **Status Indications:**
 - **Accepted / Verified** — Manuscript has passed review and is slated for publication.
 - **Revisions Active** — Decision is valid; author is currently addressing reviewer feedback.
-- **Rejected** — **ALERT:** The paper failed the integrity or quality check.
-- **Withdrawn** — **ALERT:** The author has retracted the submission (e.g., due to data errors).
+- **Rejected** — The paper failed the integrity or quality check.
+- **Withdrawn** — The author has retracted the submission (e.g., due to data errors).
 
-## Second-Party Use
+## Who Holds It
 
-The **Researcher (Author)** benefits from verification.
+The Researcher (Author) benefits from verification.
 
 **Tenure & Promotion:** A junior professor can provide verified "Acceptance Hashes" to their university's promotion committee. "Verified by Nature" provides the committee with the proof needed to credit the impact of the work months before it actually appears in print.
 
 **Pre-Print Credibility:** When posting a study to a "Pre-Print" server (e.g., arXiv), the author can include a verified hash of the ongoing peer-review status to prove that the work is already undergoing rigorous vetting by a reputable journal.
 
-## Third-Party Use
+## Who Checks It
 
 **University Hiring Committees**
 **Integrity Filter:** Verifying that a candidate's "Accepted Papers" aren't just "Submissions" or fabricated titles. Live Verify connects the committee directly to the journal's editorial record in seconds.
@@ -83,13 +89,7 @@ The **Researcher (Author)** benefits from verification.
 **News Media / Journalists**
 **Fact Checking:** Before reporting on a "Breakthrough Study," a journalist can scan the verified decision letter to ensure the study was actually peer-reviewed and isn't just an un-vetted blog post.
 
-## Verification Architecture
-
-**The "Paper Mill" Fraud Problem**
-
-- **Verdict Inflation:** Changing a "Rejected" letter to "Accepted" on a PDF to qualify for a PhD defense or a job.
-- **Reviewer Spoofing:** Creating a fake "Peer Review Report" from a famous expert using a fabricated email/domain.
-- **Journal Mimicry:** Using a prestigious journal's branding to vouch for a study published in a "Predatory Journal."
+## Who Issues It
 
 **Issuer Types** (First Party)
 

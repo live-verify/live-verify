@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Soil Analysis Report?
 
-In modern agriculture, the **Soil Analysis Report** is the "Blood Test" for a field. It measures critical chemical metrics—pH levels, Nitrogen, Phosphorus, Potassium (NPK), and Organic Carbon—that determine what crops can grow and how much fertilizer is needed.
+In modern agriculture, the Soil Analysis Report is the "Blood Test" for a field. It measures critical chemical metrics—pH levels, Nitrogen, Phosphorus, Potassium (NPK), and Organic Carbon—that determine what crops can grow and how much fertilizer is needed.
 
-These reports are high-value documents. Farmers use them to secure **Crop Loans**, land buyers use them to judge **Property Value**, and increasingly, companies use them to verify **Carbon Credits**. Fraud is common: people "edit" a poor soil report to hide contamination or to inflate organic carbon levels to fraudulently claim "Green Subsidies" or carbon payouts. Verified hashes bind the **Field ID, Lab Metrics, and Timestamp** to the testing lab's domain (e.g., `agrolabs.com` or `soil-science.edu`).
+These reports are high-value documents. Farmers use them to secure Crop Loans, land buyers use them to judge Property Value, and increasingly, companies use them to verify Carbon Credits. Fraud is common: people "edit" a poor soil report to hide contamination or to inflate organic carbon levels to fraudulently claim "Green Subsidies" or carbon payouts. Verified hashes bind the Field ID, Lab Metrics, and Timestamp to the testing lab's domain (e.g., `agrolabs.com` or `soil-science.edu`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="soil"></span>AGRO-METRICS LABS
@@ -43,7 +43,13 @@ analysis. Alteration of metrics renders this report void.
 <span data-verify-line="soil">verify:agrolabs.com/v</span> <span verifiable-text="end" data-for="soil"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Dirt Fraud
+
+- **Metric Padding:** Editing a "3% Organic Matter" report to show "5%" to qualify for a carbon credit payout.
+- **Contamination Hiding:** Removing a line showing "High Lead Content" before selling a residential development site.
+- **Parcel Swapping:** Using a report from a fertile 40-acre field to cover for a rocky, infertile field nearby.
+
+## What Is Checked
 
 Field ID (APN/Parcel), client name, lab name, sample date, chemical metrics (pH, N, P, K, Carbon), organic matter percentage, lab tech ID, analysis method, recommendation summary.
 
@@ -53,25 +59,25 @@ Field ID (APN/Parcel), client name, lab name, sample date, chemical metrics (pH,
 - **Carbon Sequestration Certificate:** Proof of carbon stored in soil.
 - **Pesticide Residue Analysis:** Proving "Organic" compliance.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`agrolabs.com`, `state-university.edu`, `eurofins.com`) and the report standing.
 
 **Status Indications:**
 - **Verified / Passed** — Data matches the lab's original testing snapshot.
-- **Contaminated Alert** — **CRITICAL:** High levels of heavy metals or toxins detected.
+- **Contaminated Alert** — High levels of heavy metals or toxins detected.
 - **Superseded** — A newer test for this parcel exists (soil changes every season).
-- **Invalid** — **ALERT:** The report has been disavowed by the lab (e.g., due to sample tampering).
+- **Invalid** — The report has been disavowed by the lab (e.g., due to sample tampering).
 
-## Second-Party Use
+## Who Holds It
 
-The **Farmer / Landowner** benefits from verification.
+The Farmer / Landowner benefits from verification.
 
 **Crop Financing:** Before releasing a $500,000 seasonal credit line, the bank scans the farmer's soil report. "Verified by Agro-Metrics" ensures the land is actually fertile and the crop plan is viable, reducing the bank's risk and speeding up the loan.
 
 **Organic Certification:** An organic farmer can provide verified "Pesticide-Free" soil reports to regulators or premium buyers (e.g., Whole Foods) to prove their soil meets high-value certification standards without needing manual audits.
 
-## Third-Party Use
+## Who Checks It
 
 **Real Estate Appraisers / Buyers**
 **Valuation Integrity:** A buyer looking at a $10M farm scans the verified soil reports. Live Verify ensures the seller isn't hiding a "pH imbalance" or "Nitrogen depletion" that would cost thousands to fix.
@@ -82,13 +88,7 @@ The **Farmer / Landowner** benefits from verification.
 **Environmental Regulators**
 **Nutrient Management Audit:** Verifying that a large-scale livestock operation is correctly reporting its soil Nitrogen levels to prevent manure run-off into local rivers.
 
-## Verification Architecture
-
-**The "Dirt Fraud" Problem**
-
-- **Metric Padding:** Editing a "3% Organic Matter" report to show "5%" to qualify for a carbon credit payout.
-- **Contamination Hiding:** Removing a line showing "High Lead Content" before selling a residential development site.
-- **Parcel Swapping:** Using a report from a fertile 40-acre field to cover for a rocky, infertile field nearby.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

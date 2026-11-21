@@ -31,7 +31,7 @@ The badge holder is a disabled person. Any verification system must be designed 
 - It is not a surveillance tool — verification confirms the badge's status, not the holder's movements
 - It works for the holder, not against them
 
-A **Verified Disability Badge** adds a verification line to the badge. When scanned, the issuing authority confirms the badge's current status — nothing more. Not the holder's condition. Not their name (the badge itself shows that). Not where the badge has been used. Just: is this badge reference currently valid?
+A Verified Disability Badge adds a verification line to the badge. When scanned, the issuing authority confirms the badge's current status — nothing more. Not the holder's condition. Not their name (the badge itself shows that). Not where the badge has been used. Just: is this badge reference currently valid?
 
 ### Disability Parking Badges by Jurisdiction
 
@@ -122,9 +122,9 @@ This is a deliberate design choice. The verification answers one question: is th
 - **Reported Lost/Stolen** — Badge has been reported missing. A replacement may have been issued. This status is important — a "found" badge being used after being reported stolen is a strong indicator of fraud.
 - **Not Found** — No badge with this reference exists on the issuing authority's records. The badge is forged.
 
-## Second-Party Use
+## Who Holds It
 
-The **badge holder** benefits directly.
+The badge holder benefits directly.
 
 **Proof when challenged:** Badge holders are sometimes challenged — by parking wardens, by other drivers, by members of the public. This is particularly common for holders with non-visible disabilities, who face scepticism because they "don't look disabled." A scannable badge that returns "Current" from the issuing council is an immediate, dignified answer. The holder does not need to explain their condition or justify their entitlement. The badge speaks for itself.
 
@@ -132,7 +132,7 @@ The **badge holder** benefits directly.
 
 **Replacement after theft:** If a badge is stolen and reported, the "Reported Lost/Stolen" status immediately invalidates the stolen badge. The holder receives a replacement with a new reference. The thief's copy stops working.
 
-## Third-Party Use
+## Who Checks It
 
 **Council Parking Enforcement**
 
@@ -152,7 +152,7 @@ The **badge holder** benefits directly.
 
 **System integrity:** Genuine badge holders benefit indirectly from a system that catches forgeries. The verification system does not require other badge holders to do anything — but the reduction in fraudulent badges in circulation means more disabled bays available for those who need them.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Forgery and Misuse Problem**
 
@@ -188,7 +188,7 @@ Required. Badge references combined with council identifiers form a small enough
 
 This is particularly important because the badge holders are disabled people. Any system that could be used to track or profile disabled individuals — even inadvertently — is unacceptable.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Verified Disability Badge | Physical Badge (current) | Council Online Lookup | Badge Photo in Windscreen |
 | :--- | :--- | :--- | :--- | :--- |

@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is an SBOM Attestation?
 
-In the software industry, an **SBOM (Software Bill of Materials)** is the "Ingredient Label" for a product. It lists every open-source library and third-party component used to build the software. An **SBOM Attestation** is the formal document where a software vendor (e.g., Microsoft, SAP, or a startup) swears that the SBOM is accurate and that the software is free from known critical vulnerabilities (CVEs).
+In the software industry, an SBOM (Software Bill of Materials) is the "Ingredient Label" for a product. It lists every open-source library and third-party component used to build the software. An SBOM Attestation is the formal document where a software vendor (e.g., Microsoft, SAP, or a startup) swears that the SBOM is accurate and that the software is free from known critical vulnerabilities (CVEs).
 
-The problem is that SBOMs are massive JSON/XML files that humans can't read. Vendors often provide a **Summary Page** for procurement and security teams. Shady vendors might "edit" this summary to hide a dangerous, outdated library (like a vulnerable version of Log4j) to pass a security audit. Verified hashes bind the **Component List, Version Number, and Security Clearance** to the vendor's domain (e.g., `github.com` or `salesforce.com`).
+The problem is that SBOMs are massive JSON/XML files that humans can't read. Vendors often provide a Summary Page for procurement and security teams. Shady vendors might "edit" this summary to hide a dangerous, outdated library (like a vulnerable version of Log4j) to pass a security audit. Verified hashes bind the Component List, Version Number, and Security Clearance to the vendor's domain (e.g., `github.com` or `salesforce.com`).
 
 <div style="max-width: 650px; margin: 24px auto; font-family: 'Segoe UI', Tahoma, Geneva, sans-serif; border: 1px solid #0078d4; background: #fff; padding: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="background: #0078d4; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -60,7 +60,13 @@ The problem is that SBOMs are massive JSON/XML files that humans can't read. Ven
   </div>
 </div>
 
-## Data Verified
+## The Problem: Invisible Ingredient Fraud
+
+- **Dependency Hiding:** Removing a controversial or vulnerable library from the SBOM summary to pass a "No GPL" or "No CVE" scan.
+- **Version Spoofing:** Claiming to use a secure version of a library while actually shipping an older, buggy version to save development time.
+- **Build Compromise:** A hacker injecting a backdoor into the software that isn't reflected in the "Official" SBOM.
+
+## What Is Checked
 
 Product name, version string, release date, build ID, SBOM format (SPDX/CycloneDX), core component versions, component cryptographic hashes, vulnerability scan status (CVE count), SSDF compliance ID, signing officer name.
 
@@ -70,25 +76,25 @@ Product name, version string, release date, build ID, SBOM format (SPDX/CycloneD
 - **Vulnerability Disclosure Report (VDR):** Proof of mitigation for known bugs.
 - **Certificate of SSDF Compliance:** For government sales.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`cybershield.com`, `github.com`, `microsoft.com`) and the security standing.
 
 **Status Indications:**
 - **Attested / Safe** — SBOM is verified and no critical CVEs were found at release.
-- **Vulnerability Alert** — **CRITICAL:** A new "Zero Day" has been found in a component; patch required.
+- **Vulnerability Alert** — A new "Zero Day" has been found in a component; patch required.
 - **Superseded** — A newer version of the software (with an updated SBOM) is available.
-- **Revoked** — **ALERT:** The vendor has withdrawn the attestation (e.g., due to build-server compromise).
+- **Revoked** — The vendor has withdrawn the attestation (e.g., due to build-server compromise).
 
-## Second-Party Use
+## Who Holds It
 
-The **Software Buyer / CISO** benefits from verification.
+The Software Buyer / CISO benefits from verification.
 
 **Procurement Gating:** Before cutting a $100,000 check for a new software tool, the CISO scans the vendor's SBOM summary. "Verified by GitHub" or "Verified by CyberShield" ensures that the vendor isn't hiding a liability-heavy library, allowing the sale to move forward with confidence.
 
 **Compliance Audit:** A bank can maintain a verified library of all software ingredients. During a regulatory audit, they can prove exactly what was running in their environment at any point in time with cryptographic certainty.
 
-## Third-Party Use
+## Who Checks It
 
 **Government Regulators (CISA / NIST)**
 **Supply Chain Oversight:** Under Executive Order 14028, US government vendors must provide SBOMs. Live Verify allows federal auditors to instantly verify that the paper summaries in their files match the technical records in the vendor's secure portal.
@@ -99,13 +105,7 @@ The **Software Buyer / CISO** benefits from verification.
 **Open Source Maintainers**
 **Provenance Tracking:** Verifying that a specific library version is actually what is being shipped in a downstream commercial product.
 
-## Verification Architecture
-
-**The "Invisible Ingredient" Fraud Problem**
-
-- **Dependency Hiding:** Removing a controversial or vulnerable library from the SBOM summary to pass a "No GPL" or "No CVE" scan.
-- **Version Spoofing:** Claiming to use a secure version of a library while actually shipping an older, buggy version to save development time.
-- **Build Compromise:** A hacker injecting a backdoor into the software that isn't reflected in the "Official" SBOM.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is an Academic Transcript?
 
-An **Academic Transcript** is the "Final Gradebook" of your education. It lists every class you took and exactly what grade you earned.
+An Academic Transcript is the "Final Gradebook" of your education. It lists every class you took and exactly what grade you earned.
 
 You need this "Official" paper to apply for Grad School or to prove to an employer that you actually have the skills listed on your resume.
 
-"Transcript Padding" is a common fraud: people often edit a "C" to an "A" or add a "Computer Science" class they never actually took. Verified hashes allow an employer or university to scan the PDF and see the **un-altered grades** directly from the Registrar's database.
+"Transcript Padding" is a common fraud: people often edit a "C" to an "A" or add a "Computer Science" class they never actually took. Verified hashes allow an employer or university to scan the PDF and see the un-altered grades directly from the Registrar's database.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="transcript"></span>
@@ -45,7 +45,13 @@ official record.
 <span data-verify-line="transcript">verify:ox.ac.uk/registrar/v</span> <span verifiable-text="end" data-for="transcript"></span>
 </div>
 
-## Data Verified
+## The Problem: Transcript Padding Fraud
+
+- **Grade Alteration:** Changing a "C" to an "A" in a PDF editor to get into a top-tier grad school.
+- **Ghost Courses:** Adding non-existent courses to a transcript to meet job requirements.
+- **Fictitious Degrees:** Creating a fake transcript from a real, famous university for a person who never attended.
+
+## What Is Checked
 
 Student name, student ID, specific course codes/titles, individual grades (A-F), credit hours per course, cumulative GPA, degree program, enrollment dates, date of transcript issuance.
 
@@ -55,7 +61,7 @@ Student name, student ID, specific course codes/titles, individual grades (A-F),
 - **Dean's List / Honors Letter:** Proving academic excellence.
 - **Transfer Credit Report:** Proving credits from a previous institution.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`ox.ac.uk`, `harvard.edu`) and current record status.
 
@@ -65,9 +71,9 @@ Shows the issuer domain (`ox.ac.uk`, `harvard.edu`) and current record status.
 - **Subject to Investigation** — Transcript flagged for potential academic integrity issues.
 - **Invalid** — Student ID or course data mismatch.
 
-## Second-Party Use
+## Who Holds It
 
-The **Student / Alumnus** (second party) receives the transcript from the university (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Student / Alumnus (second party) receives the transcript from the university (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of their academic record. Most of the time, the transcript sits in their files—the verification value is latent, there *if needed*.
 
@@ -75,7 +81,7 @@ The **Student / Alumnus** (second party) receives the transcript from the univer
 
 **Future Optionality:** If a dispute arises about grades, transfer credits, or degree requirements, they have cryptographic proof ready without needing to contact the university.
 
-## Third-Party Use
+## Who Checks It
 
 The student (second party) may hand the verified document to various third parties:
 
@@ -88,13 +94,7 @@ The student (second party) may hand the verified document to various third parti
 **Professional Licensing Boards**
 **Prerequisite Proof:** Verifying that a candidate has taken the mandatory courses required for a professional license (e.g., the CPA exam or Medical Board).
 
-## Verification Architecture
-
-**The "Transcript Padding" Fraud Problem**
-
-- **Grade Alteration:** Changing a "C" to an "A" in a PDF editor to get into a top-tier grad school.
-- **Ghost Courses:** Adding non-existent courses to a transcript to meet job requirements.
-- **Fictitious Degrees:** Creating a fake transcript from a real, famous university for a person who never attended.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -122,7 +122,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the university's hashes and status changes plus structured metadata (student ID, course codes, credit hours, grades, degree program, graduation date) — never student name, social security number, or detailed personal academic history — providing non-repudiation of the transcript issuance and immutable proof critical for degree conferral disputes.
 
-## Competition vs. Official Electronic Delivery (Parchment)
+## Compared With Official Electronic Delivery (Parchment)
 
 | Feature | Live Verify | Electronic Delivery (Parchment) | Scanned PDF / Paper |
 | :--- | :--- | :--- | :--- |

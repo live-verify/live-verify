@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Teaching Reciprocity Credentials?
 
-In the education sector, a **Teaching License** is state-specific. However, under **Interstate Compacts** (like NASDTEC), a teacher licensed in New York can often "Reciprocate" their license to work in California. This requires a **Letter of Good Standing** or a **Reciprocity Certificate** from the original state.
+In the education sector, a Teaching License is state-specific. However, under Interstate Compacts (like NASDTEC), a teacher licensed in New York can often "Reciprocate" their license to work in California. This requires a Letter of Good Standing or a Reciprocity Certificate from the original state.
 
-These documents are the "Keys to the Classroom." Fraud is high-stakes: individuals whose licenses were revoked for misconduct in one state often create fake "Clean" letters to find work in a different state. Verified hashes bind the **License Number, Endorsements (e.g., Special Ed), and Disciplinary Status** to the state's Department of Education domain (e.g., `nysed.gov` or `ctc.ca.gov`).
+These documents are the "Keys to the Classroom." Fraud is high-stakes: individuals whose licenses were revoked for misconduct in one state often create fake "Clean" letters to find work in a different state. Verified hashes bind the License Number, Endorsements (e.g., Special Ed), and Disciplinary Status to the state's Department of Education domain (e.g., `nysed.gov` or `ctc.ca.gov`).
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #003366; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #003366; color: #fff; padding: 20px; display: flex; align-items: center; justify-content: space-between;">
@@ -56,7 +56,13 @@ These documents are the "Keys to the Classroom." Fraud is high-stakes: individua
   </div>
 </div>
 
-## Data Verified
+## The Problem: Clean-Hopping Fraud
+
+- **Status Masking:** Editing a "Revoked" NY license into a "Clean" one to get hired in a rural district in a different state.
+- **Endorsement Padding:** Adding a "Special Ed" endorsement to a standard license to qualify for a higher-paying role.
+- **Background Forgery:** Creating a fake "FBI Clearance" letter to bypass child safety vetting.
+
+## What Is Checked
 
 Teacher name, primary state of licensure, license ID number, license type (e.g., Professional/Initial), expiration date, certified subject endorsements, disciplinary status (Clear/Flagged), background check timestamp, interstate compact eligibility code.
 
@@ -66,42 +72,36 @@ Teacher name, primary state of licensure, license ID number, license type (e.g.,
 - **Teaching License:** The primary state-issued card.
 - **Praxis Score Report:** (Linked hash) proving exam passage.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`nysed.gov`, `isbe.net`, `fldoe.org`) and the professional standing.
 
 **Status Indications:**
 - **Active / Clear** — Teacher is in good standing; no disciplinary actions on file.
-- **Flagged** — **ALERT:** A potential disciplinary or background issue is recorded.
-- **Revoked** — **CRITICAL:** Teaching authority has been terminated in the primary state.
+- **Flagged** — A potential disciplinary or background issue is recorded.
+- **Revoked** — Teaching authority has been terminated in the primary state.
 - **Expired** — Mandatory professional development hours not met; license inactive.
 
-## Second-Party Use
+## Who Holds It
 
-The **Teacher / Educator** benefits from verification.
+The Teacher / Educator benefits from verification.
 
-**Interstate Relocation:** A teacher moving from NY to Florida can provide the verified hash of their "NY Good Standing" letter to the Florida DOE. The Florida board can instantly see **"VERIFIED CLEAR - NYSED"** on their phone, allowing them to issue a Florida license in days instead of months.
+**Interstate Relocation:** A teacher moving from NY to Florida can provide the verified hash of their "NY Good Standing" letter to the Florida DOE. The Florida board can instantly see "VERIFIED CLEAR - NYSED" on their phone, allowing them to issue a Florida license in days instead of months.
 
 **Substitute Hiring:** Proving to multiple school districts that their background check is verified and current, allowing them to work across district lines without re-submitting paper files to every district HR office.
 
-## Third-Party Use
+## Who Checks It
 
 **School District HR Managers**
 **Hiring Integrity:** Thousands of resumes are received for every opening. Live Verify allows the HR manager to instantly filter for only verified, state-licensed candidates, protecting the school from the liability of hiring an un-certified teacher.
 
 **National Clearinghouses (NASDTEC)**
-**Disciplinary Tracking:** When a teacher is flagged for misconduct, the state updates the hash status. Every other state where that teacher applied can instantly see the **"FLAGGED"** status, stopping "State-Hopping" by bad actors.
+**Disciplinary Tracking:** When a teacher is flagged for misconduct, the state updates the hash status. Every other state where that teacher applied can instantly see the "FLAGGED" status, stopping "State-Hopping" by bad actors.
 
 **Parents / PTA**
 **Safety Verification:** In some jurisdictions, parents can verify that their child's teacher is an authorized, background-checked professional.
 
-## Verification Architecture
-
-**The "Clean-Hopping" Fraud Problem**
-
-- **Status Masking:** Editing a "Revoked" NY license into a "Clean" one to get hired in a rural district in a different state.
-- **Endorsement Padding:** Adding a "Special Ed" endorsement to a standard license to qualify for a higher-paying role.
-- **Background Forgery:** Creating a fake "FBI Clearance" letter to bypass child safety vetting.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

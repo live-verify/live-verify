@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What are Environmental Postings?
 
-Environmental postings are the "External Impact Labels" for a building or industrial site. From the **Energy Performance Certificate (EPC)** in a lobby to an **Air Quality Permit** on a factory gate, these documents tell the community exactly how much energy the building uses or how much pollution it is allowed to emit.
+Environmental postings are the "External Impact Labels" for a building or industrial site. From the Energy Performance Certificate (EPC) in a lobby to an Air Quality Permit on a factory gate, these documents tell the community exactly how much energy the building uses or how much pollution it is allowed to emit.
 
 The problem is that these ratings are often "aspirational" rather than accurate. A landlord might "edit" a poor EPC rating from a 'G' to a 'B' to attract green-conscious tenants or to qualify for a lower-interest "Green Mortgage." Similarly, a factory might display an air permit that has been expired for years.
 
@@ -65,7 +65,13 @@ Live Verify allows a neighbor, tenant, or regulator to scan the posting to verif
   </div>
 </div>
 
-## Data Verified
+## The Problem: Greenwashing Fraud
+
+- **Rating Inflation:** Manually changing a 'G' rating into an 'A' on a PDF to bypass legal minimum standards for renting out a property.
+- **Emissions Masking:** Editing an air permit to show a higher allowed limit than what the city actually granted.
+- **Asbestos Hiding:** Creating a fake "Clean" certificate for a demolition site to avoid the high cost of toxic waste disposal.
+
+## What Is Checked
 
 Report Reference Number (RRN), property address, energy efficiency score (0-100), energy band (A-G), carbon emissions (tonnes/year), auditor name/ID, inspection date, expiration date, recommended improvements hash.
 
@@ -75,28 +81,28 @@ Report Reference Number (RRN), property address, energy efficiency score (0-100)
 - **Hazardous Waste Generator ID:** Displayed at waste storage areas.
 - **Asbestos Clearance Certificate:** Posted at renovation/demolition sites.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`gov.uk`, `epa.gov`, `breeam.com`) and the status.
 
 **Status Indications:**
 - **Current / Valid** — Rating matches the official government or registry snapshot.
 - **Expired** — The mandatory re-assessment period has passed.
-- **Suspended** — **ALERT:** The rating is under investigation for fraud or miscalculation.
-- **Violation Active** — **CRITICAL:** (For emissions) The facility is currently exceeding its legal limits.
+- **Suspended** — The rating is under investigation for fraud or miscalculation.
+- **Violation Active** — (For emissions) The facility is currently exceeding its legal limits.
 
-## Second-Party Use
+## Who Holds It
 
-The **Building Owner / Industrial Operator** benefits from verification.
+The Building Owner / Industrial Operator benefits from verification.
 
 **Green Financing:** A landlord can provide the verified hash of their 'B' rating to a bank. "Verified by Gov.uk" ensures the bank that the building meets the requirements for a "Sustainably-Linked Loan," potentially saving the owner thousands in interest.
 
 **Tenant Attraction:** In a competitive market, a landlord can use verified EPC hashes to prove to corporate tenants that the building meets their internal ESG (Environmental, Social, Governance) requirements.
 
-## Third-Party Use
+## Who Checks It
 
 **Neighbors / Community**
-**Environmental Watchdogs:** A neighbor concerned about smoke from a nearby plant can scan the air permit hash. If it returns **"LIMIT: 10lbs/hr - VIOLATION REPORTED,"** they have the proof needed to organize community action or contact regulators.
+**Environmental Watchdogs:** A neighbor concerned about smoke from a nearby plant can scan the air permit hash. If it returns "LIMIT: 10lbs/hr - VIOLATION REPORTED," they have the proof needed to organize community action or contact regulators.
 
 **Real Estate Buyers / Renters**
 **Due Diligence:** A homebuyer can scan the EPC of a house they are viewing. Verification ensures the "Low Energy Bills" claim isn't based on a fabricated certificate, protecting them from unexpected utility costs.
@@ -104,13 +110,7 @@ The **Building Owner / Industrial Operator** benefits from verification.
 **Regulators / Inspectors**
 **Fraud Enforcement:** An EPA agent on a surprise visit can scan the hazardous waste posting. Live Verify ensures the facility isn't using a "Borrowed" ID from a sister plant to hide its toxic output.
 
-## Verification Architecture
-
-**The "Greenwashing" Fraud Problem**
-
-- **Rating Inflation:** Manually changing a 'G' rating into an 'A' on a PDF to bypass legal minimum standards for renting out a property.
-- **Emissions Masking:** Editing an air permit to show a higher allowed limit than what the city actually granted.
-- **Asbestos Hiding:** Creating a fake "Clean" certificate for a demolition site to avoid the high cost of toxic waste disposal.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

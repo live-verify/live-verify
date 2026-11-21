@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Training Completion Certificate?
 
-In the professional and industrial worlds, a **Training Completion Certificate** is the proof that a worker has the specific skills needed for a job—whether it's **Forklift Operation**, **Hazardous Materials Handling**, or **Anti-Harassment Compliance**. These documents are the primary evidence used during safety audits (like OSHA) and hiring.
+In the professional and industrial worlds, a Training Completion Certificate is the proof that a worker has the specific skills needed for a job—whether it's Forklift Operation, Hazardous Materials Handling, or Anti-Harassment Compliance. These documents are the primary evidence used during safety audits (like OSHA) and hiring.
 
-The problem is that "compliance fatigue" leads to massive fraud. Shady employers or workers often "pencil whip" certificates, creating fake PDFs for training that never happened to avoid the cost of downtime. In high-risk fields, a fake safety certificate can lead to fatal accidents. Verified hashes bind the **Trainee Name, Course ID, and Completion Date** to the training provider's or the company's domain (e.g., `nsc.org`, `osha.gov`, or `walmart-academy.com`).
+The problem is that "compliance fatigue" leads to massive fraud. Shady employers or workers often "pencil whip" certificates, creating fake PDFs for training that never happened to avoid the cost of downtime. In high-risk fields, a fake safety certificate can lead to fatal accidents. Verified hashes bind the Trainee Name, Course ID, and Completion Date to the training provider's or the company's domain (e.g., `nsc.org`, `osha.gov`, or `walmart-academy.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="train"></span>CERTIFICATE OF COMPLETION
@@ -38,7 +38,13 @@ Academy Director                                         [NSC VERIFIED]
 <span data-verify-line="train">verify:nsc.org/v/train</span> <span verifiable-text="end" data-for="train"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Ghost Training Fraud
+
+- **Hour Padding:** Changing a "1-hour webinar" into a "40-hour immersive course" on a PDF.
+- **Date Stretching:** Altering a 2022 expiration date to 2026 to avoid the cost of re-training.
+- **Template Mimicry:** Using a reputable academy's logo to vouch for training that never occurred.
+
+## What Is Checked
 
 Trainee name, employer name, course title, course ID, training date, expiration/recertification date, credit hours (CEU), instructor name/ID, academy accreditation number, certificate serial number.
 
@@ -48,25 +54,25 @@ Trainee name, employer name, course title, course ID, training date, expiration/
 - **Training Transcript:** (Linked hash) showing multiple course modules.
 - **Attendance Roster:** Proof of physical presence in a classroom.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`nsc.org`, `redcross.org`, `coursera.org`) and the credential standing.
 
 **Status Indications:**
 - **Verified / Current** — Trainee has passed the course and the record is active.
-- **Expired** — **ALERT:** The skill certification has lapsed (e.g., CPR or HAZMAT).
-- **Revoked** — **CRITICAL:** The certificate was voided (e.g., due to cheating or failed re-test).
-- **Fraud Alert** — **ALERT:** This certificate number is part of a known "Fake Certificate" batch.
+- **Expired** — The skill certification has lapsed (e.g., CPR or HAZMAT).
+- **Revoked** — The certificate was voided (e.g., due to cheating or failed re-test).
+- **Fraud Alert** — This certificate number is part of a known "Fake Certificate" batch.
 
-## Second-Party Use
+## Who Holds It
 
-The **Employee (Trainee)** benefits from verification.
+The Employee (Trainee) benefits from verification.
 
-**Job Portability:** When moving between contractors, a welder can provide the verified hash of their "Safety Certifications." The new employer can instantly see **"VERIFIED OSHA-30"** on their phone, allowing the worker to start on-site immediately without 2 days of redundant orientation.
+**Job Portability:** When moving between contractors, a welder can provide the verified hash of their "Safety Certifications." The new employer can instantly see "VERIFIED OSHA-30" on their phone, allowing the worker to start on-site immediately without 2 days of redundant orientation.
 
 **Career Advancement:** A professional can include a verified "Skills Badge" on their digital resume. "Verified by Coursera" or "Verified by NSC" provides the recruiter with the proof needed to shortlist the candidate over those with un-verified claims.
 
-## Third-Party Use
+## Who Checks It
 
 **Corporate Safety Officers / Foreman**
 **On-Site Vetting:** Before allowing a sub-contractor to operate a crane or enter a confined space, the foreman scans their verified hash. This ensures the worker is actually trained for that specific risk, protecting the company from multi-million dollar liability.
@@ -77,13 +83,7 @@ The **Employee (Trainee)** benefits from verification.
 **Insurance Risk Managers**
 **Premium Auditing:** Verifying that 100% of a workforce has verified, active "Safety Training" before renewing a workers' compensation policy.
 
-## Verification Architecture
-
-**The "Ghost Training" Fraud Problem**
-
-- **Hour Padding:** Changing a "1-hour webinar" into a "40-hour immersive course" on a PDF.
-- **Date Stretching:** Altering a 2022 expiration date to 2026 to avoid the cost of re-training.
-- **Template Mimicry:** Using a reputable academy's logo to vouch for training that never occurred.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

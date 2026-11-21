@@ -40,7 +40,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Black Market Fraud
+
+- **Novice Fakes:** Realistic-looking plastic cards sold online for $200. These lack the cryptographic link to `uscis.gov`.
+- **Identity Swapping:** Using a "Clean" person's A-number and editing the photo on the card.
+- **Revocation Hiding:** A person who was deported last month keeping their physical Green Card to return to the U.S. and find work.
+
+## What Is Checked
 
 Full name, Alien Registration Number (A-Number), Date of birth, Country of birth, Resident Since date, Card expiration date, Visa Category (e.g., IR1, EB2), Photo (via hash), Fingerprint status (hash), Issuing USCIS office.
 
@@ -50,25 +56,25 @@ Full name, Alien Registration Number (A-Number), Date of birth, Country of birth
 - **I-797 Approval Notice:** Proving a pending or approved petition.
 - **Advance Parole (I-512L):** Travel authorization for pending applicants.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`uscis.gov`) and real-time legal standing.
 
 **Status Indications:**
 - **Active** — Bearer has valid legal status in the U.S.
-- **Terminated** — **ALERT:** Status has been revoked (e.g., due to criminal conviction).
+- **Terminated** — Status has been revoked (e.g., due to criminal conviction).
 - **In-Removal** — Bearer is currently in deportation proceedings.
 - **Expired** — Card is no longer valid; renewal or status proof required.
 
-## Second-Party Use
+## Who Holds It
 
-The **Named Individual** benefits from verification.
+The Named Individual benefits from verification.
 
 **Identity Protection:** Proving their status to a landlord, bank, or employer without handing over the high-value physical card (which costs $540+ to replace if lost). A verified digital hash allows the holder to keep the original in a safe deposit box.
 
 **Domestic Travel:** Proving legal residency to TSA or local police during domestic travel, especially in "Border Zones" where proof of status is legally required.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers (I-9 Compliance)**
 **Zero-Trust Onboarding:** Instantly verifying that a candidate's Green Card isn't a "High-Quality Forgery." Black-market cards look perfect to the eye; Live Verify connects the manager directly to the USCIS record in seconds.
@@ -79,13 +85,7 @@ The **Named Individual** benefits from verification.
 **Local Police (Traffic Stops)**
 **Status Verification:** Confirming the legal status of an individual during a stop in jurisdictions that coordinate with federal immigration authorities.
 
-## Verification Architecture
-
-**The "Black Market" Fraud Problem**
-
-- **Novice Fakes:** Realistic-looking plastic cards sold online for $200. These lack the cryptographic link to `uscis.gov`.
-- **Identity Swapping:** Using a "Clean" person's A-number and editing the photo on the card.
-- **Revocation Hiding:** A person who was deported last month keeping their physical Green Card to return to the U.S. and find work.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -110,7 +110,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the government agency's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the immigration status document.
 
-## Competition vs. E-Verify / SAVE
+## Compared With E-Verify / SAVE
 
 | Feature | Live Verify | E-Verify (Employer System) | Physical Card |
 | :--- | :--- | :--- | :--- |

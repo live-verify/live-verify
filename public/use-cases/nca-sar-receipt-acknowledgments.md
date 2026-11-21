@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is an NCA SAR Receipt Acknowledgment?
 
-When a UK fund manager, bank, or other regulated firm suspects money laundering or terrorist financing, they must file a **Suspicious Activity Report (SAR)** with the National Crime Agency's UK Financial Intelligence Unit (UKFIU). This is a legal obligation under the Proceeds of Crime Act 2002 (POCA) and the Terrorism Act 2000.
+When a UK fund manager, bank, or other regulated firm suspects money laundering or terrorist financing, they must file a Suspicious Activity Report (SAR) with the National Crime Agency's UK Financial Intelligence Unit (UKFIU). This is a legal obligation under the Proceeds of Crime Act 2002 (POCA) and the Terrorism Act 2000.
 
-The NCA issues a **receipt acknowledgment** confirming the SAR was received. This receipt is the firm's proof of compliance. During FCA supervision visits, the fund manager must demonstrate they have a functioning SAR regime — and the receipts prove it.
+The NCA issues a receipt acknowledgment confirming the SAR was received. This receipt is the firm's proof of compliance. During FCA supervision visits, the fund manager must demonstrate they have a functioning SAR regime — and the receipts prove it.
 
-The existing use case (`suspicious-activity-reports-internal.md`) covers the firm's *internal* filing records. This use case covers the **NCA's acknowledgment** — the external confirmation that the report actually reached the UKFIU.
+The existing use case (`suspicious-activity-reports-internal.md`) covers the firm's *internal* filing records. This use case covers the NCA's acknowledgment — the external confirmation that the report actually reached the UKFIU.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #2e7d32; background: #fff; padding: 0;">
   <div style="background: #2e7d32; color: #fff; padding: 15px;">
@@ -41,13 +41,24 @@ The existing use case (`suspicious-activity-reports-internal.md`) covers the fir
   </div>
 </div>
 
-## Data Verified
+## The Problem
+
+- MLROs suppressing SARs to protect high-value clients
+- Backdated SAR filings to appear compliant after the fact
+- Fabricated NCA acknowledgments presented during regulatory examinations
+- Disputes about filing dates when timing is legally significant (e.g., moratorium periods)
+
+**The Fix:** NCA hashes each acknowledgment at time of issue with a cryptographic timestamp. The MLRO receives a receipt with a `verify:` line. FCA auditors can instantly confirm the SAR was genuinely received by the NCA on the claimed date.
+
+**Volume consideration:** With 900,000+ SARs per year, the NCA's hash storage would need to be efficient. Static hosting (the simplest Live Verify deployment) could handle this easily — each hash is just a 64-character hex directory containing a small JSON response.
+
+## What Is Checked
 
 SAR reference number, date and time received, reporting entity name, FCA firm reference number, report type (SAR under POCA s.338, or terrorism SAR under TA 2000 s.21A).
 
 **Critical privacy constraint:** The acknowledgment contains NO information about the subject of the SAR, the nature of the suspicion, or the amount involved. Only the fact and timing of the filing are verifiable. This preserves the "tipping off" protections under POCA s.333A.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 **Status Indications:**
 - **Received** — SAR logged by UKFIU
@@ -59,7 +70,7 @@ SAR reference number, date and time received, reporting entity name, FCA firm re
 
 ## Why This Matters
 
-The UK SAR regime processes over **900,000 SARs per year** (2023/24 figures). The volume creates three problems that verification addresses:
+The UK SAR regime processes over 900,000 SARs per year (2023/24 figures). The volume creates three problems that verification addresses:
 
 1. **"We filed it" disputes:** During FCA examinations, firms claim they filed a SAR but can't locate the acknowledgment. Did they actually file, or are they covering for a compliance failure? A verified receipt is definitive.
 
@@ -67,13 +78,13 @@ The UK SAR regime processes over **900,000 SARs per year** (2023/24 figures). Th
 
 3. **Fabricated receipts:** A corrupt MLRO could fabricate an NCA acknowledgment to hide the fact that they suppressed a SAR to protect a high-value client. Verification against `nca.gov.uk` eliminates this.
 
-## Second-Party Use
+## Who Holds It
 
 **Fund managers / MLROs** — Proving to FCA that their SAR regime is functioning. The MLRO's personal liability under POCA s.331-332 makes this existentially important.
 
 **Compliance committees** — Board-level oversight of AML reporting. Verified receipt counts prove the firm isn't suppressing SARs.
 
-## Third-Party Use
+## Who Checks It
 
 **FCA supervisors** — During thematic reviews of AML systems and controls, verifying that the firm's claimed SAR volume matches actual NCA receipts.
 
@@ -82,18 +93,6 @@ The UK SAR regime processes over **900,000 SARs per year** (2023/24 figures). Th
 **Legal counsel** — Defence in money laundering prosecutions. "We reported the suspicion — here's the verified NCA receipt" is a key defence under POCA s.338.
 
 **Successor MLROs** — When a new Money Laundering Reporting Officer takes over, they need to verify the outgoing MLRO's SAR filing history was genuine.
-
-## Verification Architecture
-
-**The Problem:**
-- MLROs suppressing SARs to protect high-value clients
-- Backdated SAR filings to appear compliant after the fact
-- Fabricated NCA acknowledgments presented during regulatory examinations
-- Disputes about filing dates when timing is legally significant (e.g., moratorium periods)
-
-**The Fix:** NCA hashes each acknowledgment at time of issue with a cryptographic timestamp. The MLRO receives a receipt with a `verify:` line. FCA auditors can instantly confirm the SAR was genuinely received by the NCA on the claimed date.
-
-**Volume consideration:** With 900,000+ SARs per year, the NCA's hash storage would need to be efficient. Static hosting (the simplest Live Verify deployment) could handle this easily — each hash is just a 64-character hex directory containing a small JSON response.
 
 ## Authority Chain
 

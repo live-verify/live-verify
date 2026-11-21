@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Research Grant Awards?
 
-In the scientific community, a **Grant Award Notification (GAN)** is the formal document that turns a proposal into a reality. It authorizes the release of millions of dollars in taxpayer or foundation funds to a university or lab.
+In the scientific community, a Grant Award Notification (GAN) is the formal document that turns a proposal into a reality. It authorizes the release of millions of dollars in taxpayer or foundation funds to a university or lab.
 
-These documents are the "Proof of Prestige." Researchers use them to secure tenure, hire staff, and lease equipment. Fraud is high-stakes: individuals have been caught creating "Fake Award Letters" to pad their CVs or to trick their universities into providing "Matching Funds" for projects that weren't actually funded. Verified hashes bind the **PI Name, Award Amount, and Performance Period** to the agency's domain (e.g., `nsf.gov` or `nih.gov`).
+These documents are the "Proof of Prestige." Researchers use them to secure tenure, hire staff, and lease equipment. Fraud is high-stakes: individuals have been caught creating "Fake Award Letters" to pad their CVs or to trick their universities into providing "Matching Funds" for projects that weren't actually funded. Verified hashes bind the PI Name, Award Amount, and Performance Period to the agency's domain (e.g., `nsf.gov` or `nih.gov`).
 
 <div style="max-width: 650px; margin: 24px auto; font-family: 'Times New Roman', serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 20px; margin-bottom: 30px;">
@@ -49,7 +49,13 @@ These documents are the "Proof of Prestige." Researchers use them to secure tenu
   </div>
 </div>
 
-## Data Verified
+## The Problem: Prestige Padding Fraud
+
+- **Amount Inflation:** Changing a $125,000 pilot grant to a $1,250,000 major award on a CV or website.
+- **PI Impersonation:** Claiming to be the "Lead PI" on a grant where the person was actually just a minor consultant.
+- **Dead Award Stays:** Presenting an award that was revoked for ethics violations as if it were still "Active."
+
+## What Is Checked
 
 Award number, agency name, PI name, co-investigator names, host institution, project title, total budget amount, start date, end date, federal program code (e.g., CFDA #).
 
@@ -59,25 +65,25 @@ Award number, agency name, PI name, co-investigator names, host institution, pro
 - **Project Progress Report:** (Linked hash) proving milestones were met.
 - **Financial Status Report (SF-425):** Final verification of spend.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`nsf.gov`, `nih.gov`, `gatesfoundation.org`) and the funding standing.
 
 **Status Indications:**
 - **Active / Funded** — Award is current and funds are being disbursed.
 - **Completed** — Project finished; final reports verified.
-- **Suspended** — **ALERT:** Funding paused (e.g., due to compliance/ethics audit).
-- **Terminated** — **ALERT:** Award revoked (e.g., due to research misconduct).
+- **Suspended** — Funding paused (e.g., due to compliance/ethics audit).
+- **Terminated** — Award revoked (e.g., due to research misconduct).
 
-## Second-Party Use
+## Who Holds It
 
-The **Researcher (Principal Investigator)** benefits from verification.
+The Researcher (Principal Investigator) benefits from verification.
 
 **Academic Tenure:** A researcher can provide verified hashes of their "Career Funding" to their university's tenure committee. This removes the risk of "Impact Inflation" and proves their ability to attract federal capital with cryptographic certainty.
 
 **Vendor Negotiations:** When leasing high-end lab equipment (e.g., a $2M Electron Microscope), the PI can scan their verified GAN to prove to the vendor that they have the federal funding to back the lease.
 
-## Third-Party Use
+## Who Checks It
 
 **University Research Offices (OSP)**
 **Financial Audit:** Managing 1,000+ separate grants. Live Verify ensures that the "Award Letter" in the file isn't a draft or a fabricated version, protecting the university from "Single Audit" failures and federal clawbacks.
@@ -88,13 +94,7 @@ The **Researcher (Principal Investigator)** benefits from verification.
 **Immigration Authorities (O-1 Visas)**
 **Extraordinary Ability Proof:** Verifying that a visa applicant's "Millions in Grants" are legitimate awards from recognized global agencies.
 
-## Verification Architecture
-
-**The "Prestige Padding" Fraud Problem**
-
-- **Amount Inflation:** Changing a $125,000 pilot grant to a $1,250,000 major award on a CV or website.
-- **PI Impersonation:** Claiming to be the "Lead PI" on a grant where the person was actually just a minor consultant.
-- **Dead Award Stays:** Presenting an award that was revoked for ethics violations as if it were still "Active."
+## Who Issues It
 
 **Issuer Types** (First Party)
 

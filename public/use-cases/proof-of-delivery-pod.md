@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Proof of Delivery (POD)?
 
-In the logistics industry, the **Proof of Delivery (POD)** is the legal evidence that a shipment was successfully handed over to the recipient. It acts as the "Off-Ramp" for liability: once the POD is signed, the carrier is typically no longer responsible for the goods.
+In the logistics industry, the Proof of Delivery (POD) is the legal evidence that a shipment was successfully handed over to the recipient. It acts as the "Off-Ramp" for liability: once the POD is signed, the carrier is typically no longer responsible for the goods.
 
-Fraud is rampant in high-value shipping (electronics, pharmaceuticals). Dishonest receivers may claim **"Goods Never Received"** despite signing for them, or dishonest drivers may forge a signature to hide a theft or a late delivery. Verified hashes bind the **Tracking Number, Timestamp, and Recipient Name** to the carrier's domain, creating an indisputable audit trail.
+Fraud is rampant in high-value shipping (electronics, pharmaceuticals). Dishonest receivers may claim "Goods Never Received" despite signing for them, or dishonest drivers may forge a signature to hide a theft or a late delivery. Verified hashes bind the Tracking Number, Timestamp, and Recipient Name to the carrier's domain, creating an indisputable audit trail.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="pod"></span>DHL EXPRESS
@@ -36,7 +36,13 @@ Signed By:          Sarah Jenkins
 <span data-verify-line="pod">verify:dhl.com/pod/v</span> <span verifiable-text="end" data-for="pod"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Phantom Delivery Fraud
+
+- **Signature Forgery:** Drivers signing "John Doe" and keeping the goods.
+- **Quantity Tampering:** A receiver changing "10 Boxes" to "8 Boxes" on the paper after the driver leaves to claim a shortage.
+- **Backdating:** Changing the delivery date to avoid "Late Delivery" penalties in a service contract.
+
+## What Is Checked
 
 Waybill/Tracking number, carrier ID, consignee name, delivery address, quantity of items, condition status (Intact/Damaged), recipient signature (via hash), delivery photo (via hash), GPS coordinates of handoff, driver ID.
 
@@ -45,7 +51,7 @@ Waybill/Tracking number, carrier ID, consignee name, delivery address, quantity 
 - **Paper Delivery Receipt:** The traditional "Carbon Copy" signed at the dock.
 - **Door-Drop Photo Proof:** For residential deliveries without signature.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`dhl.com`, `fedex.com`, `maersk.com`) and the delivery standing.
 
@@ -53,34 +59,28 @@ Shows the issuer domain (`dhl.com`, `fedex.com`, `maersk.com`) and the delivery 
 - **Delivered** — Goods successfully handed over and signed for.
 - **Refused** — Recipient rejected the shipment (e.g., due to damage).
 - **Returned** — Goods back in carrier possession.
-- **Contested** — **ALERT:** Recipient has filed a claim of non-delivery.
+- **Contested** — Recipient has filed a claim of non-delivery.
 
-## Second-Party Use
+## Who Holds It
 
-The **Consignee (Receiver)** benefits from verification.
+The Consignee (Receiver) benefits from verification.
 
 **Inventory Integrity:** A warehouse manager receiving 500 pallets can scan the driver's POD to ensure the "Quantity Received" digitally recorded matches what is on the paper before the driver leaves the site.
 
 **Payment Authorization:** Accounts Payable departments use verified PODs as the "Trigger" to pay vendor invoices. A verified hash removes the 3-day delay of waiting for a scanned paper copy to arrive in the system.
 
-## Third-Party Use
+## Who Checks It
 
 **Shippers (The Sender)**
 **Revenue Recognition:** Under accounting rules (ASC 606), a company can't book revenue until delivery occurs. Verified PODs provide the "Audit-Proof" evidence needed for quarterly financial reporting.
 
 **Insurance Underwriters**
-**Claims Adjudication:** When a $50,000 server goes missing, the insurer scans the POD. If the hash returns **"DELIVERED - SIGNATURE VERIFIED,"** they can deny the claim and focus on internal theft at the destination.
+**Claims Adjudication:** When a $50,000 server goes missing, the insurer scans the POD. If the hash returns "DELIVERED - SIGNATURE VERIFIED," they can deny the claim and focus on internal theft at the destination.
 
 **Customs Brokers**
 **Import Clearance:** Proving to tax authorities that goods entered the country and were delivered to the registered importer, preventing "Diversion Fraud."
 
-## Verification Architecture
-
-**The "Phantom Delivery" Fraud Problem**
-
-- **Signature Forgery:** Drivers signing "John Doe" and keeping the goods.
-- **Quantity Tampering:** A receiver changing "10 Boxes" to "8 Boxes" on the paper after the driver leaves to claim a shortage.
-- **Backdating:** Changing the delivery date to avoid "Late Delivery" penalties in a service contract.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

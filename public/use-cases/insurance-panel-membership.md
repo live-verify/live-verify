@@ -100,7 +100,22 @@ verify:aetna.com/providers
 </pre>
 </div>
 
-## Data Verified
+## The Problem: We Accept Your Insurance Trust
+
+- **Self-assertion:** Any provider can display "We accept Aetna" or "BUPA Recognised" — these are just text or logos on a website or a sign on the wall.
+- **Stale directories:** Insurer directories are updated infrequently and contain high error rates. A 2014 CMS audit found that over half of provider directory entries contained inaccuracies.
+- **Dropped-panel persistence:** A provider removed from a panel may continue displaying "in-network" signage for months or years, whether through negligence or intent.
+- **Fake clinic attraction:** Fraudulent or low-quality clinics claim broad insurance acceptance to draw in patients who would not otherwise attend.
+- **Patient-side verification burden:** The patient is expected to phone the insurer, navigate a web directory, or trust the provider's own claim — all unreliable.
+
+The verifiable claim addresses these because:
+
+1. The insurer issues the claim — it is not self-asserted by the provider
+2. The claim names the specific site (web) or provider (premises) where it applies
+3. Revocation is immediate — the endpoint returns REVOKED
+4. The browser extension can detect domain mismatches automatically (web claims)
+
+## What Is Checked
 
 Provider name, provider site domain (web claims only), insurer, network or plan name, and current panel membership status.
 
@@ -111,7 +126,7 @@ Provider name, provider site domain (web claims only), insurer, network or plan 
 
 **Privacy Salt:** Generally not required. Panel membership is a commercial claim that the provider wants to be public — it attracts patients. The insurer may salt if network composition itself is commercially sensitive in a particular market.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `aetna.com`, `bupa.co.uk`, `cigna.com`) and the current panel membership status.
 
@@ -134,9 +149,9 @@ The `allowedDomains` field enables browser extensions to detect domain mismatche
 - **Plan Removed** — Provider is still in-network for other plans but not this one.
 - **404** — No such panel membership was issued by the claimed insurer.
 
-## Second-Party Use
+## Who Holds It
 
-The **patient** benefits directly.
+The patient benefits directly.
 
 **Pre-booking confidence:** Before scheduling an appointment, the patient can verify that the provider is genuinely in-network for their plan, not just claiming to be.
 
@@ -146,7 +161,7 @@ The **patient** benefits directly.
 
 **Domain-mismatch protection (web):** Even without the extension, the site domain in the claim text is a visible check. With the extension, domain mismatches produce an automatic warning.
 
-## Third-Party Use
+## Who Checks It
 
 **Insurers and Network Management Teams**
 
@@ -164,24 +179,7 @@ The **patient** benefits directly.
 
 **Directory accuracy enforcement:** Regulators in some jurisdictions require insurers to maintain accurate directories. Verifiable claims provide an independent check on directory accuracy.
 
-## Verification Architecture
-
-**The "We Accept Your Insurance" Trust Problem**
-
-- **Self-assertion:** Any provider can display "We accept Aetna" or "BUPA Recognised" — these are just text or logos on a website or a sign on the wall.
-- **Stale directories:** Insurer directories are updated infrequently and contain high error rates. A 2014 CMS audit found that over half of provider directory entries contained inaccuracies.
-- **Dropped-panel persistence:** A provider removed from a panel may continue displaying "in-network" signage for months or years, whether through negligence or intent.
-- **Fake clinic attraction:** Fraudulent or low-quality clinics claim broad insurance acceptance to draw in patients who would not otherwise attend.
-- **Patient-side verification burden:** The patient is expected to phone the insurer, navigate a web directory, or trust the provider's own claim — all unreliable.
-
-The verifiable claim addresses these because:
-
-1. The insurer issues the claim — it is not self-asserted by the provider
-2. The claim names the specific site (web) or provider (premises) where it applies
-3. Revocation is immediate — the endpoint returns REVOKED
-4. The browser extension can detect domain mismatches automatically (web claims)
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Insurer's Online Directory | Provider's "We Accept..." | Phone Call to Insurer | Insurance Card |
 | :--- | :--- | :--- | :--- | :--- | :--- |

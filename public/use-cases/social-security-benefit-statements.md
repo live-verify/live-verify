@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Social Security Statement?
 
-A **Social Security Benefit Statement** (such as the SSA-1099 or the "Your Social Security Statement" PDF) is the official government record of your lifetime earnings and your future retirement, disability, and survivor benefits.
+A Social Security Benefit Statement (such as the SSA-1099 or the "Your Social Security Statement" PDF) is the official government record of your lifetime earnings and your future retirement, disability, and survivor benefits.
 
 It is the primary document used for **Income Verification**:
 1.  **Lending:** Proving stable income for a mortgage or car loan.
@@ -46,7 +46,13 @@ It is the primary document used for **Income Verification**:
   </div>
 </div>
 
-## Data Verified
+## The Problem: Statement Padding Fraud
+
+- **Amount Inflation:** Editing a $1,200 monthly benefit to read $3,200 to get a high-limit credit card or loan.
+- **Type Hiding:** Presenting a "Disability" (SSI) benefit as a "Retirement" benefit to hide a health condition from an employer or insurer.
+- **Date Stretching:** Altering a "One-Time Payment" to look like a "Monthly Recurring" benefit.
+
+## What Is Checked
 
 Beneficiary name, SSN (last 4), Monthly benefit amount (Gross/Net), Type of benefit (Retirement/Disability/SSI), Date of birth, Effective date of last COLA (Cost of Living Adjustment), Residential address, Issuing office ID.
 
@@ -56,25 +62,25 @@ Beneficiary name, SSN (last 4), Monthly benefit amount (Gross/Net), Type of bene
 - **Lifetime Earnings Record:** Summarizing every year of work history.
 - **Notice of Award:** Initial approval of benefits.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`ssa.gov`) and current benefit status.
 
 **Status Indications:**
 - **Active/Paying** — Benefits are current and verified.
-- **Suspended** — **ALERT:** Benefits paused (e.g., due to incarceration or work limits).
-- **Terminated** — **ALERT:** Person has reached a limit or is deceased.
+- **Suspended** — Benefits paused (e.g., due to incarceration or work limits).
+- **Terminated** — Person has reached a limit or is deceased.
 - **COLA Updated** — Shows the new amount after the annual January adjustment.
 
-## Second-Party Use
+## Who Holds It
 
-The **Beneficiary** benefits from verification.
+The Beneficiary benefits from verification.
 
 **Mortgage / Car Loans:** Proving to a lender that their $2,450 income is a verified, stable, government-backed asset. This is strongest when the lender is working from the beneficiary's letter/PDF rather than a direct SSA-integrated channel.
 
 **Housing Applications:** Speeding up approval for senior housing or subsidized apartments by providing a bridge from the letter/PDF back to current SSA status, instead of relying on the paper alone.
 
-## Third-Party Use
+## Who Checks It
 
 **Mortgage Lenders / Underwriters**
 **Income Vetting:** Before approving a loan, the bank scans the SSA letter. "Verified by ssa.gov" ensures the borrower hasn't "photoshopped" a $1,000 benefit into a $3,000 one to meet debt-to-income requirements.
@@ -85,13 +91,7 @@ The **Beneficiary** benefits from verification.
 **State Medicaid / SNAP Agencies**
 **Benefit Coordination:** Verifying federal income levels to determine eligibility for state-level welfare programs without requiring a manual data-share between state and federal servers.
 
-## Verification Architecture
-
-**The "Statement Padding" Fraud Problem**
-
-- **Amount Inflation:** Editing a $1,200 monthly benefit to read $3,200 to get a high-limit credit card or loan.
-- **Type Hiding:** Presenting a "Disability" (SSI) benefit as a "Retirement" benefit to hide a health condition from an employer or insurer.
-- **Date Stretching:** Altering a "One-Time Payment" to look like a "Monthly Recurring" benefit.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -119,7 +119,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the SSA's hashes and status changes plus structured metadata (beneficiary name, monthly benefit amount, benefit type, effective date) — never plaintext or sensitive personal information — providing non-repudiation of issuing the Social Security benefit statement.
 
 
-## Competition vs. Official Letter by Mail
+## Compared With Official Letter by Mail
 
 | Feature | Live Verify | Paper Letter (Standard Mail) | mySocialSecurity Login |
 | :--- | :--- | :--- | :--- |

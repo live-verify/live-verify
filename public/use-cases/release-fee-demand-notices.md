@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Release Fee Demand Notice?
 
-A **release fee demand notice** is a demand for payment made as a condition of unlocking, releasing, transferring, restoring, shipping, paying out, or making accessible some other thing of value.
+A release fee demand notice is a demand for payment made as a condition of unlocking, releasing, transferring, restoring, shipping, paying out, or making accessible some other thing of value.
 
 The thing being "released" may be:
 
@@ -62,7 +62,24 @@ is separately issued and verified.
   <span verifiable-text="end" data-for="releasefee"></span>
 </div>
 
-## Data Verified
+## The Problem: Pay This To Unlock That Fraud
+
+- **Investment withdrawal fees** — "Pay tax / liquidity / AML / wallet activation before profits can be released."
+- **Customs release scams** — "Pay import duty or inspection charges before your parcel can be delivered."
+- **Inheritance / probate fees** — "Pay legal processing fees before an estate can be distributed."
+- **Marketplace reserve scams** — "Pay a verification fee to release seller funds."
+- **Account restoration scams** — "Pay a reinstatement deposit to unlock your account."
+- **Recovery scams** — "Pay tracing, legal, or bond fees to recover previously stolen assets."
+- **Storage / bonded-goods scams** — "Pay clearance or demurrage to prevent seizure."
+- **Authority impersonation scams** — "Pay this official-looking fine or compliance fee before we unfreeze the asset."
+
+The scam class is broad, but the invariant is narrow: a fee is demanded as a condition of release.
+
+That means the policy response should also be broad and structural.
+
+That means the policy response could also be broad and structural.
+
+## What Is Checked
 
 Issuer name, legal authority or licensing basis, case/shipment/account reference, subject of release, fee type, amount due, due date, payment destination or collecting agent, current status, and whether any further payment may lawfully be demanded.
 
@@ -77,7 +94,7 @@ Issuer name, legal authority or licensing basis, case/shipment/account reference
 
 **Privacy Salt:** Required. Case references, shipment IDs, account identifiers, and amounts may be enumerable or commercially sensitive. Salt should be issuer-generated, time-limited, and appropriate to the document class.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain and the current legal/payment status.
 
@@ -91,9 +108,9 @@ Shows the issuer domain and the current legal/payment status.
 - **Collection Not Authorized** — The named collecting account or agent is not authorized.
 - **404** — No such notice was issued by the claimed authority.
 
-## Second-Party Use
+## Who Holds It
 
-The **recipient of the demand** benefits most.
+The recipient of the demand benefits most.
 
 **Scam resistance:** A consumer shown a demand for a "tax," "clearance fee," "wallet activation fee," or "AML deposit" can verify whether the notice actually exists within the issuer's legal chain.
 
@@ -103,7 +120,7 @@ The **recipient of the demand** benefits most.
 
 **Complaint evidence:** If a bank, police force, ombudsman, or regulator later reviews the matter, the recipient has a domain-bound proof of what was demanded and whether it was genuine.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks and Payment Providers**
 
@@ -126,25 +143,6 @@ The **recipient of the demand** benefits most.
 **Families, Caregivers, and Trusted Contacts**
 
 **Protective review:** A family member shown a "release fee" email or screenshot can verify it without needing passwords or phone access to the victim's accounts.
-
-## Verification Architecture
-
-**The "Pay This To Unlock That" Fraud Problem**
-
-- **Investment withdrawal fees** — "Pay tax / liquidity / AML / wallet activation before profits can be released."
-- **Customs release scams** — "Pay import duty or inspection charges before your parcel can be delivered."
-- **Inheritance / probate fees** — "Pay legal processing fees before an estate can be distributed."
-- **Marketplace reserve scams** — "Pay a verification fee to release seller funds."
-- **Account restoration scams** — "Pay a reinstatement deposit to unlock your account."
-- **Recovery scams** — "Pay tracing, legal, or bond fees to recover previously stolen assets."
-- **Storage / bonded-goods scams** — "Pay clearance or demurrage to prevent seizure."
-- **Authority impersonation scams** — "Pay this official-looking fine or compliance fee before we unfreeze the asset."
-
-The scam class is broad, but the invariant is narrow: **a fee is demanded as a condition of release**.
-
-That means the policy response should also be broad and structural.
-
-That means the policy response could also be broad and structural.
 
 ## Authority Chain
 
@@ -178,7 +176,7 @@ US equivalents would chain to the relevant federal or state authority roots depe
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | PDF / Email / SMS | Phone Call to Helpdesk | Raw Portal Login |
 | :--- | :--- | :--- | :--- | :--- |
@@ -226,7 +224,7 @@ That would apply to:
 - Regulated firms may not request payment against an off-chain release notice.
 - Banks and payment firms may pause or refuse payment where the notice does not verify.
 - Repeated issuance of off-chain release demands can itself become a regulatory breach or criminal offense.
-- Consumer warnings become simpler and more accurate: **no verified chain, do not pay**.
+- Consumer warnings become simpler and more accurate: no verified chain, do not pay.
 
 This approach addresses a different layer from trying to enumerate scam types. Scam scripts mutate constantly, but a lawful release-fee demand is a stable regulatory object and can be required to live inside a standard chain.
 

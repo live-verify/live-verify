@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 "Invoice Redirection" fraud (a form of Business Email Compromise, or BEC) is a massive financial crime. Scammers intercept a legitimate invoice and change the "Remit To" bank details to their own. The customer pays the invoice, the funds disappear, and the legitimate vendor is left unpaid.
 
-A **Verifiable Account Ownership Certificate (VAOC)** is a document issued by a bank to its corporate client. It proves that a specific account number belongs to a specific entity. The vendor includes this verified claim on their invoices or in their vendor onboarding package.
+A Verifiable Account Ownership Certificate (VAOC) is a document issued by a bank to its corporate client. It proves that a specific account number belongs to a specific entity. The vendor includes this verified claim on their invoices or in their vendor onboarding package.
 
 **Why verification matters here:**
 
@@ -52,7 +52,13 @@ A **Verifiable Account Ownership Certificate (VAOC)** is a document issued by a 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Invoice Redirection Fraud
+
+- **Inbound PDF Modification:** Scammers intercept a legitimate PDF invoice and use an editor to change the bank details before it reaches the customer.
+- **Social Engineering:** Scammers email the customer's AP department posing as the vendor: "We've changed banks; please update our records."
+- **Internal Collusion:** A corrupt employee in the customer's office changes vendor bank details to their own.
+
+## What Is Checked
 
 Issuing bank name, certified entity name, account number (full or masked), account type, owner Tax ID/EIN, certificate issuance date, reference number.
 
@@ -61,25 +67,25 @@ Issuing bank name, certified entity name, account number (full or masked), accou
 - **Remittance Instruction Attestation:** Direct binding of an invoice to an account.
 - **Bank Reference Letter:** General standing plus account verification.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`chase.com`, `hsbc.com`) and the account status.
 
 **Status Indications:**
 - **Active / Verified** — Record matches the bank's current ownership file.
-- **Account Closed** — **ALERT:** Remittance should not be sent to this account.
-- **Ownership Dispute** — **ALERT:** Bank is reviewing account control.
-- **Sanctioned** — **ALERT:** Account is restricted.
+- **Account Closed** — Remittance should not be sent to this account.
+- **Ownership Dispute** — Bank is reviewing account control.
+- **Sanctioned** — Account is restricted.
 
-## Second-Party Use
+## Who Holds It
 
-The **Vendor (Business Entity)** benefits from verification.
+The Vendor (Business Entity) benefits from verification.
 
 **Invoice Trust:** Vendors ensure their customers can instantly verify that the payment instructions on an invoice are legitimate. This prevents the "2-day delay" when a customer calls the vendor's office to manually confirm bank details.
 
 **Onboarding Speed:** During vendor onboarding, providing a verified certificate from their bank speeds up the "Vendor Verification" phase by procurement teams.
 
-## Third-Party Use
+## Who Checks It
 
 **Customers / Accounts Payable Teams**
 **Fraud Prevention:** Before making a high-value payment, the AP team scans the hash to confirm the account really belongs to the vendor. If a "new invoice" arrives with a different hash (or no hash), it triggers immediate investigation.
@@ -90,13 +96,7 @@ The **Vendor (Business Entity)** benefits from verification.
 **Financial Institutions**
 **KYB (Know Your Business):** Banks can verify the identity and account ownership of business partners during transaction monitoring.
 
-## Verification Architecture
-
-**The "Invoice Redirection" Fraud Problem**
-
-- **Inbound PDF Modification:** Scammers intercept a legitimate PDF invoice and use an editor to change the bank details before it reaches the customer.
-- **Social Engineering:** Scammers email the customer's AP department posing as the vendor: "We've changed banks; please update our records."
-- **Internal Collusion:** A corrupt employee in the customer's office changes vendor bank details to their own.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

@@ -29,7 +29,7 @@ Terminal Bonus:     Not yet declared (payable at maturity/claim)
 <span data-verify-line="wp-bonus">verify:prudential.co.uk/with-profits/v</span> <span verifiable-text="end" data-for="wp-bonus"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Policy number, provider name, declaration year, reversionary bonus rate, value added (GBP), total guaranteed fund value, terminal bonus status, policy series identifier.
 
@@ -39,25 +39,25 @@ Policy number, provider name, declaration year, reversionary bonus rate, value a
 
 Maturity statements (final payout with terminal bonus) are covered separately in [Endowment Maturity Statements](view.html?doc=endowment-maturity-statements). This page focuses on the rolling annual declarations and the guaranteed-value history that accumulates over the policy's life.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`prudential.co.uk`, `aviva.co.uk`, `standardlife.co.uk`) and the declaration status.
 
 **Status Indications:**
 - **Verified / In Force** — Bonus declaration matches the insurer's records for this policy.
-- **MVR Applied** — **ALERT:** A Market Value Reduction is currently in effect on this policy.
+- **MVR Applied** — A Market Value Reduction is currently in effect on this policy.
 - **Matured** — Policy has reached maturity; see [Endowment Maturity Statements](view.html?doc=endowment-maturity-statements) for the maturity artifact.
-- **Surrendered** — **ALERT:** Policy was surrendered prior to maturity.
+- **Surrendered** — Policy was surrendered prior to maturity.
 
-## Second-Party Use
+## Who Holds It
 
-The **Policyholder** benefits from verification.
+The Policyholder benefits from verification.
 
 **Tracking Guaranteed Value:** Each year's bonus declaration becomes a verifiable record. Over a 25-year policy, the policyholder accumulates a chain of verified bonus notices rather than a shoebox of paper letters. At maturity, they can demonstrate the full history of what was declared and when.
 
 **Surrender Decisions:** When considering early exit, the policyholder can share verified bonus history with an IFA to get informed advice on whether the accumulated guaranteed value justifies holding to maturity or surrendering now.
 
-## Third-Party Use
+## Who Checks It
 
 **Independent Financial Advisers (IFAs)**
 **Surrender vs. Retention Analysis:** An IFA advising a client on whether to surrender a with-profits endowment can verify the actual guaranteed fund value rather than relying on the client's recollection or a photocopy of their last bonus notice.
@@ -68,7 +68,7 @@ The **Policyholder** benefits from verification.
 **Financial Ombudsman Service (FOS)**
 **Complaint Resolution:** When a policyholder complains that their bonus was reduced or that the terminal bonus fell short of projections, verified historical declarations provide a factual record of what was actually communicated each year.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Opaque Fund" Problem**
 
@@ -98,7 +98,7 @@ Prudential Assurance, a regulated life assurance provider, is authorized by the 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Annual Bonus Notice (Paper)
+## Compared With Annual Bonus Notice (Paper)
 
 | Feature | Live Verify | Paper Bonus Notice | Insurer Online Portal |
 | :--- | :--- | :--- | :--- |

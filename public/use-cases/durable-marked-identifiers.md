@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## The Problem
 
-Some claims do not live on paper or a screen — they are **marked into the object itself**, to last as
+Some claims do not live on paper or a screen — they are marked into the object itself, to last as
 long as the object does: the rating plate riveted to a machine, the VIN stamped into a car's chassis,
 the serial engraved on a firearm receiver, the hallmark struck into a ring, the plaque on a monument.
 These markings are meant to be permanent and authoritative, and yet they are **unverifiable**: a rating
@@ -22,7 +22,7 @@ stands behind it.
 
 A printed sticker or QR code is the wrong fix here, because the whole point of these surfaces is
 **durability**. A sticker peels; a QR code that loses a few squares to wear, heat, or weathering becomes
-unreadable as a cliff-edge failure. Human-readable text marked into the surface **degrades gracefully** —
+unreadable as a cliff-edge failure. Human-readable text marked into the surface degrades gracefully —
 a partially worn character is still legible to a camera and a human eye. (See
 [Why Human-Readable Text Is the Right Verification Primitive](../../docs/text-is-king.md) for the general
 durability argument, and [Aircraft Parts Traceability](aircraft-parts-traceability.md) for the worked
@@ -31,7 +31,7 @@ civic counterpart.)
 
 ## What gets verified
 
-A short verification line is **marked into the durable surface** alongside the identifier — etched,
+A short verification line is marked into the durable surface alongside the identifier — etched,
 laser-annealed, stamped, embossed, or cast — using the short `vfy:` prefix to save surface area where it
 is scarce. Pointing a camera at the object hashes the marked human-readable text and checks it against
 the issuing authority's domain.
@@ -74,19 +74,19 @@ Salt:          K2M7R4X8
 The same shape applies to a VIN, a hallmark, or a monument plaque — a short marked line resolving to the
 authority that stands behind the marking.
 
-## Data Verified
+## What Is Checked
 
 The marked identifier and the claim it carries (rating, identity, fineness, registration, provenance),
 the issuing authority, and the salt — bound to the authority's domain. The verifiable text is whatever is
 marked into the surface; nothing depends on a separate document.
 
-**What this does and does not prove.** It proves the **authority attests this marking** — the rating
+**What this does and does not prove.** It proves the authority attests this marking — the rating
 plate, VIN, hallmark, or plaque is the genuine one the authority recorded. It does not, by itself, prove
 the marking is still *physically attached to the original object* (a genuine plate can be moved to a
 different machine); for high-stakes cases that risk is addressed by binding the marking to other
 on-object identifiers, as the [aerospace version](aircraft-parts-traceability.md) does.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 **Status Indications:**
 - **Verified** — The authority confirms this marked identifier and its claim.
@@ -97,12 +97,12 @@ on-object identifiers, as the [aerospace version](aircraft-parts-traceability.md
 - **404 / Not Found** — No such marking on record. Per the fail-loudly principle this means *unverified* —
   a possible forged plate, re-stamped VIN, or counterfeit hallmark — never silently treated as genuine.
 
-## Second-Party Use
+## Who Holds It
 
-The **owner / holder** of the object benefits: a marked, verifiable rating plate or hallmark lets them
+The owner / holder of the object benefits: a marked, verifiable rating plate or hallmark lets them
 prove the object is genuinely what it claims when they sell, insure, or present it for inspection.
 
-## Third-Party Use
+## Who Checks It
 
 - **Inspectors and safety regulators** — confirm a machine's rating plate is the manufacturer's before
   certifying it for use; catch swapped plates that overstate safe working load.
@@ -113,7 +113,7 @@ prove the object is genuinely what it claims when they sell, insure, or present 
 - **Auction houses, estates, and heritage bodies** — confirm a monument or provenance plaque is the one
   they commissioned.
 
-## Verification Architecture
+## How Verification Works Here
 
 Mechanically this is camera mode (`text → normalize → SHA-256 → GET`) pointed at a permanently marked
 surface. Two properties make it reliable here:

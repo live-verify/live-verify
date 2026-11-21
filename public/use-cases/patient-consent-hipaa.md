@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is Patient Consent?
 
-Before a doctor can perform surgery or a scientist can use your DNA for a study, you must sign an **Informed Consent Form**. This is the legal proof that you understand the risks and rewards.
+Before a doctor can perform surgery or a scientist can use your DNA for a study, you must sign an Informed Consent Form. This is the legal proof that you understand the risks and rewards.
 
-In the US, you also sign a **HIPAA Authorization**, which tells the hospital exactly who they are allowed to share your private health data with.
+In the US, you also sign a HIPAA Authorization, which tells the hospital exactly who they are allowed to share your private health data with.
 
-"Consent Fraud" is a dangerous crime: a researcher might edit a "Survey Only" consent form to allow invasive "Genetic Testing" without the patient's knowledge. Verified hashes ensure the **un-altered text** of the agreement is what the patient actually signed.
+"Consent Fraud" is a dangerous crime: a researcher might edit a "Survey Only" consent form to allow invasive "Genetic Testing" without the patient's knowledge. Verified hashes ensure the un-altered text of the agreement is what the patient actually signed.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #007bff; background: #fff; padding: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #007bff; padding-bottom: 10px; margin-bottom: 20px;">
@@ -31,9 +31,20 @@ In the US, you also sign a **HIPAA Authorization**, which tells the hospital exa
 </div>
 
 
-## Data Verified
+## The Problem: Patient Consent Fraud
 
-**Patient Name**, **Date of Birth**, **Specific Procedure/Treatment/Disclosure Scope**, **Ordering/Treating Physician Name**, **Consent Form Version** and **Date**, **Patient Signature Status** (present/witnessed), **Witness Name** (if applicable), **Any Amendments/Addendums**, **HIPAA Authorization Scope** (e.g., disclosure to specific parties).
+Patient consent fraud has severe ethical, legal, and medical consequences:
+-   **Fabricated Consent:** Creating a fake consent form to justify unauthorized treatment or data use.
+-   **Altered Scope:** Modifying a genuine consent form to broaden its scope (e.g., adding "research participation" after signing).
+-   **Backdated Consent:** Dating a consent form prior to its actual signing to cover a procedural error.
+-   **Version Misrepresentation:** Using an outdated consent form version that doesn't reflect current risks or patient rights.
+-   **Unauthorized Disclosure:** Releasing PHI without valid patient authorization.
+
+Live Verify addresses fabrication, alteration, and version misrepresentation. Domain binding ensures that a consent form claiming to be from Acme Medical Center verifies against `consent.acmemedical.com`.
+
+## What Is Checked
+
+**Patient Name**, Date of Birth, Specific Procedure/Treatment/Disclosure Scope, Ordering/Treating Physician Name, Consent Form Version and Date, Patient Signature Status (present/witnessed), Witness Name (if applicable), Any Amendments/Addendums, HIPAA Authorization Scope (e.g., disclosure to specific parties).
 
 **Document Types:**
 -   **Informed Consent Forms (ICF):** For medical procedures, surgeries, research participation.
@@ -45,9 +56,9 @@ In the US, you also sign a **HIPAA Authorization**, which tells the hospital exa
 **Multi-Page Handling:** Many consent forms (especially for complex procedures or clinical trials) are multi-page. Per-page verification prevents page substitution, ensuring the entire agreed-upon terms are intact.
 
 **Privacy Salt:**
-**CRITICAL.** These documents contain highly sensitive Protected Health Information (PHI). All verification strings must include a high-entropy **"Consent ID"** or **"Session ID"** (unique to each consent event) as a random salt to prevent enumerating patient consents or guessing specific procedures.
+**CRITICAL.** These documents contain highly sensitive Protected Health Information (PHI). All verification strings must include a high-entropy "Consent ID" or "Session ID" (unique to each consent event) as a random salt to prevent enumerating patient consents or guessing specific procedures.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the healthcare provider, research institution, or ethics board) and the responder text.
 
@@ -60,7 +71,7 @@ Shows the issuer domain (the healthcare provider, research institution, or ethic
 
 **Version & Scope:** Verification may confirm the consent version and its scope: "Valid - Version 3.0 for Appendectomy, no research authorization."
 
-## Second-Party Use (Patient Verifying Their Own Consent)
+## Who Holds It (Patient Verifying Their Own Consent)
 
 Patients benefit from clear, verifiable control over their medical decisions and data.
 
@@ -68,7 +79,7 @@ Patients benefit from clear, verifiable control over their medical decisions and
 **Revocation Proof:** If a patient revokes consent (e.g., for participation in a research study), they can verify that the revocation was officially recorded and acknowledged by the institution.
 **Dispute Evidence:** In cases of alleged unauthorized treatment or data disclosure, a verified consent form serves as irrefutable evidence of the agreed-upon terms.
 
-## Third-Party Use
+## Who Checks It
 
 **Healthcare Providers (Hospitals, Clinics, Physicians)**
 *Legal protection and ethical practice.*
@@ -96,18 +107,7 @@ Patients benefit from clear, verifiable control over their medical decisions and
 **Malpractice Defense/Prosecution:** In medical malpractice cases, attorneys verify consent forms to establish whether a procedure was authorized and risks were properly disclosed.
 **Privacy Litigation:** In PHI breach cases, attorneys can verify HIPAA authorizations to determine if data disclosures were unauthorized or exceeded the scope of consent.
 
-## Verification Architecture
-
-**The Patient Consent Fraud Problem**
-
-Patient consent fraud has severe ethical, legal, and medical consequences:
--   **Fabricated Consent:** Creating a fake consent form to justify unauthorized treatment or data use.
--   **Altered Scope:** Modifying a genuine consent form to broaden its scope (e.g., adding "research participation" after signing).
--   **Backdated Consent:** Dating a consent form prior to its actual signing to cover a procedural error.
--   **Version Misrepresentation:** Using an outdated consent form version that doesn't reflect current risks or patient rights.
--   **Unauthorized Disclosure:** Releasing PHI without valid patient authorization.
-
-Live Verify addresses **fabrication, alteration, and version misrepresentation**. Domain binding ensures that a consent form claiming to be from Acme Medical Center verifies against `consent.acmemedical.com`.
+## How Verification Works Here
 
 **Healthcare Providers & Research Institutions as Issuers**
 The healthcare entity where consent is obtained is the natural issuer:
@@ -144,7 +144,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 ## Rationale
 
-Patient consent forms and HIPAA authorizations are **legally and ethically critical** for protecting patient autonomy and privacy in healthcare. Verification directly combats **consent fraud** and **unauthorized PHI disclosure** by providing instant, tamper-evident proof that the patient's agreement was obtained for a specific procedure or data use. Domain binding ensures legitimacy, enhancing patient trust and reducing legal liability for healthcare providers.
+Patient consent forms and HIPAA authorizations are legally and ethically critical for protecting patient autonomy and privacy in healthcare. Verification directly combats consent fraud and unauthorized PHI disclosure by providing instant, tamper-evident proof that the patient's agreement was obtained for a specific procedure or data use. Domain binding ensures legitimacy, enhancing patient trust and reducing legal liability for healthcare providers.
 
 
 ## Jurisdictional Witnessing (Optional)

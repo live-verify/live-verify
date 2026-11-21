@@ -85,7 +85,22 @@ verify:apple.com/service-providers
 </pre>
 </div>
 
-## Data Verified
+## The Problem: Authorized Repairer Trust
+
+- **Badge copying:** Any website can display "Apple Authorized Service Provider" or "BMW Certified Collision Repair Center" — these are just images or text.
+- **Stale directories:** Manufacturer "find a service center" pages are often incomplete, slow to update, and miss smaller independent shops that hold genuine authorization.
+- **Window stickers:** Physical "authorized" stickers in a shop window are trivially easy to fabricate or retain after authorization has lapsed.
+- **Counterfeit parts cover:** Unauthorized repairers install counterfeit parts while claiming manufacturer certification, exposing customers to safety risks and voided warranties.
+- **Post-revocation persistence:** A repair center dropped from the authorized network may continue displaying authorization badges and certificates for months or years.
+
+The verifiable claim addresses these because:
+
+1. The manufacturer issues the claim — it is not self-asserted by the repair center
+2. The claim names the specific site where it applies
+3. Revocation is immediate — the endpoint returns REVOKED
+4. The browser extension can detect domain mismatches automatically
+
+## What Is Checked
 
 Service center legal name, authorized site domain, manufacturer or brand, product lines or service categories covered, authorization period, and current status.
 
@@ -96,7 +111,7 @@ Service center legal name, authorized site domain, manufacturer or brand, produc
 
 **Privacy Salt:** Generally not required. Repair center authorizations are commercial claims that the service center wants to be public. The manufacturer may salt if the authorization structure itself is commercially sensitive.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `apple.com`, `bmw.com`, `deere.com`) and the current authorization status.
 
@@ -119,9 +134,9 @@ The `allowedDomains` field enables browser extensions to detect domain mismatche
 - **Product Line Removed** — Service center is still authorized for other products but not this one.
 - **404** — No such authorization was issued by the claimed manufacturer.
 
-## Second-Party Use
+## Who Holds It
 
-The **customer** benefits directly.
+The customer benefits directly.
 
 **Pre-repair confidence:** Before handing over a device, vehicle, or appliance — and before authorizing potentially expensive work — the customer can verify that the repair center is genuinely certified by the manufacturer, not just claiming to be.
 
@@ -131,7 +146,7 @@ The **customer** benefits directly.
 
 **Domain-mismatch protection:** Even without the extension, the site domain in the claim text is a visible check. With the extension, domain mismatches produce an automatic warning.
 
-## Third-Party Use
+## Who Checks It
 
 **Manufacturers and Brand Protection Teams**
 
@@ -151,23 +166,6 @@ The **customer** benefits directly.
 
 **Complaint triage:** When a customer complains about botched repairs or counterfeit parts, the investigator can check whether the repairer was ever authorized by the manufacturer.
 
-## Verification Architecture
-
-**The "Authorized Repairer" Trust Problem**
-
-- **Badge copying:** Any website can display "Apple Authorized Service Provider" or "BMW Certified Collision Repair Center" — these are just images or text.
-- **Stale directories:** Manufacturer "find a service center" pages are often incomplete, slow to update, and miss smaller independent shops that hold genuine authorization.
-- **Window stickers:** Physical "authorized" stickers in a shop window are trivially easy to fabricate or retain after authorization has lapsed.
-- **Counterfeit parts cover:** Unauthorized repairers install counterfeit parts while claiming manufacturer certification, exposing customers to safety risks and voided warranties.
-- **Post-revocation persistence:** A repair center dropped from the authorized network may continue displaying authorization badges and certificates for months or years.
-
-The verifiable claim addresses these because:
-
-1. The manufacturer issues the claim — it is not self-asserted by the repair center
-2. The claim names the specific site where it applies
-3. Revocation is immediate — the endpoint returns REVOKED
-4. The browser extension can detect domain mismatches automatically
-
 ## Attack Resistance: Text-Swap on a Scam Site
 
 The most sophisticated attack against this model is not copying the claim (which the domain-mismatch check catches) but **intercepting the verification flow on a hostile page.**
@@ -183,7 +181,7 @@ The most sophisticated attack against this model is not copying the claim (which
 
 **Honest assessment:** Content script isolation provides strong but not absolute protection against page-level manipulation. The domain-mismatch check is the backstop — it works even if the text swap somehow succeeds. The weakest link is the customer not reading the verified detail, which is why the domain-mismatch warning should be prominent and unmissable.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | "Authorized" Sticker / Badge | Manufacturer Directory | Google Maps Listing |
 | :--- | :--- | :--- | :--- | :--- |

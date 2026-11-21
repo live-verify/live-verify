@@ -52,11 +52,11 @@ Remedial Work:  REQUIRED WITHIN 28 DAYS
 
 **Observation code detail is excluded from the verifiable text.** The snapshot confirms whether the installation passed or failed, but does not enumerate individual observation codes (C1, C2, C3, FI). An unsatisfactory result with C1 codes indicates danger is present or likely. A solicitor or landlord seeing this result would obtain the full EICR to understand the specific defects. The verifiable snapshot flags the outcome; the detail follows through established channels.
 
-## Data Verified
+## What Is Checked
 
 Property address, report type, test result (satisfactory or unsatisfactory), testing contractor name and registration scheme, test date, validity expiry date (for satisfactory results), and remedial work requirement (for unsatisfactory results).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`niceic.com` or `napit.org.uk`) and confirms whether the electrical installation certificate claim is current.
 
@@ -65,13 +65,13 @@ Shows the issuer domain (`niceic.com` or `napit.org.uk`) and confirms whether th
 - **UNSATISFACTORY** — The installation was tested and observation codes requiring remedial action were found. C1 codes indicate danger present; C2 codes indicate potentially dangerous conditions. The landlord or owner must arrange remedial work and re-testing.
 - **EXPIRED** — The five-year validity period has passed. A new EICR is required.
 
-## Second-Party Use
+## Who Holds It
 
-The **landlord or property seller** uses this to demonstrate that the electrical installation has been tested and certified. When a prospective tenant asks about electrical safety, or a buyer's solicitor raises it during pre-contract enquiries, the landlord or seller clips the certificate status and shares it. The recipient verifies the hash against the registration scheme's domain, confirming the test result and validity without needing to contact the electrician or request sight of the original certificate.
+The landlord or property seller uses this to demonstrate that the electrical installation has been tested and certified. When a prospective tenant asks about electrical safety, or a buyer's solicitor raises it during pre-contract enquiries, the landlord or seller clips the certificate status and shares it. The recipient verifies the hash against the registration scheme's domain, confirming the test result and validity without needing to contact the electrician or request sight of the original certificate.
 
 Letting agents acting on behalf of landlords can hold and share verified certificate statuses as part of their compliance documentation.
 
-## Third-Party Use
+## Who Checks It
 
 **Tenants**
 The primary beneficiary in the rental sector. A tenant can verify that the property they are renting has a current, satisfactory EICR before signing a tenancy agreement. Under the Electrical Safety Standards in the Private Rented Sector (England) Regulations 2020, landlords must provide a copy of the EICR to tenants. A verifiable status snapshot gives the tenant confidence that the certificate is genuine and current.
@@ -85,7 +85,7 @@ Lenders assessing a property as security for a mortgage may require evidence of 
 **Local Authority Enforcement**
 Local housing authorities have powers to enforce the electrical safety regulations in the private rented sector. A verifiable certificate status gives enforcement officers a fast way to confirm compliance without requesting paper documentation from the landlord.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Is It Real?" Problem**
 
@@ -124,7 +124,7 @@ The competent person scheme operator (here, NICEIC) is the authoritative source 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Manual Verification
+## Compared With Manual Verification
 
 | Feature | Live Verify | Contacting the Electrician | Paper/PDF Certificate |
 | :--- | :--- | :--- | :--- |

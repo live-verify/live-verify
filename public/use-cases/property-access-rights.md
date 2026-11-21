@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 When someone claims the right to enter a property — to a locksmith, a delivery person, or a neighbor — how do they prove it? Currently: ID + utility bill, or "trust me."
 
-Property access rights verification provides **on-demand proof** that a person has a legitimate right to access a property, whether as owner, tenant, lodger, or authorized guest.
+Property access rights verification provides on-demand proof that a person has a legitimate right to access a property, whether as owner, tenant, lodger, or authorized guest.
 
 **The locksmith scenario:**
 1. Person calls: "I'm locked out of my house"
@@ -213,7 +213,7 @@ LOCKSMITH OPENS LOCK
 | **Booking confirmation** | Property owner or platform | Owner's domain or platform (Airbnb, Booking.com) |
 | **Keyholder authorization** | Property owner or keyholder service | Owner takes responsibility; third-party services add accountability |
 
-## Third-Party Use
+## Who Checks It
 
 **Locksmiths** — Verify right to access before opening
 **Delivery services** — Verify recipient is legitimate occupant (high-value deliveries)
@@ -222,22 +222,8 @@ LOCKSMITH OPENS LOCK
 **Property managers** — Verify sublet/guest arrangements are authorized
 **Insurance** — Evidence that access was by authorized person (after incidents)
 
-## Data Verified
+## The Problem
 
-**Property address**, **right holder name**, **type of right** (owner/tenant/guest/keyholder), **validity period**, **any restrictions**, **issuing authority** (Land Registry, landlord, owner).
-
-## Data Visible After Verification
-
-**Status Indications:**
-- **Active** — Right currently valid
-- **Expired** — Past end date (tenancy ended, booking over)
-- **Revoked** — Authorization withdrawn by owner/landlord
-- **Superseded** — Replaced by new agreement
-- **Pending** — Not yet active (future booking, tenancy not yet started)
-
-## Verification Architecture
-
-**The Problem:**
 - Current proof of address: utility bill + ID (easily faked, often outdated)
 - Locksmiths rely on trust and judgment
 - Criminals exploit this to access properties they have no right to
@@ -250,6 +236,19 @@ LOCKSMITH OPENS LOCK
 - Keyholders: Property owner or keyholder service
 
 **On-demand, not posted:** Unlike estate clearance (mandatory site notice), property access rights are presented when challenged — carried by the person, shown on request.
+
+## What Is Checked
+
+**Property address**, right holder name, type of right (owner/tenant/guest/keyholder), validity period, any restrictions, issuing authority (Land Registry, landlord, owner).
+
+## What the Checker Sees
+
+**Status Indications:**
+- **Active** — Right currently valid
+- **Expired** — Past end date (tenancy ended, booking over)
+- **Revoked** — Authorization withdrawn by owner/landlord
+- **Superseded** — Replaced by new agreement
+- **Pending** — Not yet active (future booking, tenancy not yet started)
 
 ## Authority Chain
 

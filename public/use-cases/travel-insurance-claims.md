@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Travel Insurance Settlement?
 
-A **Travel Insurance Settlement Advice** is the formal document issued by an insurer (like Allianz, AIG, or World Nomads) confirming that a claim has been approved and paid. It itemizes the loss—whether it's a $50,000 Medical Evacuation, a $2,000 Trip Cancellation, or a $500 Baggage Delay—and shows the final amount disbursed to the traveler.
+A Travel Insurance Settlement Advice is the formal document issued by an insurer (like Allianz, AIG, or World Nomads) confirming that a claim has been approved and paid. It itemizes the loss—whether it's a $50,000 Medical Evacuation, a $2,000 Trip Cancellation, or a $500 Baggage Delay—and shows the final amount disbursed to the traveler.
 
-These documents are "Financial Recovery" records. Fraud is high-stakes: claimants often "edit" a settlement letter to inflate the amount paid to get a higher "Secondary Payout" from an employer or a second insurer (Double-Dipping). Similarly, scammers create fake "Settlement Notices" to trick overseas hospitals into releasing a medical lien. Verified hashes bind the **Settlement Amount, Loss Type, and Claim ID** to the insurer's domain (e.g., `allianz.com` or `aig.com`).
+These documents are "Financial Recovery" records. Fraud is high-stakes: claimants often "edit" a settlement letter to inflate the amount paid to get a higher "Secondary Payout" from an employer or a second insurer (Double-Dipping). Similarly, scammers create fake "Settlement Notices" to trick overseas hospitals into releasing a medical lien. Verified hashes bind the Settlement Amount, Loss Type, and Claim ID to the insurer's domain (e.g., `allianz.com` or `aig.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="claim"></span>ALLIANZ GLOBAL ASSISTANCE
@@ -37,7 +37,13 @@ Payment issued via Wire Transfer to account on file.
 <span data-verify-line="claim">verify:allianz.com/v</span> <span verifiable-text="end" data-for="claim"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Thai Hospital Fraud
+
+- **Bill Inflation:** Editing a $1,000 foreign hospital bill to look like a $10,000 bill on a PDF.
+- **Ghost Claims:** Creating a fake settlement letter for a "Lost Camera" that was never actually owned or lost.
+- **Refund Hiding:** Editing a cancellation settlement to hide that the airline already gave a 50% cash refund.
+
+## What Is Checked
 
 Claim ID, policy number, claimant name, loss category (e.g., Medical, Cancellation, Baggage), date of loss, itemized payout amounts, deductible applied, net settlement value, currency, paid date, issuing claims adjuster ID.
 
@@ -47,28 +53,28 @@ Claim ID, policy number, claimant name, loss category (e.g., Medical, Cancellati
 - **Guarantee of Payment (GOP):** (Linked hash) sent to a foreign hospital.
 - **Release & Discharge:** (Linked hash) signed by the traveler.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`allianz.com`, `aig.com`, `battleface.com`) and the claim standing.
 
 **Status Indications:**
 - **Settled / Paid** — Funds have been disbursed and the file is closed.
 - **Approved / Pending** — Claim is verified; funds are in transit.
-- **Denied** — **CRITICAL:** Claim was rejected (indicates potential fraud if paper says otherwise).
-- **Amended** — **ALERT:** A corrected settlement has been issued.
+- **Denied** — Claim was rejected (indicates potential fraud if paper says otherwise).
+- **Amended** — A corrected settlement has been issued.
 
-## Second-Party Use
+## Who Holds It
 
-The **Traveler (Claimant)** benefits from verification.
+The Traveler (Claimant) benefits from verification.
 
 **Tax Deduction Proof:** If a traveler's medical loss wasn't fully reimbursed, they can use the verified "Settlement Advice" to prove the "Uncovered Loss" to the IRS for a casualty deduction, removing the risk of audit rejection.
 
-**Hospital Lien Release:** If a hospital in a foreign country is holding a traveler's passport pending payment, the traveler can show the verified "Guarantee of Payment" or "Settlement" hash. The hospital can instantly see **"VERIFIED PAYOUT"** from a global brand, allowing the traveler to leave the country.
+**Hospital Lien Release:** If a hospital in a foreign country is holding a traveler's passport pending payment, the traveler can show the verified "Guarantee of Payment" or "Settlement" hash. The hospital can instantly see "VERIFIED PAYOUT" from a global brand, allowing the traveler to leave the country.
 
-## Third-Party Use
+## Who Checks It
 
 **Secondary Insurers (e.g., Amex / Chase)**
-**Double-Dipping Audit:** Credit card insurers often provide "Secondary" coverage. Before paying a claim, they scan the "Primary" insurer's verified settlement. If the hash returns **"FULLY REIMBURSED,"** they can deny the redundant claim, protecting the insurance pool.
+**Double-Dipping Audit:** Credit card insurers often provide "Secondary" coverage. Before paying a claim, they scan the "Primary" insurer's verified settlement. If the hash returns "FULLY REIMBURSED," they can deny the redundant claim, protecting the insurance pool.
 
 **Employers / HR Teams**
 **Corporate Recovery:** If an employee was on a business trip, the company may be entitled to the insurance payout. Verifying the settlement ensures the employee isn't "pocketing" a refund for a trip the company paid for.
@@ -76,13 +82,7 @@ The **Traveler (Claimant)** benefits from verification.
 **Forensic Auditors**
 **Portfolio Audit:** Verifying thousands of "Paid Claims" during an annual audit of an insurance carrier to ensure the digital truth matches the paper files.
 
-## Verification Architecture
-
-**The "Thai Hospital" Fraud Problem**
-
-- **Bill Inflation:** Editing a $1,000 foreign hospital bill to look like a $10,000 bill on a PDF.
-- **Ghost Claims:** Creating a fake settlement letter for a "Lost Camera" that was never actually owned or lost.
-- **Refund Hiding:** Editing a cancellation settlement to hide that the airline already gave a 50% cash refund.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

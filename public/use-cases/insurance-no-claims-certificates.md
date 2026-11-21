@@ -54,7 +54,14 @@ The certificate is essential when switching insurers, as the new insurer needs v
   <span data-verify-line="protected">verify:admiral.com/ncb</span> <span verifiable-text="end" data-for="protected"></span>
 </div>
 
-## Data Verified
+## The Problem: NCB Fraud
+
+- **Years Inflation:** Claiming 9 years NCB when only 3 years earned.
+- **Claims Hiding:** Omitting recent claims to preserve full discount.
+- **Policy Invention:** Entirely fake certificates from non-existent insurers.
+- **Identity Fraud:** Using another person's claims-free history.
+
+## What Is Checked
 
 Insurer name, policy number, policyholder name, coverage type, claims-free years earned, last claim date (if any), policy period, protection status, certificate issue date.
 
@@ -65,7 +72,7 @@ Insurer name, policy number, policyholder name, coverage type, claims-free years
 - **International Claims History:** For drivers moving between countries.
 - **Fleet Driver Claims Record:** Individual driver history within a fleet policy.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`directline.com`, `admiral.com`) and claims status.
 
@@ -76,9 +83,9 @@ Shows the issuer domain (`directline.com`, `admiral.com`) and claims status.
 - **Reduced** — NCB reduced due to recent claim.
 - **Protected** — NCB protected despite fault claim.
 
-## Second-Party Use
+## Who Holds It
 
-The **Policyholder** benefits from verification.
+The Policyholder benefits from verification.
 
 **Switching Insurers:** When getting quotes from new insurers, verified NCB certificates enable immediate discount application without waiting for manual verification.
 
@@ -88,7 +95,7 @@ The **Policyholder** benefits from verification.
 
 **International Moves:** Drivers relocating between countries can prove their claims-free history to foreign insurers.
 
-## Third-Party Use
+## Who Checks It
 
 **New Insurers**
 **Underwriting:** When onboarding new customers, insurers verify NCB certificates to apply appropriate discounts and assess risk.
@@ -105,14 +112,7 @@ The **Policyholder** benefits from verification.
 **Motor Finance Companies**
 **Risk Assessment:** Lenders on vehicle finance verify insurance history as part of affordability checks.
 
-## Verification Architecture
-
-**The NCB Fraud Problem**
-
-- **Years Inflation:** Claiming 9 years NCB when only 3 years earned.
-- **Claims Hiding:** Omitting recent claims to preserve full discount.
-- **Policy Invention:** Entirely fake certificates from non-existent insurers.
-- **Identity Fraud:** Using another person's claims-free history.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

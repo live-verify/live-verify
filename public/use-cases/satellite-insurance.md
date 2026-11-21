@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is Satellite Insurance?
 
-In the commercial space industry, **Satellite Insurance** covers some of the highest-value risks on Earth (and above it). A single policy covers the **Launch Phase** (the risk of the rocket exploding) and the **In-Orbit Phase** (the risk of the satellite failing once in space). These policies typically cover assets worth $200M to $500M each.
+In the commercial space industry, Satellite Insurance covers some of the highest-value risks on Earth (and above it). A single policy covers the Launch Phase (the risk of the rocket exploding) and the In-Orbit Phase (the risk of the satellite failing once in space). These policies typically cover assets worth $200M to $500M each.
 
-These documents are the "Proof of Mission." Fraud is extremely rare but high-impact: a startup might create a fake "Allianz" or "Swiss Re" policy to trick a launch provider (like SpaceX) or a telecommunications partner into believing the mission is fully bonded. Similarly, an operator might "edit" a policy to hide a "Collision Exclusion" before a high-risk orbital maneuver. Verified hashes bind the **Satellite ID (COSPAR), Launch Window, and In-Orbit Value** to the specialist insurer's domain (e.g., `axaxl.com` or `beazley.com`).
+These documents are the "Proof of Mission." Fraud is extremely rare but high-impact: a startup might create a fake "Allianz" or "Swiss Re" policy to trick a launch provider (like SpaceX) or a telecommunications partner into believing the mission is fully bonded. Similarly, an operator might "edit" a policy to hide a "Collision Exclusion" before a high-risk orbital maneuver. Verified hashes bind the Satellite ID (COSPAR), Launch Window, and In-Orbit Value to the specialist insurer's domain (e.g., `axaxl.com` or `beazley.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="space"></span>AXA XL SPACE
@@ -38,7 +38,13 @@ Coverage confirmed for Launch Window opening 15 MAR 2026.
 <span data-verify-line="space">verify:axaxl.com/space/v</span> <span verifiable-text="end" data-for="space"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: High-Altitude Fraud
+
+- **Payload Padding:** Inflation of the "In-Orbit Value" to get a higher insurance payout if the satellite degrades.
+- **Vehicle Spoofing:** Changing a high-risk rocket name to a "Proven" rocket name on a PDF to lower the premium or trick a partner.
+- **Exclusion Masking:** Removing a "Debris Collision" exclusion before selling the satellite to a new owner.
+
+## What Is Checked
 
 Policy number, insurer name, operator name, satellite name/serial, COSPAR ID (if assigned), launch vehicle type, launch site location, launch window dates, in-orbit insured value, third-party liability (TPL) limit, policy term (years), exclusion codes (e.g., Solar Storms), broker ID.
 
@@ -48,25 +54,25 @@ Policy number, insurer name, operator name, satellite name/serial, COSPAR ID (if
 - **In-Orbit Liability Certificate:** Required for international space law.
 - **Proof of Re-Entry Coverage:** For decommissioning safety.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`axaxl.com`, `beazley.com`, `swissre.com`) and the policy standing.
 
 **Status Indications:**
 - **Active / Launch Authorized** — Premium is paid; mission is covered.
 - **In-Orbit Operational** — Launch successful; long-term coverage active.
-- **Claim Filed** — **ALERT:** A mission anomaly or failure has been reported.
-- **Expired / De-Orbit** — **ALERT:** Asset has reached end-of-life; coverage terminated.
+- **Claim Filed** — A mission anomaly or failure has been reported.
+- **Expired / De-Orbit** — Asset has reached end-of-life; coverage terminated.
 
-## Second-Party Use
+## Who Holds It
 
-The **Satellite Operator (Startups / Telcos)** benefits from verification.
+The Satellite Operator (Startups / Telcos) benefits from verification.
 
 **Launch Authorization:** Before a rocket company (e.g., SpaceX or Rocket Lab) allows a satellite onto their vehicle, they demand proof of insurance. The operator shows the verified hash. "Verified by AXA XL" gives the launch provider the cryptographic proof needed to integrate the payload, removing the risk of "Un-Insured Payload" liability.
 
 **Debt Financing:** Satellite operators often borrow against their orbital assets. A verified "In-Orbit" hash allows lenders to see the current value and status of the collateral, speeding up the release of working capital.
 
-## Third-Party Use
+## Who Checks It
 
 **Space Agencies (NASA / ESA)**
 **Licensing Compliance:** Verifying that commercial operators are maintaining the mandatory Third-Party Liability insurance required by international space treaties (e.g., Outer Space Treaty).
@@ -77,13 +83,7 @@ The **Satellite Operator (Startups / Telcos)** benefits from verification.
 **Secondary Insurance Markets**
 **Re-Insurance Vetting:** Large specialist insurers often "Sell off" parts of a $500M risk to re-insurers. Verified hashes ensure that the technical details of the mission (the rocket type, the orbit) match what was reported.
 
-## Verification Architecture
-
-**The "High-Altitude" Fraud Problem**
-
-- **Payload Padding:** Inflation of the "In-Orbit Value" to get a higher insurance payout if the satellite degrades.
-- **Vehicle Spoofing:** Changing a high-risk rocket name to a "Proven" rocket name on a PDF to lower the premium or trick a partner.
-- **Exclusion Masking:** Removing a "Debris Collision" exclusion before selling the satellite to a new owner.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

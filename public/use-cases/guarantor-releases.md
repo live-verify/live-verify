@@ -66,7 +66,14 @@ Guarantor releases are critical for credit and financial planning. While guarant
   <span data-verify-line="apartment">verify:greystar.com/leasing</span> <span verifiable-text="end" data-for="apartment"></span>
 </div>
 
-## Data Verified
+## The Problem: Guarantor Release Fraud
+
+- **Fake Releases:** Fraudulent release letters used to qualify for new loans while guarantees remain active.
+- **Premature Claims:** Claiming release before qualifying conditions are met.
+- **Scope Inflation:** Fake releases claiming broader release than actually granted.
+- **Identity Confusion:** Releases for the wrong guarantor on multi-guarantor obligations.
+
+## What Is Checked
 
 Creditor/landlord name, loan/lease identifier, primary obligor name, guarantor name, original guarantee amount or terms, release date, release reason, any continuing obligations.
 
@@ -77,7 +84,7 @@ Creditor/landlord name, loan/lease identifier, primary obligor name, guarantor n
 - **Apartment Co-Signer Release:** Parent or other co-signer released after tenant qualifies independently.
 - **Equipment Lease Guarantee Release:** Personal guarantee for equipment financing removed.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`salliemae.com`, `sba.gov`) and guarantee status.
 
@@ -88,9 +95,9 @@ Shows the issuer domain (`salliemae.com`, `sba.gov`) and guarantee status.
 - **Reinstated** — Release rescinded due to subsequent default.
 - **Superseded** — New guarantee agreement replaces old one.
 
-## Second-Party Use
+## Who Holds It
 
-The **Guarantor** benefits from verification.
+The Guarantor benefits from verification.
 
 **Credit Applications:** Personal guarantees appear as contingent liabilities on credit reports. A verified release letter proves the guarantor is no longer liable, improving debt-to-income ratios.
 
@@ -100,7 +107,7 @@ The **Guarantor** benefits from verification.
 
 **Business Transitions:** When founders leave companies, they need verified proof that personal guarantees for business debts are released.
 
-## Third-Party Use
+## Who Checks It
 
 **Mortgage Lenders**
 **Underwriting:** Lenders underwriting the guarantor for their own loans need to verify which guarantees remain active and which are released.
@@ -117,14 +124,7 @@ The **Guarantor** benefits from verification.
 **Insurance Underwriters**
 **D&O Coverage:** Directors and Officers insurance underwriters assess personal guarantee exposure. Verified releases reduce this exposure.
 
-## Verification Architecture
-
-**The Guarantor Release Fraud Problem**
-
-- **Fake Releases:** Fraudulent release letters used to qualify for new loans while guarantees remain active.
-- **Premature Claims:** Claiming release before qualifying conditions are met.
-- **Scope Inflation:** Fake releases claiming broader release than actually granted.
-- **Identity Confusion:** Releases for the wrong guarantor on multi-guarantor obligations.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

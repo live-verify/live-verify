@@ -13,7 +13,7 @@ furtherDerivations: 2
 
 Before an investor can access private placements, alternative funds, structured products, or institutional trading platforms, they must prove they meet a regulatory threshold — Qualified Institutional Buyer (QIB), accredited investor, professional investor, or equivalent.
 
-This verification happens **repeatedly, manually, and identically** across every new relationship:
+This verification happens repeatedly, manually, and identically across every new relationship:
 
 - Each new fund subscription requires QIB/accredited self-certification
 - Each new platform onboarding (Tremor, Tradeweb, MarketAxess, Forge, Carta) requires the same proof
@@ -83,7 +83,7 @@ The platform still performs its own diligence (mandate review, legal entity chec
 
 For platforms like Tremor that require the investor to demonstrate authority to write reinsurance risk, the QIB attestation clears one hurdle. The mandate review (does the fund's LPA permit reinsurance risk?) remains a separate, more bespoke check that verified attestations don't fully replace.
 
-## Data Verified
+## What Is Checked
 
 Investor name, investor status category (QIB, accredited, professional client, wholesale, qualified purchaser), regulatory basis (Rule 144A, Reg D, MiFID II, etc.), attestor name and regulatory status, audit or assessment period, validity window.
 
@@ -95,7 +95,7 @@ Investor name, investor status category (QIB, accredited, professional client, w
 
 **Privacy Salt:** Required. Investor identities and AUM thresholds are commercially sensitive. The hash must be salted to prevent competitors from probing whether specific funds hold QIB status.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the attestor's domain (`pwc.com`, `ey.com`, `connollywealthadvisors.com`) and the attestation status.
 
@@ -106,9 +106,9 @@ Shows the attestor's domain (`pwc.com`, `ey.com`, `connollywealthadvisors.com`) 
 - **Superseded** — A newer attestation has been issued
 - **404** — No such attestation exists at this attestor's domain
 
-## Second-Party Use
+## Who Holds It
 
-The **investor** benefits from portability and speed.
+The investor benefits from portability and speed.
 
 **Onboarding acceleration:** Instead of assembling the same documentation package for every new relationship, the investor shares a single verifiable attestation. The compliance review that currently takes weeks becomes a hash check that takes seconds.
 
@@ -116,7 +116,7 @@ The **investor** benefits from portability and speed.
 
 **Reduced disclosure:** The attestation proves threshold status without disclosing exact AUM, net worth, or detailed financials. "QIB — manages $100M+" reveals the threshold was met; it doesn't reveal whether AUM is $100M or $10B.
 
-## Third-Party Use
+## Who Checks It
 
 **Electronic Trading Platforms**
 
@@ -134,7 +134,7 @@ The **investor** benefits from portability and speed.
 
 **SEC, FCA, ASIC:** Regulators don't certify investor status directly, but they define the thresholds and rules. Verified attestations create an auditable trail of who was classified as what, by whom, and when — useful for enforcement if a non-qualified investor was improperly given access.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Repetitive Verification Problem**
 
@@ -172,7 +172,7 @@ The attestor is the trust anchor, not the investor. The regulatory body (PCAOB f
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Verified Attestation | Self-Certification Letter | Platform-Specific Form | Audited Financials Package |
 | :--- | :--- | :--- | :--- | :--- |

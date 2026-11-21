@@ -48,7 +48,14 @@ The claim text may reference an elaborating document — an email, a PDF spec, a
 
 This mirrors the existing *contra proferentem* rule (ambiguity construed against the drafter) but is more specific: it applies to divergence between an attested summary and an unattested elaboration, not just ambiguity.
 
-## Data Verified
+## The Problem: Edited Quote
+
+- **Price inflation:** Customer edits the PDF to show a higher price for an insurance claim
+- **Scope shrinkage:** Contractor claims the quoted scope was narrower than what the customer remembers
+- **Stale quotes:** Presenting an expired or superseded quote as current
+- **Fabricated quotes:** Creating a quote from a contractor who never visited the property
+
+## What Is Checked
 
 Contractor/company name, customer name, service address, scope summary, materials summary, price (including tax treatment), validity period, elaboration reference.
 
@@ -60,9 +67,9 @@ Contractor/company name, customer name, service address, scope summary, material
 - **WITHDRAWN** — Quote withdrawn by the contractor before acceptance
 - **404** — Quote not found (forged or wrong domain)
 
-## Second-Party Use
+## Who Holds It
 
-The **customer** benefits from verification:
+The customer benefits from verification:
 
 **Forwarding to spouse/partner:** "The roofer quoted £4,200" — the recipient can verify this is what the contractor actually attested, not an edited version.
 
@@ -70,7 +77,7 @@ The **customer** benefits from verification:
 
 **Comparing quotes:** Three contractors quote for the same job. Each quote is independently verifiable against its issuer's domain. The customer (or their insurer) can confirm all three are genuine.
 
-## Third-Party Use
+## Who Checks It
 
 **Insurers**
 Evaluating repair quotes after a claim. A verified quote from a licensed contractor is harder to inflate than an unverified PDF.
@@ -81,14 +88,7 @@ Evaluating repair quotes after a claim. A verified quote from a licensed contrac
 **Mortgage Lenders**
 Evaluating renovation costs during purchase. Verified contractor quotes support the valuation.
 
-## Verification Architecture
-
-**The "Edited Quote" Problem**
-
-- **Price inflation:** Customer edits the PDF to show a higher price for an insurance claim
-- **Scope shrinkage:** Contractor claims the quoted scope was narrower than what the customer remembers
-- **Stale quotes:** Presenting an expired or superseded quote as current
-- **Fabricated quotes:** Creating a quote from a contractor who never visited the property
+## Who Issues It
 
 **Issuer Types** (First Party)
 

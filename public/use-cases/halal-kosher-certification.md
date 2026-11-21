@@ -98,7 +98,22 @@ If the same claim text appears on an unauthorized site, the hash still verifies 
 
 **Partial certification claimed as full.** A restaurant is certified halal for its chicken dishes but advertises itself as a "fully halal restaurant." The verifiable claim text specifies exactly what the certification covers. If the claim says "certified Halal (poultry menu)" and the restaurant's website says "fully halal," the discrepancy is visible to anyone who reads the claim text before verifying.
 
-## Data Verified
+## The Problem: Copyable Logo
+
+- **Logos prove nothing:** A halal or kosher logo on a website is an image file. It can be right-clicked and saved by anyone. There is no link between the logo and the certification body's records.
+- **No consumer verification path:** A consumer seeing a kosher symbol on a delivery platform has no practical way to check whether the certification is current, without leaving the platform and searching the certification body's website.
+- **Certification scope is invisible:** A logo does not communicate scope. A restaurant certified for specific products may display the logo as though it covers the entire menu.
+- **Expiry is invisible:** Logos do not expire. A certificate may lapse while the logo remains on the website indefinitely.
+
+The verifiable claim addresses these because:
+
+1. The certification body issues the claim — it is not self-asserted by the establishment
+2. The claim text names the establishment, the certifying body, and the certificate number
+3. The certification scope and level are part of the verifiable text
+4. Expiry and revocation are reflected immediately at the verification endpoint
+5. The `allowedDomains` list prevents the claim from being repurposed on unauthorized sites
+
+## What Is Checked
 
 Establishment name, registered business domain, certification body, certificate number, certification level or scope (e.g. "Mehadrin," "halal — poultry menu only"), and current certification status.
 
@@ -109,7 +124,7 @@ Establishment name, registered business domain, certification body, certificate 
 
 **Privacy Salt:** Not required. Halal and kosher certification is a commercial credential that the establishment voluntarily seeks and publicly displays. The certification body's register is typically public.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g. `halalfoodauthority.com` or `kosher.org.uk`) and the current certification status.
 
@@ -130,15 +145,15 @@ Shows the issuer domain (e.g. `halalfoodauthority.com` or `kosher.org.uk`) and t
 - **Superseded** — A newer certificate has been issued (e.g. after renewal or scope change).
 - **404** — No such certificate was issued by this certification body.
 
-## Second-Party Use
+## Who Holds It
 
-The **restaurant or food producer** benefits from verification.
+The restaurant or food producer benefits from verification.
 
 **Proving certification to observant consumers:** An establishment that holds a genuine certificate currently relies on a logo — which any establishment can copy. A verifiable claim provides evidence, not assertion. For consumers making decisions based on religious obligation, this distinction matters.
 
 **Distinguishing genuine certification from imitation:** Multiple certification bodies exist, with varying levels of recognition within different communities. A verifiable claim makes the certifying body explicit and checkable, allowing consumers to confirm that the certification comes from an authority they trust.
 
-## Third-Party Use
+## Who Checks It
 
 **Observant Consumers**
 
@@ -152,24 +167,7 @@ The **restaurant or food producer** benefits from verification.
 
 **Protecting the integrity of certification:** Bodies such as the HFA, HMC, KLBD, OU, and IFANCA invest significant effort in inspection and compliance. Fraudulent use of their logos undermines their authority and the trust that communities place in them. Verifiable claims give these bodies a mechanism to make their certifications checkable without requiring consumers to visit the certification body's website separately.
 
-## Verification Architecture
-
-**The "Copyable Logo" Problem**
-
-- **Logos prove nothing:** A halal or kosher logo on a website is an image file. It can be right-clicked and saved by anyone. There is no link between the logo and the certification body's records.
-- **No consumer verification path:** A consumer seeing a kosher symbol on a delivery platform has no practical way to check whether the certification is current, without leaving the platform and searching the certification body's website.
-- **Certification scope is invisible:** A logo does not communicate scope. A restaurant certified for specific products may display the logo as though it covers the entire menu.
-- **Expiry is invisible:** Logos do not expire. A certificate may lapse while the logo remains on the website indefinitely.
-
-The verifiable claim addresses these because:
-
-1. The certification body issues the claim — it is not self-asserted by the establishment
-2. The claim text names the establishment, the certifying body, and the certificate number
-3. The certification scope and level are part of the verifiable text
-4. Expiry and revocation are reflected immediately at the verification endpoint
-5. The `allowedDomains` list prevents the claim from being repurposed on unauthorized sites
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Logo on Website | Certification Body Website | Paper Certificate |
 | :--- | :--- | :--- | :--- | :--- |

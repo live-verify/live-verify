@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is a Registrar Residency Letter?
 
-A **Verification of Residency & Enrollment** is an official letter from a university registrar proving two critical facts:
+A Verification of Residency & Enrollment is an official letter from a university registrar proving two critical facts:
 1.  **Enrollment:** The student is currently taking classes (Full-Time/Part-Time).
 2.  **Residency:** The student is legally a resident of the state (qualifying them for "In-State" tuition rates).
 
-These letters are the "Benefit Unlockers" of the student world. They are used to qualify for **In-State Tuition** (saving $20,000+ per year), to remain on a parent's **Health Insurance**, and to secure **Student Visas**. Fraud is high-stakes: parents often "edit" a letter to claim in-state status for a different state, or students forge enrollment to stay on insurance while they aren't actually in school. Verified hashes bind the **Student ID, Residency Status, and Effective Dates** to the university registrar's domain (e.g., `berkeley.edu` or `ox.ac.uk`).
+These letters are the "Benefit Unlockers" of the student world. They are used to qualify for In-State Tuition (saving $20,000+ per year), to remain on a parent's Health Insurance, and to secure Student Visas. Fraud is high-stakes: parents often "edit" a letter to claim in-state status for a different state, or students forge enrollment to stay on insurance while they aren't actually in school. Verified hashes bind the Student ID, Residency Status, and Effective Dates to the university registrar's domain (e.g., `berkeley.edu` or `ox.ac.uk`).
 
 <div style="max-width: 650px; margin: 24px auto; font-family: 'Times New Roman', Times, serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #003366; padding-bottom: 20px; margin-bottom: 30px;">
@@ -53,7 +53,13 @@ These letters are the "Benefit Unlockers" of the student world. They are used to
   </div>
 </div>
 
-## Data Verified
+## The Problem: Residency Ringer Fraud
+
+- **Tuition Evasion:** Editing a "Non-Resident" letter to read "Resident" to save $20,000 in tuition fees.
+- **Enrollment Padding:** Changing a "6-unit" (Part-Time) enrollment to "12-units" (Full-Time) to keep a visa or insurance.
+- **Date Stretching:** Using a 2024 enrollment letter for a 2026 benefit claim.
+
+## What Is Checked
 
 Student name, Student ID, academic level (e.g., Freshman/Graduate), enrollment status (Full/Part Time), specific unit count, legal residency classification (In-State/Out-of-State), academic term (start/end dates), expected graduation date, registrar name/ID.
 
@@ -63,25 +69,25 @@ Student name, Student ID, academic level (e.g., Freshman/Graduate), enrollment s
 - **Good Standing Letter:** Proving academic integrity.
 - **Intent to Graduate:** (Linked hash) for early job applications.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`berkeley.edu`, `utexas.edu`, `nyu.edu`) and the student's standing.
 
 **Status Indications:**
 - **Verified / Enrolled** — Student is currently attending classes as stated.
 - **Residency Confirmed** — The "In-State" status matches the university's legal audit.
-- **Withdrawn** — **ALERT:** The student has dropped all classes since issuance.
-- **Academic Leave** — **ALERT:** Student is in good standing but not currently enrolled.
+- **Withdrawn** — The student has dropped all classes since issuance.
+- **Academic Leave** — Student is in good standing but not currently enrolled.
 
-## Second-Party Use
+## Who Holds It
 
-The **Student (Subject)** benefits from verification.
+The Student (Subject) benefits from verification.
 
-**Tuition Savings:** When moving between state-university systems, the student provide the verified hash of their "Residency Status." The new university can instantly see **"VERIFIED CALIFORNIA RESIDENT"** on their phone, allowing them to grant the lower tuition rate without a 3-month manual paper-audit.
+**Tuition Savings:** When moving between state-university systems, the student provide the verified hash of their "Residency Status." The new university can instantly see "VERIFIED CALIFORNIA RESIDENT" on their phone, allowing them to grant the lower tuition rate without a 3-month manual paper-audit.
 
 **Insurance Coverage:** Proving to a parent's health insurer that they are a "Full-Time Student" to remain on the family plan until age 26. Verified hashes eliminate the "Insurance Audit" friction where students are dropped from plans due to un-readable paper letters.
 
-## Third-Party Use
+## Who Checks It
 
 **Health Insurance Carriers**
 **Eligibility Vetting:** Instead of manually reviewing 50,000 "Enrollment Letters" every September, the carrier's system scans the hashes. Verification ensures the students aren't "Padding" their status to keep coverage illegally.
@@ -92,13 +98,7 @@ The **Student (Subject)** benefits from verification.
 **Student Discount Platforms (UNiDAYS / ID.me)**
 **Identity Verification:** Instantly verifying student status for high-value discounts (e.g., 50% off laptops or software).
 
-## Verification Architecture
-
-**The "Residency Ringer" Fraud Problem**
-
-- **Tuition Evasion:** Editing a "Non-Resident" letter to read "Resident" to save $20,000 in tuition fees.
-- **Enrollment Padding:** Changing a "6-unit" (Part-Time) enrollment to "12-units" (Full-Time) to keep a visa or insurance.
-- **Date Stretching:** Using a 2024 enrollment letter for a 2026 benefit claim.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

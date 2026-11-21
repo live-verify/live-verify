@@ -13,7 +13,7 @@ furtherDerivations: 3
 
 When a plumber fixes your boiler or an electrician rewires your kitchen, you receive a receipt. But in the cash economy, these receipts are often handwritten, unverifiable, or simply don't exist—enabling tax evasion, warranty disputes, and consumer fraud.
 
-A **Verified Trade Service Receipt** is pre-registered with tax authorities *before* the work begins. The customer receives a receipt tied to the tradesperson's tax registration, license number, and insurance policy. If the receipt can't be verified, the customer knows something is wrong.
+A Verified Trade Service Receipt is pre-registered with tax authorities *before* the work begins. The customer receives a receipt tied to the tradesperson's tax registration, license number, and insurance policy. If the receipt can't be verified, the customer knows something is wrong.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
   <span verifiable-text="start" data-for="trade1"></span>TRADE SERVICE RECEIPT<br>
@@ -93,7 +93,15 @@ The key innovation is **pre-registration**: before work begins, the tradesperson
 
 This creates **symmetric incentives**: the customer wants verification (for protections), and the tradesperson must register (to provide verifiable receipts).
 
-## Data Verified
+## The Problem: Cash Economy
+
+- **Tax Evasion:** Tradespeople offering "cash discount, no VAT" avoid tax obligations
+- **Phantom Receipts:** Fake or inflated receipts for insurance fraud
+- **License Fraud:** Unlicensed workers claiming credentials they don't hold
+- **Warranty Dodging:** "That wasn't our work" disputes when things go wrong
+- **Consumer Exploitation:** No paper trail for shoddy work
+
+## What Is Checked
 
 Tradesperson name/business, tax registration number (UTR, ABN, EIN), trade license number, insurance reference, customer address (hashed for privacy), service description, itemized costs, tax amounts, payment method, completion date.
 
@@ -103,15 +111,15 @@ Tradesperson name/business, tax registration number (UTR, ABN, EIN), trade licen
 - **Warranty Card:** Manufacturer warranty registration tied to installer
 - **Quote/Estimate:** Pre-work pricing (verifiable to prevent bait-and-switch)
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`hmrc.gov.uk`, `ato.gov.au`, `irs.gov`) and registration status.
 
 **Status Indications:**
 - **Verified** — Receipt matches pre-registered job, tax reported
 - **Pending** — Job registered, receipt not yet finalized
-- **Mismatch** — **ALERT:** Receipt amount doesn't match registration
-- **Unregistered** — **CRITICAL:** No pre-registration exists for this job reference
+- **Mismatch** — Receipt amount doesn't match registration
+- **Unregistered** — No pre-registration exists for this job reference
 - **Revoked** — Receipt cancelled (e.g., work failed inspection)
 
 ## Customer Incentives
@@ -128,15 +136,15 @@ Why would customers demand verified receipts?
 
 **Small Claims Evidence:** If the work fails and you sue in small claims court, a verified receipt proves: who did the work, when, what was paid, and that they were (or weren't) properly registered.
 
-## Second-Party Use
+## Who Holds It
 
-The **Customer (Homeowner/Business)** benefits from verification.
+The Customer (Homeowner/Business) benefits from verification.
 
 **Dispute Resolution:** If the boiler breaks in month two, the verified receipt proves exactly what was installed, by whom, and what warranty applies.
 
 **Expense Tracking:** For landlords, property managers, and businesses, verified receipts integrate directly into accounting systems with confidence in authenticity.
 
-## Third-Party Use
+## Who Checks It
 
 **Tax Authorities (HMRC, ATO, IRS)**
 **Compliance Enforcement:** Pre-registration creates a real-time audit trail. Cash payments can still be tracked because the job was registered before work began.
@@ -153,15 +161,7 @@ The **Customer (Homeowner/Business)** benefits from verification.
 **Property Surveyors / Inspectors**
 **Due Diligence:** When surveying a property for sale, verified receipts document the history of major works.
 
-## Verification Architecture
-
-**The Cash Economy Problem**
-
-- **Tax Evasion:** Tradespeople offering "cash discount, no VAT" avoid tax obligations
-- **Phantom Receipts:** Fake or inflated receipts for insurance fraud
-- **License Fraud:** Unlicensed workers claiming credentials they don't hold
-- **Warranty Dodging:** "That wasn't our work" disputes when things go wrong
-- **Consumer Exploitation:** No paper trail for shoddy work
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -214,7 +214,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive tax authorities' hashes and status changes plus structured metadata (tradesperson name/business, tax registration number, trade license number, insurance reference, customer address hashed, service description, itemized costs, tax amounts, payment method, completion date) — never plaintext or sensitive personal information — providing non-repudiation of the trade service receipt.
 
 
-## Competition vs. Paper Receipts
+## Compared With Paper Receipts
 
 | Feature | Verified Receipt | Handwritten Receipt | No Receipt |
 | :--- | :--- | :--- | :--- |

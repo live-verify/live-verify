@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a PEP Declaration?
 
-In the banking and wealth management industries, a **Politically Exposed Person (PEP)** is an individual who holds (or has held) a high-profile public position, such as a Minister, Judge, or Senior Military Officer. Because PEPs have access to public funds, they are considered "High Risk" for money laundering and bribery. A **PEP Declaration** is the formal document where a client swears their status.
+In the banking and wealth management industries, a Politically Exposed Person (PEP) is an individual who holds (or has held) a high-profile public position, such as a Minister, Judge, or Senior Military Officer. Because PEPs have access to public funds, they are considered "High Risk" for money laundering and bribery. A PEP Declaration is the formal document where a client swears their status.
 
-These declarations are the "Compliance Shield" for a bank. Fraud is common in the "Private Banking" sector: high-risk individuals often "falsely deny" their PEP status on a PDF form to bypass **Enhanced Due Diligence (EDD)** and hide their wealth from regulators. Verified hashes bind the **Subject Name, Official Role, and Source of Wealth Summary** to the institution's or the compliance agency's domain (e.g., `refinitiv.com` or `privatebank.com`).
+These declarations are the "Compliance Shield" for a bank. Fraud is common in the "Private Banking" sector: high-risk individuals often "falsely deny" their PEP status on a PDF form to bypass Enhanced Due Diligence (EDD) and hide their wealth from regulators. Verified hashes bind the Subject Name, Official Role, and Source of Wealth Summary to the institution's or the compliance agency's domain (e.g., `refinitiv.com` or `privatebank.com`).
 
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #8B0000; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
   <div style="background: #8B0000; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -57,7 +57,13 @@ These declarations are the "Compliance Shield" for a bank. Fraud is common in th
   </div>
 </div>
 
-## Data Verified
+## The Problem: Self-Denial Fraud
+
+- **Status Masking:** Manually editing a "YES" to a "NO" on a PDF declaration to avoid the "High-Risk" label.
+- **Role Omission:** Removing a line that mentions being a "Family Member" of a sanctioned official.
+- **Source-of-Wealth Padding:** Changing "Casino Earnings" to "Family Inheritance" on a PDF before showing it to a second bank.
+
+## What Is Checked
 
 Individual name, date of birth (masked), PEP classification (Yes/No), specific public role/title, country of influence, relationship type (e.g., Self, Family, Close Associate), source of wealth summary, date of declaration, compliance officer ID, institution name.
 
@@ -67,25 +73,25 @@ Individual name, date of birth (masked), PEP classification (Yes/No), specific p
 - **Source of Wealth Attestation:** Proof of where the money originated.
 - **Close Associate Disclosure:** (Linked hash) listing business partners.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`privatebank.com`, `world-check.com`, `dowjones.com`) and the risk standing.
 
 **Status Indications:**
 - **Confirmed / Filed** — The declaration matches the institution's official AML audit trail.
-- **Updated Status** — **ALERT:** The subject's PEP status has changed (e.g., new government appointment).
-- **Under Review** — **ALERT:** The reported source of wealth is being audited by the bank.
-- **Relationship Ended** — **ALERT:** The firm has exited this relationship due to risk.
+- **Updated Status** — The subject's PEP status has changed (e.g., new government appointment).
+- **Under Review** — The reported source of wealth is being audited by the bank.
+- **Relationship Ended** — The firm has exited this relationship due to risk.
 
-## Second-Party Use
+## Who Holds It
 
-The **Client / Declarant** benefits from verification.
+The Client / Declarant benefits from verification.
 
-**Portability of Trust:** When opening a second account at a global bank (e.g., HSBC in London after having an account in New York), the client can provide the verified "PEP Hash" from their first institution. The new bank can instantly see **"VERIFIED PEP - CLEAR SOURCE OF WEALTH"** on their phone, allowing the onboarding to proceed without 3 months of redundant manual investigation.
+**Portability of Trust:** When opening a second account at a global bank (e.g., HSBC in London after having an account in New York), the client can provide the verified "PEP Hash" from their first institution. The new bank can instantly see "VERIFIED PEP - CLEAR SOURCE OF WEALTH" on their phone, allowing the onboarding to proceed without 3 months of redundant manual investigation.
 
 **Liability Defense:** If a client is later accused of "hiding" their status, they can use the verified, timestamped hash to prove they made a full and honest disclosure to the bank years earlier.
 
-## Third-Party Use
+## Who Checks It
 
 **Intermediate Correspondent Banks**
 **Transaction Monitoring:** When a $5M wire moves through a correspondent bank, the bank scans the verified PEP hashes attached to the file. Verification ensures that the "EDD Check" was actually performed by a reputable institution and hasn't been "Faked" to bypass sanctions.
@@ -96,13 +102,7 @@ The **Client / Declarant** benefits from verification.
 **Venture Capital / M&A**
 **Board Vetting:** Verifying the "Political Risk" of a target company's founders or board members before a major acquisition.
 
-## Verification Architecture
-
-**The "Self-Denial" Fraud Problem**
-
-- **Status Masking:** Manually editing a "YES" to a "NO" on a PDF declaration to avoid the "High-Risk" label.
-- **Role Omission:** Removing a line that mentions being a "Family Member" of a sanctioned official.
-- **Source-of-Wealth Padding:** Changing "Casino Earnings" to "Family Inheritance" on a PDF before showing it to a second bank.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

@@ -13,9 +13,9 @@ furtherDerivations: 1
 
 ISO 26262 is the functional-safety standard for road-vehicle electronics. Every safety requirement — from the hazard analysis down to a single line of code in an instrument cluster — must be traceable to the test evidence that proves it was satisfied. A Tier-1 supplier shipping a cluster, an IVI head unit, or an HVAC controller to an OEM hands over not just the part but a **safety case**: the requirements, the static-analysis runs, the bench results, the test-management records, and the narrative that links each requirement to the evidence that closes it.
 
-Assembling that package is where the time goes. A compliance lead recently put real numbers on a release cycle: **187 engineering hours running the tests** (cluster, IVI, HVAC) against **312 hours assembling the ISO 26262 traceability documentation** around those runs. The same 60/40 doc-to-testing ratio held for four cycles, and AI codegen made it worse — more code per release means more evidence to assemble. The tooling is fragmented and none of it generates the compliance package: Polarion for requirements traceability, Polyspace for static analysis, Vector CANoe for bench runs, qTest for test management, in-house Python for aggregation. A human still stitches it together.
+Assembling that package is where the time goes. A compliance lead recently put real numbers on a release cycle: 187 engineering hours running the tests (cluster, IVI, HVAC) against 312 hours assembling the ISO 26262 traceability documentation around those runs. The same 60/40 doc-to-testing ratio held for four cycles, and AI codegen made it worse — more code per release means more evidence to assemble. The tooling is fragmented and none of it generates the compliance package: Polarion for requirements traceability, Polyspace for static analysis, Vector CANoe for bench runs, qTest for test management, in-house Python for aggregation. A human still stitches it together.
 
-**Live Verify does not assemble that package, and this use case does not claim it can.** Authoring the safety case — correlating requirements to tests to results, writing the coverage narrative, closing the gaps — is an ALM/aggregation problem that belongs to Polarion, Codebeamer, qTest and their kin. What Live Verify addresses is the *next* problem: once the package exists, every artifact in it should be **independently verifiable and tamper-evident** — by the OEM at incoming inspection, by a TÜV assessor, by a litigator seven years after a field incident — without a portal login, a shared database, or a sampling shortcut.
+**Live Verify does not assemble that package, and this use case does not claim it can.** Authoring the safety case — correlating requirements to tests to results, writing the coverage narrative, closing the gaps — is an ALM/aggregation problem that belongs to Polarion, Codebeamer, qTest and their kin. What Live Verify addresses is the *next* problem: once the package exists, every artifact in it should be independently verifiable and tamper-evident — by the OEM at incoming inspection, by a TÜV assessor, by a litigator seven years after a field incident — without a portal login, a shared database, or a sampling shortcut.
 
 The unit of verification is the finished evidence artifact. Each test report, Polyspace run summary, CANoe log digest, or the traceability matrix itself carries a verification line bound to the issuer's domain:
 
@@ -44,7 +44,16 @@ for release R4.2.0 and has not been altered since issue.
 <span data-verify-line="iso26262">verify:contitech.com/fusa/v</span> <span verifiable-text="end" data-for="iso26262"></span>
 </div>
 
-## Data Verified
+## The Problem: Scrubbed Evidence
+
+ISO 26262 evidence is high-stakes and editable:
+
+- **Coverage smoothing:** A matrix shows 478/482 requirements traced. Four are open and the ship date is tomorrow. The export is edited to read 482/482. The hash changes; the scrub is detectable.
+- **ASIL downgrade:** Re-labelling an ASIL B item as ASIL A to dodge the stricter evidence burden. The ASIL level is in the bound text.
+- **Orange-finding burial:** A Polyspace report with unresolved orange checks is edited to claim clean resolution. Binding the report content catches it.
+- **Version confusion:** Evidence for R4.1 attached to R4.2 binaries — the most common honest mistake, and the most dangerous. The software-identity artifact binds evidence to a specific baseline.
+
+## What Is Checked
 
 Item/ECU identifier, software release, safety goal and ASIL level, supplier and OEM identity, the coverage counts (requirements traced, static-analysis findings resolved, bench runs executed and passed, test-management run-set), issue date, issuing domain. The verification binds these claims to the Tier-1's domain — a scrubbed coverage count or a downgraded ASIL changes the hash.
 
@@ -56,25 +65,25 @@ Item/ECU identifier, software release, safety goal and ASIL level, supplier and 
 - **Test Management Run Record (qTest):** The execution record tying test cases to results.
 - **Software Configuration Identity:** The exact source baseline (e.g. a Git commit SHA) the evidence pertains to — see Verification Architecture.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuing Tier-1's domain (`contitech.com`, `bosch.com`, `aptiv.com`) and the standing of this evidence release. The endpoint confirms authenticity and currency — it does not echo the coverage figures back, because the verifier already holds the document.
 
 **Status Indications:**
 - **Current** — Evidence matches the supplier's release ledger for this item and software version.
 - **Superseded** — A later evidence release exists (e.g. R4.2.1 after a defect fix). The newer hash is the one to rely on.
-- **Withdrawn** — **ALERT:** The supplier has retracted this evidence (e.g. a post-release field finding invalidated the campaign). Do not rely on it for a safety case.
+- **Withdrawn** — The supplier has retracted this evidence (e.g. a post-release field finding invalidated the campaign). Do not rely on it for a safety case.
 - **Not Found** — No evidence with this identity exists in the supplier's records. Possible forgery or wrong version.
 
-## Second-Party Use
+## Who Holds It
 
-The **OEM** (second party) receives the evidence package from the Tier-1 (first party), **keeps it**, and folds it into the vehicle-level safety case.
+The OEM (second party) receives the evidence package from the Tier-1 (first party), keeps it, and folds it into the vehicle-level safety case.
 
 **Incoming evidence inspection:** The OEM's functional-safety team runs a headless batch verifier over the delivered package before accepting it into the vehicle safety case. Not a sample of five artifacts out of two hundred — *all of them*. Each verifies against the Tier-1's domain as Current, or the package is rejected and returned. This replaces the manual spot-check that today scales badly across dozens of suppliers.
 
 **Re-verification across cycles:** Where the 312-hour cost compounds is in the churn between releases — "is this the matrix you signed off, or the one before the HVAC fix?" A scan answers it: Current vs. Superseded vs. Withdrawn, against the issuer's domain, in seconds. Live Verify does not shrink the *initial* assembly cost; it removes the *re-confirmation* cost that recurs every cycle and every audit.
 
-## Third-Party Use
+## Who Checks It
 
 The OEM (second party) hands the verified package onward:
 
@@ -87,16 +96,7 @@ The OEM (second party) hands the verified package onward:
 **Litigators & Investigators (post-incident)**
 **Liability Tail:** After a field failure, plaintiff and defence experts both need to know which exact evidence release covered the software in the vehicle, and that it hasn't been edited since. The verification record — and, where present, an independent witness timestamp — establishes what was true at release time. This is the same argument as the [2018 software-audit model](https://paulhammant.com/2018/05/30/better-practices-for-audits/): "show me the evidence for this baseline, and prove it hasn't been tampered with."
 
-## Verification Architecture
-
-**The "Scrubbed Evidence" Problem**
-
-ISO 26262 evidence is high-stakes and editable:
-
-- **Coverage smoothing:** A matrix shows 478/482 requirements traced. Four are open and the ship date is tomorrow. The export is edited to read 482/482. The hash changes; the scrub is detectable.
-- **ASIL downgrade:** Re-labelling an ASIL B item as ASIL A to dodge the stricter evidence burden. The ASIL level is in the bound text.
-- **Orange-finding burial:** A Polyspace report with unresolved orange checks is edited to claim clean resolution. Binding the report content catches it.
-- **Version confusion:** Evidence for R4.1 attached to R4.2 binaries — the most common honest mistake, and the most dangerous. The software-identity artifact binds evidence to a specific baseline.
+## How Verification Works Here
 
 **Binding evidence to the code baseline (the Git/Merkle link)**
 
@@ -129,7 +129,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the supplier's hashes and status changes plus structured metadata (item ID, release, ASIL, issue date) — never plaintext such as proprietary coverage data — providing non-repudiation of issuing the safety evidence.
 
-## Competition vs. ALM Suites and Blockchain
+## Compared With ALM Suites and Blockchain
 
 | Feature | Live Verify | ALM Suite (Polarion / Codebeamer / qTest) | Evidence-Chain Blockchain | Hand-Assembled PDF Pack |
 | :--- | :--- | :--- | :--- | :--- |

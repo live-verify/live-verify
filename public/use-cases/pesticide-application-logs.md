@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Pesticide Application Log?
 
-In the agriculture industry, the **Pesticide Application Log** is the mandatory legal record of every chemical sprayed on a crop. It must list the product name, EPA registration number, the concentration used, the exact field location, and the weather conditions at the time of spraying.
+In the agriculture industry, the Pesticide Application Log is the mandatory legal record of every chemical sprayed on a crop. It must list the product name, EPA registration number, the concentration used, the exact field location, and the weather conditions at the time of spraying.
 
-These logs are the "Safety Map" of our food supply. Large retailers (e.g., Whole Foods, Tesco) and export authorities use them to ensure that crops don't contain illegal residues. Fraud is a major concern: a farm might "scrub" its log to hide the use of a banned chemical or to hide that they sprayed too close to a harvest date. Verified hashes bind the **Chemical EPA #, Application Date, and Field ID** to the farm's or the certified applicator's domain (e.g., `sunnyacres.farm` or `ag-applicators.com`).
+These logs are the "Safety Map" of our food supply. Large retailers (e.g., Whole Foods, Tesco) and export authorities use them to ensure that crops don't contain illegal residues. Fraud is a major concern: a farm might "scrub" its log to hide the use of a banned chemical or to hide that they sprayed too close to a harvest date. Verified hashes bind the Chemical EPA #, Application Date, and Field ID to the farm's or the certified applicator's domain (e.g., `sunnyacres.farm` or `ag-applicators.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="pest"></span>PESTICIDE APPLICATION RECORD
@@ -38,7 +38,13 @@ License: #NY-PEST-992288 - Exp: 2027          UNTIL 17 MAR]
 <span data-verify-line="pest">verify:sunnyacres.farm/v</span> <span verifiable-text="end" data-for="pest"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Invisible Chemical Fraud
+
+- **Product Masking:** Writing "Water" or "Vinegar" on a log when actually spraying a prohibited, high-yield pesticide.
+- **Rate Dilution:** Editing a log to show they used 1 gallon per acre when they actually used 5 gallons to save a failing crop.
+- **Date Stretching:** Altering the application date to hide a violation of the "Pre-Harvest Interval" (PHI).
+
+## What Is Checked
 
 Log number, farm name, field/parcel ID, crop type, applicator name/license, chemical product name, EPA registration number, active ingredient percentage, application rate (per acre), total volume applied, weather conditions (wind speed/temp), application date/time, REI (Restricted Entry Interval).
 
@@ -48,28 +54,28 @@ Log number, farm name, field/parcel ID, crop type, applicator name/license, chem
 - **Chemical Inventory Report:** Proving the farm actually purchased the product.
 - **Organic Compliance Audit:** (Linked hash) proving non-synthetic usage.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`sunnyacres.farm`, `ag-audit.com`, `corteva.com`) and the log standing.
 
 **Status Indications:**
 - **Verified / Recorded** — Entry matches the farm's official digital safety ledger.
-- **REI Active** — **CRITICAL:** The field is currently under a "No Entry" safety window.
-- **Banned Substance Alert** — **CRITICAL:** The EPA registration number is for a prohibited chemical.
-- **Amended** — **ALERT:** An error in the application rate was corrected; see update.
+- **REI Active** — The field is currently under a "No Entry" safety window.
+- **Banned Substance Alert** — The EPA registration number is for a prohibited chemical.
+- **Amended** — An error in the application rate was corrected; see update.
 
-## Second-Party Use
+## Who Holds It
 
-The **Farmer / Farm Manager** benefits from verification.
+The Farmer / Farm Manager benefits from verification.
 
 **Supply Chain Transparency:** Before shipping a $100,000 load of apples to a global retailer, the farmer provides the verified hashes of the season's spray logs. "Verified by Sunny Acres" provides the retailer with the cryptographic proof needed to accept the load without waiting for slow lab-residue tests.
 
 **Insurance Liability:** If a neighboring farm claims their bees were killed by "Spray Drift," the farmer can use verified, timestamped logs (including verified wind speed data) to prove they were operating within legal safety windows, defending against massive lawsuits.
 
-## Third-Party Use
+## Who Checks It
 
 **Food Retailers (Quality Control)**
-**Automatic Rejection:** Retailer systems can automatically scan the hashes of incoming shipments. If a log returns **"REI ACTIVE"** (meaning the crop was harvested too soon after spraying), the system rejects the shipment instantly to protect consumer health.
+**Automatic Rejection:** Retailer systems can automatically scan the hashes of incoming shipments. If a log returns "REI ACTIVE" (meaning the crop was harvested too soon after spraying), the system rejects the shipment instantly to protect consumer health.
 
 **Environmental Regulators**
 **Remote Audit:** Instead of driving to 500 farms, an inspector can request verified hashes of all "Atrazine" applications in a watershed. Live Verify ensures the paper records in the farm office match the digital truth reported to the state.
@@ -77,13 +83,7 @@ The **Farmer / Farm Manager** benefits from verification.
 **Workers' Rights Groups**
 **Safety Verification:** Farmworkers can scan the placard at the edge of a field. Verification ensures they aren't being forced to enter a "Red Zone" before the chemical has safely dissipated.
 
-## Verification Architecture
-
-**The "Invisible Chemical" Fraud Problem**
-
-- **Product Masking:** Writing "Water" or "Vinegar" on a log when actually spraying a prohibited, high-yield pesticide.
-- **Rate Dilution:** Editing a log to show they used 1 gallon per acre when they actually used 5 gallons to save a failing crop.
-- **Date Stretching:** Altering the application date to hide a violation of the "Pre-Harvest Interval" (PHI).
+## Who Issues It
 
 **Issuer Types** (First Party)
 

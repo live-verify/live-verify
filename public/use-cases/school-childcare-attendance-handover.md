@@ -51,7 +51,7 @@ A daily attendance record confirming that a specific child was present at a lice
 
 Today these are paper sign-in sheets (easily backdated), provider-controlled app entries (no independent verification), or nothing. The provider submits attendance to the funding body — the parent has no verified counter-record.
 
-The parent or guardian receives **two separate plain-text messages per day** — one at entry, one at exit — each independently verifiable:
+The parent or guardian receives two separate plain-text messages per day — one at entry, one at exit — each independently verifiable:
 
 <div style="max-width: 560px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="background: #e91e63; color: #fff; padding: 14px 20px;">
@@ -174,7 +174,7 @@ A student's daily attendance record at a school — arrival time, any absences, 
 
 Many schools already use NFC for attendance. Students carry an NFC card, fob, or wristband and tap a reader at the gate or classroom door. Some use NFC-enabled school IDs. The tap event logs arrival and departure. This is established infrastructure — Live Verify doesn't replace it.
 
-What's missing is **what happens to the record after the tap**. Today, the NFC event feeds into the school's management system (SIMS, Arbor, Compass, etc.) and the record belongs to the school. The parent sees a summary — if they have a parent portal login — but has no independently verifiable copy. The funding body sees whatever the school reports, not the raw tap data.
+What's missing is what happens to the record after the tap. Today, the NFC event feeds into the school's management system (SIMS, Arbor, Compass, etc.) and the record belongs to the school. The parent sees a summary — if they have a parent portal login — but has no independently verifiable copy. The funding body sees whatever the school reports, not the raw tap data.
 
 Live Verify sits downstream of the NFC tap. The student taps in → the school system generates an attendance record → the record gets a `verify:` line → the parent can verify it → the funding body can verify it → the school can't quietly edit it after the fact. The NFC reader is the input device. The verified attendance record is the output.
 
@@ -250,9 +250,9 @@ Cross-reference: [Adoption Papers and Custody Orders](view.html?doc=adoption-cus
 
 ---
 
-## Second-Party Use
+## Who Holds It
 
-The **parent or guardian** (second party) benefits across all three document types:
+The parent or guardian (second party) benefits across all three document types:
 
 **Own verified record of attendance.** Today, parents trust the childcare provider or school to maintain accurate attendance records. If a dispute arises — "you said my child was here but they weren't" or "you're claiming hours my child didn't attend" — the parent has no independent evidence. Verified attendance records give parents their own cryptographic trail.
 
@@ -262,7 +262,7 @@ The **parent or guardian** (second party) benefits across all three document typ
 
 **The autonomous teenager.** For older students who sign themselves in and out, the attendance record is verified by the student's own device. Parents receive visibility — they can verify the same record — but the student is the primary verifying party. This respects the student's growing autonomy while maintaining the safeguarding trail.
 
-## Third-Party Use
+## Who Checks It
 
 **Childcare Subsidy Agencies**
 Australia's Department of Education (CCS), the US Office of Child Care (CCDF block grants), and the UK's HMRC (Tax-Free Childcare) all pay providers based on attendance. Verified attendance records — bilaterally confirmed by parent and provider — give subsidy agencies an independent check before payment, not a retrospective audit months later.
@@ -279,7 +279,7 @@ Ofsted (UK), state education departments (Australia), and school districts (US) 
 **Insurers**
 Childcare providers carry public liability insurance. In injury claims, the insurer needs to establish whether the child was actually in the provider's care at the time. A verified attendance record with bilateral handover confirmation settles this question.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Attendance Record Problem**
 
@@ -331,7 +331,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the provider's hashes and status changes plus structured metadata (child enrolment ID, room/class, arrival/departure times, caregiver names, hours claimed) — never plaintext like child names or personal details — providing non-repudiation of the attendance record and enabling real-time funding fraud detection and custody evidence trails.
 
-## Competition vs. Existing Solutions
+## Compared With Existing Solutions
 
 | Feature | Live Verify | School/Childcare App | Paper Sign-In Sheet | Funding Body Audit |
 | :--- | :--- | :--- | :--- | :--- |

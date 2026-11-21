@@ -44,7 +44,15 @@ You can't. Not really. You might show a business card (anyone can print one), pu
 
 **This is different from an employment reference.** A reference is written for a specific third party (a hiring manager, a lender). Proof of employment is a portable credential the employee carries and presents to anyone who asks — immigration officers, landlords, bank account opening staff, consulates, border agents.
 
-## Data Verified
+## The Problem: Fake Employment Letter
+
+- **Letterhead forgery** — Anyone with a color printer can produce convincing company letterhead. Logos and signatures are trivially copied.
+- **Shell company fraud** — Fake companies issue real-looking employment letters. The authority chain (employer → tax authority) exposes this: a company not registered with HMRC/IRS cannot produce a valid secondary verification.
+- **Stale letters** — Employee was terminated last month but still carries the letter from three months ago. The verification endpoint returns NOT_EMPLOYED or EXPIRED.
+- **Title inflation** — "I'm the CFO" when they're actually a junior accountant. The verification response confirms the actual title on file.
+- **Employment mills** — Services that sell fake employment letters (analogous to diploma mills). The authority chain breaks this: an employment mill's domain won't have a secondary verification from HMRC/IRS.
+
+## What Is Checked
 
 Employee name, job title, employer name, employment start date, employment status (active/inactive), employment type (full-time/part-time/contract), work location (country/city), date of issuance.
 
@@ -70,7 +78,7 @@ The endpoint returns current employment status:
 
 **Pattern:** Regulated
 
-The employer is a registered entity with the tax authority, which chains to the government root. That chain helps the verifier assess whether the employer is a real organization operating inside a recognized legal framework. It does **not** by itself prove the employment claim; the employer endpoint still carries that attestation.
+The employer is a registered entity with the tax authority, which chains to the government root. That chain helps the verifier assess whether the employer is a real organization operating inside a recognized legal framework. It does not by itself prove the employment claim; the employer endpoint still carries that attestation.
 
 UK employment (employer → HMRC → gov.uk):
 
@@ -93,7 +101,7 @@ US employment (employer → IRS → usa.gov):
 2. `hr.hsbc.co.uk` is tied to an employer that operates inside the HMRC framework
 3. HMRC is a statutory tax authority (gov.uk root)
 
-**What the absence of a chain means:** If `hr.acme-corp.example.com` confirms employment but has no `authorizedBy` link, the claim is self-attested only. That does **not** make it false; it just means the verifier lacks the extra context that the issuer sits within a recognized regulatory or tax-registration chain.
+**What the absence of a chain means:** If `hr.acme-corp.example.com` confirms employment but has no `authorizedBy` link, the claim is self-attested only. That does not make it false; it just means the verifier lacks the extra context that the issuer sits within a recognized regulatory or tax-registration chain.
 
 ### Other Employment Chain Examples
 
@@ -116,9 +124,9 @@ US employment (employer → IRS → usa.gov):
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Second-Party Use
+## Who Holds It
 
-The **employee** is the primary beneficiary and carrier of the document.
+The employee is the primary beneficiary and carrier of the document.
 
 **Immigration and border control:** The most time-critical scenario. "What do you do?" at the immigration counter becomes a 5-second verification instead of a verbal interrogation. Particularly valuable for frequent business travelers, employees on work visas, and anyone whose immigration status depends on continued employment.
 
@@ -130,7 +138,7 @@ The **employee** is the primary beneficiary and carrier of the document.
 
 **School enrollment for dependents:** International school applications for employees on overseas assignments. The school needs proof of the parent's employment to confirm the family's legitimate presence.
 
-## Third-Party Use
+## Who Checks It
 
 **Immigration Authorities**
 
@@ -152,15 +160,7 @@ The **employee** is the primary beneficiary and carrier of the document.
 
 **Dual employment verification:** In regulated industries (banking, law, government), employees may need to disclose secondary employment. A proof-of-employment letter from the second employer, verified with authority chain, provides auditable evidence.
 
-## Verification Architecture
-
-**The Fake Employment Letter Problem**
-
-- **Letterhead forgery** — Anyone with a color printer can produce convincing company letterhead. Logos and signatures are trivially copied.
-- **Shell company fraud** — Fake companies issue real-looking employment letters. The authority chain (employer → tax authority) exposes this: a company not registered with HMRC/IRS cannot produce a valid secondary verification.
-- **Stale letters** — Employee was terminated last month but still carries the letter from three months ago. The verification endpoint returns NOT_EMPLOYED or EXPIRED.
-- **Title inflation** — "I'm the CFO" when they're actually a junior accountant. The verification response confirms the actual title on file.
-- **Employment mills** — Services that sell fake employment letters (analogous to diploma mills). The authority chain breaks this: an employment mill's domain won't have a secondary verification from HMRC/IRS.
+## How Verification Works Here
 
 **Why This Differs from Employment References**
 
@@ -177,7 +177,7 @@ The **employee** is the primary beneficiary and carrier of the document.
 
 Moderate sensitivity. The employment claim includes the employee's name and employer — not highly secret (it's on LinkedIn), but the verification endpoint should include a salt to prevent enumeration of who works at a given company. Without the salt, an attacker who knows that `hr.hsbc.co.uk` is the endpoint could try common names to discover HSBC employees.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | HR Phone Call | LinkedIn | Company Badge |
 | :--- | :--- | :--- | :--- | :--- |

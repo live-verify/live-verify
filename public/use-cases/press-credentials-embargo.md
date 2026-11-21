@@ -13,11 +13,11 @@ furtherDerivations: 2
 
 Two things in journalism routinely need to be taken on trust by a gatekeeper, and both are trivially forgeable today.
 
-The first is a **press credential**. A reporter, photographer, or stringer presents a card — issued by a press regulator, a press card authority, or their own newsroom — at a checkpoint, a protest line, a polling station, an event entrance, or a cordon. The person controlling access is expected to decide, in seconds, whether this is genuinely accredited press. The card is laminated plastic. It shows the holder's status *at the time of printing*, not today. Credentials get suspended, revoked, or lapse, and the plastic never updates. Fake press cards are cheap and convincing.
+The first is a press credential. A reporter, photographer, or stringer presents a card — issued by a press regulator, a press card authority, or their own newsroom — at a checkpoint, a protest line, a polling station, an event entrance, or a cordon. The person controlling access is expected to decide, in seconds, whether this is genuinely accredited press. The card is laminated plastic. It shows the holder's status *at the time of printing*, not today. Credentials get suspended, revoked, or lapse, and the plastic never updates. Fake press cards are cheap and convincing.
 
-The second is an **embargo**. A comms office, government press office, or PR wire sends out a press release or briefing marked "under embargo until [time]." Recipient journalists are trusted to hold the story until then. But the recipient has no independent way to confirm that the release genuinely came from the issuer, that the embargo time is the one the issuer actually set, or whether the embargo has since been lifted or broken. A spoofed "embargoed exclusive" — or a forged early "the embargo is lifted, publish now" — can manipulate a newsroom.
+The second is an embargo. A comms office, government press office, or PR wire sends out a press release or briefing marked "under embargo until [time]." Recipient journalists are trusted to hold the story until then. But the recipient has no independent way to confirm that the release genuinely came from the issuer, that the embargo time is the one the issuer actually set, or whether the embargo has since been lifted or broken. A spoofed "embargoed exclusive" — or a forged early "the embargo is lifted, publish now" — can manipulate a newsroom.
 
-**Be clear about scope.** Live Verify here authenticates the **credential** and the **release/embargo terms**. It does **not** protect journalistic sources — confidential source protection is a different problem with different tooling (secure drops, legal privilege, operational security). Nothing in this use case touches who a journalist talked to. It answers narrower questions: *is this person accredited press right now?* and *is this embargoed release genuine and still under embargo?*
+**Be clear about scope.** Live Verify here authenticates the credential and the release/embargo terms. It does not protect journalistic sources — confidential source protection is a different problem with different tooling (secure drops, legal privilege, operational security). Nothing in this use case touches who a journalist talked to. It answers narrower questions: *is this person accredited press right now?* and *is this embargoed release genuine and still under embargo?*
 
 This is complementary to existing press-card schemes (national press card authorities, government accreditation, newsroom-issued IDs) and to embargo conventions — it makes the cards and the releases they already issue verifiable at the point of encounter, not a replacement for any of them.
 
@@ -25,13 +25,13 @@ This is complementary to existing press-card schemes (national press card author
 
 ### Sub-case 1: Press Credential
 
-A press body or newsroom issues a credential bound to its domain. A gatekeeper — police officer at a cordon, election official at a polling station, security at a venue — scans it and gets a live status from the issuing body. The card returns **accredited** or **suspended/revoked** as it is *right now*, not as it was when printed.
+A press body or newsroom issues a credential bound to its domain. A gatekeeper — police officer at a cordon, election official at a polling station, security at a venue — scans it and gets a live status from the issuing body. The card returns accredited or suspended/revoked as it is *right now*, not as it was when printed.
 
-There is a real **power-asymmetry** angle here, handled lightly. A stringer at a hostile checkpoint, or a freelancer facing a security cordon, is in a weak position: they are being asked to justify their presence to someone who can deny access or detain. A credential that resolves instantly to a recognised press body's domain lets the journalist prove accreditation without relying on the gatekeeper recognising an obscure card layout — and lets the gatekeeper distinguish genuine press from someone using a fake card as cover.
+There is a real power-asymmetry angle here, handled lightly. A stringer at a hostile checkpoint, or a freelancer facing a security cordon, is in a weak position: they are being asked to justify their presence to someone who can deny access or detain. A credential that resolves instantly to a recognised press body's domain lets the journalist prove accreditation without relying on the gatekeeper recognising an obscure card layout — and lets the gatekeeper distinguish genuine press from someone using a fake card as cover.
 
 ### Sub-case 2: Embargoed Release
 
-A comms office issues a press release with embargo terms bound to its domain. The recipient journalist or editor scans the release and the issuer confirms it is genuine and returns the embargo status: **EMBARGOED until [time]** or **RELEASED**. This authenticates the document and its terms — it does not stop anyone from breaking an embargo, but it removes the ambiguity a spoofed release exploits.
+A comms office issues a press release with embargo terms bound to its domain. The recipient journalist or editor scans the release and the issuer confirms it is genuine and returns the embargo status: EMBARGOED until [time] or RELEASED. This authenticates the document and its terms — it does not stop anyone from breaking an embargo, but it removes the ambiguity a spoofed release exploits.
 
 ## Example: Press Credential
 
@@ -74,9 +74,9 @@ embargo terms against the issuing comms office:
   <span verifiable-text="end" data-for="embargo"></span>
 </div>
 
-The recipient journalist scans the release. The issuer's comms office confirms the document is genuine and returns the embargo status. Before the embargo time it returns **EMBARGOED**; once the issuer lifts it, the same scan returns **RELEASED**. A forged "publish early" notice that didn't come from the comms office returns **404** — it isn't theirs.
+The recipient journalist scans the release. The issuer's comms office confirms the document is genuine and returns the embargo status. Before the embargo time it returns EMBARGOED; once the issuer lifts it, the same scan returns RELEASED. A forged "publish early" notice that didn't come from the comms office returns 404 — it isn't theirs.
 
-## Data Verified
+## What Is Checked
 
 **Press credential:** holder name, outlet, accreditation body, validity period, issue date, current accreditation status, salt.
 
@@ -88,7 +88,7 @@ The recipient journalist scans the release. The issuer's comms office confirms t
 - **Embargoed Press Release** — a release marked under embargo, distributed to named recipients ahead of a publish time.
 - **Embargoed Briefing Document** — background material shared under embargo (technical reports, financial results, research findings).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 For a press credential, the response shows the issuing body's domain (`press-body.example`) and the holder's current accreditation. For an embargoed release, it shows the comms office domain (`comms-office.example`) and the release's embargo status. The endpoint confirms authenticity and status only — it never echoes the document body or the release contents.
 
@@ -98,11 +98,11 @@ For a press credential, the response shows the issuing body's domain (`press-bod
 - **ACCREDITED** — Press credential is genuine and currently valid for the holder shown.
 - **REVOKED / SUSPENDED** — Credential exists but has been pulled or suspended by the issuing body. Do not treat as valid accreditation. (For credentials.)
 - **EXPIRED** — The credential's validity period has ended, or the release's archive retention has lapsed into an expired state.
-- **404 / Not Found** — No matching record at the issuer's domain. Stated plainly: this credential or release did **not** come from the claimed issuer. Treat a "press card" that 404s as unverified, and an "embargoed exclusive" or "publish-now" notice that 404s as a forgery — it is not the comms office's document.
+- **404 / Not Found** — No matching record at the issuer's domain. Stated plainly: this credential or release did not come from the claimed issuer. Treat a "press card" that 404s as unverified, and an "embargoed exclusive" or "publish-now" notice that 404s as a forgery — it is not the comms office's document.
 
-## Second-Party Use
+## Who Holds It
 
-The **credential holder** (the journalist) and the **release recipient** (the journalist or editor) are the second parties.
+The credential holder (the journalist) and the release recipient (the journalist or editor) are the second parties.
 
 **Journalist, proving accreditation:** A stringer arrives at a cordon and presents their card. The officer scans it; it resolves to the press body's domain and returns ACCREDITED. The journalist proves their standing without arguing about an unfamiliar card design — useful precisely when the encounter is tense and the gatekeeper holds the power to exclude.
 
@@ -110,7 +110,7 @@ The **credential holder** (the journalist) and the **release recipient** (the jo
 
 **Confirming a suspicious release:** A reporter receives a forwarded "exclusive under embargo" with an enticing scoop. A scan returning 404 tells them, plainly, that it never came from the named comms office.
 
-## Third-Party Use
+## Who Checks It
 
 **Checkpoint / Cordon Officers and Event Security**
 **Access control:** The gatekeeper at a protest line, polling station, or venue entrance scans a press card and gets a live ACCREDITED / SUSPENDED status from the issuing body — distinguishing genuine accredited press from someone using a fake card as cover, without needing to recognise every press body's layout.
@@ -124,9 +124,9 @@ The **credential holder** (the journalist) and the **release recipient** (the jo
 **Press Regulators / Accreditation Bodies**
 **Revocation enforcement:** When a body suspends a credential, every subsequent scan reflects it immediately. The credential the journalist carries is only ever as valid as the register says today.
 
-## Verification Architecture
+## How Verification Works Here
 
-**The forgery and ambiguity problem.** Two distinct attacks: a forged or out-of-date **press card** used to gain access (or to impersonate press), and a spoofed or prematurely-"lifted" **embargoed release** used to manipulate a newsroom into publishing the wrong thing at the wrong time. Both exploit the same gap — the gatekeeper or recipient has no live link back to the issuer.
+**The forgery and ambiguity problem.** Two distinct attacks: a forged or out-of-date press card used to gain access (or to impersonate press), and a spoofed or prematurely-"lifted" embargoed release used to manipulate a newsroom into publishing the wrong thing at the wrong time. Both exploit the same gap — the gatekeeper or recipient has no live link back to the issuer.
 
 **Issuer Types (First Party)**
 
