@@ -226,9 +226,10 @@
         }
 
         /* ---- Audience doors ---- */
+        .card p + p { margin-top: 10px; }
         .door-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 14px;
             margin: 22px 0 10px;
         }
@@ -596,18 +597,16 @@ on 4 May 2025 in a chip time of 1:47:32.
         <div class="card" id="forgeryIsFree">
             <h2>Forgery is now free</h2>
             <p>
-                Until recently, a convincing forged certificate took skill, software, and nerve. Today anyone can ask
-                a chatbot for a pixel-perfect insurance certificate, bank statement, employment letter, or test
-                report &mdash; correct letterhead, plausible reference numbers, clean typography &mdash; in under a minute,
-                at zero cost. <strong>Every control that relies on a document <em>looking</em> right is already
-                obsolete.</strong>
+                A convincing forged certificate used to take skill, software and nerve. Today anyone can ask a
+                chatbot for an insurance certificate, bank statement, employment letter or test report, with the
+                right letterhead and plausible reference numbers, in under a minute.
+                <strong>Every control that relies on a document <em>looking</em> right is already obsolete.</strong>
             </p>
             <p>
-                Detection is an arms race that defenders lose: each generation of fakes is trained against the last
-                generation of detectors. Attestation doesn't play that game. A document either hashes to a value the
-                issuer's own domain stands behind right now, or it doesn't &mdash; and no improvement in generative
-                models changes that arithmetic. The organizations that adopt issuer-side verification early aren't
-                taking a bet on a trend; they're exiting an arms race they can't win.
+                Spotting fakes is an arms race the defenders lose, because each generation of fakes is trained
+                against the last generation of detectors. Asking the issuer is a different game. Either the
+                issuer's own domain stands behind this exact text right now, or it doesn't, and no improvement
+                in image generation changes that.
             </p>
         </div>
 
@@ -723,7 +722,7 @@ on 4 May 2025 in a chip time of 1:47:32.
                     </span>
                 </button>
                 <button type="button" class="intro-video" data-yt="EUI27wJnAQM" aria-label="Play: The Threshold Problem">
-                    <span class="iv-thumb" style="background-image: url('https://i.ytimg.com/vi/EUI27wJnAQM/hqdefault.jpg');"><span class="iv-play" aria-hidden="true"></span></span>
+                    <span class="iv-thumb" style="background-image: url('https://i.ytimg.com/vi/EUI27wJnAQM/hq1.jpg');"><span class="iv-play" aria-hidden="true"></span></span>
                     <span class="iv-meta">
                         <span class="iv-title">The Threshold Problem</span>
                         <span class="iv-sub">Midnight at the door &mdash; is this really a police officer? A badge you can check on the spot, and that a photograph of it can't reuse.</span>
@@ -745,15 +744,13 @@ on 4 May 2025 in a chip time of 1:47:32.
         <!-- Adoption-risk answer: the standard doesn't depend on its author continuing -->
         <div class="card" id="outlivesAuthor">
             <h2>Does this depend on one person sticking around?</h2>
-            <p>No &mdash; by design. It's an open standard (Apache&nbsp;2.0), publicly disclosed as
-                <a href="https://github.com/live-verify/live-verify/blob/main/docs/no-patents-declaration.md">unpatentable prior art</a>,
-                with no trademark to capture. Every verification endpoint is a static file on the <em>issuer's</em> own
-                domain, not on any infrastructure this project runs. If the project stopped tomorrow, every deployed
-                endpoint keeps answering, and anyone can carry the spec forward. That's the opposite of the usual
-                &ldquo;what if the vendor disappears?&rdquo; risk.</p>
-            <p>The flip side of being unpatentable: there's no exclusivity to sell, and no licence fees to collect &mdash;
-                so there's no obvious way for the work to fund itself. If you find this useful and can help support it
-                somehow, that would be genuinely appreciated. <a href="mailto:paul@hammant.org">Get in touch</a>.</p>
+            <p>No, by design. It is an open standard (Apache&nbsp;2.0), publicly disclosed as
+                <a href="https://github.com/live-verify/live-verify/blob/main/docs/no-patents-declaration.md">unpatentable prior art</a>.
+                Every verification endpoint is a static file on the <em>issuer's</em> own domain, so if this
+                project stopped tomorrow, every deployed endpoint would keep answering and anyone could carry
+                the standard forward.</p>
+            <p>The flip side: with nothing to license, the work has no obvious way to fund itself. If you can
+                help support it, <a href="mailto:paul@hammant.org">get in touch</a>.</p>
         </div>
 
         <div class="site-foot">
