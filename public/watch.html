@@ -1,0 +1,752 @@
+<!--
+    Copyright (C) 2025, Paul Hammant
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch It Work - Live Verify</title>
+    <style>
+        :root {
+            --bg: #f6f8fb;
+            --bg-grad-top: #eef2f9;
+            --surface: #ffffff;
+            --ink: #0f172a;
+            --ink-soft: #475569;
+            --ink-faint: #64748b;
+            --line: #e2e8f0;
+            --accent: #2563eb;
+            --accent-dark: #1d4ed8;
+            --accent-soft: #eff4ff;
+            --accent-ring: rgba(37, 99, 235, 0.18);
+            --dark-surface: #0f1b33;
+            --dark-surface-2: #162444;
+            --radius: 16px;
+            --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.08);
+            --shadow-md: 0 6px 18px rgba(15, 23, 42, 0.08);
+            --shadow-lg: 0 18px 40px rgba(37, 99, 235, 0.18);
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            background-image: radial-gradient(1200px 500px at 50% -120px, var(--bg-grad-top) 0%, var(--bg) 70%);
+            min-height: 100vh;
+            padding: 28px 20px 56px;
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: clamp(2em, 5vw, 2.9em);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.08;
+            margin-bottom: 12px;
+            color: var(--ink);
+        }
+        .subhead {
+            font-size: clamp(1.15em, 2.6vw, 1.5em);
+            font-weight: 650;
+            letter-spacing: -0.01em;
+            line-height: 1.25;
+            color: var(--accent-dark);
+            margin: 2px 0 12px;
+        }
+        .lede {
+            font-size: 1.12em;
+            line-height: 1.6;
+            color: var(--ink-soft);
+            max-width: 60ch;
+            margin-bottom: 8px;
+        }
+        h2, .card h2 {
+            font-size: 1.32em;
+            font-weight: 750;
+            letter-spacing: -0.01em;
+            margin-bottom: 12px;
+            color: var(--ink);
+        }
+        .card h3 {
+            color: var(--ink-soft) !important;
+        }
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 26px 28px;
+            margin: 18px 0;
+            box-shadow: var(--shadow-sm);
+        }
+        .card p, .card li {
+            line-height: 1.72;
+            color: var(--ink-soft);
+        }
+        /* Cap prose to a comfortable measure even as the column widens;
+           wide elements (diagram, SVGs, category grid, screenshots) opt out below. */
+        .card > p, .card > ul {
+            max-width: 72ch;
+        }
+        /* The featured lead sections are callouts, not body prose — let them fill the column. */
+        .story-card > p,
+        #forgeryIsFree > p,
+        #globalSystem > p {
+            max-width: none;
+        }
+        .card ul {
+            margin: 12px 0 0 18px;
+        }
+        .card li {
+            margin-bottom: 8px;
+        }
+        .card li strong, .card p strong {
+            color: var(--ink);
+        }
+        a {
+            color: var(--accent);
+        }
+        code {
+            font-family: var(--mono);
+            font-size: 0.88em;
+            background: var(--accent-soft);
+            color: var(--accent-dark);
+            padding: 0.12em 0.4em;
+            border-radius: 6px;
+            border: 1px solid #e3ebfb;
+        }
+
+        /* ---- Dark cards (roadmap SVGs + screenshots assume white-on-dark) ---- */
+        .card.dark {
+            background: var(--dark-surface);
+            border-color: rgba(255, 255, 255, 0.10);
+            color: #e6edf8;
+            box-shadow: var(--shadow-md);
+        }
+        .card.dark h2, .card.dark h3, .card.dark h4 { color: #fff !important; }
+        .card.dark p, .card.dark li { color: rgba(230, 237, 248, 0.86); }
+        .card.dark code {
+            background: rgba(255,255,255,0.08);
+            color: #cfe0ff;
+            border-color: rgba(255,255,255,0.12);
+        }
+
+        /* ---- Story card ---- */
+        .story-card { border-left: 4px solid var(--accent); }
+
+        /* ---- Live in-page demo ---- */
+        .demo-card { border-left: 4px solid #16a34a; }
+        .demo-doc {
+            font-family: var(--mono);
+            font-size: 0.92em;
+            line-height: 1.7;
+            white-space: pre-wrap;
+            word-break: break-word;
+            background: #f8fafc;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin-top: 14px;
+            color: var(--ink);
+        }
+        .demo-doc:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-ring);
+        }
+        .demo-vline { color: var(--accent-dark); font-weight: 700; }
+        .demo-controls { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+        .demo-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            border: 1px solid transparent;
+            padding: 12px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.98em;
+            font-family: var(--font);
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.15s ease, background 0.15s ease;
+        }
+        .demo-btn:hover { transform: translateY(-2px); background: var(--accent-dark); }
+        .demo-btn.secondary {
+            background: var(--surface);
+            color: var(--accent);
+            border-color: var(--line);
+        }
+        .demo-btn.secondary:hover { background: var(--accent-soft); color: var(--accent-dark); }
+        .demo-btn:disabled { opacity: 0.6; cursor: default; transform: none; }
+        .demo-btn[hidden] { display: none; }
+        .demo-result {
+            margin-top: 14px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            font-weight: 650;
+            line-height: 1.55;
+            border: 1px solid transparent;
+        }
+        .demo-result .demo-result-detail { display: block; font-weight: 400; font-size: 0.9em; margin-top: 4px; }
+        .demo-result .demo-hash { font-family: var(--mono); font-size: 0.82em; word-break: break-all; opacity: 0.85; }
+        /* No is-verified / is-failed here on purpose: this page does not render verdicts.
+           It computes the address and hands it over; the issuer's domain answers. */
+        .demo-result.is-lookup { background: var(--accent-soft); border-color: #e3ebfb; color: var(--accent-dark); }
+        .demo-result.is-error { background: #fffbeb; border-color: #fde68a; color: #78350f; }
+        .demo-result .demo-url {
+            display: block; font-family: var(--mono); font-size: 0.86em;
+            word-break: break-all; margin-top: 6px; font-weight: 600;
+        }
+        .demo-note {
+            font-size: 0.92em; color: var(--ink-soft); line-height: 1.55;
+            border-left: 3px solid var(--line); padding-left: 12px; margin: 10px 0 4px;
+        }
+
+        /* ---- Audience doors ---- */
+        .door-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+            margin: 22px 0 10px;
+        }
+        .door {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 20px 22px;
+            text-decoration: none;
+            color: var(--ink);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+        }
+        .door:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-ring);
+        }
+        .door-kicker {
+            font-weight: 800;
+            font-size: 1.05em;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+        }
+        .door-desc {
+            font-size: 0.9em;
+            line-height: 1.55;
+            color: var(--ink-soft);
+            flex: 1;
+        }
+        .door-go {
+            font-weight: 700;
+            font-size: 0.92em;
+            color: var(--accent);
+        }
+
+        /* ---- Hero CTAs ---- */
+        .cta-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
+            margin: 22px 0 8px;
+        }
+        .cta {
+            display: block;
+            width: 100%;
+            background: var(--accent);
+            color: #fff;
+            padding: 14px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.98em;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+            text-align: center;
+            white-space: normal;
+            line-height: 1.2;
+        }
+        .cta:hover {
+            transform: translateY(-2px);
+            background: var(--accent-dark);
+            box-shadow: var(--shadow-lg);
+        }
+        .cta.secondary {
+            background: var(--surface);
+            color: var(--accent);
+            border: 1px solid var(--line);
+        }
+        .cta.secondary:hover {
+            background: var(--accent-soft);
+            color: var(--accent-dark);
+        }
+        .note {
+            font-size: 0.96em;
+            line-height: 1.65;
+            color: var(--ink-soft);
+            margin-top: 12px;
+            background: var(--accent-soft);
+            border: 1px solid #e3ebfb;
+            border-left: 3px solid var(--accent);
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+        .card.dark .note {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.12);
+            border-left-color: #6ea8ff;
+            color: rgba(230,237,248,0.9);
+        }
+        .breadcrumbs {
+            font-size: 0.85em;
+            color: var(--ink-faint);
+            margin-bottom: 18px;
+        }
+        .breadcrumbs a { color: var(--ink-faint); text-decoration: none; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .breadcrumbs .sep { margin: 0 8px; opacity: 0.6; }
+        .story-nav {
+            display: flex; flex-wrap: wrap; gap: 10px;
+            justify-content: center; margin-bottom: 24px;
+        }
+        .story-nav a {
+            color: var(--accent); text-decoration: none;
+            padding: 8px 14px; border-radius: 999px;
+            border: 1px solid var(--line); font-size: 0.9em;
+            transition: background 0.2s, color 0.2s;
+        }
+        .story-nav a:hover { background: var(--accent-soft); }
+        .story-grid { display: flex; flex-direction: column; gap: 20px; margin-top: 24px; }
+        .user-list { list-style: none; padding: 0; margin: 12px 0 0 0; display: flex; flex-direction: column; gap: 8px; }
+        .user-list li::before { content: "•"; margin-right: 6px; color: var(--accent); }
+
+        /* ---- How-it-works diagram ---- */
+        .diagram {
+            display: flex;
+            gap: 14px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .diagram-step {
+            flex: 1 1 180px;
+            min-width: 180px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            background: var(--accent-soft);
+            border: 1px solid #e3ebfb;
+            padding: 14px 16px;
+            border-radius: 12px;
+            color: var(--ink-soft);
+        }
+        .diagram-step strong { color: var(--ink); }
+        .step-number {
+            width: 38px;
+            height: 38px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.95em;
+            background: var(--accent);
+            color: #fff;
+        }
+        .scenario-videos { margin-top: 6px; font-size: 0.82em; line-height: 1.6; color: rgba(230,237,248,0.65); }
+        .scenario-videos a { color: #aecbff; text-decoration: underline; text-decoration-color: rgba(174,203,255,0.4); }
+        .scenario-videos a:hover { text-decoration-color: #aecbff; }
+        .scenario-videos .video-duration { opacity: 0.75; }
+
+        /* ---- Intro-video launchpad (animated explainers, open in an in-page lightbox) ---- */
+        .intro-videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 14px 0 8px; }
+        .intro-video {
+            display: block; text-align: left; cursor: pointer; color: inherit;
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px; padding: 0; overflow: hidden; font: inherit;
+            transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease; width: 100%;
+        }
+        .intro-video:hover { transform: translateY(-2px); border-color: var(--accent-ring); box-shadow: var(--shadow-md); }
+        .intro-video .iv-thumb {
+            position: relative; aspect-ratio: 16 / 9; background-size: cover; background-position: center;
+            background-color: #0b1730; display: flex; align-items: center; justify-content: center;
+        }
+        .intro-video .iv-play {
+            width: 54px; height: 54px; border-radius: 50%; background: rgba(0,0,0,0.55);
+            border: 2px solid rgba(255,255,255,0.85); display: flex; align-items: center; justify-content: center;
+        }
+        .intro-video .iv-play::after { content: ""; border-style: solid; border-width: 9px 0 9px 15px; border-color: transparent transparent transparent #fff; margin-left: 3px; }
+        .intro-video:hover .iv-play { background: var(--accent); border-color: #fff; }
+        .intro-video .iv-meta { padding: 12px 14px 14px; }
+        .intro-video .iv-title { font-weight: 700; font-size: 0.98em; color: #fff; }
+        .intro-video .iv-sub { font-size: 0.84em; color: rgba(230,237,248,0.7); margin-top: 3px; }
+
+        /* ---- Video lightbox overlay ---- */
+        .video-lightbox {
+            position: fixed; inset: 0; z-index: 1000; display: none;
+            align-items: center; justify-content: center; padding: 24px;
+            background: rgba(6, 12, 26, 0.86);
+        }
+        .video-lightbox[aria-hidden="false"] { display: flex; }
+        .video-lightbox .vl-frame { position: relative; width: min(960px, 100%); aspect-ratio: 16 / 9; }
+        .video-lightbox iframe { width: 100%; height: 100%; border: 0; border-radius: 12px; box-shadow: 0 24px 60px rgba(0,0,0,0.6); background: #000; }
+        .video-lightbox .vl-close {
+            position: absolute; top: -14px; right: -14px; width: 40px; height: 40px; border-radius: 50%;
+            background: #fff; color: #0f172a; border: 0; font-size: 1.4em; line-height: 1; cursor: pointer;
+            box-shadow: var(--shadow-md); display: flex; align-items: center; justify-content: center;
+        }
+        .video-lightbox .vl-close:hover { background: var(--accent); color: #fff; }
+        @media (max-width: 520px) { .video-lightbox .vl-close { top: -48px; right: 0; } }
+
+        /* ---- Use-case category grid ---- */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 16px;
+        }
+        .category-tile {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 13px 15px;
+            text-decoration: none;
+            color: var(--ink);
+            transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 8px;
+        }
+        .category-tile:hover {
+            background: var(--accent-soft);
+            border-color: var(--accent-ring);
+            transform: translateY(-1px);
+        }
+        .category-tile .cat-name { font-size: 0.9em; line-height: 1.3; color: var(--ink-soft); }
+        .category-tile:hover .cat-name { color: var(--accent-dark); }
+        .category-tile .cat-count { font-weight: 800; font-size: 1.05em; color: var(--accent); flex-shrink: 0; }
+        .stats-row { display: flex; gap: 28px; margin-bottom: 14px; flex-wrap: wrap; }
+        .stat { font-size: 1.05em; color: var(--ink-soft); }
+        .stat strong { font-size: 1.7em; font-weight: 800; color: var(--accent); display: block; line-height: 1.1; }
+
+        /* ---- Screenshot strips (live inside .card.dark) ---- */
+        .screenshot-scenario { margin-top: 20px; }
+        .screenshot-scenario h4 { font-size: 0.92em; color: #fff; margin-bottom: 8px; }
+        .screenshot-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .screenshot-strip img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            display: block;
+            cursor: pointer;
+            transition: transform 0.15s ease, border-color 0.15s ease;
+        }
+        .screenshot-strip img:hover { transform: scale(1.02); border-color: rgba(255,255,255,0.4); }
+        .screenshot-strip .caption { font-size: 0.75em; color: rgba(230,237,248,0.6); text-align: center; margin-top: 4px; }
+
+        .site-foot { margin-top: 28px; text-align: center; color: var(--ink-faint); font-size: 0.95em; }
+        .site-foot a { color: var(--accent); text-decoration: none; font-weight: 700; }
+        .site-foot a:hover { text-decoration: underline; }
+
+        @media (max-width: 520px) {
+            body { padding: 20px 14px 40px; }
+            .card { padding: 20px 18px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><span class="sep"> › </span><span>Watch it work</span>
+        </nav>
+        <h1>Watch it work</h1>
+        <p class="lede">Explainer videos, real phones checking real documents, and the browser extension in use.</p>
+
+        <div class="card dark" id="testResults">
+            <h2>Watch it work</h2>
+
+            <h3 style="margin-top: 16px; font-size: 1em; opacity: 0.85;">Start here &mdash; two short explainers</h3>
+            <p style="font-size: 0.92em; opacity: 0.8; margin-top: 4px;">Animated walkthroughs of the two highest-stakes moments. They play here, in the page.</p>
+            <div class="intro-videos">
+                <button type="button" class="intro-video" data-yt="cGRqqKLnxFQ" aria-label="Play: The KYC Counter">
+                    <span class="iv-thumb" style="background-image: url('https://i.ytimg.com/vi/cGRqqKLnxFQ/hqdefault.jpg');"><span class="iv-play" aria-hidden="true"></span></span>
+                    <span class="iv-meta">
+                        <span class="iv-title">The KYC Counter</span>
+                        <span class="iv-sub">A bank official verifies a presented statement &mdash; page-at-a-time, rows and all.</span>
+                    </span>
+                </button>
+                <button type="button" class="intro-video" data-yt="EUI27wJnAQM" aria-label="Play: The Threshold Problem">
+                    <span class="iv-thumb" style="background-image: url('https://i.ytimg.com/vi/EUI27wJnAQM/hqdefault.jpg');"><span class="iv-play" aria-hidden="true"></span></span>
+                    <span class="iv-meta">
+                        <span class="iv-title">The Threshold Problem</span>
+                        <span class="iv-sub">Midnight at the door &mdash; is this really a police officer? A badge you can check on the spot, and that a photograph of it can't reuse.</span>
+                    </span>
+                </button>
+            </div>
+
+            <h3 style="margin-top: 24px; font-size: 1em; opacity: 0.85;">Real documents, real phones</h3>
+
+            <div class="screenshot-scenario">
+                <h4>A real peer reference &mdash; hash live on the referee's own website, today</h4>
+                <div class="scenario-videos">
+                    <a href="https://youtu.be/NfUqKxSZ_V0" target="_blank" rel="noreferrer">Real iPhone</a> <span class="video-duration">0:51</span>
+                    &middot; <a href="https://youtu.be/UpMEKDH42Q4" target="_blank" rel="noreferrer">Real Android</a> <span class="video-duration">0:18</span>
+                </div>
+                <p style="font-size: 0.85em; opacity: 0.85; margin-top: 8px; line-height: 1.6;">
+                    Not a simulation: a professional reference whose hash is published on the issuer's personal
+                    domain, verified end-to-end by pointing a phone at it.
+                </p>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Genuine ID verified, fake ID rejected &mdash; on real hardware</h4>
+                <div class="scenario-videos">
+                    Genuine warrant card:
+                    <a href="https://youtu.be/Ut8GV-KSdNI" target="_blank" rel="noreferrer">Real Android</a> <span class="video-duration">0:30</span>
+                    &middot; <a href="https://youtu.be/MxA3c4AfEQc" target="_blank" rel="noreferrer">Real iPhone</a> <span class="video-duration">0:30</span>
+                    &nbsp;|&nbsp; Fake rejected:
+                    <a href="https://youtu.be/J5aeYZwoipM" target="_blank" rel="noreferrer">Real Android</a> <span class="video-duration">0:22</span>
+                    &middot; <a href="https://youtu.be/pHDVBcjKb6U" target="_blank" rel="noreferrer">Real iPhone</a> <span class="video-duration">0:39</span>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 24px; font-size: 1em; opacity: 0.85;">Simulated authority chains (automated tests)</h3>
+            <p>Screenshots captured by Playwright during automated tests against simulated authority chains in Docker. All organisations and people are fictitious. The Chrome extension is being itself or simulating something built-in to Outlook, Adobe or operating systems.</p>
+
+            <h3 style="margin-top: 16px; font-size: 1em; opacity: 0.85;">Clip mode (browser extension)</h3>
+            <p style="margin-top: 4px;"><a href="https://chromewebstore.google.com/detail/liveverify/idkbbldpklfkcdaocgngonhnjhabpoif" style="color: #aecbff; font-weight: 600;">Install LiveVerify from the Chrome Web Store</a> &mdash; published now, works in Chrome and Edge. (<a href="chrome-extension/" style="color: #aecbff;">about the extension</a>)</p>
+
+            <div class="screenshot-scenario">
+                <h4>Bank statement (James, FDIC/Treasury chain)</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/james-before-verification-page.png" alt="Before: bank statement" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/james-final-page.png" alt="After: verified with authority chain" loading="lazy"><div class="caption">Verified</div></div>
+                    <div><img src="test-results/james-final-popup.png" alt="Extension popup with FDIC chain" loading="lazy"><div class="caption">Authority chain</div></div>
+                </div>
+                <div class="scenario-videos">
+                    <a href="https://youtu.be/3kP2XxUuszU" target="_blank" rel="noreferrer">Video: full verification walkthrough</a> <span class="video-duration">0:26</span>
+                    &middot; <a href="https://youtube.com/shorts/FyWTzZXiZeo" target="_blank" rel="noreferrer">Video: verification failure (domain doesn't exist)</a> <span class="video-duration">0:17</span>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>OFSI sanctions licence (UK gov chain)</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/ofsi-before-verification-page.png" alt="Before: OFSI licence" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/ofsi-final-page.png" alt="After: verified via gov.uk chain" loading="lazy"><div class="caption">Verified</div></div>
+                    <div><img src="test-results/ofsi-final-popup.png" alt="Extension popup with gov.uk chain" loading="lazy"><div class="caption">Authority chain</div></div>
+                </div>
+                <div class="scenario-videos">
+                    <a href="https://youtu.be/PFeJgWtzApg" target="_blank" rel="noreferrer">Video: full verification walkthrough</a> <span class="video-duration">0:30</span>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Pub receipt (Red Lion, HMRC VAT chain)</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/receipt-before.png" alt="Before: pub receipt" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/receipt-final-page.png" alt="After: receipt verified" loading="lazy"><div class="caption">Verified</div></div>
+                    <div><img src="test-results/receipt-final-popup.png" alt="Extension popup with HMRC chain" loading="lazy"><div class="caption">Authority chain</div></div>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Coffee shop receipt (The Daily Grind, HMRC VAT chain)</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/coffee-shop-before.png" alt="Before: coffee shop receipt" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/coffee-shop-final-page.png" alt="After: receipt verified" loading="lazy"><div class="caption">Verified</div></div>
+                    <div><img src="test-results/coffee-shop-final-popup.png" alt="Extension popup with HMRC chain" loading="lazy"><div class="caption">Authority chain</div></div>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Scottish solicitor practising certificate (Law Society &rarr; gov.scot)</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/solicitor-before.png" alt="Before: practising certificate" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/solicitor-final-page.png" alt="After: certificate verified" loading="lazy"><div class="caption">Verified</div></div>
+                    <div><img src="test-results/solicitor-final-popup.png" alt="Extension popup with law society chain" loading="lazy"><div class="caption">Authority chain</div></div>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Scottish solicitors firm registration</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/solicitors-firm-before.png" alt="Before: firm registration" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/solicitors-firm-final-page.png" alt="After: firm verified" loading="lazy"><div class="caption">Verified</div></div>
+                    <div><img src="test-results/solicitors-firm-final-popup.png" alt="Extension popup with firm chain" loading="lazy"><div class="caption">Authority chain</div></div>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Sanctions screening attestation (FCA chain)</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/sanctions-before.png" alt="Before: sanctions screening document" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/sanctions-final-page.png" alt="After: screening verified" loading="lazy"><div class="caption">Verified</div></div>
+                    <div><img src="test-results/sanctions-final-popup.png" alt="Extension popup with FCA chain" loading="lazy"><div class="caption">Authority chain</div></div>
+                </div>
+                <div class="scenario-videos">
+                    <a href="https://youtu.be/V4_q6zhRD3A" target="_blank" rel="noreferrer">Video: full verification walkthrough</a> <span class="video-duration">0:30</span>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Revoked employment reference</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/revoked-reference-before.png" alt="Before: employment reference" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/revoked-reference-final-page.png" alt="After: revoked banner" loading="lazy"><div class="caption">Revoked</div></div>
+                    <div><img src="test-results/revoked-reference-final-popup.png" alt="Extension popup showing revocation" loading="lazy"><div class="caption">Revocation detail</div></div>
+                </div>
+                <div class="scenario-videos">
+                    <a href="https://youtu.be/0bN5RcVkMj4" target="_blank" rel="noreferrer">Video: revocation walkthrough</a> <span class="video-duration">0:30</span>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 24px; font-size: 1em; opacity: 0.85;">Camera mode</h3>
+
+            <div class="screenshot-scenario">
+                <h4>Police ID verified (Gina Dallimore, Midsomer police)</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/gina-before-verification-page.png" alt="Before: police ID document" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/gina-final-page.png" alt="After: verification banner shown" loading="lazy"><div class="caption">Verified</div></div>
+                    <div><img src="test-results/gina-final-popup.png" alt="Extension popup with authority chain" loading="lazy"><div class="caption">Authority chain</div></div>
+                </div>
+                <div class="scenario-videos">
+                    <a href="https://www.youtube.com/watch?v=kbPRq4tdoMM" target="_blank" rel="noreferrer">Video: automated test simulation</a> <span class="video-duration">0:12</span>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Fake police ID rejected (Lex Luthor, NYPD)</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/lex-before-verification-page.png" alt="Before: fake NYPD ID" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/lex-final-page.png" alt="After: not verified banner" loading="lazy"><div class="caption">Not verified</div></div>
+                    <div><img src="test-results/lex-final-popup.png" alt="Extension popup showing failure" loading="lazy"><div class="caption">Hash not found</div></div>
+                </div>
+                <div class="scenario-videos">
+                    <a href="https://youtu.be/OcuH4WLsYe8" target="_blank" rel="noreferrer">Video: automated test simulation</a> <span class="video-duration">0:30</span>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Police ID verified (Gina, Android emulator zoomed in)</h4>
+                <!-- TODO: replace normalized with android-gina-result.png once re-captured with working backend -->
+                <div class="screenshot-strip">
+                    <div><img src="test-results/android-gina-captured.png" alt="Android: captured warrant card" loading="lazy"><div class="caption">Captured</div></div>
+                    <div><img src="test-results/android-gina-extracted.png" alt="Android: OCR extracted text" loading="lazy"><div class="caption">OCR extracted</div></div>
+                    <div><img src="test-results/android-gina-normalized.png" alt="Android: normalized text" loading="lazy"><div class="caption">Normalized</div></div>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Fake police ID rejected (Lex, Android emulator zoomed in)</h4>
+                <div class="screenshot-strip">
+                    <!-- TODO: replace normalized with android-lex-result.png once re-captured with working backend -->
+                    <div><img src="test-results/android-lex-captured.png" alt="Android: captured fake ID" loading="lazy"><div class="caption">Captured</div></div>
+                    <div><img src="test-results/android-lex-extracted.png" alt="Android: OCR extracted text" loading="lazy"><div class="caption">OCR extracted</div></div>
+                    <div><img src="test-results/android-lex-normalized.png" alt="Android: normalized text" loading="lazy"><div class="caption">Normalized</div></div>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Coffee shop receipt OCR (The Daily Grind, Android emulator) &mdash; not yet passing</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/android-coffee-result.png" alt="Android: coffee receipt result" loading="lazy"><div class="caption">Result</div></div>
+                    <div><img src="test-results/android-coffee-extracted.png" alt="Android: OCR extracted text with stitched rows" loading="lazy"><div class="caption">Extracted (stitched)</div></div>
+                    <div><img src="test-results/android-coffee-normalized-1.png" alt="Android: normalized candidate 1" loading="lazy"><div class="caption">Normalized-1</div></div>
+                </div>
+                <p style="font-size: 0.8em; opacity: 0.8; margin-top: 6px; line-height: 1.5;">
+                    Hash lookup fails due to Google ML Kit OCR errors: <code>Henley -on-Thames</code> (spurious space around hyphen),
+                    <code>TOTAL :</code> (space before colon). Row stitching and iterative blank-line candidate search work correctly &mdash;
+                    the remaining gap is OCR character accuracy. Apple Vision on iOS gets these right.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="site-foot">
+            <a href="https://github.com/live-verify/live-verify" target="_blank" rel="noreferrer">Source code &amp; technical documentation on GitHub</a>
+            &middot;
+            <a href="paper/live-verify-paper.pdf" target="_blank" rel="noreferrer">Draft paper (PDF)</a>
+            <p style="margin-top: 10px;">
+                Live Verify is an open standard begun by <a href="https://paulhammant.com" target="_blank" rel="noreferrer">Paul Hammant</a>,
+                prompted by the PPE Medpro / Intertek forgery case.
+                Pilots, integrations, questions: <a href="mailto:paul@hammant.org">paul@hammant.org</a>
+            </p>
+        </div>
+    </div>
+    <script>
+        // Click any screenshot to open full-size in a new tab
+        document.querySelectorAll('.screenshot-strip img').forEach(img => {
+            img.addEventListener('click', () => window.open(img.src, '_blank'));
+        });
+    </script>
+    <!-- In-page video lightbox (for the intro explainer videos) -->
+    <div class="video-lightbox" id="videoLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Video player">
+        <div class="vl-frame">
+            <button type="button" class="vl-close" id="videoLightboxClose" aria-label="Close video">&times;</button>
+            <div id="videoLightboxMount"></div>
+        </div>
+    </div>
+    <script>
+        (function () {
+            var box = document.getElementById('videoLightbox');
+            var mount = document.getElementById('videoLightboxMount');
+            var closeBtn = document.getElementById('videoLightboxClose');
+            if (!box || !mount || !closeBtn) return;
+
+            function open(id) {
+                // youtube-nocookie + autoplay only on explicit user click
+                var iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0';
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                iframe.allowFullscreen = true;
+                iframe.setAttribute('title', 'Live Verify intro video');
+                mount.innerHTML = '';
+                mount.appendChild(iframe);
+                box.setAttribute('aria-hidden', 'false');
+                closeBtn.focus();
+            }
+            function close() {
+                box.setAttribute('aria-hidden', 'true');
+                mount.innerHTML = ''; // stop playback
+            }
+
+            document.querySelectorAll('.intro-video[data-yt]').forEach(function (btn) {
+                btn.addEventListener('click', function () { open(btn.getAttribute('data-yt')); });
+            });
+            closeBtn.addEventListener('click', close);
+            box.addEventListener('click', function (e) { if (e.target === box) close(); });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && box.getAttribute('aria-hidden') === 'false') close();
+            });
+        })();
+    </script>
+</body>
+</html>

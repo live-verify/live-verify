@@ -512,7 +512,7 @@ on 4 May 2025 in a chip time of 1:47:32.
             <div class="demo-result" id="demoResult" role="status" aria-live="polite" hidden></div>
             <p class="demo-note">Notice that this page never tells you the claim is good. Any web page can draw a
                 green tick, including a copy of this one. The answer comes from the issuer's domain, in your own
-                address bar. In real use the <a href="#testResults">browser extension or phone app</a> does the
+                address bar. In real use the <a href="watch.html">browser extension or phone app</a> does the
                 lookup for you.</p>
         </div>
 
@@ -651,106 +651,13 @@ on 4 May 2025 in a chip time of 1:47:32.
 
         <!-- Global anti-fraud system -->
         <div class="card" id="globalSystem">
-            <h2>The bigger picture (once the basics click)</h2>
-            <p>Taken together, the use cases add up to more than a single product: a decentralized way to check documents and claims of every kind. It works the way the web and email do &mdash; as an <strong>open standard</strong> anyone can implement, not a service anyone signs up to.</p>
-            <ul>
-                <li><strong>It's a standard, not a company.</strong> The rule is simply <code>text &rarr; normalize &rarr; SHA-256 &rarr; GET the issuer's domain</code>. Any issuer can adopt it without permission, accounts, or fees.</li>
-                <li><strong>No central database.</strong> There is no master registry of valid documents and no single operator to trust, subpoena, breach, or switch off. Nobody &mdash; including us &mdash; holds a list of who verified what.</li>
-                <li><strong>Under ~195 sovereign roots at the top.</strong> A trust chain terminates at whoever has actual jurisdiction over the issuer &mdash; the sovereign that could subpoena or raid them under a court order. There are fewer than 195 such national roots, one per country. Beneath each, countless issuers &mdash; a hospital, a council, an insurer, an appraisal board &mdash; run their own hash endpoints on their own domains, answering only for <em>their</em> claims, with the sovereign above them able to vouch for (or disown) them. A handful of <strong>intergovernmental organizations</strong> (the UN; autonomous agencies in its system such as the WHO and WIPO, which answer to their own member states and are each a root of their own; and bodies outside it such as the WTO and Interpol) are roots in their own right &mdash; not because they're large, but because <strong>no single nation has jurisdiction over them</strong>: the UN headquarters in Manhattan sits on international territory no US court order can reach. The "system" is the sum of all these independent servers under a small set of sovereign roots.</li>
-                <li><strong>Definitively decentralized.</strong> Trust is rooted in DNS &mdash; the same globally distributed namespace that already decides that <code>gov.uk</code> is the UK government and <code>irs.gov</code> is the US tax authority. Verification inherits that.</li>
-                <li><strong>Each country runs its own trust chain.</strong> Each issuer endpoint names the URL of the authority that endorses it, and a verifier walks those links upward to a national root &mdash; e.g. <code>law-society.org.uk/v/&hellip; &rarr; gov.uk/verifiers/&hellip;</code>, or a US state board <code>&rarr; asc.gov/v/&hellip;</code>. The chain is built from these declared endorsement URLs, not from domain structure: a multinational's <code>uk.</code> and <code>us.</code> endpoints can point at entirely different national authorities. Jurisdictions keep their own authorities; nothing is centralized across borders, and no country depends on another's infrastructure.</li>
-                <li><strong>Human in the loop &mdash; dual-channel trust.</strong> Verification and human judgement happen <em>together</em>, not in sequence, on two channels at once: the person reads the domain and trusts their gut, while the device walks the authority chain to a sovereign root. The machine does the maths &mdash; normalize, hash, look up &mdash; and the person weighs the result: <em>&ldquo;it came back verified, the issuer's domain (<code>gmc-uk.org</code>) is one I accept, and the endorsement chain makes sense &mdash; so I'll trust this, for now.&rdquo;</em> Equally, the human is the one who balks at <em>&ldquo;verified, but by <code>djwgwbdss.com</code>, with no chain behind it &mdash; I've no basis to trust that domain on its own.&rdquo;</em> A green tick is an input to a human decision, not the decision itself &mdash; and because issuers can revoke, that trust is only ever for <em>this moment</em>.</li>
-                <li><strong>Beyond documents &mdash; people at the door.</strong> The same primitive extends from paper and PDFs to the person presenting them: a <a href="use-cases/view.html?doc=police-officer-verification">police officer</a> or <a href="use-cases/view.html?doc=utility-field-worker-verification">utility worker</a> carrying an e-ink badge whose text carries a rotating salt, checked with a phone camera against the force's or the utility's own domain &mdash; the "bogus caller" defence. This is further out than document verification: it needs issued hardware, camera OCR rather than selectable text, and a public used to checking. Documents come first; the badge is where it leads.</li>
-            </ul>
-            <p class="note" style="margin-top: 14px;">
-                <strong>The plumbing is deliberately boring:</strong> a verification is a plain HTTPS lookup against the issuer's own server, answered live &mdash; the document carries a link, and checking it is like checking a tracking number. That live answer is exactly why a claim can be <em>revoked</em> the instant an issuer changes its mind. (No ledger, token, or consensus network is involved; if you're weighing this against a blockchain or an NFT credential, that comparison is on the <a href="how-is-this-different.html">how&nbsp;is&nbsp;this&nbsp;different</a> page.)
-            </p>
-        </div>
-
-        <!-- Roadmap -->
-        <div class="card dark" id="roadmap">
-            <h2>Roadmap</h2>
-            <p>Two parallel tracks: client-side reach (where verification happens) and issuer-side adoption (whose claims get verified).</p>
-
-            <h3 style="margin-top: 18px; font-size: 1em; opacity: 0.9;">Client side &mdash; where verification happens</h3>
-            <svg viewBox="0 0 720 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Client-side roadmap: PoC done, phone apps and Chrome extension done, big-tech adoption next" style="width: 100%; height: auto; margin-top: 8px;">
-                <defs>
-                    <marker id="arrowClient" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                        <path d="M0,0 L10,5 L0,10 z" fill="rgba(255,255,255,0.7)"/>
-                    </marker>
-                </defs>
-                <!-- Track line -->
-                <line x1="80" y1="60" x2="640" y2="60" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-dasharray="4 4"/>
-                <line x1="80" y1="60" x2="490" y2="60" stroke="rgba(255,255,255,0.9)" stroke-width="3" marker-end="url(#arrowClient)"/>
-
-                <!-- Stage 1: PoC -->
-                <circle cx="120" cy="60" r="22" fill="rgba(80,200,120,0.85)" stroke="white" stroke-width="2"/>
-                <text x="120" y="66" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="18" font-weight="800" fill="white">&#10003;</text>
-                <text x="120" y="22" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" font-weight="700" fill="white" opacity="0.85">DONE</text>
-                <text x="120" y="105" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="white">Proof of concept</text>
-                <text x="120" y="122" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" fill="white" opacity="0.8">Web demo, hash lookup</text>
-
-                <!-- Stage 2: Apps -->
-                <circle cx="320" cy="60" r="22" fill="rgba(80,200,120,0.85)" stroke="white" stroke-width="2"/>
-                <text x="320" y="66" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="18" font-weight="800" fill="white">&#10003;</text>
-                <text x="320" y="22" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" font-weight="700" fill="white" opacity="0.85">DONE</text>
-                <text x="320" y="105" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="white">Solid apps</text>
-                <text x="320" y="122" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" fill="white" opacity="0.8">iOS, Android, Chrome ext.</text>
-
-                <!-- Stage 3: Big-tech adoption -->
-                <circle cx="560" cy="60" r="22" fill="rgba(255,255,255,0.12)" stroke="white" stroke-width="2" stroke-dasharray="3 3"/>
-                <text x="560" y="66" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="16" font-weight="800" fill="white">3</text>
-                <text x="560" y="22" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" font-weight="700" fill="white" opacity="0.85">NEXT</text>
-                <text x="560" y="105" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="white">Platform adoption</text>
-                <text x="560" y="122" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" fill="white" opacity="0.85">Google, Apple, Microsoft,</text>
-                <text x="560" y="137" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" fill="white" opacity="0.85">Samsung, Adobe, Mozilla, Opera</text>
-                <text x="560" y="155" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="10" fill="white" opacity="0.7" font-style="italic">take over the standard &amp; ship in OS / browser / PDF</text>
-            </svg>
-
-            <h3 style="margin-top: 22px; font-size: 1em; opacity: 0.9;">Issuer side &mdash; whose claims get verified</h3>
-            <svg viewBox="0 0 720 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Issuer-side roadmap: PoC done, scaled tech reference done, pilot issuer deployments next, 1,000 SaaS vendors goal" style="width: 100%; height: auto; margin-top: 8px;">
-                <defs>
-                    <marker id="arrowIssuer" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                        <path d="M0,0 L10,5 L0,10 z" fill="rgba(255,255,255,0.7)"/>
-                    </marker>
-                </defs>
-                <line x1="60" y1="60" x2="680" y2="60" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-dasharray="4 4"/>
-                <line x1="60" y1="60" x2="370" y2="60" stroke="rgba(255,255,255,0.9)" stroke-width="3" marker-end="url(#arrowIssuer)"/>
-
-                <!-- Stage 1: PoC -->
-                <circle cx="100" cy="60" r="22" fill="rgba(80,200,120,0.85)" stroke="white" stroke-width="2"/>
-                <text x="100" y="66" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="18" font-weight="800" fill="white">&#10003;</text>
-                <text x="100" y="22" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" font-weight="700" fill="white" opacity="0.85">DONE</text>
-                <text x="100" y="105" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="white">Proof of concept</text>
-                <text x="100" y="122" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" fill="white" opacity="0.8">Static hash endpoints</text>
-
-                <!-- Stage 2: Scaled tech reference -->
-                <circle cx="290" cy="60" r="22" fill="rgba(80,200,120,0.85)" stroke="white" stroke-width="2"/>
-                <text x="290" y="66" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="18" font-weight="800" fill="white">&#10003;</text>
-                <text x="290" y="22" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" font-weight="700" fill="white" opacity="0.85">DONE</text>
-                <text x="290" y="105" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="white">Scaled tech reference</text>
-                <text x="290" y="122" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" fill="white" opacity="0.8">Authority chains, single-use codes, expiring links</text>
-
-                <!-- Stage 3: Pilot issuer deployments -->
-                <circle cx="480" cy="60" r="22" fill="rgba(255,200,80,0.85)" stroke="white" stroke-width="2"/>
-                <text x="480" y="66" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="16" font-weight="800" fill="white">3</text>
-                <text x="480" y="22" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" font-weight="700" fill="white" opacity="0.85">NEXT</text>
-                <text x="480" y="105" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="white">Pilot issuer deployments</text>
-                <text x="480" y="122" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" fill="white" opacity="0.8">Real issuers, real endpoints</text>
-
-                <!-- Stage 4: 500+ SaaS vendors -->
-                <circle cx="660" cy="60" r="22" fill="rgba(255,255,255,0.12)" stroke="white" stroke-width="2" stroke-dasharray="3 3"/>
-                <text x="660" y="66" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="16" font-weight="800" fill="white">4</text>
-                <text x="660" y="22" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" font-weight="700" fill="white" opacity="0.85">GOAL</text>
-                <text x="660" y="105" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="white">1,000 SaaS vendors</text>
-                <text x="660" y="122" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" fill="white" opacity="0.8">Verification baked into</text>
-                <text x="660" y="137" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" fill="white" opacity="0.8">document-issuing platforms</text>
-            </svg>
-            <p class="note" style="margin-top: 14px;">
-                Stage 3 is open now: the first ten pilot issuers and first ten SaaS integrations get free advisory
-                support from the author (up to an advice limit) and a permanent listing &mdash; see the
-                <a href="founding-adopters.html" style="color: #aecbff;">founding adopter program</a>.
-            </p>
+            <h2>The bigger picture</h2>
+            <p>Taken together this is more than a product. It works the way the web and email do: an open standard
+                anyone can implement, with no central database and no operator to trust, breach or switch off.
+                Each country runs its own chain of issuers under its own government, and international bodies
+                run theirs. Further out, the same check works for people at the door: a badge you can check on
+                the spot.</p>
+            <p style="margin-top: 10px;"><a href="bigger-picture.html"><strong>Read the bigger picture, and the roadmap &rarr;</strong></a></p>
         </div>
 
         <!-- Use cases: flagship-first, full landscape demoted -->
@@ -774,7 +681,7 @@ on 4 May 2025 in a chip time of 1:47:32.
                     &mdash; post-GenAI primitives for platforms and policy makers</li>
                 <li><a href="use-cases/view.html?doc=police-officer-verification">Police-officer</a> and
                     <a href="use-cases/view.html?doc=utility-field-worker-verification">utility-worker</a> verification
-                    &mdash; the "bogus caller" defence, trust at the door (further out: see <a href="#globalSystem">the bigger picture</a>)</li>
+                    &mdash; the "bogus caller" defence, trust at the door (further out: see <a href="bigger-picture.html">the bigger picture</a>)</li>
             </ul>
             <p style="margin-top: 12px;"><a href="use-cases/#flagship" style="text-decoration: underline; font-weight: 700;">Take the flagship tour &rarr;</a></p>
             <details style="margin-top: 16px;">
@@ -806,9 +713,7 @@ on 4 May 2025 in a chip time of 1:47:32.
         <!-- Proof: real hardware first, then simulated chains -->
         <div class="card dark" id="testResults">
             <h2>Watch it work</h2>
-
-            <h3 style="margin-top: 16px; font-size: 1em; opacity: 0.85;">Start here &mdash; two short explainers</h3>
-            <p style="font-size: 0.92em; opacity: 0.8; margin-top: 4px;">Animated walkthroughs of the two highest-stakes moments. They play here, in the page.</p>
+            <p style="font-size: 0.95em; opacity: 0.85; margin-top: 4px;">Two short animated walkthroughs. They play here, in the page.</p>
             <div class="intro-videos">
                 <button type="button" class="intro-video" data-yt="cGRqqKLnxFQ" aria-label="Play: The KYC Counter">
                     <span class="iv-thumb" style="background-image: url('https://i.ytimg.com/vi/cGRqqKLnxFQ/hqdefault.jpg');"><span class="iv-play" aria-hidden="true"></span></span>
@@ -825,184 +730,7 @@ on 4 May 2025 in a chip time of 1:47:32.
                     </span>
                 </button>
             </div>
-
-            <h3 style="margin-top: 24px; font-size: 1em; opacity: 0.85;">Real documents, real phones</h3>
-
-            <div class="screenshot-scenario">
-                <h4>A real peer reference &mdash; hash live on the referee's own website, today</h4>
-                <div class="scenario-videos">
-                    <a href="https://youtu.be/NfUqKxSZ_V0" target="_blank" rel="noreferrer">Real iPhone</a> <span class="video-duration">0:51</span>
-                    &middot; <a href="https://youtu.be/UpMEKDH42Q4" target="_blank" rel="noreferrer">Real Android</a> <span class="video-duration">0:18</span>
-                </div>
-                <p style="font-size: 0.85em; opacity: 0.85; margin-top: 8px; line-height: 1.6;">
-                    Not a simulation: a professional reference whose hash is published on the issuer's personal
-                    domain, verified end-to-end by pointing a phone at it.
-                </p>
-            </div>
-
-            <div class="screenshot-scenario">
-                <h4>Genuine ID verified, fake ID rejected &mdash; on real hardware</h4>
-                <div class="scenario-videos">
-                    Genuine warrant card:
-                    <a href="https://youtu.be/Ut8GV-KSdNI" target="_blank" rel="noreferrer">Real Android</a> <span class="video-duration">0:30</span>
-                    &middot; <a href="https://youtu.be/MxA3c4AfEQc" target="_blank" rel="noreferrer">Real iPhone</a> <span class="video-duration">0:30</span>
-                    &nbsp;|&nbsp; Fake rejected:
-                    <a href="https://youtu.be/J5aeYZwoipM" target="_blank" rel="noreferrer">Real Android</a> <span class="video-duration">0:22</span>
-                    &middot; <a href="https://youtu.be/pHDVBcjKb6U" target="_blank" rel="noreferrer">Real iPhone</a> <span class="video-duration">0:39</span>
-                </div>
-            </div>
-
-            <h3 style="margin-top: 24px; font-size: 1em; opacity: 0.85;">Simulated authority chains (automated tests)</h3>
-            <p>Screenshots captured by Playwright during automated tests against simulated authority chains in Docker. All organisations and people are fictitious. The Chrome extension is being itself or simulating something built-in to Outlook, Adobe or operating systems.</p>
-
-            <h3 style="margin-top: 16px; font-size: 1em; opacity: 0.85;">Clip mode (browser extension)</h3>
-            <p style="margin-top: 4px;"><a href="https://chromewebstore.google.com/detail/liveverify/idkbbldpklfkcdaocgngonhnjhabpoif" style="color: #aecbff; font-weight: 600;">Install LiveVerify from the Chrome Web Store</a> &mdash; published now, works in Chrome and Edge. (<a href="chrome-extension/" style="color: #aecbff;">about the extension</a>)</p>
-
-            <div class="screenshot-scenario">
-                <h4>Bank statement (James, FDIC/Treasury chain)</h4>
-                <div class="screenshot-strip">
-                    <div><img src="test-results/james-before-verification-page.png" alt="Before: bank statement" loading="lazy"><div class="caption">Document</div></div>
-                    <div><img src="test-results/james-final-page.png" alt="After: verified with authority chain" loading="lazy"><div class="caption">Verified</div></div>
-                    <div><img src="test-results/james-final-popup.png" alt="Extension popup with FDIC chain" loading="lazy"><div class="caption">Authority chain</div></div>
-                </div>
-                <div class="scenario-videos">
-                    <a href="https://youtu.be/3kP2XxUuszU" target="_blank" rel="noreferrer">Video: full verification walkthrough</a> <span class="video-duration">0:26</span>
-                    &middot; <a href="https://youtube.com/shorts/FyWTzZXiZeo" target="_blank" rel="noreferrer">Video: verification failure (domain doesn't exist)</a> <span class="video-duration">0:17</span>
-                </div>
-            </div>
-
-            <div class="screenshot-scenario">
-                <h4>OFSI sanctions licence (UK gov chain)</h4>
-                <div class="screenshot-strip">
-                    <div><img src="test-results/ofsi-before-verification-page.png" alt="Before: OFSI licence" loading="lazy"><div class="caption">Document</div></div>
-                    <div><img src="test-results/ofsi-final-page.png" alt="After: verified via gov.uk chain" loading="lazy"><div class="caption">Verified</div></div>
-                    <div><img src="test-results/ofsi-final-popup.png" alt="Extension popup with gov.uk chain" loading="lazy"><div class="caption">Authority chain</div></div>
-                </div>
-                <div class="scenario-videos">
-                    <a href="https://youtu.be/PFeJgWtzApg" target="_blank" rel="noreferrer">Video: full verification walkthrough</a> <span class="video-duration">0:30</span>
-                </div>
-            </div>
-
-            <div class="screenshot-scenario">
-                <h4>Pub receipt (Red Lion, HMRC VAT chain)</h4>
-                <div class="screenshot-strip">
-                    <div><img src="test-results/receipt-before.png" alt="Before: pub receipt" loading="lazy"><div class="caption">Document</div></div>
-                    <div><img src="test-results/receipt-final-page.png" alt="After: receipt verified" loading="lazy"><div class="caption">Verified</div></div>
-                    <div><img src="test-results/receipt-final-popup.png" alt="Extension popup with HMRC chain" loading="lazy"><div class="caption">Authority chain</div></div>
-                </div>
-            </div>
-
-            <div class="screenshot-scenario">
-                <h4>Coffee shop receipt (The Daily Grind, HMRC VAT chain)</h4>
-                <div class="screenshot-strip">
-                    <div><img src="test-results/coffee-shop-before.png" alt="Before: coffee shop receipt" loading="lazy"><div class="caption">Document</div></div>
-                    <div><img src="test-results/coffee-shop-final-page.png" alt="After: receipt verified" loading="lazy"><div class="caption">Verified</div></div>
-                    <div><img src="test-results/coffee-shop-final-popup.png" alt="Extension popup with HMRC chain" loading="lazy"><div class="caption">Authority chain</div></div>
-                </div>
-            </div>
-
-            <div class="screenshot-scenario">
-                <h4>Scottish solicitor practising certificate (Law Society &rarr; gov.scot)</h4>
-                <div class="screenshot-strip">
-                    <div><img src="test-results/solicitor-before.png" alt="Before: practising certificate" loading="lazy"><div class="caption">Document</div></div>
-                    <div><img src="test-results/solicitor-final-page.png" alt="After: certificate verified" loading="lazy"><div class="caption">Verified</div></div>
-                    <div><img src="test-results/solicitor-final-popup.png" alt="Extension popup with law society chain" loading="lazy"><div class="caption">Authority chain</div></div>
-                </div>
-            </div>
-
-            <div class="screenshot-scenario">
-                <h4>Scottish solicitors firm registration</h4>
-                <div class="screenshot-strip">
-                    <div><img src="test-results/solicitors-firm-before.png" alt="Before: firm registration" loading="lazy"><div class="caption">Document</div></div>
-                    <div><img src="test-results/solicitors-firm-final-page.png" alt="After: firm verified" loading="lazy"><div class="caption">Verified</div></div>
-                    <div><img src="test-results/solicitors-firm-final-popup.png" alt="Extension popup with firm chain" loading="lazy"><div class="caption">Authority chain</div></div>
-                </div>
-            </div>
-
-            <div class="screenshot-scenario">
-                <h4>Sanctions screening attestation (FCA chain)</h4>
-                <div class="screenshot-strip">
-                    <div><img src="test-results/sanctions-before.png" alt="Before: sanctions screening document" loading="lazy"><div class="caption">Document</div></div>
-                    <div><img src="test-results/sanctions-final-page.png" alt="After: screening verified" loading="lazy"><div class="caption">Verified</div></div>
-                    <div><img src="test-results/sanctions-final-popup.png" alt="Extension popup with FCA chain" loading="lazy"><div class="caption">Authority chain</div></div>
-                </div>
-                <div class="scenario-videos">
-                    <a href="https://youtu.be/V4_q6zhRD3A" target="_blank" rel="noreferrer">Video: full verification walkthrough</a> <span class="video-duration">0:30</span>
-                </div>
-            </div>
-
-            <div class="screenshot-scenario">
-                <h4>Revoked employment reference</h4>
-                <div class="screenshot-strip">
-                    <div><img src="test-results/revoked-reference-before.png" alt="Before: employment reference" loading="lazy"><div class="caption">Document</div></div>
-                    <div><img src="test-results/revoked-reference-final-page.png" alt="After: revoked banner" loading="lazy"><div class="caption">Revoked</div></div>
-                    <div><img src="test-results/revoked-reference-final-popup.png" alt="Extension popup showing revocation" loading="lazy"><div class="caption">Revocation detail</div></div>
-                </div>
-                <div class="scenario-videos">
-                    <a href="https://youtu.be/0bN5RcVkMj4" target="_blank" rel="noreferrer">Video: revocation walkthrough</a> <span class="video-duration">0:30</span>
-                </div>
-            </div>
-
-            <h3 style="margin-top: 24px; font-size: 1em; opacity: 0.85;">Camera mode</h3>
-
-            <div class="screenshot-scenario">
-                <h4>Police ID verified (Gina Dallimore, Midsomer police)</h4>
-                <div class="screenshot-strip">
-                    <div><img src="test-results/gina-before-verification-page.png" alt="Before: police ID document" loading="lazy"><div class="caption">Document</div></div>
-                    <div><img src="test-results/gina-final-page.png" alt="After: verification banner shown" loading="lazy"><div class="caption">Verified</div></div>
-                    <div><img src="test-results/gina-final-popup.png" alt="Extension popup with authority chain" loading="lazy"><div class="caption">Authority chain</div></div>
-                </div>
-                <div class="scenario-videos">
-                    <a href="https://www.youtube.com/watch?v=kbPRq4tdoMM" target="_blank" rel="noreferrer">Video: automated test simulation</a> <span class="video-duration">0:12</span>
-                </div>
-            </div>
-
-            <div class="screenshot-scenario">
-                <h4>Fake police ID rejected (Lex Luthor, NYPD)</h4>
-                <div class="screenshot-strip">
-                    <div><img src="test-results/lex-before-verification-page.png" alt="Before: fake NYPD ID" loading="lazy"><div class="caption">Document</div></div>
-                    <div><img src="test-results/lex-final-page.png" alt="After: not verified banner" loading="lazy"><div class="caption">Not verified</div></div>
-                    <div><img src="test-results/lex-final-popup.png" alt="Extension popup showing failure" loading="lazy"><div class="caption">Hash not found</div></div>
-                </div>
-                <div class="scenario-videos">
-                    <a href="https://youtu.be/OcuH4WLsYe8" target="_blank" rel="noreferrer">Video: automated test simulation</a> <span class="video-duration">0:30</span>
-                </div>
-            </div>
-
-            <div class="screenshot-scenario">
-                <h4>Police ID verified (Gina, Android emulator zoomed in)</h4>
-                <!-- TODO: replace normalized with android-gina-result.png once re-captured with working backend -->
-                <div class="screenshot-strip">
-                    <div><img src="test-results/android-gina-captured.png" alt="Android: captured warrant card" loading="lazy"><div class="caption">Captured</div></div>
-                    <div><img src="test-results/android-gina-extracted.png" alt="Android: OCR extracted text" loading="lazy"><div class="caption">OCR extracted</div></div>
-                    <div><img src="test-results/android-gina-normalized.png" alt="Android: normalized text" loading="lazy"><div class="caption">Normalized</div></div>
-                </div>
-            </div>
-
-            <div class="screenshot-scenario">
-                <h4>Fake police ID rejected (Lex, Android emulator zoomed in)</h4>
-                <div class="screenshot-strip">
-                    <!-- TODO: replace normalized with android-lex-result.png once re-captured with working backend -->
-                    <div><img src="test-results/android-lex-captured.png" alt="Android: captured fake ID" loading="lazy"><div class="caption">Captured</div></div>
-                    <div><img src="test-results/android-lex-extracted.png" alt="Android: OCR extracted text" loading="lazy"><div class="caption">OCR extracted</div></div>
-                    <div><img src="test-results/android-lex-normalized.png" alt="Android: normalized text" loading="lazy"><div class="caption">Normalized</div></div>
-                </div>
-            </div>
-
-            <div class="screenshot-scenario">
-                <h4>Coffee shop receipt OCR (The Daily Grind, Android emulator) &mdash; not yet passing</h4>
-                <div class="screenshot-strip">
-                    <div><img src="test-results/android-coffee-result.png" alt="Android: coffee receipt result" loading="lazy"><div class="caption">Result</div></div>
-                    <div><img src="test-results/android-coffee-extracted.png" alt="Android: OCR extracted text with stitched rows" loading="lazy"><div class="caption">Extracted (stitched)</div></div>
-                    <div><img src="test-results/android-coffee-normalized-1.png" alt="Android: normalized candidate 1" loading="lazy"><div class="caption">Normalized-1</div></div>
-                </div>
-                <p style="font-size: 0.8em; opacity: 0.8; margin-top: 6px; line-height: 1.5;">
-                    Hash lookup fails due to Google ML Kit OCR errors: <code>Henley -on-Thames</code> (spurious space around hyphen),
-                    <code>TOTAL :</code> (space before colon). Row stitching and iterative blank-line candidate search work correctly &mdash;
-                    the remaining gap is OCR character accuracy. Apple Vision on iOS gets these right.
-                </p>
-            </div>
-
+            <p style="margin-top: 16px;"><a href="watch.html" style="color: #aecbff; font-weight: 600;">More: real phones checking real documents, and the browser extension in use &rarr;</a></p>
         </div>
 
         <!-- Privacy model -->
@@ -1119,11 +847,6 @@ on 4 May 2025 in a chip time of 1:47:32.
         })();
     </script>
     <script>
-        // Click any screenshot to open full-size in a new tab
-        document.querySelectorAll('.screenshot-strip img').forEach(img => {
-            img.addEventListener('click', () => window.open(img.src, '_blank'));
-        });
-
         // Per-category concern descriptions for hover tooltips
         var categoryConcerns = {
             'Identity & Authority Verification': 'Mostly anti-fraud; some safety and security (e.g. verifying someone is who they claim before granting access)',
