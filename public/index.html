@@ -19,7 +19,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Verify: a cheap, global, easy standard for checking documents with their issuer</title>
+    <title>Live Verify: is this document genuine? Ask whoever issued it</title>
     <style>
         :root {
             --bg: #f6f8fb;
@@ -486,22 +486,10 @@
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <span>Home</span>
         </nav>
-        <h1>A cheap, global, easy standard for checking any document with whoever issued it</h1>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin: 18px 0 22px;" aria-label="What Live Verify is and what it needs">
-            <div style="background: rgba(127,127,127,0.07); border: 1px solid rgba(127,127,127,0.25); border-radius: 12px; padding: 14px 16px; line-height: 1.55; font-size: 0.95em;"><strong>Cheap, global, easy.</strong> A check is one web lookup against the issuer's own
-                domain. No fees, no central registry, no integration between the two sides, and it works across
-                borders.</div>
-            <div style="background: rgba(127,127,127,0.07); border: 1px solid rgba(127,127,127,0.25); border-radius: 12px; padding: 14px 16px; line-height: 1.55; font-size: 0.95em;"><strong>It needs owners.</strong> A standard like this should be held in committee, as the
-                internet's protocols are at the IETF: by Google, Apple, Microsoft and the others who build the phones,
-                browsers and document viewers people already use. None has taken it up yet; this project is the
-                working draft offered to them.</div>
-            <div style="background: rgba(127,127,127,0.07); border: 1px solid rgba(127,127,127,0.25); border-radius: 12px; padding: 14px 16px; line-height: 1.55; font-size: 0.95em;"><strong>Each country organises its own.</strong> Within the standard, 190+ countries and
-                international bodies such as the UN, the WTO and Interpol would each arrange the hierarchy of issuers they vouch
-                for. Nobody runs a central list.</div>
-        </div>
-        <p class="subhead" style="font-weight: 700;">Is this document genuine? Ask whoever issued it.</p>
-        <p class="subhead">Select the text of a bank statement, certificate, or licence &mdash; and get the answer from the bank, university, or regulator that issued it, in four seconds. No phone call, no account.</p>
-        <p class="lede">Live Verify is an open standard for checking a document with the organisation that issued it. The issuer publishes a fingerprint (a SHA-256 hash) of each genuine document on its own website. Your browser or phone computes the same fingerprint from the text in front of you and looks it up there. Change one digit of the document and the lookup finds nothing. Try it below &mdash; then break it.</p>
+        <p style="font-size: 0.82em; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; margin-bottom: 10px;">An open standard &middot; cheap, global, easy</p>
+        <h1>Is this document genuine? Ask whoever issued it.</h1>
+        <p class="subhead">A forged safety test report sat behind <strong>&pound;122m</strong> of unusable protective equipment sold to the NHS. Nobody could check it with the lab whose name was on it. That check should take <strong>four seconds</strong>. <a href="#why">The story &darr;</a></p>
+        <p class="lede">With Live Verify you select the text of a bank statement, certificate or licence, and the bank, university or regulator that issued it answers: yes, we stand behind exactly this. Change one digit and the answer is no. No phone call, no account, no fee. Try it now, then break it.</p>
 
         <!-- In-page demo: hash a real claim and hand you the issuer's URL.
              This page deliberately does NOT render a verdict. A page asserting its own
@@ -510,16 +498,9 @@
              the issuer's domain, in your own address bar. -->
         <div class="card demo-card" id="tryIt">
             <h2>Try it: check this claim &mdash; then change one character</h2>
-            <p style="margin-bottom: 4px;">This is a real verifiable claim. The <code>verify:</code> line points at this
-                site's own domain, where a hash of the text above it is published. Hit <strong>Build the lookup</strong>
-                and follow the link: <em>the issuer's domain answers, not this page.</em> Then edit any character
-                &mdash; a digit of the time, a letter of the name &mdash; and build it again: the hash changes
-                completely, and that new address has never existed. That's the whole security model, felt in ten
-                seconds.</p>
-            <p class="demo-note">Note what this page is <em>not</em> doing: telling you the claim is good. Any web page
-                can draw a green tick &mdash; including a convincing copy of this one. That's why the verdict belongs
-                to the issuer's domain, reached in your own address bar, and why real use runs through the
-                <a href="#testResults">browser extension or phone app</a> rather than a page you happen to be reading.</p>
+            <p style="margin-bottom: 4px;">This is a real claim. Press <strong>Build the lookup</strong> and follow the link:
+                the issuer's own domain answers. Then change any character, a digit of the time or a letter of the
+                name, and try again. That address has never existed.</p>
             <div class="demo-doc" id="demoDoc" contenteditable="true" spellcheck="false" aria-label="Editable verifiable claim">Riverside Athletics Club confirms that
 Jordan Avery completed the Riverside Half Marathon
 on 4 May 2025 in a chip time of 1:47:32.
@@ -529,6 +510,31 @@ on 4 May 2025 in a chip time of 1:47:32.
                 <button type="button" class="demo-btn secondary" id="demoRestoreBtn" hidden>Restore original</button>
             </div>
             <div class="demo-result" id="demoResult" role="status" aria-live="polite" hidden></div>
+            <p class="demo-note">Notice that this page never tells you the claim is good. Any web page can draw a
+                green tick, including a copy of this one. The answer comes from the issuer's domain, in your own
+                address bar. In real use the <a href="#testResults">browser extension or phone app</a> does the
+                lookup for you.</p>
+        </div>
+
+        <!-- Where it stands: what exists, what it needs -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin: 18px 0;" id="whereItStands" aria-label="What exists today and what it needs">
+            <div class="card" style="margin: 0;">
+                <h2>What you can use today</h2>
+                <ul style="margin: 10px 0 0 20px; line-height: 1.7;">
+                    <li><strong>It works.</strong> A browser extension and phone apps check real documents, on screen and on paper. <a href="#testResults">Watch it</a>.</li>
+                    <li><strong>You can issue in 15 minutes.</strong> One line on the document and a static file on your own website. <a href="quickstart.html">Quickstart</a>.</li>
+                    <li><strong>It is free to adopt.</strong> Open standard, open source, no fees, no central registry, nobody's permission needed.</li>
+                    <li><strong>The ground is mapped.</strong> More than 600 worked <a href="use-cases/">use cases</a>, from bank statements to building permits.</li>
+                </ul>
+            </div>
+            <div class="card" style="margin: 0;">
+                <h2>What it needs next</h2>
+                <ul style="margin: 10px 0 0 20px; line-height: 1.7;">
+                    <li><strong>First issuers.</strong> A university, a lab, a bank, a council. No organisation has adopted it yet; the first ten get <a href="for-issuers.html">direct help</a>.</li>
+                    <li><strong>Owners.</strong> A standard like this belongs in committee, as the internet's protocols are at the IETF: Google, Apple, Microsoft and the others who build phones, browsers and document viewers. This project is the working draft offered to them.</li>
+                    <li><strong>Each country's own hierarchy.</strong> 190+ countries, and international bodies such as the UN, the WTO and Interpol, would each arrange the issuers they vouch for. Nobody runs a central list.</li>
+                </ul>
+            </div>
         </div>
 
         <!-- The story that started it -->

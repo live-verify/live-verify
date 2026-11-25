@@ -132,7 +132,7 @@ If a claim is aimed at humans reading it — whether digital or printed — it i
 2. Select claim text including the `verify:` line
 3. Right-click → "Verify this claim" (or Cmd/Ctrl+Shift+V)
 
-Note: Chrome-extension is not yet published to the Chrome Web Store.
+The extension is also published on the [Chrome Web Store](https://chromewebstore.google.com/detail/liveverify/idkbbldpklfkcdaocgngonhnjhabpoif) (Chrome and Edge).
 
 **Camera mode (phone):**
 1. Install the iOS app (`apps/ios/LiveVerify/`) or Android app (`apps/android/`)
